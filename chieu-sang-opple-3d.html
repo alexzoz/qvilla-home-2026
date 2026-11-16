@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mô Phỏng Chiếu Sáng 3D OPPLE • Độ Rọi Dialux • Kịch Bản ON/OFF &amp; Chỉnh Góc Quay Chóa Đèn — Q Villa (XHOME)</title>
+  <script src="assets/three.min.js"></script>
+  <style>
+    :root {
+      --bg: #0b1017;
+      --surface: #131c26;
+      --surface-2: #1b2735;
+      --surface-3: #243447;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.15);
+      --emerald: #10b981;
+      --emerald-soft: rgba(16, 185, 129, 0.15);
+      --sky: #38bdf8;
+      --sky-soft: rgba(56, 189, 248, 0.15);
+      --rose: #f43f5e;
+      --rose-soft: rgba(244, 63, 94, 0.15);
+      --purple: #a855f7;
+      --purple-soft: rgba(168, 85, 247, 0.15);
+      --border: rgba(255, 255, 255, 0.12);
+      --radius: 14px;
+      --shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--sky);
+      text-decoration: none;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.86em;
+      color: #fde68a;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Sticky Header */
+    header {
+      background: rgba(19, 28, 38, 0.92);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 0;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .brand:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #090d16;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-title h1 {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .brand-title p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 6px 11px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      transition: all 0.18s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    /* Hero KPI Bar */
+    .hero {
+      padding: 26px 0 20px;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 12% 15%, rgba(245, 158, 11, 0.12), transparent 40%),
+        radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.12), transparent 40%);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 15px 17px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::before {
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      inline-size: 4px;
+      block-size: 100%;
+      background: var(--accent);
+    }
+
+    .kpi-card.emerald::before { background: var(--emerald); }
+    .kpi-card.sky::before { background: var(--sky); }
+    .kpi-card.rose::before { background: var(--rose); }
+    .kpi-card.purple::before { background: var(--purple); }
+
+    .kpi-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .kpi-val {
+      font-size: 1.32rem;
+      font-weight: 800;
+      margin: 4px 0;
+      color: #fff;
+    }
+
+    .kpi-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    section {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Modern Web Guidance: Defer rendering heavy content strictly BELOW the initial fold */
+    .heavy-section-deferred {
+      content-visibility: auto;
+      contain-intrinsic-size: auto none auto 650px;
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 1120px;
+    }
+
+    /* ==================== 3D STUDIO STYLES ==================== */
+    .opple-studio-shell {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .studio-top-bar {
+      padding: 14px 18px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .zone-tab-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .zone-tab-btn {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 9px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .zone-tab-btn:hover {
+      border-color: var(--sky);
+    }
+
+    .zone-tab-btn.active {
+      background: var(--accent);
+      color: #090d16;
+      border-color: var(--accent);
+    }
+
+    .studio-main-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.55fr) minmax(350px, 0.95fr);
+      gap: 0;
+    }
+
+    @media (max-width: 1100px) {
+      .studio-main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .studio-viewport-col {
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--border);
+      background: #070c14;
+    }
+
+    .studio-zone-banner {
+      padding: 12px 16px;
+      background: rgba(19, 28, 38, 0.9);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .studio-zone-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .studio-zone-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .opple-3d-canvas-wrap {
+      position: relative;
+      width: 100%;
+      height: 560px;
+      background: #070c14;
+      overflow: hidden;
+    }
+
+    .opple-3d-canvas-wrap canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+
+    .opple-3d-labels-layer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .label-3d-pin {
+      position: absolute;
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid rgba(245, 158, 11, 0.65);
+      color: #fde68a;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    .label-3d-pin.emerald { border-color: #10b981; color: #6ee7b7; }
+    .label-3d-pin.sky { border-color: #38bdf8; color: #7dd3fc; }
+    .label-3d-pin.rose { border-color: #f43f5e; color: #fda4af; }
+    .label-3d-pin.purple { border-color: #a855f7; color: #d8b4fe; }
+
+    /* Live Lux HUD Overlay inside 3D Viewport */
+    .studio-hud-bar {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .hud-pill {
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+      padding: 6px 11px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hud-pill strong {
+      color: #fff;
+      font-weight: 800;
+      margin-left: 4px;
+    }
+
+    .studio-bottom-toolbar {
+      padding: 12px 16px;
+      background: var(--surface-2);
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .studio-cam-buttons,
+    .studio-overlay-toggles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .studio-chip {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 6px 11px;
+      border-radius: 7px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .studio-chip:hover {
+      border-color: var(--sky);
+      color: #fff;
+    }
+
+    .studio-chip.active {
+      background: var(--sky-soft);
+      border-color: var(--sky);
+      color: #7dd3fc;
+    }
+
+    /* Right Sidebar Controls */
+    .studio-sidebar-col {
+      padding: 16px;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-height: 760px;
+      overflow-y: auto;
+    }
+
+    .control-box {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 13px;
+    }
+
+    .control-box-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .slider-row {
+      margin-bottom: 10px;
+    }
+
+    .slider-row label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+    }
+
+    .slider-row input[type="range"] {
+      width: 100%;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .aim-quick-btns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .btn-aim-zero,
+    .btn-aim-optimal {
+      padding: 8px 10px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border);
+    }
+
+    .btn-aim-zero {
+      background: rgba(244, 63, 94, 0.14);
+      border-color: rgba(244, 63, 94, 0.45);
+      color: #fda4af;
+    }
+
+    .btn-aim-optimal {
+      background: rgba(16, 185, 129, 0.16);
+      border-color: rgba(16, 185, 129, 0.5);
+      color: #6ee7b7;
+    }
+
+    .studio-scene-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .scene-card-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 9px 11px;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      color: var(--text);
+    }
+
+    .scene-card-btn:hover {
+      border-color: var(--accent);
+    }
+
+    .scene-card-btn.active {
+      background: rgba(245, 158, 11, 0.14);
+      border-color: var(--accent);
+    }
+
+    .scene-card-btn.warn.active {
+      background: rgba(244, 63, 94, 0.16);
+      border-color: var(--rose);
+    }
+
+    .scene-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .scene-lux-pill {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 99px;
+      background: rgba(56, 189, 248, 0.18);
+      color: #7dd3fc;
+    }
+
+    .scene-card-desc {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .studio-circuit-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .circuit-switch-btn {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 7px 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .circuit-switch-btn.on {
+      border-color: rgba(16, 185, 129, 0.5);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .circuit-switch-btn.off {
+      opacity: 0.6;
+    }
+
+    .circuit-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #475569;
+      flex-shrink: 0;
+    }
+
+    .circuit-switch-btn.on .circuit-dot {
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    .circuit-state-tag {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #cbd5e1;
+    }
+
+    .circuit-switch-btn.on .circuit-state-tag {
+      background: rgba(16, 185, 129, 0.22);
+      color: #6ee7b7;
+    }
+
+    /* Info Cards Grid */
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .info-card h3 {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .info-card ul {
+      padding-left: 18px;
+      color: #cbd5e1;
+      font-size: 0.85rem;
+    }
+
+    .info-card li {
+      margin-bottom: 7px;
+    }
+
+    /* ==================== MODERN WEB GUIDANCE: RESPONSIVE TABLE ==================== */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(680px, 82vh);
+      container-type: inline-size;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    table.aiming-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.83rem;
+      --label-2: "Tầng / Không gian";
+      --label-3: "Lộ Đèn & Mã OPPLE";
+      --label-4: "Số Lượng & Lỗ Khoét";
+      --label-5: "Nhiệt Độ Màu & Độ Rọi";
+      --label-6: "Góc Chỉnh Chóa Đèn (Tilt & Yaw)";
+      --label-7: "Kịch Bản Bật/Tắt ON/OFF";
+    }
+
+    table.aiming-table caption {
+      text-align: left;
+      padding: 13px 16px;
+      font-weight: 800;
+      color: var(--accent);
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Sticky column headers (desktop) */
+    table.aiming-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 1;
+      background: var(--surface-3);
+    }
+
+    table.aiming-table th,
+    table.aiming-table td {
+      padding: 11px 13px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    table.aiming-table thead th {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 800;
+    }
+
+    /* Sticky row headers (desktop) */
+    table.aiming-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      background: var(--surface);
+      color: #fff;
+      font-weight: 700;
+      min-width: 175px;
+    }
+
+    table.aiming-table tbody tr:hover td,
+    table.aiming-table tbody tr:hover th {
+      background: var(--surface-2);
+    }
+
+    @container (width < 600px) {
+      table.aiming-table,
+      table.aiming-table thead,
+      table.aiming-table tbody,
+      table.aiming-table tr,
+      table.aiming-table th,
+      table.aiming-table td {
+        display: block;
+      }
+
+      table.aiming-table thead {
+        /* MANDATORY: Hide column header from layout and screen readers. */
+        display: none;
+      }
+
+      table.aiming-table tr {
+        margin-block-end: 1.2rem;
+        border: 1px solid var(--border);
+      }
+
+      table.aiming-table tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: var(--surface-3);
+      }
+
+      table.aiming-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--accent); }
+      table.aiming-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--accent); }
+      table.aiming-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--accent); }
+      table.aiming-table td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 700; color: var(--accent); }
+      table.aiming-table td:nth-child(6)::before { content: var(--label-6) ": "; font-weight: 700; color: var(--accent); }
+      table.aiming-table td:nth-child(7)::before { content: var(--label-7) ": "; font-weight: 700; color: var(--accent); }
+    }
+
+    /* ==================== MODERN WEB GUIDANCE: LIGHT-DISMISS DIALOG ==================== */
+    dialog.blueprint-dialog {
+      margin: auto;
+      max-width: 95vw;
+      max-height: 92vh;
+      width: 1180px;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 0;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+    }
+
+    dialog.blueprint-dialog::backdrop {
+      background-color: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(4px);
+    }
+
+    .dialog-inner {
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .dialog-close-btn {
+      background: var(--surface-3);
+      color: #fff;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" title="Về Trang Chủ — Tổng Hợp Hạng Mục &amp; Dự Toán Chi Phí Q Villa">
+        <span class="brand-badge">OPPLE × DIALUX 3D</span>
+        <div class="brand-title">
+          <h1>Mô Phỏng Chiếu Sáng 3D • Độ Rọi Lux • Kịch Bản ON/OFF &amp; Chỉnh Góc Quay Chóa Đèn</h1>
+          <p>Hồ sơ kỹ thuật chiếu sáng kiến trúc Q Villa (XHOME) — Chuẩn GS Lighting trên nền thiết bị OPPLE tiết kiệm</p>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng">
+        <a href="index.html" style="border-color:rgba(245,158,11,0.55);color:#fde68a;">🏠 Trang Chủ &amp; Dự Toán</a>
+        <a href="#sec-3d-studio" class="active">🧊 1. Mô Phỏng 3D &amp; Góc Chóa</a>
+        <a href="#sec-dialux-cad">📐 2. Bản Vẽ Dialux &amp; Chỉnh Góc</a>
+        <a href="#sec-aiming-table">📋 3. Bảng Bóc Tách &amp; Góc Quay Chóa</a>
+        <a href="aqara-smarthome.html" style="border-color:rgba(16,185,129,0.5);color:#34d399;">⚡ Bản Đồ Công Tắc Aqara</a>
+        <a href="phong-khach-bep-tang1.html" style="border-color:rgba(56,189,248,0.45);color:#7dd3fc;">🛋️ Khách - Bếp T1</a>
+        <a href="phong-master-tang2.html" style="border-color:rgba(244,63,94,0.45);color:#fda4af;">🛏️ Master T2 (Open-Suite)</a>
+        <a href="phong-lam-viec-tang3.html">💻 P. Làm Việc T3</a>
+        <a href="giam-sat-wc.html">🚽 Giám Sát WC</a>
+        <a href="mat-tien.html">🏛️ Mặt Tiền</a>
+        <a href="cua-chinh-d1.html">🚪 Cửa Chính D1</a>
+        <a href="cua-go-lim-d3.html">🚪 Cửa Gỗ D3</a>
+        <a href="tang-tum-3d.html">🧊 3D Tầng Tum</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <div class="kpi-grid">
+        <div class="kpi-card emerald">
+          <div class="kpi-label">Tổng Chi Phí Đèn OPPLE Toàn Nhà</div>
+          <div class="kpi-val" style="color:#34d399;">41,4 – 48,1 Triệu ₫</div>
+          <div class="kpi-sub">Tiết kiệm ~45–60 triệu ₫ so với gói GS Lighting mà vẫn đạt CRI &ge; 90 &amp; chóa sâu UGR &lt; 16</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Độ Rọi Tiêu Chuẩn (Dialux Lux)</div>
+          <div class="kpi-val" style="color:#fde68a;">45 – 550 Lux</div>
+          <div class="kpi-sub">Khách/Bếp 350–550 Lux • Bàn làm việc đôi 530 Lux • Ban thờ 400 Lux • Phòng ngủ 45–150 Lux</div>
+        </div>
+        <div class="kpi-card sky">
+          <div class="kpi-label">Kịch Bản Cảm Xúc (Không Cần Dim)</div>
+          <div class="kpi-val" style="color:#38bdf8;">18 Ngữ Cảnh ON/OFF</div>
+          <div class="kpi-sub">Tạo chiều sâu bằng cách bật/tắt tổ hợp các lộ đèn độc lập trên công tắc thông minh Aqara H1</div>
+        </div>
+        <div class="kpi-card purple">
+          <div class="kpi-label">Chỉnh Góc Nghiêng Chóa Đèn (Gimbal)</div>
+          <div class="kpi-val" style="color:#d8b4fe;">Bẻ Chóa 12° – 28°</div>
+          <div class="kpi-sub">3 bóng giữa giường bẻ 25° về Tivi • Đèn thay đồ bẻ 18° vào tủ kính • Ban thờ &amp; Tủ sách bẻ 28°</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1 (ABOVE THE FOLD): INTERACTIVE 3D LIGHTING & GIMBAL AIMING STUDIO -->
+  <section id="sec-3d-studio">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">1. PHÒNG LAB MÔ PHỎNG CHIẾU SÁNG 3D TƯƠNG TÁC THỜI GIAN THỰC (THREE.JS WEBGL)</span>
+        <h2 class="section-title">Xoay Camera 360° • Bật/Tắt Từng Lộ Đèn • Kéo Thanh Trượt Chỉnh Góc Nghiêng Chóa Đèn (0° &rarr; 30°) &amp; Soi Bản Đồ Nhiệt Độ Rọi Dialux</h2>
+        <p class="section-desc">
+          Chọn từng tầng bên dưới, bấm các <strong>Góc Quay Camera 3D</strong> (đặc biệt là góc <em>"Nằm ngửa trên giường nhìn lên trần"</em> ở Tầng 2 hoặc <em>"Đứng khấn trước Ban thờ"</em> ở Tầng 3) và kéo thanh trượt <strong>Góc bẻ nghiêng chóa đèn (Tilt 0° &rarr; 30°)</strong> để thấy rõ sự khác biệt giữa <strong>thợ điện lắp mặc định (0° thẳng đứng gây chói mắt)</strong> và <strong>kỹ sư ánh sáng chỉnh chóa chuẩn (15°–28°)</strong>!
+        </p>
+      </div>
+
+      <div class="opple-studio-shell js-opple-3d-studio">
+        <div class="studio-top-bar">
+          <div class="zone-tab-group" role="tablist" aria-label="Chọn không gian 3D">
+            <button type="button" class="zone-tab-btn active" data-zone-tab="T1">🛋️ Tầng 1: Khách • Sảnh • Ăn • Bếp Đảo</button>
+            <button type="button" class="zone-tab-btn" data-zone-tab="T2">🛌 Tầng 2: Master Open-Suite (Bắc–Nam)</button>
+            <button type="button" class="zone-tab-btn" data-zone-tab="T3">🙏 Tầng 3: Thờ Bắc • P.Làm Việc Nam</button>
+            <button type="button" class="zone-tab-btn" data-zone-tab="BED_AB">🛏️ P.Ngủ Trục A–B (Ông Bà T1 • PN2 • PN4)</button>
+            <button type="button" class="zone-tab-btn" data-zone-tab="BED_BD">🛌 P.Ngủ Trục B–D (PN1 T2 • PN3 T3)</button>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="studio-chip btn-toggle-alt-option">🔄 Chuyển đổi PA1 ↔ PA2</button>
+            <button type="button" class="studio-chip" style="border-color:var(--emerald);color:#6ee7b7;" onclick="openBlueprintModal('assets/kt402_master_pa2_cad_xhome.png', 'Bản Vẽ 2D CAD Chuẩn XHOME (KT-4.02 PA2): Đóng Trần & Khoét Lỗ Đèn Phòng Master Tầng 2 Giao Thợ Thạch Cao')">📐 CAD Trần Master T2 (KT-4.02 PA2)</button>
+            <button type="button" class="studio-chip" style="border-color:var(--sky);color:#7dd3fc;" onclick="openBlueprintModal('assets/ban_ve_2_loai_phong_ngu_truc_ab_va_bd.jpg', 'Bản Vẽ So Sánh Trần, Điều Hòa & Chiếu Sáng 2 Loại Phòng Ngủ Điển Hình: Trục A–B vs Trục B–D')">📐 Bản Vẽ 2 Loại P.Ngủ (Trục A–B &amp; B–D)</button>
+            <button type="button" class="studio-chip" style="border-color:var(--accent);color:#fde68a;" onclick="openBlueprintModal('assets/mo_phong_dialux_va_huong_chinh_goc_den.png', 'Bản Vẽ Mô Phỏng Độ Rọi Dialux (Lux) & Sơ Đồ Chỉnh Góc Nghiêng Chóa Đèn Toàn Nhà')">🔍 Mở Bản Vẽ Dialux &amp; Chỉnh Chóa 4K</button>
+          </div>
+        </div>
+
+        <div class="studio-main-grid">
+          <!-- Left: 3D Viewport & Camera Controls -->
+          <div class="studio-viewport-col">
+            <div class="studio-zone-banner">
+              <div>
+                <div class="studio-zone-title">Tầng 1: Phòng Khách • Tiền Sảnh • Phòng Ăn • Bếp Chữ L &amp; Đảo Bếp</div>
+                <div class="studio-zone-sub">Giữ chuột trái xoay 360° • Chuột phải (hoặc Shift + Chuột trái) kéo Pan • Lăn chuột Zoom</div>
+              </div>
+              <button type="button" class="studio-chip btn-toggle-autorotate">🔄 Tự Động Xoay 360°</button>
+            </div>
+
+            <div class="opple-3d-canvas-wrap">
+              <div class="opple-3d-labels-layer"></div>
+              <div class="studio-hud-bar">
+                <div class="hud-pill">Độ rọi vùng chính: <strong class="hud-val-lux" style="color:#fde68a;">520 Lux</strong></div>
+                <div class="hud-pill">Công suất đang bật: <strong class="hud-val-watt" style="color:#38bdf8;">426 W</strong></div>
+                <div class="hud-pill">Thông số chóa: <strong class="hud-val-tilt">Nghiêng 15° • Xoay 0° • Góc 24°</strong></div>
+                <div class="hud-pill">Chống chói: <strong class="hud-val-ugr" style="color:#34d399;">UGR &lt; 15 (Êm mắt)</strong></div>
+              </div>
+            </div>
+
+            <div class="studio-bottom-toolbar">
+              <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;">
+                <span style="font-size:0.74rem;font-weight:800;color:var(--text-muted);text-transform:uppercase;">🎥 Góc Quay Camera 3D Nhanh:</span>
+                <div class="studio-overlay-toggles">
+                  <button type="button" class="studio-chip active btn-toggle-cones">🔦 Phễu Tia Sáng 3D</button>
+                  <button type="button" class="studio-chip active btn-toggle-heatmap">🌡️ Bản Đồ Nhiệt Lux (Dialux)</button>
+                  <button type="button" class="studio-chip active btn-toggle-labels">🏷️ Nhãn Độ Rọi 3D</button>
+                </div>
+              </div>
+              <div class="studio-cam-buttons"></div>
+            </div>
+          </div>
+
+          <!-- Right: Gimbal Aiming Sliders, Emotional Scenes & Individual Circuit Switches -->
+          <aside class="studio-sidebar-col" aria-label="Bảng điều khiển góc chiếu và kịch bản ánh sáng">
+            <!-- Box 1: Gimbal Tilt / Yaw / Beam Controls -->
+            <div class="control-box">
+              <div class="control-box-title">
+                <span>🎯 1. CHỈNH GÓC NGHIÊNG &amp; XOAY CHÓA ĐÈN (GIMBAL AIMING)</span>
+              </div>
+              <div class="slider-row">
+                <label>
+                  <span>Góc bẻ nghiêng chóa đèn (Tilt):</span>
+                  <span class="slider-tilt-label" style="color:var(--accent);font-weight:800;">15°</span>
+                </label>
+                <input type="range" class="opple-slider-tilt" min="-30" max="30" step="1" value="15">
+              </div>
+              <div class="slider-row">
+                <label>
+                  <span>Góc xoay hướng chóa quanh trục (Rotation / Yaw):</span>
+                  <span class="slider-yaw-label" style="color:var(--sky);font-weight:800;">0°</span>
+                </label>
+                <input type="range" class="opple-slider-yaw" min="-180" max="180" step="5" value="0">
+              </div>
+              <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-top:6px;">
+                <span style="font-size:0.75rem;color:var(--text-muted);font-weight:700;">Góc mở phễu sáng (Beam):</span>
+                <div style="display:flex;gap:5px;">
+                  <button type="button" class="studio-chip" data-beam-deg="15">15° (Rọi điểm)</button>
+                  <button type="button" class="studio-chip active" data-beam-deg="24">24° (Chuẩn)</button>
+                  <button type="button" class="studio-chip" data-beam-deg="36">36° (Rộng)</button>
+                </div>
+              </div>
+              <div class="aim-quick-btns">
+                <button type="button" class="btn-aim-zero">❌ Lắp Mặc Định 0° (Chói mắt)</button>
+                <button type="button" class="btn-aim-optimal">✅ Chuẩn Kỹ Sư (15°–28°)</button>
+              </div>
+            </div>
+
+            <!-- Box 2: Emotional ON/OFF Lighting Scenarios -->
+            <div class="control-box">
+              <div class="control-box-title">
+                <span>🎭 2. KỊCH BẢN CẢM XÚC (BẬT/TẮT ON/OFF — KHÔNG CẦN DIM)</span>
+              </div>
+              <div class="studio-scene-list"></div>
+            </div>
+
+            <!-- Box 3: Individual Circuit Switches -->
+            <div class="control-box">
+              <div class="control-box-title">
+                <span>⚡ 3. BẬT/TẮT TỪNG LỘ ĐÈN (GIẢ LẬP CÔNG TẮC AQARA H1)</span>
+              </div>
+              <div class="studio-circuit-list"></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 (BELOW THE FOLD): DIALUX LUX BLUEPRINTS & AIMING DIAGRAMS -->
+  <section id="sec-dialux-cad" class="heavy-section-deferred">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">2. BẢN VẼ MÔ PHỎNG ĐỘ RỌI DIALUX &amp; CẨM NANG CHỈNH GÓC NGHIÊNG CHÓA ĐÈN BAN ĐÊM</span>
+        <h2 class="section-title">Bản Vẽ Kỹ Thuật Để Chủ Nhà &amp; Thợ Điện Xoay Chóa Đèn Trong 30 Phút Buổi Tối Sau Khi Lắp Xong</h2>
+        <p class="section-desc">
+          Bấm vào từng bản vẽ dưới đây để mở hộp thoại phóng to độ phân giải cao (hỗ trợ đóng nhanh bằng phím <code>Esc</code> hoặc bấm ra vùng nền ngoài).
+        </p>
+      </div>
+
+      <div class="cards-3">
+        <div class="info-card" style="border-top:4px solid var(--accent);">
+          <h3>🌡️ 1. Bản Đồ Nhiệt Độ Rọi Dialux (Lux) &amp; Hướng Bẻ Chóa 4 Khu Vực Trọng Điểm</h3>
+          <img src="assets/mo_phong_dialux_va_huong_chinh_goc_den.png" alt="Mô phỏng Dialux và hướng chỉnh góc đèn OPPLE" style="width:100%;border-radius:8px;border:1px solid var(--border);cursor:zoom-in;margin:8px 0;" onclick="openBlueprintModal(this.src, this.alt)">
+          <ul>
+            <li><strong>Phòng Khách &amp; Bếp Ăn:</strong> Đèn viền <code>Lộ 3</code> bẻ nghiêng <strong>15° vào vách</strong> tạo vòm sáng Scallop sang trọng; <code>Lộ 6A</code> gom sáng <strong>400 Lux</strong> đúng tâm bàn ăn; <code>Lộ 12</code> đạt <strong>550 Lux</strong> trên mặt bàn bếp.</li>
+            <li><strong>Phòng Ngủ (Master &amp; 4 PN Con):</strong> Cụm 3 bóng <code>7W</code> giữa giường <strong>BẮT BUỘC bẻ chóa nghiêng 25° về phía vách Tivi</strong> để đầu giường chỉ nhận ánh sáng tán xạ êm dịu <strong>45–50 Lux</strong>.</li>
+            <li><strong>Phòng Thay Đồ:</strong> 4 bóng <code>9W 4000K</code> chia đôi: 2 bóng bẻ <strong>18° sang tủ trái</strong>, 2 bóng bẻ <strong>18° sang tủ phải</strong>.</li>
+            <li><strong>Phòng Thờ &amp; Phòng Làm Việc Đôi:</strong> 2 bóng <code>Lộ 14*</code> bẻ <strong>28° vào tâm Ban thờ (400 Lux)</strong>; 3 mắt <code>Lộ S2</code> bẻ <strong>28° vào Tủ sách 3,2m</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="info-card" style="border-top:4px solid var(--sky);">
+          <h3>🌀 2. Khôi Phục Quạt Trần Kèm Đèn Phòng Khách (Lộ 6) &amp; Bàn Ăn - Bếp (Lộ 6A)</h3>
+          <img src="assets/cd11_chieusang_t1_crop.png" alt="Mặt bằng chiếu sáng Tầng 1 CĐ-11 với Lộ 6 và Lộ 6A quạt trần kèm đèn" style="width:100%;border-radius:8px;border:1px solid var(--border);cursor:zoom-in;margin:8px 0;" onclick="openBlueprintModal(this.src, this.alt)">
+          <ul>
+            <li><strong>Lộ 6 (Tâm trần Phòng Khách +3.53m) &amp; Lộ 6A (Tâm trần Bàn Ăn +3.40m):</strong> Khôi phục đầy đủ <strong>02 Quạt trần kèm đèn LED trang trí có điều khiển từ xa (Động cơ DC 35W + Đèn LED 24W đổi 3 màu)</strong> để những ngày trời mát không bật điều hòa vẫn có gió tự nhiên.</li>
+            <li><strong>Không bị bóng cánh quạt chém sáng (Stroboscopic):</strong> Do 12 bóng Spotlight <code>Lộ 3</code> chạy sát tường (cách tâm quạt <code>1,8–2,2m</code>) và 4 bóng <code>Lộ 5A</code> nằm ở 4 góc bàn ăn (cách tâm quạt <code>1,7m</code>), còn mâm đèn LED tích hợp nằm <strong>bên dưới cánh quạt</strong> nên quạt quay không bao giờ cắt ngang tia sáng!</li>
+            <li><strong>Lưu ý BẮT BUỘC cho thợ thạch cao:</strong> Phải <strong>khoan cấy 2 ty ren sắt M10/M12 + móc chữ U trực tiếp vào sàn bê tông Tầng 2</strong> tại tâm Phòng Khách và tâm Bàn Ăn trước khi đóng tấm thạch cao.</li>
+          </ul>
+        </div>
+
+        <div class="info-card" style="border-top:4px solid var(--emerald);">
+          <h3>🛏️ 3. Bản Vẽ Trần, Chiếu Sáng &amp; Điều Hòa Master Tầng 2 (Chốt PA2: Vách Tủ Đảo 1.740×450mm)</h3>
+          <img src="assets/master_pa2_ceiling_lighting_ac_2d.png" alt="Mặt bằng hiệu chỉnh trần, đèn và điều hòa Phòng Master Tầng 2 khi chốt Phương Án 2 (Vách Tủ Đảo 1.740x450mm)" style="width:100%;border-radius:8px;border:1px solid var(--border);cursor:zoom-in;margin:8px 0;" onclick="openBlueprintModal(this.src, this.alt)">
+          <ul>
+            <li><strong>Trục Bắc–Nam (7.23m — Chốt Phương Án 2):</strong> Khu Giường Ngủ ở phía Bắc (<code>3.01m</code>, hộp trần giật cấp thu về <code>2.600 × 2.150 mm</code> chừa <code>400mm</code> trần phẳng trước vách) &rarr; <strong>Vách Tủ Đảo Độc Lập <code>1.740 × 450 mm</code> cao kịch trần tại <code>Trục B</code> (Mặt trước treo Tranh • Mặt sau Tủ Áo 4 khoang • 2 bên đi lại mở <code>850mm</code>)</strong> &rarr; Khu Thay Đồ ở giữa (<code>2.70m</code>) &rarr; <code>WC-02</code> ở phía Nam (<code>1.52m</code>).</li>
+            <li><strong>Khu Ngủ (Lộ 14, 15, 16 chuẩn CĐ-12):</strong> <code>Lộ 14</code> hắt khe trần + 2 khe LED dọc mặt trước Vách Tranh; <code>Lộ 15 (06 bóng 9W 3000K)</code> gồm 02 bóng đầu giường + 02 bóng trước Tủ #3 (cách tường hậu <code>780mm</code>) + <strong>02 bóng cách mặt Vách Tranh <code>300mm</code> bẻ 18° rọi thẳng vào bức Tranh Nghệ Thuật</strong>; <code>Lộ 16 (02 bóng 7W giữa giường)</code> <strong>bẻ 25° về phía Vách Tranh</strong>.</li>
+            <li><strong>Khu Thay Đồ (Lộ 17, 18, 19 chuẩn CĐ-12):</strong> Chính tâm là <strong>Vòm Tròn Mặt Trăng Barrisol Ø1.200mm (Lộ 17)</strong> rọi xuống <strong>Bàn Đảo Mặt Kính</strong>; <strong><code>Lộ 18</code> nâng lên <code>06 bóng Spotlight 9W 4000K CRI&ge;92</code></strong> (02 bóng bẻ <strong>18° rọi Tủ #1-#2</strong> + <strong>02 bóng cách mặt sau Vách 2 <code>350mm</code> bẻ 18° rọi Tủ Đảo 4 khoang</strong> + 02 bóng bẻ <strong>15° rọi Bàn cửa sổ O2</strong>). Dịch <strong>Lỗ thăm điều hòa <code>450×450mm</code> &amp; <code>Aqara Hub M3 PoE #2</code></strong> sang trần Lối đi mở bên Phải (<code>850mm</code>).</li>
+          </ul>
+        </div>
+
+        <div class="info-card" style="border-top:4px solid var(--purple);">
+          <h3>📐 4. So Sánh 2 Loại Phòng Ngủ Điển Hình: Trục A–B (Ông Bà, PN2, PN4) vs Trục B–D (PN1, PN3)</h3>
+          <img src="assets/ban_ve_2_loai_phong_ngu_truc_ab_va_bd.jpg" alt="Bản vẽ so sánh 2 loại phòng ngủ điển hình Trục A-B và Trục B-D" style="width:100%;border-radius:8px;border:1px solid var(--border);cursor:zoom-in;margin:8px 0;" onclick="openBlueprintModal(this.src, this.alt)">
+          <ul>
+            <li><strong>Loại 1 — Trục A–B (3.21 × 4.49m — Ông Bà T1, PN2 T2, PN4 T3):</strong> Giường tựa <strong>Tường Nam (Trục A)</strong> nhìn lên <strong>Tủ Áo &amp; Tivi Tường Bắc (Trục B)</strong>; khe gió điều hòa nằm <strong>ngang</strong> trước Tủ Áo; <code>Lộ 6 (PN2/4) / Lộ 15 (Ông Bà)</code> có ký hiệu <code>—LED—</code> là <strong>Đèn LED dây hắt 4 cạnh khe trần giật cấp 2040×3140mm (KHÔNG có ray nam châm!)</strong>; cụm <strong>3 bóng 7W cách 200mm</strong> giữa phòng (<code>Lộ 7/16</code>) <strong>bẻ 25° về hướng Bắc (cuối giường)</strong>; 2 bóng 9W góc trên (<code>Lộ 5/14</code>) bẻ <strong>18° rọi Tủ Áo Bắc</strong>; 1 bóng 7W (<code>Lộ 9</code>) rọi <strong>Bàn học góc Đông-Bắc</strong>.</li>
+            <li><strong>Loại 2 — Trục B–D (4.95 × 3.36m — PN1 T2, PN3 T3):</strong> Giường tựa <strong>Tường Bắc (Trục D)</strong> nhìn xuống <strong>Tủ Áo &amp; Tivi Tường Nam (Trục B)</strong>; khe gió điều hòa nằm <strong>dọc</strong> bên Tây; cặp <strong>2 bóng đôi 7W cách 200mm</strong> giữa phòng (<code>Lộ 11</code>) <strong>bẻ 25° về hướng Nam (cuối giường)</strong>; 3 bóng 9W hàng dưới chữ U (<code>Lộ 10</code>) bẻ <strong>18° rọi Tủ Áo Nam</strong>; <code>Lộ 12*</code> là <strong>LED dây (<code>—LED—</code>) hắt 4 cạnh ô trần 2990×2050mm</strong>; còn <code>Lộ 12</code> (ký hiệu nét đôi <code>===</code>) là <strong>Đèn Ray Nam Châm chạy dọc ngay trên Bàn học &amp; Cửa sổ S3 tường Tây</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 (BELOW THE FOLD): RESPONSIVE TABLE OF OPPLE TAKEOFF, LUX & AIMING ANGLES -->
+  <section id="sec-aiming-table" class="heavy-section-deferred">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">3. BẢNG TỔNG HỢP BÓC TÁCH ĐÈN OPPLE • ĐỘ RỌI DIALUX • KỊCH BẢN ON/OFF &amp; GÓC CHỈNH CHÓA TỪNG PHÒNG</span>
+        <h2 class="section-title">Bảng Tra Cứu Nhanh Giao Đội Thợ Thạch Cao (Khoét Lỗ) • Thợ Điện (Đi Lộ Dây) &amp; Chủ Nhà (Chỉnh Góc Chóa)</h2>
+        <p class="section-desc">
+          Bảng dữ liệu hỗ trợ cuộn ngang/dọc với tiêu đề cố định (Sticky Headers) trên máy tính và tự động chuyển sang dạng thẻ (Stacked Cards) trên màn hình hẹp.
+        </p>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="opple-aiming-table-caption" class="table-wrapper">
+        <table class="aiming-table">
+          <caption id="opple-aiming-table-caption">Bảng thống kê chi tiết mã đèn OPPLE • Lỗ khoét thạch cao • Độ rọi Lux • Góc bẻ chóa (Gimbal Tilt/Yaw) &amp; Kịch bản ON/OFF</caption>
+          <thead>
+            <tr>
+              <th>Phòng / Khu Vực</th>
+              <th>Tầng / Cao Độ Trần</th>
+              <th>Lộ Đèn &amp; Chủng Loại OPPLE</th>
+              <th>SL &amp; Lỗ Khoét</th>
+              <th>CCT &amp; Độ Rọi (Lux)</th>
+              <th>Hướng Dẫn Bẻ Nghiêng &amp; Xoay Chóa Đèn</th>
+              <th>Kịch Bản Bật/Tắt ON/OFF (Không Cần Dim)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1. Tiền Sảnh &amp; Phòng Khách</th>
+              <td><strong>Tầng 1</strong><br><code>+3.53m / +3.40m</code></td>
+              <td>
+                • <code>Lộ 1</code>: 4 Spotlight 12W ở 4 góc ô trần Tiền sảnh (<code>2090×1125mm</code>)<br>
+                • <code>Lộ 2 (Tiền sảnh) &amp; Lộ 4 (P.Khách)</code>: <strong>Đèn LED dây (<code>—LED—</code>)</strong> hắt khe trần giật cấp (<code>2370mm</code>)<br>
+                • <code>Lộ 5 (Khung trong P.Khách)</code>: <strong>Khung chữ nhật Đèn Ray Nam Châm / Thanh LED âm trần (<code>===</code>, rộng <code>1825mm</code>)</strong> nằm lùi vào <code>215mm</code> bên trong lòng trần <code>+3.53m</code><br>
+                • <code>Lộ 3</code>: 12 Spotlight 12W xếp khung chữ nhật <code>4×4</code> thẳng hàng bao ngoài 2 khe gió điều hòa<br>
+                • <strong><code>Lộ 6</code>: 01 Quạt trần kèm đèn LED 24W có Remote</strong> <em>(hoặc 2 cặp đèn đôi 200mm theo KT-4.06)</em>
+              </td>
+              <td>
+                • 16 lỗ <code>Φ75–90mm</code><br>
+                • 01 Khung ray âm <code>1825mm</code> (<code>Lộ 5</code>)<br>
+                • 01 Móc sắt <code>M10/M12</code> cấy sàn bê tông T2
+              </td>
+              <td>
+                • <code>4000K</code> (Đèn rọi &amp; Ray Lộ 5)<br>
+                • <code>3000K</code> (LED dây hắt Lộ 2, 4)<br>
+                • <strong>55 – 540 Lux</strong>
+              </td>
+              <td>
+                • <strong>Khung chữ nhật 4×4 (12 bóng Lộ 3):</strong> 4 bóng hàng Bắc (cách đều <code>1220mm</code>), 4 bóng hàng Nam, 2 bóng cột Tây &amp; 2 bóng cột Đông thẳng tắp với 4 góc, bẻ nghiêng <strong>15°</strong> hướng vào tường.<br>
+                • <strong>Quạt trần đèn (Lộ 6) &amp; Khung ray (Lộ 5):</strong> Quạt nằm chính tâm ô trần, bao ngoài bởi khung ray âm <code>1825mm</code> (<code>Lộ 5</code>) và khe LED dây hắt <code>2370mm</code> (<code>Lộ 4</code>).
+              </td>
+              <td>
+                • <strong>Đón khách (540 Lux):</strong> Bật <code>Lộ 1 + 2/4 + 5 + 3 + 6</code>.<br>
+                • <strong>Gió mát thường ngày (265 Lux):</strong> Bật <code>Lộ 6 (Quạt + Đèn) + Lộ 2/4</code>.<br>
+                • <strong>Xem phim (55 Lux):</strong> Chỉ bật <code>Lộ 2/4 (LED dây hắt)</code> + Quạt quay gió.
+              </td>
+            </tr>
+            <tr>
+              <th>2. Phòng Ăn &amp; Khu Bếp + Đảo Bếp</th>
+              <td><strong>Tầng 1</strong><br><code>+3.40m</code></td>
+              <td>
+                • <code>Lộ 5A</code>: Cột 3 Spotlight 12W chạy dọc khe gió điều hòa (<code>1200+1200mm</code>) + 2 Spotlight ngang hành lang thang/WC1 (<code>1700+1700mm</code>)<br>
+                • <strong><code>Lộ 6A</code>: 01 Quạt trần kèm đèn LED 24W tâm Bàn ăn</strong> <em>(hoặc cặp đèn đôi 200mm KT-4.06)</em><br>
+                • <code>Lộ 12</code>: <strong>Cụm 3 Spotlight 7W xếp dọc cách nhau <code>200mm</code> trên Đảo bếp (Trục 3)</strong> + <strong>5 Spotlight 12W xếp chữ T</strong> (3 bóng ngang bàn bếp trên <code>1200+1200mm</code> + 2 bóng thả dọc giữa 2 khe gió điều hòa bếp)<br>
+                • <code>Lộ 10, 11</code>: LED thanh nhôm đáy tủ bếp trên
+              </td>
+              <td>
+                • 10 lỗ <code>Φ75–90mm</code> (12W)<br>
+                • 3 lỗ <code>Φ75mm</code> (7W dọc Đảo bếp)<br>
+                • 01 Móc sắt <code>M10/M12</code> tâm bàn ăn
+              </td>
+              <td>
+                • <code>4000K CRI&ge;90</code> (Bếp)<br>
+                • <code>3000K/4000K</code> (Quạt đèn bàn ăn)<br>
+                • <strong>380 – 550 Lux</strong>
+              </td>
+              <td>
+                • <strong>Cụm 3 đèn 7W Đảo bếp (Lộ 12):</strong> Khoét thẳng hàng dọc theo Trục 3 cách nhau đúng <code>200mm + 200mm</code> ngay trên mặt Đảo bếp.<br>
+                • <strong>5 bóng 12W Bếp (Lộ 12):</strong> 3 bóng hàng Bắc bẻ <strong>8°–10°</strong> vào mặt đá bếp; 2 bóng trục giữa nằm chính giữa 2 khe gió điều hòa chiếu thẳng <code>0°</code>.
+              </td>
+              <td>
+                • <strong>Nấu ăn (550 Lux):</strong> Bật <code>Lộ 12 + 10/11 + Quạt 6A</code>.<br>
+                • <strong>Ăn tối mát mẻ (400 Lux):</strong> Tắt <code>Lộ 12</code>, bật <code>Lộ 6A (Quạt + Đèn 3000K) + Lộ 5A</code>.
+              </td>
+            </tr>
+            <tr>
+              <th>3. Phòng Master Tầng 2 — Khu Giường Ngủ &amp; Mặt Trước Vách Tranh Trục B (Chốt PA2)</th>
+              <td><strong>Tầng 2</strong><br><code>+3.13m / +3.00m</code></td>
+              <td>
+                • <code>Lộ 14</code>: LED dây COB <code>3000K</code> hắt hộp trần Khu Ngủ bo góc (đã thu chuẩn về <code>2.600×2.150mm</code>, chừa <code>400mm</code> trần phẳng trước Vách 2) + Hốc rèm Logia 01 + <strong>2 khe LED dọc mặt trước Vách Tranh Trục B</strong><br>
+                • <code>Lộ 15 (Viền Khu Ngủ &amp; Rọi Tranh)</code>: <strong>06 Spotlight chóa sâu 9W 3000K</strong> (02 bóng đầu giường + 02 bóng trước Hốc Tủ Âm Tường #3 cách tường hậu <code>780mm</code> + <strong>02 bóng cách mặt trước Vách Tranh Trục B <code>300mm</code></strong>)<br>
+                • <code>Lộ 16 (Giữa giường &amp; Đọc sách)</code>: <strong>Cặp 02 Spotlight chóa sâu 7W</strong> tại tâm giường ngủ + 02 Đèn đọc sách Táp đầu giường
+              </td>
+              <td>
+                • 2 lỗ <code>Φ75mm</code> (7W Lộ 16)<br>
+                • 6 lỗ <code>Φ75–90mm</code> (9W Lộ 15)<br>
+                • 2 Khe gió <code>150×1000mm</code>
+              </td>
+              <td>
+                • <code>3000K</code> Ấm dịu<br>
+                • <strong>45 Lux</strong> (Đầu giường)<br>
+                • <strong>320 Lux</strong> (Mặt Tranh Vách 2)
+              </td>
+              <td>
+                • <strong style="color:#fda4af;">CỰC KỲ QUAN TRỌNG (2 bóng 7W Lộ 16 giữa giường):</strong> <strong>BẮT BUỘC bẻ nghiêng chóa 25° hướng về phía Nam (phía Vách Tranh Trục B)!</strong> Không để <code>0°</code> chiếu thẳng vào mắt người nằm.<br>
+                • <strong>2 bóng Lộ 15 trước Vách Tranh Trục B:</strong> Khoét cách mặt vách <code>300mm</code> (2 bóng cách nhau <code>750mm</code>), <strong>bẻ nghiêng 18° về hướng Nam</strong> rọi sáng bức Tranh Nghệ Thuật.<br>
+                • <strong>2 bóng Lộ 15 bên Đông:</strong> Cách tường gạch hậu <code>780mm</code> (cách mặt Tủ #3 <code>180mm</code>), <strong>bẻ nghiêng 18° về hướng Đông</strong> rọi vào cánh <strong>Tủ Áo #3 (2.010×600mm)</strong>.<br>
+                • <strong>2 bóng Lộ 15 đầu giường:</strong> Bẻ <strong>15° về hướng Bắc</strong> rửa vách gỗ xương cá.
+              </td>
+              <td>
+                • <strong>Thư giãn trước ngủ (65 Lux):</strong> Tắt <code>Lộ 15, 16</code>, chỉ bật <code>Lộ 14</code> (khe trần + khe LED Vách Tranh).<br>
+                • <strong>Ngắm tranh &amp; Lấy đồ Tủ #3 (220 Lux):</strong> Bật <code>Lộ 14 + Lộ 15</code>.
+              </td>
+            </tr>
+            <tr>
+              <th>4. Phòng Master Tầng 2 — Khu Thay Đồ, Tủ Đảo Mặt Sau Vách 2, Bàn Đảo Kính &amp; WC-02 (Chốt PA2)</th>
+              <td><strong>Tầng 2</strong><br><code>+3.13m (Thay đồ)</code><br><code>+2.40m (WC-02)</code></td>
+              <td>
+                • <code>Lộ 17</code>: <strong>Vòm Tròn Mặt Trăng Xuyên Sáng Barrisol Ø1.200mm (60W)</strong> ngay trên <strong>Bàn Đảo Mặt Kính (1.15×0.55m)</strong> + Khe hắt trần + 01 bóng sảnh cửa <code>O1</code><br>
+                • <code>Lộ 18 (Đã tăng lên 06 bóng)</code>: <strong>06 Spotlight chóa sâu lòng đen 9W 4000K CRI&ge;92</strong> = <strong>02 bóng</strong> trước Tủ #1-#2 (Nam) + <strong style="color:#34d399;">02 bóng mới trước Tủ Đảo 4 khoang mặt sau Vách 2 (Bắc)</strong> + <strong>02 bóng</strong> trên Bàn cửa sổ O2 (Tây)<br>
+                • <code>Lộ 19</code>: LED thanh cảm biến trong Tủ #1, #2, #3 + <strong>LED 4 khoang Tủ Đảo mặt sau Vách 2</strong> + LED Bàn Đảo Kính + 2 Cột bo tròn O2 + Gương toàn thân<br>
+                • <code>Lộ 20–25 (WC-02)</code>: 3 Spotlight IP44 tại 3 khoang (Lavabo đôi <code>Lộ 20</code>, Bồn tắm nằm <code>Lộ 22</code>, Tắm đứng <code>Lộ 24</code>) + Gương LED (<code>Lộ 21</code>) + Đèn sưởi (<code>Lộ 23</code>)
+              </td>
+              <td>
+                • 01 Vòm Barrisol <code>Ø1.200mm</code><br>
+                • <strong>6 lỗ <code>Φ75–90mm</code> (Lộ 18 Thay đồ) + 1 lỗ sảnh O1 (Lộ 17)</strong><br>
+                • 3 lỗ <code>Φ75–90mm</code> (WC-02)<br>
+                • Lỗ thăm ĐH <code>450×450mm</code> dịch ra lối đi Phải <code>850mm</code>
+              </td>
+              <td>
+                • <code>3500K/4000K CRI&ge;92</code><br>
+                • <strong>450 Lux</strong> (Bàn Đảo &amp; Bàn O2)<br>
+                • <strong>400 Lux</strong> (Tủ #1-#2 &amp; Tủ Đảo Vách 2)
+              </td>
+              <td>
+                • <strong style="color:#34d399;">2 bóng Lộ 18 phía Bắc (Trước Tủ Đảo mặt sau Vách 2):</strong> Đặt cách mặt tủ <code>350mm</code>, <strong>bẻ nghiêng chóa 18° về hướng Bắc</strong> rọi thẳng vào 4 khoang Tủ Quần Áo &amp; Túi Xách của Vách 2 (chống sập bóng lưng khi đứng mở tủ!).<br>
+                • <strong>2 bóng Lộ 18 phía Nam (Trước Tủ #1 &amp; #2):</strong> Đặt cách mặt tủ <code>450mm</code>, <strong>bẻ nghiêng chóa 18° về hướng Nam</strong> rọi sâu vào quần áo trong Tủ #1, #2 &amp; Gương toàn thân.<br>
+                • <strong>2 bóng Lộ 18 phía Tây (Trên Bàn cửa sổ O2):</strong> <strong>Bẻ nghiêng chóa 15° về hướng Tây</strong> rọi sáng mặt bàn trang điểm/làm việc.<br>
+                • <strong>Đèn Lộ 20 (WC-02):</strong> Bẻ <strong>12°</strong> vào Gương LED Lavabo đôi.
+              </td>
+              <td>
+                • <strong>Phối đồ &amp; Trang điểm (450 Lux):</strong> Bật <code>Lộ 17 (Vòm Mặt Trăng) + Lộ 18 (06 đèn Spotlight) + Lộ 19 (LED Bàn Đảo &amp; 4 Tủ Áo)</code>.<br>
+                • <strong>Đèn đêm Boutique (140 Lux):</strong> Chỉ bật <code>Lộ 19 (Bàn Đảo Kính &amp; Khoang kính Tủ Đảo phát sáng)</code>.
+              </td>
+            </tr>
+            <tr>
+              <th>5. Loại 1 — Phòng Ngủ Trục A–B (P.Ngủ Ông Bà T1 • PN2 T2 • PN4 T3)</th>
+              <td><strong>Tầng 1, 2, 3</strong><br><code>3.21 × 4.49m</code><br><code>+3.13m / +3.00m</code></td>
+              <td>
+                • <code>Lộ 6 (T2,T3) / Lộ 15 (T1)</code>: <strong>Đèn LED dây (Ký hiệu <code>—LED—</code>, <code>3000K</code>)</strong> hắt 4 cạnh khe trần giật cấp (<code>2.040×3.140mm</code>) &amp; Hốc rèm cửa lùa Đông <code>D4</code> <em>(TUYỆT ĐỐI KHÔNG PHẢI ray nam châm!)</em><br>
+                • <code>Lộ 7 (T2,T3) / Lộ 16 (T1)</code>: <strong>05 Spotlight 7W</strong> = <strong>Cụm 3 bóng 7W cách <code>200mm</code></strong> xếp ngang tại tâm phòng + <strong>2 bóng 7W</strong> trên 2 Táp đầu giường Nam<br>
+                • <code>Lộ 5 (T2,T3) / Lộ 14 (T1)</code>: <strong>04 Spotlight 9W</strong> (2 bóng góc trên trước Tủ Áo Bắc + 2 bóng giữa hai bên thẳng hàng ngang với cụm 3 bóng 7W)<br>
+                • <code>Lộ 9 (PN2, PN4)</code>: <strong>01 Spotlight 7W 4000K</strong> trên Bàn học góc Đông-Bắc + <code>Lộ 8 (T2,T3) / Lộ 13 (T1)</code>: 2 Đèn ống bơ 12W ban công Đông (hoặc 3 đèn sân vườn T1)<br>
+                • <em>Ghi chú:</em> Đường viền <code>1.740mm</code> trong lòng trần P.Ông Bà (<code>KT-4.06</code>) &amp; PN4 (<code>KT-4.03</code>) ghi <strong><code>NẸP U10 ĐEN</code></strong> chỉ là chỉ nhựa đen trang trí <code>P-UT12</code> (không có đèn)
+              </td>
+              <td>
+                • 5–6 lỗ <code>Φ75mm</code> (7W)<br>
+                • 4 lỗ <code>Φ75–90mm</code> (9W)<br>
+                • 01 Khe gió ngang <code>150×1100mm</code><br>
+                • <em>(Không có ray nam châm)</em>
+              </td>
+              <td>
+                • <code>3000K</code> (Khu ngủ)<br>
+                • <code>4000K</code> (Bàn học Đông-Bắc <code>Lộ 9</code>)<br>
+                • <strong>45 – 450 Lux</strong>
+              </td>
+              <td>
+                • <strong style="color:#fda4af;">ĐẦU GIƯỜNG TỰA TƯỜNG NAM (TRỤC A) NHÌN LÊN BẮC:</strong> Cụm <strong>3 bóng 7W giữa phòng (<code>Lộ 7/16</code>) BẮT BUỘC bẻ góc chóa 25° về hướng Bắc (<code>Yaw = 180°</code> — hướng về phía Tủ Áo &amp; Hốc Tivi tường Bắc)!</strong><br>
+                • <strong>2 bóng 7W đầu giường Nam (<code>Lộ 7/16</code>):</strong> Bẻ <strong>15° về hướng Nam</strong> rửa vách gỗ đầu giường.<br>
+                • <strong>2 bóng 9W góc trên (<code>Lộ 5/14</code>):</strong> Bẻ <strong>18° về hướng Bắc</strong> rọi thẳng vào lòng Hệ Tủ Áo &amp; Tivi tường Bắc.
+              </td>
+              <td>
+                • <strong>Học bài góc Đông-Bắc &amp; Lấy đồ (450 Lux):</strong> Bật <code>Lộ 9 (Bàn học) + Lộ 5/14 (4 bóng 9W) + Lộ 6/15 (LED dây)</code>.<br>
+                • <strong>Thư giãn đi ngủ (50 Lux):</strong> Tắt hết đèn rọi, chỉ bật <code>Lộ 6 / Lộ 15 (LED dây hắt trần —LED—)</code>.
+              </td>
+            </tr>
+            <tr>
+              <th>6. Loại 2 — Phòng Ngủ Trục B–D (P.Ngủ 1 T2 • P.Ngủ 3 T3)</th>
+              <td><strong>Tầng 2 &amp; 3</strong><br><code>4.95 × 3.36m</code><br><code>+3.13m / +3.00m</code></td>
+              <td>
+                • <code>Lộ 12*</code>: LED dây COB <code>3000K</code> hắt 4 cạnh ô trần (<code>2.990×2.050mm</code>) &amp; Hốc rèm cửa lùa Đông <code>D8</code><br>
+                • <code>Lộ 11</code>: <strong>Cặp 2 Spotlight đôi 7W cách <code>200mm</code></strong> ở phần nửa dưới ô trần (cuối giường) + <strong>2 Spotlight 7W</strong> trên 2 Táp đầu giường Bắc<br>
+                • <code>Lộ 10</code>: <strong>5–6 Spotlight 9W xếp chữ U</strong> quanh giường (3 bóng hàng dưới cách đều <code>1410+1410mm</code> trước Hệ Tủ Áo &amp; Tivi tường Nam + 2–3 bóng cột Tây/Đông)<br>
+                • <code>Lộ 12</code>: <strong>Thanh Ray Nam Châm / LED thanh dài 2.05m</strong> chạy dọc Bắc–Nam ngay trên <strong>Bàn học &amp; Cửa sổ S3 tường Tây</strong>
+              </td>
+              <td>
+                • 4 lỗ <code>Φ75mm</code> (7W)<br>
+                • 5–6 lỗ <code>Φ75–90mm</code> (9W chữ U)<br>
+                • 01 Thanh ray <code>2.05m</code> trên Bàn học Tây<br>
+                • 01 Khe gió dọc <code>150×1100mm</code>
+              </td>
+              <td>
+                • <code>3000K</code> (Khu ngủ)<br>
+                • <code>4000K CRI&ge;92</code> (Ray bàn học Tây)<br>
+                • <strong>45 – 480 Lux</strong>
+              </td>
+              <td>
+                • <strong style="color:#fda4af;">ĐẦU GIƯỜNG TỰA TƯỜNG BẮC (TRỤC D) NHÌN XUỐNG NAM:</strong> Cặp <strong>2 bóng đôi 7W giữa phòng (Lộ 11) BẮT BUỘC bẻ góc chóa 25° về hướng Nam (<code>Yaw = 0°</code> — hướng về phía Hệ Tủ Áo &amp; Kệ Tivi tường Nam)!</strong><br>
+                • <strong>2 bóng 7W đầu giường Bắc:</strong> Bẻ <strong>15° về hướng Bắc</strong> rửa vách đầu giường.<br>
+                • <strong>3 bóng 9W hàng dưới chữ U (Lộ 10):</strong> Bẻ <strong>18° về hướng Nam</strong> rọi thẳng vào Hệ Tủ Áo &amp; Tivi dài <code>3.2m</code> tường Nam.
+              </td>
+              <td>
+                • <strong>Học bài tại Bàn tường Tây (480 Lux):</strong> Bật <code>Lộ 12 (Ray Nam Châm trên bàn học) + Lộ 10 (Chữ U) + Lộ 12*</code>.<br>
+                • <strong>Đi ngủ (45 Lux):</strong> Chỉ bật <code>Lộ 12* (LED hắt trần)</code>.
+              </td>
+            </tr>
+            <tr>
+              <th>6. Phòng Thờ Gia Tiên (Phía Bắc Tầng 3)</th>
+              <td><strong>Tầng 3</strong><br><code>+3.30m</code></td>
+              <td>
+                • <code>Lộ 14* (KT-4.08)</code>: <strong>3 Spotlight 7W xếp dọc trước Ban thờ tường Tây</strong> (<code>500+1205+1205mm</code>)<br>
+                • <code>Lộ 14</code>: <strong>6 Spotlight 9W</strong> viền quanh ô trần giật cấp (<code>1420+1420mm</code>)<br>
+                • <code>Lộ 16</code>: Đèn thả trung tâm Phòng Thờ<br>
+                • <code>Lộ 15</code>: LED dây COB hắt 4 cạnh ô trần
+              </td>
+              <td>
+                • 3 lỗ <code>Φ75mm</code> (Trước Ban thờ)<br>
+                • 6 lỗ <code>Φ90mm</code> (Viền ô trần)<br>
+                • 01 Đèn thả tâm trần
+              </td>
+              <td>
+                • <code>3000K</code> Vàng ấm<br>
+                • <strong>400 Lux</strong> (Tâm Ban thờ)<br>
+                • <strong>150 Lux</strong> (Nền phòng)
+              </td>
+              <td>
+                • <strong>3 bóng Lộ 14* xếp dọc trước Ban thờ tường Tây:</strong> Bẻ nghiêng <strong>25°–28° về hướng Tây</strong> rọi vào Ban thờ &amp; Hoành phi.<br>
+                • <strong>6 bóng Lộ 14 (3 Bắc + 3 Nam):</strong> Rửa sáng đều 2 vách Bắc – Nam của Phòng Thờ.
+              </td>
+              <td>
+                • <strong>Ngày thường (120 Lux):</strong> Bật <code>Lộ 14*</code> hoặc <code>Lộ 15</code>.<br>
+                • <strong>Giỗ Tết / Thắp hương (405 Lux):</strong> Bật đủ <code>Lộ 14* + 14 + 15 + 16</code>.
+              </td>
+            </tr>
+            <tr>
+              <th>7. Phòng Làm Việc Đôi 2 Vợ Chồng (Phía Nam Tầng 3 — PA T3-A)</th>
+              <td><strong>Tầng 3</strong><br><code>+3.30m (14.5m²)</code></td>
+              <td>
+                • <code>Lộ S1 (Tuyến Tây)</code>: Chạy dọc trên <strong>02 Bàn làm việc đôi (1600×600mm) + Tủ máy in</strong> ở tường Tây (Ray <code>3.0m</code> hoặc 4 Spotlight D90)<br>
+                • <code>Lộ S2 (Tuyến Nam)</code>: Chạy ngang trước <strong>Hệ Tủ Sách 2.44m</strong> ở tường Nam (Ray <code>2.0m</code> hoặc 3 Spotlight cách <code>1000mm</code>)<br>
+                • <code>Lộ S3 (Tuyến Đông)</code>: Chạy dọc trên <strong>Sofa đọc sách</strong> ở tường Đông (Ray <code>2.0m</code> hoặc 2 Spotlight) + Khe hắt trần
+              </td>
+              <td>
+                • PA Ray 48V (<code>3.0m + 2.0m + 2.0m</code>) hoặc PA 9 lỗ <code>Φ90mm</code> (<code>4 Tây + 3 Nam + 2 Đông</code>)
+              </td>
+              <td>
+                • <code>4000K CRI&ge;92</code><br>
+                • <strong>530 Lux</strong> (2 Bàn đôi Tây)<br>
+                • <strong>380 Lux</strong> (Tủ sách Nam)
+              </td>
+              <td>
+                • <strong>Tuyến Tây S1 (Trên 2 bàn đôi):</strong> Chiếu thẳng <strong>0°–5°</strong> tán quang chống chói <code>UGR &lt; 16</code>.<br>
+                • <strong>Tuyến Nam S2 (Trước Tủ sách tường Nam):</strong> Bẻ nghiêng <strong>28°–30° về hướng Nam</strong> quét sáng toàn bộ các ngăn Tủ sách kịch trần 2,44m.
+              </td>
+              <td>
+                • <strong>Làm việc đôi (530 Lux):</strong> Bật <code>Lộ S1 + S2 + S3</code>.<br>
+                • <strong>Làm việc khuya 1 mình (210 Lux):</strong> Bật <code>Lộ S2 + S3</code> (ánh sáng gián tiếp).
+              </td>
+            </tr>
+            <tr>
+              <th>8. Bốn Phòng Vệ Sinh (WC1, WC2 Master, WC3, WC4)</th>
+              <td><strong>Tầng 1, 2, 3</strong><br><code>+2.40m</code> (Tấm chống ẩm)</td>
+              <td>
+                • 3–4 Spotlight chống ẩm <code>IP44 9W</code><br>
+                • Dải LED Gương Lavabo chống ẩm
+              </td>
+              <td>
+                • 13 lỗ <code>Φ90mm</code> (4 WC)<br>
+                • 4 Gương LED
+              </td>
+              <td>
+                • <code>4000K</code> (Trần WC)<br>
+                • <code>3000K</code> (LED Gương)<br>
+                • <strong>40 – 320 Lux</strong>
+              </td>
+              <td>
+                • <strong>Bóng phía trên Lavabo:</strong> Bẻ nghiêng <strong>10°–12° về phía tường gương</strong> để ánh sáng phản xạ soi rõ khuôn mặt.<br>
+                • <strong>Bóng trong vách kính tắm đứng:</strong> Để thẳng <strong>0°</strong>.
+              </td>
+              <td>
+                • <strong>Ban ngày/Tối (320 Lux):</strong> Cảm biến <code>FP1E</code> bật cả Đèn trần + LED Gương.<br>
+                • <strong>Sau 22h đêm (40 Lux):</strong> Chỉ bật duy nhất <code>LED Gương</code> dịu mắt.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modern Web Guidance: Light-Dismiss Dialog with closedby="any" and showModal() -->
+  <dialog id="lightingBlueprintDialog" class="blueprint-dialog" closedby="any" aria-labelledby="lightingDialogTitle" style="max-width:96vw;width:96vw;max-height:94vh;">
+    <div class="dialog-inner" style="display:flex;flex-direction:column;height:88vh;">
+      <div class="dialog-header" style="flex-wrap:wrap;gap:10px;">
+        <h2 id="lightingDialogTitle" style="font-size:1rem;font-weight:800;color:#fff;">Bản Vẽ Kỹ Thuật Chiếu Sáng &amp; Chỉnh Góc Chóa Đèn OPPLE</h2>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+          <button type="button" class="studio-chip" onclick="setDialogZoom(1)">100%</button>
+          <button type="button" class="studio-chip" onclick="setDialogZoom(2)">200%</button>
+          <button type="button" class="studio-chip" onclick="setDialogZoom(3)">300%</button>
+          <button type="button" class="studio-chip" onclick="setDialogZoom(4)">400%</button>
+          <span id="dialogZoomReadout" style="font-size:0.8rem;font-weight:800;color:#fde68a;min-width:48px;text-align:center;">100%</span>
+          <a id="dialogRawLink" href="assets/kt402_master_pa2_cad_xhome.svg" target="_blank" rel="noopener" class="studio-chip" style="text-decoration:none;border-color:#10b981;color:#6ee7b7;">↗️ Mở Bản Gốc (Tab Mới)</a>
+          <form method="dialog" style="margin:0;">
+            <button type="submit" class="dialog-close-btn">✕ Đóng (Esc)</button>
+          </form>
+        </div>
+      </div>
+      <div id="lightingDialogStage" style="flex:1;overflow:auto;background:#0f172a;border-radius:8px;padding:12px;cursor:zoom-in;user-select:none;">
+        <img id="lightingDialogImg" src="assets/mo_phong_dialux_va_huong_chinh_goc_den.png" alt="Bản vẽ phóng to" draggable="false" style="width:100%;max-width:none;height:auto;border-radius:8px;background:#fff;display:block;margin:auto;">
+      </div>
+    </div>
+  </dialog>
+
+  <script src="assets/opple-3d-studio.js"></script>
+  <script>
+    let dlgZoom = 1;
+    let dlgDrag = false;
+    let dlgMoved = false;
+    let dlgSX = 0, dlgSY = 0, dlgSL = 0, dlgST = 0;
+
+    function setDialogZoom(z) {
+      dlgZoom = Math.min(6, Math.max(1, Math.round(z * 100) / 100));
+      const img = document.getElementById('lightingDialogImg');
+      const stage = document.getElementById('lightingDialogStage');
+      const readout = document.getElementById('dialogZoomReadout');
+      if (img) img.style.width = Math.round(dlgZoom * 100) + '%';
+      if (readout) readout.textContent = Math.round(dlgZoom * 100) + '%';
+      if (stage) stage.style.cursor = dlgZoom > 1.02 ? 'grab' : 'zoom-in';
+    }
+
+    function openBlueprintModal(src, title) {
+      const dialog = document.getElementById('lightingBlueprintDialog');
+      const img = document.getElementById('lightingDialogImg');
+      const titleEl = document.getElementById('lightingDialogTitle');
+      const rawLink = document.getElementById('dialogRawLink');
+      let bestSrc = src;
+      if (src && src.includes('kt402_master_pa2_cad_xhome.png')) {
+        bestSrc = src.replace('kt402_master_pa2_cad_xhome.png', 'kt402_master_pa2_cad_xhome.svg');
+      }
+      if (img && bestSrc) img.src = bestSrc;
+      if (rawLink && bestSrc) rawLink.href = bestSrc;
+      if (titleEl && title) titleEl.textContent = title;
+      setDialogZoom(1);
+      if (dialog && typeof dialog.showModal === 'function') {
+        dialog.showModal();
+      }
+    }
+
+    (function initDialogZoomPan() {
+      const stage = document.getElementById('lightingDialogStage');
+      const img = document.getElementById('lightingDialogImg');
+      if (!stage || !img) return;
+      stage.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        setDialogZoom(dlgZoom + (e.deltaY < 0 ? 0.35 : -0.35));
+      }, { passive: false });
+      stage.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        dlgDrag = true;
+        dlgMoved = false;
+        dlgSX = e.clientX;
+        dlgSY = e.clientY;
+        dlgSL = stage.scrollLeft;
+        dlgST = stage.scrollTop;
+        if (dlgZoom > 1.02) stage.style.cursor = 'grabbing';
+      });
+      window.addEventListener('mousemove', (e) => {
+        if (!dlgDrag) return;
+        const dx = e.clientX - dlgSX;
+        const dy = e.clientY - dlgSY;
+        if (Math.abs(dx) > 5 || Math.abs(dy) > 5) dlgMoved = true;
+        if (dlgZoom > 1.02) {
+          stage.scrollLeft = dlgSL - dx;
+          stage.scrollTop = dlgST - dy;
+        }
+      });
+      window.addEventListener('mouseup', () => {
+        if (!dlgDrag) return;
+        dlgDrag = false;
+        if (dlgZoom > 1.02) stage.style.cursor = 'grab';
+      });
+      img.addEventListener('click', () => {
+        if (dlgMoved) return;
+        if (dlgZoom < 1.8) setDialogZoom(2.2);
+        else if (dlgZoom < 3.2) setDialogZoom(3.5);
+        else setDialogZoom(1);
+      });
+      let pDist = 0, pZoom = 1;
+      stage.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 2) {
+          e.preventDefault();
+          pDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+          pZoom = dlgZoom;
+        }
+      }, { passive: false });
+      stage.addEventListener('touchmove', (e) => {
+        if (e.touches.length === 2 && pDist > 0) {
+          e.preventDefault();
+          const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+          setDialogZoom(pZoom * (d / pDist));
+        }
+      }, { passive: false });
+    })();
+  </script>
+</body>
+</html>

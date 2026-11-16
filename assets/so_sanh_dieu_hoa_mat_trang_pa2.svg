@@ -1,0 +1,399 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1800" width="1800" height="1800" style="background:#ffffff;font-family:'Arial',Helvetica,sans-serif;">
+  <defs>
+    <!-- Brick Hatch -->
+    <pattern id="brick" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#64748b" stroke-width="0.9"/>
+    </pattern>
+    <!-- Wardrobe Hatch -->
+    <pattern id="wood" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#b45309" stroke-width="0.9" stroke-dasharray="3,2"/>
+    </pattern>
+    <!-- Supply Grille Pattern (Blue) -->
+    <pattern id="sagPat" width="4" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="4" y2="0" stroke="#0284c7" stroke-width="1"/>
+      <line x1="2" y1="0" x2="2" y2="8" stroke="#0284c7" stroke-width="0.8"/>
+    </pattern>
+    <!-- Return Grille Pattern (Green) -->
+    <pattern id="ragPat" width="4" height="8" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="4" y2="0" stroke="#059669" stroke-width="1"/>
+      <line x1="2" y1="0" x2="2" y2="8" stroke="#059669" stroke-width="0.8"/>
+    </pattern>
+    <!-- Arrowheads -->
+    <marker id="arrBlue" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#0284c7"/>
+    </marker>
+    <marker id="arrGreen" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#059669"/>
+    </marker>
+    <marker id="arrRed" markerWidth="7" markerHeight="7" refX="5.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#dc2626"/>
+    </marker>
+    <marker id="tick" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <line x1="1" y1="9" x2="9" y2="1" stroke="#1e293b" stroke-width="1.6"/>
+    </marker>
+    <marker id="tickRed" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <line x1="1" y1="9" x2="9" y2="1" stroke="#dc2626" stroke-width="1.8"/>
+    </marker>
+    <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fef3c7" stop-opacity="0.95"/>
+      <stop offset="70%" stop-color="#fde68a" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.25"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Outer Sheet Border -->
+  <rect x="16" y="16" width="1768" height="1768" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+  <rect x="24" y="24" width="1752" height="1752" fill="none" stroke="#0f172a" stroke-width="1"/>
+
+  <!-- Top Header Banner -->
+  <rect x="24" y="24" width="1752" height="92" fill="#0f172a"/>
+  <text x="900" y="64" fill="#ffffff" font-size="25" font-weight="bold" text-anchor="middle">BẢN VẼ TRỰC QUAN SO SÁNH HỆ THỐNG CỬA GIÓ &amp; ỐNG GIÓ ĐIỀU HÒA MASTER TẦNG 2 (IN 2.3 – 18.000 BTU/H)</text>
+  <text x="900" y="96" fill="#38bdf8" font-size="16" font-weight="bold" text-anchor="middle">ĐỐI CHIẾU GIỮA THIẾT KẾ GỐC XHOME (CĐ-16 &amp; KT-4.02) VÀ PHƯƠNG ÁN ĐÈN MẶT TRĂNG Ø1.200MM + VÁCH TỦ ĐẢO PA2</text>
+
+  <!-- ================================================================================= -->
+  <!-- PANEL 1 (LEFT): THIẾT KẾ GỐC XHOME (CĐ-16 & KT-4.02)                              -->
+  <!-- ================================================================================= -->
+  <g transform="translate(45, 136)">
+    <rect x="0" y="0" width="830" height="1065" fill="#f8fafc" stroke="#475569" stroke-width="2" rx="8"/>
+    <rect x="0" y="0" width="830" height="54" fill="#334155" rx="8"/>
+    <text x="415" y="26" fill="#ffffff" font-size="18" font-weight="bold" text-anchor="middle">1. THIẾT KẾ GỐC CỦA XHOME (THEO BẢN VẼ CĐ-16 &amp; KT-4.02)</text>
+    <text x="415" y="46" fill="#cbd5e1" font-size="13" font-weight="bold" text-anchor="middle">Trần Khu Thay Đồ là Hộp chữ nhật rộng 2.370mm • Cửa gió bị lệch trục 170mm • Ống gió đi chéo qua tâm</text>
+
+    <!-- Axis Labels -->
+    <circle cx="157" cy="74" r="12" fill="#fff" stroke="#0f172a" stroke-width="1.5"/>
+    <text x="157" y="78" font-size="12" font-weight="bold" text-anchor="middle">1'</text>
+    <circle cx="673" cy="74" r="12" fill="#fff" stroke="#0f172a" stroke-width="1.5"/>
+    <text x="673" y="78" font-size="12" font-weight="bold" text-anchor="middle">2</text>
+    <line x1="157" y1="92" x2="673" y2="92" stroke="#0f172a" stroke-width="1.2" marker-start="url(#tick)" marker-end="url(#tick)"/>
+    <text x="415" y="87" font-size="12.5" font-weight="bold" text-anchor="middle">3.440 mm (Chiều rộng lòng phòng)</text>
+
+    <!-- Room Interior Background -->
+    <rect x="157" y="110" width="516" height="875" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+    <rect x="673" y="110" width="120" height="451.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+
+    <!-- Walls -->
+    <rect x="139" y="110" width="18" height="875" fill="url(#brick)" stroke="#0f172a" stroke-width="1.5"/>
+    <rect x="139" y="94" width="672" height="16" fill="url(#brick)" stroke="#0f172a" stroke-width="1.5"/>
+    <rect x="673" y="561.5" width="18" height="423" fill="url(#brick)" stroke="#0f172a" stroke-width="1.5"/>
+    <rect x="139" y="985" width="552" height="16" fill="url(#brick)" stroke="#0f172a" stroke-width="1.5"/>
+
+    <!-- Zone Labels on Left -->
+    <text x="115" y="335" font-size="13" font-weight="bold" fill="#334155" text-anchor="middle" transform="rotate(-90 115 335)">KHU GIƯỜNG NGỦ (DÀI 3.010 MM)</text>
+    <text x="115" y="780" font-size="13" font-weight="bold" fill="#334155" text-anchor="middle" transform="rotate(-90 115 780)">KHU THAY ĐỒ (DÀI 2.700 MM)</text>
+
+    <!-- XHOME Original Bedroom Ceiling Coffer: 2600 x 2450mm -->
+    <rect x="220" y="152" width="390" height="367.5" rx="18" fill="#f1f5f9" stroke="#475569" stroke-width="1.8" stroke-dasharray="6,3"/>
+    <text x="415" y="195" font-size="13" font-weight="bold" fill="#475569" text-anchor="middle">HỘP TRẦN KHU NGỦ CŨ (2.600 × 2.450 MM)</text>
+
+    <!-- XHOME Original Bedroom Grilles -->
+    <rect x="197.5" y="255" width="22.5" height="150" fill="url(#sagPat)" stroke="#0284c7" stroke-width="2"/>
+    <rect x="610" y="255" width="22.5" height="150" fill="url(#ragPat)" stroke="#059669" stroke-width="2"/>
+
+    <!-- Dimension from West wall to Bedroom SAG: 270mm -->
+    <line x1="157" y1="240" x2="197.5" y2="240" stroke="#dc2626" stroke-width="1.5" marker-start="url(#tickRed)" marker-end="url(#tickRed)"/>
+    <text x="177" y="232" font-size="11.5" font-weight="bold" fill="#dc2626" text-anchor="middle">270mm</text>
+
+    <!-- Old Partition Wall at Grid B -->
+    <rect x="247" y="555" width="336" height="24" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+    <!-- XHOME Original Walk-in Closet Rectangular Ceiling Coffer: 2370 x 1340mm -->
+    <rect x="210" y="620" width="355.5" height="215" fill="#f1f5f9" stroke="#475569" stroke-width="1.8" stroke-dasharray="6,3"/>
+    <text x="388" y="772" font-size="12.5" font-weight="bold" fill="#475569" text-anchor="middle">HỘP TRẦN CHỮ NHẬT CŨ (2.370 × 1.340 MM)</text>
+    <text x="388" y="790" font-size="11.5" fill="#dc2626" font-weight="bold" text-anchor="middle">(Chiếm rộng 2.370mm nên ép 2 cửa gió sát ra tường!)</text>
+
+    <!-- XHOME Original Walk-in Closet Grilles -->
+    <rect x="172" y="660" width="22.5" height="120" fill="url(#sagPat)" stroke="#0284c7" stroke-width="2"/>
+    <text x="195" y="802" font-size="11.5" font-weight="bold" fill="#0284c7" text-anchor="middle">SAG 150×800</text>
+
+    <rect x="588" y="660" width="22.5" height="120" fill="url(#ragPat)" stroke="#059669" stroke-width="2"/>
+    <text x="599" y="802" font-size="11.5" font-weight="bold" fill="#059669" text-anchor="middle">RAG 150×800</text>
+
+    <!-- Original Flexible Ducts D150 from IN 2.3 (CĐ-16) drawn BEFORE callout boxes so callouts sit cleanly on top -->
+    <path d="M 355 455 L 355 300 L 220 300" fill="none" stroke="#0284c7" stroke-width="3.8" marker-end="url(#arrBlue)"/>
+    <path d="M 375 455 L 375 360 L 220 360" fill="none" stroke="#0284c7" stroke-width="3.8" marker-end="url(#arrBlue)"/>
+    <path d="M 610 300 L 455 300 L 455 455" fill="none" stroke="#059669" stroke-width="3.8" stroke-dasharray="8,4" marker-end="url(#arrGreen)"/>
+    <path d="M 610 360 L 435 360 L 435 455" fill="none" stroke="#059669" stroke-width="3.8" stroke-dasharray="8,4" marker-end="url(#arrGreen)"/>
+
+    <path d="M 365 537 L 365 680 L 194.5 680" fill="none" stroke="#dc2626" stroke-width="4.2" marker-end="url(#arrRed)"/>
+    <path d="M 385 537 L 385 720 L 194.5 720" fill="none" stroke="#dc2626" stroke-width="4.2" marker-end="url(#arrRed)"/>
+    <path d="M 588 680 L 445 680 L 445 537" fill="none" stroke="#059669" stroke-width="3.8" stroke-dasharray="8,4" marker-end="url(#arrGreen)"/>
+    <path d="M 588 720 L 425 720 L 425 537" fill="none" stroke="#059669" stroke-width="3.8" stroke-dasharray="8,4" marker-end="url(#arrGreen)"/>
+
+    <!-- Opaque Callout Pill Labels for Bedroom Grilles -->
+    <rect x="228" y="218" width="102" height="34" rx="4" fill="#eff6ff" stroke="#0284c7" stroke-width="1"/>
+    <text x="279" y="233" font-size="11" font-weight="bold" fill="#0284c7" text-anchor="middle">SAG 150×1000</text>
+    <text x="279" y="247" font-size="10" fill="#0369a1" text-anchor="middle">(Cửa cấp gió)</text>
+
+    <rect x="500" y="218" width="102" height="34" rx="4" fill="#ecfdf5" stroke="#059669" stroke-width="1"/>
+    <text x="551" y="233" font-size="11" font-weight="bold" fill="#059669" text-anchor="middle">RAG 150×1000</text>
+    <text x="551" y="247" font-size="10" fill="#065f46" text-anchor="middle">(Cửa gió hồi)</text>
+
+    <!-- XHOME Original Indoor Unit IN 2.3 (18.000 BTU/H) -->
+    <rect x="315" y="452" width="200" height="82" rx="5" fill="#fee2e2" stroke="#dc2626" stroke-width="2.2"/>
+    <text x="415" y="476" font-size="12.5" font-weight="bold" fill="#b91c1c" text-anchor="middle">DÀN LẠNH IN 2.3 (18.000 BTU)</text>
+    <text x="415" y="494" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">+ Lỗ thăm trần đặt sát Trục B</text>
+    <text x="415" y="511" font-size="10.5" fill="#dc2626" text-anchor="middle">(⚠️ Bị đè lên đỉnh Vách Tủ Đảo PA2!)</text>
+
+    <!-- Old Partition Label -->
+    <rect x="275" y="556" width="280" height="22" rx="3" fill="#e2e8f0" stroke="#64748b" stroke-width="1"/>
+    <text x="415" y="571" font-size="10.5" font-weight="bold" fill="#334155" text-anchor="middle">VÁCH KÍNH &amp; KỆ TIVI CŨ TẠI TRỤC B (ĐÃ BỎ)</text>
+
+    <!-- Dimension from West wall to Walk-in SAG: 100mm (MISALIGNED!) -->
+    <line x1="157" y1="646" x2="172" y2="646" stroke="#dc2626" stroke-width="1.5" marker-start="url(#tickRed)" marker-end="url(#tickRed)"/>
+    <rect x="160" y="616" width="76" height="22" rx="3" fill="#ffffff" stroke="#dc2626" stroke-width="1"/>
+    <text x="198" y="631" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">Chỉ 100mm!</text>
+
+    <!-- Misalignment Callout Box -->
+    <line x1="208.7" y1="405" x2="208.7" y2="660" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="4,4"/>
+    <line x1="183.2" y1="660" x2="208.7" y2="660" stroke="#dc2626" stroke-width="2"/>
+    <rect x="245" y="588" width="295" height="26" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.4"/>
+    <text x="392.5" y="605" font-size="11.5" font-weight="bold" fill="#dc2626" text-anchor="middle">⚠️ Lệch trục Bắc–Nam 170mm (270mm vs 100mm)</text>
+
+    <!-- Duct Crossing Center Warning Box -->
+    <rect x="260" y="692" width="265" height="46" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
+    <text x="392.5" y="711" font-size="11.5" font-weight="bold" fill="#dc2626" text-anchor="middle">⚠️ 02 Ống gió mềm D150 đi xuyên qua</text>
+    <text x="392.5" y="728" font-size="11.5" font-weight="bold" fill="#dc2626" text-anchor="middle">giữa phòng (Sẽ đụng hộp Đèn Mặt Trăng!)</text>
+
+    <!-- South Wardrobes #1 & #2 -->
+    <rect x="157" y="895" width="177" height="90" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <text x="245.5" y="945" font-size="11.5" font-weight="bold" fill="#475569" text-anchor="middle">TỦ ÁO #1 (1.180×600)</text>
+    <rect x="496" y="895" width="177" height="90" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <text x="584.5" y="945" font-size="11.5" font-weight="bold" fill="#475569" text-anchor="middle">TỦ ÁO #2 (1.180×600)</text>
+
+    <!-- Summary Footer in Left Panel -->
+    <rect x="25" y="1008" width="780" height="44" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="415" y="1027" font-size="12.5" font-weight="bold" fill="#991b1b" text-anchor="middle">NHƯỢC ĐIỂM NẾU THỢ CỨ LẮP Y NGUYÊN THEO BẢN VẼ CĐ-16 CŨ:</text>
+    <text x="415" y="1044" font-size="11.5" fill="#b91c1c" text-anchor="middle">(1) 2 cửa gió trên-dưới bị lệch nhau 170mm • (2) 2 ống gió D150 băng ngang qua tâm đụng Đèn Mặt Trăng • (3) Máy IN 2.3 bị Vách Tủ Đảo che kín</text>
+  </g>
+
+  <!-- ================================================================================= -->
+  <!-- PANEL 2 (RIGHT): PHƯƠNG ÁN ĐÈN MẶT TRĂNG Ø1.200MM + VÁCH TỦ ĐẢO PA2 (ĐÃ CHUẨN HÓA) -->
+  <!-- ================================================================================= -->
+  <g transform="translate(925, 136)">
+    <rect x="0" y="0" width="830" height="1065" fill="#f0fdf4" stroke="#16a34a" stroke-width="2.2" rx="8"/>
+    <rect x="0" y="0" width="830" height="54" fill="#065f46" rx="8"/>
+    <text x="415" y="26" fill="#ffffff" font-size="18" font-weight="bold" text-anchor="middle">2. KHI LÀM ĐÈN MẶT TRĂNG Ø1.200MM + VÁCH TỦ ĐẢO PA2 (ĐÃ HIỆU CHỈNH)</text>
+    <text x="415" y="46" fill="#a7f3d0" font-size="13" font-weight="bold" text-anchor="middle">Giữ nguyên 04 cửa gió XHOME • Căn thẳng 1 trục 270mm • Cách mép Mặt Trăng 700mm • Ống gió né vòng ngoài</text>
+
+    <!-- Axis Labels -->
+    <circle cx="157" cy="74" r="12" fill="#fff" stroke="#0f172a" stroke-width="1.5"/>
+    <text x="157" y="78" font-size="12" font-weight="bold" text-anchor="middle">1'</text>
+    <circle cx="673" cy="74" r="12" fill="#fff" stroke="#0f172a" stroke-width="1.5"/>
+    <text x="673" y="78" font-size="12" font-weight="bold" text-anchor="middle">2</text>
+    <line x1="157" y1="92" x2="673" y2="92" stroke="#0f172a" stroke-width="1.2" marker-start="url(#tick)" marker-end="url(#tick)"/>
+    <text x="415" y="87" font-size="11.5" font-weight="bold" fill="#065f46" text-anchor="middle">3.440 mm = 270 + 150 (Cửa gió) + 700 (Trần trống) + 1.200 (Mặt Trăng) + 700 + 150 + 270</text>
+
+    <!-- Room Interior Background -->
+    <rect x="157" y="110" width="516" height="875" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+    <rect x="673" y="110" width="120" height="451.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+
+    <!-- Walls -->
+    <rect x="139" y="110" width="18" height="875" fill="url(#brick)" stroke="#0f172a" stroke-width="1.5"/>
+    <rect x="139" y="94" width="672" height="16" fill="url(#brick)" stroke="#0f172a" stroke-width="1.5"/>
+    <rect x="673" y="561.5" width="18" height="423" fill="url(#brick)" stroke="#0f172a" stroke-width="1.5"/>
+    <rect x="139" y="985" width="552" height="16" fill="url(#brick)" stroke="#0f172a" stroke-width="1.5"/>
+
+    <!-- Shortened Bedroom Ceiling Coffer: 2600 x 2150mm -->
+    <rect x="220" y="152" width="390" height="322.5" rx="18" fill="#f8fafc" stroke="#0f172a" stroke-width="1.8"/>
+    <text x="415" y="195" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">HỘP TRẦN KHU NGỦ (2.600 × 2.150 MM)</text>
+
+    <!-- Bedroom Grilles -->
+    <rect x="197.5" y="255" width="22.5" height="150" fill="url(#sagPat)" stroke="#0284c7" stroke-width="2.2"/>
+    <rect x="610" y="255" width="22.5" height="150" fill="url(#ragPat)" stroke="#059669" stroke-width="2.2"/>
+
+    <!-- Walk-in Closet Grilles aligned on the EXACT SAME AXIS (270mm from walls) -->
+    <rect x="197.5" y="685" width="22.5" height="120" fill="url(#sagPat)" stroke="#0284c7" stroke-width="2.5"/>
+    <rect x="610" y="685" width="22.5" height="120" fill="url(#ragPat)" stroke="#059669" stroke-width="2.5"/>
+
+    <!-- Straight Axis Alignment Dashed Line (North-South through Left & Right grilles) -->
+    <line x1="208.7" y1="205" x2="208.7" y2="855" stroke="#16a34a" stroke-width="2" stroke-dasharray="6,4"/>
+    <line x1="621.2" y1="205" x2="621.2" y2="855" stroke="#16a34a" stroke-width="2" stroke-dasharray="6,4"/>
+
+    <!-- ADJUSTMENT ②: Rerouted Flexible Ducts D150 drawn BEFORE boxes so callouts sit cleanly on top -->
+    <path d="M 440 410 L 310 410 L 310 290 L 220 290" fill="none" stroke="#0284c7" stroke-width="3.8" marker-end="url(#arrBlue)"/>
+    <path d="M 440 426 L 330 426 L 330 340 L 220 340" fill="none" stroke="#0284c7" stroke-width="3.8" marker-end="url(#arrBlue)"/>
+    <path d="M 610 300 L 550 300 L 550 388" fill="none" stroke="#059669" stroke-width="3.8" stroke-dasharray="8,4" marker-end="url(#arrGreen)"/>
+    <path d="M 610 350 L 570 350 L 570 388" fill="none" stroke="#059669" stroke-width="3.8" stroke-dasharray="8,4" marker-end="url(#arrGreen)"/>
+
+    <path d="M 440 442 L 248 442 L 248 715 L 220 715" fill="none" stroke="#0284c7" stroke-width="4.2" marker-end="url(#arrBlue)"/>
+    <path d="M 440 456 L 264 456 L 264 765 L 220 765" fill="none" stroke="#0284c7" stroke-width="4.2" marker-end="url(#arrBlue)"/>
+    <path d="M 610 715 L 562 715 L 562 464" fill="none" stroke="#059669" stroke-width="3.8" stroke-dasharray="8,4" marker-end="url(#arrGreen)"/>
+    <path d="M 610 765 L 578 765 L 578 464" fill="none" stroke="#059669" stroke-width="3.8" stroke-dasharray="8,4" marker-end="url(#arrGreen)"/>
+
+    <!-- Opaque Callout Pill Labels for Bedroom & Walk-in Grilles -->
+    <rect x="228" y="218" width="102" height="34" rx="4" fill="#eff6ff" stroke="#0284c7" stroke-width="1"/>
+    <text x="279" y="233" font-size="11" font-weight="bold" fill="#0284c7" text-anchor="middle">SAG 150×1000</text>
+    <text x="279" y="247" font-size="10" fill="#0369a1" text-anchor="middle">(Giữ nguyên)</text>
+
+    <rect x="500" y="218" width="102" height="34" rx="4" fill="#ecfdf5" stroke="#059669" stroke-width="1"/>
+    <text x="551" y="233" font-size="11" font-weight="bold" fill="#059669" text-anchor="middle">RAG 150×1000</text>
+    <text x="551" y="247" font-size="10" fill="#065f46" text-anchor="middle">(Giữ nguyên)</text>
+
+    <!-- ADJUSTMENT ③: Indoor Unit IN 2.3 & Access Hatch 450x450 -->
+    <rect x="435" y="388" width="165" height="76" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="2.2"/>
+    <text x="517.5" y="412" font-size="12" font-weight="bold" fill="#065f46" text-anchor="middle">③ DÀN LẠNH IN 2.3</text>
+    <text x="517.5" y="428" font-size="10.5" font-weight="bold" fill="#15803d" text-anchor="middle">(Lùi lên trước Vách Tranh,</text>
+    <text x="517.5" y="443" font-size="10.5" font-weight="bold" fill="#15803d" text-anchor="middle">không đè lên Vách Tủ Đảo!)</text>
+
+    <!-- Access Hatch 450x450 in Right 850mm Open Walkway -->
+    <rect x="576" y="533" width="67.5" height="67.5" fill="#fef9c3" stroke="#ca8a04" stroke-width="2.2"/>
+    <line x1="576" y1="533" x2="643.5" y2="600.5" stroke="#ca8a04" stroke-width="1.4"/>
+    <line x1="643.5" y1="533" x2="576" y2="600.5" stroke="#ca8a04" stroke-width="1.4"/>
+    <rect x="550" y="490" width="155" height="36" rx="4" fill="#fefce8" stroke="#ca8a04" stroke-width="1.4"/>
+    <text x="627.5" y="505" font-size="10.8" font-weight="bold" fill="#b45309" text-anchor="middle">③ LỖ THĂM 450×450</text>
+    <text x="627.5" y="520" font-size="10" font-weight="bold" fill="#92400e" text-anchor="middle">(Tại lối đi Phải 850mm)</text>
+
+    <!-- Callout ① Box -->
+    <rect x="162" y="485" width="128" height="38" rx="5" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="226" y="501" font-size="10.5" font-weight="bold" fill="#065f46" text-anchor="middle">① Thẳng tắp 1 trục</text>
+    <text x="226" y="516" font-size="10.5" font-weight="bold" fill="#065f46" text-anchor="middle">cách tường 270mm</text>
+
+    <!-- PA2 Freestanding Center Island Wall / Wardrobe at Grid B -->
+    <rect x="284.5" y="533" width="261" height="67.5" rx="12" fill="url(#wood)" stroke="#b45309" stroke-width="2.5"/>
+    <rect x="298" y="543" width="234" height="47" rx="4" fill="#fffbeb" stroke="#d97706" stroke-width="1"/>
+    <text x="415" y="562" font-size="12" font-weight="bold" fill="#92400e" text-anchor="middle">VÁCH TỦ ĐẢO KỊCH TRẦN (1.740 × 450 MM)</text>
+    <text x="415" y="579" font-size="10.5" font-weight="bold" fill="#b45309" text-anchor="middle">2 bên là 2 Lối đi mở 850mm (Trái &amp; Phải)</text>
+
+    <!-- Callout ② Box -->
+    <rect x="275" y="610" width="280" height="38" rx="6" fill="#eff6ff" stroke="#0284c7" stroke-width="1.8"/>
+    <text x="415" y="626" font-size="11.2" font-weight="bold" fill="#0369a1" text-anchor="middle">② 02 Ống gió D150 đi vòng qua trần Lối đi 850mm</text>
+    <text x="415" y="641" font-size="10.8" font-weight="bold" fill="#0284c7" text-anchor="middle">(Né hoàn toàn Vách Tủ Đảo &amp; Vòm Mặt Trăng Ø1.200!)</text>
+
+    <!-- Walk-in Closet Moon Dome Ø1200mm -->
+    <circle cx="415" cy="745" r="93" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <circle cx="415" cy="745" r="90" fill="url(#moonGlow)" stroke="#d97706" stroke-width="2.8"/>
+    <text x="415" y="738" font-size="13.5" font-weight="bold" fill="#92400e" text-anchor="middle">ĐÈN MẶT TRĂNG</text>
+    <text x="415" y="756" font-size="13" font-weight="bold" fill="#b45309" text-anchor="middle">Ø1.200 MM (Lộ 17)</text>
+    <text x="415" y="773" font-size="10.5" fill="#78350f" text-anchor="middle">(Chính giữa phòng)</text>
+
+    <!-- Labels for Walk-in Grilles -->
+    <rect x="162" y="809" width="110" height="32" rx="4" fill="#eff6ff" stroke="#0284c7" stroke-width="1"/>
+    <text x="217" y="823" font-size="10.5" font-weight="bold" fill="#0284c7" text-anchor="middle">① SAG 150×800</text>
+    <text x="217" y="836" font-size="9.5" fill="#0369a1" text-anchor="middle">(Cách tường 270mm)</text>
+
+    <rect x="558" y="809" width="110" height="32" rx="4" fill="#ecfdf5" stroke="#059669" stroke-width="1"/>
+    <text x="613" y="823" font-size="10.5" font-weight="bold" fill="#059669" text-anchor="middle">① RAG 150×800</text>
+    <text x="613" y="836" font-size="9.5" fill="#065f46" text-anchor="middle">(Thẳng trục cửa trên)</text>
+
+    <!-- CLEARANCE DIMENSION: 700mm between SAG/RAG 150x800 and Moon Dome Ø1200mm! -->
+    <line x1="220" y1="848" x2="325" y2="848" stroke="#dc2626" stroke-width="2" marker-start="url(#tickRed)" marker-end="url(#tickRed)"/>
+    <rect x="224" y="854" width="98" height="36" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.2"/>
+    <text x="273" y="870" font-size="11.5" font-weight="bold" fill="#dc2626" text-anchor="middle">CÁCH XA 700MM</text>
+    <text x="273" y="884" font-size="10" font-weight="bold" fill="#b91c1c" text-anchor="middle">(Không vướng đèn!)</text>
+
+    <line x1="505" y1="848" x2="610" y2="848" stroke="#dc2626" stroke-width="2" marker-start="url(#tickRed)" marker-end="url(#tickRed)"/>
+    <rect x="508" y="854" width="98" height="36" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.2"/>
+    <text x="557" y="870" font-size="11.5" font-weight="bold" fill="#dc2626" text-anchor="middle">CÁCH XA 700MM</text>
+    <text x="557" y="884" font-size="10" font-weight="bold" fill="#b91c1c" text-anchor="middle">(Không vướng đèn!)</text>
+
+    <line x1="325" y1="848" x2="505" y2="848" stroke="#b45309" stroke-width="2" marker-start="url(#tick)" marker-end="url(#tick)"/>
+    <text x="415" y="866" font-size="12" font-weight="bold" fill="#92400e" text-anchor="middle">Ø1.200 mm</text>
+
+    <!-- South Wardrobes #1 & #2 -->
+    <rect x="157" y="895" width="177" height="90" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <text x="245.5" y="945" font-size="11.5" font-weight="bold" fill="#475569" text-anchor="middle">TỦ ÁO #1 (1.180×600)</text>
+    <rect x="496" y="895" width="177" height="90" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+    <text x="584.5" y="945" font-size="11.5" font-weight="bold" fill="#475569" text-anchor="middle">TỦ ÁO #2 (1.180×600)</text>
+
+    <!-- Summary Footer in Right Panel -->
+    <rect x="25" y="1008" width="780" height="44" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="415" y="1027" font-size="12.5" font-weight="bold" fill="#065f46" text-anchor="middle">ƯU ĐIỂM KHI HIỆU CHỈNH THEO ĐÈN MẶT TRĂNG Ø1.200MM &amp; PA2:</text>
+    <text x="415" y="1044" font-size="11.5" font-weight="bold" fill="#15803d" text-anchor="middle">① 4 cửa gió thẳng tắp 1 trục • ② Cửa gió cách Mặt Trăng 700mm (0% va chạm) • ③ Lỗ thăm ĐH nằm ở lối đi mở 850mm</text>
+  </g>
+
+  <!-- ================================================================================= -->
+  <!-- PANEL 3 (BOTTOM): MẶT CẮT NGANG TRẦN KHU THAY ĐỒ (3.440 MM)                       -->
+  <!-- ================================================================================= -->
+  <g transform="translate(45, 1222)">
+    <rect x="0" y="0" width="1710" height="530" fill="#ffffff" stroke="#0f172a" stroke-width="2.2" rx="8"/>
+    <rect x="0" y="0" width="1710" height="50" fill="#0f172a" rx="8"/>
+    <text x="855" y="32" fill="#fde68a" font-size="18" font-weight="bold" text-anchor="middle">3. MẶT CẮT NGANG TRẦN KHU THAY ĐỒ (NHÌN TỪ CỬA WC-02 LÊN) — CHỨNG MINH CỬA GIÓ CÁCH MẶT TRĂNG 700MM</text>
+
+    <!-- Concrete Slab Tầng 3 (+3.500) -->
+    <rect x="143" y="95" width="1424" height="25" fill="url(#brick)" stroke="#0f172a" stroke-width="1.8"/>
+    <text x="855" y="86" font-size="13" font-weight="bold" fill="#334155" text-anchor="middle">SÀN BÊ TÔNG TẦNG 3 (CAO ĐỘ +3.500 MM) — KHOẢNG TRỐNG TRÊN TRẦN RỘNG 500 MM ĐỂ ĐI ỐNG GIÓ D150</text>
+
+    <!-- Left & Right Brick Walls -->
+    <rect x="143" y="120" width="24" height="335" fill="url(#brick)" stroke="#0f172a" stroke-width="1.8"/>
+    <text x="125" y="290" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle" transform="rotate(-90 125 290)">TƯỜNG TÂY (TRỤC 1')</text>
+
+    <rect x="1543" y="120" width="24" height="335" fill="url(#brick)" stroke="#0f172a" stroke-width="1.8"/>
+    <text x="1588" y="290" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle" transform="rotate(-90 1588 290)">TƯỜNG ĐÔNG (TRỤC 2)</text>
+
+    <!-- Gypsum Ceiling Line (+3.000, Y=260) -->
+    <line x1="167" y1="260" x2="275" y2="260" stroke="#0f172a" stroke-width="4"/>
+    <line x1="335" y1="260" x2="615" y2="260" stroke="#0f172a" stroke-width="4"/>
+    <line x1="1095" y1="260" x2="1375" y2="260" stroke="#0f172a" stroke-width="4"/>
+    <line x1="1435" y1="260" x2="1543" y2="260" stroke="#0f172a" stroke-width="4"/>
+
+    <!-- LEFT SUPPLY GRILLE: SAG 150x800 + Plenum Box + 2x D150 Ducts above ceiling (X=275..335) -->
+    <rect x="275" y="195" width="60" height="65" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.2"/>
+    <rect x="271" y="254" width="68" height="12" fill="url(#sagPat)" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="305" cy="162" r="28" fill="#bae6fd" stroke="#0284c7" stroke-width="2.2"/>
+    <text x="305" y="166" font-size="10.5" font-weight="bold" fill="#0369a1" text-anchor="middle">Ống D150</text>
+    <line x1="292" y1="270" x2="285" y2="325" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+    <line x1="318" y1="270" x2="325" y2="325" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+    <text x="305" y="348" font-size="13" font-weight="bold" fill="#0284c7" text-anchor="middle">CỬA CẤP GIÓ (SAG)</text>
+    <text x="305" y="366" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">Rộng 150 × Dài 800mm</text>
+
+    <!-- RIGHT RETURN GRILLE: RAG 150x800 + Plenum Box + D150 Duct above ceiling (X=1375..1435) -->
+    <rect x="1375" y="195" width="60" height="65" fill="#d1fae5" stroke="#059669" stroke-width="2.2"/>
+    <rect x="1371" y="254" width="68" height="12" fill="url(#ragPat)" stroke="#059669" stroke-width="2"/>
+    <circle cx="1405" cy="162" r="28" fill="#a7f3d0" stroke="#059669" stroke-width="2.2"/>
+    <text x="1405" y="166" font-size="10.5" font-weight="bold" fill="#065f46" text-anchor="middle">Ống D150</text>
+    <line x1="1392" y1="325" x2="1392" y2="274" stroke="#059669" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+    <line x1="1418" y1="325" x2="1418" y2="274" stroke="#059669" stroke-width="2.5" marker-end="url(#arrGreen)"/>
+    <text x="1405" y="348" font-size="13" font-weight="bold" fill="#059669" text-anchor="middle">CỬA GIÓ HỒI (RAG)</text>
+    <text x="1405" y="366" font-size="12" font-weight="bold" fill="#065f46" text-anchor="middle">Rộng 150 × Dài 800mm</text>
+
+    <!-- CENTER MOON DOME Ø1200MM (480px wide: X=615..1095, Recessed Box Y=195..260) -->
+    <rect x="615" y="195" width="480" height="65" fill="#fffbeb" stroke="#d97706" stroke-width="2.5"/>
+    <path d="M 615 260 Q 855 292 1095 260" fill="url(#moonGlow)" stroke="#d97706" stroke-width="3"/>
+    <g fill="#f59e0b">
+      <circle cx="655" cy="210" r="4"/><circle cx="705" cy="210" r="4"/><circle cx="755" cy="210" r="4"/>
+      <circle cx="805" cy="210" r="4"/><circle cx="855" cy="210" r="4"/><circle cx="905" cy="210" r="4"/>
+      <circle cx="955" cy="210" r="4"/><circle cx="1005" cy="210" r="4"/><circle cx="1055" cy="210" r="4"/>
+    </g>
+    <text x="855" y="238" font-size="12.5" font-weight="bold" fill="#92400e" text-anchor="middle">HỘP ĐÈN VÒM MẶT TRĂNG BARRISOL (ĐƯỜNG KÍNH Ø1.200 MM • SÂU 150 MM)</text>
+
+    <!-- 2 Spotlights Lộ 18 (in the 700mm flat ceiling zones: X=475 and X=1235) -->
+    <circle cx="475" cy="260" r="6" fill="#dc2626"/>
+    <text x="475" y="246" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">Đèn Lộ 18</text>
+    <circle cx="1235" cy="260" r="6" fill="#dc2626"/>
+    <text x="1235" y="246" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">Đèn Lộ 18</text>
+
+    <!-- COMPLETE DIMENSION CHAIN ACROSS 3.440 MM CEILING (Y=400) -->
+    <g stroke="#0f172a" stroke-width="1.5">
+      <line x1="167" y1="265" x2="167" y2="415" stroke="#94a3b8" stroke-dasharray="4,3"/>
+      <line x1="275" y1="265" x2="275" y2="415" stroke="#94a3b8" stroke-dasharray="4,3"/>
+      <line x1="335" y1="265" x2="335" y2="415" stroke="#94a3b8" stroke-dasharray="4,3"/>
+      <line x1="615" y1="265" x2="615" y2="415" stroke="#dc2626" stroke-dasharray="4,3"/>
+      <line x1="1095" y1="265" x2="1095" y2="415" stroke="#dc2626" stroke-dasharray="4,3"/>
+      <line x1="1375" y1="265" x2="1375" y2="415" stroke="#94a3b8" stroke-dasharray="4,3"/>
+      <line x1="1435" y1="265" x2="1435" y2="415" stroke="#94a3b8" stroke-dasharray="4,3"/>
+      <line x1="1543" y1="265" x2="1543" y2="415" stroke="#94a3b8" stroke-dasharray="4,3"/>
+
+      <line x1="167" y1="402" x2="275" y2="402" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <line x1="275" y1="402" x2="335" y2="402" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <line x1="335" y1="402" x2="615" y2="402" stroke="#16a34a" stroke-width="2.5" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <line x1="615" y1="402" x2="1095" y2="402" stroke="#d97706" stroke-width="2.5" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <line x1="1095" y1="402" x2="1375" y2="402" stroke="#16a34a" stroke-width="2.5" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <line x1="1375" y1="402" x2="1435" y2="402" marker-start="url(#tick)" marker-end="url(#tick)"/>
+      <line x1="1435" y1="402" x2="1543" y2="402" marker-start="url(#tick)" marker-end="url(#tick)"/>
+    </g>
+
+    <g font-size="13.5" font-weight="bold" text-anchor="middle">
+      <text x="221" y="394" fill="#0f172a">270 mm</text>
+      <text x="305" y="394" fill="#0284c7">150</text>
+      <text x="475" y="392" fill="#15803d" font-size="15">700 mm (TRẦN PHẲNG TRỐNG)</text>
+      <text x="855" y="392" fill="#b45309" font-size="15">1.200 mm (ĐÈN MẶT TRĂNG)</text>
+      <text x="1235" y="392" fill="#15803d" font-size="15">700 mm (TRẦN PHẲNG TRỐNG)</text>
+      <text x="1405" y="394" fill="#059669">150</text>
+      <text x="1489" y="394" fill="#0f172a">270 mm</text>
+    </g>
+
+    <!-- Floor Line & Total Width -->
+    <line x1="143" y1="455" x2="1567" y2="455" stroke="#0f172a" stroke-width="3"/>
+    <text x="855" y="495" font-size="15" font-weight="bold" fill="#0f172a" text-anchor="middle">TỔNG CHIỀU RỘNG PHÒNG = 270 + 150 (Cửa cấp) + 700 (Trần phẳng) + 1.200 (Đèn Mặt Trăng) + 700 (Trần phẳng) + 150 (Cửa hồi) + 270 = 3.440 MM</text>
+  </g>
+</svg>

@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bóc Tách Vật Liệu & Phương Án Mặt Tiền — Biệt Thự Q Villa (XHOME)</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --surface: #182028;
+      --surface-2: #212b36;
+      --surface-3: #2b3846;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-hover: #d97706;
+      --emerald: #10b981;
+      --sky: #38bdf8;
+      --rose: #f43f5e;
+      --purple: #a855f7;
+      --border: rgba(255, 255, 255, 0.1);
+      --radius: 14px;
+      --shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.55);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--sky);
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(180deg, rgba(24, 32, 40, 0.96) 0%, rgba(15, 20, 25, 0.92) 100%);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .brand:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .brand-badge {
+      background: var(--accent);
+      color: #000;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-title h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .brand-title p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      background: var(--surface-3);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Section Defaults */
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      margin-bottom: 28px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1.85rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 880px;
+      font-size: 1rem;
+    }
+
+    /* Section 1: Interactive Option Visualizer */
+    .option-tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 980px) {
+      .option-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .option-tabs {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option-tab {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: left;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .option-tab:hover {
+      background: var(--surface-2);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .option-tab.active {
+      background: var(--surface-2);
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+    }
+
+    .option-tab-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 99px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .tag-origin { background: rgba(56, 189, 248, 0.18); color: var(--sky); }
+    .tag-best { background: rgba(16, 185, 129, 0.2); color: var(--emerald); }
+    .tag-save { background: rgba(245, 158, 11, 0.2); color: var(--accent); }
+    .tag-warn { background: rgba(244, 63, 94, 0.2); color: var(--rose); }
+
+    .option-tab h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .option-tab p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .visualizer-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 1080px) {
+      .visualizer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .viewer-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .viewer-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .mode-switch {
+      display: flex;
+      gap: 6px;
+      background: var(--bg);
+      padding: 4px;
+      border-radius: 8px;
+    }
+
+    .mode-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .mode-btn.active {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* Before / After Comparison Container */
+    .comparison-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1264 / 848;
+      overflow: hidden;
+      user-select: none;
+      background: #000;
+    }
+
+    .comparison-stage img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .img-before-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      clip-path: inset(0 50% 0 0);
+      z-index: 2;
+    }
+
+    .slider-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 3px;
+      background: var(--accent);
+      z-index: 3;
+      transform: translateX(-50%);
+      pointer-events: none;
+      box-shadow: 0 0 12px rgba(0,0,0,0.8);
+    }
+
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 1.1rem;
+      z-index: 4;
+      pointer-events: none;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+      border: 2px solid #fff;
+    }
+
+    .comparison-range {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: ew-resize;
+      z-index: 5;
+    }
+
+    .badge-overlay {
+      position: absolute;
+      bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: rgba(15, 20, 25, 0.85);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      z-index: 3;
+      pointer-events: none;
+      backdrop-filter: blur(6px);
+    }
+
+    .badge-left { left: 14px; }
+    .badge-right { right: 14px; border-color: var(--accent); color: var(--accent); }
+
+    /* Info Panel */
+    .option-detail-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .detail-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
+
+    .detail-header h3 {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .spec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .spec-item {
+      background: var(--surface-2);
+      padding: 12px 14px;
+      border-radius: 10px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .spec-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .spec-value {
+      font-size: 0.94rem;
+      font-weight: 500;
+    }
+
+    .swatch-preview {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 14px;
+      background: var(--surface-2);
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      align-items: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .swatch-preview:hover {
+      border-color: var(--accent);
+    }
+
+    .swatch-preview img {
+      width: 110px;
+      height: 82px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* 2x2 Grid Comparison */
+    .quad-grid {
+      display: none;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      padding: 14px;
+      background: var(--bg);
+    }
+
+    @media (max-width: 700px) {
+      .quad-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .quad-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .quad-item img {
+      width: 100%;
+      aspect-ratio: 1264 / 848;
+      object-fit: cover;
+      display: block;
+    }
+
+    .quad-caption {
+      padding: 10px 12px;
+      background: var(--surface-2);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    /* Section 2: Hotspot Map on 3D Front Elevation */
+    .hotspot-layout {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 1080px) {
+      .hotspot-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hotspot-stage {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: #000;
+    }
+
+    .hotspot-stage img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hotspot-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      background: var(--accent);
+      color: #000;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 5px 10px;
+      border-radius: 99px;
+      border: 2px solid #fff;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+      transition: all 0.2s ease;
+      z-index: 5;
+      white-space: nowrap;
+    }
+
+    .hotspot-pin:hover,
+    .hotspot-pin.active {
+      background: #fff;
+      color: #000;
+      transform: translate(-50%, -50%) scale(1.14);
+      z-index: 10;
+      box-shadow: 0 0 0 5px rgba(245, 158, 11, 0.5);
+    }
+
+    .hotspot-pin.pin-stone { background: #38bdf8; }
+    .hotspot-pin.pin-mason { background: #10b981; }
+    .hotspot-pin.pin-wood { background: #f59e0b; }
+    .hotspot-pin.pin-paint { background: #c084fc; }
+
+    .zone-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-height: 760px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .zone-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .zone-card:hover,
+    .zone-card.active {
+      background: var(--surface-2);
+      border-color: var(--accent);
+    }
+
+    .zone-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .zone-code {
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: var(--surface-3);
+      color: var(--accent);
+    }
+
+    .worker-badge {
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+    }
+
+    .worker-stone { background: rgba(56, 189, 248, 0.18); color: var(--sky); }
+    .worker-mason { background: rgba(16, 185, 129, 0.18); color: var(--emerald); }
+    .worker-other { background: rgba(192, 132, 252, 0.18); color: #c084fc; }
+
+    /* Section 3: Material Closeups & Color Guide */
+    .cards-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 1100px) {
+      .cards-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cards-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .mat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .mat-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+
+    .mat-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      cursor: zoom-in;
+    }
+
+    .mat-card-body {
+      padding: 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mat-card-body h4 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .mat-card-body p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    /* Color Re-coordination Guide Box */
+    .color-guide-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 980px) {
+      .color-guide-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .guide-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .color-swatches-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .color-chip {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+    }
+
+    .color-chip-sample {
+      height: 64px;
+      width: 100%;
+      position: relative;
+    }
+
+    .color-chip-info {
+      padding: 10px;
+      font-size: 0.8rem;
+    }
+
+    /* CAD vs 3D Evidence Grid */
+    .cad-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 980px) {
+      .cad-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Comparison Table */
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 820px;
+    }
+
+    th, td {
+      padding: 15px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: var(--surface-2);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Dialog Lightbox */
+    dialog#image-lightbox {
+      margin: auto;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      max-width: min(94vw, 1280px);
+      max-height: 92vh;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+      overflow: hidden;
+    }
+
+    dialog#image-lightbox::backdrop {
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(6px);
+    }
+
+    .lightbox-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .lightbox-close {
+      background: var(--surface-3);
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .lightbox-body {
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+    }
+
+    .lightbox-body img {
+      max-width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      display: block;
+    }
+
+    footer {
+      padding: 36px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" title="Về Trang Chủ — Tổng Hợp Hạng Mục &amp; Dự Toán Chi Phí Q Villa">
+        <span class="brand-badge">Q VILLA • XHOME</span>
+        <div class="brand-title">
+          <h1>Bóc Tách Vật Liệu Mặt Tiền & Mô Phỏng Phương Án Đá vs. Sơn</h1>
+          <p>Chủ đầu tư: Ông Phùng Văn Quân • Hồ sơ: Layout 3D.pdf & ThiCongKienTruc.pdf (KT-2.12, KT-3.04, KT-3.05, KT-3.06)</p>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" style="border-color:rgba(245,158,11,0.55);color:#fde68a;">🏠 Trang Chủ &amp; Dự Toán</a>
+        <a href="#mo-phong">1. Mô phỏng 4 Phương án</a>
+        <a href="#boc-tach">2. Bóc tách vùng & Đội thợ</a>
+        <a href="#phoi-mau">3. Quy tắc phối màu khi Sơn</a>
+        <a href="#ban-ve-cad">4. Đối chiếu bản vẽ CAD</a>
+        <a href="#duong-luong" style="border-color: var(--emerald); color: var(--emerald);">5. Xử lý Tường Đường Luồng (Trục C)</a>
+        <a href="#concept-2905" style="border-color: var(--accent); color: var(--accent);">6. Phối Mặt Tiền Concept 29.05.29</a>
+        <a href="#chi-ngat-nuoc" style="border-color: var(--sky); color: var(--sky);">7. Chi Tiết Gờ / Chỉ Ngắt Nước</a>
+        <a href="khoi-xay-mat-tien-t2-t3-3d.html" style="border-color: #10b981; color: #6ee7b7; background: rgba(16, 185, 129, 0.18);">🧱 3D Khối Xây &amp; Khắc Phục T2–T3</a>
+        <a href="cua-chinh-d1.html" style="border-color: #10b981; color: #6ee7b7; background: rgba(16, 185, 129, 0.16);">🚪 Cửa Chính D1 (PA 1B)</a>
+        <a href="cua-go-lim-d3.html" style="border-color: #f59e0b; color: #fde68a; background: rgba(245, 158, 11, 0.16);">🚪 Cửa Gỗ Lim D3 (Phẳng)</a>
+        <a href="aqara-smarthome.html" style="border-color: #10b981; color: #34d399; background: rgba(16, 185, 129, 0.16);">⚡ Công Tắc Aqara</a>
+        <a href="giam-sat-wc.html">🚽 Giám Sát WC</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div style="margin: 18px 0 6px; padding: 14px 18px; border-radius: 14px; background: linear-gradient(135deg, rgba(16,185,129,0.14), rgba(56,189,248,0.12)); border: 1px solid rgba(16,185,129,0.42); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+      <div>
+        <strong style="color:#6ee7b7; font-size:0.95rem;">🧱 Thợ đang xây Tầng 3 giống Tầng 2?</strong>
+        <div style="color:#cbd5e1; font-size:0.84rem; margin-top:2px;">Xem mô hình 3D bóc tách từng khối xây <code>TX4</code>, <code>TX3</code>, trần vát <code>KT-3.06</code> và hướng dẫn khắc phục không cần đập tường chịu lực.</div>
+      </div>
+      <a href="khoi-xay-mat-tien-t2-t3-3d.html" style="text-decoration:none; font-weight:800; font-size:0.84rem; padding:9px 15px; border-radius:10px; background:#10b981; color:#052e16;">🧊 Mở 3D Khối Xây T2–T3 →</a>
+    </div>
+
+    <!-- SECTION 1: INTERACTIVE FACADE SIMULATOR -->
+    <section id="mo-phong">
+      <div class="section-header">
+        <span class="section-eyebrow">Trực quan hóa trên công trình thật</span>
+        <h2 class="section-title">1. So Sánh Trực Tiếp 4 Phương Án Hoàn Thiện Mặt Tiền</h2>
+        <p class="section-desc">
+          Bấm chọn từng phương án bên dưới và <strong>kéo thanh trượt Trái / Phải trên ảnh</strong> để đối chiếu trực tiếp giữa <strong>Thiết kế 3D gốc (Ốp đá)</strong> với các phương án chuyển sang <strong>Sơn hiệu ứng bê tông</strong> hoặc <strong>Sơn nước ngoại thất</strong>.
+        </p>
+      </div>
+
+      <!-- 4 Option Selector Tabs -->
+      <div class="option-tabs" role="tablist">
+        <button class="option-tab active" data-opt="opt1" role="tab" aria-selected="true">
+          <span class="option-tab-tag tag-best">★ PA 1: Ốp Đá Á Mỹ (Cả Mặt Bên T2)</span>
+          <h3>PA 1: Ốp Đá Á Mỹ T2 (Mặt tiền + Mặt bên nhô 20cm)</h3>
+          <p>Theo đúng thực trạng tường T2 xây nhô 20cm (T3 lùi 20cm): Ốp đá hoặc sơn ghi đậm cả khối T2 nhô ra để hợp thức hóa độ lồi 20cm.</p>
+        </button>
+
+        <button class="option-tab" data-opt="opt4" role="tab" aria-selected="false">
+          <span class="option-tab-tag tag-origin">PA 2: Chỉ Ốp Đá Mặt Tiền (Mặt bên Sơn Trắng)</span>
+          <h3>PA 2: Chỉ Ốp Mặt Tiền + Má Hồi 25cm (Hông Sơn Trắng)</h3>
+          <p>Chỉ ốp đá Á Mỹ mặt trước + má hồi 25cm; phần tường T2 nhô ra 20cm bên đường luồng sơn trắng (lộ gờ giật cấp 20cm với T3).</p>
+        </button>
+
+        <button class="option-tab" data-opt="opt2" role="tab" aria-selected="false">
+          <span class="option-tab-tag tag-save">PA 3: Sơn Hiệu Ứng Bê Tông Ghi Đậm T2</span>
+          <h3>PA 3: Phương án "Lai" (Đá T1 + Sơn hiệu ứng T2)</h3>
+          <p>Trên đúng hình khối thực tế đã xây: Khối T2 nhô 20cm dùng <strong>Sơn hiệu ứng bê tông ghi đậm + kẻ chỉ âm</strong>; T1 ốp Đá ong xám.</p>
+        </button>
+
+        <button class="option-tab" data-opt="opt3" role="tab" aria-selected="false">
+          <span class="option-tab-tag tag-save">PA 4: Sơn Nước Ngoại Thất (Phối lại màu + Chỉ âm)</span>
+          <h3>PA 4: Sơn nước Ghi ấm + Kẻ chỉ âm (Theo khối thực tế)</h3>
+          <p>Hạ sáng 1–2 tông sang <strong>Ghi trung tính ấm (Satin/Matt)</strong> + <strong>kẻ chỉ âm 10x10mm</strong> trên đúng hình khối T2 thực tế.</p>
+        </button>
+      </div>
+
+      <div class="visualizer-grid">
+        <!-- Left: Interactive Before/After Slider + 2x2 Grid Toggle -->
+        <div class="viewer-card">
+          <div class="viewer-toolbar">
+            <div style="font-size: 0.88rem; font-weight: 600;">
+              💡 Kéo thanh trượt để so sánh giữa <strong>Ốp Đá Cả Mặt Bên (Trái)</strong> và <strong>Phương Án Đang Chọn (Phải)</strong> trên đúng hình khối thực tế đã xây!
+            </div>
+            <div class="mode-switch">
+              <button class="mode-btn active" id="btn-mode-slider">Thanh kéo So sánh</button>
+              <button class="mode-btn" id="btn-mode-quad">Xem 4 ảnh cùng lúc</button>
+              <button class="mode-btn" id="btn-zoom-current">🔍 Phóng to ảnh</button>
+            </div>
+          </div>
+
+          <!-- Slider Mode -->
+          <div class="comparison-stage" id="slider-stage">
+            <!-- Base Image (Right Side = Selected Option) -->
+            <img id="img-after" src="assets/persp_thucte_da_amygres.jpg" alt="Phương án đang chọn" fetchpriority="high">
+
+            <!-- Clipped Overlay Image (Left Side = Reference Actual Geometry Option) -->
+            <div class="img-before-wrapper" id="before-clip">
+              <img id="img-before" src="assets/persp_thucte_chi_op_mat_tien.jpg" alt="Đối chiếu trực tiếp trên hình khối thực tế" fetchpriority="low">
+            </div>
+
+            <div class="slider-line" id="slider-line"></div>
+            <div class="slider-button" id="slider-btn">⇄</div>
+
+            <span class="badge-overlay badge-left" id="badge-left-label">◀ PA 2: Chỉ Ốp Mặt Tiền (Hông Sơn Trắng)</span>
+            <span class="badge-overlay badge-right" id="badge-right-label">★ PA 1: Ốp Đá Á Mỹ Cả Khối T2 Nhô 20cm ▶</span>
+
+            <input type="range" min="0" max="100" value="45" class="comparison-range" id="comparison-range" aria-label="So sánh trước và sau">
+          </div>
+
+          <!-- 2x2 Quad View Mode -->
+          <div class="quad-grid" id="quad-stage">
+            <div class="quad-item" onclick="openLightbox('assets/persp_thucte_da_amygres.jpg', 'PA 1 (Thực trạng đúng): Ốp Đá Á Mỹ (hoặc Sơn ghi đậm mặt bên) cho toàn bộ khối Tầng 2 nhô ra 20cm')">
+              <img src="assets/persp_thucte_da_amygres.jpg" alt="Thực trạng ốp đá cả mặt bên" fetchpriority="low" loading="lazy">
+              <div class="quad-caption" style="color: var(--emerald);">1. Thực trạng: Ốp Đá / Sơn Ghi Đậm Cả Khối T2 Nhô 20cm</div>
+            </div>
+            <div class="quad-item" onclick="openLightbox('assets/persp_thucte_chi_op_mat_tien.jpg', 'PA 2 (Thực trạng đúng): Chỉ ốp đá Mặt tiền + má hồi 25cm, còn mặt bên Tầng 2 nhô ra 20cm đem Sơn trắng')">
+              <img src="assets/persp_thucte_chi_op_mat_tien.jpg" alt="Thực trạng chỉ ốp mặt tiền, mặt bên sơn trắng" fetchpriority="low" loading="lazy">
+              <div class="quad-caption" style="color: var(--sky);">2. Thực trạng: Chỉ Ốp Mặt Tiền (Tường Hông Nhô 20cm Sơn Trắng)</div>
+            </div>
+            <div class="quad-item" onclick="openLightbox('assets/persp_thucte_son_loang.jpg', 'PA 3 (Thực trạng đúng): Sơn hiệu ứng bê tông màu ghi đậm + Kẻ chỉ âm trên đúng hình khối thực tế')">
+              <img src="assets/persp_thucte_son_loang.jpg" alt="Thực trạng sơn hiệu ứng bê tông" fetchpriority="low" loading="lazy">
+              <div class="quad-caption" style="color: var(--accent);">3. Thực trạng: Sơn Hiệu Ứng Bê Tông Ghi Đậm + Kẻ Chỉ Âm</div>
+            </div>
+            <div class="quad-item" onclick="openLightbox('assets/persp_thucte_son_nuoc_chuan.jpg', 'PA 4 (Thực trạng đúng): Sơn nước ngoại thất phối lại màu Ghi ấm + Kẻ chỉ âm 10x10mm')">
+              <img src="assets/persp_thucte_son_nuoc_chuan.jpg" alt="Thực trạng sơn nước ghi ấm" fetchpriority="low" loading="lazy">
+              <div class="quad-caption">4. Thực trạng: Sơn Nước Phối Lại Màu Ghi Ấm + Chỉ Âm</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Dynamic Technical Breakdown for Selected Option -->
+        <div class="option-detail-card" id="option-detail-panel">
+          <div class="detail-header">
+            <span class="option-tab-tag tag-best" id="detail-badge">★ PA 1: Ốp Đá Á Mỹ (Hợp thức hóa khối T2 nhô 20cm)</span>
+            <h3 id="detail-title">PA 1: Ốp Đá Á Mỹ Tầng 2 (Cả Mặt tiền & Khối mặt bên nhô 20cm)</h3>
+            <p id="detail-subtitle" style="color: var(--text-muted); font-size: 0.9rem;">
+              Vì tường Tầng 2 bên đường luồng xây nhô ra 20cm (trong khi tường trắng Tầng 3 vẫn lùi vào 20cm), làm màu Ghi đậm cho cả khối nhô ra 20cm này sẽ tạo thành một chiếc hộp kiến trúc cực kỳ hợp lý!
+            </p>
+          </div>
+
+          <div class="spec-list">
+            <div class="spec-item">
+              <div class="spec-label">Khung chữ C Tầng 2 (Mã D1 - Mặt tiền & Mặt bên nhô 20cm)</div>
+              <div class="spec-value" id="detail-t2">
+                <strong>Ốp Đá thiêu kết Á Mỹ (AMYGRES) 600x1200mm</strong> màu ghi đậm cho mặt trước (~15m²) + mặt phẳng bên đường luồng đang nhô ra 20cm (~10m²). <em>(Hoặc mặt tiền ốp đá, mặt bên đường luồng sơn giả đá cùng màu để tiết kiệm!)</em>
+              </div>
+            </div>
+
+            <div class="spec-item">
+              <div class="spec-label">Tường Tầng 1 (Mã D2) & Trụ giữa Tầng 2 (Mã G2)</div>
+              <div class="spec-value" id="detail-t1">
+                <strong>Ốp Đá ong xám tự nhiên</strong> (D2, G2) + Tam cấp ốp <strong>Đá xám Phú Yên mài hon</strong> dày 30mm.
+              </div>
+            </div>
+
+            <div class="spec-item">
+              <div class="spec-label">Phân công Đội thợ thi công</div>
+              <div class="spec-value" id="detail-worker">
+                • <strong>Không ốp ngược đáy dầm</strong> (đáy đóng trần nhôm Basi) nên <strong>Thợ ốp lát chính trong đội thợ xây</strong> hoàn toàn ốp được bằng keo C2!
+              </div>
+            </div>
+
+            <div class="spec-item">
+              <div class="spec-label">Đánh giá Kỹ thuật & Hình khối Thực tế</div>
+              <div class="spec-value" id="detail-pros">
+                ✅ <strong>Giải quyết hoàn hảo lỗi tường Tầng 2 xây nhô 20cm:</strong> Biến toàn bộ phần tường + dầm Tầng 2 nhô ra 20cm thành một khối hộp đá đặc đỡ lấy khối tường trắng Tầng 3 lùi vào 20cm ở trên!
+              </div>
+            </div>
+          </div>
+
+          <div class="swatch-preview" id="detail-swatch-box" onclick="openLightbox('assets/mat_amygres_stone.jpg', 'Bề mặt Đá thiêu kết Á Mỹ (AMYGRES) màu ghi đậm')">
+            <img id="detail-swatch-img" src="assets/mat_amygres_stone.jpg" alt="Mẫu vật liệu cận cảnh" loading="lazy">
+            <div>
+              <div style="font-size: 0.78rem; color: var(--accent); font-weight: 700; text-transform: uppercase;">Ảnh cận cảnh bề mặt thật (Bấm để phóng to)</div>
+              <div id="detail-swatch-title" style="font-weight: 700; margin: 2px 0;">Bề mặt Đá thiêu kết Á Mỹ (AMYGRES) màu ghi đậm</div>
+              <div id="detail-swatch-desc" style="font-size: 0.82rem; color: var(--text-muted);">Không phai màu dưới nắng mưa, khổ 600x1200mm vừa khít chiều cao trán dầm 600mm.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE HOTSPOT BREAKDOWN OF FACADE ZONES -->
+    <section id="boc-tach">
+      <div class="section-header">
+        <span class="section-eyebrow">Bóc tách theo bản vẽ KT-2.12, KT-3.04, KT-3.05, KT-3.06</span>
+        <h2 class="section-title">2. Bản Đồ Bóc Tách Từng Vùng Mặt Tiền & Phân Định "Thợ Đá vs. Thợ Xây"</h2>
+        <p class="section-desc">
+          Bấm vào từng <strong>chấm ký hiệu trên ảnh Mặt đứng 3D</strong> (hoặc danh sách bên phải) để xem kích thước chuẩn trong hồ sơ thiết kế, loại vật liệu chỉ định và câu trả lời chính xác <strong>hạng mục nào bắt buộc gọi Thợ Đá, hạng mục nào Thợ Xây làm được</strong>.
+        </p>
+      </div>
+
+      <div class="hotspot-layout">
+        <!-- Left: 3D Front with Interactive Pins -->
+        <div class="hotspot-stage">
+          <img src="assets/3d_front.png" alt="Mặt đứng chính diện Biệt thự Q Villa" loading="lazy">
+
+          <!-- Hotspot Pins (Coordinates mapped to 3d_front.png) -->
+          <button class="hotspot-pin pin-stone active" style="left: 52%; top: 52%;" data-zone="D1">
+            D1 • Khung Tầng 2 (Thợ Đá / Sơn)
+          </button>
+          <button class="hotspot-pin pin-stone" style="left: 37.5%; top: 60%;" data-zone="D1">
+            D1 • Cột trái T2
+          </button>
+          <button class="hotspot-pin pin-mason" style="left: 49.8%; top: 59%;" data-zone="G2">
+            G2 • Đá ong 100x300
+          </button>
+          <button class="hotspot-pin pin-mason" style="left: 40%; top: 75.5%;" data-zone="D2">
+            D2 • Đá ong xám T1 (Thợ Xây/Đá)
+          </button>
+          <button class="hotspot-pin pin-mason" style="left: 54.5%; top: 75.5%;" data-zone="D2">
+            D2 • Trụ giữa T1
+          </button>
+          <button class="hotspot-pin pin-wood" style="left: 60%; top: 38%;" data-zone="G1">
+            G1 • Gỗ nhựa T3
+          </button>
+          <button class="hotspot-pin pin-paint" style="left: 40%; top: 36%;" data-zone="A2">
+            A2 • Sơn trắng T3
+          </button>
+          <button class="hotspot-pin pin-paint" style="left: 40%; top: 24.5%;" data-zone="A3">
+            A3 • Sơn giả bê tông
+          </button>
+          <button class="hotspot-pin pin-stone" style="left: 48%; top: 83.5%;" data-zone="TAMCAP">
+            Tam cấp & Bồn hoa (Thợ Đá)
+          </button>
+        </div>
+
+        <!-- Right: Zone Breakdown Cards -->
+        <div class="zone-cards" id="zone-cards-list">
+          <div class="zone-card active" data-zone="D1">
+            <div class="zone-card-header">
+              <span class="zone-code">Mã D1 • Khung chữ C Tầng 2 (Logia 01)</span>
+              <span class="worker-badge worker-stone">Nếu ốp: Bắt buộc Thợ Đá</span>
+            </div>
+            <p style="font-size: 0.9rem; margin-bottom: 8px;">
+              <strong>Bản vẽ KT-2.12 & KT-3.05:</strong> <em>"Diện tường ốp đá tự nhiên màu ghi đậm"</em> (Dầm dưới cao <code>550+50mm</code>, dầm trên <code>565+50mm</code> chia 5 múi <code>1590mm</code>, mảng đứng trái <code>900x1985mm</code>).
+            </p>
+            <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 10px;">
+              • <strong>Nếu ốp Đá thiêu kết Á Mỹ (AMYGRES):</strong> Phải do <strong>Thợ Đá</strong> cắt líp mòi 45° ở 3 mặt dầm đua ra (đáy, trán, đỉnh), dùng keo C2S1 kết hợp móc/pát inox. Thợ xây không đủ máy cắt mòi 45° khổ lớn và dễ làm rơi tấm.<br>
+              • <strong>Tại sao nên đổi sang Sơn hiệu ứng?</strong> Trong <code>Chi tiết 01 (KT-3.05)</code>, KTS chỉ vẽ lớp vữa trát <code>15mm</code> + gờ ngắt nước chứ không vẽ hệ khung sắt treo đá.
+            </p>
+            <button class="mode-btn active" onclick="openLightbox('assets/zoom_d1_t2.png', 'Cận cảnh vùng D1 (Khung chữ C Tầng 2) và G2 (Trụ giữa ốp đá ong xám 100x300mm)')">🔍 Xem ảnh phóng to vùng D1 & G2</button>
+          </div>
+
+          <div class="zone-card" data-zone="D2">
+            <div class="zone-card-header">
+              <span class="zone-code">Mã D2 • Tường Mặt Tiền Tầng 1</span>
+              <span class="worker-badge worker-mason">Thợ Xây giỏi hoặc Thợ Đá</span>
+            </div>
+            <p style="font-size: 0.9rem; margin-bottom: 8px;">
+              <strong>Bản vẽ KT-2.12 & KT-2.13:</strong> <em>"Diện tường ốp đá ong xám"</em> (Cao <code>4200mm</code>, rộng <code>7750mm</code> mặt trước và tường hồi trục 4-1).
+            </p>
+            <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 10px;">
+              • Đây là đá ong xám tự nhiên quy cách nhỏ (<code>100x300mm</code> hoặc <code>200x400mm</code>, dày 15–20mm), không phải đá tấm khổ lớn.<br>
+              • <strong>Ai ốp?</strong> Đội <strong>Thợ Xây (thợ nề hoàn thiện)</strong> có máy cắt bàn + thước laser hoàn toàn ốp được bằng <strong>keo dán gạch đá chuyên dụng</strong>. Tuy nhiên ở góc cột chữ L nếu muốn cắt mòi 45° sắc nét thì cần thợ tay nghề cao hoặc giao thợ đá.
+            </p>
+            <button class="mode-btn active" onclick="openLightbox('assets/zoom_d2_t1.png', 'Cận cảnh vùng D2 (Tường Tầng 1 ốp đá ong xám) + Bồn hoa & Tam cấp đá Phú Yên')">🔍 Xem ảnh phóng to vùng D2 Tầng 1</button>
+          </div>
+
+          <div class="zone-card" data-zone="G2">
+            <div class="zone-card-header">
+              <span class="zone-code">Mã G2 • Trụ Giữa Cửa Sổ Tầng 2 & Hồi Phải</span>
+              <span class="worker-badge worker-mason">Thợ Xây hoặc Thợ Đá</span>
+            </div>
+            <p style="font-size: 0.9rem; margin-bottom: 8px;">
+              <strong>Bản vẽ KT-3.05:</strong> <em>"Diện tường ốp đá ong xám KT 100x300mm"</em> (Trụ rộng <code>490mm</code>, cao <code>2000mm</code> nằm kẹp giữa 2 cửa sổ Tầng 2).
+            </p>
+            <p style="font-size: 0.86rem; color: var(--text-muted);">
+              • Các viên đá ong xám <code>100x300mm</code> xếp đứng tạo sọc dọc như trên phối cảnh 3D. Nếu chọn <strong>Phương án 2 (Sơn nước)</strong> thì vùng này trát phẳng, kẻ chỉ âm ngang đồng bộ với khung D1.
+            </p>
+          </div>
+
+          <div class="zone-card" data-zone="TAMCAP">
+            <div class="zone-card-header">
+              <span class="zone-code">Tam Cấp 01, 02 & Bồn Hoa 01 (KT-3.04)</span>
+              <span class="worker-badge worker-stone">Bắt buộc Thợ Đá</span>
+            </div>
+            <p style="font-size: 0.9rem; margin-bottom: 8px;">
+              <strong>Bản vẽ KT-3.04 & KT-3.06C:</strong> <em>"Ốp đá xám Phú Yên mài hon"</em> (Mặt bậc dày <code>30mm</code>, cổ bậc dày <code>20mm</code>, có hèm soi rãnh giấu đèn LED hắt chân bậc).
+            </p>
+            <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 10px;">
+              • Hạng mục này chịu lực đi lại trực tiếp và phải soi mỏ bậc giấu thanh nhôm định hình LED, bắt buộc do <strong>Thợ Đá</strong> gia công lắp đặt.
+            </p>
+            <button class="mode-btn active" onclick="openLightbox('assets/cad_kt304_tamcap.png', 'Bản vẽ KT-3.04: Chi tiết Tam cấp 01, 02 ốp đá xám Phú Yên mài hon có đèn LED âm bậc')">📐 Xem bản vẽ CAD Tam cấp (KT-3.04)</button>
+          </div>
+
+          <div class="zone-card" data-zone="G1">
+            <div class="zone-card-header">
+              <span class="zone-code">Mã G1 • Khung Gỗ Nhựa Tầng 3 (Logia 02)</span>
+              <span class="worker-badge worker-other">Đội Thợ Gỗ Nhựa / Cơ Khí</span>
+            </div>
+            <p style="font-size: 0.9rem; margin-bottom: 8px;">
+              <strong>Bản vẽ KT-3.06:</strong> <em>"Diện tường ốp gỗ nhựa ngoài trời mã chỉ định"</em> + Hệ <strong>11 thanh lam gỗ nhựa đứng</strong> tiết diện <code>50x250mm</code>.
+            </p>
+            <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 10px;">
+              • Đây là điểm nhấn màu nâu gỗ ấm áp cân bằng lại toàn bộ sắc xám - trắng của ngôi nhà. Thi công bằng hệ khung xương thép hộp mạ kẽm bên trong.
+            </p>
+            <button class="mode-btn active" onclick="openLightbox('assets/zoom_g1_t3.png', 'Cận cảnh vùng G1 (Gỗ nhựa Tầng 3 + Hệ 11 thanh lam đứng) và A2 (Tường sơn trắng)')">🔍 Xem ảnh phóng to vùng G1 Tầng 3</button>
+          </div>
+
+          <div class="zone-card" data-zone="A2">
+            <div class="zone-card-header">
+              <span class="zone-code">Mã A1, A2, A3 • Các Diện Tường Sơn</span>
+              <span class="worker-badge worker-other">Thợ Xây Trát + Thợ Sơn</span>
+            </div>
+            <p style="font-size: 0.9rem; margin-bottom: 6px;">
+              • <strong>A1:</strong> Diện tường sơn màu ghi đậm + soi rãnh <code>10x10mm</code> (Viền mái Tum & cổ trần).<br>
+              • <strong>A2:</strong> Diện tường sơn trắng ngoại thất (Khối tường trái Tầng 3 & Tum).<br>
+              • <strong>A3:</strong> Diện tường <strong>sơn giả bê tông + soi rãnh 30x10mm</strong> (Mảng trán trên cửa Tầng 3 & cổ trần Tầng 1).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: REAL MATERIAL TEXTURES & COLOR RE-COORDINATION RULES -->
+    <section id="phoi-mau">
+      <div class="section-header">
+        <span class="section-eyebrow">Trả lời câu hỏi: "Nếu sơn thì cần phối màu lại à?"</span>
+        <h2 class="section-title">3. Cận Cảnh 4 Bề Mặt Vật Liệu Thật & Quy Tắc Phối Lại Màu Khi Chuyển Sang Sơn</h2>
+        <p class="section-desc">
+          Đá tự nhiên có <strong>vân hạt và độ hút sáng</strong> nên màu đen/ghi đậm nhìn rất sang. Ngược lại, <strong>sơn nước ngoại thất có màng nhựa Acrylic phẳng</strong>: nếu lấy nguyên mã màu đen/ghi đậm của đá đem sơn phẳng lên tường rộng sẽ bị <strong>bóng lóa, lộ toàn bộ vết gợn sóng của vữa trát</strong> dưới nắng xiên và hấp thụ nhiệt gây phồng rộp.
+        </p>
+      </div>
+
+      <!-- 4 Close-up Real Material Photos -->
+      <div class="cards-4">
+        <div class="mat-card">
+          <img src="assets/mat_amygres_stone.jpg" alt="Đá thiêu kết Á Mỹ AMYGRES màu ghi đậm" loading="lazy" onclick="openLightbox('assets/mat_amygres_stone.jpg', '1. Đá thiêu kết / Gạch khổ lớn Á Mỹ (AMYGRES) màu ghi đậm cắt mòi 45°')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-origin">Vật liệu 1 • Đá Khổ Lớn</span>
+              <h4>Đá thiêu kết Á Mỹ (AMYGRES)</h4>
+              <p>Bề mặt Matt Structured có vân đá tự nhiên, góc cột cắt líp mòi 45° sắc cạnh. Dành cho khung chữ C Tầng 2 nếu chấp nhận chi phí cao & thuê thợ đá chuyên nghiệp.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--sky); font-weight: 600;">🔍 Bấm vào ảnh để xem cận cảnh</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/mat_da_ong_xam.jpg" alt="Đá ong xám tự nhiên ốp mặt tiền" loading="lazy" onclick="openLightbox('assets/mat_da_ong_xam.jpg', '2. Đá ong xám tự nhiên (100x300mm & 200x400mm) có lỗ rỗ tự nhiên')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-origin">Vật liệu 2 • Đá Tự Nhiên T1</span>
+              <h4>Đá Ong Xám Tự Nhiên (D2, G2)</h4>
+              <p>Bề mặt xám tro có các lỗ li ti đặc trưng của đá вулкаnic bazan, chống rêu mốc và bụi bẩn cực tốt ở Tầng 1. Thợ xây cứng tay hoặc thợ đá đều ốp được.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--sky); font-weight: 600;">🔍 Bấm vào ảnh để xem cận cảnh</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/mat_son_hieu_ung.jpg" alt="Sơn hiệu ứng bê tông màu ghi đậm + kẻ chỉ âm" loading="lazy" onclick="openLightbox('assets/mat_son_hieu_ung.jpg', '3. Sơn hiệu ứng bê tông / giả đá màu ghi đậm + Rãnh chỉ âm 10x10mm')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-best">Vật liệu 3 • Thay Đá Tốt Nhất</span>
+              <h4>Sơn Hiệu Ứng Bê Tông + Chỉ Âm</h4>
+              <p><strong>Không cần đổi tông màu!</strong> Nhờ bề mặt bả gai mờ và vân loang đá tự nhiên, bạn giữ nguyên được màu Ghi đậm (Anthracite) như 3D mà không sợ lộ tường gợn sóng.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--emerald); font-weight: 600;">🔍 Bấm vào ảnh để xem cận cảnh</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/mat_son_nuoc_ghi.jpg" alt="Sơn nước ngoại thất màu ghi trung tính + chỉ âm" loading="lazy" onclick="openLightbox('assets/mat_son_nuoc_ghi.jpg', '4. Sơn nước ngoại thất màu Ghi trung tính (Satin/Matt) + Rãnh chỉ âm 10x10mm')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-save">Vật liệu 4 • Sơn Nước Chuẩn</span>
+              <h4>Sơn Nước Ghi Trung Tính + Chỉ Âm</h4>
+              <p><strong>Bắt buộc phối lại màu!</strong> Hạ sáng 1–2 tông sang màu Ghi ấm trung tính (Medium Warm Grey), dùng hệ sơn <strong>Bóng mờ (Matt/Satin)</strong> kết hợp đặt nẹp chỉ âm 10x10mm.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">🔍 Bấm vào ảnh để xem cận cảnh</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Color Re-coordination Guide -->
+      <div class="color-guide-grid">
+        <div class="guide-box">
+          <h3 style="margin-bottom: 10px;">🎨 Bảng Quy Đổi Mã Màu Khi Chuyển Từ Đá Sang Sơn Nước</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Nếu chọn <strong>Sơn nước ngoại thất thông thường (Dulux Weathershield / Kova K-5800 &amp; CT-04)</strong>, hãy áp dụng công thức phối màu 3 tầng sắc độ sau để ngôi nhà giữ nguyên thần thái thiết kế 3D:
+          </p>
+
+          <div class="color-swatches-row">
+            <div class="color-chip">
+              <div class="color-chip-sample" style="background: #22252a;"></div>
+              <div class="color-chip-info">
+                <strong style="color: var(--rose);">❌ Màu Đen Than (Cấm dùng cho sơn phẳng)</strong>
+                <div style="color: var(--text-muted); margin-top: 4px;">Chỉ đẹp khi là Đá thật hoặc Sơn hiệu ứng vân mây. Sơn phẳng sẽ bị lộ gợn tường & bạc màu.</div>
+              </div>
+            </div>
+
+            <div class="color-chip">
+              <div class="color-chip-sample" style="background: #5a5d60;"></div>
+              <div class="color-chip-info">
+                <strong style="color: var(--emerald);">✅ Màu Khung T2 (D1): Ghi Ấm Trung Tính</strong>
+                <div style="color: var(--text-muted); margin-top: 4px;">Hạ sáng 1–2 tông (VD: Dulux <em>00NN 37/000 Anthracite</em> / Kova <em>AP35-5</em>, màng Bóng mờ).</div>
+              </div>
+            </div>
+
+            <div class="color-chip">
+              <div class="color-chip-sample" style="background: #9ea3a8;"></div>
+              <div class="color-chip-info">
+                <strong style="color: var(--sky);">✅ Màu Tường T1 (D2): Xám Sáng (Light Grey)</strong>
+                <div style="color: var(--text-muted); margin-top: 4px;">Nếu Tầng 1 cũng không ốp đá ong, phải sơn sáng hơn Tầng 2 (VD: Dulux <em>00NN 62/000 Light Grey</em> / Kova <em>AP35-2</em>) để tách khối.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="guide-box">
+          <h3 style="margin-bottom: 10px;">📏 Kỹ Thuật Sống Còn: Kẻ Chỉ Âm 10x10mm Theo Đúng Bản Vẽ KT-3.05</h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 14px;">
+            Dù dùng <strong>Sơn hiệu ứng</strong> hay <strong>Sơn nước</strong>, tuyệt đối không để mảng tường dài 8m phẳng lỳ. Trong bản vẽ <code>KT-3.05</code>, KTS đã chia sẵn dầm Tầng 2 thành <strong>5 nhịp bằng nhau (1590mm/nhịp)</strong> và ghi chú sẵn <code>Soi rãnh KT 10x10mm</code>:
+          </p>
+          <ul style="font-size: 0.9rem; padding-left: 20px; display: flex; flex-direction: column; gap: 8px;">
+            <li><strong>Bước 1 (Khi thợ xây trát tường):</strong> Mua <strong>nẹp nhựa chỉ âm 10x10mm</strong> (giá chỉ ~15.000đ/thanh 2m) ghim thẳng vào lớp vữa trát theo đúng các đường chia <code>1590mm</code> trên bản vẽ.</li>
+            <li><strong>Bước 2 (Cạnh dưới dầm đua):</strong> Đặt <strong>nẹp nhựa ngắt nước (chỉ ngắt nước)</strong> đúng vị trí <code>CT NGẮT NƯỚC</code> trong <em>Chi tiết 01</em> để nước mưa không chảy ngược vào trần Logia làm ố sơn.</li>
+            <li><strong>Hiệu quả:</strong> Các đường chỉ âm tạo bóng đổ sâu sắc nét y hệt mạch ghép của đá khổ lớn và chống nứt chân chim lớp vữa trát.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CAD DRAWING EVIDENCE & SUMMARY TABLE -->
+    <section id="ban-ve-cad">
+      <div class="section-header">
+        <span class="section-eyebrow">Bằng chứng trực tiếp từ Hồ sơ Thi công Kiến trúc</span>
+        <h2 class="section-title">4. Đối Chiếu Bản Vẽ Kỹ Thuật (KT-2.12 & KT-3.05) & Bảng So Sánh Tổng Hợp</h2>
+        <p class="section-desc">
+          Vì sao trong bản thiết kế của bạn không có chi tiết móc treo đá mặt tiền? Hãy xem trực tiếp trích xuất bản vẽ <strong>Chi tiết 01 (KT-3.05)</strong> bên dưới: KTS thiết kế lớp hoàn thiện ngoài cùng dày đúng <code>15mm</code> và ghi chú là <code>LỚP VỮA TRÁT HT</code>.
+        </p>
+      </div>
+
+      <div class="cad-grid" style="margin-bottom: 32px;">
+        <div class="mat-card">
+          <img src="assets/cad_kt305_chitiet01.png" alt="Chi tiết 01 bản vẽ KT-3.05" loading="lazy" onclick="openLightbox('assets/cad_kt305_chitiet01.png', 'Trích xuất Chi tiết 01 (Bản vẽ KT-3.05): Chỉ thể hiện LỚP VỮA TRÁT HT dày 15mm + CT NGẮT NƯỚC, không có cấu tạo treo đá')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-warn">Bản vẽ KT-3.05 • Chi tiết 01</span>
+              <h4>Cấu Tạo Gờ Dầm Tầng 2 (D1)</h4>
+              <p>Bản vẽ cắt ngang dầm Tầng 2 ghi rõ: <code>LỚP VỮA TRÁT HT (15mm)</code> và <code>CT NGẮT NƯỚC</code>. Do đó nếu chuyển sang Sơn hiệu ứng / Sơn nước thì khớp 100% cốt bản vẽ mà không phải sửa kết cấu!</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--sky); font-weight: 600;">🔍 Bấm để phóng to bản vẽ</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/cad_kt305_logia01.png" alt="Bản vẽ KT-3.05 Chi tiết Logia 01" loading="lazy" onclick="openLightbox('assets/cad_kt305_logia01.png', 'Bản vẽ KT-3.05: Chi tiết Logia 01 Tầng 2 (Chia 5 nhịp 1590mm, ghi chú mã D1, G2, A1)')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-origin">Bản vẽ KT-3.05 • Logia 01</span>
+              <h4>Chia Mô-đun 5 Nhịp 1590mm</h4>
+              <p>Dầm trên của khung chữ C Tầng 2 được chia sẵn thành 5 khoang đều nhau (<code>1590mm/khoang</code>). Đây chính là vị trí chuẩn để bạn đặt <strong>nẹp chỉ âm 10x10mm</strong> nếu làm phương án Sơn.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--sky); font-weight: 600;">🔍 Bấm để phóng to bản vẽ</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/cad_kt212_matdung.png" alt="Bản vẽ KT-2.12 Mặt đứng trục C-A" loading="lazy" onclick="openLightbox('assets/cad_kt212_matdung.png', 'Bản vẽ KT-2.12: Mặt đứng trục C-A và Bảng ghi chú vật liệu D1, D2, G1, G2, A1, A2, A3')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-origin">Bản vẽ KT-2.12 • Mặt Đứng C-A</span>
+              <h4>Bảng Ký Hiệu Vật Liệu Tổng Thể</h4>
+              <p>Đối chiếu toàn bộ các mã <code>D1</code> (đá ghi đậm), <code>D2</code> (đá ong xám), <code>G1</code> (gỗ nhựa), <code>G2</code> (đá ong xám 100x300), <code>A1-A3</code> (sơn ghi đậm, sơn trắng, sơn giả bê tông).</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--sky); font-weight: 600;">🔍 Bấm để phóng to bản vẽ</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Summary Table -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tiêu chí so sánh</th>
+              <th>PA 1: Phương án "Lai" ★<br><small style="color: var(--emerald);">(Đá ong T1 + Sơn hiệu ứng T2)</small></th>
+              <th>PA 2: Sơn nước Ngoại thất<br><small style="color: var(--accent);">(Phối lại màu + Kẻ chỉ âm)</small></th>
+              <th>PA 3: Full Ốp Đá (Theo 3D)<br><small style="color: var(--sky);">(Đá Á Mỹ T2 + Đá ong T1)</small></th>
+              <th>PA 4: Sơn Đen Phẳng ❌<br><small style="color: var(--rose);">(Không đổi màu, không chỉ)</small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Khung chữ C Tầng 2 (D1)</strong></td>
+              <td>Sơn hiệu ứng bê tông ghi đậm + Chỉ âm <code>10x10mm</code></td>
+              <td>Sơn nước Ghi ấm trung tính (Satin/Matt) + Chỉ âm <code>10x10mm</code></td>
+              <td>Ốp Đá thiêu kết Á Mỹ <code>800x1600</code> cắt mòi $45^\circ$</td>
+              <td>Sơn nước màu đen/ghi đậm phẳng lỳ</td>
+            </tr>
+            <tr>
+              <td><strong>Tường Tầng 1 (D2) & Trụ G2</strong></td>
+              <td>Ốp Đá ong xám tự nhiên (Giữ nguyên 3D)</td>
+              <td>Sơn nước màu Xám sáng + Chỉ âm (hoặc giữ Đá ong T1)</td>
+              <td>Ốp Đá ong xám tự nhiên</td>
+              <td>Sơn nước tối màu phẳng lỳ</td>
+            </tr>
+            <tr>
+              <td><strong>Đội thợ thi công chính</strong></td>
+              <td>Thợ xây (ốp T1 & trát chỉ âm T2) + Thợ sơn hiệu ứng</td>
+              <td>Thợ xây (trát đặt nẹp chỉ âm) + Thợ sơn nước</td>
+              <td><strong>Bắt buộc Thợ Đá chuyên nghiệp</strong> (T2) + Thợ đá/xây (T1)</td>
+              <td>Thợ xây + Thợ sơn nước</td>
+            </tr>
+            <tr>
+              <td><strong>Độ khớp với bản vẽ KT-3.05</strong></td>
+              <td><strong style="color: var(--emerald);">Khớp 100%</strong> cốt vữa trát 15mm</td>
+              <td><strong style="color: var(--emerald);">Khớp 100%</strong> cốt vữa trát 15mm</td>
+              <td>Phải tự bổ sung biện pháp keo C2S1 + pát inox neo đá</td>
+              <td>Khớp cốt trát nhưng sai thẩm mỹ</td>
+            </tr>
+            <tr>
+              <td><strong>Độ giống phối cảnh 3D</strong></td>
+              <td><strong>95%</strong> (Giữ nguyên tông màu & vân đá)</td>
+              <td><strong>85%</strong> (Sáng hơn 1–2 tông, hiện đại, thanh thoát)</td>
+              <td><strong>100%</strong></td>
+              <td><strong>40%</strong> (Nhìn nặng nề, lộ vết lượn sóng tường)</td>
+            </tr>
+            <tr>
+              <td><strong>Chi phí dự kiến (Bóc tách 42m² T2 + 32.5m² T1)</strong></td>
+              <td><strong style="color: var(--emerald);">~37 – 41 triệu đ</strong><br><small>(T2 Sơn hiệu ứng ~16-20tr + T1 Đá ong ~21tr → <strong>Tiết kiệm ~45-55tr</strong>)</small></td>
+              <td><strong style="color: var(--accent);">~12 – 15 triệu đ</strong><br><small>(Toàn bộ 74.5m² sơn nước + nẹp chỉ âm → <strong>Tiết kiệm ~70-85tr</strong>)</small></td>
+              <td><strong style="color: var(--sky);">~35 – 46 triệu đ</strong> (Nếu chỉ ốp mặt trước 15m² + trần Basi)<br><small>(Nếu bọc 3 mặt 42m²: ~81-99tr)</small></td>
+              <td><strong>~10 – 12 triệu đ</strong><br><small>(Nhanh xuống cấp, tốn chi phí sơn lại sau 1–2 năm)</small></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 5: SIDE ALLEY (TRUC C) VISUAL COMPARISON -->
+    <section id="duong-luong">
+      <div class="section-header">
+        <span class="section-eyebrow">Thực trạng chuẩn xác • Tường Tầng 3 lùi 20cm đúng bản vẽ, Tường Tầng 2 xây nhô phẳng mép ngoài dầm 42x55</span>
+        <h2 class="section-title">5. So Sánh Trực Quan Góc Đường Luồng: Nên Ốp/Sơn Ghi Đậm Cả Mặt Bên Hay Chỉ Ốp Mặt Tiền?</h2>
+        <p class="section-desc">
+          Vì <strong>tường trắng Tầng 3 vẫn xây lùi vào <code>20cm</code> đúng thiết kế</strong>, trong khi <strong>tường Tầng 2 xây nhô ra <code>20cm</code> bằng mép ngoài của dầm trên và dầm dưới</strong>, nên toàn bộ mặt bên Tầng 2 (từ Trục 1 đến Trục 2) tạo thành <strong>một khối phẳng đặc nhô ra <code>20cm</code> so với tường trắng Tầng 3 phía trên</strong>. Hãy xem 4 bức ảnh dưới đây để thấy sự khác biệt rất rõ về hình khối:
+        </p>
+      </div>
+
+      <div class="cards-4">
+        <div class="mat-card">
+          <img src="assets/side_thucte_op_da_luong.jpg" alt="Thực trạng góc đường luồng: Ốp đá (hoặc sơn ghi đậm) cả khối Tầng 2 nhô ra 20cm" loading="lazy" onclick="openLightbox('assets/side_thucte_op_da_luong.jpg', '★ PHƯƠNG ÁN ĐẸP VỀ HÌNH KHỐI (Góc đường luồng): Ốp đá Á Mỹ (hoặc Sơn ghi đậm đồng màu) toàn bộ khối Tầng 2 đang nhô ra 20cm')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-best">★ Hợp thức hóa độ lồi 20cm • Góc Đường Luồng</span>
+              <h4>1. Ốp Đá (Hoặc Sơn Ghi Đậm) Khối T2 Nhô 20cm</h4>
+              <p>Khi toàn bộ phần tường + dầm Tầng 2 nhô ra <code>20cm</code> được ốp đá (hoặc sơn ghi đậm đồng màu với mặt tiền), nó tạo thành <strong>một khối hộp màu tối đặc khít ôm góc nhà</strong>, làm cho bậc giật cấp <code>20cm</code> với tường trắng Tầng 3 nhìn hoàn toàn có chủ đích!</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--emerald); font-weight: 600;">🔍 Bấm vào ảnh để phóng to</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/persp_thucte_da_amygres.jpg" alt="Thực trạng góc sân chính: Ốp đá (hoặc sơn ghi đậm) cả khối Tầng 2 nhô ra 20cm" loading="lazy" onclick="openLightbox('assets/persp_thucte_da_amygres.jpg', '★ GÓC SÂN CHÍNH (Khi mặt bên Tầng 2 nhô 20cm được Ốp đá hoặc Sơn ghi đậm đồng màu): Khối hộp Tầng 2 cực kỳ khỏe khoắn và liền mạch')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-best">★ Hợp thức hóa độ lồi 20cm • Góc Sân Chính</span>
+              <h4>2. Góc Sân Chính (Mặt Bên Cùng Tông Ghi Đậm)</h4>
+              <p>Nhìn từ sân chính vào, toàn bộ tầng 2 tạo thành một khối đá chữ L vững chãi đỡ lấy khối tường trắng Tầng 3 lùi vào <code>20cm</code> ở phía trên. <em>(Mẹo tiết kiệm: Mặt tiền ốp đá Á Mỹ, mặt bên đường luồng có thể dùng Sơn giả đá ghi đậm cùng tông!)</em></p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--emerald); font-weight: 600;">🔍 Bấm vào ảnh để phóng to</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/side_thucte_son_trang_luong.jpg" alt="Thực trạng góc đường luồng: Chỉ ốp mặt tiền, còn khối T2 nhô 20cm sơn trắng" loading="lazy" onclick="openLightbox('assets/side_thucte_son_trang_luong.jpg', '⚠️ NẾU SƠN TRẮNG MẶT BÊN TẦNG 2 NHÔ 20CM (Góc đường luồng): Tường trắng Tầng 2 bị phình ra 20cm so với tường trắng Tầng 3 phía trên')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-warn">⚠️ Lộ bậc giật cấp 20cm • Góc Đường Luồng</span>
+              <h4>3. Chỉ Ốp Mặt Tiền (Mặt Bên Nhô 20cm Sơn Trắng)</h4>
+              <p>Vì tường Tầng 3 lùi vào <code>20cm</code> còn tường Tầng 2 lại xây nhô ra <code>20cm</code>, nếu sơn trắng cả 2 tầng thì ở mặt đường luồng sẽ thấy <strong>mảng tường trắng Tầng 2 bị "phình bụng" nhô ra 20cm</strong> so với tường trắng Tầng 3 phía trên.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--rose); font-weight: 600;">🔍 Bấm vào ảnh để phóng to</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/persp_thucte_chi_op_mat_tien.jpg" alt="Thực trạng góc sân chính: Chỉ ốp mặt tiền, còn khối T2 nhô 20cm sơn trắng" loading="lazy" onclick="openLightbox('assets/persp_thucte_chi_op_mat_tien.jpg', 'Góc sân chính khi chỉ ốp đá mặt tiền + má hồi 25cm, còn mặt bên Tầng 2 nhô ra 20cm sơn trắng')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-origin">Đối chiếu • Góc Sân Chính Khi Hông Sơn Trắng</span>
+              <h4>4. Góc Sân Chính (Chỉ Ốp Mặt Tiền, Hông Sơn Trắng)</h4>
+              <p>Khi nhìn từ sân chính, nếu mặt bên Tầng 2 sơn trắng thì phần tường trắng Tầng 2 nhô ra bằng mép ngoài của khung đá mặt tiền, tạo một gờ giật cấp <code>20cm</code> màu trắng dưới chân tường Tầng 3.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--sky); font-weight: 600;">🔍 Bấm vào ảnh để phóng to</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CONCEPT 29.05.29 FACADE STYLING ON ACTUAL BUILT GEOMETRY -->
+    <section id="concept-2905">
+      <div class="section-header">
+        <span class="section-eyebrow">Đã cập nhật chuẩn 100% thực trạng: Tầng 3 mở 2 ô cửa sổ đứng giống hệt Tầng 2 • Cửa hông bịt kín 100%</span>
+        <h2 class="section-title">6. Phối Mặt Tiền Theo Concept 29.05.29 Trên Đúng Hình Khối Thực Tế Đã Xây (Góc Chính Diện & Góc Xiên)</h2>
+        <p class="section-desc">
+          Vì thực tế <strong>Tầng 3 đã xây 2 ô cửa sổ đứng ở nửa bên phải (giống y hệt Tầng 2)</strong>, nên phương án <strong>Sơn hiệu ứng gỉ sét (Corten) kẻ chỉ âm chia tấm + Bệ đá ngắt nước</strong> của bản <code>Concept 29.05.29</code> trở nên <strong>ăn khớp 100% với cửa sổ đã xây</strong> (khoe trọn 2 ô cửa sổ mà không bị hệ lam che khuất). Kéo thanh trượt bên dưới để so sánh cả <strong>Góc Chính Diện</strong> và <strong>Góc Phối Cảnh Xiên</strong>:
+        </p>
+      </div>
+
+      <!-- 6A: Interactive Slider for STRAIGHT-ON FRONT ELEVATION (Góc Chính Diện Mặt Tiền) -->
+      <div class="viewer-card" style="margin-bottom: 24px;">
+        <div class="viewer-toolbar">
+          <div style="font-size: 0.9rem; font-weight: 600;">
+            🏛️ <strong>Góc 1 — Chính Diện Mặt Tiền (Chuẩn 2 cửa sổ Tầng 3 như Tầng 2):</strong> Kéo thanh trượt để so sánh <strong>Trái = Bản Layout 3D (Lam gỗ che cửa)</strong> vs. <strong>Phải = Chuẩn Thực Tế 2 Cửa Sổ T3 + Sơn Gỉ Sét Corten & Đá Chẻ T2</strong>
+          </div>
+          <div class="mode-switch">
+            <button class="mode-btn" onclick="openLightbox('assets/front_thucte_chuan_2cua_t3.jpg', '★ Góc Chính Diện Mặt Tiền Chuẩn Thực Tế: Tầng 3 mở 2 ô cửa sổ giống Tầng 2 + Sơn hiệu ứng gỉ sét Corten kẻ chỉ âm + Tầng 2 khung đá xám sáng & trụ trong đá chẻ đen')">🔍 Phóng to Chính Diện Chuẩn Thực Tế</button>
+            <button class="mode-btn" onclick="openLightbox('assets/concept_2905_front.jpg', 'Góc Chính Diện Mặt Tiền Gốc — Trang 5 trong hồ sơ 29.05.29.XHEC. CONCEP 3D.pdf')">🔍 Xem Bản Gốc Concept 29.05.29</button>
+          </div>
+        </div>
+
+        <div class="comparison-stage" id="slider-stage-c6-front">
+          <img src="assets/front_thucte_chuan_2cua_t3.jpg" alt="Góc chính diện mặt tiền chuẩn thực tế: 2 cửa sổ Tầng 3 + Sơn hiệu ứng gỉ sét Corten + Khung T2 đá xám sáng & đá chẻ đen" loading="lazy">
+          <div class="img-before-wrapper" id="before-clip-c6-front" style="clip-path: inset(0 50% 0 0);">
+            <img src="assets/front_hientai_layout3d.jpg" alt="Góc chính diện mặt tiền: Thiết kế Layout 3D.pdf (Lam gỗ che mất ô cửa bên phải)" loading="lazy">
+          </div>
+          <div class="slider-line" id="slider-line-c6-front" style="left: 50%;"></div>
+          <div class="slider-button" id="slider-btn-c6-front" style="left: 50%;">⇄</div>
+          <span class="badge-overlay badge-left">◀ Bản Layout 3D: Lam Gỗ Che Khuất Cửa Sổ Phải T3</span>
+          <span class="badge-overlay badge-right" style="border-color: var(--emerald); color: #a7f3d0;">★ Thực Tế 2 Cửa Sổ T3 + Sơn Gỉ Sét Corten + Đá Chẻ T2 ▶</span>
+          <input type="range" min="0" max="100" value="50" class="comparison-range" id="comparison-range-c6-front" aria-label="So sánh Góc chính diện mặt tiền hiện tại và Concept 29.05.29">
+        </div>
+      </div>
+
+      <!-- 3 Cards for Straight-On Front Elevation Comparison -->
+      <div class="cards-4" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 28px;">
+        <div class="mat-card">
+          <img src="assets/front_thucte_chuan_2cua_t3.jpg" alt="Góc chính diện chuẩn thực tế: 2 cửa sổ Tầng 3 + Sơn gỉ sét Corten + Bệ đá ngắt nước" loading="lazy" onclick="openLightbox('assets/front_thucte_chuan_2cua_t3.jpg', '★ KHUYÊN DÙNG NHẤT (Góc Chính Diện Chuẩn Thực Tế): Tầng 3 có 2 cửa sổ giống Tầng 2 dùng Sơn gỉ sét Corten kẻ chỉ âm & bệ đá ngắt nước + Tầng 2 khung đá xám sáng & tường trong đá chẻ đen 3D')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-best">★ Chuẩn Thực Tế 2 Cửa Sổ T3 • Sơn Gỉ Sét Corten</span>
+              <h4>1. Chính Diện: Sơn Gỉ Sét Corten T3 (Đủ 2 Cửa Sổ)</h4>
+              <p>Vì Tầng 3 đã mở <strong>2 ô cửa sổ đứng giống hệt Tầng 2</strong>, dùng <strong>Sơn hiệu ứng gỉ sét (Corten) kẻ chỉ âm chia tấm + bệ đá ngắt nước</strong> giúp khoe trọn 2 ô cửa sổ thẳng hàng từ Tầng 2 lên Tầng 3 cực kỳ cân đối (và bỏ được bồn cây dễ thấm).</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--emerald); font-weight: 600;">🔍 Bấm vào ảnh để phóng to</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/front_thucte_chattloc_2_ban.jpg" alt="Đối chiếu nếu dùng hệ lam gỗ nhựa ở Tầng 3" loading="lazy" onclick="openLightbox('assets/front_thucte_chattloc_2_ban.jpg', 'Đối chiếu nếu đóng hệ lam gỗ nhựa (G1) đè qua ô cửa sổ bên phải Tầng 3')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-origin">Đối Chiếu • Nếu Đóng Lam Gỗ Nhựa Tầng 3</span>
+              <h4>2. Chính Diện: Nếu Làm Lam Gỗ Đè Qua Cửa Phải</h4>
+              <p>Nếu làm hệ lam gỗ nhựa <code>G1</code> như bản <code>Layout 3D.pdf</code> thì các thanh lam sẽ phải chạy đè qua mặt ngoài của ô cửa sổ thứ 2 bên phải (gây cản sáng và khó lau kính mặt ngoài hơn so với phương án Sơn gỉ sét ở Ảnh 1).</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--sky); font-weight: 600;">🔍 Bấm vào ảnh để phóng to</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/concept_2905_front.jpg" alt="Góc chính diện gốc tại Trang 5 trong hồ sơ 29.05.29.XHEC. CONCEP 3D.pdf" loading="lazy" onclick="openLightbox('assets/concept_2905_front.jpg', 'Góc Chính Diện Bản gốc Trang 5 trong hồ sơ 29.05.29.XHEC. H-QUÂN-HN. CONCEP 3D.pdf')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-save">Hồ sơ Gốc • Trang 5 Concept 29.05.29</span>
+              <h4>3. Chính Diện Gốc Concept 29.05.29</h4>
+              <p>Bản gốc Trang 5 trong <code>CONCEP 3D.pdf</code>. Có thể thấy phần thô mặt tiền bạn đã xây (cửa Tầng 3 giống hệt Tầng 2) chính là <strong>theo đúng bố cục cửa của bản Concept 29.05.29 này</strong>!</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">🔍 Bấm vào ảnh để phóng to</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6B: Interactive Slider comparing Current Dark Stone vs Concept 29.05.29 on Angled Perspective View -->
+      <div class="viewer-card" style="margin-bottom: 24px;">
+        <div class="viewer-toolbar">
+          <div style="font-size: 0.9rem; font-weight: 600;">
+            📐 <strong>Góc 2 — Phối Cảnh Xiên (Chuẩn 2 cửa sổ T3 mặt tiền + Đã bịt kín 100% cửa hông đường luồng):</strong> Kéo thanh trượt để so sánh trực tiếp
+          </div>
+          <div class="mode-switch">
+            <button class="mode-btn" onclick="openLightbox('assets/persp_thucte_chuan_2cua_t3.jpg', '★ Góc Phối Cảnh Xiên Chuẩn Thực Tế 100%: Mặt tiền Tầng 3 mở 2 cửa sổ + Sơn gỉ sét Corten; Tường bên đường luồng bịt kín 100% cửa hông')">🔍 Phóng to Góc Xiên Chuẩn Thực Tế</button>
+          </div>
+        </div>
+
+        <div class="comparison-stage" id="slider-stage-c6">
+          <img src="assets/persp_thucte_chuan_2cua_t3.jpg" alt="Góc xiên chuẩn thực tế: 2 cửa sổ Tầng 3 + Sơn hiệu ứng gỉ sét Corten + Tường hông bịt kín cửa" loading="lazy">
+          <div class="img-before-wrapper" id="before-clip-c6" style="clip-path: inset(0 50% 0 0);">
+            <img src="assets/persp_thucte_da_amygres.jpg" alt="Thiết kế Layout 3D: Ốp đá Á Mỹ màu ghi đen đậm + Lam gỗ T3" loading="lazy">
+          </div>
+          <div class="slider-line" id="slider-line-c6" style="left: 50%;"></div>
+          <div class="slider-button" id="slider-btn-c6" style="left: 50%;">⇄</div>
+          <span class="badge-overlay badge-left">◀ Bản Layout 3D: Đá Đen Đậm + Lam Gỗ T3</span>
+          <span class="badge-overlay badge-right" style="border-color: var(--emerald); color: #a7f3d0;">★ Chuẩn Thực Tế: 2 Cửa Sổ T3 Sơn Gỉ Sét + Đá Xám Sáng & Đá Chẻ T2 ▶</span>
+          <input type="range" min="0" max="100" value="50" class="comparison-range" id="comparison-range-c6" aria-label="So sánh Thiết kế hiện tại và Concept 29.05.29">
+        </div>
+      </div>
+
+      <div class="cards-4">
+        <div class="mat-card">
+          <img src="assets/persp_thucte_chuan_2cua_t3.jpg" alt="Góc xiên chuẩn thực tế 100%: 2 cửa sổ T3 Sơn gỉ sét Corten + Mặt bên nhô 20cm phẳng" loading="lazy" onclick="openLightbox('assets/persp_thucte_chuan_2cua_t3.jpg', '★ KHUYÊN DÙNG NHẤT (Chuẩn 100% Thực Trạng Đã Xây): Mặt tiền Tầng 3 có 2 cửa sổ + Sơn gỉ sét Corten; Tầng 2 khung đá xám sáng ôm cả mặt bên nhô 20cm (đã bịt cửa hông) + Trụ giữa đá chẻ đen')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-best">★ Khớp 100% Thực Trạng Đã Xây</span>
+              <h4>1. Góc Xiên Chuẩn Thực Tế (Sơn Gỉ Sét T3)</h4>
+              <p>• <strong>Tầng 3:</strong> Mở <strong>2 ô cửa sổ đứng giống Tầng 2</strong> + <strong>Sơn hiệu ứng gỉ sét (Corten) kẻ chỉ âm & bệ đá ngắt nước</strong>.<br>• <strong>Tầng 2:</strong> Khung chữ C & mặt bên đặc nhô <code>20cm</code> ốp <strong>Đá xám xi măng sáng</strong> + Trụ trong ban công ốp <strong>Đá chẻ đen 3D</strong> + <strong>Trần gỗ ấm</strong>.<br>• <strong>Tầng 1:</strong> Đá ong xám kẻ chỉ dọc + Cửa gỗ ô vuông CNC.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--emerald); font-weight: 600;">🔍 Bấm vào ảnh để phóng to</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/persp_thucte_chattloc_2_ban.jpg" alt="Đối chiếu góc xiên nếu dùng hệ lam gỗ nhựa Tầng 3" loading="lazy" onclick="openLightbox('assets/persp_thucte_chattloc_2_ban.jpg', 'Đối chiếu góc xiên nếu lắp hệ lam gỗ nhựa đứng (G1) ở Tầng 3')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-origin">Đối Chiếu • Nếu Dùng Lam Gỗ Nhựa T3</span>
+              <h4>2. Góc Xiên Nếu Dùng Lam Gỗ Nhựa T3</h4>
+              <p>Phương án giữ hệ lam gỗ nhựa đứng <code>G1</code> ở Tầng 3. Vì thực tế bạn đã xây 2 ô cửa sổ ở Tầng 3 giống Tầng 2, nên làm theo <strong>Ảnh 1 (Sơn gỉ sét Corten khoe cả 2 cửa sổ)</strong> sẽ hợp lý và tiết kiệm hơn.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--sky); font-weight: 600;">🔍 Bấm vào ảnh để phóng to</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/concept_2905_persp.jpg" alt="Ảnh gốc Trang 6 trong file 29.05.29.XHEC. CONCEP 3D.pdf" loading="lazy" onclick="openLightbox('assets/concept_2905_persp.jpg', 'Bản gốc Trang 6 trong hồ sơ 29.05.29.XHEC. H-QUÂN-HN. CONCEP 3D.pdf')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-save">Hồ sơ Gốc • Trang 6 Concept 29.05.29</span>
+              <h4>3. Phối Cảnh Gốc Concept 29.05.29</h4>
+              <p>Bản gốc trong file <code>CONCEP 3D.pdf</code> (khi chưa bịt cửa sổ bên hông và tường Tầng 2 bên hông còn vẽ lùi vào tạo hốc đá chẻ). Ở <strong>Ảnh 1</strong>, phần mặt bên Tầng 2 đã được làm phẳng theo đúng tường xây thực tế.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--accent); font-weight: 600;">🔍 Bấm vào ảnh để phóng to</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/concept_2905_sanh_t1.jpg" alt="Chi tiết Sảnh Tầng 1 và Cửa chính gỗ CNC ở Trang 7 Concept 29.05.29" loading="lazy" onclick="openLightbox('assets/concept_2905_sanh_t1.jpg', 'Chi tiết đắt giá ở Trang 7 Concept 29.05.29: Tường đá ong xám điểm chỉ đá dọc sẫm màu + Cửa gỗ tự nhiên chạm ô vuông CNC')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-best">★ Chi Tiết Đắt Giá • Trang 7 Concept 29.05.29</span>
+              <h4>4. Cận Cảnh Sảnh T1 & Cửa Gỗ CNC</h4>
+              <p>Chi tiết cực đẹp từ Trang 7 bản Concept mà bạn nên đưa cho thợ áp dụng: <strong>Ốp đá ong xám kết hợp các thanh chỉ đá sẫm màu chạy dọc</strong> + <strong>Cửa gỗ chính chạm ô vuông CNC</strong> và trần sảnh ốp gỗ ấm.</p>
+            </div>
+            <div style="font-size: 0.8rem; color: var(--emerald); font-weight: 600;">🔍 Bấm vào ảnh để phóng to</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6C: Dedicated 2-Angle View of Option 2 (PA2) for Floor 1: Lava Stone on Front + 60cm Corner Return, Light Paint along Side Alley -->
+      <div class="viewer-card" style="margin-top: 24px;">
+        <div class="viewer-toolbar">
+          <div style="font-size: 0.9rem; font-weight: 600;">
+            🪨 <strong>Góc 3 — Phương Án Tối Ưu Cho Tầng 1 (PA 2):</strong> Ốp Đá Ong Xám Mặt Tiền + Sảnh (<code>~20m²</code>) & Gập Qua Cột Góc <code>60cm</code> — Dọc Đường Luồng (<code>~40m²</code>) Sơn Ngoại Thất Sáng Màu + Len Đá Chân Tường <code>15cm</code> (Tiết Kiệm <code>~23 Triệu</code>)
+          </div>
+          <div class="mode-switch">
+            <button class="mode-btn" onclick="openLightbox('assets/pa2_tang1_da_ong_mat_tien_son_duong_luong.jpg', '★ Phương Án 2 Cho Tầng 1 (2 Góc Nhìn): Góc 1 nhìn từ sân chính (Ốp Đá ong xám mặt tiền & gập qua cột góc 60cm đẹp 100% như 3D) vs. Góc 2 nhìn dọc đường luồng (Dừng đá sau cột góc 60cm, dọc ngõ sơn ngoại thất sáng màu kẻ chỉ âm + len đá chân tường 15cm)')">🔍 Phóng to Ảnh 2 Góc Mặt Tiền & Đường Luồng (PA 2)</button>
+          </div>
+        </div>
+        <div style="background: #111827; padding: 12px; cursor: zoom-in;" onclick="openLightbox('assets/pa2_tang1_da_ong_mat_tien_son_duong_luong.jpg', '★ Phương Án 2 Cho Tầng 1 (2 Góc Nhìn): Góc 1 nhìn từ sân chính (Ốp Đá ong xám mặt tiền & gập qua cột góc 60cm đẹp 100% như 3D) vs. Góc 2 nhìn dọc đường luồng (Dừng đá sau cột góc 60cm, dọc ngõ sơn ngoại thất sáng màu kẻ chỉ âm + len đá chân tường 15cm)')">
+          <img src="assets/pa2_tang1_da_ong_mat_tien_son_duong_luong.jpg" alt="Phương án 2 Tầng 1: 2 góc nhìn mặt tiền ốp đá ong xám gập qua cột góc 60cm và dọc đường luồng sơn ngoại thất sáng màu" loading="lazy" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: DRIP EDGE (GỜ / CHỈ NGẮT NƯỚC) TECHNICAL DETAILS -->
+    <section id="chi-ngat-nuoc">
+      <div class="section-header">
+        <span class="section-eyebrow">Đã hiệu chỉnh chuẩn 100% theo Chi tiết 01 (KT-3.06): Vát chéo từ mép cửa vươn lên ra ngoài 400mm • Mũi ngoài mỏng 160mm</span>
+        <h2 class="section-title">7. Mô Hình 3D Cắt Lớp Chuẩn Chiều Vát (KT-3.06), Lý Do Sống Còn Phải Có Gờ Ngắt Nước Ở Mũi Ngoài & Phân Tích Có Nên Đẩy Bồn Cây Ra Mép Ngoài Không?</h2>
+        <p class="section-desc">
+          Đúng như bạn phát hiện rất tinh tế từ bản vẽ kiến trúc <code>KT-3.06 (Mặt cắt 2-2 & Chi tiết 01)</code>:
+          <strong>(1) Chiều vát chuẩn</strong> của hộp Sơn gỉ sét Tầng 3 là <strong>bắt đầu thấp ở ngay mép trên khung cửa sổ rồi vát chéo vươn LÊN ra phía ngoài <code>400mm</code></strong> (tạo thành hình cái nêm thuôn nhọn ra mũi ngoài chỉ dày <code>160mm</code>). Chính vì <strong>mặt trần vát này dốc ngược từ ngoài vào thẳng đỉnh cửa sổ</strong>, nên <strong>môi ngắt nước <code>15mm</code> + nẹp <code>GMN-04</code> ở mũi ngoài cùng là chi tiết sống còn</strong> (nếu không ngắt đứt giọt ngay tại mũi ngoài, nước mưa sẽ chảy tuột theo dốc vát lao thẳng vào đỉnh khung cửa sổ!).
+          <strong>(2) Về việc có nên chỉnh bồn cây ra tận mép ngoài hộp vát hay không:</strong> Xem ngay mô hình 3D cắt lớp và bản vẽ so sánh 2 phương án dưới đây:
+        </p>
+      </div>
+
+      <!-- 7A: Photorealistic 3D Cutaway Model of Floor 3 Top Box (Exact KT-3.06 Upward-Outward Bevel) -->
+      <div class="viewer-card" style="margin-bottom: 24px;">
+        <div class="viewer-toolbar">
+          <div style="font-size: 0.9rem; font-weight: 600;">
+            🧱 <strong>1. Mô Hình 3D Cắt Lớp Thực Tế Chuẩn Chiều Vát <code>Chi Tiết 01 (KT-3.06)</code>:</strong> Vát chéo từ mép cửa vươn lên ra mũi ngoài <code>160mm</code> & Gờ ngắt nước <code>GMN-04</code>
+          </div>
+          <div class="mode-switch">
+            <button class="mode-btn" onclick="openLightbox('assets/mo_hinh_3d_cat_lop_dinh_hop_t3.jpg', '★ Mô Hình 3D Cắt Lớp Chuẩn Chi Tiết 01 (KT-3.06): Mặt trần vát chéo từ đỉnh cửa sổ vươn lên ra mũi ngoài 400mm (mũi ngoài mỏng 160mm). Nhờ môi ngắt nước 15mm + Nẹp GMN-04 ngay tại mũi ngoài, nước mưa rơi thẳng xuống cách cửa 400mm thay vì chảy ngược theo dốc vát vào đỉnh cửa sổ!')">🔍 Phóng to Mô Hình 3D Cắt Lớp</button>
+            <button class="mode-btn" onclick="openLightbox('assets/cad_kt306_chitiet01_zoom.png', 'Bản vẽ CAD gốc Chi tiết 01 (KT-3.06): Cận cảnh mặt vát chéo từ đỉnh cửa sổ vươn lên ra mũi ngoài 160mm và vị trí Nẹp ngắt nước GMN-04')">📐 Đối Chiếu Bản Vẽ Gốc Chi Tiết 01 (KT-3.06)</button>
+          </div>
+        </div>
+        <div style="background: #111827; padding: 12px; cursor: zoom-in;" onclick="openLightbox('assets/mo_hinh_3d_cat_lop_dinh_hop_t3.jpg', '★ Mô Hình 3D Cắt Lớp Chuẩn Chi Tiết 01 (KT-3.06): Mặt trần vát chéo từ đỉnh cửa sổ vươn lên ra mũi ngoài 400mm (mũi ngoài mỏng 160mm). Nhờ môi ngắt nước 15mm + Nẹp GMN-04 ngay tại mũi ngoài, nước mưa rơi thẳng xuống cách cửa 400mm thay vì chảy ngược theo dốc vát vào đỉnh cửa sổ!')">
+          <img src="assets/mo_hinh_3d_cat_lop_dinh_hop_t3.jpg" alt="Mô hình 3D cắt lớp chuẩn chiều vát Chi tiết 01 KT-3.06: Vát chéo từ mép cửa vươn lên ra ngoài 400mm, mũi trán mỏng 160mm và nẹp GMN-04" loading="lazy" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+        </div>
+      </div>
+
+      <!-- 7A-1B: Dedicated 3D & Technical Detail of Corner Shaft TM3-D90 (Intersection of Axis 1 & Axis A) -->
+      <div class="viewer-card" style="margin-bottom: 24px;">
+        <div class="viewer-toolbar">
+          <div style="font-size: 0.9rem; font-weight: 600;">
+            🔧 <strong>2. Bản Vẽ Chi Tiết Riêng Tại Góc Hộp Kỹ Thuật <code>TM3-D90</code> (Giao <code>Trục 1</code> & <code>Trục A</code>):</strong> Mặt Đánh Dốc, Ống Nối <code>D60</code> & Đấu Chung 3 Đường Thoát Vào <code>TM3-D90</code>
+          </div>
+          <div class="mode-switch">
+            <button class="mode-btn" onclick="openLightbox('assets/chitiet_3d_nut_giao_thoat_nuoc_goc_tm3_d90.jpg', '★ Mô Hình 3D Cắt Lớp Riêng Tại Góc Hộp Kỹ Thuật TM3-D90 (Giao Trục 1 & Trục A): Mặt vữa đánh dốc i=1.5% trên đỉnh hộp vát 400mm thu vào Phễu góc D60, đi ống nhánh chếch 45° đấu vào Ống đứng TM3-D90 cùng 2 phễu CTM-DN80 của bồn hoa và sân trước')">🔍 Phóng to Mô Hình 3D Góc TM3-D90</button>
+            <button class="mode-btn" onclick="openLightbox('assets/ban_ve_ky_thuat_mat_bang_va_mat_cat_goc_tm3_d90.jpg', '★ Bản Vẽ Kỹ Thuật Thi Công Riêng Tại Góc TM3-D90: (1) Mặt Bằng Đánh Dốc & Đấu Nối Ống + (2) Mặt Cắt Dọc Chi Tiết Đấu Ống & Chống Thấm Cổ Ống SikaSwell + SikaGrout')">📐 Phóng to Bản Vẽ Mặt Bằng & Mặt Cắt Đấu Ống TM3-D90</button>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; background: #111827; padding: 12px;">
+          <div style="cursor: zoom-in;" onclick="openLightbox('assets/chitiet_3d_nut_giao_thoat_nuoc_goc_tm3_d90.jpg', '★ Mô Hình 3D Cắt Lớp Riêng Tại Góc Hộp Kỹ Thuật TM3-D90 (Giao Trục 1 & Trục A): Mặt vữa đánh dốc i=1.5% trên đỉnh hộp vát 400mm thu vào Phễu góc D60, đi ống nhánh chếch 45° đấu vào Ống đứng TM3-D90 cùng 2 phễu CTM-DN80 của bồn hoa và sân trước')">
+            <img src="assets/chitiet_3d_nut_giao_thoat_nuoc_goc_tm3_d90.jpg" alt="Mô hình 3D cắt lớp riêng tại góc hộp kỹ thuật TM3-D90 (Giao Trục 1 và Trục A)" loading="lazy" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+          </div>
+          <div style="cursor: zoom-in;" onclick="openLightbox('assets/ban_ve_ky_thuat_mat_bang_va_mat_cat_goc_tm3_d90.jpg', '★ Bản Vẽ Kỹ Thuật Thi Công Riêng Tại Góc TM3-D90: (1) Mặt Bằng Đánh Dốc & Đấu Nối Ống + (2) Mặt Cắt Dọc Chi Tiết Đấu Ống & Chống Thấm Cổ Ống SikaSwell + SikaGrout')">
+            <img src="assets/ban_ve_ky_thuat_mat_bang_va_mat_cat_goc_tm3_d90.jpg" alt="Bản vẽ kỹ thuật mặt bằng đánh dốc và mặt cắt dọc đấu ống tại góc TM3-D90" loading="lazy" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+          </div>
+        </div>
+      </div>
+
+      <!-- 7A-2: 2 Ways to Handle the 60mm & 50mm Top Trough on Chi Tiet 01 (KT-3.06 vs MEP N-05) -->
+      <div class="viewer-card" style="margin-bottom: 24px;">
+        <div class="viewer-toolbar">
+          <div style="font-size: 0.9rem; font-weight: 600;">
+            💧 <strong>3. Bản Vẽ Đối Chiếu 2 Cách Xử Lý Thoát Nước Tại Khoảng <code>60mm</code> & <code>50mm</code> Trên Đỉnh Hộp (Khắc Phục Việc Bản Vẽ Điện Nước <code>N-05</code> Chưa Có Lỗ Thoát):</strong>
+          </div>
+          <div class="mode-switch">
+            <button class="mode-btn" onclick="openLightbox('assets/mat_cat_2_cach_thoat_nuoc_ct01.jpg', '★ Mặt cắt đối chiếu 1-đối-1 trên Chi tiết 01 (KT-3.06): Cách 1 (Trái - Cán vữa lấp phẳng khoảng 60mm và dốc 2-3% sang trái về sân thượng) vs. Cách 2 (Phải - Giữ rãnh âm 60mm và đặt Phễu thu + Ống D60 luồn trong Lớp tôn nền về ống đứng TM3-D90)')">🔍 Phóng to Mặt Cắt 2 Cách (Chi Tiết 01)</button>
+            <button class="mode-btn" onclick="openLightbox('assets/phoi_canh_3d_2_cach_thoat_nuoc_dinh_hop_t3.jpg', '★ Phối cảnh 3D nhìn từ trên đỉnh hộp xuống: Cách 1 (Trái - Cán phẳng dốc vào trong + ống xuyên chân tường vào phễu CTM-DN80) vs. Cách 2 (Phải - Giữ máng âm 60mm + đặt phễu thu ở góc máng chảy thẳng xuống ống đứng TM3-D90)')">🧱 Xem Phối Cảnh 3D Nhìn Từ Đỉnh Hộp</button>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; background: #fff; padding: 12px;">
+          <div style="cursor: zoom-in;" onclick="openLightbox('assets/mat_cat_2_cach_thoat_nuoc_ct01.jpg', '★ Mặt cắt đối chiếu 1-đối-1 trên Chi tiết 01 (KT-3.06): Cách 1 (Trái - Cán vữa lấp phẳng khoảng 60mm và dốc 2-3% sang trái về sân thượng) vs. Cách 2 (Phải - Giữ rãnh âm 60mm và đặt Phễu thu + Ống D60 luồn trong Lớp tôn nền về ống đứng TM3-D90)')">
+            <img src="assets/mat_cat_2_cach_thoat_nuoc_ct01.jpg" alt="Mặt cắt 2 cách xử lý thoát nước tại vị trí máng âm 60mm và 50mm trên Chi tiết 01 KT-3.06" loading="lazy" style="width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid #e5e7eb;">
+          </div>
+          <div style="cursor: zoom-in;" onclick="openLightbox('assets/phoi_canh_3d_2_cach_thoat_nuoc_dinh_hop_t3.jpg', '★ Phối cảnh 3D nhìn từ trên đỉnh hộp xuống: Cách 1 (Trái - Cán phẳng dốc vào trong + ống xuyên chân tường vào phễu CTM-DN80) vs. Cách 2 (Phải - Giữ máng âm 60mm + đặt phễu thu ở góc máng chảy thẳng xuống ống đứng TM3-D90)')">
+            <img src="assets/phoi_canh_3d_2_cach_thoat_nuoc_dinh_hop_t3.jpg" alt="Phối cảnh 3D 2 cách xử lý thoát nước đỉnh hộp vát Tầng 3" loading="lazy" style="width: 100%; height: auto; display: block; border-radius: 8px; border: 1px solid #e5e7eb;">
+          </div>
+        </div>
+      </div>
+
+      <!-- 7B: Side-by-Side Comparison: Should you extend the Planter out to the outer edge of the 400mm beveled box? -->
+      <div class="viewer-card" style="margin-bottom: 24px;">
+        <div class="viewer-toolbar">
+          <div style="font-size: 0.9rem; font-weight: 600;">
+            🌿 <strong>3. Phân Tích Kỹ Thuật & Thẩm Mỹ: Có Nên Chỉnh Bồn Cây Ra Tận Mép Ngoài Hộp Vát <code>400mm</code> Không?</strong>
+          </div>
+          <div class="mode-switch">
+            <button class="mode-btn" onclick="openLightbox('assets/so_sanh_bon_cay_mep_ngoai_hop_t3.jpg', 'So sánh Phương án A (Chuẩn KT-3.06: Giữ mũi vát mỏng 160mm thanh thoát) vs. Phương án B (Nếu xây bồn cây cao 580mm ra tận mép ngoài làm trán hộp dày cộp lên 740mm và gây nặng công-xôn)')">🔍 Phóng to Bảng So Sánh 2 Phương Án Bồn Cây</button>
+            <button class="mode-btn" onclick="openLightbox('assets/cad_kt306_mc22_zoom.png', 'Bản vẽ CAD gốc Mặt cắt 2-2 (KT-3.06): Cho thấy phần mũi vát đua ra 400mm hoàn toàn phẳng ở mặt trên (không có bồn cây)')">📄 Xem Mặt Cắt 2-2 Gốc (KT-3.06)</button>
+          </div>
+        </div>
+        <div style="background: #fff; padding: 12px; cursor: zoom-in;" onclick="openLightbox('assets/so_sanh_bon_cay_mep_ngoai_hop_t3.jpg', 'So sánh Phương án A (Chuẩn KT-3.06: Giữ mũi vát mỏng 160mm thanh thoát) vs. Phương án B (Nếu xây bồn cây cao 580mm ra tận mép ngoài làm trán hộp dày cộp lên 740mm và gây nặng công-xôn)')">
+          <img src="assets/so_sanh_bon_cay_mep_ngoai_hop_t3.jpg" alt="So sánh vị trí đặt bồn cây và hình thái mũi hộp vát Tầng 3 theo bản vẽ KT-3.06" loading="lazy" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+        </div>
+      </div>
+
+      <!-- 2 Cards comparing Original CAD Zoom (Chi tiết 01 & Mặt cắt 2-2) and Explaining Planter Decision -->
+      <div class="cards-4" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 24px;">
+        <div class="mat-card">
+          <img src="assets/cad_kt306_chitiet01_zoom.png" alt="Bản vẽ CAD gốc Chi tiết 01 (KT-3.06): Mặt vát chéo từ cửa sổ vươn ra ngoài và Nẹp ngắt nước GMN-04" loading="lazy" onclick="openLightbox('assets/cad_kt306_chitiet01_zoom.png', 'Bản vẽ CAD gốc Chi tiết 01 (KT-3.06): Mặt vát chéo từ mép trên cửa sổ vươn lên ra ngoài 400mm (150+250mm), mũi ngoài cao 160mm (bản BTCT 100mm + gạch đặc cao 60mm) và Nẹp ngắt nước GMN-04 ở ngay mũi ngoài')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-best">1. Bản Vẽ Gốc Chi Tiết 01 (KT-3.06) • Chiều Vát & Nẹp GMN-04</span>
+              <h4>Vì Sao Chiều Vát Này Bắt Buộc Phải Có Gờ Ngắt Nước Ở Mũi Ngoài?</h4>
+              <p>
+                • Nhìn vào <code>Chi tiết 01 (KT-3.06)</code>: Từ mép trên cửa sổ nhôm kính (dưới đáy dầm <code>250×500mm</code>), bản BTCT vát chéo <strong>vươn lên trên và đua ra ngoài <code>400mm</code> (<code>150 + 250mm</code>)</strong> để gặp <strong>mũi trán ngoài chỉ cao <code>160mm</code></strong> (gồm <code>100mm</code> bê tông + <code>60mm</code> gạch đặc xây chặn mép).<br>
+                • <strong>Nguyên lý trọng lực cực kỳ quan trọng:</strong> Vì mặt trần vát này <strong>dốc từ mũi ngoài (cao) tụt chéo xuống đỉnh cửa sổ (thấp hơn <code>500mm</code>)</strong>, nên nếu ở đáy mũi ngoài <code>160mm</code> không có <strong>Môi hạ thấp <code>15mm</code> + Nẹp ngắt nước <code>GMN-04</code></strong>, nước mưa từ mũi ngoài sẽ <strong>chảy tuột một mạch theo mặt dốc vát <code>500mm</code> lao thẳng vào khe trên khung cửa sổ Tầng 3</strong>!
+              </p>
+            </div>
+            <div style="font-size: 0.82rem; color: var(--emerald); font-weight: 600;">🔍 Bấm vào ảnh để phóng to bản vẽ CAD Chi tiết 01</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <img src="assets/cad_kt306_mc22_zoom.png" alt="Bản vẽ CAD gốc Mặt cắt 2-2 (KT-3.06): Tại sao không xây bồn cây cao 580mm ra tận mép mũi vát ngoài" loading="lazy" onclick="openLightbox('assets/cad_kt306_mc22_zoom.png', 'Bản vẽ CAD gốc Mặt cắt 2-2 (KT-3.06): Giải thích tại sao kiến trúc sư KHÔNG đặt bồn cây ra tận mép ngoài của mũi vát 400mm')">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-warn">2. Giải Đáp: Có Nên Đẩy Bồn Cây Ra Tận Mép Ngoài Hộp Vát Không?</span>
+              <h4>❌ KHÔNG NÊN Xây Bồn Cây Cao 580mm Ra Sát Mép Mũi Vát!</h4>
+              <p>
+                Có <strong>3 lý do cốt tử</strong> khiến bản vẽ <code>KT-3.06</code> tuyệt đối không đặt bồn cây ra mép ngoài hộp vát:<br>
+                1️⃣ <strong>Làm hỏng hoàn toàn tỷ lệ vát nhọn 3D:</strong> Vẻ đẹp đắt giá nhất của chiếc hộp Corten là <strong>cạnh vát thuôn nhọn ra mép ngoài mỏng đúng <code>160mm</code></strong> (như lưỡi dao sắc nét). Nếu xây tường bồn cây cao <code>580mm</code> ngay tại mép ngoài, mặt trán đứng sẽ bị dày cộp lên thành <strong><code>160 + 580 = 740mm</code></strong> (trông nặng nề như bức tường đặc, mất sạch hiệu ứng vát mảnh!).<br>
+                2️⃣ <strong>Quá tải công-xôn & Nguy cơ thấm khe vát:</strong> Phần mũi vát đua ra <code>400mm</code> có lõi rỗng/tôn nền hình tam giác bên trong. Nếu chất hàng trăm kg đất ướt + rễ cây đè lên đầu mũi công-xôn <code>400mm</code> này, rất dễ nứt mạch ngừng bê tông và ngấm nước rỉ sét thẳng xuống mặt trần vát.<br>
+                3️⃣ <strong>Giải pháp thông minh nhất nếu muốn có cây rủ:</strong> Giữ nguyên mũi vát phẳng mỏng <code>160mm</code> (chỉ xây gờ gạch cao <code>60mm</code> chặn nước quét 3 lớp <code>SikaTop Seal 107</code> như <code>Chi tiết 01</code>), và <strong>đặt bồn cây (hoặc khay chậu composite) LÙI VÀO PHÍA TRONG (nằm đè lên đúng dầm chính <code>250mm</code>)</strong> để cây Cúc tần Ấn Độ rủ mềm qua mép vát!
+              </p>
+            </div>
+            <div style="font-size: 0.82rem; color: var(--rose); font-weight: 600;">🔍 Bấm vào ảnh để xem Mặt cắt 2-2 gốc (KT-3.06)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7C: Photorealistic Close-up of the 3 Real-Life Drip-Edge Details in the Rain -->
+      <div class="viewer-card" style="margin-bottom: 24px;">
+        <div class="viewer-toolbar">
+          <div style="font-size: 0.9rem; font-weight: 600;">
+            🌧️ <strong>3. Ảnh Cận Cảnh Thực Tế & Bản Vẽ 3 Vị Trí Khe Ngắt Nước Khi Trời Mưa:</strong> (1) Mũi ngoài hộp T3, (2) Bệ đá cửa sổ, (3) Đáy dầm đá T2
+          </div>
+          <div class="mode-switch">
+            <button class="mode-btn" onclick="openLightbox('assets/anh_thuc_te_3_vi_tri_ngat_nuoc.jpg', 'Ảnh cận cảnh thực tế 3 vị trí làm gờ/chỉ ngắt nước khi trời mưa: (1) Mũi ngoài hộp Corten Tầng 3, (2) Bệ đá cửa sổ nhô 3cm có rãnh cắt 5mm, (3) Mép dưới dầm đá Tầng 2 hạ thấp 15mm so với trần gỗ')">🔍 Phóng to Ảnh Thực Tế 3 Vị Trí</button>
+            <button class="mode-btn" onclick="openLightbox('assets/cad_chi_ngat_nuoc_3_vi_tri.jpg', 'Bản Vẽ Chi Tiết Kỹ Thuật Cấu Tạo Ngắt Nước Chống Ố Mưa (3 Vị Trí)')">📐 Xem Bản Vẽ 3 Vị Trí</button>
+          </div>
+        </div>
+        <div style="background: #fff; padding: 12px; cursor: zoom-in;" onclick="openLightbox('assets/anh_thuc_te_3_vi_tri_ngat_nuoc.jpg', 'Ảnh cận cảnh thực tế 3 vị trí làm gờ/chỉ ngắt nước khi trời mưa: (1) Mũi ngoài hộp Corten Tầng 3, (2) Bệ đá cửa sổ nhô 3cm có rãnh cắt 5mm, (3) Mép dưới dầm đá Tầng 2 hạ thấp 15mm so với trần gỗ')">
+          <img src="assets/anh_thuc_te_3_vi_tri_ngat_nuoc.jpg" alt="Ảnh cận cảnh thực tế 3 vị trí ngắt nước khi trời mưa" loading="lazy" style="width: 100%; height: auto; display: block; border-radius: 8px;">
+        </div>
+      </div>
+
+      <!-- 3 Detailed Instruction Cards Corresponding to the 3 Positions -->
+      <div class="cards-4" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="mat-card">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-best">Vị Trí 1 • Mũi Trán Hộp Vát Tầng 3 (Cao 160mm)</span>
+              <h4>1. Mũi Ngoài Hộp Sơn Gỉ Sét Tầng 3 (KT-3.06)</h4>
+              <p>
+                • <strong>Trên mặt phẳng đỉnh hộp vát (đua <code>400mm</code>):</strong> Xây gờ gạch đặc cao <code>60mm</code> rộng <code>180mm</code> ở mũi ngoài (tạo gờ chắn nước âm <code>60mm</code>), quét <strong>3 lớp chống thấm <code>SikaTop Seal 107</code></strong> và đánh dốc thu nước ngược về phía trong.<br>
+                • <strong>Ngay dưới đáy mũi trán ngoài (<code>160mm</code>):</strong> Trước khi vát chéo tụt xuống cửa sổ, bắt buộc tạo <strong>môi hạ thấp <code>15mm</code> + gắn nẹp ngắt nước <code>GMN-04</code></strong> ngay sát mũi ngoài để nước đứt giọt rơi thẳng xuống đất (cách cửa sổ <code>400mm</code>), tuyệt đối không cho nước chảy tuột theo dốc vát vào đỉnh cửa sổ!
+              </p>
+            </div>
+            <div style="font-size: 0.82rem; color: var(--emerald); font-weight: 600;">✅ Chặn 100% nước chảy ngược theo dốc vát vào cửa sổ</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-save">Vị Trí 2 • Chống "Râu Đen" Ở Góc Dưới Cửa Sổ</span>
+              <h4>2. Bệ Đá 2 Ô Cửa Sổ Đứng Tầng 3 & Tầng 2</h4>
+              <p>
+                • <strong>Nguyên nhân gây bẩn:</strong> Nước mưa rửa bụi trên mặt kính 2 ô cửa sổ sẽ dồn về 2 góc dưới bệ cửa rồi chảy bết xuống tường Sơn gỉ sét bên dưới tạo thành 2 vệt đen ("râu cửa sổ").<br>
+                • <strong>Cách xử lý:</strong> Đặt tấm <strong>đá tự nhiên màu đen/xám dày <code>20mm</code> làm bệ cửa</strong> nhô ra khỏi mặt tường <code>25–30mm</code> (hai đầu chờm rộng hơn cửa <code>20mm</code>). Ở <strong>mặt dưới mũi đá nhô ra</strong>, cắt 1 đường rãnh lưỡi cưa sâu <code>5mm</code> (rãnh ngắt nước) để nước bẩn rơi thẳng ra không trung!
+              </p>
+            </div>
+            <div style="font-size: 0.82rem; color: var(--accent); font-weight: 600;">✅ Giữ mảng Sơn gỉ sét dưới cửa sổ sạch bong quanh năm</div>
+          </div>
+        </div>
+
+        <div class="mat-card">
+          <div class="mat-card-body">
+            <div>
+              <span class="option-tab-tag tag-origin">Vị Trí 3 • Bảo Vệ Trần Gỗ / Trần Nhôm Tầng 2 & Tầng 1</span>
+              <h4>3. Trán Dầm Đá Khung Chữ C & Trần Ban Công</h4>
+              <p>
+                • <strong>Trên đỉnh dầm ngang Tầng 2 (Sàn ban công T3):</strong> Đánh dốc thu nước vào phễu ban công Tầng 3 (và bỏ bồn cây sát mép ngoài dầm để không bị rỉ nước đất bùn qua trán đá).<br>
+                • <strong>Ở mép dưới trán dầm đá Tầng 2:</strong> Cho tấm đá mặt đứng (hoặc gờ vữa ngoài) <strong>hạ thấp hơn mặt trần gỗ/nhôm bên trong <code>12–15mm</code></strong> tạo thành <strong>"môi đá ngắt nước"</strong> kết hợp rãnh ngắt nước <code>5mm</code>. Nước mưa đến mép dưới trán đá sẽ đứt giọt ngay!
+              </p>
+            </div>
+            <div style="font-size: 0.82rem; color: var(--sky); font-weight: 600;">✅ Không bao giờ bị thấm ố khe trần gỗ / trần nhôm</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      Hồ sơ trực quan hóa phục vụ thi công thực tế công trình <strong>Biệt thự Q Villa (Chủ đầu tư: Ông Phùng Văn Quân)</strong> • Trích xuất từ hồ sơ thiết kế <em>XHOME</em>.
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal Dialog using modern closedby="any" -->
+  <dialog id="image-lightbox" closedby="any">
+    <div class="lightbox-header">
+      <span id="lightbox-caption" style="font-weight: 700; font-size: 0.95rem;">Chi tiết hình ảnh</span>
+      <button class="lightbox-close" id="lightbox-close-btn">Đóng (ESC)</button>
+    </div>
+    <div class="lightbox-body">
+      <img id="lightbox-img" src="assets/persp_thucte_da_amygres.jpg" alt="Ảnh phóng to">
+    </div>
+  </dialog>
+
+  <script>
+    // Data for the 4 Facade Finishing Options (All using ACTUAL BUILT GEOMETRY on Floor 2)
+    const OPTIONS_DATA = {
+      opt1: {
+        badge: "★ PA 1: Ốp Đá Á Mỹ (Hợp thức hóa khối T2 nhô 20cm)",
+        badgeClass: "option-tab-tag tag-best",
+        title: "PA 1: Ốp Đá Á Mỹ Tầng 2 (Cả Mặt tiền & Khối mặt bên nhô 20cm)",
+        subtitle: "Vì tường Tầng 2 bên đường luồng xây nhô ra 20cm (trong khi tường trắng Tầng 3 vẫn lùi vào 20cm), làm màu Ghi đậm cho cả khối nhô ra 20cm này sẽ tạo thành một chiếc hộp kiến trúc cực kỳ hợp lý!",
+        afterImg: "assets/persp_thucte_da_amygres.jpg",
+        rightLabel: "PA 1: Ốp Đá Á Mỹ Cả Khối T2 Nhô 20cm ▶",
+        t2: "<strong>Ốp Đá thiêu kết Á Mỹ (AMYGRES) 600x1200mm</strong> màu ghi đậm cho mặt trước (~15m²) + mặt phẳng bên đường luồng đang nhô ra 20cm (~10m²). <em>(Hoặc mặt tiền ốp đá, mặt bên đường luồng sơn giả đá cùng màu để tiết kiệm!)</em>",
+        t1: "<strong>Ốp Đá ong xám tự nhiên</strong> (D2, G2) + Tam cấp ốp <strong>Đá xám Phú Yên mài hon</strong> dày 30mm.",
+        worker: "• <strong>Không ốp ngược đáy dầm</strong> (đáy đóng trần nhôm Basi) nên <strong>Thợ ốp lát chính trong đội thợ xây</strong> hoàn toàn ốp được bằng keo C2!",
+        pros: "✅ <strong>Giải quyết hoàn hảo lỗi tường Tầng 2 xây nhô 20cm:</strong> Biến toàn bộ phần tường + dầm Tầng 2 nhô ra 20cm thành một khối hộp đá đặc đỡ lấy khối tường trắng Tầng 3 lùi vào 20cm ở trên!",
+        swatchImg: "assets/mat_amygres_stone.jpg",
+        swatchTitle: "Bề mặt Đá thiêu kết Á Mỹ (AMYGRES) màu ghi đậm",
+        swatchDesc: "Không phai màu dưới nắng mưa, khổ 600x1200mm vừa khít chiều cao trán dầm 600mm."
+      },
+      opt4: {
+        badge: "PA 2: Chỉ Ốp Mặt Tiền (Mặt bên nhô 20cm Sơn Trắng)",
+        badgeClass: "option-tab-tag tag-origin",
+        title: "PA 2: Chỉ Ốp Đá Mặt Tiền + Má Hồi 25cm (Mặt bên T2 Sơn Trắng)",
+        subtitle: "Đối chiếu trực tiếp trên hình khối thực tế đã xây khi bạn chỉ ốp đá mặt tiền và sơn trắng phần tường Tầng 2 nhô ra 20cm ở đường luồng.",
+        afterImg: "assets/persp_thucte_chi_op_mat_tien.jpg",
+        rightLabel: "PA 2: Chỉ Ốp Mặt Tiền (Hông Sơn Trắng) ▶",
+        t2: "• <strong>Mặt tiền (15m²):</strong> Ốp Đá thiêu kết Á Mỹ 600x1200mm + gập má hồi 25cm.<br>• <strong>Mặt bên đường luồng (nhô 20cm):</strong> Trát phẳng với dầm trên/dưới và sơn trắng.",
+        t1: "<strong>Ốp Đá ong xám tự nhiên</strong> (D2, G2).",
+        worker: "• Thợ xây ốp 15m² mặt tiền bằng keo C2 + Thợ sơn lăn sơn trắng mặt bên đường luồng.",
+        pros: "✅ Tiết kiệm được ~10m² đá bên đường luồng (~10 triệu đ).<br>⚠️ <strong>Nhược điểm về hình khối:</strong> Vì tường Tầng 3 vẫn lùi vào 20cm nên khi sơn trắng cả 2 tầng, tường trắng Tầng 2 bị lồi/phình ra 20cm so với tường trắng Tầng 3 (Cách khắc phục rẻ nhất: Sơn màu Ghi đậm cho mặt bên Tầng 2 này!).",
+        swatchImg: "assets/side_thucte_son_trang_luong.jpg",
+        swatchTitle: "Xem góc nhìn mặt bên đường luồng khi Sơn Trắng",
+        swatchDesc: "Bấm vào đây để xem rõ bậc giật cấp 20cm giữa tường trắng Tầng 2 (nhô ra) và tường trắng Tầng 3 (lùi vào)."
+      },
+      opt2: {
+        badge: "PA 3: Sơn Hiệu Ứng Bê Tông Ghi Đậm (Hình khối thực tế)",
+        badgeClass: "option-tab-tag tag-save",
+        title: "PA 3: Phương án \"Lai\" trên hình khối thực tế (Đá ong T1 + Sơn hiệu ứng T2)",
+        subtitle: "Toàn bộ khối Tầng 2 (mặt tiền + mặt bên nhô ra 20cm) dùng Sơn hiệu ứng bê tông màu ghi đậm + kẻ chỉ âm 10x10mm.",
+        afterImg: "assets/persp_thucte_son_loang.jpg",
+        rightLabel: "PA 3: Sơn hiệu ứng T2 + Đá ong T1 ▶",
+        t2: "<strong>Sơn hiệu ứng bê tông / giả đá màu ghi đậm</strong> kết hợp <strong>nẹp chỉ âm 10x10mm</strong> cho cả mặt tiền và mặt bên Tầng 2 nhô ra 20cm.",
+        t1: "<strong>Giữ nguyên ốp Đá ong xám tự nhiên</strong> (100x300mm & 200x400mm).",
+        worker: "• <strong>Tầng 1 (D2):</strong> Thợ xây ốp đá ong xám.<br>• <strong>Tầng 2 (D1):</strong> Thợ xây trát phẳng đặt nẹp chỉ âm 10x10mm + Đội thợ sơn hiệu ứng.",
+        pros: "✅ Hợp thức hóa khối Tầng 2 nhô ra 20cm thành khối bê tông ghi đậm liền lạc.<br>✅ Không cần cắt mòi đá.",
+        swatchImg: "assets/mat_son_hieu_ung.jpg",
+        swatchTitle: "Bề mặt Sơn hiệu ứng bê tông + Chỉ âm 10x10mm",
+        swatchDesc: "Có chiều sâu vân đá tự nhiên, giữ được màu ghi đậm như 3D mà không bị lộ lượn sóng vữa trát."
+      },
+      opt3: {
+        badge: "PA 4: Sơn Nước Ghi Ấm + Chỉ Âm (Hình khối thực tế)",
+        badgeClass: "option-tab-tag tag-save",
+        title: "PA 4: Sơn nước Ngoại thất trên hình khối thực tế (Đã phối lại màu + Kẻ chỉ âm)",
+        subtitle: "Phù hợp khi muốn dùng sơn nước ngoại thất thông thường cho toàn bộ mặt tiền và mặt bên nhô ra 20cm.",
+        afterImg: "assets/persp_thucte_son_nuoc_chuan.jpg",
+        rightLabel: "PA 4: Sơn nước Ghi ấm + Chỉ âm ▶",
+        t2: "<strong>Sơn nước ngoại thất màu Ghi ấm trung tính (Medium Warm Grey)</strong> — hạ sáng 1–2 tông so với màu đá, chọn dòng <strong>Bóng mờ (Satin/Matt)</strong> + <strong>đặt nẹp chỉ âm 10x10mm</strong>.",
+        t1: "<strong>Sơn nước ngoại thất màu Xám sáng (Light Cool Grey) + kẻ chỉ âm</strong> (hoặc giữ ốp Đá ong xám ở Tầng 1).",
+        worker: "• Đội thợ xây trát tường ghim nẹp nhựa chỉ âm 10x10mm + Đội thợ sơn nước.",
+        pros: "✅ Chi phí tiết kiệm nhất (~12–15 triệu đ cho toàn bộ).<br>✅ Hạ sáng 1–2 tông màu + kẻ chỉ âm giúp mặt tiền không bị hấp thụ nhiệt phồng rộp.",
+        swatchImg: "assets/mat_son_nuoc_ghi.jpg",
+        swatchTitle: "Bề mặt Sơn nước Ghi trung tính (Bóng mờ) + Chỉ âm",
+        swatchDesc: "Sắc độ ghi ấm dịu mắt dưới nắng, kết hợp đường chỉ âm 10x10mm tạo chia khối sắc nét."
+      }
+    };
+
+    // Slider Interaction
+    const rangeInput = document.getElementById('comparison-range');
+    const beforeClip = document.getElementById('before-clip');
+    const sliderLine = document.getElementById('slider-line');
+    const sliderBtn = document.getElementById('slider-btn');
+
+    function updateSlider(val) {
+      const rightInset = 100 - val;
+      beforeClip.style.clipPath = `inset(0 ${rightInset}% 0 0)`;
+      sliderLine.style.left = `${val}%`;
+      sliderBtn.style.left = `${val}%`;
+    }
+
+    rangeInput.addEventListener('input', (e) => {
+      updateSlider(e.target.value);
+    });
+    updateSlider(rangeInput.value);
+
+    // Section 6 Slider Interaction (Concept 29.05.29 vs Current Dark Stone - Perspective & Straight-on Front)
+    const rangeInputC6Front = document.getElementById('comparison-range-c6-front');
+    const beforeClipC6Front = document.getElementById('before-clip-c6-front');
+    const sliderLineC6Front = document.getElementById('slider-line-c6-front');
+    const sliderBtnC6Front = document.getElementById('slider-btn-c6-front');
+
+    if (rangeInputC6Front) {
+      rangeInputC6Front.addEventListener('input', (e) => {
+        const val = e.target.value;
+        beforeClipC6Front.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
+        sliderLineC6Front.style.left = `${val}%`;
+        sliderBtnC6Front.style.left = `${val}%`;
+      });
+    }
+
+    const rangeInputC6 = document.getElementById('comparison-range-c6');
+    const beforeClipC6 = document.getElementById('before-clip-c6');
+    const sliderLineC6 = document.getElementById('slider-line-c6');
+    const sliderBtnC6 = document.getElementById('slider-btn-c6');
+
+    if (rangeInputC6) {
+      rangeInputC6.addEventListener('input', (e) => {
+        const val = e.target.value;
+        beforeClipC6.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
+        sliderLineC6.style.left = `${val}%`;
+        sliderBtnC6.style.left = `${val}%`;
+      });
+    }
+
+    // Option Tabs Switching
+    const optionTabs = document.querySelectorAll('.option-tab');
+    const imgAfter = document.getElementById('img-after');
+    const imgBefore = document.getElementById('img-before');
+    const badgeLeftLabel = document.getElementById('badge-left-label');
+    const badgeRightLabel = document.getElementById('badge-right-label');
+
+    optionTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        optionTabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+
+        const key = tab.getAttribute('data-opt');
+        const data = OPTIONS_DATA[key];
+        if (!data) return;
+
+        imgAfter.src = data.afterImg;
+        badgeRightLabel.textContent = data.rightLabel;
+
+        if (key === 'opt1') {
+          imgBefore.src = 'assets/persp_thucte_chi_op_mat_tien.jpg';
+          badgeLeftLabel.textContent = '◀ PA 2: Chỉ Ốp Mặt Tiền (Hông Sơn Trắng)';
+        } else {
+          imgBefore.src = 'assets/persp_thucte_da_amygres.jpg';
+          badgeLeftLabel.textContent = '◀ PA 1: Ốp Đá Cả Mặt Bên T2';
+        }
+
+        const badgeEl = document.getElementById('detail-badge');
+        badgeEl.className = data.badgeClass;
+        badgeEl.textContent = data.badge;
+
+        document.getElementById('detail-title').textContent = data.title;
+        document.getElementById('detail-subtitle').textContent = data.subtitle;
+        document.getElementById('detail-t2').innerHTML = data.t2;
+        document.getElementById('detail-t1').innerHTML = data.t1;
+        document.getElementById('detail-worker').innerHTML = data.worker;
+        document.getElementById('detail-pros').innerHTML = data.pros;
+
+        const swatchImg = document.getElementById('detail-swatch-img');
+        swatchImg.src = data.swatchImg;
+        document.getElementById('detail-swatch-title').textContent = data.swatchTitle;
+        document.getElementById('detail-swatch-desc').textContent = data.swatchDesc;
+        document.getElementById('detail-swatch-box').setAttribute(
+          'onclick',
+          `openLightbox('${data.swatchImg}', '${data.swatchTitle.replace(/'/g, "\\'")}')`
+        );
+      });
+    });
+
+    // View Mode Toggle (Slider vs 2x2 Grid)
+    const btnModeSlider = document.getElementById('btn-mode-slider');
+    const btnModeQuad = document.getElementById('btn-mode-quad');
+    const btnZoomCurrent = document.getElementById('btn-zoom-current');
+    const sliderStage = document.getElementById('slider-stage');
+    const quadStage = document.getElementById('quad-stage');
+
+    btnModeSlider.addEventListener('click', () => {
+      btnModeSlider.classList.add('active');
+      btnModeQuad.classList.remove('active');
+      sliderStage.style.display = 'block';
+      quadStage.style.display = 'none';
+    });
+
+    btnModeQuad.addEventListener('click', () => {
+      btnModeQuad.classList.add('active');
+      btnModeSlider.classList.remove('active');
+      sliderStage.style.display = 'none';
+      quadStage.style.display = 'grid';
+    });
+
+    btnZoomCurrent.addEventListener('click', () => {
+      const currentTitle = document.getElementById('detail-title').textContent;
+      openLightbox(imgAfter.src, currentTitle);
+    });
+
+    // Interactive Hotspot Map Sync
+    const pins = document.querySelectorAll('.hotspot-pin');
+    const zoneCards = document.querySelectorAll('.zone-card');
+
+    function activateZone(zoneCode) {
+      pins.forEach(p => {
+        p.classList.toggle('active', p.getAttribute('data-zone') === zoneCode);
+      });
+      zoneCards.forEach(c => {
+        const isMatch = c.getAttribute('data-zone') === zoneCode;
+        c.classList.toggle('active', isMatch);
+        if (isMatch) {
+          c.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    }
+
+    pins.forEach(pin => {
+      pin.addEventListener('click', () => activateZone(pin.getAttribute('data-zone')));
+    });
+
+    zoneCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        if (e.target.tagName.toLowerCase() === 'button') return;
+        activateZone(card.getAttribute('data-zone'));
+      });
+    });
+
+    // Light-dismiss Dialog with Safari Fallback
+    const dialog = document.getElementById('image-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.getElementById('lightbox-close-btn');
+
+    function openLightbox(src, caption) {
+      lightboxImg.src = src;
+      lightboxCaption.textContent = caption || 'Chi tiết hình ảnh';
+      dialog.showModal();
+    }
+
+    closeBtn.addEventListener('click', () => dialog.close());
+
+    // Mandatory fallback for browsers without native closedby="any" support (e.g. Safari)
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      dialog.addEventListener('click', (e) => {
+        const rect = dialog.getBoundingClientRect();
+        const isInDialog =
+          rect.top <= e.clientY &&
+          e.clientY <= rect.top + rect.height &&
+          rect.left <= e.clientX &&
+          e.clientX <= rect.left + rect.width;
+        if (!isInDialog) {
+          dialog.close();
+        }
+      });
+    }
+  </script>
+</body>
+</html>

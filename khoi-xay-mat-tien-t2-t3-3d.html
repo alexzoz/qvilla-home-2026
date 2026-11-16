@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Sửa Tường &amp; Mái Chéo Trục B (Tầng 3) — Phần Xây Tô Thô</title>
+  <style>
+    :root {
+      --bg-body: #0f1115;
+      --bg-card: #161920;
+      --bg-elevated: #1e232d;
+      --bg-panel: #13161c;
+      --border: #2a313e;
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --text-main: #f3f5f8;
+      --text-muted: #9aa4b4;
+      --text-dim: #6e788a;
+      --accent: #e07a3f;
+      --accent-soft: rgba(224, 122, 63, 0.16);
+      --brick: #c85232;
+      --rebar: #ef4444;
+      --mesh: #22d3ee;
+      --plaster: #a8b0bc;
+      --concrete: #788292;
+      --ok: #34d399;
+      --warn: #f59e0b;
+      --danger: #f87171;
+      --radius-lg: 14px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-body);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1640px, 100%);
+      margin: 0 auto;
+      padding: 14px 18px 48px;
+    }
+
+    /* Top Nav */
+    .topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      margin-bottom: 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge-stage {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      background: var(--accent-soft);
+      color: #ffb085;
+      border: 1px solid rgba(224, 122, 63, 0.45);
+    }
+
+    .page-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .nav-pill {
+      padding: 5px 11px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .nav-pill:hover {
+      color: var(--text-main);
+      border-color: var(--accent);
+    }
+
+    .nav-pill.active {
+      background: var(--accent);
+      color: #111;
+      border-color: var(--accent);
+    }
+
+    /* Compact Site Status Strip */
+    .scope-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 14px;
+      padding: 8px 14px;
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.13), rgba(52, 211, 153, 0.08));
+      border: 1px solid rgba(245, 158, 11, 0.38);
+      border-radius: var(--radius-md);
+      font-size: 12.5px;
+      color: var(--text-main);
+    }
+
+    .scope-pill-err {
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(248, 113, 113, 0.18);
+      color: #fca5a5;
+      border: 1px solid rgba(248, 113, 113, 0.4);
+      font-weight: 700;
+      font-size: 11.5px;
+      white-space: nowrap;
+    }
+
+    .scope-pill-ok {
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(52, 211, 153, 0.14);
+      color: #6ee7b7;
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      font-weight: 600;
+      font-size: 11.5px;
+      white-space: nowrap;
+    }
+
+    /* Studio Grid: Maximize 3D Viewport & Narrow Sidebar to 235px */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 235px;
+      gap: 12px;
+      align-items: stretch;
+      margin-bottom: 24px;
+    }
+
+    .studio-grid.full-3d {
+      grid-template-columns: 1fr;
+    }
+
+    .studio-grid.full-3d .inspector-card {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+      .studio-grid.full-3d .inspector-card {
+        display: flex;
+      }
+    }
+
+    .viewport-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .mode-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 9px 12px;
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mode-group, .tool-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .btn-mode, .btn-toggle, .btn-cam {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-mode:hover, .btn-toggle:hover, .btn-cam:hover {
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-mode[aria-pressed="true"] {
+      background: var(--accent);
+      color: #111;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(224, 122, 63, 0.25);
+    }
+
+    .btn-toggle[aria-pressed="true"] {
+      background: rgba(34, 211, 238, 0.16);
+      color: #67e8f9;
+      border-color: rgba(34, 211, 238, 0.55);
+    }
+
+    #canvas-wrap {
+      position: relative;
+      width: 100%;
+      height: 76vh;
+      min-height: 580px;
+      max-height: 880px;
+      background: radial-gradient(circle at 50% 35%, #1d2330 0%, #101319 72%, #0a0c10 100%);
+      overflow: hidden;
+    }
+
+    #three-canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+      cursor: grab;
+    }
+
+    #three-canvas:active {
+      cursor: grabbing;
+    }
+
+    /* Floating On-Canvas Zoom & Focus Controls (Top-Right) */
+    .canvas-zoom-dock {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 6;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      background: rgba(16, 19, 25, 0.86);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+      max-width: calc(100% - 20px);
+    }
+
+    .zoom-btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 700;
+      min-width: 30px;
+      height: 28px;
+      padding: 0 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .zoom-btn:hover {
+      border-color: var(--accent);
+      background: #28303e;
+    }
+
+    .zoom-btn.accent {
+      background: rgba(224, 122, 63, 0.2);
+      border-color: rgba(224, 122, 63, 0.6);
+      color: #ffbd95;
+      font-size: 11.5px;
+    }
+
+    .zoom-btn.sidebar-btn {
+      font-size: 11.5px;
+      color: #a5f3fc;
+      border-color: rgba(34, 211, 238, 0.4);
+      background: rgba(34, 211, 238, 0.12);
+    }
+
+    .zoom-slider-wrap {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0 3px;
+    }
+
+    .zoom-slider {
+      width: 96px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .zoom-pct {
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+      color: var(--text-muted);
+      min-width: 36px;
+      text-align: right;
+    }
+
+    /* Compact Bottom-Left Legend Pill */
+    .canvas-legend {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 12px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: rgba(16, 19, 25, 0.80);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 11px;
+      color: var(--text-muted);
+      pointer-events: none;
+      max-width: calc(100% - 20px);
+    }
+
+    .leg-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    .cam-hint-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 8px 12px;
+      background: var(--bg-panel);
+      border-top: 1px solid var(--border);
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    /* Narrowed Right Inspector Column (235px) */
+    .inspector-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 11px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      max-height: calc(76vh + 96px);
+      overflow-y: auto;
+      font-size: 11.5px;
+    }
+
+    .ins-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 7px;
+    }
+
+    .ins-title {
+      margin: 0;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .ins-badge {
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      background: rgba(248, 113, 113, 0.18);
+      color: #fca5a5;
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      white-space: nowrap;
+    }
+
+    .ins-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 9px;
+    }
+
+    .ins-box h3 {
+      margin: 0 0 5px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: #ffb085;
+    }
+
+    .ins-kv {
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+      padding: 3px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.07);
+    }
+
+    .ins-kv:last-child { border-bottom: none; }
+    .ins-k { color: var(--text-muted); }
+    .ins-v { font-weight: 600; color: var(--text-main); text-align: right; }
+
+    .ins-list {
+      margin: 0;
+      padding-left: 14px;
+      color: var(--text-muted);
+    }
+
+    .ins-list li { margin-bottom: 4px; }
+    .ins-list li strong { color: var(--text-main); }
+
+    .ins-status-ok {
+      background: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.25);
+      border-radius: 8px;
+      padding: 7px 9px;
+      font-size: 11px;
+      color: #a7f3d0;
+    }
+
+    /* Section Headings */
+    .sec-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 28px 0 12px;
+    }
+
+    .sec-head h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .sec-sub {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    /* SVG Plan & Section Diagrams */
+    .diagram-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 14.5px;
+      font-weight: 700;
+    }
+
+    .card p.lead {
+      margin: 0 0 10px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .svg-frame {
+      width: 100%;
+      background: #0d1016;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* 6-Step Checklist */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      background: var(--accent-soft);
+      color: #ffb085;
+      border: 1px solid rgba(224, 122, 63, 0.45);
+    }
+
+    .step-card h3 {
+      margin: 2px 0 0;
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+
+    .step-card p {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    /* Case Split Callout */
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .case-box {
+      border-radius: var(--radius-md);
+      padding: 13px 14px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .case-box.c1 {
+      border-color: rgba(52, 211, 153, 0.4);
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.08), var(--bg-card));
+    }
+
+    .case-box.c2 {
+      border-color: rgba(56, 189, 248, 0.4);
+      background: linear-gradient(145deg, rgba(56, 189, 248, 0.08), var(--bg-card));
+    }
+
+    .case-box h3 {
+      margin: 0 0 6px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .case-box ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    .case-box li { margin-bottom: 4px; }
+    .case-box li strong { color: var(--text-main); }
+
+    /* Responsive Sticky Table with Container Queries (Modern Web Guidance) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(560px, 80vh);
+      container-type: inline-size;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+
+    .table-wrapper:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    table.spec-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 13px;
+      text-align: left;
+      --label-2: "Hiện trạng thực tế";
+      --label-3: "Chuẩn thiết kế 3D & CAD";
+      --label-4: "Biện pháp thi công phần thô";
+    }
+
+    .spec-table caption {
+      padding: 12px 14px 8px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-main);
+      background: var(--bg-panel);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .spec-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 3;
+      background: var(--bg-elevated);
+    }
+
+    .spec-table th, .spec-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+      vertical-align: top;
+    }
+
+    .spec-table thead th {
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffb085;
+      background: var(--bg-elevated);
+      white-space: nowrap;
+    }
+
+    .spec-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 2;
+      background: var(--bg-panel);
+      color: var(--text-main);
+      font-weight: 700;
+      min-width: 155px;
+    }
+
+    .spec-table td { color: var(--text-muted); }
+    .spec-table td strong { color: var(--text-main); }
+
+    @container (width < 600px) {
+      .spec-table thead { display: none; }
+      .spec-table, .spec-table tbody, .spec-table tr, .spec-table th, .spec-table td {
+        display: block;
+        width: 100%;
+      }
+      .spec-table tr {
+        border-bottom: 2px solid var(--border);
+        padding: 0 0 8px;
+      }
+      .spec-table tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: var(--bg-elevated);
+        border-bottom: 1px solid var(--border);
+      }
+      .spec-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--text-main); }
+      .spec-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--text-main); }
+      .spec-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--text-main); }
+    }
+
+    /* CAD Gallery */
+    .cad-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+    }
+
+    .cad-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.15s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cad-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .cad-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #0b0d12;
+      display: block;
+    }
+
+    .cad-body {
+      padding: 10px 12px;
+    }
+
+    .cad-code {
+      font-size: 11px;
+      font-weight: 700;
+      color: #ffb085;
+      margin-bottom: 2px;
+    }
+
+    .cad-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0 0 3px;
+    }
+
+    .cad-desc {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Native Lightbox Dialog */
+    dialog#lightbox-modal {
+      max-width: min(94vw, 1180px);
+      max-height: 92vh;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--bg-card);
+      color: var(--text-main);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+    }
+
+    dialog#lightbox-modal::backdrop {
+      background: rgba(6, 8, 12, 0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    .lb-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-panel);
+    }
+
+    .lb-head h3 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .lb-close {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      border-radius: 7px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lb-body {
+      padding: 12px;
+      text-align: center;
+      overflow: auto;
+      max-height: calc(92vh - 54px);
+    }
+
+    .lb-body img {
+      max-width: 100%;
+      max-height: calc(86vh - 60px);
+      border-radius: 8px;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Navigation Bar -->
+    <header class="topbar">
+      <div class="brand-group">
+        <span class="badge-stage">PHẦN THÔ: GẠCH XÂY · THÉP CẤY · TRÁT M75</span>
+        <h1 class="page-title">3D Sửa Tường &amp; Mái Chéo Trục B (Tầng 3) — Khớp Khối 3D</h1>
+      </div>
+      <nav class="nav-links" aria-label="Điều hướng dự án">
+        <a class="nav-pill" href="index.html">Trang chủ</a>
+        <a class="nav-pill" href="mat-tien.html">Mặt tiền</a>
+        <a class="nav-pill active" href="khoi-xay-mat-tien-t2-t3-3d.html">3D Khối xây T2–T3</a>
+      </nav>
+    </header>
+
+    <!-- Exact Site Scope Banner -->
+    <div class="scope-strip">
+      <span class="scope-pill-err">TRỤ B (TƯỜNG 220 THỤT 250mm + TRÁN PHẲNG 750mm)</span>
+      <span>Hiện trạng: <strong>S4–V4–TX3 &amp; mái chéo phải</strong> đã đúng bản vẽ. Riêng <strong>Trục B</strong> thợ xây <strong>tường gạch 220 vuông góc thụt vào 250mm</strong> (không vát chéo, mặt ngoài tại <code>Z=-0.25</code>) thẳng hàng với trán mái phẳng trên B — giải pháp cực gọn: <strong>xẻ vát góc phải 230×150mm + xây câu gạch đặc mũi trái dày 250→0mm</strong> + bù mũi mái 160mm (chưa xét nhôm/sơn).</span>
+      <span class="scope-pill-ok">✓ S4–V4, TX2, TX3 &amp; Mái chéo phải: Giữ nguyên</span>
+    </div>
+
+    <!-- Main 3D Studio + Narrow 235px Sidebar -->
+    <section class="studio-grid" id="studio-grid" aria-label="Mô hình 3D sửa Tường 220 thụt 250mm và Mái chéo Trục B tầng 3">
+      <div class="viewport-card">
+        <div class="mode-toolbar">
+          <div class="mode-group" role="group" aria-label="Chế độ xem phần thô">
+            <button type="button" class="btn-mode" data-mode="fix_pier_b" aria-pressed="true">🔩 Sửa Tường 220 + Mái B</button>
+            <button type="button" class="btn-mode" data-mode="err_pier_b" aria-pressed="false">⚠️ Tường 220 thụt 250mm</button>
+            <button type="button" class="btn-mode" data-mode="brick_cad" aria-pressed="false">🧱 Sau khi tạo hình thô</button>
+            <button type="button" class="btn-mode" data-mode="plaster_m75" aria-pressed="false">✨ Trát hoàn thiện M75 + GMN-04</button>
+          </div>
+          <div class="tool-group">
+            <button type="button" class="btn-toggle" id="btn-section" aria-pressed="false">✂️ Cắt lớp cấu tạo trong</button>
+            <button type="button" class="btn-toggle" id="btn-explode" aria-pressed="false">💥 Tách lớp Tường &amp; Mái B</button>
+          </div>
+        </div>
+
+        <div id="canvas-wrap">
+          <canvas id="three-canvas" aria-label="Khung nhìn 3D mặt tiền tầng 2 và tầng 3 tập trung vào tường 220 thụt 250mm và mái chéo tại Trục B"></canvas>
+
+          <!-- Floating Zoom & Sidebar Toggle Toolbar -->
+          <div class="canvas-zoom-dock" aria-label="Điều khiển phóng to thu nhỏ và cột chú thích">
+            <button type="button" class="zoom-btn" id="btn-zoom-in" title="Phóng to (+)">＋</button>
+            <div class="zoom-slider-wrap">
+              <input type="range" class="zoom-slider" id="zoom-slider" min="1.0" max="15.0" step="0.1" value="5.8" aria-label="Thanh kéo zoom 3D" />
+              <span class="zoom-pct" id="zoom-pct">148%</span>
+            </div>
+            <button type="button" class="zoom-btn" id="btn-zoom-out" title="Thu nhỏ (-)">－</button>
+            <button type="button" class="zoom-btn accent" id="btn-focus-b" title="Zoom sát Trục B (TX4 + Mái chéo)">🎯 Trụ B</button>
+            <button type="button" class="zoom-btn sidebar-btn" id="btn-toggle-sidebar" title="Thu gọn hoặc mở cột chú thích phải">⇔ Ẩn chú thích</button>
+          </div>
+
+          <!-- Compact Legend -->
+          <div class="canvas-legend">
+            <span class="leg-item"><span class="swatch" style="background:#7a8391;"></span>BTCT &amp; Mái chéo phải đã đúng</span>
+            <span class="leg-item"><span class="swatch" style="background:#d97706;"></span>Tường 220 &amp; Trán phẳng B (thụt 250mm)</span>
+            <span class="leg-item"><span class="swatch" style="background:#ef4444;"></span>Góc gạch cắt vát 230×150 &amp; Râu Φ8–Φ10</span>
+            <span class="leg-item"><span class="swatch" style="background:#c85232;"></span>Gạch đặc đắp mũi 250mm + Mái bù 750mm</span>
+            <span class="leg-item"><span class="swatch" style="background:#22d3ee;"></span>Lưới mắt cáo &amp; GMN-04</span>
+            <span class="leg-item"><span class="swatch" style="background:#cbd5e1;"></span>Vữa trát M75 (15mm)</span>
+          </div>
+        </div>
+
+        <div class="cam-hint-bar">
+          <div>
+            <strong>Thao tác:</strong> Kéo 1 ngón để xoay (ngước được từ dưới lên soi đáy dốc mái B) · Giữ <code>Shift</code>/chuột phải hoặc 2 ngón kéo để trượt · <strong>Cuộn chuột / Chụm 2 ngón / Kéo thanh zoom</strong>.
+          </div>
+          <div class="tool-group">
+            <button type="button" class="btn-cam" data-cam="soffit_b">Ngước soi Mái chéo B</button>
+            <button type="button" class="btn-cam" data-cam="pier_b">Soi sát Trụ B</button>
+            <button type="button" class="btn-cam" data-cam="front">Chính diện T2–T3</button>
+            <button type="button" class="btn-cam" data-cam="iso_34">Phối cảnh 3/4</button>
+            <button type="button" class="btn-cam" data-cam="top_section">Nhìn từ trên</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Narrowed 235px Right Inspector Column -->
+      <aside class="inspector-card" id="inspector-card" aria-label="Thông số kỹ thuật sửa Trục B">
+        <div class="ins-head">
+          <h2 class="ins-title" id="ins-mode-title">Sửa Tường 220 + Mái B</h2>
+          <span class="ins-badge" id="ins-mode-badge">Thụt 250mm</span>
+        </div>
+
+        <div class="ins-box">
+          <h3>Khối tường Trụ B (TX4)</h3>
+          <div class="ins-kv"><span class="ins-k">Tường hiện hữu</span><span class="ins-v">Gạch 220 · thụt 250mm</span></div>
+          <div class="ins-kv"><span class="ins-k">Xẻ vát góc phải</span><span class="ins-v">230 × 150 mm (sát S4)</span></div>
+          <div class="ins-kv"><span class="ins-k">Đắp đặc mũi trái</span><span class="ins-v">Dày 250 → 0 mm (rộng 520)</span></div>
+          <div class="ins-kv"><span class="ins-k">Neo &amp; Giằng</span><span class="ins-v">2 hàng Φ8 @350 · +9.300</span></div>
+        </div>
+
+        <div class="ins-box">
+          <h3>Đoạn Mái chéo trên B</h3>
+          <div class="ins-kv"><span class="ins-k">Đoạn cần nối bù</span><span class="ins-v">750 mm (đến S4)</span></div>
+          <div class="ins-kv"><span class="ins-k">Đua mũi 160mm</span><span class="ins-v">250 mm ra Z=0.00</span></div>
+          <div class="ins-kv"><span class="ins-k">Độ tụt bụng dốc</span><span class="ins-v">500 mm -> Z=-400</span></div>
+          <div class="ins-kv"><span class="ins-k">Chỉ tách &amp; Ngắt nước</span><span class="ins-v">10×10mm · GMN-04</span></div>
+        </div>
+
+        <div class="ins-box" id="ins-dynamic-box">
+          <h3>Trọng tâm thực hiện</h3>
+          <ul class="ins-list" id="ins-bullets">
+            <li><strong>Cắt vát góc gạch phải (230 × 150mm):</strong> Dùng máy cắt lưỡi kim cương xẻ bỏ tam giác gạch thừa sát má cửa <code>S4</code> để lùi chân vát về đúng mép tường cửa <code>Z=-400mm</code> (còn thịt tường dày <code>70–220mm</code>, không chạm cột BTCT).</li>
+            <li><strong>Xây câu gạch đặc mũi trái (250 → 0mm):</strong> Khoan cấy 2 hàng râu <code>Φ8 @350</code>, xây <strong>gạch đặc câu ngang</strong> thuôn từ mũi <code>250mm</code> (1 viên gạch quay ngang + vữa) về <code>0mm</code> + giằng mỏng <code>+9.300</code>.</li>
+            <li><strong>Phần mái trên B (750mm):</strong> Từ mép phẳng <code>Z=-250mm</code> cấy <code>Φ10</code> đua mũi <code>160mm</code> ra đúng <code>250mm (Z=0)</code> và tỉa/bọc vát bụng <code>500mm</code> về đỉnh cửa <code>S4 (-400mm)</code>.</li>
+            <li><strong>Chống nứt khe cắt–đắp:</strong> Đóng lưới mắt cáo <code>300mm</code> dọc mạch chéo tại giữa trụ &amp; gắn nẹp <code>GMN-04</code>.</li>
+          </ul>
+        </div>
+
+        <div class="ins-status-ok">
+          <strong>Đã làm đúng từ S4 sang phải:</strong><br/>
+          • Ban công trái <code>A2 / A3</code> ✓<br/>
+          • Ô cửa <code>S4 (1250)</code> &amp; <code>V4 (900)</code> ✓<br/>
+          • Trụ giữa <code>TX2 (1350)</code> &amp; <code>TX3 (750)</code> ✓<br/>
+          • Mái chéo trên S4–TX3 ✓
+        </div>
+      </aside>
+    </section>
+
+    <!-- Section 2: 2D Plans & Vertical Section for Pier B (220mm @ -250mm) + Overhead Roof Slope Fix -->
+    <div class="sec-head">
+      <h2>Mặt bằng định vị &amp; Mặt cắt sửa Tường 220 (thụt 250mm) + Mái chéo Trục B</h2>
+      <span class="sec-sub">Dữ liệu trích chuẩn từ KT-2.09, KT-3.05, KT-3.06 Chi tiết 01 &amp; CT Khối xây 4</span>
+    </div>
+
+    <section class="diagram-grid" aria-label="Bản vẽ mặt bằng và mặt cắt sửa Tường 220 thụt 250mm và Mái chéo Trục B">
+      <div class="card">
+        <h3>1. Mặt bằng cắt ngang Trụ B: Cắt góc phải 230×150 + Đắp gạch đặc mũi trái 250mm</h3>
+        <p class="lead">Tường gạch <code>220mm</code> hiện hữu nằm tại <code>Z = -250..-470mm</code> (màu vàng). Đường chéo chuẩn <code>TX4</code> đi từ mũi <code>(140mm, Z=0)</code> tới má cửa <code>S4 (Z=-400mm)</code> cắt ngang mặt trước tại điểm cách mép trái <code>520mm</code> — chia Trụ B thành đúng 2 thao tác: <strong>cắt vát phải 230×150mm (đỏ)</strong> và <strong>đắp đặc trái 250→0mm (cam)</strong>.</p>
+        <div class="svg-frame">
+          <svg viewBox="0 0 560 245" width="100%" role="img" aria-label="Mặt bằng chi tiết tỷ lệ lớn tường 220mm thụt 250mm tại Trục B với tam giác đỏ cắt vát 230x150mm bên phải và nêm gạch đặc đắp 250mm bên trái">
+            <rect width="560" height="245" fill="#0d1016"/>
+            <defs>
+              <pattern id="hatchRed" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="0" y2="8" stroke="#f87171" stroke-width="2" />
+              </pattern>
+              <pattern id="hatchBrick" width="8" height="8" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="0" y2="8" stroke="#fb923c" stroke-width="1.8" />
+              </pattern>
+            </defs>
+
+            <!-- Coordinate system in SVG (TX4 width 750mm mapped to x=110..380 -> 0.36 px/mm; Z mapped y=190 at Z=0, y=130 at Z=-250, y=94 at Z=-400, y=77 at Z=-470, y=34 at Z=-650) -->
+            <!-- Reference Z planes -->
+            <line x1="30" y1="190" x2="535" y2="190" stroke="#94a3b8" stroke-width="1.5"/>
+            <text x="34" y="205" fill="#cbd5e1" font-size="9.5" font-weight="700">Z = 0.00 (Mép ngoài mũi TX4 140mm &amp; mũi mái 160mm)</text>
+
+            <line x1="30" y1="130" x2="430" y2="130" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="16" y="126" fill="#fde68a" font-size="9">Z = -250mm</text>
+
+            <line x1="30" y1="94" x2="535" y2="94" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="16" y="90" fill="#7dd3fc" font-size="9">Z = -400mm</text>
+
+            <!-- Grid B line -->
+            <line x1="294" y1="12" x2="294" y2="232" stroke="#64748b" stroke-dasharray="4 4"/>
+            <text x="278" y="238" fill="#94a3b8" font-size="9.5" font-weight="700">Trục B</text>
+
+            <!-- RC Column (1,B) safely in the rear structural line -->
+            <rect x="115" y="18" width="115" height="58" fill="#334155" stroke="#94a3b8" stroke-width="1.3"/>
+            <text x="132" y="50" fill="#cbd5e1" font-size="9.5" font-weight="700">Cột BTCT (1,B)</text>
+
+            <!-- Left balcony slab edge A3 (Z=-250) -->
+            <rect x="14" y="18" width="90" height="112" fill="#475569" fill-opacity="0.32" stroke="#64748b"/>
+            <text x="22" y="68" fill="#94a3b8" font-size="9">Ban công A3</text>
+            <text x="22" y="81" fill="#94a3b8" font-size="8.5">(thụt 250mm)</text>
+
+            <!-- Existing 220mm Brick Wall (Z=-250..-470, x=110..380) + S4 Jamb Wall (Z=-400..-650, x=380..535) -->
+            <!-- Rear strip behind Z=-400 stays intact -->
+            <rect x="110" y="77" width="270" height="17" fill="#d97706" fill-opacity="0.45" stroke="#f59e0b" stroke-width="1.2"/>
+            <!-- Front retained left trapezoid (-250..-400, x=110..298 -> -0.254) -->
+            <polygon points="110,94 110,130 298,130 380,94" fill="#d97706" fill-opacity="0.58" stroke="#fbbf24" stroke-width="1.5"/>
+            <text x="132" y="114" fill="#fef3c7" font-size="9.5" font-weight="700">Tường gạch 220 hiện trạng (giữ)</text>
+
+            <!-- Right S4 Window Wall & Glass (Z=-400..-650) -->
+            <rect x="380" y="34" width="150" height="60" fill="none" stroke="#38bdf8" stroke-dasharray="3 2"/>
+            <line x1="380" y1="62" x2="530" y2="62" stroke="#7dd3fc" stroke-width="4" opacity="0.65"/>
+            <text x="392" y="54" fill="#7dd3fc" font-size="9.5" font-weight="700">Ô cửa sổ S4 (1250mm) đã đúng ✓</text>
+            <text x="392" y="82" fill="#6ee7b7" font-size="8.8">Mái chéo trên S4 dốc tới Z=-400mm</text>
+
+            <!-- RED CUT WEDGE on Right Corner (x=298..380, y=94..130 => 230mm x 150mm) -->
+            <polygon points="298,130 380,130 380,94" fill="url(#hatchRed)" stroke="#ef4444" stroke-width="2.2"/>
+            <line x1="298" y1="130" x2="380" y2="94" stroke="#fca5a5" stroke-width="2.5"/>
+
+            <!-- TERRACOTTA NEW SOLID BRICK BUILD-OUT on Left Nose (x=110..298, y=130..190 => 140mm flat + 380mm bevel, thick 250->0mm) -->
+            <polygon points="110,130 110,190 160,190 298,130" fill="url(#hatchBrick)" stroke="#e07a3f" stroke-width="2.4"/>
+
+            <!-- Dowels Φ8 along Z=-250 face -->
+            <line x1="132" y1="112" x2="132" y2="178" stroke="#ef4444" stroke-width="2.8"/>
+            <line x1="196" y1="112" x2="196" y2="165" stroke="#ef4444" stroke-width="2.8"/>
+
+            <!-- Cyan Mesh 300mm straddling joint at x=298, y=130 & left shadow joint x=110 -->
+            <line x1="256" y1="148" x2="338" y2="112" stroke="#22d3ee" stroke-width="3.2" stroke-dasharray="5 3"/>
+            <line x1="108" y1="77" x2="108" y2="190" stroke="#22d3ee" stroke-width="2.2"/>
+
+            <!-- Callout text labels -->
+            <text x="114" y="220" fill="#fdba74" font-size="9.5" font-weight="700">1. Đắp gạch đặc mũi trái: Dày 250→0mm (mũi 140 + vát 380mm) + 2 hàng râu Φ8</text>
+            <text x="352" y="156" fill="#fca5a5" font-size="9.5" font-weight="700">2. Cắt vát góc gạch phải</text>
+            <text x="364" y="169" fill="#fca5a5" font-size="9" font-weight="700">230 × 150mm (sát cửa S4)</text>
+            <text x="342" y="114" fill="#67e8f9" font-size="9" font-weight="700">3. Lưới 300mm trùm khe nối</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>2. Mặt cắt đứng qua Trục B: Cả Tường 220 dưới &amp; Trán phẳng trên đều thụt 250mm</h3>
+        <p class="lead">Do cả mặt trước tường gạch <code>220mm</code> dưới lẫn hộp trán phẳng trên Trục B đang cùng thụt vào <code>250mm (Z=-0.25)</code>, khi sửa chỉ cần đồng loạt đua mũi ra thêm <code>250mm</code> về mặt phẳng <code>Z = 0.00</code> và cắt/bù bụng dốc <code>500mm</code> tới mép <code>Z = -400mm</code>.</p>
+        <div class="svg-frame">
+          <svg viewBox="0 0 560 245" width="100%" role="img" aria-label="Mặt cắt đứng qua mũi Trục B cho thấy tường 220mm ở Z=-250mm được đắp đặc thêm 250mm ra Z=0, và mái chéo 750mm phía trên cũng đua từ Z=-250mm ra Z=0 với mũi 160mm và dốc 500mm vào Z=-400mm">
+            <rect width="560" height="245" fill="#0d1016"/>
+            <!-- Floor 3 & Roof Slabs -->
+            <rect x="24" y="202" width="286" height="14" fill="#64748b"/>
+            <text x="30" y="213" fill="#f8fafc" font-size="9.5" font-weight="700">Sàn T3 (+7.800)</text>
+            <rect x="24" y="18" width="286" height="12" fill="#64748b"/>
+            <text x="30" y="28" fill="#f8fafc" font-size="9.5" font-weight="700">Sàn Mái (+11.400)</text>
+
+            <!-- Structural line Z=-400..-650 (x=130..186) + Column (1,B) -->
+            <rect x="108" y="18" width="42" height="58" fill="#475569" stroke="#94a3b8"/>
+            <text x="30" y="52" fill="#cbd5e1" font-size="9.5">Cửa/Tường S4</text>
+            <text x="30" y="64" fill="#7dd3fc" font-size="8.8">(mặt Z = -400)</text>
+            <rect x="108" y="76" width="42" height="126" fill="#334155" stroke="#94a3b8"/>
+            <text x="32" y="138" fill="#cbd5e1" font-size="9.5">Cột (1,B)</text>
+
+            <!-- Existing 220mm Brick Wall (Z=-470..-250 -> x=165..238, bottom Y=202, top Y=76) -->
+            <rect x="165" y="76" width="73" height="126" fill="#d97706" fill-opacity="0.45" stroke="#fbbf24" stroke-width="1.6"/>
+            <text x="169" y="150" fill="#fef3c7" font-size="8.5" font-weight="700" transform="rotate(-90 198 150)">Tường 220 (thụt 250)</text>
+
+            <!-- Existing WRONG flat canopy on B flush at Z=-250 (x=150..238, Y=18..76) -->
+            <rect x="150" y="18" width="88" height="58" fill="#f59e0b" fill-opacity="0.24" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+            <!-- Z=-400 to Z=0 reference lines (x=186 at -400, x=238 at -250, x=308 at Z=0) -->
+            <line x1="186" y1="16" x2="186" y2="202" stroke="#38bdf8" stroke-dasharray="3 3" stroke-width="1"/>
+            <line x1="238" y1="16" x2="238" y2="202" stroke="#fbbf24" stroke-dasharray="3 3" stroke-width="1"/>
+
+            <!-- Red bottom hang corner on flat canopy (from x=186..238 under slope ySlope400) -->
+            <polygon points="186,76 238,76 238,57" fill="#ef4444" fill-opacity="0.52" stroke="#f87171" stroke-width="1.4"/>
+
+            <!-- Target KT-3.06 Sloped Hood Wedge extending from Z=-400 (x=186, Y=76) to Z=0 (x=308, Y=42) -->
+            <polygon points="150,18 308,18 308,42 186,76 150,76" fill="#34d399" fill-opacity="0.22" stroke="#34d399" stroke-width="2"/>
+            <line x1="205" y1="30" x2="300" y2="30" stroke="#ef4444" stroke-width="2.6"/>
+            <line x1="186" y1="76" x2="306" y2="42" stroke="#22d3ee" stroke-width="2.2"/>
+            <circle cx="306" cy="43" r="3.5" fill="#22d3ee"/>
+
+            <!-- NEW 250mm SOLID BONDED BRICK BUILD-OUT at Nose (x=238..308, Z=-250..0.00) -->
+            <polygon points="238,57 308,42 308,202 238,202" fill="#c85232" fill-opacity="0.46" stroke="#e07a3f" stroke-width="2.2"/>
+            <rect x="238" y="182" width="70" height="20" fill="#9a3412" opacity="0.9"/>
+            <rect x="238" y="122" width="70" height="12" fill="#cbd5e1" stroke="#f8fafc"/>
+            <!-- Phi8 epoxy dowels anchored into old 220 wall -->
+            <line x1="210" y1="96" x2="294" y2="96" stroke="#ef4444" stroke-width="2.6"/>
+            <line x1="210" y1="158" x2="294" y2="158" stroke="#ef4444" stroke-width="2.6"/>
+            <line x1="210" y1="128" x2="294" y2="128" stroke="#ef4444" stroke-width="2.6"/>
+
+            <!-- Right-side callout legend -->
+            <text x="320" y="29" fill="#6ee7b7" font-size="9.5" font-weight="700">1. Cấy Φ10 đua mũi 160mm ra Z=0 (250mm) + GMN-04</text>
+            <text x="320" y="50" fill="#fca5a5" font-size="9.5">2. Góc bụng thừa 150mm → Tỉa (nếu gạch) / Bọc Cemboard</text>
+            <text x="320" y="72" fill="#67e8f9" font-size="9.5" font-weight="700">3. Mái dốc xuống 500mm dừng khít tại Z = -400mm</text>
+            <text x="320" y="102" fill="#fdba74" font-size="9.5" font-weight="700">4. Khoan cấy Φ8 epoxy (@300–350mm) vào tường 220 cũ</text>
+            <text x="320" y="130" fill="#e2e8f0" font-size="9.5" font-weight="700">5. Giằng mỏng 70–80mm (2Φ10 neo tường cũ) tại +9.300</text>
+            <text x="320" y="156" fill="#fdba74" font-size="9.5">6. Xây GẠCH ĐẶC câu ngang dày 250mm (1 viên quay ngang)</text>
+            <text x="320" y="182" fill="#fdba74" font-size="9.5">7. Chân trụ: 3 hàng gạch đặc + SikaTop Seal 107</text>
+            <text x="200" y="232" fill="#94a3b8" font-size="9.5" font-weight="700">◀── Thụt -250mm | Đua thêm đúng 250mm ra Z = 0.00 ──▶</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Practical Dual Check for Wall + Overhead Roof + 6-Step Sequence + Sticky Table -->
+    <div class="sec-head">
+      <h2>2 Quyết định kỹ thuật Tường 220 + Mái trên B &amp; Quy trình 6 bước thi công</h2>
+      <span class="sec-sub">Tường 220 chỉ thụt 250mm nên thi công đắp gạch đặc câu ngang rất chắc chắn — không cần xây vỏ rỗng 110mm</span>
+    </div>
+
+    <div class="case-grid" aria-label="Hai phương án xử lý tường 220 và hai tình huống phần mái trên Trục B">
+      <article class="case-box c1">
+        <h3>Phần Tường 220 dưới — Chọn Phương án Chuẩn CAD vs. Không Cắt Tường</h3>
+        <ul>
+          <li><strong>Phương án Chuẩn CAD 100% (Khuyên dùng — Xẻ góc + Đắp đặc):</strong> Cắt vát tam giác gạch <code>230 × 150mm</code> bên phải sát cửa <code>S4</code> (vì đó là gạch <code>220</code> nối tường cửa tới <code>-650mm</code>, không chạm cột BTCT). Phần mũi trái <code>520mm</code> xây <strong>gạch đặc câu ngang</strong> dày từ <code>250mm</code> thuôn về <code>0mm</code>. Khớp 100% độ vát <code>400mm</code> của <code>TX4</code> &amp; khớp khít đường gãy mái chéo <code>KT-3.06</code>!</li>
+          <li><strong>Phương án Phụ (Nếu chủ nhà không muốn cắt đục tường cũ):</strong> Giữ nguyên góc phải ở <code>Z = -250mm</code>, chỉ xây đắp gạch đặc ở mũi trái nhô <code>250mm</code> rồi vát thẳng về góc <code>-250mm</code> sát <code>S4</code>. Góc vát đạt <code>250mm / 610mm</code> (thoải hơn bản vẽ ~1 chút nhưng <strong>0% đục cắt</strong> tường <code>220</code> đã xây).</li>
+        </ul>
+      </article>
+      <article class="case-box c2">
+        <h3>Phần Mái trên Trục B (750mm) — Thăm dò bụng trần trước khi tỉa</h3>
+        <ul>
+          <li><strong>TH1 — Bụng trán phẳng chỉ là gạch xây / bê tông lót:</strong> Tỉa gọn góc bụng thừa (dài ~<code>150mm</code> dưới dây dốc từ <code>Z=-400</code> tới <code>-250mm</code>). Khoan cấy <code>Φ10 @250mm</code> vào đầu mái <code>S4</code> &amp; mặt trước <code>Z=-250</code> để đổ bê tông đá mi đua mũi <code>160mm</code> ra đúng <code>250mm (Z=0)</code>.</li>
+          <li><strong>TH2 — Phía trên là dầm BTCT chịu lực (KHÔNG CẮT THÉP DẦM):</strong> Giữ nguyên 100% dầm BTCT. Khoan râu <code>Φ10</code> đua mũi <code>160mm</code> ra <code>Z=0</code> bằng mặt mái <code>S4</code>; phần gầm vát <code>500mm</code> đóng khung thép hộp mạ kẽm <code>25×25</code> + <strong>Cemboard 12mm chịu nước + lưới mắt cáo</strong> ôm kín bụng dầm (lệch cốt đầu B không đáng kể, giữ nét thẳng liền <code>5000mm</code>).</li>
+        </ul>
+      </article>
+    </div>
+
+    <section class="steps-grid" aria-label="Quy trình 6 bước sửa tường 220 thụt 250mm và mái chéo Trục B">
+      <article class="step-card">
+        <span class="step-num">1</span>
+        <h3>Căng dây chéo TX4 &amp; dây mái S4</h3>
+        <p>Kéo dây mực chuẩn theo mặt trước mái <code>S4 (Z=0, mũi 160mm)</code> và kéo dây vát <code>TX4</code> từ điểm mũi <code>(140mm từ mép trái, Z=0)</code> chéo vào má cửa <code>S4 (Z=-400mm)</code>. Dây cắt mặt tường <code>220</code> hiện hữu cách mép cửa <code>S4</code> đúng <code>~230mm</code>.</p>
+      </article>
+      <article class="step-card">
+        <span class="step-num">2</span>
+        <h3>Cắt vát góc gạch 230×150mm &amp; thăm dò mái</h3>
+        <p>Dùng <strong>máy cắt tường lưỡi kim cương</strong> xẻ đứng theo vạch mực ở <code>230mm</code> góc phải, đục bỏ nêm gạch thừa sâu tối đa <code>150mm</code> (về <code>Z=-400</code>). Kiểm tra luôn bụng trán mái trên B để tỉa góc <code>150mm</code> (TH1) hoặc bọc che (TH2).</p>
+      </article>
+      <article class="step-card">
+        <span class="step-num">3</span>
+        <h3>Đua mũi mái 160mm thêm 250mm ra Z=0</h3>
+        <p>Khoan epoxy râu <code>Φ10 @250mm</code> nối liền đầu mái <code>S4</code> &amp; mặt trước <code>Z=-250</code>. Tạo hình đoạn mái bù <code>750mm</code> chuẩn mũi <code>160mm</code> (đua đúng <code>250mm</code>) + bụng dốc <code>500mm</code> + nẹp chỉ âm đứng <code>10×10mm</code> ở mép trái B.</p>
+      </article>
+      <article class="step-card">
+        <span class="step-num">4</span>
+        <h3>Băm nhám &amp; cấy 2 hàng râu Φ8 (@300–350)</h3>
+        <p>Đục tỉa băm nhám mặt ngoài vùng mũi trái (rộng <code>520mm</code>) của tường <code>220</code> cũ, khoan sâu <code>90–100mm</code> cấy <strong>2 hàng đứng râu thép <code>Φ8</code></strong> bằng keo cấy thép epoxy + quét hồ dầu <code>Sika Latex</code> trước khi xây.</p>
+      </article>
+      <article class="step-card">
+        <span class="step-num">5</span>
+        <h3>Xây gạch đặc 250→0mm &amp; giằng +9.300</h3>
+        <p>Chân trụ xây <code>3 hàng gạch đặc + SikaTop 107</code>. Thân xây <strong>gạch đặc câu ngang đặc khít 100%</strong> dày <code>250mm</code> ở mũi thuôn dần về <code>0mm</code> tại điểm cắt <code>520mm</code>, kèm dải giằng <code>70–80mm (2Φ10)</code> tại <code>+9.300</code>, đỉnh chèn chặt bụng mái mới.</p>
+      </article>
+      <article class="step-card">
+        <span class="step-num">6</span>
+        <h3>Đóng lưới 300mm khe chéo, GMN-04 &amp; trát M75</h3>
+        <p>Bắn ghim <strong>lưới mắt cáo mạ kẽm rộng 300mm</strong> dọc ranh chuyển tiếp cắt–đắp giữa trụ (<code>X=-254</code>), khe đứng trái B, và mối mái S4. Kẹp nẹp PVC <code>90°/135°</code>, gắn <code>GMN-04</code> liên tục, trát M75 <code>15mm</code> sắc nét.</p>
+      </article>
+    </section>
+
+    <div tabindex="0" role="region" aria-labelledby="remediation-table-caption" class="table-wrapper">
+      <table class="spec-table">
+        <caption id="remediation-table-caption">Bảng đối chiếu phạm vi hiện trạng (Tường 220 thụt 250mm) &amp; biện pháp sửa Trục B (Tầng 3)</caption>
+        <thead>
+          <tr>
+            <th scope="col">Hạng mục mặt tiền T3</th>
+            <th scope="col">Hiện trạng thực tế</th>
+            <th scope="col">Chuẩn thiết kế 3D &amp; CAD</th>
+            <th scope="col">Biện pháp thi công phần thô</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Tường Trụ B (TX4) — Góc phải sát S4</th>
+            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Dư 150mm:</strong> Tường <code>220</code> phẳng nằm tại <code>Z=-250mm</code>, không vát</td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Chân vát <code>TX4</code> ăn vào mép ngoài tường cửa <code>S4</code> tại <code>Z=-400mm</code></td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';">Cắt vát bằng máy lưỡi kim cương đoạn <code>230mm × sâu 150mm</code> (về <code>-400mm</code>). <em>Hoặc giữ -250mm nếu không cắt.</em></td>
+          </tr>
+          <tr>
+            <th scope="row">Tường Trụ B (TX4) — Mũi trái 520mm</th>
+            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Thiếu 250mm:</strong> Tường <code>220</code> thụt vào <code>Z=-250mm</code></td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Mũi phẳng <code>140mm</code> tại <code>Z=0.00</code>, vát chéo <code>610mm</code> vào <code>S4</code></td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';">Băm nhám + cấy 2 hàng <code>Φ8 @350</code> + xây <strong>gạch đặc câu ngang 250→0mm</strong> + giằng <code>+9.300</code></td>
+          </tr>
+          <tr>
+            <th scope="row">Mái chéo trên Trục B (750mm)</th>
+            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Thụt 250mm &amp; phẳng:</strong> Hộp trán phẳng <code>600mm</code> thẳng mặt với tường <code>220</code> tại <code>Z=-250</code></td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Mũi ngoài <code>160mm</code> tại <code>Z=0</code>, dốc ngược <code>500mm</code> tới <code>Z=-400</code> trên <code>S4</code></td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';"><strong>TH1 (gạch/lót):</strong> Tỉa góc bụng <code>150mm</code> + cấy <code>Φ10</code> đổ bê tông đá mi. <strong>TH2 (dầm BTCT):</strong> Giữ dầm, đua mũi <code>250mm</code> + bọc Cemboard <code>12mm</code></td>
+          </tr>
+          <tr>
+            <th scope="row">Ngắt nước mũi mái (GMN-04) &amp; Chỉ âm 10×10</th>
+            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Thiếu tại Trục B</strong> do mũi 160mm chưa vươn ra Z=0</td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Rãnh ngắt nước <code>GMN-04</code> chạy suốt 5000mm &amp; rãnh đứng <code>10×10mm</code> tách ban công trái</td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';">Đặt thanh nẹp <code>GMN-04</code> ăn liền mạch từ đoạn <code>S4</code> sang hết đầu <code>TX4</code>, kẹp nẹp chỉ âm <code>10×10mm</code> khi trát M75</td>
+          </tr>
+          <tr>
+            <th scope="row">Nhịp ban công trái (A2 / A3)</th>
+            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Đúng:</strong> Khẩu độ tường mở &amp; trần phẳng <code>A3</code></td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Mảng phẳng lùi, tách khối riêng với cổng 5000mm</td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';">Giữ nguyên hoàn toàn; chỉ soi rãnh chỉ âm tách ranh tại tim mép trái <code>TX4</code></td>
+          </tr>
+          <tr>
+            <th scope="row">Ô cửa S4, TX2, V4 &amp; Khối vát phải TX3</th>
+            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Đúng:</strong> Đã xây đủ khối vát &amp; đổ mái dốc <code>KT-3.06</code></td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Vát đối xứng rộng <code>750mm</code> ăn khít mũi <code>160mm</code></td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';">Giữ nguyên hoàn toàn; lấy cao độ &amp; độ dốc <code>S4–TX3</code> làm cữ căng dây cho Trục B</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Section 4: Verified CAD Gallery (6 Rough Construction Sheets) -->
+    <div class="sec-head">
+      <h2>Hồ sơ bản vẽ CAD phần thô đối chiếu trực tiếp</h2>
+      <span class="sec-sub">Bấm vào từng bản vẽ để phóng to kiểm tra kích thước 400mm/250mm &amp; giao cắt tại Trục B</span>
+    </div>
+
+    <section class="cad-grid" aria-label="Thư viện bản vẽ CAD phần thô">
+      <article class="cad-card" data-img="assets/cad_kt306_logia02.png" data-title="KT-3.06 · Logia 02 Tầng 3: Mặt cắt 1-1 (trần phẳng A3) vs. Mặt cắt 2-2 (mái chéo từ Trục B sang A)">
+        <img class="cad-thumb" src="assets/cad_kt306_logia02.png" alt="Bản vẽ KT-3.06 Logia 02 mặt cắt 1-1 và 2-2" loading="lazy" />
+        <div class="cad-body">
+          <div class="cad-code">KT-3.06 · MC 1-1 &amp; 2-2</div>
+          <h3 class="cad-title">Ranh giới mái phẳng – mái chéo tại B</h3>
+          <p class="cad-desc">Thấy rõ Trục B là điểm đổi từ trần phẳng <code>MC 1-1</code> sang mũi chéo <code>MC 2-2</code>.</p>
+        </div>
+      </article>
+
+      <article class="cad-card" data-img="assets/cad_kt306_chitiet01_zoom.png" data-title="KT-3.06 · Chi tiết 01: Mũi vát 160mm + Dốc 500mm vào tường cửa 400mm + Nẹp GMN-04">
+        <img class="cad-thumb" src="assets/cad_kt306_chitiet01_zoom.png" alt="Chi tiết KT-3.06 Logia 02" loading="lazy" />
+        <div class="cad-body">
+          <div class="cad-code">KT-3.06 · CHI TIẾT 01</div>
+          <h3 class="cad-title">Mặt cắt mũi 160mm &amp; Dốc vào 400mm</h3>
+          <p class="cad-desc">Ghi rõ đoạn vươn dốc <code>250+150=400mm</code> tới mặt cửa và nẹp <code>GMN-04</code>.</p>
+        </div>
+      </article>
+
+      <article class="cad-card" data-img="assets/wc_mb_tuongxay_t2_all.png" data-title="Mặt bằng tường xây Tầng 2 (Tường 220 thụt 250mm &amp; khung phẳng)">
+        <img class="cad-thumb" src="assets/wc_mb_tuongxay_t2_all.png" alt="Mặt bằng tường xây tầng 2" loading="lazy" />
+        <div class="cad-body">
+          <div class="cad-code">KT-T2 · MẪU ĐANG BỊ NHẦM</div>
+          <h3 class="cad-title">Mặt bằng xây gạch Tầng 2</h3>
+          <p class="cad-desc">Thể hiện tường 220 thụt <code>250mm</code> &amp; trần phẳng mà thợ đã làm nhầm ở Trục B T3.</p>
+        </div>
+      </article>
+
+      <article class="cad-card" data-img="assets/wc_mb_tuongxay_t3_wc01.png" data-title="Mặt bằng tường xây Tầng 3 (Định vị TX4 CT Khối Xây 4)">
+        <img class="cad-thumb" src="assets/wc_mb_tuongxay_t3_wc01.png" alt="Mặt bằng tường xây tầng 3" loading="lazy" />
+        <div class="cad-body">
+          <div class="cad-code">KT-T3 · TX4 &amp; TX3</div>
+          <h3 class="cad-title">Mặt bằng xây gạch Tầng 3</h3>
+          <p class="cad-desc">Chi tiết <code>TX4</code>: mũi <code>140mm</code>, má vát <code>610mm</code> lùi <code>400mm</code> vào mặt tường cửa <code>S4</code>.</p>
+        </div>
+      </article>
+
+      <article class="cad-card" data-img="assets/wc_kt209_ct_khoi_xay_t3.png" data-title="KT-2.09 · Chi tiết kích thước khối xây vát Tầng 3">
+        <img class="cad-thumb" src="assets/wc_kt209_ct_khoi_xay_t3.png" alt="Chi tiết khối xây tầng 3 KT-2.09" loading="lazy" />
+        <div class="cad-body">
+          <div class="cad-code">KT-2.09 · CHI TIẾT TX4</div>
+          <h3 class="cad-title">Chi tiết khối xây vát TX4</h3>
+          <p class="cad-desc">Khối vát tổng rộng <code>750mm</code> (mũi <code>140mm</code> + má vát <code>610mm</code> sâu <code>400mm</code>).</p>
+        </div>
+      </article>
+
+      <article class="cad-card" data-img="assets/wc_kc58_lanhto_t3.png" data-title="KC-58 · Chi tiết lanh tô &amp; giằng BTCT Tầng 3">
+        <img class="cad-thumb" src="assets/wc_kc58_lanhto_t3.png" alt="Chi tiết kết cấu lanh tô KC-58" loading="lazy" />
+        <div class="cad-body">
+          <div class="cad-code">KC-58 · GIẰNG &amp; LANH TÔ</div>
+          <h3 class="cad-title">Lanh tô &amp; giằng BTCT T3</h3>
+          <p class="cad-desc">Quy cách thép giằng 2Φ10 tại +9.300 &amp; liên kết đỉnh cửa S4 / V4.</p>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <!-- Lightbox Modal with closedby="any" + Explicit Close -->
+  <dialog id="lightbox-modal" closedby="any" aria-labelledby="lb-title">
+    <div class="lb-head">
+      <h3 id="lb-title">Xem chi tiết bản vẽ CAD</h3>
+      <button type="button" class="lb-close" id="lb-close-btn">Đóng (Esc)</button>
+    </div>
+    <div class="lb-body">
+      <img id="lb-img" src="" alt="" />
+    </div>
+  </dialog>
+
+  <script src="assets/three.min.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      // ---------- UI & Lightbox ----------
+      const studioGrid = document.getElementById('studio-grid');
+      const toggleSidebarBtn = document.getElementById('btn-toggle-sidebar');
+      toggleSidebarBtn.addEventListener('click', () => {
+        const isHidden = studioGrid.classList.toggle('full-3d');
+        toggleSidebarBtn.textContent = isHidden ? '⇔ Hiện chú thích' : '⇔ Ẩn chú thích';
+        setTimeout(resizeRenderer, 60);
+      });
+
+      const dialog = document.getElementById('lightbox-modal');
+      const lbImg = document.getElementById('lb-img');
+      const lbTitle = document.getElementById('lb-title');
+      document.getElementById('lb-close-btn').addEventListener('click', () => dialog.close());
+
+      // Fallback for browsers without closedby support (Modern Web Guidance)
+      if (!('closedBy' in HTMLDialogElement.prototype)) {
+        dialog.addEventListener('click', (event) => {
+          if (event.target !== dialog) return;
+          const rect = dialog.getBoundingClientRect();
+          const isDialogContent = (
+            rect.top <= event.clientY &&
+            event.clientY <= rect.top + rect.height &&
+            rect.left <= event.clientX &&
+            event.clientX <= rect.left + rect.width
+          );
+          if (isDialogContent) return;
+          dialog.close();
+        });
+      }
+
+      document.querySelectorAll('.cad-card').forEach((card) => {
+        card.addEventListener('click', () => {
+          lbImg.src = card.dataset.img;
+          lbImg.alt = card.dataset.title;
+          lbTitle.textContent = card.dataset.title;
+          dialog.showModal();
+        });
+      });
+
+      // ---------- Three.js Scene Setup ----------
+      const wrap = document.getElementById('canvas-wrap');
+      const canvas = document.getElementById('three-canvas');
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color('#101319');
+
+      const camera = new THREE.PerspectiveCamera(42, 1, 0.08, 90);
+
+      // Lights
+      scene.add(new THREE.HemisphereLight('#dce6f7', '#262b35', 0.95));
+      const keyLight = new THREE.DirectionalLight('#fff5e6', 1.15);
+      keyLight.position.set(6, 11, 9);
+      keyLight.castShadow = true;
+      keyLight.shadow.mapSize.set(1024, 1024);
+      scene.add(keyLight);
+
+      const fillLight = new THREE.DirectionalLight('#93c5fd', 0.5);
+      fillLight.position.set(-7, 4, 6);
+      scene.add(fillLight);
+
+      const underLight = new THREE.DirectionalLight('#e2e8f0', 0.35);
+      underLight.position.set(-2, 1.5, 5);
+      scene.add(underLight);
+
+      // Ground Grid
+      const grid = new THREE.GridHelper(14, 28, '#2b3444', '#1d232e');
+      grid.position.y = -0.02;
+      scene.add(grid);
+
+      // Procedural Rough Textures
+      function makeBrickTex() {
+        const c = document.createElement('canvas');
+        c.width = 128; c.height = 128;
+        const ctx = c.getContext('2d');
+        ctx.fillStyle = '#c44d2d';
+        ctx.fillRect(0, 0, 128, 128);
+        ctx.strokeStyle = '#d8cec4';
+        ctx.lineWidth = 2;
+        for (let y = 0; y < 128; y += 16) {
+          ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(128, y); ctx.stroke();
+          const off = (y / 16) % 2 === 0 ? 0 : 16;
+          for (let x = off; x < 128; x += 32) {
+            ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x, y + 16); ctx.stroke();
+          }
+        }
+        const tex = new THREE.CanvasTexture(c);
+        tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+        tex.repeat.set(2.2, 2.2);
+        return tex;
+      }
+
+      const brickTex = makeBrickTex();
+
+      const mats = {
+        concrete: new THREE.MeshStandardMaterial({ color: '#6b7280', roughness: 0.85, metalness: 0.05 }),
+        builtOk: new THREE.MeshStandardMaterial({ color: '#788292', roughness: 0.88, metalness: 0.04 }),
+        builtWrongG2: new THREE.MeshStandardMaterial({ color: '#d97706', roughness: 0.75, transparent: true, opacity: 0.86 }),
+        cutCorner: new THREE.MeshStandardMaterial({ color: '#ef4444', roughness: 0.55, emissive: '#7f1d1d', emissiveIntensity: 0.45 }),
+        cutGhost: new THREE.MeshBasicMaterial({ color: '#ef4444', wireframe: true, transparent: true, opacity: 0.78 }),
+        brickNew: new THREE.MeshStandardMaterial({ map: brickTex, color: '#e06443', roughness: 0.85, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }),
+        brickGhost: new THREE.MeshStandardMaterial({ map: brickTex, color: '#e06443', roughness: 0.85, transparent: true, opacity: 0.48 }),
+        wedgeNew: new THREE.MeshStandardMaterial({ color: '#d96543', roughness: 0.80, transparent: true, opacity: 0.88, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }),
+        wedgeGhost: new THREE.MeshStandardMaterial({ color: '#d96543', roughness: 0.80, transparent: true, opacity: 0.34 }),
+        brickDark: new THREE.MeshStandardMaterial({ color: '#9a3412', roughness: 0.9 }),
+        tieConcrete: new THREE.MeshStandardMaterial({ color: '#cbd5e1', roughness: 0.7 }),
+        rebar: new THREE.MeshStandardMaterial({ color: '#ef4444', roughness: 0.35, metalness: 0.45, emissive: '#991b1b', emissiveIntensity: 0.38 }),
+        meshCyan: new THREE.MeshBasicMaterial({ color: '#22d3ee', wireframe: true, transparent: true, opacity: 0.92 }),
+        gmnBead: new THREE.MeshStandardMaterial({ color: '#22d3ee', roughness: 0.3, emissive: '#0891b2', emissiveIntensity: 0.35 }),
+        shadowGroove: new THREE.MeshStandardMaterial({ color: '#0b0e14', roughness: 0.95 }),
+        plaster: new THREE.MeshStandardMaterial({ color: '#b4bcc8', roughness: 0.92, metalness: 0.02, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }),
+        glassVoid: new THREE.MeshStandardMaterial({ color: '#1e293b', roughness: 0.3, transparent: true, opacity: 0.38 }),
+        line45: new THREE.LineBasicMaterial({ color: '#22d3ee' }),
+        lineWarn: new THREE.LineBasicMaterial({ color: '#f59e0b' })
+      };
+
+      // Exact KT-3.06 CHI TIET 01 overhang slope on Z in [-0.40, 0.00]
+      function ySlope400(z) {
+        return 7.04 + 1.25 * z; // z = 0.00 -> 7.04 (160mm lip), z = -0.25 -> 6.7275, z = -0.40 -> 6.54 (500mm drop)
+      }
+
+      function addCrispEdges(mesh, colorHex, thresholdDeg) {
+        const edges = new THREE.EdgesGeometry(mesh.geometry, thresholdDeg || 20);
+        const line = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
+          color: colorHex || '#e2e8f0',
+          transparent: true,
+          opacity: 0.68
+        }));
+        mesh.add(line);
+        return mesh;
+      }
+
+      // World-space sloped extrusion: outerPts/holePts in (X, Z), mapped cleanly to (wx, wy, wz)
+      function makeSlopedExtrude(outerPts, holePts, yBotFn, yTopFn, mat, edgeColor) {
+        const shape = new THREE.Shape();
+        shape.moveTo(outerPts[0][0], -outerPts[0][1]);
+        for (let i = 1; i < outerPts.length; i++) shape.lineTo(outerPts[i][0], -outerPts[i][1]);
+        shape.closePath();
+
+        if (holePts && holePts.length) {
+          const hole = new THREE.Path();
+          hole.moveTo(holePts[0][0], -holePts[0][1]);
+          for (let i = 1; i < holePts.length; i++) hole.lineTo(holePts[i][0], -holePts[i][1]);
+          hole.closePath();
+          shape.holes.push(hole);
+        }
+
+        const geo = new THREE.ExtrudeGeometry(shape, { depth: 1, bevelEnabled: false }).toNonIndexed();
+        const pos = geo.attributes.position;
+        for (let i = 0; i < pos.count; i++) {
+          const wx = pos.getX(i);
+          const wz = -pos.getY(i);
+          const u = pos.getZ(i);
+          const yb = typeof yBotFn === 'function' ? yBotFn(wx, wz) : yBotFn;
+          const yt = typeof yTopFn === 'function' ? yTopFn(wx, wz) : yTopFn;
+          const wy = yb + u * (yt - yb);
+          pos.setXYZ(i, wx, wy, wz);
+        }
+        pos.needsUpdate = true;
+        geo.computeVertexNormals();
+        geo.computeBoundingSphere();
+
+        const mesh = new THREE.Mesh(geo, mat);
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        if (edgeColor !== false) addCrispEdges(mesh, edgeColor || '#cbd5e1', 18);
+        return mesh;
+      }
+
+      function box(w, h, d, x, y, z, mat) {
+        const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+        m.position.set(x, y, z);
+        m.castShadow = true;
+        m.receiveShadow = true;
+        return m;
+      }
+
+      // Coordinate system (1:1 CAD meters):
+      // Portal T3 (5.00m): TX4 (-0.775..-0.025) + S4 (-0.025..+1.225) + TX2 (+1.225..+2.575) + V4 (+2.575..+3.475) + TX3 (+3.475..+4.225)
+      // Left Logia (Trục D -> B): -4.225 .. -0.775 (flat canopy A3 recessed at Z = -0.25)
+      // Z: Back structural Trục 1 = -0.88 .. -0.65 | Outer front plane = 0.00
+      const root = new THREE.Group();
+      scene.add(root);
+
+      // ---- 1. Structural Base & Already-Correct Elements (T2 + T3 Left Balcony + T3 Right S4..TX3) ----
+      const staticGroup = new THREE.Group();
+      root.add(staticGroup);
+
+      // Slabs: +4.200 (Y=0), +7.800 (Y=3.6), +11.400 (Y=7.2) across 8.45m width (-4.225..+4.225)
+      staticGroup.add(box(8.55, 0.14, 1.85, 0.0, 0.07, -0.52, mats.concrete));
+      staticGroup.add(box(8.55, 0.16, 1.85, 0.0, 3.60, -0.52, mats.concrete));
+      staticGroup.add(box(8.55, 0.18, 1.15, 0.0, 7.20, -1.20, mats.concrete));
+
+      // Floor 2 piers & walls (T2 built)
+      staticGroup.add(box(0.50, 3.4, 0.24, -3.95, 1.85, -0.76, mats.builtOk));  // T2 Pier D
+      staticGroup.add(box(0.75, 3.4, 0.22, -0.40, 1.85, -0.36, mats.builtOk));  // T2 Pier B (220mm wall set back 250mm: Z=-0.47..-0.25)
+      staticGroup.add(box(1.35, 3.4, 0.24, 1.90, 1.85, -0.525, mats.builtOk));  // T2 Middle Pier
+      staticGroup.add(box(0.65, 3.4, 0.24, 3.88, 1.85, -0.76, mats.builtOk));   // T2 Pier A
+      staticGroup.add(box(3.25, 0.85, 0.22, -2.10, 0.56, -0.76, mats.builtOk)); // T2 left sill
+      staticGroup.add(box(4.20, 0.85, 0.22, 1.75, 0.56, -0.76, mats.builtOk));  // T2 right sill
+      staticGroup.add(box(8.30, 0.55, 0.22, 0.0, 3.25, -0.76, mats.builtOk));   // T2 top lintel
+
+      // Floor 3 Left Balcony (Trục D -> left edge of TX4 at X=-0.775) — ALREADY BUILT RIGHT
+      staticGroup.add(box(0.32, 3.44, 1.45, -4.06, 5.40, -0.22, mats.builtOk)); // Left side wall
+      staticGroup.add(box(3.15, 1.00, 0.18, -2.35, 4.18, -0.76, mats.builtOk)); // Left sill A2
+      // Left Balcony Flat Canopy Fascia A3 (Y=6.60..7.20, front face recessed at Z=-0.25)
+      const leftCanopy = box(3.45, 0.60, 1.00, -2.50, 6.90, -0.75, mats.builtOk);
+      addCrispEdges(leftCanopy, '#cbd5e1', 20);
+      staticGroup.add(leftCanopy);
+
+      // T3 structural RC column (1,B) safely in back structural line & 250x500 upper beam along Axis 1
+      staticGroup.add(box(0.32, 3.44, 0.24, -0.61, 5.40, -0.77, mats.concrete));
+      staticGroup.add(box(5.00, 0.50, 0.25, 1.725, 6.85, -0.775, mats.concrete));
+
+      // T3 S4 (1250), TX2 middle pier (1350), and V4 (900) aligned to window wall Z=-0.40..-0.65
+      staticGroup.add(box(1.25, 2.86, 0.06, 0.60, 5.11, -0.52, mats.glassVoid));  // S4 (1250mm)
+      staticGroup.add(box(1.35, 2.86, 0.25, 1.90, 5.11, -0.525, mats.builtOk));   // TX2 middle pier (1350mm)
+      staticGroup.add(box(0.90, 2.86, 0.06, 3.025, 5.11, -0.52, mats.glassVoid)); // V4 (900mm)
+
+      // T3 Right Diagonal Block TX3 (Trục A) — Split cleanly at Z=-0.40 (zero non-planar bend)
+      const tx3FrontPts = [[3.475, -0.40], [4.085, 0.00], [4.225, 0.00], [4.225, -0.40]];
+      staticGroup.add(makeSlopedExtrude(tx3FrontPts, null, 3.68, (wx, wz) => ySlope400(wz), mats.builtOk, '#94a3b8'));
+      staticGroup.add(box(0.75, 2.86, 0.25, 3.85, 5.11, -0.525, mats.builtOk));
+
+      // T3 Right Sloped Roof Hood KT-3.06 OVER S4 -> TX3 (X = -0.025 .. +4.225) — ALREADY BUILT RIGHT
+      // Stops abruptly at X = -0.025 (left jamb of S4); split cleanly at Z=-0.40
+      const hoodRightFrontPts = [[-0.025, -0.40], [-0.025, 0.00], [4.225, 0.00], [4.225, -0.40]];
+      staticGroup.add(makeSlopedExtrude(hoodRightFrontPts, null, (wx, wz) => ySlope400(wz), 7.20, mats.builtOk, '#e2e8f0'));
+      staticGroup.add(box(4.25, 0.66, 0.25, 2.10, 6.87, -0.525, mats.builtOk));
+
+      // ---- 2. Trục B As-Built 220mm Square Wall @ Z=-0.25 (-250mm) + Flat 600mm Canopy ----
+      const pierBWrongGroup = new THREE.Group();
+      root.add(pierBWrongGroup);
+
+      // Structural/backing parts of the 220mm wall that stay intact in both views:
+      // Left return leg (-0.775..-0.555, Z=-0.90..-0.47), rear 70mm strip (-0.47..-0.40), and S4 jamb backing (-0.275..-0.025, Z=-0.65..-0.47)
+      const wall220ReturnLeg = box(0.22, 2.92, 0.43, -0.665, 5.14, -0.685, mats.builtWrongG2);
+      const wall220RearStrip = box(0.75, 2.86, 0.07, -0.40, 5.11, -0.435, mats.builtWrongG2);
+      const wall220S4Jamb = box(0.25, 2.86, 0.18, -0.15, 5.11, -0.56, mats.builtWrongG2);
+      pierBWrongGroup.add(wall220ReturnLeg, wall220RearStrip, wall220S4Jamb);
+
+      // Front Z=-0.40..-0.25 split cleanly into:
+      // 1) err_pier_b: full height Y=3.68..6.60 (left retained trapezoid amber + right 230x150mm cut wedge red)
+      const wrongFrontErrGroup = new THREE.Group();
+      pierBWrongGroup.add(wrongFrontErrGroup);
+      const wall220LeftTrapPts = [[-0.775, -0.40], [-0.775, -0.25], [-0.254, -0.25], [-0.025, -0.40]];
+      const cutRightTriPts = [[-0.254, -0.25], [-0.025, -0.25], [-0.025, -0.40]];
+      const wall220LeftErr = makeSlopedExtrude(wall220LeftTrapPts, null, 3.68, 6.60, mats.builtWrongG2, '#fbbf24');
+      const cutRightSolidErr = makeSlopedExtrude(cutRightTriPts, null, 3.68, 6.60, mats.cutCorner, '#fca5a5');
+      wrongFrontErrGroup.add(wall220LeftErr, cutRightSolidErr);
+
+      // 2) fix_pier_b: retained left trapezoid beveled up to ySlope400(wz) - 0.003
+      const wrongFrontFixGroup = new THREE.Group();
+      pierBWrongGroup.add(wrongFrontFixGroup);
+      const wall220LeftFix = makeSlopedExtrude(wall220LeftTrapPts, null, 3.68, (wx, wz) => ySlope400(wz) - 0.003, mats.builtWrongG2, '#fbbf24');
+      wrongFrontFixGroup.add(wall220LeftFix);
+
+      // Wireframe outline of the cut-away 230x150mm brick corner (slides right/forward on explode)
+      const cutRightGhost = makeSlopedExtrude(cutRightTriPts, null, 3.68, (wx, wz) => ySlope400(wz) - 0.003, mats.cutGhost, false);
+      pierBWrongGroup.add(cutRightGhost);
+
+      // Wrong upper flat canopy encroaching over Trục B (X = -0.775 .. -0.025, Y = 6.60 .. 7.20, Z = -0.65 .. -0.25)
+      const wrongTopErrOnlyGroup = new THREE.Group();
+      pierBWrongGroup.add(wrongTopErrOnlyGroup);
+
+      // Full wrong flat box flush at Z=-0.25 matching wall 220 below
+      const wrongTopFlatFull = box(0.75, 0.60, 0.40, -0.40, 6.90, -0.45, mats.builtWrongG2);
+      addCrispEdges(wrongTopFlatFull, '#fbbf24', 18);
+      // Red slice hanging BELOW ySlope400(z) (Z = -0.352 .. -0.25, bottom Y = 6.60 -> top ySlope400(z))
+      const hangCutPts = [[-0.775, -0.352], [-0.775, -0.25], [-0.025, -0.25], [-0.025, -0.352]];
+      const wrongTopHangCut = makeSlopedExtrude(hangCutPts, null, 6.595, (wx, wz) => ySlope400(wz) + 0.005, mats.cutCorner, '#fca5a5');
+      wrongTopErrOnlyGroup.add(wrongTopFlatFull, wrongTopHangCut);
+
+      // Existing upper core that stays embedded INSIDE the new sloped top wedge (split cleanly at Z=-0.40)
+      const wrongTopRetainedCore = new THREE.Group();
+      pierBWrongGroup.add(wrongTopRetainedCore);
+      const wrongCoreFrontPts = [[-0.765, -0.40], [-0.765, -0.254], [-0.035, -0.254], [-0.035, -0.40]];
+      wrongTopRetainedCore.add(
+        makeSlopedExtrude(wrongCoreFrontPts, null, (wx, wz) => ySlope400(wz) + 0.004, 7.192, mats.concrete, '#94a3b8'),
+        box(0.73, 0.652, 0.245, -0.40, 6.866, -0.5225, mats.concrete)
+      );
+
+      // Target TX4 bevel chord + Target outer 160mm roof lip at Z=0.00
+      const lineGeo = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(-0.635, 3.70, 0.01),
+        new THREE.Vector3(-0.025, 3.70, -0.40),
+        new THREE.Vector3(-0.025, ySlope400(-0.40), -0.40),
+        new THREE.Vector3(-0.635, ySlope400(0.00), 0.01),
+        new THREE.Vector3(-0.635, 3.70, 0.01)
+      ]);
+      const hoodGuideGeo = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(-0.775, 7.205, 0.008),
+        new THREE.Vector3(-0.025, 7.205, 0.008),
+        new THREE.Vector3(-0.025, 7.04, 0.008),
+        new THREE.Vector3(-0.775, 7.04, 0.008),
+        new THREE.Vector3(-0.775, 7.205, 0.008)
+      ]);
+      pierBWrongGroup.add(new THREE.Line(lineGeo, mats.line45), new THREE.Line(hoodGuideGeo, mats.line45));
+
+      // ---- 3. Trục B Fix Group (Solid 250mm Bonded Brick Left Nose + Overhead 750mm Sloped Roof Splice) ----
+      const tx4FixGroup = new THREE.Group();
+      root.add(tx4FixGroup);
+
+      // 3A. Lower Left Solid Bonded Brick Wedge (Z=-0.25..0.00, X=-0.775..-0.254 -> max thickness 250mm, 100% solid!)
+      const tx4WallGroup = new THREE.Group();
+      tx4FixGroup.add(tx4WallGroup);
+
+      const tx4SolidLeft = [[-0.775, -0.25], [-0.775, 0.00], [-0.635, 0.00], [-0.254, -0.25]];
+
+      const brickBottomSolid = makeSlopedExtrude(tx4SolidLeft, null, 3.68, 3.92, mats.brickDark, '#fdba74');
+      const brickShellLower = makeSlopedExtrude(tx4SolidLeft, null, 3.92, 5.28, mats.brickNew, '#fdba74');
+      const tieBelt = makeSlopedExtrude(tx4SolidLeft, null, 5.28, 5.36, mats.tieConcrete, '#f8fafc');
+      const brickShellUpper = makeSlopedExtrude(tx4SolidLeft, null, 5.36, (wx, wz) => ySlope400(wz) - 0.003, mats.brickNew, '#fdba74');
+      tx4WallGroup.add(brickBottomSolid, brickShellLower, tieBelt, brickShellUpper);
+
+      const dowelGroup = new THREE.Group();
+      tx4WallGroup.add(dowelGroup);
+      // 2 vertical columns of Phi8 epoxy dowels anchored into front Z=-0.25 face of existing 220 wall
+      for (let i = 0; i < 6; i++) {
+        const y = 4.02 + i * 0.44;
+        dowelGroup.add(box(0.022, 0.022, 0.30, -0.68, y, -0.21, mats.rebar)); // Nose anchor (-0.36..-0.06)
+        dowelGroup.add(box(0.022, 0.022, 0.21, -0.46, y, -0.255, mats.rebar)); // Mid-bevel anchor (-0.36..-0.15)
+      }
+      // Top vertical anchors + tie belt bars at +9.300 (Y=5.32)
+      dowelGroup.add(box(0.022, 0.24, 0.022, -0.64, ySlope400(-0.12), -0.12, mats.rebar));
+      dowelGroup.add(box(0.022, 0.24, 0.022, -0.40, ySlope400(-0.20), -0.20, mats.rebar));
+
+      // 3B. Overhead 750mm Sloped Roof Extension Group (completing KT-3.06 from S4 to left edge X=-0.775)
+      const topWedgeFixGroup = new THREE.Group();
+      tx4FixGroup.add(topWedgeFixGroup);
+
+      const hoodExtFrontPts = [[-0.775, -0.40], [-0.775, 0.00], [-0.025, 0.00], [-0.025, -0.40]];
+      const topWedgeNew = makeSlopedExtrude(hoodExtFrontPts, null, (wx, wz) => ySlope400(wz), 7.20, mats.wedgeNew, '#fb923c');
+      const topWedgeRearBox = box(0.75, 0.66, 0.25, -0.40, 6.87, -0.525, mats.concrete);
+      topWedgeFixGroup.add(topWedgeNew, topWedgeRearBox);
+
+      // Rebar splice dowels Φ10 & sloped ribs inside the new 750mm roof extension
+      const topSteelGroup = new THREE.Group();
+      topWedgeFixGroup.add(topSteelGroup);
+
+      // 3 horizontal splice dowels Φ10 from existing sloped edge S4 (X=-0.025) into Trục B extension
+      for (let k = 0; k < 3; k++) {
+        const zBar = -0.06 - k * 0.14;
+        const yBar = Math.min(7.13, ySlope400(zBar) + 0.08);
+        topSteelGroup.add(box(0.60, 0.022, 0.022, -0.24, yBar, zBar, mats.rebar));
+      }
+      // 3 cantilevered Φ10 dowels projecting forward from Z=-0.25 out to 160mm front lip (Z=-0.02)
+      for (let k = 0; k < 3; k++) {
+        const xBar = -0.64 + k * 0.24;
+        topSteelGroup.add(box(0.022, 0.022, 0.34, xBar, 7.12, -0.18, mats.rebar));
+      }
+      // 3 inclined steel/rebar framing ribs running along ySlope400(z) slope (0.40m run, 0.50m drop)
+      const slopeLen = Math.hypot(0.40, 0.50);
+      const slopeAng = -Math.atan2(0.50, 0.40);
+      for (let k = 0; k < 3; k++) {
+        const xRib = -0.66 + k * 0.26;
+        const rib = box(0.024, 0.024, slopeLen - 0.03, xRib, 6.79, -0.20, mats.rebar);
+        rib.rotation.x = slopeAng;
+        topSteelGroup.add(rib);
+      }
+
+      // GMN-04 drip bead along the 160mm front lip bottom
+      const gmnBeadNew = box(0.75, 0.022, 0.022, -0.40, 7.032, -0.01, mats.gmnBead);
+      topWedgeFixGroup.add(gmnBeadNew);
+
+      // 10x10mm shadow groove separating TX4/KT-3.06 from left balcony fascia A3
+      const leftShadowFix = box(0.016, 0.66, 0.65, -0.778, 6.87, -0.325, mats.shadowGroove);
+      topWedgeFixGroup.add(leftShadowFix);
+
+      // 3C. 300mm Galvanized Wire Mesh across diagonal cut-to-build seam, left joint, S4 jamb & sloped soffit
+      const meshGroup = new THREE.Group();
+      tx4FixGroup.add(meshGroup);
+      meshGroup.add(box(0.015, 3.45, 0.30, -0.78, 5.40, -0.24, mats.meshCyan));   // Left vertical seam
+      meshGroup.add(box(0.30, 2.95, 0.015, -0.254, 5.20, -0.248, mats.meshCyan)); // Diagonal cut-to-build joint (X=-0.254, Z=-0.25)
+      meshGroup.add(box(0.015, 0.66, 0.40, -0.025, 6.87, -0.20, mats.meshCyan));  // Roof splice joint at S4
+      const soffitMeshPlane = box(0.74, 0.012, slopeLen - 0.02, -0.40, 6.788, -0.20, mats.meshCyan);
+      soffitMeshPlane.rotation.x = slopeAng;
+      meshGroup.add(soffitMeshPlane);
+
+      // ---- 4. Completed Rough Massing & M75 Plaster Skins ----
+      const tx4FullFrontPts = [[-0.775, -0.40], [-0.775, 0.00], [-0.635, 0.00], [-0.025, -0.40]];
+
+      const fullBrickGroup = new THREE.Group();
+      root.add(fullBrickGroup);
+      fullBrickGroup.add(makeSlopedExtrude(tx4FullFrontPts, null, 3.68, (wx, wz) => ySlope400(wz) - 0.003, mats.brickNew, '#fdba74'));
+      fullBrickGroup.add(box(0.75, 2.86, 0.25, -0.40, 5.11, -0.525, mats.brickNew));
+      fullBrickGroup.add(box(0.22, 2.86, 0.25, -0.665, 5.11, -0.775, mats.brickNew));
+      fullBrickGroup.add(makeSlopedExtrude(hoodExtFrontPts, null, (wx, wz) => ySlope400(wz), 7.20, mats.wedgeNew, '#fdba74'));
+      fullBrickGroup.add(box(0.75, 0.66, 0.25, -0.40, 6.87, -0.525, mats.wedgeNew));
+      fullBrickGroup.add(makeSlopedExtrude(tx3FrontPts, null, 3.68, (wx, wz) => ySlope400(wz) - 0.003, mats.brickNew, '#fdba74'));
+      fullBrickGroup.add(box(0.75, 2.86, 0.25, 3.85, 5.11, -0.525, mats.brickNew));
+      fullBrickGroup.add(box(1.35, 2.86, 0.25, 1.90, 5.11, -0.525, mats.brickNew));
+      fullBrickGroup.add(box(0.75, 3.4, 0.22, -0.40, 1.85, -0.36, mats.brickNew));
+      fullBrickGroup.add(box(0.65, 3.4, 0.24, 3.88, 1.85, -0.76, mats.brickNew));
+      fullBrickGroup.add(box(0.016, 0.66, 0.65, -0.778, 6.87, -0.325, mats.shadowGroove));
+
+      const plasterGroup = new THREE.Group();
+      root.add(plasterGroup);
+      const hoodFullFrontPts = [[-0.775, -0.40], [-0.775, 0.00], [4.225, 0.00], [4.225, -0.40]];
+      plasterGroup.add(makeSlopedExtrude(tx4FullFrontPts, null, 3.68, (wx, wz) => ySlope400(wz), mats.plaster, '#f8fafc'));
+      plasterGroup.add(box(0.75, 2.86, 0.25, -0.40, 5.11, -0.525, mats.plaster));
+      plasterGroup.add(box(0.22, 2.86, 0.25, -0.665, 5.11, -0.775, mats.plaster));
+      plasterGroup.add(makeSlopedExtrude(tx3FrontPts, null, 3.68, (wx, wz) => ySlope400(wz), mats.plaster, '#f8fafc'));
+      plasterGroup.add(box(0.75, 2.86, 0.25, 3.85, 5.11, -0.525, mats.plaster));
+      plasterGroup.add(makeSlopedExtrude(hoodFullFrontPts, null, (wx, wz) => ySlope400(wz), 7.20, mats.plaster, '#f8fafc'));
+      plasterGroup.add(box(5.00, 0.66, 0.25, 1.725, 6.87, -0.525, mats.plaster));
+      plasterGroup.add(box(1.35, 2.86, 0.25, 1.90, 5.11, -0.525, mats.plaster));
+      plasterGroup.add(box(8.55, 0.16, 1.86, 0.0, 3.60, -0.52, mats.plaster));
+      plasterGroup.add(box(0.75, 3.4, 0.23, -0.40, 1.85, -0.36, mats.plaster));
+      // Full 5.00m GMN-04 drip bead & 10x10mm shadow joint along left edge of TX4
+      plasterGroup.add(box(5.00, 0.02, 0.02, 1.725, 7.032, -0.008, mats.gmnBead));
+      plasterGroup.add(box(0.016, 3.52, 0.65, -0.778, 5.44, -0.325, mats.shadowGroove));
+
+      // ---- 5. Orbit / Smooth Exponential Zoom / Multi-Touch Pinch & Pan (Upward tilt enabled!) ----
+      const orbit = {
+        theta: -0.44,
+        phi: 1.34,
+        radius: 5.8,
+        target: new THREE.Vector3(-0.38, 5.75, -0.28),
+        minRadius: 1.0,
+        maxRadius: 22.0
+      };
+
+      const zoomSlider = document.getElementById('zoom-slider');
+      const zoomPct = document.getElementById('zoom-pct');
+
+      function updateZoomUI() {
+        zoomSlider.value = Math.min(15.0, Math.max(1.0, orbit.radius)).toFixed(2);
+        const pct = Math.round((8.6 / orbit.radius) * 100);
+        zoomPct.textContent = pct + '%';
+      }
+
+      function applyCamera() {
+        // Allow upward tilting (phi > PI/2 up to 2.08 rad) so user can look up into the Trục B sloped soffit
+        orbit.phi = Math.max(0.18, Math.min(2.08, orbit.phi));
+        orbit.radius = Math.max(orbit.minRadius, Math.min(orbit.maxRadius, orbit.radius));
+        const sinP = Math.sin(orbit.phi);
+        const px = orbit.target.x + orbit.radius * sinP * Math.sin(orbit.theta);
+        const py = Math.max(0.25, orbit.target.y + orbit.radius * Math.cos(orbit.phi));
+        const pz = orbit.target.z + orbit.radius * sinP * Math.cos(orbit.theta);
+        camera.position.set(px, py, pz);
+        camera.lookAt(orbit.target);
+        updateZoomUI();
+      }
+
+      // Exponential Wheel Zoom
+      canvas.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        orbit.radius = Math.max(orbit.minRadius, Math.min(orbit.maxRadius, orbit.radius * Math.exp(e.deltaY * 0.0011)));
+        applyCamera();
+      }, { passive: false });
+
+      // Pointer Events: 1-finger orbit / right-or-shift pan / 2-finger pinch-to-zoom + pan
+      const activePointers = new Map();
+      let lastPinchDist = null;
+      let lastPinchMid = null;
+
+      function getPinchMetrics() {
+        const pts = Array.from(activePointers.values());
+        const dx = pts[1].x - pts[0].x;
+        const dy = pts[1].y - pts[0].y;
+        return {
+          dist: Math.hypot(dx, dy),
+          mx: (pts[0].x + pts[1].x) * 0.5,
+          my: (pts[0].y + pts[1].y) * 0.5
+        };
+      }
+
+      function panCamera(dx, dy) {
+        const panScale = orbit.radius * 0.0016;
+        const right = new THREE.Vector3(Math.cos(orbit.theta), 0, -Math.sin(orbit.theta));
+        const up = new THREE.Vector3(0, 1, 0);
+        orbit.target.addScaledVector(right, -dx * panScale);
+        orbit.target.addScaledVector(up, dy * panScale);
+      }
+
+      canvas.addEventListener('pointerdown', (e) => {
+        canvas.setPointerCapture(e.pointerId);
+        activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY, btn: e.button, shift: e.shiftKey });
+        if (activePointers.size === 2) {
+          const m = getPinchMetrics();
+          lastPinchDist = m.dist;
+          lastPinchMid = { x: m.mx, y: m.my };
+        }
+      });
+
+      canvas.addEventListener('pointermove', (e) => {
+        if (!activePointers.has(e.pointerId)) return;
+        const prev = activePointers.get(e.pointerId);
+        const dx = e.clientX - prev.x;
+        const dy = e.clientY - prev.y;
+        activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY, btn: prev.btn, shift: e.shiftKey });
+
+        if (activePointers.size === 2) {
+          const m = getPinchMetrics();
+          if (lastPinchDist && m.dist > 8) {
+            orbit.radius = Math.max(orbit.minRadius, Math.min(orbit.maxRadius, orbit.radius * (lastPinchDist / m.dist)));
+          }
+          if (lastPinchMid) {
+            panCamera(m.mx - lastPinchMid.x, m.my - lastPinchMid.y);
+          }
+          lastPinchDist = m.dist;
+          lastPinchMid = { x: m.mx, y: m.my };
+          applyCamera();
+          return;
+        }
+
+        if (activePointers.size === 1) {
+          if (e.buttons === 2 || e.shiftKey || prev.btn === 2) {
+            panCamera(dx, dy);
+          } else {
+            orbit.theta -= dx * 0.0075;
+            orbit.phi -= dy * 0.0065;
+          }
+          applyCamera();
+        }
+      });
+
+      function endPointer(e) {
+        activePointers.delete(e.pointerId);
+        if (activePointers.size < 2) {
+          lastPinchDist = null;
+          lastPinchMid = null;
+        }
+      }
+
+      canvas.addEventListener('pointerup', endPointer);
+      canvas.addEventListener('pointercancel', endPointer);
+      canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+
+      // Floating Zoom Controls
+      document.getElementById('btn-zoom-in').addEventListener('click', () => {
+        orbit.radius = Math.max(orbit.minRadius, orbit.radius * 0.78);
+        applyCamera();
+      });
+      document.getElementById('btn-zoom-out').addEventListener('click', () => {
+        orbit.radius = Math.min(orbit.maxRadius, orbit.radius * 1.28);
+        applyCamera();
+      });
+      zoomSlider.addEventListener('input', () => {
+        orbit.radius = parseFloat(zoomSlider.value);
+        applyCamera();
+      });
+
+      function setCameraPreset(name) {
+        if (name === 'soffit_b') {
+          orbit.theta = -0.34; orbit.phi = 1.72; orbit.radius = 2.65;
+          orbit.target.set(-0.38, 6.45, -0.28);
+        } else if (name === 'pier_b') {
+          orbit.theta = -0.36; orbit.phi = 1.28; orbit.radius = 2.85;
+          orbit.target.set(-0.38, 5.75, -0.28);
+        } else if (name === 'front') {
+          orbit.theta = 0.0; orbit.phi = 1.48; orbit.radius = 10.2;
+          orbit.target.set(0.5, 4.0, -0.3);
+        } else if (name === 'iso_34') {
+          orbit.theta = -0.58; orbit.phi = 1.24; orbit.radius = 9.4;
+          orbit.target.set(0.4, 4.3, -0.3);
+        } else if (name === 'top_section') {
+          orbit.theta = -0.08; orbit.phi = 0.34; orbit.radius = 4.8;
+          orbit.target.set(-0.38, 5.8, -0.32);
+        }
+        applyCamera();
+      }
+
+      document.getElementById('btn-focus-b').addEventListener('click', () => setCameraPreset('pier_b'));
+      document.querySelectorAll('.btn-cam').forEach((b) => {
+        b.addEventListener('click', () => setCameraPreset(b.dataset.cam));
+      });
+
+      // ---- 6. Modes, Section Cut & Explode Logic ----
+      let currentMode = 'fix_pier_b';
+      let isSection = false;
+      let isExploded = false;
+
+      const modeInfo = {
+        fix_pier_b: {
+          title: 'Sửa Tường 220 + Mái B',
+          badge: 'Thụt 250mm',
+          bullets: [
+            '<strong>Cắt vát góc gạch phải (230 × 150mm):</strong> Dùng máy cắt lưỡi kim cương xẻ bỏ nêm gạch thừa sát má cửa <code>S4</code> lùi về <code>Z=-400mm</code> (không chạm cột BTCT).',
+            '<strong>Xây câu gạch đặc mũi trái (250 → 0mm):</strong> Băm nhám, khoan cấy 2 hàng râu <code>Φ8 @350</code>, xây gạch đặc câu ngang dày <code>250mm</code> thuôn về <code>0mm</code> + giằng mỏng <code>+9.300</code>.',
+            '<strong>Mái chéo trên B (750mm):</strong> Đua mũi <code>160mm</code> ra thêm <code>250mm (Z=0)</code> + tỉa/bọc vát bụng <code>500mm</code> về đỉnh cửa <code>S4 (-400mm)</code>.',
+            'Ghim lưới mắt cáo <code>300mm</code> dọc khe nối chéo giữa trụ, gắn <code>GMN-04</code> trước khi trát M75.'
+          ]
+        },
+        err_pier_b: {
+          title: 'Tường 220 Thụt 250mm',
+          badge: 'Hiện trạng B',
+          bullets: [
+            '<strong>Tường dưới:</strong> Đang là tường gạch <code>220mm</code> vuông góc, mặt ngoài thụt đúng <code>250mm (Z=-0.25)</code>.',
+            '<strong>Mái trên Trục B:</strong> Trán phẳng ngang cao <code>600mm</code> cũng đang nằm thẳng mặt với tường dưới tại <code>Z=-0.25</code>.',
+            'Góc phải sát cửa <code>S4 (230×150mm, đỏ)</code> dư ra so với đường chéo <code>TX4</code> đi vào <code>Z=-400mm</code>.',
+            'Mũi trái rộng <code>520mm</code> chỉ cần xây đắp đặc thêm đúng <code>250mm</code> ra mép <code>Z=0</code>.'
+          ]
+        },
+        brick_cad: {
+          title: 'Sau Tạo Hình Thô',
+          badge: 'Khớp khối T3',
+          bullets: [
+            'Đoạn mái bù <code>750mm</code> nối phẳng hàng 100% với mũi <code>160mm</code> &amp; dốc <code>500mm</code> về mép cửa <code>S4 (Z=-400)</code>.',
+            'Trụ vát <code>TX4</code> (140 + 610mm) đặc chắc 100% đối xứng hoàn toàn với <code>TX3</code>.',
+            'Rãnh chỉ âm đứng <code>10×10mm</code> tách dứt khoát khối cổng vát <code>5000mm</code> với ban công trái <code>A3</code>.'
+          ]
+        },
+        plaster_m75: {
+          title: 'Trát Hoàn Thiện M75',
+          badge: 'Sẵn sàng ốp/sơn',
+          bullets: [
+            'Trát vữa <code>M75</code> dày <code>15mm</code>, kẹp nẹp góc PVC <code>90°/135°</code> dọc mũi 140mm &amp; đường mòi vát vào S4.',
+            'Đặt <strong>nẹp ngắt nước <code>GMN-04</code></strong> liên tục suốt mép dưới <code>160mm</code> kể cả đoạn Trục B mới nối.',
+            'Đạt hình khối T3 hoàn chỉnh trước khi chủ nhà quyết định sơn gỉ hay ốp nhôm.'
+          ]
+        }
+      };
+
+      function updateSceneState() {
+        const isFix = currentMode === 'fix_pier_b';
+        const isErr = currentMode === 'err_pier_b';
+        const isBrick = currentMode === 'brick_cad';
+        const isPlaster = currentMode === 'plaster_m75';
+
+        pierBWrongGroup.visible = isFix || isErr;
+        wrongFrontErrGroup.visible = isErr;
+        wrongFrontFixGroup.visible = isFix;
+        cutRightGhost.visible = isFix;
+        wrongTopErrOnlyGroup.visible = isErr;
+        wrongTopRetainedCore.visible = isFix;
+        tx4FixGroup.visible = isFix;
+        fullBrickGroup.visible = isBrick;
+        plasterGroup.visible = isPlaster;
+
+        // Section cut cuts upper half of TX4 solid left build-out AND switches top wedge to translucent so Φ10 dowels shine through
+        brickShellUpper.visible = !isSection;
+        meshGroup.visible = isFix && !isSection;
+        brickShellLower.material = (isSection || isExploded) ? mats.brickGhost : mats.brickNew;
+        topWedgeNew.material = (isSection || isExploded) ? mats.wedgeGhost : mats.wedgeNew;
+
+        // Explode left solid 250mm build-out forward along +Z, slide cut-away red right corner, and lift overhead wedge
+        const expOffset = isExploded ? 0.52 : 0;
+        tx4WallGroup.position.set(0, 0, expOffset);
+        cutRightGhost.position.set(isExploded ? 0.10 : 0, 0, isExploded ? 0.16 : 0);
+        topWedgeFixGroup.position.set(0, isExploded ? 0.22 : 0, isExploded ? 0.18 : 0);
+        dowelGroup.position.set(0, 0, isExploded ? -0.18 : 0);
+        meshGroup.position.set(0, 0, expOffset * 1.15);
+
+        const info = modeInfo[currentMode];
+        document.getElementById('ins-mode-title').textContent = info.title;
+        document.getElementById('ins-mode-badge').textContent = info.badge;
+        document.getElementById('ins-bullets').innerHTML = info.bullets.map((b) => `<li>${b}</li>`).join('');
+      }
+
+      document.querySelectorAll('.btn-mode').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.btn-mode').forEach((b) => b.setAttribute('aria-pressed', 'false'));
+          btn.setAttribute('aria-pressed', 'true');
+          currentMode = btn.dataset.mode;
+          updateSceneState();
+        });
+      });
+
+      const btnSection = document.getElementById('btn-section');
+      btnSection.addEventListener('click', () => {
+        isSection = !isSection;
+        btnSection.setAttribute('aria-pressed', String(isSection));
+        updateSceneState();
+      });
+
+      const btnExplode = document.getElementById('btn-explode');
+      btnExplode.addEventListener('click', () => {
+        isExploded = !isExploded;
+        btnExplode.setAttribute('aria-pressed', String(isExploded));
+        updateSceneState();
+      });
+
+      function resizeRenderer() {
+        const w = wrap.clientWidth;
+        const h = wrap.clientHeight;
+        if (w < 10 || h < 10) return;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+      }
+
+      window.addEventListener('resize', resizeRenderer);
+      resizeRenderer();
+      applyCamera();
+      updateSceneState();
+
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+      animate();
+    })();
+  </script>
+</body>
+</html>

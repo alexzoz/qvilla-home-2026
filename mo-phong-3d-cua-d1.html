@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Hồ Sơ Thiết Kế & Thi Công Cửa Chính D1 (1750 × 3000 mm)</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #000000 !important; padding: 0 !important; }
+    }
+  </style>
+</head>
+<body class="bg-transparent text-[var(--foreground)] antialiased p-2">
+  <div class="bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-xl p-3 shadow-sm space-y-3">
+    
+        <!-- Workspace Navigation Bar -->
+    <div class="flex flex-wrap items-center justify-between gap-2 pb-2 mb-2 border-b border-[var(--border)] no-print">
+      <div class="flex flex-wrap items-center gap-2">
+        <a href="index.html" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-amber-500/20 text-amber-500 border border-amber-500/40 hover:bg-amber-500/30 transition-all">
+          🏠 Về Trang Chủ &amp; Bảng Dự Toán (index.html)
+        </a>
+        <a href="cua-chinh-d1.html" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 hover:bg-emerald-500/30 transition-all">
+          📐 Về Hồ Sơ Bóc Tách &amp; 09 Mẫu Màu Cửa Chính D1 (cua-chinh-d1.html)
+        </a>
+        <a href="cua-go-lim-d3.html" class="px-2.5 py-1 text-xs font-semibold rounded-lg border border-[var(--border)] hover:bg-[var(--accent)] transition-all">
+          🚪 Hồ Sơ Cửa Phòng D3
+        </a>
+      </div>
+    </div>
+    <!-- Header Banner: Chốt 1 Bộ Kích Thước Chuẩn Lỗ Ban Đỏ + Nút In Hồ Sơ Gửi Thợ -->
+    <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-[var(--border)]">
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="px-2 py-0.5 text-xs font-bold rounded bg-rose-500/15 text-rose-600 dark:text-rose-400 border border-rose-500/30">
+          🧧 CHỐT 1 KÍCH THƯỚC CHUẨN LỖ BAN ĐỎ
+        </span>
+        <span class="text-xs font-semibold text-[var(--foreground)]">
+          Phủ bì: <b class="text-amber-500">1750×3000</b> | Thông thủy cửa: <b class="text-emerald-500">1260×2925 mm (Đỏ 2 thước)</b> | Cánh Gỗ Lim: <b class="text-amber-500">1280×2930×60 mm (10 phách)</b> | Kính: <b class="text-sky-500">Lọt sáng 310 mm (Đố khóa 70 mm)</b>
+        </span>
+      </div>
+      <div class="flex items-center gap-1.5 no-print">
+        <button onclick="scrollToShopDrawing()" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-sky-600 hover:bg-sky-500 text-white shadow-sm transition-all">
+          📐 Xem Bản Vẽ Kỹ Thuật Gửi Thợ
+        </button>
+        <button onclick="window.print()" class="px-2.5 py-1 text-xs font-semibold rounded-lg border border-[var(--border)] bg-[var(--background)] hover:bg-[var(--accent)] text-[var(--foreground)] transition-all">
+          🖨️ In / Xuất PDF
+        </button>
+      </div>
+    </div>
+
+    <!-- Row 1: All 6 Options (Default = 0) -->
+    <div class="flex flex-wrap items-center gap-1 pb-2 border-b border-[var(--border)] no-print">
+      <button onclick="selectMode(0)" id="mode-0" class="px-2 py-1 text-xs font-semibold rounded-lg border transition-all">
+        0. Kính Phải + Pivot
+      </button>
+      <button onclick="selectMode(1)" id="mode-1" class="px-2 py-1 text-xs font-medium rounded-lg border transition-all">
+        1A. Kính Fix Trái + Bản Lề Âm (Mở Vào)
+      </button>
+      <button onclick="selectMode(2)" id="mode-2" class="px-2 py-1 text-xs font-medium rounded-lg border transition-all">
+        1B. Kính Fix Trái + Bản Lề Âm (Mở Ra - Hèm Ngoài)
+      </button>
+      <button onclick="selectMode(3)" id="mode-3" class="px-2 py-1 text-xs font-medium rounded-lg border transition-all">
+        2A. Mở Cả Kính Trái + Bản Lề Âm (Mở Vào)
+      </button>
+      <button onclick="selectMode(4)" id="mode-4" class="px-2 py-1 text-xs font-medium rounded-lg border transition-all">
+        2B. Mở Cả Kính Trái + Bản Lề Âm (Mở Ra)
+      </button>
+      <button onclick="selectMode(5)" id="mode-5" class="px-2 py-1 text-xs font-medium rounded-lg border transition-all">
+        3. Bản Lề Âm Trái + Kính Phải (Mở Ra)
+      </button>
+    </div>
+
+    <!-- Row 2: Zoom Size Selector (+50%, +75%, +100%) + Wood Filters -->
+    <div class="flex flex-wrap items-center justify-between gap-2 py-1 border-b border-[var(--border)] no-print">
+      <div class="flex flex-wrap items-center gap-1">
+        <span class="text-xs font-semibold text-[var(--foreground)]">🔍 Phóng to hình:</span>
+        <button onclick="setZoom(1.0)" id="zm-100" class="px-2 py-0.5 text-xs font-medium rounded border transition-all">Gốc (1x)</button>
+        <button onclick="setZoom(1.5)" id="zm-150" class="px-2 py-0.5 text-xs font-semibold rounded border transition-all">+50% (1.5x)</button>
+        <button onclick="setZoom(1.75)" id="zm-175" class="px-2 py-0.5 text-xs font-bold rounded border transition-all">+75% (1.75x)</button>
+        <button onclick="setZoom(2.0)" id="zm-200" class="px-2 py-0.5 text-xs font-bold rounded border transition-all">+100% (2x Cực Rõ)</button>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-1">
+        <span class="text-xs font-semibold text-[var(--muted-foreground)]">🪵 Màu PU:</span>
+        <button onclick="setWoodFilter('walnut_dark')" id="wf-walnut_dark" class="px-2 py-0.5 text-xs font-semibold rounded border transition-all">⭐ Óc Chó Trầm (Opt 3)</button>
+        <button onclick="setWoodFilter('lim_2tone')" id="wf-lim_2tone" class="px-2 py-0.5 text-xs font-medium rounded border transition-all">Nâu Cánh Gián 3D</button>
+        <button onclick="setWoodFilter('ash_sample')" id="wf-ash_sample" class="px-2 py-0.5 text-xs font-medium rounded border transition-all">Nâu Khói 2-Tone</button>
+        <button onclick="setWoodFilter('lim_full')" id="wf-lim_full" class="px-2 py-0.5 text-xs font-medium rounded border transition-all">Vàng Mật Ong</button>
+        <button onclick="setWoodFilter('tiktok_black')" id="wf-tiktok_black" class="px-2 py-0.5 text-xs font-medium rounded border transition-all">Đố Khóa Đen (TikTok)</button>
+      </div>
+      <div class="flex flex-wrap items-center gap-1">
+        <span class="text-xs font-semibold text-[var(--muted-foreground)]">📏 Tay nắm chữ H:</span>
+        <button onclick="setHandleSize('long')" id="hs-long" class="px-2 py-0.5 text-xs font-bold rounded border border-emerald-500 bg-emerald-500/20 text-emerald-500 transition-all">Cỡ Dài 2.05m</button>
+        <button onclick="setHandleSize('medium')" id="hs-medium" class="px-2 py-0.5 text-xs font-medium rounded border border-[var(--border)] bg-[var(--background)] text-[var(--muted-foreground)] transition-all">Cỡ Vừa 1.35m</button>
+      </div>
+    </div>
+
+    <!-- Main Interactive Container: 3D + CAD Floor Plan -->
+    <div id="main-grid" class="grid grid-cols-1 lg:grid-cols-12 gap-3 items-start">
+      
+      <!-- Panel A: 3D Realistic Door Simulator -->
+      <div id="panel-3d" class="lg:col-span-7 flex flex-col bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5">
+        <div class="flex items-center justify-between mb-1.5 px-1">
+          <span id="canvas3d-title" class="text-xs sm:text-sm font-semibold text-[var(--foreground)]">3D Cửa Chính D1 (Chuẩn Lỗ Ban 1260×2925)</span>
+          <span id="angle-badge" class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 font-semibold">Mở Vào: +90°</span>
+        </div>
+
+        <div class="flex-1 flex items-center justify-center overflow-x-auto py-1">
+          <canvas id="canvas3d" class="rounded-lg border border-[var(--border)] cursor-pointer shadow-sm" onclick="cycleDoorAngle()" title="Bấm vào cửa để Đóng / Mở"></canvas>
+        </div>
+
+        <div class="flex flex-col gap-1.5 mt-2 pt-2 border-t border-[var(--border)] no-print">
+          <div class="flex flex-wrap items-center justify-between gap-1">
+            <button onclick="animateToAngle(-108)" class="flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg bg-rose-600 hover:bg-rose-500 text-white shadow-sm transition-all">
+              ↙ Mở Chạm Tường (-108°)
+            </button>
+            <button onclick="animateToAngle(-90)" class="flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg bg-amber-600 hover:bg-amber-500 text-white shadow-sm transition-all">
+              ↘ Mở Vuông Góc (-90°)
+            </button>
+            <button onclick="animateToAngle(0)" class="px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-[var(--border)] bg-[var(--card)] hover:bg-[var(--accent)] text-[var(--foreground)] transition-all">
+              ⏹ Đóng (0°)
+            </button>
+            <button onclick="animateToAngle(90)" class="flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white shadow-sm transition-all">
+              ↗ Mở Vào (+90°)
+            </button>
+          </div>
+
+          <button id="btn-glass-toggle" onclick="toggleGlassLeaf()" class="w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg border transition-all">
+            🔓 Bấm để MỞ KÈM CẢ CÁNH KÍNH
+          </button>
+        </div>
+      </div>
+
+      <!-- Panel B: Top-Down Floor Plan (Exact CAD with two 35cm wall stubs + Continuous Steps) -->
+      <div id="panel-plan" class="lg:col-span-5 flex flex-col bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5">
+        <div class="flex items-center justify-between mb-1.5 px-1">
+          <span class="text-xs sm:text-sm font-semibold text-[var(--foreground)]">Mặt Bằng CAD (Đủ 2 Mố Đá 35cm + Bậc Kéo Dài)</span>
+          <span id="clearance-badge" class="text-xs font-mono font-semibold text-emerald-500">Thông thủy 1260mm</span>
+        </div>
+
+        <div class="flex-1 flex items-center justify-center overflow-x-auto py-1">
+          <canvas id="canvasPlan" class="rounded-lg border border-[var(--border)] cursor-pointer shadow-sm" onclick="cycleDoorAngle()" title="Bấm vào mặt bằng để Đóng / Mở"></canvas>
+        </div>
+
+        <div id="plan-status" class="mt-2 p-2 rounded-lg border text-xs leading-relaxed"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: BẢN VẼ KỸ THUẬT THI CÔNG CHI TIẾT KT-6.05 (SHOP DRAWING FOR CARPENTER & LOCK INSTALLER) -->
+    <div id="shop-drawing-section" class="bg-[var(--background)] border-2 border-amber-500/40 rounded-xl p-3 space-y-3">
+      <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-[var(--border)]">
+        <div>
+          <span class="px-2 py-0.5 text-xs font-bold rounded bg-amber-500/20 text-amber-600 dark:text-amber-400 border border-amber-500/40">
+            BẢN VẼ KỸ THUẬT THI CÔNG (KT-6.05 — GỬI XƯỞNG MỘC & ĐỘI KHÓA)
+          </span>
+          <h3 id="shop-title" class="text-sm sm:text-base font-bold text-[var(--foreground)] mt-1">
+            Chi Tiết Sản Xuất Cửa Chính D1 (Ô Tường Chờ: 1750 × 3000 × Dày 250 mm)
+          </h3>
+        </div>
+        <div class="text-xs text-right font-mono text-[var(--muted-foreground)]">
+          <div>Thông thủy Rộng: <b class="text-emerald-500">1260 mm</b> (Cung Đỏ: Thiên Tài / Tiến Bảo)</div>
+          <div>Thông thủy Cao: <b class="text-emerald-500">2925 mm</b> (Cung Đỏ: Phúc Lộc / Tài Lộc)</div>
+        </div>
+      </div>
+
+      <!-- Technical Shop Drawing Canvas (Elevation 1:25 + Horizontal Cross-Section 1-1 + Joinery Details) -->
+      <div class="w-full overflow-x-auto flex justify-center py-1">
+        <canvas id="canvasShop" class="rounded-lg border border-[var(--border)] shadow-sm"></canvas>
+      </div>
+
+      <!-- Production Spec Table & Carpenter Checklist -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+        <!-- Table 1: Exact Cut-List Dimensions -->
+        <div class="border border-[var(--border)] rounded-lg p-2.5 bg-[var(--card)]">
+          <div class="text-xs font-bold text-amber-500 uppercase tracking-wide mb-1.5">
+            1. Bảng Kích Thước Pha Phôi Gỗ & Kính (Chuẩn Từng Milimet)
+          </div>
+          <table class="w-full text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)] text-left">
+                <th class="py-1 pr-2">Cấu kiện</th>
+                <th class="py-1 px-2">Kích thước chuẩn (mm)</th>
+                <th class="py-1 pl-2">Quy cách kỹ thuật bắt buộc</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[var(--border)]">
+              <tr>
+                <td class="py-1.5 pr-2 font-semibold">Ô tường xây chờ</td>
+                <td class="py-1.5 px-2 font-mono font-bold">1750 × 3000 × 250</td>
+                <td class="py-1.5 pl-2">Hai bên có 2 mố tường ốp đá 350 × 250 mm</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 pr-2 font-semibold text-emerald-500">Thông thủy Cửa đi</td>
+                <td class="py-1.5 px-2 font-mono font-bold text-emerald-500">1260 × 2925 mm</td>
+                <td class="py-1.5 pl-2">Đỏ cả 2 thước Lỗ Ban (52.2cm & 42.9cm)</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 pr-2 font-semibold text-amber-500">Tấm Cánh Gỗ Lim</td>
+                <td class="py-1.5 px-2 font-mono font-bold text-amber-500">1280 × 2930 × 60</td>
+                <td class="py-1.5 pl-2">Chia chẵn <b>10 phách × 128 mm</b>, soi rãnh 5×5mm</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 pr-2 font-semibold text-sky-500">Ô Kính An Toàn</td>
+                <td class="py-1.5 px-2 font-mono font-bold text-sky-500">Lọt sáng: 310 × 2870</td>
+                <td class="py-1.5 pl-2">Kính dán cường lực 2 lớp <b>11.52 mm</b> (4 lớp phim PVB)</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 pr-2 font-semibold">Đố đứng giữa (Đón khóa)</td>
+                <td class="py-1.5 px-2 font-mono font-bold">Rộng 70 × Sâu 140</td>
+                <td class="py-1.5 pl-2">Gỗ Lim đặc nguyên thanh để đục hộp đón khóa 6068</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 pr-2 font-semibold">Khuôn đứng 2 biên</td>
+                <td class="py-1.5 px-2 font-mono font-bold">Rộng 55 × Sâu 140–250</td>
+                <td class="py-1.5 pl-2">Gờ hèm chặn rộng đúng <b>12.5 mm</b>, có rãnh gioăng âm</td>
+              </tr>
+              <tr>
+                <td class="py-1.5 pr-2 font-semibold">Khuôn ngang đỉnh</td>
+                <td class="py-1.5 px-2 font-mono font-bold">Cao 75 × Sâu 140–250</td>
+                <td class="py-1.5 pl-2">Dày 75 mm để hạ thông thủy xuống chuẩn 2925 mm</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Table 2: Hardware & Anti-Warping Specifications -->
+        <div class="border border-[var(--border)] rounded-lg p-2.5 bg-[var(--card)]">
+          <div class="text-xs font-bold text-emerald-500 uppercase tracking-wide mb-1.5">
+            2. Phụ Kiện Kim Khí & Kết Cấu Chống Cong Vênh (Bắt Buộc)
+          </div>
+          <ul class="text-xs space-y-1.5 leading-relaxed text-[var(--foreground)]">
+            <li>
+              🔹 <b>Bản lề (Phương án 1A / 1B / 3):</b> Lắp đủ <b>04 chiếc Bản lề âm chữ thập 3D Häfele</b>:
+              <br>• <i>Dòng TECTUS Đức siêu chịu tải (Khuyên dùng số 1):</i> <b>Häfele Simonswerk TECTUS TE 640 3D</b> (Mã <code class="font-mono text-amber-500">924.17.425</code> tải 160–200kg, dài 240mm) hoặc <b>TE 540 3D</b> (Mã <code class="font-mono text-amber-500">924.17.225</code> Bạc / <code class="font-mono text-amber-500">924.17.237</code> Đen, tải 120kg, dài 200mm).
+              <br>• <i>Dòng Häfele Inox 304 / Startec tiêu chuẩn:</i> Mã <code class="font-mono text-amber-500">927.03.090</code> (Bạc Inox 304) / <code class="font-mono text-amber-500">927.03.093</code> (Đen PVD Inox 304, dài 160mm) hoặc <code class="font-mono text-amber-500">927.91.824</code> / <code class="font-mono text-amber-500">927.91.823</code> (Startec dài 200mm, tải 120–140kg).
+              <br><span class="text-[var(--muted-foreground)]">• Vị trí tâm 4 bản lề tính từ đỉnh cánh xuống: <b>200 mm — 480 mm — 1780 mm — 2680 mm</b>. Khoét bản lề cách mặt phẳng mở của cánh đúng <b>4–5 mm</b> để mở qua 90° tới 108° không cấn mép.</span>
+            </li>
+            <li>
+              🔹 <b>Bản lề (Nếu chọn Phương án 0 - Pivot):</b> Dùng <b>01 bộ Bản lề Trục xoay Ổ bi Inox 316 Häfele</b> (Mã <code class="font-mono text-amber-500">981.00.092</code>, tải trọng 250kg, không lò xo, đẩy nhẹ 1 ngón tay) đặt tâm cách đố kính <b>80–100 mm</b>.
+            </li>
+            <li>
+              🔹 <b>Chống cong vênh cánh cao 2.93m:</b> Bắt buộc phay rãnh cấy <b>02 thanh ty sắt ren chống cong vênh (hoặc thép hộp U25×25×3mm)</b> chạy dọc suốt chiều cao 2930 mm bên trong 2 đố đứng của cánh gỗ Lim trước khi ghép mộng. Gỗ sấy đạt độ ẩm <b>12% – 14%</b>.
+            </li>
+            <li>
+              🔹 <b>Khóa thông minh & Tay nắm:</b> Chọn khóa thông minh tự động <b>Full-Auto Face ID / Vân tay</b> ruột tiêu chuẩn <b>Backset 60–70 mm</b> (tâm khóa cao <b>1050 mm</b> từ sàn, có chốt an toàn trong nhà <i>Child Lock</i>) + <b>01 cặp tay nắm đứng dài 1200 mm</b> đen mờ (cao độ từ 550 mm đến 1750 mm).
+            </li>
+            <li>
+              🔹 <b>Gioăng kín khít & Chặn cửa:</b> Rãnh 4mm trong góc gờ hèm luồn <b>gioăng cao su EPDM màu nâu café</b> + <b>01 Thanh chặn đáy tự sập âm chân cửa Häfele</b> (<code class="font-mono">950.07.123</code>) + <b>01 Cục hít nam châm giữ cửa</b> ở góc mở tối đa.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // LOCKED GOLDEN DIMENSIONS (Chuẩn Lỗ Ban Đỏ cả 2 thước 52.2cm & 42.9cm):
+    // Total opening width = 1750 mm (175 cm):
+    //   - Left outer frame = 55 mm (5.5 cm)
+    //   - Clear glass width = 310 mm (31.0 cm)
+    //   - Center mullion (lock strike stile) = 70 mm (7.0 cm) -> Total glass assembly = 435 mm (43.5 cm)
+    //   - Clear doorway walk-through (Thông thủy) = 1260 mm (126.0 cm) [Actual wood leaf = 1280 mm / 10 planks = 128 mm/plank]
+    //   - Right outer frame = 55 mm (5.5 cm)
+    // Total opening height = 3000 mm (300 cm):
+    //   - Top frame header = 75 mm (7.5 cm)
+    //   - Clear doorway height (Thông thủy) = 2925 mm (292.5 cm) [Actual wood leaf height = 2930 mm]
+
+    const SPEC = {
+      totalW_mm: 1750,
+      totalH_mm: 3000,
+      frameSide_mm: 55,
+      mullion_mm: 70,
+      clearGlassW_mm: 310,
+      glassZoneW_mm: 435, // 55 + 310 + 70
+      clearDoorW_mm: 1260,
+      leafWoodW_mm: 1280,
+      topFrameH_mm: 75,
+      clearDoorH_mm: 2925,
+      leafWoodH_mm: 2930,
+      numPlanks: 10,
+      plankW_mm: 128
+    };
+
+    let currentMode = 2;   // Default = PA 1B (Kính Trái + Cánh Gỗ Phải Mở Ra Ngoài)
+    let zoomFactor = 1.75; // Default = +75% (1.75x)
+    let currentWood = 'walnut_dark';
+    let currentHandleSize = 'long'; // 'long' (2.05m) or 'medium' (1.35m)
+    let doorAngle = 90;
+    let targetAngle = 90;
+    let glassLeafOpen = false;
+    let glassAngle = 0;
+    let targetGlassAngle = 0;
+    let animFrame = null;
+
+    const BASE_3D_W = 325;
+    const BASE_3D_H = 245;
+    const BASE_PLAN_W = 265;
+    const BASE_PLAN_H = 245;
+
+    const woodFilters = {
+      walnut_dark: {
+        leafBase: [78, 46, 30],
+        leafGrain: [48, 26, 16],
+        leafHighlight: [106, 66, 44],
+        frameColor: "#26150D",
+        frameStroke: "#140A06",
+        grooveColor: "#1C0F08",
+        handleColor: "#3D2214"
+      },
+      lim_2tone: {
+        leafBase: [148, 78, 38],
+        leafGrain: [98, 42, 16],
+        leafHighlight: [182, 106, 58],
+        frameColor: "#3B2216",
+        frameStroke: "#24130B",
+        grooveColor: "#4A220E",
+        handleColor: "#6E3518"
+      },
+      ash_sample: {
+        leafBase: [118, 96, 82],
+        leafGrain: [82, 64, 52],
+        leafHighlight: [145, 122, 106],
+        frameColor: "#2B211C",
+        frameStroke: "#17110E",
+        grooveColor: "#3E3028",
+        handleColor: "#2B211C"
+      },
+      lim_full: {
+        leafBase: [176, 96, 42],
+        leafGrain: [122, 54, 18],
+        leafHighlight: [208, 126, 68],
+        frameColor: "#5C280E",
+        frameStroke: "#381606",
+        grooveColor: "#421A07",
+        handleColor: "#4A200B"
+      },
+      tiktok_black: {
+        leafBase: [168, 90, 40],
+        leafGrain: [112, 48, 18],
+        leafHighlight: [198, 118, 68],
+        frameColor: "#221F1D",
+        frameStroke: "#110F0E",
+        grooveColor: "#3A1B0B",
+        handleColor: "#8C431E"
+      }
+    };
+
+    const modeConfigs = [
+      {
+        code: "PA 0",
+        title: "0. Kính Fix Phải (310mm) + Cánh Gỗ Trái (1280mm - Bản Lề Pivot)",
+        glassSide: 'right',
+        hingeSide: 'right_pivot',
+        isConcealedHinge: false,
+        canOpenGlass: false,
+        defaultAngle: 90
+      },
+      {
+        code: "PA 1A",
+        title: "1A. Kính Fix Trái (310mm) + Cánh Gỗ Phải (1280mm - Bản Lề Âm Mở Vào)",
+        glassSide: 'left',
+        hingeSide: 'right_wall',
+        isConcealedHinge: true,
+        canOpenGlass: false,
+        defaultAngle: 90
+      },
+      {
+        code: "PA 1B",
+        title: "1B. Kính Fix Trái (310mm) + Cánh Gỗ Phải (1280mm - Bản Lề Âm Mở Ra Ngoài)",
+        glassSide: 'left',
+        hingeSide: 'right_wall',
+        isConcealedHinge: true,
+        canOpenGlass: false,
+        defaultAngle: -108
+      },
+      {
+        code: "PA 2A",
+        title: "2A. Mở Cả Kính Trái + Cánh Gỗ Phải (Thông Thủy 1640mm - Mở Vào)",
+        glassSide: 'left',
+        hingeSide: 'right_wall',
+        isConcealedHinge: true,
+        canOpenGlass: true,
+        defaultAngle: 90
+      },
+      {
+        code: "PA 2B",
+        title: "2B. Mở Cả Kính Trái + Cánh Gỗ Phải (Thông Thủy 1640mm - Mở Ra Ngoài)",
+        glassSide: 'left',
+        hingeSide: 'right_wall',
+        isConcealedHinge: true,
+        canOpenGlass: true,
+        defaultAngle: -108
+      },
+      {
+        code: "PA 3",
+        title: "3. Bản Lề Âm Trái + Kính Fix Phải (Cánh Gỗ 1280mm - Mở Ra Ngoài)",
+        glassSide: 'right',
+        hingeSide: 'left_wall',
+        isConcealedHinge: true,
+        canOpenGlass: false,
+        defaultAngle: -108
+      }
+    ];
+
+    function scrollToShopDrawing() {
+      document.getElementById('shop-drawing-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function setZoom(factor) {
+      zoomFactor = factor;
+      const ids = [
+        { f: 1.0, id: 'zm-100' },
+        { f: 1.5, id: 'zm-150' },
+        { f: 1.75, id: 'zm-175' },
+        { f: 2.0, id: 'zm-200' }
+      ];
+      ids.forEach(item => {
+        const btn = document.getElementById(item.id);
+        if (Math.abs(item.f - factor) < 0.01) {
+          btn.className = "px-2 py-0.5 text-xs font-bold rounded border border-emerald-500 bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 transition-all";
+        } else {
+          btn.className = "px-2 py-0.5 text-xs font-medium rounded border border-[var(--border)] bg-[var(--background)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-all";
+        }
+      });
+
+      const p3d = document.getElementById('panel-3d');
+      const pPlan = document.getElementById('panel-plan');
+      if (factor >= 1.95) {
+        p3d.className = "lg:col-span-12 flex flex-col bg-[var(--background)] border border-[var(--border)] rounded-lg p-3";
+        pPlan.className = "lg:col-span-12 flex flex-col bg-[var(--background)] border border-[var(--border)] rounded-lg p-3";
+      } else {
+        p3d.className = "lg:col-span-7 flex flex-col bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5";
+        pPlan.className = "lg:col-span-5 flex flex-col bg-[var(--background)] border border-[var(--border)] rounded-lg p-2.5";
+      }
+
+      applyCanvasSizes();
+      renderAll();
+    }
+
+    function applyCanvasSizes() {
+      const dpr = window.devicePixelRatio || 1;
+      const c3d = document.getElementById('canvas3d');
+      const cPlan = document.getElementById('canvasPlan');
+      const cShop = document.getElementById('canvasShop');
+
+      c3d.style.width = Math.round(BASE_3D_W * zoomFactor) + "px";
+      c3d.style.height = Math.round(BASE_3D_H * zoomFactor) + "px";
+      c3d.width = Math.round(BASE_3D_W * zoomFactor * dpr);
+      c3d.height = Math.round(BASE_3D_H * zoomFactor * dpr);
+
+      cPlan.style.width = Math.round(BASE_PLAN_W * zoomFactor) + "px";
+      cPlan.style.height = Math.round(BASE_PLAN_H * zoomFactor) + "px";
+      cPlan.width = Math.round(BASE_PLAN_W * zoomFactor * dpr);
+      cPlan.height = Math.round(BASE_PLAN_H * zoomFactor * dpr);
+
+      const shopW = 860;
+      const shopH = 420;
+      cShop.style.width = shopW + "px";
+      cShop.style.height = shopH + "px";
+      cShop.width = Math.round(shopW * dpr);
+      cShop.height = Math.round(shopH * dpr);
+    }
+
+    function selectMode(idx) {
+      currentMode = idx;
+      const cfg = modeConfigs[idx];
+      for (let i = 0; i < 6; i++) {
+        const b = document.getElementById(`mode-${i}`);
+        if (i === idx) {
+          b.className = "px-2 py-1 text-xs font-bold rounded-lg border border-amber-500 bg-amber-500/20 text-[var(--foreground)] transition-all";
+        } else {
+          b.className = "px-2 py-1 text-xs font-medium rounded-lg border border-[var(--border)] bg-[var(--background)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-all";
+        }
+      }
+      targetAngle = cfg.defaultAngle;
+      if (cfg.canOpenGlass) {
+        glassLeafOpen = true;
+        targetGlassAngle = cfg.defaultAngle;
+      } else {
+        glassLeafOpen = false;
+        targetGlassAngle = 0;
+      }
+      document.getElementById('canvas3d-title').textContent = cfg.title;
+      document.getElementById('shop-title').textContent = `Bản Vẽ Kỹ Thuật Thi Công (${cfg.code}) — Ô Tường 1750×3000 | Thông Thủy Cửa 1260×2925 mm`;
+      updateGlassToggleBtn();
+      startAnimation();
+    }
+
+    function toggleGlassLeaf() {
+      const cfg = modeConfigs[currentMode];
+      if (!cfg.canOpenGlass) {
+        selectMode(targetAngle < 0 ? 4 : 3);
+        return;
+      }
+      glassLeafOpen = !glassLeafOpen;
+      targetGlassAngle = glassLeafOpen ? targetAngle : 0;
+      updateGlassToggleBtn();
+      startAnimation();
+    }
+
+    function updateGlassToggleBtn() {
+      const btn = document.getElementById('btn-glass-toggle');
+      const cfg = modeConfigs[currentMode];
+      if (!cfg.canOpenGlass) {
+        btn.textContent = `💡 Đang là Ô Kính Fix (Lọt sáng 310mm + Đố khóa 70mm) — Bấm nếu muốn thử Mở Cả Cánh Kính`;
+        btn.className = "w-full px-2.5 py-1.5 text-xs font-medium rounded-lg border border-[var(--border)] bg-[var(--card)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-all";
+      } else if (glassLeafOpen) {
+        btn.textContent = `🔓 Đang MỞ CẢ CÁNH KÍNH PHỤ (Tổng thông thủy 1640mm) — Bấm để Khóa Chốt Âm`;
+        btn.className = "w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-sky-500 bg-sky-500/20 text-sky-600 dark:text-sky-400 transition-all";
+      } else {
+        btn.textContent = `🔒 Cánh Kính Phụ đang Khóa Chốt Âm — Bấm để MỞ KÈM CẢ CÁNH KÍNH`;
+        btn.className = "w-full px-2.5 py-1.5 text-xs font-semibold rounded-lg border border-amber-500/50 bg-amber-500/15 text-amber-600 dark:text-amber-400 transition-all";
+      }
+    }
+
+    function setWoodFilter(key) {
+      currentWood = key;
+      Object.keys(woodFilters).forEach(k => {
+        const b = document.getElementById(`wf-${k}`);
+        if (k === key) {
+          b.className = "px-2 py-0.5 text-xs font-semibold rounded border border-amber-500 bg-amber-500/15 text-[var(--foreground)] transition-all";
+        } else {
+          b.className = "px-2 py-0.5 text-xs font-medium rounded border border-[var(--border)] bg-[var(--background)] text-[var(--muted-foreground)] hover:text-[var(--foreground)] transition-all";
+        }
+      });
+      renderAll();
+    }
+
+    function setHandleSize(sz) {
+      currentHandleSize = sz;
+      const bLong = document.getElementById('hs-long');
+      const bMed = document.getElementById('hs-medium');
+      if (bLong && bMed) {
+        if (sz === 'long') {
+          bLong.className = "px-2 py-0.5 text-xs font-bold rounded border border-emerald-500 bg-emerald-500/20 text-emerald-500 transition-all";
+          bMed.className = "px-2 py-0.5 text-xs font-medium rounded border border-[var(--border)] bg-[var(--background)] text-[var(--muted-foreground)] transition-all";
+        } else {
+          bLong.className = "px-2 py-0.5 text-xs font-medium rounded border border-[var(--border)] bg-[var(--background)] text-[var(--muted-foreground)] transition-all";
+          bMed.className = "px-2 py-0.5 text-xs font-bold rounded border border-emerald-500 bg-emerald-500/20 text-emerald-500 transition-all";
+        }
+      }
+      renderAll();
+    }
+
+    function animateToAngle(deg) {
+      targetAngle = deg;
+      if (deg === 0) targetGlassAngle = 0;
+      else if (modeConfigs[currentMode].canOpenGlass && glassLeafOpen) {
+        targetGlassAngle = (deg < -90) ? -108 : deg;
+      }
+      startAnimation();
+    }
+
+    function cycleDoorAngle() {
+      if (targetAngle > 20) animateToAngle(0);
+      else if (Math.abs(targetAngle) <= 20) animateToAngle(-90);
+      else if (targetAngle > -98) animateToAngle(-108);
+      else animateToAngle(90);
+    }
+
+    function startAnimation() {
+      if (animFrame) cancelAnimationFrame(animFrame);
+      function step() {
+        let diff1 = targetAngle - doorAngle;
+        let diff2 = targetGlassAngle - glassAngle;
+        if (Math.abs(diff1) > 0.3 || Math.abs(diff2) > 0.3) {
+          doorAngle += diff1 * 0.16;
+          glassAngle += diff2 * 0.16;
+          renderAll();
+          animFrame = requestAnimationFrame(step);
+        } else {
+          doorAngle = targetAngle;
+          glassAngle = targetGlassAngle;
+          renderAll();
+          animFrame = null;
+        }
+      }
+      step();
+    }
+
+    function project3D(x, y, z) {
+      const camX = -0.14;
+      const camY = 1.38;
+      const camZ = -3.65;
+      const focal = 260;
+      const dx = x - camX;
+      const dy = y - camY;
+      const dz = z - camZ;
+      const scale = focal / Math.max(0.45, dz);
+      return { x: 162 + dx * scale, y: 132 - dy * scale };
+    }
+
+    function drawQuad3D(ctx, p1, p2, p3, p4, fillStyle, strokeStyle, lineWidth = 1) {
+      const s1 = project3D(p1.x, p1.y, p1.z);
+      const s2 = project3D(p2.x, p2.y, p2.z);
+      const s3 = project3D(p3.x, p3.y, p3.z);
+      const s4 = project3D(p4.x, p4.y, p4.z);
+      ctx.beginPath();
+      ctx.moveTo(s1.x, s1.y); ctx.lineTo(s2.x, s2.y); ctx.lineTo(s3.x, s3.y); ctx.lineTo(s4.x, s4.y);
+      ctx.closePath();
+      if (fillStyle) { ctx.fillStyle = fillStyle; ctx.fill(); }
+      if (strokeStyle) { ctx.strokeStyle = strokeStyle; ctx.lineWidth = lineWidth; ctx.stroke(); }
+    }
+
+    function getPlankColor(wf, plankIdx, angleDeg) {
+      const base = wf.leafBase;
+      const variations = [-6, +5, -3, +8, -4, +6, -7, +4, -2, +3];
+      const v = variations[plankIdx % variations.length];
+      const lightShift = Math.round(Math.sin((angleDeg * Math.PI) / 180) * 10);
+      return `rgb(${Math.min(255, Math.max(0, base[0] + v + lightShift))}, ${Math.min(255, Math.max(0, base[1] + v + lightShift))}, ${Math.min(255, Math.max(0, base[2] + v + lightShift))})`;
+    }
+
+    function render3DCanvas() {
+      const canvas = document.getElementById('canvas3d');
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const s = zoomFactor * dpr;
+
+      ctx.save();
+      ctx.setTransform(s, 0, 0, s, 0, 0);
+
+      const W = BASE_3D_W;
+      const H = BASE_3D_H;
+      const wf = woodFilters[currentWood];
+      const cfg = modeConfigs[currentMode];
+      const rad = (doorAngle * Math.PI) / 180;
+      const gRad = (glassAngle * Math.PI) / 180;
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = "#787D82";
+      ctx.fillRect(0, 0, W, H);
+
+      drawQuad3D(ctx, {x:-1.4,y:3.0,z:-1.2},{x:1.4,y:3.0,z:-1.2},{x:1.4,y:3.0,z:0},{x:-1.4,y:3.0,z:0}, "#3E2412", "#29160A", 1);
+      // Left Porch Wall (at x = -1.225) + Left 35cm Stone Wall Stub (from x = -1.225 to -0.875 at z = 0)
+      drawQuad3D(ctx, {x:-1.225,y:0,z:-1.2},{x:-1.225,y:0,z:0},{x:-1.225,y:3.0,z:0},{x:-1.225,y:3.0,z:-1.2}, "#7A7F84", "#5F6469", 1);
+      drawQuad3D(ctx, {x:-1.225,y:0,z:0},{x:-0.875,y:0,z:0},{x:-0.875,y:3.0,z:0},{x:-1.225,y:3.0,z:0}, "#858A90", "#5F6469", 1.2);
+      // Right Porch Wall (at x = +1.225) + Right 35cm Stone Wall Stub (from x = +0.875 to +1.225 at z = 0)
+      drawQuad3D(ctx, {x:1.225,y:0,z:-1.2},{x:1.225,y:0,z:0},{x:1.225,y:3.0,z:0},{x:1.225,y:3.0,z:-1.2}, "#6E7378", "#555A5E", 1);
+      drawQuad3D(ctx, {x:0.875,y:0,z:0},{x:1.225,y:0,z:0},{x:1.225,y:3.0,z:0},{x:0.875,y:3.0,z:0}, "#858A90", "#555A5E", 1.2);
+
+      // Interior Foyer & Floor
+      drawQuad3D(ctx, {x:-0.875,y:0,z:0.02},{x:0.875,y:0,z:0.02},{x:0.875,y:3.0,z:1.85},{x:-0.875,y:3.0,z:1.85}, "#F5EFE0", null);
+      drawQuad3D(ctx, {x:-1.225,y:0,z:-1.2},{x:1.225,y:0,z:-1.2},{x:1.225,y:0,z:1.85},{x:-1.225,y:0,z:1.85}, "#B4B8BC", "#8E9296", 1);
+      drawQuad3D(ctx, {x:0.875,y:0.22,z:0.15},{x:0.875,y:0.22,z:1.85},{x:0.875,y:2.65,z:1.85},{x:0.875,y:2.65,z:0.15}, "#9A6B42", "#6E4726", 1.2);
+
+      // Continuous 3 Terrazzo Steps (Bỏ bồn hoa làm bậc tam cấp kéo dài)
+      for (let st = 0; st < 3; st++) {
+        const yTop = -st * 0.12;
+        const zFront = -1.20 - (st + 1) * 0.22;
+        const zBack = -1.20 - st * 0.22;
+        drawQuad3D(ctx,
+          {x:-1.45, y:yTop, z:zFront}, {x:1.225+st*0.03, y:yTop, z:zFront},
+          {x:1.225+st*0.03, y:yTop, z:zBack},  {x:-1.45, y:yTop, z:zBack},
+          "#A8ADB2", "#7E8388", 1
+        );
+      }
+
+      // Outer Door Frame at z = 0 (1750 x 3000 mm: Top header 75mm, Side frames 55mm)
+      const fZ = 0.0;
+      drawQuad3D(ctx, {x:-0.875,y:2.925,z:fZ},{x:0.875,y:2.925,z:fZ},{x:0.875,y:3.00,z:fZ},{x:-0.875,y:3.00,z:fZ}, wf.frameColor, wf.frameStroke, 1.5);
+      drawQuad3D(ctx, {x:-0.875,y:0,z:fZ},{x:-0.820,y:0,z:fZ},{x:-0.820,y:2.925,z:fZ},{x:-0.875,y:2.925,z:fZ}, wf.frameColor, wf.frameStroke, 1.5);
+      drawQuad3D(ctx, {x:0.820,y:0,z:fZ},{x:0.875,y:0,z:fZ},{x:0.875,y:2.925,z:fZ},{x:0.820,y:2.925,z:fZ}, wf.frameColor, wf.frameStroke, 1.5);
+
+      // Locked Golden Dimensions in meters:
+      // Clear glass = 0.31m + Mullion = 0.07m -> 0.38m inside frame
+      // Clear door opening = 1.26m (Wood leaf = 1.28m, 10 planks)
+      const gTotalM = 0.38;
+      const mullionM = 0.07;
+      const leafTotalW = 1.26;
+      const numPlanks = 10;
+      const plankW = leafTotalW / numPlanks;
+
+      if (cfg.glassSide === 'right') {
+        const splitX = 0.820 - gTotalM;
+        drawQuad3D(ctx, {x:splitX,y:0,z:fZ},{x:splitX+mullionM,y:0,z:fZ},{x:splitX+mullionM,y:2.925,z:fZ},{x:splitX,y:2.925,z:fZ}, wf.frameColor, wf.frameStroke, 1.5);
+        drawQuad3D(ctx, {x:splitX+mullionM,y:0.02,z:fZ},{x:0.820,y:0.02,z:fZ},{x:0.820,y:2.925,z:fZ},{x:splitX+mullionM,y:2.925,z:fZ}, "rgba(186,230,253,0.42)", wf.frameStroke, 1.5);
+
+        if (cfg.hingeSide === 'right_pivot') {
+          const pivotOff = 0.09;
+          const pivX = splitX - pivotOff;
+          function leafPtMode0(uFromLeftEdge, y) {
+            const uFromRightEdge = leafTotalW - uFromLeftEdge;
+            const du = uFromRightEdge - pivotOff;
+            return { x: pivX - du * Math.cos(rad), y: y, z: fZ + du * Math.sin(rad) };
+          }
+          drawPlankDoor(leafPtMode0, false);
+        } else {
+          const leftHingeX = -0.820;
+          function leafPtLeftWall(uFromLeftEdge, y) {
+            return { x: leftHingeX + uFromLeftEdge * Math.cos(rad), y: y, z: fZ + uFromLeftEdge * Math.sin(rad) };
+          }
+          drawPlankDoor(leafPtLeftWall, true);
+        }
+      } else {
+        const splitX = -0.820 + gTotalM;
+        if (!cfg.canOpenGlass) {
+          drawQuad3D(ctx, {x:-0.820,y:0.02,z:fZ},{x:splitX-mullionM,y:0.02,z:fZ},{x:splitX-mullionM,y:2.925,z:fZ},{x:-0.820,y:2.925,z:fZ}, "rgba(186,230,253,0.42)", wf.frameStroke, 1.5);
+          drawQuad3D(ctx, {x:splitX-mullionM,y:0,z:fZ},{x:splitX,y:0,z:fZ},{x:splitX,y:2.925,z:fZ},{x:splitX-mullionM,y:2.925,z:fZ}, wf.frameColor, wf.frameStroke, 1.5);
+        } else {
+          function leftGlassPt(uFromLeft, y) {
+            return { x: -0.820 + uFromLeft * Math.cos(gRad), y: y, z: fZ + uFromLeft * Math.sin(gRad) };
+          }
+          drawQuad3D(ctx, leftGlassPt(0, 0.01), leftGlassPt(0.065, 0.01), leftGlassPt(0.065, 2.92), leftGlassPt(0, 2.92), wf.frameColor, wf.frameStroke, 1);
+          drawQuad3D(ctx, leftGlassPt(gTotalM - 0.065, 0.01), leftGlassPt(gTotalM, 0.01), leftGlassPt(gTotalM, 2.92), leftGlassPt(gTotalM - 0.065, 2.92), wf.frameColor, wf.frameStroke, 1);
+          drawQuad3D(ctx, leftGlassPt(0.065, 0.06), leftGlassPt(gTotalM - 0.065, 0.06), leftGlassPt(gTotalM - 0.065, 2.86), leftGlassPt(0.065, 2.86), "rgba(125,211,252,0.48)", wf.frameStroke, 1.5);
+        }
+
+        const hingeX = 0.820;
+        function leafPtRightWall(uFromLeftEdge, y) {
+          const uFromRightWall = leafTotalW - uFromLeftEdge;
+          return { x: hingeX - uFromRightWall * Math.cos(rad), y: y, z: fZ + uFromRightWall * Math.sin(rad) };
+        }
+        drawPlankDoor(leafPtRightWall, false);
+      }
+
+      function drawPlankDoor(ptFn, handleOnRight) {
+        for (let p = 0; p < numPlanks; p++) {
+          const uA = p * plankW;
+          const uB = (p + 1) * plankW;
+          const isLockPlank = (handleOnRight && p === numPlanks - 1) || (!handleOnRight && p === 0);
+          const fillCol = (currentWood === 'tiktok_black' && isLockPlank)
+            ? "#242220"
+            : getPlankColor(wf, p, doorAngle);
+          drawQuad3D(ctx, ptFn(uA, 0.01), ptFn(uB, 0.01), ptFn(uB, 2.925), ptFn(uA, 2.925), fillCol, wf.grooveColor, 1.3);
+        }
+        const lockU = handleOnRight ? (leafTotalW - 0.055) : 0.055;
+        const handleU = handleOnRight ? (leafTotalW - 0.155) : 0.155;
+        const hY1 = (currentHandleSize === 'long') ? 0.40 : 0.60;
+        const hY2 = (currentHandleSize === 'long') ? 2.45 : 1.95;
+        const sOff = (currentHandleSize === 'long') ? 0.26 : 0.20;
+        // Two matte-black horizontal standoffs
+        drawQuad3D(ctx, ptFn(handleU-0.032, hY1+sOff-0.02), ptFn(handleU+0.01, hY1+sOff-0.02), ptFn(handleU+0.01, hY1+sOff+0.02), ptFn(handleU-0.032, hY1+sOff+0.02), "#18181B", "#09090B", 1.2);
+        drawQuad3D(ctx, ptFn(handleU-0.032, hY2-sOff-0.02), ptFn(handleU+0.01, hY2-sOff-0.02), ptFn(handleU+0.01, hY2-sOff+0.02), ptFn(handleU-0.032, hY2-sOff+0.02), "#18181B", "#09090B", 1.2);
+        // Thick H-Shape Vertical Wood Handle Bar (45x55mm)
+        drawQuad3D(ctx, ptFn(handleU-0.024, hY1), ptFn(handleU+0.024, hY1), ptFn(handleU+0.024, hY2), ptFn(handleU-0.024, hY2), wf.handleColor || "#3D2214", "#18181B", 1.5);
+        // Smart Lock Body next to edge
+        drawQuad3D(ctx, ptFn(lockU-0.022, 0.88), ptFn(lockU+0.022, 0.88), ptFn(lockU+0.022, 1.26), ptFn(lockU-0.022, 1.26), "#18181B", "#52525B", 1.2);
+      }
+
+      ctx.fillStyle = "rgba(24, 24, 27, 0.86)";
+      ctx.fillRect(6, H - 24, W - 12, 18);
+      ctx.fillStyle = "#38BDF8";
+      ctx.font = "bold 7.5px sans-serif";
+      ctx.fillText(`Kính ${cfg.glassSide === 'right' ? 'Phải' : 'Trái'}: Lọt sáng 310mm + Đố 70mm`, 10, H - 12);
+      ctx.fillStyle = "#FBBF24";
+      ctx.fillText(`Thông thủy: 1260×2925 (Cánh 1280mm - 10 phách)`, 154, H - 12);
+
+      ctx.restore();
+    }
+
+    function renderPlanCanvas() {
+      const canvas = document.getElementById('canvasPlan');
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+      const s = zoomFactor * dpr;
+
+      ctx.save();
+      ctx.setTransform(s, 0, 0, s, 0, 0);
+
+      const W = BASE_PLAN_W;
+      const H = BASE_PLAN_H;
+      const wf = woodFilters[currentWood];
+      const cfg = modeConfigs[currentMode];
+      const rad = (doorAngle * Math.PI) / 180;
+      const gRad = (glassAngle * Math.PI) / 180;
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = "#18181B";
+      ctx.fillRect(0, 0, W, H);
+
+      const scale = 0.72; // 1cm = 0.72px -> 35cm = 25px, 25cm wall = 18px, 175cm = 126px
+      const xLeft = 50;
+      const xRight = 176;
+      const stubPx = 25;
+      const wallThickPx = 18;
+      const yWallInner = 98;
+      const yWallOuter = yWallInner + wallThickPx;
+      const isOutwardFrame = (cfg.isConcealedHinge && doorAngle < -5);
+      const yDoor = isOutwardFrame ? (yWallOuter - 2) : (yWallInner + 4);
+      const yStepEdge = yWallOuter + Math.round(120 * scale);
+
+      // 1. Interior Right Shoe Cabinet (35cm deep)
+      ctx.fillStyle = "rgba(16, 185, 129, 0.22)";
+      ctx.strokeStyle = "#10B981";
+      ctx.lineWidth = 1.4;
+      ctx.fillRect(xRight, 10, stubPx, yWallInner - 10);
+      ctx.strokeRect(xRight, 10, stubPx, yWallInner - 10);
+      ctx.fillStyle = "#34D399";
+      ctx.font = "bold 6px sans-serif";
+      ctx.fillText("TỦ GIÀY", xRight + 1, 46);
+      ctx.fillText("(Sâu 35cm)", xRight + 1, 55);
+
+      // 2. Exact CAD Wall Geometry (Two 35cm Wall Stubs on Left & Right)
+      ctx.fillStyle = "#52525B";
+      ctx.strokeStyle = "#A1A1AA";
+      ctx.lineWidth = 1.3;
+      ctx.fillRect(xRight + stubPx, 10, 16, yStepEdge - 10);
+      ctx.strokeRect(xRight + stubPx, 10, 16, yStepEdge - 10);
+      ctx.fillStyle = "#E4E4E7";
+      ctx.font = "bold 6px sans-serif";
+      ctx.fillText("TƯỜNG", xRight + stubPx + 1, 148);
+      ctx.fillText("PHẢI", xRight + stubPx + 2, 157);
+
+      // Right 35cm Wall Stub
+      ctx.fillStyle = "#71717A";
+      ctx.fillRect(xRight, yWallInner, stubPx, wallThickPx);
+      ctx.strokeRect(xRight, yWallInner, stubPx, wallThickPx);
+      ctx.fillStyle = "#FBBF24";
+      ctx.font = "bold 5.8px sans-serif";
+      ctx.fillText("MỐ PHẢI 35", xRight - 2, yWallOuter + 9);
+
+      // Left 35cm Wall Stub
+      ctx.fillStyle = "#71717A";
+      ctx.fillRect(xLeft - stubPx, yWallInner, stubPx, wallThickPx);
+      ctx.strokeRect(xLeft - stubPx, yWallInner, stubPx, wallThickPx);
+      ctx.fillStyle = "#52525B";
+      ctx.fillRect(xLeft - stubPx - 14, yWallInner, 14, yStepEdge - yWallInner);
+      ctx.strokeRect(xLeft - stubPx - 14, yWallInner, 14, yStepEdge - yWallInner);
+      ctx.fillStyle = "#38BDF8";
+      ctx.font = "bold 5.8px sans-serif";
+      ctx.fillText("MỐ TRÁI 35", xLeft - stubPx - 4, yWallInner - 4);
+
+      if (isOutwardFrame) {
+        ctx.fillStyle = "rgba(245, 158, 11, 0.25)";
+        ctx.fillRect(xLeft, yWallInner, xRight - xLeft, wallThickPx - 3);
+        ctx.fillStyle = "#FDE047";
+        ctx.font = "bold 6px sans-serif";
+        ctx.fillText("HÈM ĐẶT MÉP NGOÀI TƯỜNG 25CM", xLeft + 10, yWallInner + 10);
+      }
+
+      // 3. Continuous Step Edge Line (Bậc tam cấp kéo dài suốt mặt tiền)
+      ctx.strokeStyle = "#F59E0B";
+      ctx.lineWidth = 1.5;
+      ctx.setLineDash([4, 2]);
+      ctx.beginPath();
+      ctx.moveTo(6, yStepEdge);
+      ctx.lineTo(xRight + stubPx + 16, yStepEdge);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = "#FBBF24";
+      ctx.font = "bold 6.5px sans-serif";
+      ctx.fillText("⬅ BẬC TAM CẤP KÉO DÀI (SẢNH SÂU 1.20M)", 18, yStepEdge - 4);
+
+      const leafPx = 128 * scale;  // 1280mm leaf
+      const glassPx = 38 * scale;  // 310mm glass + 70mm mullion
+
+      if (cfg.glassSide === 'right') {
+        const xSplit = xRight - glassPx;
+        ctx.strokeStyle = "#38BDF8";
+        ctx.lineWidth = 4.5;
+        ctx.beginPath(); ctx.moveTo(xSplit, yDoor); ctx.lineTo(xRight, yDoor); ctx.stroke();
+
+        if (cfg.hingeSide === 'right_pivot') {
+          const xPiv = xSplit - (9 * scale);
+          drawPlanLeaf(xPiv, yDoor, (128 - 9) * scale, 9 * scale, rad, true, `rgb(${wf.leafHighlight[0]}, ${wf.leafHighlight[1]}, ${wf.leafHighlight[2]})`, `Cánh 128cm`);
+        } else {
+          drawPlanLeaf(xLeft + 2, yDoor, leafPx, 0, rad, false, `rgb(${wf.leafHighlight[0]}, ${wf.leafHighlight[1]}, ${wf.leafHighlight[2]})`, `Cánh 128cm`);
+        }
+      } else {
+        const xSplit = xLeft + glassPx;
+        if (!cfg.canOpenGlass) {
+          ctx.strokeStyle = "#38BDF8";
+          ctx.lineWidth = 4.5;
+          ctx.beginPath(); ctx.moveTo(xLeft, yDoor); ctx.lineTo(xSplit, yDoor); ctx.stroke();
+        } else {
+          drawPlanLeaf(xLeft + 2, yDoor, glassPx, 0, gRad, false, "#38BDF8", `Kính 38cm`);
+        }
+        const xHinge = xRight - 2;
+        drawPlanLeaf(xHinge, yDoor, leafPx, 0, rad, true, `rgb(${wf.leafHighlight[0]}, ${wf.leafHighlight[1]}, ${wf.leafHighlight[2]})`, `Cánh 128cm`);
+
+        if (doorAngle <= -100) {
+          ctx.fillStyle = "#34D399";
+          ctx.font = "bold 6.5px sans-serif";
+          ctx.fillText("Chạm cục hít Tường Phải (-108°)! ➡", xRight - 104, yDoor + 62);
+        } else if (doorAngle < -45) {
+          ctx.fillStyle = "#FB7185";
+          ctx.font = "bold 6.5px sans-serif";
+          ctx.fillText("Ở -90°: Cách tường phải 35cm ➡", xRight - 95, yDoor + 50);
+        } else if (doorAngle > 45) {
+          ctx.fillStyle = "#34D399";
+          ctx.font = "bold 6.5px sans-serif";
+          ctx.fillText("Áp sát mặt Tủ giày! ➡", xRight - 78, yDoor - 42);
+        }
+      }
+
+      function drawPlanLeaf(xHinge, yHinge, lenMain, lenTail, angleR, isRightHinged, color, labelText) {
+        const dir = isRightHinged ? -1 : 1;
+        const tipX = xHinge + dir * lenMain * Math.cos(angleR);
+        const tipY = yHinge - lenMain * Math.sin(angleR);
+        const tailX = xHinge - dir * lenTail * Math.cos(angleR);
+        const tailY = yHinge + lenTail * Math.sin(angleR);
+
+        ctx.strokeStyle = (angleR < 0) ? "rgba(245, 158, 11, 0.35)" : "rgba(16, 185, 129, 0.35)";
+        ctx.setLineDash([3, 3]);
+        ctx.lineWidth = 1.1;
+        ctx.beginPath();
+        if (isRightHinged) {
+          if (angleR >= 0) ctx.arc(xHinge, yHinge, lenMain, Math.PI, Math.PI * 1.5, false);
+          else ctx.arc(xHinge, yHinge, lenMain, Math.PI * 0.4, Math.PI, false);
+        } else {
+          if (angleR >= 0) ctx.arc(xHinge, yHinge, lenMain, Math.PI * 1.5, Math.PI * 2, false);
+          else ctx.arc(xHinge, yHinge, lenMain, 0, Math.PI * 0.6, false);
+        }
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(tailX, tailY);
+        ctx.lineTo(tipX, tipY);
+        ctx.stroke();
+
+        ctx.fillStyle = "#10B981";
+        ctx.beginPath();
+        ctx.arc(xHinge, yHinge, 3.8, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (labelText) {
+          ctx.fillStyle = "#F4F4F5";
+          ctx.font = "bold 7px sans-serif";
+          ctx.fillText(labelText, (xHinge + tipX) / 2 - 14, (yHinge + tipY) / 2 - 4);
+        }
+      }
+
+      ctx.restore();
+    }
+
+    // Technical Shop Drawing Renderer (KT-6.05): Elevation 1:25 + Horizontal Cross-Section 1-1
+    function renderShopDrawingCanvas() {
+      const canvas = document.getElementById('canvasShop');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      const dpr = window.devicePixelRatio || 1;
+
+      ctx.save();
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      const W = 860;
+      const H = 420;
+      const cfg = modeConfigs[currentMode];
+      const wf = woodFilters[currentWood];
+
+      // Blueprint Dark Slate Background
+      ctx.fillStyle = "#0F172A";
+      ctx.fillRect(0, 0, W, H);
+
+      // Subtle Blueprint Grid
+      ctx.strokeStyle = "rgba(148, 163, 184, 0.08)";
+      ctx.lineWidth = 1;
+      for (let gx = 0; gx < W; gx += 20) {
+        ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, H); ctx.stroke();
+      }
+      for (let gy = 0; gy < H; gy += 20) {
+        ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(W, gy); ctx.stroke();
+      }
+
+      // =========================================================================
+      // LEFT SIDE (x = 20..380): MẶT ĐỨNG KỸ THUẬT (FRONT ELEVATION 1:25)
+      // =========================================================================
+      ctx.fillStyle = "#F8FAFC";
+      ctx.font = "bold 11px sans-serif";
+      ctx.fillText(`1. MẶT ĐỨNG KỸ THUẬT NGOÀI VÀO (${cfg.code}) — TỶ LỆ CHUẨN`, 22, 22);
+
+      // Scale for Elevation: 1mm = 0.095px -> 3000mm = 285px, 1750mm = 166.25px, 350mm stub = 33.25px
+      const scE = 0.095;
+      const xE0 = 96; // Left edge of 1750mm door opening
+      const yE0 = 72; // Top of 3000mm door opening
+      const wDoorPx = 1750 * scE; // 166.25px
+      const hDoorPx = 3000 * scE; // 285px
+      const wStubPx = 350 * scE;  // 33.25px
+
+      // Draw Left & Right 350mm Stone Wall Stubs
+      ctx.fillStyle = "#334155";
+      ctx.strokeStyle = "#64748B";
+      ctx.lineWidth = 1.2;
+      ctx.fillRect(xE0 - wStubPx, yE0, wStubPx, hDoorPx);
+      ctx.strokeRect(xE0 - wStubPx, yE0, wStubPx, hDoorPx);
+      ctx.fillRect(xE0 + wDoorPx, yE0, wStubPx, hDoorPx);
+      ctx.strokeRect(xE0 + wDoorPx, yE0, wStubPx, hDoorPx);
+
+      ctx.fillStyle = "#94A3B8";
+      ctx.font = "bold 8px sans-serif";
+      ctx.fillText("MỐ ĐÁ", xE0 - wStubPx + 2, yE0 + 135);
+      ctx.fillText("350mm", xE0 - wStubPx + 2, yE0 + 146);
+      ctx.fillText("MỐ ĐÁ", xE0 + wDoorPx + 2, yE0 + 135);
+      ctx.fillText("350mm", xE0 + wDoorPx + 2, yE0 + 146);
+
+      // Outer Wooden Frame (1750 x 3000)
+      ctx.fillStyle = wf.frameColor;
+      ctx.strokeStyle = "#F59E0B";
+      ctx.lineWidth = 1.4;
+      ctx.fillRect(xE0, yE0, wDoorPx, hDoorPx);
+      ctx.strokeRect(xE0, yE0, wDoorPx, hDoorPx);
+
+      const fSidePx = 55 * scE;
+      const fTopPx = 75 * scE;
+      const mullPx = 70 * scE;
+      const glassClearPx = 310 * scE;
+      const doorClearPx = 1260 * scE;
+      const innerY = yE0 + fTopPx;
+      const innerH = 2925 * scE;
+
+      let xGlassStart, xMullStart, xLeafStart;
+      if (cfg.glassSide === 'left') {
+        xGlassStart = xE0 + fSidePx;
+        xMullStart = xGlassStart + glassClearPx;
+        xLeafStart = xMullStart + mullPx;
+      } else {
+        xLeafStart = xE0 + fSidePx;
+        xMullStart = xLeafStart + doorClearPx;
+        xGlassStart = xMullStart + mullPx;
+      }
+
+      // Draw Clear Glass Panel (310 x 2870 mm)
+      ctx.fillStyle = "rgba(56, 189, 248, 0.28)";
+      ctx.strokeStyle = "#38BDF8";
+      ctx.lineWidth = 1.2;
+      ctx.fillRect(xGlassStart, innerY + 3, glassClearPx, innerH - 6);
+      ctx.strokeRect(xGlassStart, innerY + 3, glassClearPx, innerH - 6);
+
+      // Draw 10 Vertical Planks on the 1280mm Lim Wood Leaf
+      const pW = doorClearPx / 10;
+      for (let i = 0; i < 10; i++) {
+        ctx.fillStyle = getPlankColor(wf, i, 15);
+        ctx.fillRect(xLeafStart + i * pW, innerY, pW, innerH);
+        ctx.strokeStyle = wf.grooveColor;
+        ctx.lineWidth = 1;
+        ctx.strokeRect(xLeafStart + i * pW, innerY, pW, innerH);
+      }
+
+      // Draw 2 Dashed Anti-Warping Steel Rods Inside Door Stiles
+      ctx.strokeStyle = "#22D3EE";
+      ctx.setLineDash([4, 3]);
+      ctx.lineWidth = 1.3;
+      ctx.beginPath();
+      ctx.moveTo(xLeafStart + 6, innerY + 6); ctx.lineTo(xLeafStart + 6, innerY + innerH - 6);
+      ctx.moveTo(xLeafStart + doorClearPx - 6, innerY + 6); ctx.lineTo(xLeafStart + doorClearPx - 6, innerY + innerH - 6);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Draw Handle (1200mm long) & Smart Lock (at 1050mm from floor)
+      const handleOnRight = (cfg.glassSide === 'right' && cfg.hingeSide === 'left_wall');
+      const xLock = handleOnRight ? (xLeafStart + doorClearPx - 8) : (xLeafStart + 8);
+      const xBar = handleOnRight ? (xLeafStart + doorClearPx - 16) : (xLeafStart + 16);
+      const yFloor = yE0 + hDoorPx;
+      ctx.fillStyle = "#09090B";
+      ctx.fillRect(xBar - 2, yFloor - 1750 * scE, 4, 1200 * scE);
+      ctx.fillStyle = "#F43F5E";
+      ctx.fillRect(xLock - 3, yFloor - 1250 * scE, 6, 380 * scE);
+
+      // Draw 4 Concealed 3D Hinges (at 200, 480, 1780, 2680 mm from top)
+      const hingeHeightsMm = [200, 480, 1780, 2680];
+      const xHingeEdge = (cfg.hingeSide === 'left_wall') ? xLeafStart : (xLeafStart + doorClearPx);
+      hingeHeightsMm.forEach((hMm, idx) => {
+        const yH = innerY + hMm * scE;
+        ctx.fillStyle = "#10B981";
+        ctx.fillRect(xHingeEdge - 3, yH - 5, 6, 10);
+        if (idx === 0 || idx === 1) {
+          ctx.fillStyle = "#34D399";
+          ctx.font = "bold 7.5px monospace";
+          ctx.fillText(`BL${idx+1} (${hMm})`, xE0 + wDoorPx + wStubPx + 5, yH + 3);
+        }
+      });
+
+      // Draw Swing Direction Dashed Triangle on Elevation
+      ctx.strokeStyle = "rgba(251, 191, 36, 0.7)";
+      ctx.setLineDash([4, 3]);
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      if (handleOnRight) {
+        ctx.moveTo(xLeafStart, innerY);
+        ctx.lineTo(xLeafStart + doorClearPx, innerY + innerH / 2);
+        ctx.lineTo(xLeafStart, innerY + innerH);
+      } else {
+        ctx.moveTo(xLeafStart + doorClearPx, innerY);
+        ctx.lineTo(xLeafStart, innerY + innerH / 2);
+        ctx.lineTo(xLeafStart + doorClearPx, innerY + innerH);
+      }
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Top Horizontal Dimension Chain: 55 | 310 | 70 | 1260 | 55 (Total 1750)
+      drawDimH(ctx, xE0, xE0 + wDoorPx, yE0 - 28, "PHỦ BÌ KHUÔN CỬA D1 = 1750 mm", "#FBBF24");
+      if (cfg.glassSide === 'left') {
+        drawDimH(ctx, xGlassStart, xMullStart, yE0 - 12, "310", "#38BDF8");
+        drawDimH(ctx, xMullStart, xLeafStart, yE0 - 12, "70", "#F43F5E");
+        drawDimH(ctx, xLeafStart, xLeafStart + doorClearPx, yE0 - 12, "THÔNG THỦY 1260 (ĐỎ)", "#34D399");
+      } else {
+        drawDimH(ctx, xLeafStart, xLeafStart + doorClearPx, yE0 - 12, "THÔNG THỦY 1260 (ĐỎ)", "#34D399");
+        drawDimH(ctx, xMullStart, xGlassStart, yE0 - 12, "70", "#F43F5E");
+        drawDimH(ctx, xGlassStart, xE0 + wDoorPx - fSidePx, yE0 - 12, "310", "#38BDF8");
+      }
+
+      // Left Vertical Dimension Chain: 75 + 2925 = 3000 mm
+      drawDimV(ctx, xE0 - wStubPx - 18, yE0, yFloor, "CAO PHỦ BÌ 3000 mm", "#FBBF24");
+      drawDimV(ctx, xE0 - wStubPx - 6, innerY, yFloor, "THÔNG THỦY 2925 (ĐỎ)", "#34D399");
+
+      // Bottom Callout on Elevation
+      ctx.fillStyle = "#E2E8F0";
+      ctx.font = "bold 8.5px sans-serif";
+      ctx.fillText("• Cánh Gỗ Lim thực tế: Rộng 1280 × Cao 2930 × Dày 60 mm (10 phách × 128mm)", 22, 382);
+      ctx.fillStyle = "#38BDF8";
+      ctx.fillText("• 2 đường nét đứt xanh trên cánh: Cấy 2 thanh ty sắt chống cong vênh suốt chiều cao 2.93m", 22, 398);
+
+      // =========================================================================
+      // RIGHT SIDE (x = 425..845): MẶT CẮT NGANG CHI TIẾT 1-1 (CROSS-SECTION)
+      // =========================================================================
+      ctx.fillStyle = "#F8FAFC";
+      ctx.font = "bold 11px sans-serif";
+      ctx.fillText("2. MẶT CẮT NGANG CHI TIẾT 1-1: KHUÔN, ĐỐ KHÓA 70MM, HÈM & BẢN LỀ ÂM", 425, 22);
+
+      // Cross-section box (x = 425..840, y = 36..245)
+      ctx.fillStyle = "#1E293B";
+      ctx.strokeStyle = "#475569";
+      ctx.lineWidth = 1.2;
+      ctx.fillRect(425, 34, 418, 205);
+      ctx.strokeRect(425, 34, 418, 205);
+
+      const isOutward = (cfg.defaultAngle < 0);
+      ctx.fillStyle = "#94A3B8";
+      ctx.font = "bold 8.5px sans-serif";
+      ctx.fillText("PHÍA TRONG NHÀ (TIỀN SẢNH +0.050)", 545, 50);
+      ctx.fillText("PHÍA NGOÀI HIÊN SẢNH (+0.020)", 555, 228);
+
+      // Left Mố Tường 350x250 + Left Frame 55mm
+      ctx.fillStyle = "#475569";
+      ctx.fillRect(438, 65, 38, 140);
+      ctx.strokeStyle = "#94A3B8";
+      ctx.strokeRect(438, 65, 38, 140);
+      ctx.fillStyle = "#E2E8F0";
+      ctx.font = "bold 7.5px sans-serif";
+      ctx.fillText("MỐ TRÁI", 440, 132);
+      ctx.fillText("250mm", 442, 143);
+
+      // Left Frame 55mm
+      ctx.fillStyle = wf.frameColor;
+      ctx.fillRect(476, 75, 22, 120);
+      ctx.strokeStyle = "#F59E0B";
+      ctx.strokeRect(476, 75, 22, 120);
+
+      // Laminated Glass 11.52mm (310mm clear width)
+      ctx.fillStyle = "rgba(56, 189, 248, 0.55)";
+      ctx.fillRect(498, 128, 68, 12);
+      ctx.strokeStyle = "#38BDF8";
+      ctx.strokeRect(498, 128, 68, 12);
+      ctx.fillStyle = "#38BDF8";
+      ctx.font = "bold 8px sans-serif";
+      ctx.fillText("Kính dán 2 lớp 11.52mm", 490, 118);
+      ctx.fillText("(Lọt sáng 310 mm)", 496, 154);
+
+      // Center Mullion 70mm x 140mm (Đố đứng đón miệng khóa thông minh!)
+      ctx.fillStyle = wf.frameColor;
+      ctx.strokeStyle = "#F59E0B";
+      ctx.lineWidth = 1.5;
+      // Stepped Rabbet (Gờ hèm 12.5mm) on Center Mullion
+      const yLeafTop = isOutward ? 152 : 76; // If outward, leaf is at outer edge (bottom of diagram)
+      const yRabbet = isOutward ? 112 : 112;
+      ctx.fillRect(566, 75, 36, 120);
+      ctx.strokeRect(566, 75, 36, 120);
+      ctx.fillStyle = "#FDE047";
+      ctx.font = "bold 7.5px sans-serif";
+      ctx.fillText("ĐỐ GIỮA", 568, 102);
+      ctx.fillText("RỘNG 70", 568, 112);
+
+      // Smart Lock Strike Box mortised into the 70mm Mullion
+      ctx.fillStyle = "#F43F5E";
+      ctx.fillRect(594, yLeafTop + 12, 8, 18);
+
+      // EPDM Rubber Seal (Gioăng cao su âm góc hèm)
+      ctx.fillStyle = "#10B981";
+      ctx.beginPath();
+      ctx.arc(604, isOutward ? 150 : 116, 4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Main Lim Wood Door Leaf (1280 mm wide x 60 mm thick)
+      ctx.fillStyle = `rgb(${wf.leafBase[0]}, ${wf.leafBase[1]}, ${wf.leafBase[2]})`;
+      ctx.strokeStyle = "#FBBF24";
+      ctx.lineWidth = 1.8;
+      ctx.fillRect(604, yLeafTop, 152, 38);
+      ctx.strokeRect(604, yLeafTop, 152, 38);
+
+      // Two Anti-Warping Steel Rods inside the 60mm Leaf
+      ctx.fillStyle = "#22D3EE";
+      ctx.fillRect(622, yLeafTop + 13, 10, 12);
+      ctx.fillRect(728, yLeafTop + 13, 10, 12);
+
+      ctx.fillStyle = "#FFFBEB";
+      ctx.font = "bold 8.5px sans-serif";
+      ctx.fillText("CÁNH GỖ LIM 1280 × DÀY 60 MM", 616, yLeafTop + 22);
+
+      // Right Frame 55mm + 4 Concealed Hinges Häfele + Right Mố Tường 350x250
+      ctx.fillStyle = wf.frameColor;
+      ctx.strokeStyle = "#F59E0B";
+      ctx.fillRect(756, 75, 24, 120);
+      ctx.strokeRect(756, 75, 24, 120);
+
+      // Concealed Hinge Cross-link at the Hinge Edge (5mm from opening face!)
+      ctx.fillStyle = "#10B981";
+      const yHingeBox = isOutward ? (yLeafTop + 24) : (yLeafTop + 4);
+      ctx.fillRect(748, yHingeBox, 16, 10);
+
+      ctx.fillStyle = "#475569";
+      ctx.strokeStyle = "#94A3B8";
+      ctx.fillRect(780, 65, 48, 140);
+      ctx.strokeRect(780, 65, 48, 140);
+      ctx.fillStyle = "#E2E8F0";
+      ctx.font = "bold 7.5px sans-serif";
+      ctx.fillText("MỐ PHẢI", 786, 132);
+      ctx.fillText("350×250", 786, 143);
+
+      // =========================================================================
+      // BOTTOM RIGHT (y = 252..408): 3 HÌNH PHÓNG ĐẠI CHI TIẾT SOI MỘC
+      // =========================================================================
+      const cards = [
+        {
+          title: "CHI TIẾT A: ĐỐ GIỮA 70MM & KHÓA",
+          lines: [
+            "• Đố đứng giữa làm rộng 70 × sâu 140mm.",
+            "• Bên trái soi rãnh 15mm ngậm kính 11.52mm.",
+            "• Bên phải tạo gờ hèm 12.5mm (kèm rãnh 4mm",
+            "  luồn gioăng cao su EPDM nâu café).",
+            "• Chọn khóa thông minh Backset 60–70mm",
+            "  để thân khóa trong cách gờ hèm 15mm."
+          ],
+          color: "#38BDF8"
+        },
+        {
+          title: "CHI TIẾT B: SOI BẢN LỀ ÂM HÄFELE",
+          lines: [
+            "• Lắp 04 bản lề âm 3D Häfele (Mã 924.17.425",
+            "  TECTUS 160kg hoặc 927.03.093 / 927.91.823).",
+            "• Cánh dày 60mm: Khoét rãnh bản lề lệch",
+            "  về phía mặt mở (cách mép mặt cánh đúng",
+            "  4–5 mm) để mở 108°–180° không cấn.",
+            "• Mặt khuôn gỗ đặt phẳng ngang mặt đá."
+          ],
+          color: "#34D399"
+        },
+        {
+          title: "CHI TIẾT C: CHỐNG CONG VÊNH & ĐÁY",
+          lines: [
+            "• Phay âm 2 thanh ty sắt / U25×25×3mm",
+            "  dọc 2 đố đứng cánh dài 2930mm.",
+            "• Chia mặt cánh đúng 10 phách × 128mm,",
+            "  soi rãnh âm 5×5mm giữa các phách.",
+            "• Đáy cánh soi rãnh 15×30mm lắp Thanh",
+            "  chặn đáy tự sập Häfele (kín khe sàn 8mm)."
+          ],
+          color: "#FBBF24"
+        }
+      ];
+
+      cards.forEach((c, idx) => {
+        const cx = 425 + idx * 141;
+        const cy = 250;
+        ctx.fillStyle = "#1E293B";
+        ctx.strokeStyle = c.color;
+        ctx.lineWidth = 1.2;
+        ctx.fillRect(cx, cy, 136, 155);
+        ctx.strokeRect(cx, cy, 136, 155);
+
+        ctx.fillStyle = c.color;
+        ctx.font = "bold 7.8px sans-serif";
+        ctx.fillText(c.title, cx + 6, cy + 16);
+
+        ctx.fillStyle = "#E2E8F0";
+        ctx.font = "7.3px sans-serif";
+        c.lines.forEach((ln, lIdx) => {
+          ctx.fillText(ln, cx + 6, cy + 34 + lIdx * 18);
+        });
+      });
+
+      ctx.restore();
+    }
+
+    function drawDimH(ctx, x1, x2, y, text, color) {
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(x1, y); ctx.lineTo(x2, y);
+      ctx.moveTo(x1, y - 3); ctx.lineTo(x1, y + 3);
+      ctx.moveTo(x2, y - 3); ctx.lineTo(x2, y + 3);
+      ctx.stroke();
+      ctx.font = "bold 7.5px monospace";
+      const tw = ctx.measureText(text).width;
+      ctx.fillText(text, (x1 + x2) / 2 - tw / 2, y - 3);
+    }
+
+    function drawDimV(ctx, x, y1, y2, text, color) {
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(x, y1); ctx.lineTo(x, y2);
+      ctx.moveTo(x - 3, y1); ctx.lineTo(x + 3, y1);
+      ctx.moveTo(x - 3, y2); ctx.lineTo(x + 3, y2);
+      ctx.stroke();
+      ctx.save();
+      ctx.translate(x - 4, (y1 + y2) / 2);
+      ctx.rotate(-Math.PI / 2);
+      ctx.font = "bold 7.5px monospace";
+      const tw = ctx.measureText(text).width;
+      ctx.fillText(text, -tw / 2, 0);
+      ctx.restore();
+    }
+
+    function renderAll() {
+      const deg = Math.round(doorAngle);
+      const badge = document.getElementById('angle-badge');
+      badge.textContent = deg < -5 ? `Mở Ra: ${deg}°` : (deg > 5 ? `Mở Vào: +${deg}°` : `Đóng: 0°`);
+
+      const cBadge = document.getElementById('clearance-badge');
+      const statusBox = document.getElementById('plan-status');
+      const cfg = modeConfigs[currentMode];
+
+      cBadge.textContent = "Thông thủy 1260×2925 (Đỏ)";
+      cBadge.className = "text-xs font-mono font-semibold text-emerald-500";
+      statusBox.className = "mt-2 p-2 rounded-lg border border-emerald-500/40 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs leading-snug";
+      statusBox.innerHTML = `✅ <b>Đã khóa cố định 1 bộ kích thước chuẩn Lỗ Ban Đỏ:</b> Thông thủy cửa <b>1260 × 2925 mm</b> (Cánh gỗ Lim <b>1280 × 2930 × 60 mm</b> chia 10 phách 128mm) + Lọt sáng kính <b>310 mm</b> + Đố đón khóa <b>70 mm</b>. Kéo xuống dưới để xem <b>Bản vẽ kỹ thuật thi công KT-6.05</b>!`;
+
+      render3DCanvas();
+      renderPlanCanvas();
+      renderShopDrawingCanvas();
+    }
+
+    // Initialize with Option 0 as default, +75% Zoom, and locked Lỗ Ban standard dimensions
+    setWoodFilter('walnut_dark');
+    setZoom(1.75);
+    selectMode(2);
+  </script>
+</body>
+</html>

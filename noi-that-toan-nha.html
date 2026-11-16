@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thiết Kế Nội Thất Toàn Nhà &amp; Dự Toán Phối Hợp Gỗ MDF + Plywood — Biệt Thự Q Villa</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-base: #070b12;
+      --bg-surface: #0f172a;
+      --bg-elevated: #1e293b;
+      --bg-glass: rgba(15, 23, 42, 0.9);
+      --border: rgba(148, 163, 184, 0.18);
+      --border-strong: rgba(245, 158, 11, 0.45);
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-light: #fde68a;
+      --emerald: #10b981;
+      --emerald-light: #6ee7b7;
+      --sky: #38bdf8;
+      --sky-light: #bae6fd;
+      --purple: #a855f7;
+      --purple-light: #e9d5ff;
+      --rose: #f43f5e;
+      --rose-light: #fecdd3;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-lg: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(245, 158, 11, 0.09), transparent 35%),
+        radial-gradient(circle at 88% 15%, rgba(16, 185, 129, 0.08), transparent 35%),
+        radial-gradient(circle at 50% 85%, rgba(56, 189, 248, 0.07), transparent 40%),
+        var(--bg-base);
+      min-height: 100vh;
+      padding-bottom: 90px;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 18, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    a.brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    a.brand:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #070b12;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 7px 13px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-title h1 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .brand-title p {
+      font-size: 0.79rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.55);
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      border-color: var(--accent);
+      background: rgba(245, 158, 11, 0.18);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 26px 0 18px;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.84));
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      padding: 26px 28px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--accent-light);
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .hero-info h2 {
+      font-size: clamp(1.32rem, 2.3vw, 1.82rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .hero-info p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      max-width: 900px;
+    }
+
+    .preset-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      background: rgba(7, 11, 18, 0.68);
+      padding: 6px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .preset-btn {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 8px 13px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .preset-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .preset-btn.active {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.28), rgba(16, 185, 129, 0.22));
+      border-color: var(--accent);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.22);
+    }
+
+    .preset-btn.save-btn {
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-color: #34d399;
+      color: #04130d;
+      font-weight: 800;
+    }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .kpi-box {
+      background: rgba(7, 11, 18, 0.68);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 15px 18px;
+    }
+
+    .kpi-box.highlight-emerald {
+      border-color: rgba(16, 185, 129, 0.55);
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.14), rgba(7, 11, 18, 0.78));
+    }
+
+    .kpi-box.highlight-amber {
+      border-color: rgba(245, 158, 11, 0.55);
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.14), rgba(7, 11, 18, 0.78));
+    }
+
+    .kpi-box.highlight-sky {
+      border-color: rgba(56, 189, 248, 0.55);
+      background: linear-gradient(145deg, rgba(56, 189, 248, 0.13), rgba(7, 11, 18, 0.78));
+    }
+
+    .kpi-box.highlight-purple {
+      border-color: rgba(168, 85, 247, 0.55);
+      background: linear-gradient(145deg, rgba(168, 85, 247, 0.13), rgba(7, 11, 18, 0.78));
+    }
+
+    .kpi-label {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .kpi-value {
+      font-size: 1.48rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kpi-sub {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+
+    /* Section Headings */
+    section.block {
+      margin-top: 28px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--accent-light);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 1.32rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      color: var(--text-secondary);
+      font-size: 0.89rem;
+      margin-bottom: 18px;
+    }
+
+    /* Material Strategy Matrix */
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 16px;
+    }
+
+    .matrix-card {
+      background: rgba(7, 11, 18, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .matrix-card.plywood {
+      border-top: 4px solid var(--accent);
+    }
+
+    .matrix-card.mdf {
+      border-top: 4px solid var(--emerald);
+    }
+
+    .matrix-card.surface {
+      border-top: 4px solid var(--sky);
+    }
+
+    .matrix-card h3 {
+      font-size: 1.02rem;
+      color: #fff;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .matrix-card ul {
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
+    .matrix-card li strong {
+      color: #fff;
+    }
+
+    /* Room Gallery Cards */
+    .room-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .room-card {
+      background: rgba(7, 11, 18, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .room-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .room-thumb {
+      position: relative;
+      height: 200px;
+      background: #05080f;
+      cursor: zoom-in;
+      overflow: hidden;
+    }
+
+    .room-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.25s ease;
+    }
+
+    .room-thumb:hover img {
+      transform: scale(1.03);
+    }
+
+    .room-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(7, 11, 18, 0.88);
+      border: 1px solid var(--border-strong);
+      color: var(--accent-light);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .room-cost-badge {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(6, 78, 59, 0.92);
+      border: 1px solid var(--emerald);
+      color: var(--emerald-light);
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .room-body {
+      padding: 15px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .room-body h3 {
+      font-size: 0.96rem;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .room-body ul {
+      padding-left: 16px;
+      font-size: 0.81rem;
+      color: var(--text-secondary);
+      display: grid;
+      gap: 5px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .mat-tag {
+      font-size: 0.71rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .mat-tag.ply {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fde68a;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    .mat-tag.mdf {
+      background: rgba(16, 185, 129, 0.16);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .mat-tag.acr {
+      background: rgba(56, 189, 248, 0.16);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    /* Filter Toolbar */
+    .table-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .filter-pill {
+      appearance: none;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-pill:hover,
+    .filter-pill.active {
+      background: rgba(245, 158, 11, 0.22);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    /* Responsive Table (modern-web-guidance: responsive-table) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(740px, 82vh);
+      container-type: inline-size;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: #090e1a;
+    }
+
+    table.cost-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.84rem;
+      --label-2: "Chọn";
+      --label-3: "Phân Khu / Tầng";
+      --label-4: "Cấu Tạo Plywood × MDF & Bề Mặt";
+      --label-5: "ĐVT";
+      --label-6: "Khối Lượng";
+      --label-7: "Đơn Giá (₫)";
+      --label-8: "Thành Tiền (₫)";
+    }
+
+    table.cost-table caption {
+      text-align: left;
+      padding: 12px 16px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: var(--accent-light);
+      background: #0f172a;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Sticky column headers (desktop) */
+    table.cost-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+      background: #1e293b;
+    }
+
+    table.cost-table th,
+    table.cost-table td {
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      text-align: left;
+    }
+
+    table.cost-table thead th {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent-light);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* Sticky row headers (desktop) */
+    table.cost-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 1;
+      background: #0f172a;
+      color: #ffffff;
+      font-weight: 700;
+      min-width: 240px;
+      max-width: 310px;
+      border-right: 1px solid var(--border);
+    }
+
+    table.cost-table tbody tr:hover td,
+    table.cost-table tbody tr:hover th {
+      background: rgba(30, 41, 59, 0.65);
+    }
+
+    table.cost-table tbody tr.row-disabled {
+      opacity: 0.48;
+    }
+
+    .input-inline {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      color: #fff;
+      border-radius: 7px;
+      padding: 6px 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .input-qty {
+      width: 68px;
+      text-align: right;
+    }
+
+    .input-price {
+      width: 118px;
+      text-align: right;
+    }
+
+    .cell-total {
+      font-weight: 800;
+      color: var(--emerald-light);
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    table.cost-table tfoot th,
+    table.cost-table tfoot td {
+      background: #090e1a;
+      padding: 14px 12px;
+      font-weight: 800;
+      font-size: 0.94rem;
+      color: #fff;
+      border-top: 2px solid var(--accent);
+    }
+
+    @container (width < 600px) {
+      table.cost-table,
+      table.cost-table thead,
+      table.cost-table tbody,
+      table.cost-table tfoot,
+      table.cost-table tr,
+      table.cost-table th,
+      table.cost-table td {
+        display: block;
+      }
+
+      table.cost-table thead {
+        /* MANDATORY: Hide column header from layout and screen readers. */
+        display: none;
+      }
+
+      table.cost-table tbody tr {
+        margin-block-end: 1.25rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      table.cost-table tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: #1e293b;
+        max-width: none;
+        width: 100%;
+      }
+
+      table.cost-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        text-align: right;
+      }
+
+      table.cost-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+      table.cost-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+      table.cost-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+      table.cost-table td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+      table.cost-table td:nth-child(6)::before { content: var(--label-6) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+      table.cost-table td:nth-child(7)::before { content: var(--label-7) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+      table.cost-table td:nth-child(8)::before { content: var(--label-8) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+    }
+
+    code {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--sky-light);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.82em;
+    }
+
+    /* 4-Style Modern Luxury Whole-House Concept Studio */
+    .tone-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .tone-option-btn {
+      position: relative;
+      appearance: none;
+      text-align: left;
+      background: rgba(7, 11, 18, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px 19px;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .tone-option-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(245, 158, 11, 0.55);
+    }
+
+    .tone-option-btn[aria-pressed="true"] {
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.16), rgba(16, 185, 129, 0.12));
+      border-color: var(--accent);
+    }
+
+    .tone-option-btn[aria-pressed="true"]::after {
+      content: "";
+      position: absolute;
+      inset: auto 14px 0 14px;
+      border-block-end: 4px solid var(--accent);
+      border-radius: 4px 4px 0 0;
+    }
+
+    .tone-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tone-pill {
+      font-size: 0.71rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(245, 158, 11, 0.18);
+      color: var(--accent-light);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .tone-harmony {
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--emerald-light);
+    }
+
+    .tone-option-btn h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .tone-option-btn p {
+      font-size: 0.81rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .tone-mini-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .tone-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      flex: none;
+    }
+
+    .tone-price-tag {
+      margin-left: auto;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #fde68a;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* 60-30-10 Material Codebook Strip */
+    .palette-board {
+      background: rgba(7, 11, 18, 0.78);
+      border: 1px solid var(--border-strong);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 20px;
+    }
+
+    .palette-board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .swatch-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .swatch-chip-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 10px 12px;
+    }
+
+    .swatch-sample {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      flex: none;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .swatch-meta strong {
+      display: block;
+      font-size: 0.8rem;
+      color: #fff;
+    }
+
+    .swatch-meta span {
+      display: block;
+      font-size: 0.74rem;
+      color: var(--accent-light);
+      font-weight: 700;
+      margin-top: 1px;
+    }
+
+    .swatch-meta small {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* 4-Space Synchronous 16:9 Showcase */
+    .sync-showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .sync-card {
+      background: rgba(7, 11, 18, 0.8);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .sync-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--emerald);
+    }
+
+    .sync-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: #05080f;
+      cursor: zoom-in;
+      overflow: hidden;
+    }
+
+    .sync-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.28s ease;
+    }
+
+    .sync-thumb:hover img {
+      transform: scale(1.03);
+    }
+
+    .sync-caption {
+      padding: 12px 14px;
+    }
+
+    .sync-caption h4 {
+      font-size: 0.92rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .sync-caption p {
+      font-size: 0.79rem;
+      color: var(--text-secondary);
+    }
+
+    /* Exclusive Searchable <details name="qvilla-tone-spec"> Accordions (modern-web-guidance: search-hidden-content) */
+    .tone-accordion-stack {
+      display: grid;
+      gap: 10px;
+    }
+
+    details.tone-disclosure {
+      background: rgba(7, 11, 18, 0.68);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    details.tone-disclosure[open] {
+      border-color: var(--emerald);
+      background: rgba(15, 23, 42, 0.92);
+    }
+
+    details.tone-disclosure summary {
+      padding: 13px 16px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      list-style: none;
+    }
+
+    details.tone-disclosure summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.tone-disclosure summary::after {
+      content: "▾ Mở xem bảng mã ván & lưu ý kiến trúc";
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      white-space: nowrap;
+    }
+
+    details.tone-disclosure[open] summary::after {
+      content: "▴ Đang mở (Tìm kiếm Ctrl/Cmd+F tự bung)";
+      color: var(--emerald-light);
+    }
+
+    .tone-disclosure-body {
+      padding: 0 16px 16px;
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      border-top: 1px solid rgba(148, 163, 184, 0.14);
+      padding-top: 12px;
+      display: grid;
+      gap: 8px;
+    }
+
+    /* Native Modal Lightbox with Light-Dismiss (modern-web-guidance: light-dismiss-a-dialog) */
+    dialog#lightbox-modal {
+      margin: auto;
+      padding: 0;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      background: #05080f;
+      color: var(--text-main);
+      max-width: 95vw;
+      max-height: 92vh;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.88);
+    }
+
+    dialog#lightbox-modal::backdrop {
+      background-color: rgba(2, 6, 23, 0.86);
+      backdrop-filter: blur(6px);
+    }
+
+    .dialog-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dialog-close-btn {
+      background: var(--bg-elevated);
+      color: #fff;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .dialog-img-wrap {
+      padding: 12px;
+      text-align: center;
+    }
+
+    .dialog-img-wrap img {
+      max-width: 92vw;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" title="Về Trang Chủ — Tổng Hợp Hạng Mục &amp; Dự Toán Chi Phí Q Villa">
+        <span class="brand-badge">🏠 Q VILLA • TRANG CHỦ</span>
+        <div class="brand-title">
+          <h1>Thiết Kế Nội Thất Toàn Nhà &amp; Bảng Dự Toán Phối Hợp Gỗ MDF + Plywood — Q Villa</h1>
+          <p>Phong cách Hiện đại (Modern) • Hybrid 45% Plywood Chịu Lực/Ẩm + 55% MDF Lõi Xanh • Melamine × Laminate × Acrylic</p>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng dự án">
+        <a href="index.html">💰 Dự Toán Hoàn Thiện (1,99 Tỷ)</a>
+        <a href="#sec-tones" class="active">🎨 4 Phương Án Tone Màu</a>
+        <a href="#sec-boq">📋 Dự Toán BOQ</a>
+        <a href="phong-khach-bep-tang1.html">🛋️ P. Khách &amp; Bếp T1</a>
+        <a href="bep-tang1.html">🍳 3D Tủ Bếp &amp; Đảo</a>
+        <a href="phong-master-tang2.html">👑 P. Master T2</a>
+        <a href="phong-lam-viec-tang3.html">💻 P. Làm Việc T3</a>
+        <a href="phong-tho-tang3.html" style="border-color:rgba(229,169,60,0.7);color:#fde68a;">🪷 Phòng Thờ T3 (100%)</a>
+        <a href="son-gach-phoi-mau.html">🎨 Sơn &amp; Gạch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO & BUDGET SUMMARY -->
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-top">
+          <div class="hero-info">
+            <span class="hero-eyebrow">🪑 HỒ SƠ THIẾT KẾ &amp; BÓC TÁCH NỘI THẤT TOÀN NHÀ (TẦNG 1 &rarr; TẦNG 3) • KHÔNG TRÙNG LẶP BẢNG HOÀN THIỆN</span>
+            <h2>Thiết Kế Nội Thất Hiện Đại Phối Hợp Gỗ Plywood &amp; MDF Lõi Xanh — Biệt Thự Q Villa</h2>
+            <p>
+              Phân bổ chuẩn kỹ thuật cho từng chi tiết: <strong>Plywood 18mm chịu nước</strong> cho toàn bộ <em>Khung giường, Mặt bàn dài (1,6m–2,05m), Đợt tủ sách (2,44m), Hậu tủ giáp WC-02, Đảo bếp &amp; Quầy Cafe</em>; kết hợp <strong>MDF lõi xanh chống ẩm 17mm</strong> cho <em>100% Cánh tủ kịch trần (2,65–3,4m)</em> để không bao giờ bị cong vênh xoắn cánh, phối bề mặt <strong>Acrylic bóng gương + Laminate chống trầy + Melamine đồng bộ</strong>.
+            </p>
+          </div>
+          <div class="preset-bar" role="group" aria-label="Chọn kịch bản ngân sách nội thất">
+            <button type="button" class="preset-btn active" id="btn-preset-optimal" onclick="applyInteriorPreset('optimal')">
+              ⭐ PA 1: Tầm Trung Tối Ưu (Full 3 Tầng)
+            </button>
+            <button type="button" class="preset-btn" id="btn-preset-woodonly" onclick="applyInteriorPreset('woodonly')">
+              🪵 PA 2: Chỉ Đồ Gỗ Liền Tường
+            </button>
+            <button type="button" class="preset-btn" id="btn-preset-withkitchen" onclick="applyInteriorPreset('withkitchen')">
+              🍳 PA 3: Tham Khảo Đổi Bếp Sang Gỗ Plywood
+            </button>
+            <button type="button" class="preset-btn" id="btn-preset-economy" onclick="applyInteriorPreset('economy')">
+              🌱 PA 4: Tiết Kiệm Melamine Phẳng
+            </button>
+            <button type="button" class="preset-btn" id="btn-preset-premium" onclick="applyInteriorPreset('premium')">
+              💎 PA 5: Cao Cấp Full An Cường + Blum
+            </button>
+            <button type="button" class="preset-btn save-btn" onclick="saveInteriorBudget()">
+              💾 Lưu Phương Án
+            </button>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-box highlight-emerald">
+            <div class="kpi-label">Tổng Dự Toán Nội Thất (7 Phân Khu — Không Gồm P.Thờ)</div>
+            <div class="kpi-value" id="kpi-nt-total">616.700.000 ₫</div>
+            <div class="kpi-sub" id="kpi-nt-sub">Đã tách riêng Phòng Thờ sang trang phong-tho-tang3.html</div>
+          </div>
+          <div class="kpi-box highlight-amber">
+            <div class="kpi-label">Nhóm I: Đồ Gỗ May Đo Liền Tường (Plywood + MDF)</div>
+            <div class="kpi-value" id="kpi-nt-wood">493.200.000 ₫</div>
+            <div class="kpi-sub">Tủ giày, Vách TV, Đảo bếp, Tủ phụ, 5 Giường Bệ Gỗ &amp; Tủ Áo, P.Làm Việc</div>
+          </div>
+          <div class="kpi-box highlight-sky">
+            <div class="kpi-label">Nhóm II: Đồ Rời, Sofa Bệ Gỗ, Bàn Ăn, Ghế, Rèm &amp; 5 Đệm</div>
+            <div class="kpi-value" id="kpi-nt-loose">123.500.000 ₫</div>
+            <div class="kpi-sub">Sofa PK, Bàn ăn 8 ghế, Armchair T2, Sofa/Ghế T3, Vải rèm &amp; 5 Đệm</div>
+          </div>
+          <div class="kpi-box highlight-purple">
+            <div class="kpi-label">Tổng Gộp Hoàn Thiện Kiến Trúc + Nội Thất Đang Chọn</div>
+            <div class="kpi-value" id="kpi-nt-combined">2.615.790.000 ₫</div>
+            <div class="kpi-sub" id="kpi-nt-combined-sub">Hoàn thiện (1.999,09 Tr) + 7 khu nội thất (Chưa cộng P.Thờ trang riêng)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 0: 4 UNIFIED MODERN LUXURY CONCEPTS + 7 SYNCHRONOUS SLAT-FREE ROOMS -->
+    <section class="block" id="sec-tones" style="border-color: rgba(245, 158, 11, 0.45);">
+      <span class="section-tag">PHẦN 1 • BỘ SO SÁNH 4 PHONG CÁCH MODERN LUXURY (7 PHÂN KHU TRỪ PHÒNG THỜ TRANG RIÊNG • SOFA &amp; 5 GIƯỜNG BỆ GỖ)</span>
+      <h2 class="section-title">4 Phương Án Modern Luxury Ấm Áp — Đồng Bộ Sofa Bệ Gỗ Đệm Da Trơn T1 &amp; 5 Giường Bệ Gỗ Bo Tròn R60</h2>
+      <p class="section-sub">
+        Áp dụng xuyên suốt <strong>07 phân khu sinh hoạt từ Tầng 1 lên Tầng 3</strong> (riêng khu vực tâm linh đã tách độc lập tại trang <a href="phong-tho-tang3.html" style="color:#fde68a;font-weight:800;text-decoration:underline;">🪷 Phòng Thờ T3</a>): <strong>Sofa Bệ Gỗ Bo Tròn + Đệm Da Trơn</strong> đi cùng <strong>5 Giường Bệ Gỗ Plywood 18mm Bo Tròn R60 (0% vải nỉ xù)</strong> và <strong>Gỗ vân đá Travertine sần mờ</strong>:
+      </p>
+
+      <div class="tone-selector-grid" role="group" aria-label="Chọn 1 trong 4 phong cách Modern Luxury toàn nhà">
+        <button type="button" class="tone-option-btn" id="btn-tone-warmbeige" aria-pressed="true" onclick="selectDesignTone('warmbeige')">
+          <div class="tone-top-row">
+            <span class="tone-pill">☕ ẤM CÚNG BE / KEM • SOFA &amp; GIƯỜNG GỖ</span>
+            <span class="tone-harmony">Hợp 100% Bếp Kính Be</span>
+          </div>
+          <h3>Warm Beige &amp; Cashmere-Latte</h3>
+          <p><strong>Sofa bệ gỗ Mocha đệm da Kem Latte/Caramel trơn</strong> • <strong>5 Giường bệ gỗ R60</strong> • Cánh <strong>Be Cát Ấm</strong> • <strong>Gỗ vân Beige Travertine</strong> &amp; Kính <strong>Trà Đồng</strong>.</p>
+          <div class="tone-mini-dots">
+            <span class="tone-dot" style="background:#cfc1ae;" title="Cánh Be Cát Ấm &amp; Da trơn Kem Latte"></span>
+            <span class="tone-dot" style="background:#d8cbb6;" title="Gỗ phủ Laminate Roman Beige Travertine"></span>
+            <span class="tone-dot" style="background:#9b653c;" title="Kính Trà Đồng Ấm &amp; Da Bò Caramel"></span>
+            <span class="tone-dot" style="background:#5c3f2b;" title="Sofa &amp; Giường bệ gỗ Mocha-Walnut Ấm"></span>
+            <span class="tone-price-tag">616,70 Tr ₫</span>
+          </div>
+        </button>
+
+        <button type="button" class="tone-option-btn" id="btn-tone-1" aria-pressed="false" onclick="selectDesignTone('tone1')">
+          <div class="tone-top-row">
+            <span class="tone-pill" style="background:rgba(56,189,248,0.18);color:#bae6fd;border-color:rgba(56,189,248,0.45);">👑 KIỂU Ý • SOFA &amp; GIƯỜNG BỆ GỖ ĐẬM</span>
+            <span class="tone-harmony">Poliform Mondrian</span>
+          </div>
+          <h3>Italian Modern Quiet Luxury</h3>
+          <p><strong>Sofa bệ gỗ Nâu Đen đệm da Taupe/Cognac trơn</strong> • <strong>5 Giường bệ gỗ R60</strong> • Trần bo <strong>R300</strong> • Vách cứng <strong>700mm</strong> đối xứng &amp; Đảo Mun bóng.</p>
+          <div class="tone-mini-dots">
+            <span class="tone-dot" style="background:#cdc6ba;" title="Vách cứng Melamine MS 104/235 SH"></span>
+            <span class="tone-dot" style="background:#362b24;" title="Sofa &amp; Giường bệ gỗ Nâu Đen"></span>
+            <span class="tone-dot" style="background:#b95d2b;" title="Da bò yên ngựa trơn &amp; Cam Hermès"></span>
+            <span class="tone-price-tag" style="color:#bae6fd;">618,00 Tr ₫</span>
+          </div>
+        </button>
+
+        <button type="button" class="tone-option-btn" id="btn-tone-2" aria-pressed="false" onclick="selectDesignTone('tone2')">
+          <div class="tone-top-row">
+            <span class="tone-pill" style="background:rgba(16,185,129,0.18);color:#6ee7b7;border-color:rgba(16,185,129,0.45);">⭐ CƠ SỞ • ẤM ÁP TIẾT KIỆM</span>
+            <span class="tone-harmony">Khớp 99% Cửa Lim D3</span>
+          </div>
+          <h3>Warm Walnut &amp; Wood-Travertine</h3>
+          <p>Nền <strong>Jotun 1001</strong> • Cánh phẳng <strong>Be Cashmere</strong> • <strong>Ván phẳng Gỗ Óc chó nâu socola</strong> phối <strong>Gỗ vân Beige Travertine mờ</strong> ấm cúng, kinh tế nhất.</p>
+          <div class="tone-mini-dots">
+            <span class="tone-dot" style="background:#dfd5c5;" title="Gỗ vân Beige Travertine &amp; Be Cashmere"></span>
+            <span class="tone-dot" style="background:#5a3b26;" title="Ván phẳng Gỗ Óc Chó LK 4487 A"></span>
+            <span class="tone-price-tag" style="color:#6ee7b7;">602,20 Tr ₫</span>
+          </div>
+        </button>
+
+        <button type="button" class="tone-option-btn" id="btn-tone-3" aria-pressed="false" onclick="selectDesignTone('tone3')">
+          <div class="tone-top-row">
+            <span class="tone-pill" style="background:rgba(168,85,247,0.18);color:#e9d5ff;border-color:rgba(168,85,247,0.45);">💎 BOUTIQUE • TƯƠNG PHẢN ĐẬM</span>
+            <span class="tone-harmony">Kính khói &amp; Gỗ trầm</span>
+          </div>
+          <h3>Boutique Smoked Wood Luxury</h3>
+          <p>Nền <strong>Jotun 1001</strong> &amp; Bếp kính Be đối trọng sắc nét với <strong>Ván phẳng Gỗ Nâu Đen Khói</strong>, <strong>Gỗ vân Silver Travertine</strong> &amp; <strong>Kính xám khói LED</strong>.</p>
+          <div class="tone-mini-dots">
+            <span class="tone-dot" style="background:#b9b3aa;" title="Gỗ vân Silver-Taupe Travertine"></span>
+            <span class="tone-dot" style="background:#332822;" title="Ván phẳng Gỗ Nâu Đen Khói"></span>
+            <span class="tone-price-tag" style="color:#e9d5ff;">634,20 Tr ₫</span>
+          </div>
+        </button>
+      </div>
+
+      <!-- Live 60-30-10 Material Codebook Strip -->
+      <div class="palette-board" aria-live="polite">
+        <div class="palette-board-header">
+          <div>
+            <span style="font-size:0.75rem;font-weight:800;text-transform:uppercase;color:var(--emerald-light);" id="active-tone-eyebrow">
+              🎨 BẢNG MÃ VÁN &amp; GỖ VÂN TRAVERTINE ĐANG ÁP DỤNG CHO CẢ 7 PHÂN KHU BÊN DƯỚI (0% LAM DỌC • DỄ VỆ SINH TUYỆT ĐỐI)
+            </span>
+            <h3 style="font-size:1.04rem;color:#fff;margin-top:2px;" id="active-tone-heading">
+              ☕ Warm Beige &amp; Cashmere-Latte Modern Luxury — Ấm Cúng Dịu Mắt Trên Nền Jotun 1001 &amp; Bếp Kính Màu Be
+            </h3>
+          </div>
+          <span class="filter-pill active" id="active-tone-cost-pill" style="cursor:default;">
+            Tổng 7 phân khu = 616,70 Tr ₫ (Không gồm Phòng Thờ đã tách trang riêng)
+          </span>
+        </div>
+        <div class="swatch-strip-grid" id="tone-swatch-strip"></div>
+      </div>
+
+      <!-- ALL 8 EXACT 1:1 ROOM CARDS DYNAMICALLY RENDERED PER ACTIVE TONE -->
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px;padding:12px 15px;border-radius:12px;background:rgba(16,185,129,0.09);border:1px solid rgba(16,185,129,0.38);" id="sec-rooms">
+        <div>
+          <h3 style="font-size:1.03rem;font-weight:800;color:#fff;" id="rooms-grid-heading">
+            🏠 Bộ Phối Cảnh 3D Chuẩn Hình Học 1:1 Theo Đúng Mặt Bằng, Trần PA C, Quạt, ĐH &amp; Sàn Gạch Nhà Thật Q Villa
+          </h3>
+          <p style="font-size:0.79rem;color:var(--text-secondary);margin-top:2px;">
+            Đã khóa chốt <strong>Sofa Bệ Gỗ Âm Poliform (38,00 Tr)</strong> — Khi thi công hoàn thiện thực tế sẽ giống <strong>95–98%</strong> ảnh 3D bên dưới. Bấm nút <strong>📐 Mặt Bằng 2D</strong> để đối chiếu tọa độ!
+          </p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px;" role="group" aria-label="Xem nhanh mặt bằng CAD 2D từng tầng">
+          <button type="button" class="filter-pill" onclick="openLightbox('assets/tang1_full_khach_bep_tran_den_2d.png', 'Bản vẽ CAD 2D Mặt bằng tổng thể Tầng 1: Tiền Sảnh D1 • Phòng Khách • Phòng Ăn • Bếp Chữ I &amp; Đảo Ngang Trục 3')">
+            📐 CAD 2D Tầng 1
+          </button>
+          <button type="button" class="filter-pill" onclick="openLightbox('assets/master_pa2_zone_split_2d.png', 'Bản vẽ CAD 2D Mặt bằng chốt PA2 Phòng Master Tầng 2: Vách Tủ Đảo 1.740×450mm &amp; 2 Lối Đi Mở 850mm')">
+            📐 CAD 2D Master T2
+          </button>
+          <button type="button" class="filter-pill" onclick="openLightbox('assets/ban_ve_2_loai_phong_ngu_truc_ab_va_bd.jpg', 'Bản vẽ CAD 2D Mặt bằng 2 loại Phòng Ngủ Q Villa: Trục A–B (Ông Bà, PN2, PN4) &amp; Trục B–D (PN1, PN3)')">
+            📐 CAD 2D 5 P.Ngủ
+          </button>
+          <button type="button" class="filter-pill" onclick="openLightbox('assets/tang3_kt204_noi_that_dien_mang_rieng.png', 'Bản vẽ CAD 2D Mặt bằng Phòng Làm Việc Đôi Tầng 3 (KT-2.04 — PA T3-A)')">
+            📐 CAD 2D P.Làm Việc T3
+          </button>
+        </div>
+      </div>
+      <div class="room-grid" id="dynamic-rooms-grid" style="margin-bottom: 20px;"></div>
+
+      <!-- Exclusive Searchable Accordions using <details name="qvilla-tone-spec"> (modern-web-guidance: search-hidden-content) -->
+      <div class="tone-accordion-stack">
+        <details class="tone-disclosure" name="qvilla-tone-spec" id="details-warmbeige" open>
+          <summary>📋 Hồ Sơ Mã Ván &amp; Hệ Giường Bệ Gỗ — Warm Beige &amp; Cashmere-Latte Modern Luxury (0% Nỉ Xù Bám Bẩn)</summary>
+          <div class="tone-disclosure-body">
+            <p>• <strong>Hệ Giường Bệ Gỗ Mocha-Walnut Bo Góc R60 (100% Dễ Lau Chùi):</strong> Cả 5 phòng ngủ dùng khung bệ &amp; tựa đầu giường liền táp bằng <strong>Plywood 18mm bo góc tròn R60 phủ Laminate Gỗ Mocha-Walnut <code>LK 4487 A</code></strong> (kiểu Boutique Luxury), kèm đôn đuôi giường chân gỗ mặt <strong>da bò Caramel trơn mịn</strong> — loại bỏ 100% vải nỉ xù Bouclé bám bụi.</p>
+            <p>• <strong>Tone Be Cát Trầm, Gỗ Vân Beige Travertine &amp; Kính Trà Đồng Ấm:</strong> Hệ cánh phẳng &amp; vách cứng dùng <strong>Melamine Be Cát / Kem Latte mịn <code>MS 334 SMM</code></strong> (tấm ván cứng lau nước thoải mái, không dán nỉ tường) phối <strong>Gỗ phủ Laminate Roman Beige Travertine <code>LK 2145 ST</code></strong> và hệ cánh kính <strong>Trà Đồng ấm (Amber-Tea Bronze)</strong>.</p>
+            <p>• <strong>3 Mặt nằm bắt buộc giữ Đá Nung Kết dày 15–20mm:</strong> Chỉ dùng Đá Nung Kết chống ố/chịu nhiệt tại <em>Mặt trên Bàn đảo bếp (1,4×0,8m)</em>, <em>Mặt Bàn ăn 8 ghế (2,2×1,0m)</em> và <em>Mặt Hốc pha Cafe (1,0×0,55m)</em>.</p>
+          </div>
+        </details>
+
+        <details class="tone-disclosure" name="qvilla-tone-spec" id="details-tone1">
+          <summary>📋 Hồ Sơ Mã Ván &amp; Hệ Giường Bệ Gỗ — Italian Modern Quiet Luxury (Poliform Vibe • 0% Nỉ Xù Bám Bẩn)</summary>
+          <div class="tone-disclosure-body">
+            <p>• <strong>Hệ Giường Bệ Gỗ Smoked Espresso Bo Góc R60 + Đệm Lưng/Đôn Da Trơn:</strong> Toàn bộ 5 phòng ngủ đã bỏ giường bọc nỉ Bouclé, chuyển sang <strong>hệ giường bệ gỗ rộng Plywood 18mm bo góc R60 phủ Laminate Gỗ Nâu Đen Khói <code>LK 4512 A</code></strong> liền táp treo, điểm nhấn bằng dải tựa &amp; đôn bọc <strong>da bò yên ngựa / da Microfiber trơn mịn</strong> lau sạch tức thì.</p>
+            <p>• <strong>Trần bo R300, Vách ván cứng khổ 700mm &amp; Gỗ vân Travertine:</strong> Nền sơn <strong>Jotun 1001 Egghvit</strong> kết hợp vách chia tấm cứng rộng <code>700mm</code> phủ <strong>Melamine Greige-Taupe <code>MS 104/235 SH</code></strong> (bề mặt nhựa Melamine cứng chống bám bẩn) khóa đối xứng bằng <strong>Gỗ Nâu Đen <code>LK 4512 A</code></strong> &amp; <strong>Gỗ phủ Laminate Travertine</strong>.</p>
+          </div>
+        </details>
+
+        <details class="tone-disclosure" name="qvilla-tone-spec" id="details-tone2">
+          <summary>📋 Hồ Sơ Mã Ván &amp; Gỗ Vân Travertine — Warm Walnut &amp; Wood-Travertine (Ấm Áp Tiết Kiệm Nhất)</summary>
+          <div class="tone-disclosure-body">
+            <p>• <strong>Cánh phẳng Be Cashmere &amp; Gỗ Óc Chó Nâu Ấm:</strong> Cánh MDF 17mm phủ <strong>Melamine Be Cashmere <code>MS 334 SMM</code></strong> kết hợp ván phẳng <strong>Gỗ Óc Chó <code>LK 4487 A</code> / <code>MS 635 EV</code></strong> và vách <strong>Gỗ phủ Laminate Beige Travertine <code>LK 2145 ST</code></strong> — ăn khớp 99% Cửa gỗ Lim D3 với chi phí tối ưu nhất (<code>637,20 triệu ₫</code>).</p>
+          </div>
+        </details>
+
+        <details class="tone-disclosure" name="qvilla-tone-spec" id="details-tone3">
+          <summary>📋 Hồ Sơ Mã Ván &amp; Gỗ Vân Travertine — Boutique Smoked Wood Luxury (Tương Phản Kính Khói)</summary>
+          <div class="tone-disclosure-body">
+            <p>• <strong>Tương phản sắc sảo:</strong> Kết hợp cánh phẳng <strong>Warm Taupe <code>MS 235 SMM</code></strong>, ván phẳng <strong>Gỗ Nâu Đen Khói <code>LK 4512 A</code></strong>, vách <strong>Gỗ phủ Laminate Silver-Taupe Travertine <code>LK 2148 ST</code></strong> và mở rộng hệ <strong>Cánh kính xám khói khung nhôm đen full LED</strong>.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 1: HYBRID PLYWOOD + MDF ENGINEERING STRATEGY -->
+    <section class="block" id="sec-strategy">
+      <span class="section-tag">PHẦN 2 • TƯ VẤN KỸ THUẬT CỐT GỖ &amp; BỀ MẶT PHẲNG KHÔNG BÁM BỤI</span>
+      <h2 class="section-title">Ma Trận Phối Hợp 45% Gỗ Plywood &amp; 55% Gỗ MDF Lõi Xanh + Vách Phẳng Travertine</h2>
+      <p class="section-sub">
+        Áp dụng chung cho cả 3 Tone màu: đặt đúng cốt <strong>Plywood 18mm chịu nước</strong> vào nơi chịu lực/ẩm và <strong>MDF lõi xanh 17mm</strong> vào hệ cánh cao kịch trần &amp; vách phẳng Travertine để bền đẹp 20 năm:
+      </p>
+
+      <div class="matrix-grid">
+        <article class="matrix-card plywood">
+          <h3>🪵 1. Vị Trí BẮT BUỘC Dùng Plywood 18mm Chịu Nước</h3>
+          <ul>
+            <li><strong>Toàn bộ 05 Giường ngủ (Master 2,0×2,2m &amp; 4 PN 1,8×2,0m):</strong> Vai giường, đuôi giường và 100% thang/phản giát giường dùng <strong>Plywood 18mm</strong> bo góc tròn mịn, chịu tải cực chắc, không kêu cót két.</li>
+            <li><strong>Mặt bàn vượt nhịp dài &amp; Đợt kệ chịu tải nặng:</strong> Mặt <strong>02 Bàn làm việc đôi T3 (1.600mm chập đôi dày 36mm)</strong> kẹp Arm 4 màn hình không lún; Mặt <strong>02 Bàn học dài 2.050mm (PN1 &amp; PN3)</strong>; <strong>100% đợt ngang Tủ sách T3 (2.440mm)</strong>; Khung <strong>Bàn phấn treo O2 (1.330mm) &amp; Kệ TV treo (3.200mm)</strong>.</li>
+            <li><strong>Vùng tiếp xúc ẩm / tải mặt đá:</strong> Thùng <strong>Bàn Đảo Bếp bo tròn R400 (1.400×800)</strong>, Khoang máy pha Cafe/Lọc nước của <strong>Tủ phụ (2.800×550)</strong>, Đáy <strong>Tủ giày T1</strong>, <strong>Hậu 9mm + Đáy Tủ áo Master #1 &amp; #2</strong> (giáp WC-02) và Khung bọc <strong>Hộp kỹ thuật T3</strong>.</li>
+          </ul>
+        </article>
+
+        <article class="matrix-card mdf">
+          <h3>✨ 2. Vị Trí BẮT BUỘC Dùng MDF Lõi Xanh 17mm Phẳng Tuyệt Đối</h3>
+          <ul>
+            <li><strong>100% Cánh tủ mở &amp; cánh lùa cao kịch trần (2.650 – 3.400mm):</strong> Cốt MDF đặc mịn đồng nhất giúp <strong>cánh tủ phẳng lỳ không cong vênh chữ C (3–6mm)</strong> sau mùa nồm như cánh Plywood khổ dài.</li>
+            <li><strong>Hệ Vách Phẳng Travertine &amp; Ván Gỗ Phẳng Chia Ron Âm (0% Lam dọc):</strong> Toàn bộ vách TV, vách đầu giường 5 phòng ngủ, vách tủ đảo Master và vách hậu Phòng thờ dùng tấm phẳng khổ rộng dễ vệ sinh, chi phí lại tối ưu hơn ghép từng thanh lam gỗ.</li>
+            <li><strong>Hồi đứng &amp; vách chia khoang vùng khô ráo:</strong> Giảm 15–20% chi phí so với đóng full thùng Plywood mà vẫn đạt chuẩn chống ẩm E1.</li>
+          </ul>
+        </article>
+
+        <article class="matrix-card surface">
+          <h3>🎨 3. Cách Kết Hợp Đá Nung Kết Travertine × Laminate × Melamine</h3>
+          <ul>
+            <li><strong>Mặt nằm chịu nước/nhiệt (Mặt Đảo bếp, Bàn ăn, Quầy Cafe):</strong> Dùng <strong>Đá nung kết / Thạch anh mờ vân Travertine dày 15–20mm</strong> chống ngấm ố cà phê/dầu mỡ tuyệt đối (đồng bộ Tủ bếp Inox cánh kính màu Be).</li>
+            <li><strong>Mặt bàn tỳ tay &amp; Vách đứng Travertine:</strong> Dùng <strong>Laminate HPL chống trầy An Cường</strong> (vân gỗ phẳng <code>LK 4487 A / 4465 A / 4512 A</code> kết hợp vân đá Travertine sần mờ <code>LK 2145 ST / 2148 ST</code>).</li>
+            <li><strong>Lòng thùng tủ &amp; Cánh phẳng phòng ngủ:</strong> Dùng <strong>Melamine cao cấp đồng màu</strong> (Be Cashmere / Ivory / Warm Taupe) tiệp với nền tường <strong>Jotun 1001 Egghvit</strong>.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTIVE BOQ & COST ESTIMATION TABLE -->
+    <section class="block" id="sec-boq">
+      <span class="section-tag">PHẦN 3 • BẢNG BÓC TÁCH KHỐI LƯỢNG &amp; DỰ TOÁN CHI PHÍ NỘI THẤT TƯƠNG TÁC</span>
+      <h2 class="section-title">Bảng Dự Toán Chi Tiết 21 Hạng Mục Nội Thất Toàn Nhà (Tự Động Cộng Tổng &amp; Chỉnh Sửa Đơn Giá)</h2>
+      <p class="section-sub">
+        Bạn có thể lọc theo từng tầng, tích chọn/bỏ chọn từng món đồ, hoặc sửa trực tiếp <strong>Khối lượng</strong> và <strong>Đơn giá</strong> theo báo giá của xưởng mộc để so sánh ngay:
+      </p>
+
+      <div class="table-toolbar">
+        <div class="filter-pills" role="group" aria-label="Lọc theo tầng">
+          <button type="button" class="filter-pill active" onclick="filterInteriorTable('all', this)">Tất Cả 7 Phân Khu (Không Gồm P.Thờ)</button>
+          <button type="button" class="filter-pill" onclick="filterInteriorTable('F1', this)">Tầng 1: Sảnh • Khách • Ăn • Đảo Bếp • Ông Bà</button>
+          <button type="button" class="filter-pill" onclick="filterInteriorTable('F2', this)">Tầng 2: Master Open-Suite • PN1 • PN2 • Sảnh</button>
+          <button type="button" class="filter-pill" onclick="filterInteriorTable('F3', this)">Tầng 3: P.Làm Việc • PN3 • PN4 • Rèm/Đệm</button>
+        </div>
+        <span id="save-status" style="font-size:0.8rem;font-weight:700;color:var(--emerald-light);">📌 Đang hiển thị: ⭐ PA 1 — Tầm Trung Tối Ưu (7 Phân Khu Sinh Hoạt)</span>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="interior-table-caption" class="table-wrapper">
+        <table class="cost-table">
+          <caption id="interior-table-caption">
+            Bảng bóc tách khối lượng, quy cách phối hợp gỗ Plywood × MDF lõi xanh và dự toán chi phí nội thất toàn nhà Q Villa (Riêng Phòng Thờ T3 quản lý tại phong-tho-tang3.html)
+          </caption>
+          <thead>
+            <tr>
+              <th>Hạng Mục Nội Thất &amp; Kích Thước</th>
+              <th>Chọn</th>
+              <th>Tầng / Khu Vực</th>
+              <th>Quy Cách Phối Hợp Plywood × MDF Lõi Xanh &amp; Bề Mặt</th>
+              <th>ĐVT</th>
+              <th>Khối Lượng</th>
+              <th>Đơn Giá (₫)</th>
+              <th>Thành Tiền (₫)</th>
+            </tr>
+          </thead>
+          <tbody id="nt-tbody"></tbody>
+          <tfoot>
+            <tr>
+              <th colspan="7">TỔNG CỘNG CHI PHÍ NỘI THẤT ĐANG CHỌN:</th>
+              <td id="tfoot-nt-total" style="text-align:right;color:var(--emerald-light);font-size:1.08rem;">616.700.000 ₫</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Light-Dismiss Modal Dialog (modern-web-guidance: light-dismiss-a-dialog) -->
+  <dialog id="lightbox-modal" closedby="any" aria-labelledby="lightbox-title">
+    <div class="dialog-bar">
+      <h2 id="lightbox-title" style="font-size:0.95rem;font-weight:800;color:var(--accent-light);">Phối cảnh nội thất Q Villa</h2>
+      <form method="dialog">
+        <button type="submit" class="dialog-close-btn">✕ Đóng (Esc)</button>
+      </form>
+    </div>
+    <div class="dialog-img-wrap">
+      <img id="lightbox-img" src="assets/v3_1to1_r1b_living_warmbeige.jpg" alt="Phối cảnh phóng to" />
+    </div>
+  </dialog>
+
+  <script>
+    const INTERIOR_ITEMS = [
+      // TẦNG 1
+      {
+        id: "nt1_1", floor: "F1", group: "wood", enabled: true,
+        zone: "1. Tiền Sảnh T1",
+        name: "Hệ Tủ Giày Kịch Trần Cánh Phẳng + Hốc Ngồi Thay Giày & Trạm Robot (2.500 × 550 × 3.400 mm)",
+        spec: "Plywood 18mm chịu nước (đáy tủ giày ướt & khung bệ ngồi) + MDF lõi xanh 17mm cánh cao 3,4m phẳng lỳ màu Be cát ấm tiệp nền sơn Jotun 1001, hốc ngồi gỗ ấm bọc da Caramel + LED cảm biến",
+        unit: "m²", qty: 8.5, price: 3200000
+      },
+      {
+        id: "nt1_2", floor: "F1", group: "wood", enabled: true,
+        zone: "2. Phòng Khách T1",
+        name: "Vách Ốp Tivi Gỗ Vân Đá Travertine Mờ / Hộp Bo Tròn Kem Latte (3.200 × 3.400 mm • 0% Lam Gỗ) + Kệ/Bệ 3,2m",
+        spec: "Đã chuyển sang GỖ VÂN TRAVERTINE (-4,0tr): Khung xương & Bệ 3,2m bằng Plywood 18mm chịu lực; mặt vách dùng MDF lõi xanh 17mm phủ Da lộn/Vải Kem Latte hoặc Laminate vân đá Travertine sần mờ (LK 2145 ST) + LED 2800K",
+        unit: "Gói", qty: 1, price: 26500000
+      },
+      {
+        id: "nt1_3", floor: "F1", group: "loose", enabled: true,
+        zone: "2. Phòng Khách T1",
+        name: "Hệ Sofa Bệ Gỗ Đương Đại Kiểu Ý Kèm Khay Gỗ (2.800 × 1.850 mm) + Đệm Da Trơn + Bàn Trà & Thảm",
+        spec: "SOFA BỆ GỖ CHỐNG XƯỚC GẦM (Hợp Robot hút bụi, 0% Nỉ xù): Khung bệ bo tròn R60 bằng Gỗ Tần Bì/Sồi tẩm sấy + lõi Plywood 18mm lên màu Mocha / Nâu Đen kèm kệ tỳ tay liền bệ + Đệm rời mút K43 bọc Da Microfiber trơn mịn",
+        unit: "Bộ", qty: 1, price: 34000000
+      },
+      {
+        id: "nt2_1", floor: "F1", group: "wood", enabled: true,
+        zone: "3. Khu Bếp & Ăn T1",
+        name: "Bàn Đảo Bếp Bo Tròn R400 (1.400×800×890 • KT-2.02): Quây Gỗ Vân Travertine + Mặt Đá Nung Kết + 2 Ghế Bar",
+        spec: "MẶT NẰM BẮT BUỘC DÙNG ĐÁ NUNG KẾT 18mm chống ố/nhiệt; phần thùng & đầu bo R400 bên dưới dùng 100% Plywood 18mm chịu nước uốn cong phủ Laminate vân Travertine đồng bộ Tủ bếp Inox cánh kính màu Be",
+        unit: "Hệ", qty: 1, price: 19500000
+      },
+      {
+        id: "nt2_2", floor: "F1", group: "wood", enabled: true,
+        zone: "3. Khu Bếp & Ăn T1",
+        name: "Hệ Tủ Phụ Rượu Cánh Kính & Hốc Pha Cafe (2.800×550×2.800) + Cánh Giả Đỉnh Bếp (4,95m)",
+        spec: "MẶT BÀN HỐC CAFE (1,0m) lót Đá Nung Kết chống nước sôi; vách hốc & thùng dùng Plywood 18mm phủ Laminate vân Travertine; Tủ rượu cánh kính nhôm Anode Champagne/Đen LED (25,5tr) + Cánh đỉnh bếp +2.29..+2.80m (8,0tr)",
+        unit: "Gói", qty: 1, price: 33500000
+      },
+      {
+        id: "nt2_3", floor: "F1", group: "loose", enabled: true,
+        zone: "3. Khu Bếp & Ăn T1",
+        name: "Bộ Bàn Ăn Mặt Đá Nung Kết Chống Ố 8 Ghế (2.200 × 1.000 × 750 mm)",
+        spec: "MẶT NẰM BẮT BUỘC DÙNG ĐÁ NUNG KẾT vân Travertine mờ chống xước/nhiệt đặt trên ổ cắm âm sàn S1 + 08 ghế ăn bọc nỉ Bouclé / da đồng bộ phong cách",
+        unit: "Bộ", qty: 1, price: 22000000
+      },
+      {
+        id: "nt2_4", floor: "F1", group: "wood", enabled: false,
+        zone: "3. Khu Bếp & Ăn T1",
+        name: "[Đang Tắt — Gia Đình Đã Chốt Tủ Bếp Inox Cánh Kính Màu Be] Tùy Chọn Đổi Tủ Bếp Sang Thùng Gỗ Plywood",
+        spec: "Mặc định TẮT vì gia đình bạn dùng Tủ bếp chữ I (4,95m) Thùng Inox cánh kính màu Be đã tính bên index.html. Chỉ tích bật mục này nếu muốn tham khảo giá đóng bằng gỗ Plywood",
+        unit: "Hệ", qty: 1, price: 76000000
+      },
+      {
+        id: "nt3_1", floor: "F1", group: "wood", enabled: true,
+        zone: "4. P.Ngủ Ông Bà T1",
+        name: "Hệ Giường Bệ Gỗ Ông Bà Bo Tròn R60 (1.800 × 2.000 mm • Cao 38cm) + Vách Gỗ Vân Travertine (3,0m) + 2 Táp",
+        spec: "HỆ GIƯỜNG BỆ GỖ CHỐNG BÁM BẨN (0% Bọc Nỉ): 100% Vai, đuôi & phản giường bằng Plywood 18mm phủ Laminate vân gỗ bo góc tròn R60 an toàn, chân âm hắt LED; Vách đầu giường ván cứng Melamine/Laminate vân Travertine lau sạch 100%",
+        unit: "Gói", qty: 1, price: 16500000
+      },
+      {
+        id: "nt3_2", floor: "F1", group: "wood", enabled: true,
+        zone: "4. P.Ngủ Ông Bà T1",
+        name: "Hệ Tủ Áo Cánh Phẳng Kịch Trần Tường Bắc (2.100 × 600 × 2.800 mm) + Bàn Đọc Sách Góc Đông-Bắc",
+        spec: "Đáy tủ, đợt ngang dài & mặt bàn đọc sách (1.000×500) bằng Plywood 18mm phủ Laminate chống võng; hồi & cánh mở phẳng lỳ (5,88 m²) bằng MDF lõi xanh 17mm tiệp nền sơn Jotun 1001",
+        unit: "Gói", qty: 1, price: 19500000
+      },
+
+      // TẦNG 2
+      {
+        id: "nt4_1", floor: "F2", group: "wood", enabled: true,
+        zone: "5. Master T2 (Khu Ngủ)",
+        name: "Hệ Giường Bệ Gỗ Master King-Size Bo Góc R60 (2.000 × 2.200 mm) + Vách Gỗ Vân Travertine + 2 Táp & Đôn Da Trơn",
+        spec: "HỆ GIƯỜNG BỆ GỖ BO GÓC R60 (0% Nỉ Xù) + GỖ VÂN TRAVERTINE (-3,0tr): Khung bệ & tựa đầu giường King liền táp bằng Plywood 18mm phủ Laminate vân gỗ sắc nét như Boutique Luxury + Đôn đuôi giường gỗ mặt da bò trơn dễ lau sạch",
+        unit: "Gói", qty: 1, price: 26500000
+      },
+      {
+        id: "nt4_2", floor: "F2", group: "wood", enabled: true,
+        zone: "5. Master T2 (Khu Ngủ)",
+        name: "Hệ Tủ Áo Âm Tường #3 (2.010×600×2.650) + Vách Tủ Đảo 2 Mặt Gỗ Uốn Bo Vân Travertine Trục B (1.740×450)",
+        spec: "Đã chuyển sang GỖ VÂN TRAVERTINE (-3,0tr): Vách Tủ Đảo 2 mặt dùng Plywood + MDF uốn bo tròn góc phủ Laminate vân đá Travertine liền mạch (nhẹ & không lộ mạch ghép đen như đá thật!), mặt sau là Tủ Áo 4 khoang",
+        unit: "Gói", qty: 1, price: 23000000
+      },
+      {
+        id: "nt5_1", floor: "F2", group: "wood", enabled: true,
+        zone: "6. Master T2 (Thay Đồ)",
+        name: "Bàn Đảo Mặt Kính Trưng Bày Phụ Kiện Đế Gỗ Vân Travertine (1.150 × 550 × 850 mm • Dưới Vòm Mặt Trăng)",
+        spec: "Đã chuyển bệ sang GỖ VÂN TRAVERTINE (-1,5tr): Khung bắt sàn Plywood 18mm, bệ chân phủ Laminate vân Travertine, thân đảo Kem Latte phối Gỗ Mocha (Warm Beige) hoặc Gỗ Mun bóng (Italian) + Mặt kính siêu trong 10mm + LED",
+        unit: "Hệ", qty: 1, price: 13000000
+      },
+      {
+        id: "nt5_2", floor: "F2", group: "wood", enabled: true,
+        zone: "6. Master T2 (Thay Đồ)",
+        name: "Cặp Tủ Áo Cánh Phẳng & Cánh Kính #1 – #2 (2,36m × 2,65m) + Hệ Cửa Kính Mờ Vào WC-02 (1.080×2.650)",
+        spec: "BẮT BUỘC Hậu (9mm) + Đáy + Đợt chịu lực bằng Plywood chịu nước (vì lưng áp sát tường phòng tắm WC-02!); cánh MDF lõi xanh 17mm phẳng nhẵn phối tủ kính LED (22,5tr) + Cửa nhôm Slim kính mờ vào WC-02 (9,5tr)",
+        unit: "Gói", qty: 1, price: 32000000
+      },
+      {
+        id: "nt5_3", floor: "F2", group: "wood", enabled: true,
+        zone: "6. Master T2 (Thay Đồ)",
+        name: "Bàn Phấn/LV Treo Cửa Sổ O2 Bo Tròn Mịn (1.330mm) + Cột Tròn Hắt Sáng + Kệ Túi Kính & Đôn Da Trơn",
+        spec: "Bàn treo không chân 1,33m dùng Khung hộp Plywood 18mm bo góc R60 mịn + Gương LED & Đôn bọc da Caramel / Cam Hermès trơn dễ lau (8,5tr); Kệ túi cánh kính LED + Bo tròn cột cửa sổ & Gương toàn thân (14,5tr)",
+        unit: "Gói", qty: 1, price: 23000000
+      },
+      {
+        id: "nt6_1", floor: "F2", group: "wood", enabled: true,
+        zone: "7. P.Ngủ 1 & 2 Tầng 2",
+        name: "Trọn Bộ Nội Thất Phòng Ngủ 1 T2 (Trục B–D 16,2m²: Giường Bệ Gỗ 1,8m + Vách Travertine + Tủ 3,2m + Bàn 2,05m)",
+        spec: "Hệ giường bệ gỗ rộng 1.8×2.0m 100% Plywood 18mm bo góc R60 liền tựa gỗ phẳng chống bám bẩn + Vách gỗ vân Travertine & Táp (19,5tr) + Tủ áo kịch trần (3.200×600×2.650) có cột kính LED + Bàn học cửa sổ 2.050mm Plywood Laminate (29,5tr)",
+        unit: "Phòng", qty: 1, price: 49000000
+      },
+      {
+        id: "nt7_1", floor: "F2", group: "wood", enabled: true,
+        zone: "7. P.Ngủ 1 & 2 Tầng 2",
+        name: "Trọn Bộ Nội Thất Phòng Ngủ 2 T2 (Trục A–B 13,5m²: Giường Bệ Gỗ 1,8m + Vách Phẳng + Tủ 2,1m + Bàn 1,05m)",
+        spec: "Hệ giường bệ gỗ 1.8×2.0m 100% Plywood 18mm bo góc R60 chống bám bẩn + Vách đầu giường phẳng cứng & Táp (16,0tr) + Tủ áo cánh phẳng kịch trần (2.100×600×2.650) + Bàn học góc Đông-Bắc 1.050mm Plywood Laminate (19,5tr)",
+        unit: "Phòng", qty: 1, price: 35500000
+      },
+      {
+        id: "nt6_3", floor: "F2", group: "loose", enabled: true,
+        zone: "7. Sảnh Thư Giãn T2",
+        name: "Bộ 02 Ghế Armchair Khung Gỗ Bọc Da Microfiber Trơn + Bàn Trà Tròn Ø650mm (Sảnh Thư Giãn T2)",
+        spec: "Khung gỗ Tần bì / Plywood uốn cong bọc da Microfiber trơn mịn màu Kem Latte / Cognac chống bám bẩn + Bàn trà tròn đặt tại hành lang thư giãn Tầng 2 (1.800×2.010mm)",
+        unit: "Bộ", qty: 1, price: 8500000
+      },
+
+      // TẦNG 3
+      {
+        id: "nt8_1", floor: "F3", group: "wood", enabled: true,
+        zone: "8. P.Làm Việc Đôi T3",
+        name: "02 Bàn Làm Việc Đôi (1.600×600×750 × 2) + Tủ Máy In (300mm) + Hệ Tủ Sách Hậu Gỗ Vân Travertine LED",
+        spec: "Đã chuyển hậu sang GỖ VÂN TRAVERTINE (-2,0tr): Mặt bàn đôi 1,6m bằng Plywood chập đôi dày 36mm kẹp Arm 4 màn hình (12,5tr) + Tủ sách 2,44m & Ốp phẳng Hộp KT 980mm dùng đợt Plywood 18mm, hậu Melamine/Laminate Travertine + LED (24,5tr)",
+        unit: "Gói", qty: 1, price: 37000000
+      },
+      {
+        id: "nt8_3", floor: "F3", group: "loose", enabled: true,
+        zone: "8. P.Làm Việc Đôi T3",
+        name: "Loveseat / Daybed Đọc Sách Tường Đông (1.570 × 640 mm) + 02 Ghế Xoay Da Công Thái Học",
+        spec: "Sofa cong Bouclé / Daybed đọc sách khung Plywood 18mm dưới điều hòa 12.000 BTU (6,5tr) + 02 Ghế làm việc bọc da bảo vệ cột sống (5,0tr)",
+        unit: "Gói", qty: 1, price: 11500000
+      },
+      {
+        id: "nt8_4", floor: "F3", group: "wood", enabled: true,
+        zone: "8. P.Làm Việc Đôi T3",
+        name: "Hệ Vách Cửa Lùa 4 Cánh Kính Sóng Ngăn Phòng Thờ (2.400 × 2.750 mm = 6,6 m² • Không Ray Sàn)",
+        spec: "Khung nhôm Slim mạ Champagne mờ hoặc Đen + Kính cường lực sóng mờ cách âm + Ray treo giảm chấn trên trần + Gioăng EPDM giữ lạnh điều hòa",
+        unit: "Bộ", qty: 1, price: 16500000
+      },
+      {
+        id: "nt9_1", floor: "F3", group: "wood", enabled: false,
+        zone: "9. Phòng Thờ T3 (Trang Riêng)",
+        name: "[Đang Tắt — Đã Chốt Hồ Sơ & Dự Toán Riêng Tại phong-tho-tang3.html] Tùy Chọn Cộng Gộp Gói Phòng Thờ PA 16",
+        spec: "Mặc định TẮT vì khu vực Phòng Thờ Tầng 3 gia đình đã có trang thiết kế & dự toán độc lập (PA 16 = 89,50tr tại phong-tho-tang3.html). Chỉ tích bật nếu bạn muốn cộng gộp vào tổng cuối cùng",
+        unit: "Gói", qty: 1, price: 89500000
+      },
+      {
+        id: "nt10_1", floor: "F3", group: "wood", enabled: true,
+        zone: "10. P.Ngủ 3 & 4 Tầng 3",
+        name: "Trọn Bộ Nội Thất Phòng Ngủ 3 T3 (Trục B–D 16,2m²) & Phòng Ngủ 4 T3 (Trục A–B 13,5m²)",
+        spec: "Đồng bộ thiết kế toàn nhà với Tầng 2: PN3 gồm Giường Plywood 1,8m + Vách gỗ vân Travertine + Tủ 3,2m + Bàn học Tây 2,05m Plywood Laminate (49,0tr); PN4 gồm Giường Plywood 1,8m + Vách phẳng + Tủ 2,1m + Bàn 1,05m (35,5tr)",
+        unit: "Gói", qty: 1, price: 84500000
+      },
+      {
+        id: "nt10_3", floor: "F3", group: "loose", enabled: true,
+        zone: "10. Rèm Vải & Đệm Toàn Nhà",
+        name: "Hệ Vải Rèm Cửa 2 Lớp Toàn Nhà (T1, T2, T3) + 05 Bộ Đệm Ngủ Cao Cấp (Đã Trừ Motor Aqara Mục 7)",
+        spec: "May vải rèm 2 lớp (Voan trắng + Vải cản sáng 95% màu Kem Champagne / Greige hợp nền Jotun 1001) (18,5tr) + 05 Bộ đệm lò xo túi / cao su cho 5 phòng ngủ (25,0tr)",
+        unit: "Gói", qty: 1, price: 43500000
+      },
+      {
+        id: "nt_warmbeige_pkg", floor: "F1", group: "wood", enabled: true,
+        zone: "11. Gói Chi Tiết Warm Beige",
+        name: "[Riêng Warm Beige Cashmere-Latte] Hộp TV Bo Tròn Kem Latte, Bệ Giường Gỗ R60 & Hệ Kính Trà Đồng Ấm",
+        spec: "Đã giảm -2,5tr nhờ chuyển sang Hệ giường bệ gỗ chống bám bẩn (bỏ bọc mút nỉ): Gồm hộp Tivi uốn bo tròn hắt sáng 2800K, gia công bệ giường gỗ bo góc R60 liền táp & hệ cánh kính màu Trà Đồng ấm (Amber-Tea Bronze)",
+        unit: "Gói", qty: 1, price: 10500000
+      },
+      {
+        id: "nt_italian_pkg", floor: "F1", group: "wood", enabled: false,
+        zone: "11. Chi Tiết Đặc Trưng Kiểu Ý",
+        name: "[Riêng Italian Quiet Luxury] Hộp TV Bo Cong, Bệ Giường Gỗ Nâu Đen R60 & Vách Cứng Khổ Lớn 700mm",
+        spec: "Đã giảm -2,5tr nhờ chuyển sang Hệ giường bệ gỗ chống bám bẩn (bỏ tai nỉ Bouclé): Gia công hộp vách Tivi bo R120, bệ giường gỗ Smoked Espresso bo góc R60 liền táp & chia vách ván cứng khổ rộng 700mm",
+        unit: "Gói", qty: 1, price: 11800000
+      },
+      {
+        id: "nt_tone3_lux", floor: "F2", group: "wood", enabled: false,
+        zone: "11. Nâng Cấp Bề Mặt Boutique",
+        name: "[Riêng Boutique Smoked Luxury] Nâng Cấp Hệ Cánh Kính Xám Khói LED Mở Rộng Các Phòng & Chỉ Đồng",
+        spec: "Tự động bật khi chọn Boutique Smoked Luxury: Bổ sung thêm diện tích cánh kính cường lực xám khói khung nhôm Anode đen cho tủ sảnh T1, tủ áo PN phụ & tủ sách T3 kèm chỉ đồng trang trí",
+        unit: "Gói", qty: 1, price: 32000000
+      }
+    ];
+
+    const BASE_ROOMS = [
+      {
+        badge: "1A. Tiền Sảnh Cửa D1 Tầng 1 (1:1)",
+        cost: "27,20 Triệu ₫",
+        title: "Tiền Sảnh Thực Tế 1:1 — Cửa Chính Gỗ Lim D1 & Tủ Giày Kịch Trần 2,5m",
+        bullets: [
+          "<strong>Đúng 100% vị trí thật:</strong> Cửa chính <code>D1</code> 28 pano gỗ Lim chính giữa, thảm đá đen đón sảnh, sàn gạch <code>1000×1000</code> &amp; Trần bo cong <code>PA C</code>.",
+          "<strong>Tủ giày tường trái (2.500×550×3.400):</strong> Đáy <code>Plywood 18mm</code> + Hốc <code>Gỗ vân Travertine</code> + Ghế thay giày bọc da trơn &amp; <strong>Khe Robot hút bụi âm đáy</strong>.",
+          "<strong>Bên phải mở thông sang Sofa Poliform Phòng Khách.</strong>"
+        ],
+        tag1: "Chuẩn 1:1 Tiền Sảnh KT-2.02",
+        cad2d: "assets/tang1_full_khach_bep_tran_den_2d.png",
+        link: "cua-chinh-d1.html"
+      },
+      {
+        badge: "1B. Phòng Khách & Phòng Ăn T1 (1:1)",
+        cost: "64,50 Triệu ₫ (TV + Sofa)",
+        title: "Phòng Khách Thực Tế 1:1 — Vách Kính Bonsai V1, Quạt Trần Lộ 6 & Sofa Poliform",
+        bullets: [
+          "<strong>Đúng 100% vị trí thật:</strong> Trái là kính <code>V1</code> nhìn ra 2 cây Bonsai; trần <code>PA C</code> + Ray nam châm + <strong>Quạt trần Lộ 6</strong>; phải liên thông <strong>Cửa D2 &amp; Bàn ăn 8 ghế</strong> trên sàn gạch <code>1000×1000</code>.",
+          "<strong>Vách Tivi Tường Bắc (3,2m • 0% lam dọc):</strong> Hộp Tivi bo góc nổi trên nền <code>Gỗ vân Travertine</code> &amp; ván gỗ phẳng đối xứng.",
+          "<strong>Đã chốt Sofa Bệ Gỗ Âm Kiểu Ý Poliform (38,0tr):</strong> Khay gỗ liền hông + Đệm da trơn chống bẩn."
+        ],
+        tag1: "Chuẩn 1:1 Khách – Ăn KT-2.02",
+        cad2d: "assets/tang1_full_khach_bep_tran_den_2d.png",
+        link: "phong-khach-bep-tang1.html"
+      },
+      {
+        badge: "2. Khu Bếp • Đảo Trục 3 & Sân Sau (1:1)",
+        cost: "75,00 Triệu ₫",
+        title: "Bếp Thực Tế 1:1 — Kính Be + Cửa Sổ Ngang S1A + Đảo R400 & Sân Sau Giặt Sấy",
+        bullets: [
+          "<strong>Đúng 100% vị trí thật:</strong> Trần phẳng <code>+3.40m</code> + hộp trán bếp; Tủ bếp chữ I <strong>cánh kính màu Be</strong> có <strong>cửa sổ ngang S1A</strong>, MRB Bosch, Tủ lạnh đôi &amp; cửa lùa ra <strong>Bếp ướt + Tháp giặt sấy sân sau</strong>.",
+          "<strong>Đảo ngang Trục 3 bo R400 (1,4×0,8m):</strong> Thân <code>Plywood uốn vân Travertine</code> + Mặt Đá Nung Kết + 2 ghế Bar da trơn.",
+          "<strong>Tủ phụ Rượu cánh kính LED &amp; Hốc pha Cafe 2,8m nối chữ L.</strong>"
+        ],
+        tag1: "Chuẩn 1:1 Bếp KT-2.02",
+        cad2d: "assets/tang1_full_khach_bep_tran_den_2d.png",
+        link: "bep-tang1.html"
+      },
+      {
+        badge: "3. P.Ngủ Ông Bà T1 — Trục A–B (1:1)",
+        cost: "36,00 Triệu ₫",
+        title: "Phòng Ngủ Ông Bà Thực Tế 1:1 — Cửa Vườn Nhiệt Đới & Giường Bệ Gỗ R60",
+        bullets: [
+          "<strong>Đúng 100% vị trí thật:</strong> Trần chỉ âm đen + khe gió ĐH, ô kính cây xanh bên trái &amp; cửa kính lùa lớn mở ra vườn sau bên phải, sàn gạch xương cá <code>150×900</code>.",
+          "<strong>Hệ giường bệ gỗ thấp 38cm bo góc R60:</strong> Hắt LED gầm chống vấp + táp treo liền khối (0% nỉ xù).",
+          "<strong>Vách đầu giường ván cứng &amp; Gỗ vân Travertine (đã bỏ 100% lam dọc).</strong>"
+        ],
+        tag1: "Chuẩn 1:1 P.Ngủ Trục A–B",
+        cad2d: "assets/ban_ve_2_loai_phong_ngu_truc_ab_va_bd.jpg"
+      },
+      {
+        badge: "4. Master T2 — Khu Ngủ & Vách Tranh (1:1)",
+        cost: "49,50 Triệu ₫",
+        title: "Master Khu Ngủ Thực Tế 1:1 — Vách Tủ Đảo Trục B & 2 Lối Đi Mở 850mm",
+        bullets: [
+          "<strong>Đúng 100% PA2 đã chốt:</strong> Trần <code>PA C</code> + 2 khe ĐH, cửa <code>Logia 01</code> bên phải, <strong>Vách Đảo 1.740mm giữa phòng treo Tranh Nghệ Thuật</strong> (không treo TV) + <strong>2 lối đi mở 850mm</strong>.",
+          "<strong>Hệ giường King bệ gỗ R60 + Đôn gỗ mặt da bò trơn (0% nỉ xù Bouclé).</strong>",
+          "<strong>Vách đầu giường ván cứng phẳng + Gỗ vân Travertine hắt sáng.</strong>"
+        ],
+        tag1: "Chuẩn 1:1 Master PA2",
+        cad2d: "assets/master_pa2_zone_split_2d.png",
+        link: "phong-master-tang2.html"
+      },
+      {
+        badge: "5. Master T2 — Khu Thay Đồ & WC-02 (1:1)",
+        cost: "68,00 Triệu ₫",
+        title: "Master Thay Đồ Thực Tế 1:1 — Đảo Kính, Bàn Phấn O2 & Cửa Sọc WC-02",
+        bullets: [
+          "<strong>Đúng 100% vị trí thật:</strong> Đảo phụ kiện mặt kính đế <code>Gỗ vân Travertine</code> giữa phòng; sau lưng là cặp <strong>Tủ #1–#2 kẹp cửa kính sọc nhìn thẳng vào bồn tắm WC-02</strong>.",
+          "<strong>Bên phải:</strong> Cửa sổ <code>O2</code> rèm gỗ + Bàn phấn treo bo mịn + Gương tròn LED &amp; Đôn da trơn.",
+          "<strong>Bên trái:</strong> Hệ tủ trưng bày cánh kính màu LED cao kịch trần."
+        ],
+        tag1: "Chuẩn 1:1 Walk-In Closet PA2",
+        cad2d: "assets/master_pa2_zone_split_2d.png",
+        link: "phong-master-tang2.html"
+      },
+      {
+        badge: "6. 04 P.Ngủ Con — Mẫu PN1/PN3 (1:1)",
+        cost: "169,00 Triệu ₫ (4 Phòng)",
+        title: "Phòng Ngủ Con Thực Tế 1:1 (Trục B–D) — Bàn Học 2,05m S3 & Ban Công D8",
+        bullets: [
+          "<strong>Đúng 100% vị trí thật:</strong> Trần <code>PA C</code>, cửa lùa Ban công Đông <code>D8</code> bên phải, cửa sổ Tây <code>S3</code> kèm <strong>Bàn học treo dài 2,05m Plywood Laminate</strong> bên trái.",
+          "<strong>Giường bệ gỗ rộng bo góc R60 liền táp + Vách phẳng vân Travertine (0% lam gỗ dọc, 0% nỉ xù).</strong>"
+        ],
+        tag1: "Chuẩn 1:1 P.Ngủ Trục B–D",
+        cad2d: "assets/ban_ve_2_loai_phong_ngu_truc_ab_va_bd.jpg"
+      },
+      {
+        badge: "7. P.Làm Việc Đôi T3 — PA T3-A (1:1)",
+        cost: "65,00 Triệu ₫",
+        title: "P.Làm Việc Đôi Thực Tế 1:1 — 2 Cửa Sổ Lam Tây, Hộp KT Phẳng & ĐH Treo",
+        bullets: [
+          "<strong>Đúng 100% vị trí thật:</strong> Trái có đúng <strong>02 cửa sổ mặt tiền lam chắn nắng</strong> kê nối tiếp 2 bàn <code>1,6m</code> dày 36mm; trần <code>PA C</code> + 2 ray nam châm.",
+          "<strong>Chính diện Tường Nam:</strong> Tủ sách <code>2,44m</code> hậu <code>Gỗ vân Travertine</code> đóng phẳng liền mặt <strong>Hộp kỹ thuật góc 980mm</strong>.",
+          "<strong>Bên phải Tường Đông:</strong> Sofa đọc sách bọc da trơn đặt dưới <strong>ĐH treo tường 12.000 BTU</strong> + Cửa gỗ <code>D3</code> ra hành lang."
+        ],
+        tag1: "Chuẩn 1:1 KT-2.04 (PA T3-A)",
+        cad2d: "assets/tang3_kt204_noi_that_dien_mang_rieng.png",
+        link: "phong-lam-viec-tang3.html"
+      }
+    ];
+
+    const TONE_CONFIGS = {
+      warmbeige: {
+        btnId: "btn-tone-warmbeige",
+        detailsId: "details-warmbeige",
+        labelShort: "Warm Beige & Cashmere-Latte (1:1 Nhà Thật)",
+        heading: "☕ Warm Beige & Cashmere-Latte — Phối Cảnh 1:1 Đúng Bố Cục Nhà Thật Q Villa (Đã Chốt Sofa Poliform)",
+        costPill: "Tổng 7 phân khu = 616,70 Tr ₫ (Chuẩn 1:1 Kiến trúc thật • Sofa Bệ Gỗ Poliform + 5 Giường Bệ Gỗ)",
+        sofaPriceOptimal: 38000000,
+        enableWarmBeigePkg: true,
+        enableItalianPkg: false,
+        enableTone3Pkg: false,
+        tag2: "Be Cát MS 334 + Gỗ Mocha R60 + Gỗ Beige Travertine",
+        swatches: [
+          {
+            bg: "linear-gradient(135deg, #d7cab8, #c5b59f)",
+            title: "60% Cánh Be Cát & Đệm Da Kem Latte",
+            code: "Melamine MS 334 SMM + Da Microfiber Kem Latte",
+            note: "Ấm cúng dịu mắt, 0% vải nỉ xù, tiệp 100% Bếp kính Be"
+          },
+          {
+            bg: "repeating-linear-gradient(0deg, #dccfb9 0px, #d1c1a9 6px, #e3d8c5 14px)",
+            title: "Gỗ Phủ Vân Roman Beige Travertine",
+            code: "MDF/Plywood phủ Laminate LK 2145 ST",
+            note: "Dùng cho mọi vách đứng & bệ khô (Tiết kiệm ngay 15tr!)"
+          },
+          {
+            bg: "linear-gradient(90deg, #5f402b, #4a3020)",
+            title: "Sofa Poliform T1 & 5 Giường Bệ Gỗ R60",
+            code: "Gỗ Mocha-Walnut Bo Tròn R60 (0% Nỉ Bám Bẩn)",
+            note: "Khớp 100% gạch T1 1000×1000 & gạch phòng ngủ xương cá"
+          },
+          {
+            bg: "linear-gradient(135deg, #a66c3e 0%, #7d4e2d 55%, #c08552 100%)",
+            title: "10% Kính Trà Đồng Ấm & Da Caramel Trơn",
+            code: "Kính Amber-Tea Bronze LED + Gối/Đôn Da Caramel",
+            note: "Lung linh ấm áp 2800K, không thấm ố nước/cà phê"
+          }
+        ],
+        images: [
+          "assets/v3_1to1_r1a_foyer_warmbeige.jpg",
+          "assets/v3_1to1_r1b_living_warmbeige.jpg",
+          "assets/v3_1to1_r2_kitchen_warmbeige.jpg",
+          "assets/v3_1to1_r3_grandparents_warmbeige.jpg",
+          "assets/v3_1to1_r4_master_sleep_warmbeige.jpg",
+          "assets/v3_1to1_r5_master_wic_warmbeige.jpg",
+          "assets/v3_1to1_r6_bedroom_warmbeige.jpg",
+          "assets/v3_1to1_r7_office_warmbeige.jpg"
+        ]
+      },
+      tone1: {
+        btnId: "btn-tone-1",
+        detailsId: "details-tone1",
+        labelShort: "Italian Modern Quiet Luxury (1:1 Nhà Thật)",
+        heading: "👑 Italian Modern Quiet Luxury — Phối Cảnh 1:1 Đúng Bố Cục Nhà Thật Q Villa (Đã Chốt Sofa Poliform)",
+        costPill: "Tổng 7 phân khu = 618,00 Tr ₫ (Chuẩn 1:1 Kiến trúc thật • Sofa Bệ Gỗ Poliform + 5 Giường Bệ Gỗ)",
+        sofaPriceOptimal: 38000000,
+        enableWarmBeigePkg: false,
+        enableItalianPkg: true,
+        enableTone3Pkg: false,
+        tag2: "Gỗ Nâu Đen R60 + Ván cứng MS 104/235 + Mun bóng",
+        swatches: [
+          {
+            bg: "linear-gradient(135deg, #f6f4ec, #e8e3d8)",
+            title: "Nền Jotun 1001 & Trần Bo PA C",
+            code: "Jotun 1001 Egghvit + Trần Bo Cong + Quạt Lộ 6",
+            note: "Khóa đúng 100% kiến trúc trần & cửa thật Q Villa"
+          },
+          {
+            bg: "repeating-linear-gradient(90deg, #cfc8bc 0px, #c6bfb2 4px, #d4cec2 8px)",
+            title: "60% Vách Ván Cứng & Đệm Da Taupe Trơn",
+            code: "Melamine MS 104 SH + Da Microfiber Taupe",
+            note: "0% vải nỉ xù — Chống thấm ố nước & mồ hôi 100%"
+          },
+          {
+            bg: "linear-gradient(135deg, #2b221d 0%, #463529 55%, #191411 100%)",
+            title: "30% Sofa Poliform & 5 Giường Bệ Gỗ R60",
+            code: "Bệ Gỗ Smoked Espresso Bo Góc R60 + Khay Tay",
+            note: "Đồng bộ Poliform Mondrian từ Tầng 1 lên Tầng 3"
+          },
+          {
+            bg: "linear-gradient(135deg, #b55e2c 0%, #d8622b 100%)",
+            title: "10% Gối/Đôn Da Bò Yên Ngựa Trơn",
+            code: "Da Saddle Cognac Trơn Mịn & Cam Hermès",
+            note: "Lau sạch cực nhanh, sang trọng vượt thời gian"
+          }
+        ],
+        images: [
+          "assets/v3_1to1_r1a_foyer_italian.jpg",
+          "assets/v3_1to1_r1b_living_italian.jpg",
+          "assets/v3_1to1_r2_kitchen_italian.jpg",
+          "assets/v3_1to1_r3_grandparents_italian.jpg",
+          "assets/v3_1to1_r4_master_sleep_italian.jpg",
+          "assets/v3_1to1_r5_master_wic_italian.jpg",
+          "assets/v3_1to1_r6_bedroom_italian.jpg",
+          "assets/v3_1to1_r7_office_italian.jpg"
+        ]
+      },
+      tone2: {
+        btnId: "btn-tone-2",
+        detailsId: "details-tone2",
+        labelShort: "Warm Walnut & Wood-Travertine",
+        heading: "⭐ Warm Walnut & Wood-Travertine — Ván Phẳng Gỗ Óc Chó & Gỗ Phủ Vân Đá Travertine Kem Ấm",
+        costPill: "Tiết kiệm nhất: Tổng 7 phân khu = 602,20 Tr ₫ (Không gồm Phòng Thờ trang riêng)",
+        sofaPriceOptimal: 34000000,
+        enableWarmBeigePkg: false,
+        enableItalianPkg: false,
+        enableTone3Pkg: false,
+        tag2: "Ván phẳng Óc chó LK 4487 A + Gỗ vân Travertine",
+        swatches: [
+          {
+            bg: "linear-gradient(135deg, #f6f4ec, #ede9dc)",
+            title: "Nền Tường Toàn Nhà (Cố Định)",
+            code: "Jotun 1001 Egghvit (Dulux 50YY 83/029)",
+            note: "Trắng kem vỏ trứng ấm — Nối mượt mọi phòng"
+          },
+          {
+            bg: "linear-gradient(135deg, #e5dccf, #d4c8b6)",
+            title: "Cánh Phẳng & Bếp Kính Màu Be",
+            code: "Melamine MS 334 SMM + Bếp Inox Kính Be",
+            note: "Cánh MDF 17mm phẳng lỳ tiệp 100% kính bếp Be"
+          },
+          {
+            bg: "repeating-linear-gradient(0deg, #dfd5c5 0px, #d5cab8 6px, #e4dccd 14px)",
+            title: "Gỗ Phủ Vân Đá Beige Travertine",
+            code: "MDF/Plywood phủ Laminate LK 2145 ST",
+            note: "Phẳng mịn, nhẹ, lau sạch bụi trong 5 giây"
+          },
+          {
+            bg: "linear-gradient(90deg, #5e3e29, #4d311f)",
+            title: "30% Ván Gỗ Phẳng Xuyên Suốt",
+            code: "Gỗ Óc Chó Phẳng LK 4487 A / MS 635 EV",
+            note: "Tiệp 99% Cửa gỗ Lim D3 & Sàn xương cá Óc chó"
+          }
+        ],
+        images: [
+          "assets/qvilla_pa_c_bo_cong_02_tien_sanh.jpg",
+          "assets/v2_r1_living_tone1.jpg",
+          "assets/v2_r2_kitchen_tone1.jpg",
+          "assets/v2_r3_grandparents_tone1.jpg",
+          "assets/v2_r4_master_sleep_tone1.jpg",
+          "assets/v2_r5_master_wic_tone1.jpg",
+          "assets/v2_r6_bedroom_tone1.jpg",
+          "assets/v2_r7_office_tone1.jpg"
+        ]
+      },
+      tone3: {
+        btnId: "btn-tone-3",
+        detailsId: "details-tone3",
+        labelShort: "Boutique Smoked Wood Luxury",
+        heading: "💎 Boutique Smoked Wood Luxury — Gỗ Nâu Đen Khói & Gỗ Vân Silver-Taupe Travertine",
+        costPill: "Tổng 7 phân khu = 634,20 Tr ₫ (Không gồm Phòng Thờ trang riêng • Đã gồm gói kính khói LED)",
+        sofaPriceOptimal: 34000000,
+        enableWarmBeigePkg: false,
+        enableItalianPkg: false,
+        enableTone3Pkg: true,
+        tag2: "Gỗ Nâu Đen LK 4512 A + Gỗ vân Silver Travertine",
+        swatches: [
+          {
+            bg: "linear-gradient(135deg, #f6f4ec, #dfd8cc)",
+            title: "Nền Sáng Jotun 1001 & Bếp Kính Be",
+            code: "Jotun 1001 Egghvit + Tủ Bếp Cánh Kính Be",
+            note: "Giữ không gian thoáng sáng, tôn mảng gỗ trầm"
+          },
+          {
+            bg: "repeating-linear-gradient(0deg, #c2bdb4 0px, #b2aca2 7px, #cbc6be 14px)",
+            title: "Gỗ Phủ Vân Đá Silver Travertine",
+            code: "MDF/Plywood phủ Laminate LK 2148 ST",
+            note: "Vân ngang sang trọng viền nẹp đồng xước mảnh"
+          },
+          {
+            bg: "linear-gradient(90deg, #382c25, #271f1a)",
+            title: "30% Ván Gỗ Nâu Đen Khói Phẳng",
+            code: "Smoked Espresso LK 4512 A / MS 629 EV",
+            note: "Phẳng sắc nét kiểu Boutique 5 sao, không lam dọc"
+          },
+          {
+            bg: "linear-gradient(135deg, #24282e 0%, #b85d35 100%)",
+            title: "10% Kính Xám Khói & Da Cognac",
+            code: "Kính Khói Khung Nhôm Đen LED + Da Terracotta",
+            note: "Chiều sâu thị giác mạnh mẽ và đẳng cấp"
+          }
+        ],
+        images: [
+          "assets/qvilla_pa_c_bo_cong_02_tien_sanh.jpg",
+          "assets/v2_r1_living_tone3.jpg",
+          "assets/v2_r2_kitchen_tone3.jpg",
+          "assets/v2_r3_grandparents_tone3.jpg",
+          "assets/v2_r4_master_sleep_tone3.jpg",
+          "assets/v2_r5_master_wic_tone3.jpg",
+          "assets/v2_r6_bedroom_tone3.jpg",
+          "assets/v2_r7_office_tone3.jpg"
+        ]
+      }
+    };
+
+    const ALL_TONE_KEYS = ["warmbeige", "tone1", "tone2", "tone3"];
+    let currentTone = "warmbeige";
+    let currentPresetMode = "optimal";
+    let isSyncingToneDetails = false;
+
+    const STORAGE_KEY_NT = "qvilla_interior_budget_v10";
+    const BASE_FINISHING_TOTAL = 1999090000;
+    const INOX_KITCHEN_COST = 116120000;
+    let itemsState = JSON.parse(JSON.stringify(INTERIOR_ITEMS));
+    let currentFloorFilter = "all";
+
+    function formatVND(n) {
+      return Math.round(n || 0).toLocaleString("vi-VN") + " ₫";
+    }
+
+    function renderDynamicRoomsGrid(toneId) {
+      const cfg = TONE_CONFIGS[toneId] || TONE_CONFIGS.tone1;
+      const grid = document.getElementById("dynamic-rooms-grid");
+      if (!grid) return;
+
+      grid.innerHTML = BASE_ROOMS.map((rm, idx) => {
+        const imgSrc = cfg.images[idx];
+        const captionFull = `${cfg.labelShort} — ${rm.badge}: ${rm.title}`;
+        const safeCaption = captionFull.replace(/'/g, "\\'");
+        const cadBtn = rm.cad2d
+          ? `<button type="button" onclick="openLightbox('${rm.cad2d}', 'Bản vẽ CAD 2D Mặt bằng thật đối chiếu — ${rm.badge.replace(/'/g, "\\'")}')" style="display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:7px;background:rgba(56,189,248,0.16);border:1px solid rgba(56,189,248,0.45);color:#bae6fd;font-weight:800;font-size:0.73rem;cursor:pointer;">📐 Mặt bằng 2D</button>`
+          : "";
+        const extraLink = rm.link
+          ? `<a href="${rm.link}" style="display:inline-flex;align-items:center;gap:4px;padding:4px 9px;border-radius:7px;background:rgba(245,158,11,0.2);border:1px solid rgba(245,158,11,0.5);color:#fde68a;font-weight:800;font-size:0.73rem;text-decoration:none;">Chi tiết KT →</a>`
+          : "";
+
+        return `
+          <article class="room-card">
+            <div class="room-thumb" onclick="openLightbox('${imgSrc}', '${safeCaption}')">
+              <img src="${imgSrc}" alt="${captionFull}" loading="lazy" />
+              <span class="room-badge">${rm.badge}</span>
+              <span class="room-cost-badge">${rm.cost}</span>
+            </div>
+            <div class="room-body">
+              <div>
+                <h3>${rm.title}</h3>
+                <ul>
+                  ${rm.bullets.map(b => `<li>${b}</li>`).join("")}
+                </ul>
+              </div>
+              <div class="tag-row" style="align-items:center;justify-content:space-between;">
+                <div style="display:flex;flex-wrap:wrap;gap:5px;">
+                  <span class="mat-tag ply">${rm.tag1}</span>
+                  <span class="mat-tag mdf">${cfg.tag2}</span>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:5px;">
+                  ${cadBtn}
+                  ${extraLink}
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function renderInteriorTable() {
+      const tbody = document.getElementById("nt-tbody");
+      tbody.innerHTML = "";
+
+      let totalAll = 0;
+      let totalWood = 0;
+      let totalLoose = 0;
+      let enabledCount = 0;
+
+      itemsState.forEach((it, idx) => {
+        const lineTotal = it.enabled ? Math.round(it.qty * it.price) : 0;
+        if (it.enabled) {
+          enabledCount++;
+          totalAll += lineTotal;
+          if (it.group === "wood") totalWood += lineTotal;
+          else totalLoose += lineTotal;
+        }
+
+        if (currentFloorFilter !== "all" && it.floor !== currentFloorFilter) {
+          return;
+        }
+
+        const tr = document.createElement("tr");
+        if (!it.enabled) tr.className = "row-disabled";
+
+        tr.innerHTML = `
+          <th scope="row">${it.name}</th>
+          <td>
+            <input type="checkbox" ${it.enabled ? "checked" : ""} onchange="toggleItem(${idx}, this.checked)" aria-label="Chọn ${it.name}" style="width:18px;height:18px;accent-color:#10b981;cursor:pointer;" />
+          </td>
+          <td><span style="font-size:0.76rem;font-weight:700;color:#fde68a;">${it.zone}</span></td>
+          <td style="font-size:0.8rem;color:#cbd5e1;max-width:430px;">${it.spec}</td>
+          <td>${it.unit}</td>
+          <td>
+            <input type="number" step="0.1" class="input-inline input-qty" value="${it.qty}" onchange="updateQty(${idx}, this.value)" aria-label="Khối lượng ${it.name}" />
+          </td>
+          <td>
+            <input type="text" class="input-inline input-price" value="${Math.round(it.price).toLocaleString('vi-VN')}" onchange="updatePrice(${idx}, this.value)" aria-label="Đơn giá ${it.name}" />
+          </td>
+          <td class="cell-total">${formatVND(lineTotal)}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      document.getElementById("kpi-nt-total").textContent = formatVND(totalAll);
+      document.getElementById("kpi-nt-sub").textContent = `Đang áp dụng ${TONE_CONFIGS[currentTone].labelShort} • Chọn ${enabledCount}/${itemsState.length} mục`;
+      document.getElementById("kpi-nt-wood").textContent = formatVND(totalWood);
+      document.getElementById("kpi-nt-loose").textContent = formatVND(totalLoose);
+      document.getElementById("tfoot-nt-total").textContent = formatVND(totalAll);
+
+      const plyKitchenItem = itemsState.find(x => x.id === "nt2_4");
+      const adjustedFinishing = (plyKitchenItem && plyKitchenItem.enabled)
+        ? (BASE_FINISHING_TOTAL - INOX_KITCHEN_COST)
+        : BASE_FINISHING_TOTAL;
+      document.getElementById("kpi-nt-combined").textContent = formatVND(adjustedFinishing + totalAll);
+      document.getElementById("kpi-nt-combined-sub").textContent = (plyKitchenItem && plyKitchenItem.enabled)
+        ? "Hoàn thiện đã trừ Tủ bếp Inox (1.882,97 Tr) + Nội thất gộp Tủ bếp Plywood"
+        : "Hoàn thiện gồm Tủ bếp Inox kính Be (1.999,09 Tr) + Nội thất đang chọn";
+    }
+
+    function toggleItem(idx, checked) {
+      itemsState[idx].enabled = Boolean(checked);
+      renderInteriorTable();
+    }
+
+    function updateQty(idx, val) {
+      const n = parseFloat(String(val).replace(/,/g, "."));
+      itemsState[idx].qty = isNaN(n) ? 0 : n;
+      renderInteriorTable();
+    }
+
+    function updatePrice(idx, val) {
+      const clean = parseInt(String(val).replace(/[^\d]/g, ""), 10);
+      itemsState[idx].price = isNaN(clean) ? 0 : clean;
+      renderInteriorTable();
+    }
+
+    function filterInteriorTable(floor, btn) {
+      currentFloorFilter = floor;
+      document.querySelectorAll("#sec-boq .filter-pill").forEach(b => b.classList.remove("active"));
+      if (btn) btn.classList.add("active");
+      renderInteriorTable();
+    }
+
+    function applyToneToBudgetItems(toneId) {
+      const cfg = TONE_CONFIGS[toneId] || TONE_CONFIGS.warmbeige;
+      const warmBeigePkg = itemsState.find(x => x.id === "nt_warmbeige_pkg");
+      if (warmBeigePkg) {
+        warmBeigePkg.enabled = Boolean(cfg.enableWarmBeigePkg) && currentPresetMode !== "economy";
+        warmBeigePkg.price = currentPresetMode === "premium" ? 14500000 : 10500000;
+      }
+      const italianPkg = itemsState.find(x => x.id === "nt_italian_pkg");
+      if (italianPkg) {
+        italianPkg.enabled = Boolean(cfg.enableItalianPkg) && currentPresetMode !== "economy";
+        italianPkg.price = currentPresetMode === "premium" ? 15500000 : 11800000;
+      }
+      const luxPkg = itemsState.find(x => x.id === "nt_tone3_lux");
+      if (luxPkg) {
+        luxPkg.enabled = Boolean(cfg.enableTone3Pkg) && currentPresetMode !== "economy";
+        luxPkg.price = currentPresetMode === "premium" ? 38000000 : 32000000;
+      }
+      const sofaItem = itemsState.find(x => x.id === "nt1_3");
+      if (sofaItem) {
+        if (currentPresetMode === "optimal" || currentPresetMode === "withkitchen") {
+          sofaItem.price = cfg.sofaPriceOptimal;
+        } else if (currentPresetMode === "premium") {
+          sofaItem.price = (toneId === "tone1" || toneId === "warmbeige") ? 49000000 : 45000000;
+        }
+      }
+    }
+
+    function selectDesignTone(toneId, fromDetailsToggle = false) {
+      const cfg = TONE_CONFIGS[toneId];
+      if (!cfg) return;
+      currentTone = toneId;
+
+      ALL_TONE_KEYS.forEach(id => {
+        const btn = document.getElementById(TONE_CONFIGS[id].btnId);
+        if (btn) btn.setAttribute("aria-pressed", id === toneId ? "true" : "false");
+      });
+
+      document.getElementById("active-tone-heading").textContent = cfg.heading;
+      document.getElementById("active-tone-cost-pill").textContent = cfg.costPill;
+
+      const swatchContainer = document.getElementById("tone-swatch-strip");
+      swatchContainer.innerHTML = cfg.swatches.map(sw => `
+        <div class="swatch-chip-card">
+          <div class="swatch-sample" style="background: ${sw.bg};"></div>
+          <div class="swatch-meta">
+            <strong>${sw.title}</strong>
+            <span>${sw.code}</span>
+            <small>${sw.note}</small>
+          </div>
+        </div>
+      `).join("");
+
+      renderDynamicRoomsGrid(toneId);
+
+      if (!fromDetailsToggle) {
+        isSyncingToneDetails = true;
+        const targetDetails = document.getElementById(cfg.detailsId);
+        if (targetDetails && !targetDetails.open) {
+          targetDetails.open = true;
+        }
+        setTimeout(() => { isSyncingToneDetails = false; }, 0);
+      }
+
+      applyToneToBudgetItems(toneId);
+      renderInteriorTable();
+    }
+
+    function applyInteriorPreset(mode) {
+      currentPresetMode = mode;
+      itemsState = JSON.parse(JSON.stringify(INTERIOR_ITEMS));
+      document.querySelectorAll(".preset-btn").forEach(b => b.classList.remove("active"));
+
+      if (mode === "optimal") {
+        document.getElementById("btn-preset-optimal").classList.add("active");
+        document.getElementById("save-status").textContent = "📌 Đang hiển thị: ⭐ PA 1 — Tầm Trung Tối Ưu (Đã áp giá Gỗ vân Travertine -15 Tr)";
+      } else if (mode === "woodonly") {
+        document.getElementById("btn-preset-woodonly").classList.add("active");
+        itemsState.forEach(it => {
+          if (it.group === "loose") it.enabled = false;
+        });
+        document.getElementById("save-status").textContent = "📌 Đang hiển thị: 🪵 PA 2 — Chỉ Đóng Đồ Gỗ May Đo Liền Tường";
+      } else if (mode === "withkitchen") {
+        document.getElementById("btn-preset-withkitchen").classList.add("active");
+        const k = itemsState.find(x => x.id === "nt2_4");
+        if (k) k.enabled = true;
+        document.getElementById("save-status").textContent = "📌 Đang hiển thị: 🍳 PA 3 — Tham Khảo Đổi Cả Tủ Bếp Chữ I Sang Gỗ Plywood";
+      } else if (mode === "economy") {
+        document.getElementById("btn-preset-economy").classList.add("active");
+        const econPrices = {
+          nt1_1: 2650000,
+          nt1_2: 20500000,
+          nt1_3: 26500000,
+          nt2_1: 15000000,
+          nt2_2: 25500000,
+          nt2_3: 17500000,
+          nt3_1: 13500000,
+          nt3_2: 15500000,
+          nt4_1: 21000000,
+          nt4_2: 19000000,
+          nt5_1: 10500000,
+          nt5_2: 24500000,
+          nt5_3: 17500000,
+          nt6_1: 38000000,
+          nt7_1: 28000000,
+          nt6_3: 6500000,
+          nt8_1: 29000000,
+          nt8_3: 9000000,
+          nt8_4: 13500000,
+          nt10_1: 66000000,
+          nt10_3: 32500000
+        };
+        itemsState.forEach(it => {
+          if (econPrices[it.id] !== undefined) it.price = econPrices[it.id];
+        });
+        document.getElementById("save-status").textContent = "📌 Đang hiển thị: 🌱 PA 4 — Tiết Kiệm Tối Đa (Plywood Trọng Yếu + Melamine Phẳng)";
+      } else if (mode === "premium") {
+        document.getElementById("btn-preset-premium").classList.add("active");
+        const premPrices = {
+          nt1_1: 4000000,
+          nt1_2: 35000000,
+          nt1_3: 45000000,
+          nt2_1: 24500000,
+          nt2_2: 41500000,
+          nt2_3: 29000000,
+          nt3_1: 20500000,
+          nt3_2: 24500000,
+          nt4_1: 34500000,
+          nt4_2: 30000000,
+          nt5_1: 17000000,
+          nt5_2: 40000000,
+          nt5_3: 29000000,
+          nt6_1: 60000000,
+          nt7_1: 43500000,
+          nt6_3: 11500000,
+          nt8_1: 46500000,
+          nt8_3: 15500000,
+          nt8_4: 20500000,
+          nt10_1: 103500000,
+          nt10_3: 55000000
+        };
+        itemsState.forEach(it => {
+          if (premPrices[it.id] !== undefined) it.price = premPrices[it.id];
+        });
+        document.getElementById("save-status").textContent = "📌 Đang hiển thị: 💎 PA 5 — Cao Cấp Full Ván An Cường + Phụ Kiện Blum/Hafele";
+      }
+      applyToneToBudgetItems(currentTone);
+      renderInteriorTable();
+    }
+
+    function saveInteriorBudget() {
+      try {
+        localStorage.setItem(STORAGE_KEY_NT, JSON.stringify({ tone: currentTone, items: itemsState }));
+        document.getElementById("save-status").textContent = "💾 Đã lưu phong cách & bảng dự toán V5 của bạn vào trình duyệt!";
+      } catch (e) {}
+    }
+
+    function loadSavedInteriorBudget() {
+      let loadedTone = "warmbeige";
+      let hasCustomSavedItems = false;
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY_NT);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && Array.isArray(parsed.items)) {
+            itemsState = parsed.items;
+            loadedTone = (parsed.tone && TONE_CONFIGS[parsed.tone]) ? parsed.tone : "warmbeige";
+            hasCustomSavedItems = true;
+            document.getElementById("save-status").textContent = "📌 Đang hiển thị: Bản dự toán nội thất V5 đã lưu của bạn";
+          }
+        }
+      } catch (e) {}
+
+      ALL_TONE_KEYS.forEach(id => {
+        const det = document.getElementById(TONE_CONFIGS[id].detailsId);
+        if (det) {
+          det.addEventListener("toggle", () => {
+            if (det.open && !isSyncingToneDetails && currentTone !== id) {
+              selectDesignTone(id, true);
+            }
+          });
+        }
+      });
+
+      if (hasCustomSavedItems) {
+        currentTone = loadedTone;
+        const savedItemsSnapshot = JSON.parse(JSON.stringify(itemsState));
+        selectDesignTone(loadedTone);
+        itemsState = savedItemsSnapshot;
+        renderInteriorTable();
+      } else {
+        selectDesignTone("warmbeige");
+      }
+    }
+
+    // Modal Lightbox + Mandatory non-closedBy fallback (modern-web-guidance: light-dismiss-a-dialog)
+    const dialog = document.getElementById("lightbox-modal");
+    const modalImg = document.getElementById("lightbox-img");
+    const modalTitle = document.getElementById("lightbox-title");
+
+    function openLightbox(src, title) {
+      modalImg.src = src;
+      modalImg.alt = title || "Phối cảnh nội thất Q Villa";
+      if (title) modalTitle.textContent = title;
+      dialog.showModal();
+    }
+
+    if (!("closedBy" in HTMLDialogElement.prototype)) {
+      dialog.addEventListener("click", (event) => {
+        if (event.target !== dialog) return;
+        const rect = dialog.getBoundingClientRect();
+        const isDialogContent = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (isDialogContent) return;
+        dialog.close();
+      });
+    }
+
+    loadSavedInteriorBudget();
+  </script>
+</body>
+</html>

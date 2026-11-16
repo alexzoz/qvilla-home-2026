@@ -1,0 +1,3557 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mô Hình 3D Thực Tế &amp; Hồ Sơ Kỹ Thuật 2D M&amp;E Phòng Làm Việc Tầng 3 (PA T3-A) — Q Villa</title>
+  <script src="assets/three.min.js"></script>
+  <style>
+    :root {
+      --bg: #0b1017;
+      --surface: #131c26;
+      --surface-2: #1b2735;
+      --surface-3: #243447;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.15);
+      --emerald: #10b981;
+      --emerald-soft: rgba(16, 185, 129, 0.16);
+      --sky: #38bdf8;
+      --sky-soft: rgba(56, 189, 248, 0.16);
+      --rose: #f43f5e;
+      --rose-soft: rgba(244, 63, 94, 0.16);
+      --purple: #a855f7;
+      --purple-soft: rgba(168, 85, 247, 0.16);
+      --border: rgba(255, 255, 255, 0.11);
+      --radius: 14px;
+      --shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--sky);
+      text-decoration: none;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: rgba(255, 255, 255, 0.09);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.86em;
+      color: #fde68a;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Sticky Header */
+    header {
+      background: rgba(19, 28, 38, 0.94);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .brand:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      color: #fff;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-title h1 {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .brand-title p {
+      font-size: 0.79rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 7px 11px;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      transition: all 0.18s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--surface-3);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 28px 0 22px;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(circle at 85% 15%, rgba(56, 189, 248, 0.14), transparent 45%),
+        radial-gradient(circle at 15% 80%, rgba(245, 158, 11, 0.12), transparent 45%);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .kpi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-card::before {
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      inline-size: 4px;
+      block-size: 100%;
+      background: var(--accent);
+    }
+
+    .kpi-card.emerald::before { background: var(--emerald); }
+    .kpi-card.sky::before { background: var(--sky); }
+    .kpi-card.rose::before { background: var(--rose); }
+    .kpi-card.purple::before { background: var(--purple); }
+
+    .kpi-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .kpi-val {
+      font-size: 1.42rem;
+      font-weight: 800;
+      margin: 4px 0;
+      color: #fff;
+    }
+
+    .kpi-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    section {
+      padding: 34px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 1020px;
+    }
+
+    /* Interactive 2D M&E Workspace */
+    .workspace-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .layer-tabs, .action-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      padding: 8px 13px;
+      border-radius: 8px;
+      font-size: 0.81rem;
+      font-weight: 600;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover {
+      border-color: var(--accent);
+      color: #fff;
+      background: var(--surface-3);
+    }
+
+    .btn.active {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      font-weight: 800;
+    }
+
+    .btn.sky-active {
+      background: var(--sky);
+      color: #000;
+      border-color: var(--sky);
+      font-weight: 800;
+    }
+
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    @media (max-width: 1120px) {
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .canvas-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .canvas-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      gap: 10px;
+      font-size: 0.79rem;
+    }
+
+    .legend-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .dot {
+      inline-size: 10px;
+      block-size: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot.sp-desk { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+    .dot.sp-book { background: #10b981; box-shadow: 0 0 8px #10b981; }
+    .dot.sp-sofa { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+    .dot.outlet { background: #a855f7; box-shadow: 0 0 8px #a855f7; }
+    .dot.ac { background: #06b6d4; box-shadow: 0 0 8px #06b6d4; }
+
+    .svg-viewport {
+      width: 100%;
+      background: #f8fafc;
+      overflow-x: auto;
+      padding: 12px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .svg-viewport svg {
+      width: 100%;
+      max-width: 920px;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .me-node {
+      cursor: pointer;
+      transition: transform 0.15s ease, filter 0.15s ease;
+    }
+
+    .me-node:hover {
+      filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.85));
+    }
+
+    .me-node.selected-node {
+      filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.95));
+    }
+
+    /* Inspector Panel */
+    .inspector-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 78px;
+    }
+
+    .inspector-badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .inspector-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .spec-list {
+      margin: 12px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
+      display: grid;
+      gap: 8px;
+      font-size: 0.84rem;
+    }
+
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .spec-row span:first-child {
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .spec-row span:last-child {
+      color: #fff;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .form-group {
+      margin-top: 12px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+
+    .form-control {
+      width: 100%;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: #fff;
+      border-radius: 8px;
+      padding: 9px 11px;
+      font-size: 0.85rem;
+      font-family: inherit;
+    }
+
+    .form-control:focus {
+      outline: 2px solid var(--accent);
+      border-color: transparent;
+    }
+
+    /* Cards & Blueprint Gallery */
+    .cards-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
+      gap: 18px;
+    }
+
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .cards-2, .cards-3 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .info-card h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-card ul {
+      padding-left: 18px;
+      color: var(--text-muted);
+      font-size: 0.87rem;
+      display: grid;
+      gap: 7px;
+    }
+
+    .info-card li strong {
+      color: var(--text);
+    }
+
+    .blueprint-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .blueprint-hdr {
+      padding: 12px 16px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .blueprint-hdr h3 {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .blueprint-img-wrap {
+      background: #fff;
+      padding: 8px;
+    }
+
+    .blueprint-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      cursor: zoom-in;
+    }
+
+    /* Responsive Table (following modern-web-guidance `responsive-table`) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(680px, 82vh);
+      container-type: inline-size;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.85rem;
+    }
+
+    caption {
+      text-align: left;
+      padding: 14px 16px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--accent);
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+      background: var(--surface-3);
+    }
+
+    th, td {
+      padding: 11px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    thead th {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 800;
+    }
+
+    tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      background: var(--surface);
+      color: #fff;
+      font-weight: 800;
+      z-index: 1;
+      border-right: 1px solid var(--border);
+    }
+
+    tbody tr:hover td,
+    tbody tr:hover th {
+      background: var(--surface-2);
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .pill.red { background: var(--rose-soft); color: #fda4af; }
+    .pill.green { background: var(--emerald-soft); color: #6ee7b7; }
+    .pill.amber { background: var(--accent-soft); color: #fcd34d; }
+    .pill.purple { background: var(--purple-soft); color: #d8b4fe; }
+    .pill.sky { background: var(--sky-soft); color: #7dd3fc; }
+
+    @container (width < 600px) {
+      table, thead, tbody, tr, th, td {
+        display: block;
+      }
+
+      thead {
+        /* MANDATORY: Hide column header from layout and screen readers. */
+        display: none;
+      }
+
+      tr {
+        margin-block-end: 1.25rem;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: var(--surface-3);
+        border-right: none;
+      }
+
+      table.me-table {
+        --label-2: "Phân loại / Lộ";
+        --label-3: "Thông số kỹ thuật";
+        --label-4: "Tọa độ định vị (x, y, H)";
+        --label-5: "Hướng dẫn lắp đặt";
+        --label-6: "Trạng thái";
+      }
+
+      table.me-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--text-muted); }
+      table.me-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--text-muted); }
+      table.me-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--text-muted); }
+      table.me-table td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 700; color: var(--text-muted); }
+      table.me-table td:nth-child(6)::before { content: var(--label-6) ": "; font-weight: 700; color: var(--text-muted); }
+    }
+
+    /* Lightbox modal */
+    dialog#img-modal {
+      margin: auto;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+      color: var(--text);
+      padding: 12px;
+      max-width: 95vw;
+      max-height: 92vh;
+    }
+
+    dialog#img-modal::backdrop {
+      background: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(4px);
+    }
+
+    dialog#img-modal img {
+      max-width: 92vw;
+      max-height: 82vh;
+      display: block;
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    /* 3D Realistic Viewer (modern-web-guidance: efficient-background-processing) */
+    #sec-3d-interactive {
+      content-visibility: auto;
+      contain-intrinsic-size: auto none auto 780px;
+    }
+
+    .viewer3d-grid {
+      display: grid;
+      grid-template-columns: 1fr 395px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    @media (max-width: 1140px) {
+      .viewer3d-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stage3d-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .stage3d-toolbar {
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      padding: 11px 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cam3d-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .cam3d-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 11px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .cam3d-btn:hover {
+      border-color: var(--sky);
+      color: #fff;
+    }
+
+    .cam3d-btn.active {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.24), rgba(37, 99, 235, 0.35));
+      border-color: var(--sky);
+      color: #bae6fd;
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.25);
+    }
+
+    .canvas3d-wrap {
+      position: relative;
+      width: 100%;
+      height: 620px;
+      background: radial-gradient(circle at 50% 35%, #1e293b 0%, #090d14 100%);
+      cursor: grab;
+      user-select: none;
+      overflow: hidden;
+    }
+
+    .canvas3d-wrap:active {
+      cursor: grabbing;
+    }
+
+    #office3d-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .hud3d-top {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(11, 16, 23, 0.86);
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 10px 14px;
+      max-width: 440px;
+      backdrop-filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .hud3d-top h4 {
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .hud3d-top p {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .hud3d-compass {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(11, 16, 23, 0.86);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .hud3d-bottom {
+      position: absolute;
+      bottom: 12px;
+      left: 14px;
+      right: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      pointer-events: none;
+    }
+
+    .mat-chip {
+      background: rgba(11, 16, 23, 0.86);
+      border: 1px solid var(--border);
+      padding: 4px 9px;
+      border-radius: 6px;
+      font-size: 0.72rem;
+      color: #e2e8f0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(6px);
+    }
+
+    .mat-swatch {
+      width: 11px;
+      height: 11px;
+      border-radius: 3px;
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .stage3d-footer {
+      background: var(--surface-2);
+      border-top: 1px solid var(--border);
+      padding: 12px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toggle3d-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toggle3d-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 0.77rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .toggle3d-pill:hover {
+      border-color: var(--accent);
+    }
+
+    .toggle3d-pill input {
+      accent-color: var(--emerald);
+      cursor: pointer;
+    }
+
+    .mat-palette-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .mat-card-mini {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 8px 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .mat-card-mini:hover,
+    .mat-card-mini.active {
+      border-color: var(--accent);
+      background: var(--surface-3);
+    }
+
+    .mat-card-mini .m-hdr {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .mat-card-mini .m-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" title="Về Trang Chủ — Tổng Hợp Hạng Mục &amp; Dự Toán Chi Phí Q Villa">
+        <span class="brand-badge">Tầng 3 • 3D + 2D M&amp;E</span>
+        <div class="brand-title">
+          <h1>Mô Hình 3D Thực Tế &amp; Hồ Sơ Kỹ Thuật 2D M&amp;E Phòng Làm Việc Tầng 3 (PA T3-A • 14,5 m²)</h1>
+          <p>Trục 1'–2 &amp; Trục A–B (Cạnh P. Ngủ Thờ) • Trần Phẳng Ray Nam Châm 48V / Spotlight Chống Chói • Điện • LAN • Điều Hòa</p>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng">
+        <a href="index.html" style="border-color:rgba(245,158,11,0.55);color:#fde68a;">🏠 Trang Chủ &amp; Dự Toán</a>
+        <a href="phong-tho-tang3.html" style="border-color:rgba(229,169,60,0.75);color:#fde68a;background:rgba(229,169,60,0.14);">🪷 Phòng Thờ T3 (Kế Bên)</a>
+        <a href="#sec-3d-interactive" class="active" style="border-color:rgba(56,189,248,0.6);color:#38bdf8;">🧊 1. Mô Hình 3D Thực Tế</a>
+        <a href="#sec-2d-interactive">📐 2. Bản Vẽ 2D M&amp;E</a>
+        <a href="#sec-blueprints">📄 3. Bản Vẽ CAD Gốc (KT-2.04/4.08) &amp; Ray Nam Châm</a>
+        <a href="#sec-me-specs">📋 4. Bảng Tọa Độ Đèn &amp; Điện</a>
+        <a href="#sec-ceiling-options" style="border-color:rgba(16,185,129,0.5);color:#10b981;">✨ 5. So Sánh 3 Kiểu Trần</a>
+        <a href="#sec-cd-crosscheck" style="border-color:rgba(245,158,11,0.55);color:#fbbf24;">🔥 6. Đối Chiếu CĐ-05/10/13 &amp; Smarthome</a>
+        <a href="chieu-sang-opple-3d.html" style="border-color:rgba(245,158,11,0.65);color:#fde68a;">💡 Mô Phỏng 3D Đèn OPPLE</a>
+        <a href="aqara-smarthome.html">⚡ Aqara Smarthome</a>
+        <a href="giam-sat-wc.html">🚽 Giám Sát WC</a>
+        <a href="mat-tien.html">🏛️ Mặt Tiền</a>
+        <a href="cua-chinh-d1.html">🚪 Cửa Chính D1</a>
+        <a href="cua-go-lim-d3.html">🚪 Cửa Gỗ D3</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <span class="section-eyebrow">HỒ SƠ THI CÔNG CHỐT PHƯƠNG ÁN T3-A (KT-2.04 • KT-2.09 • KT-4.03 • KT-4.05 • KT-4.08)</span>
+      <h2 class="section-title">Không Gian 3D Thực Tế &amp; Bản Vẽ M&amp;E Phòng Làm Việc Đôi Tầng 3 (3.420 × 4.240 mm = 14,5 m²)</h2>
+      <p class="section-desc">
+        Trải nghiệm trực tiếp <strong>Mô hình 3D Vật liệu &amp; Ánh sáng thực tế tỷ lệ 1:1</strong> của Khu làm việc Tầng 3 đặt cạnh <strong>P. Ngủ Thờ</strong>: gồm <strong>02 Bàn Làm Việc gỗ Óc Chó 1.600 × 600 mm (4 màn hình + đèn ScreenBar)</strong>, <strong>Tủ máy in 300 mm</strong>, <strong>Tủ sách kịch trần 2.440 × 500 mm nối phẳng Hộp kỹ thuật 980 × 500 mm</strong>, <strong>Cửa lùa 4 cánh kính mờ 2.400 mm</strong>, và tùy chọn chuyển đổi trực tiếp giữa <strong>Trần Thạch Cao Phẳng + Ray Nam Châm Âm Trần 48V</strong> với <strong>Trần Phẳng Spotlight Âm Sâu</strong> hoặc <strong>Trần Giật Cấp C1</strong>.
+      </p>
+
+      <div class="kpi-grid">
+        <div class="kpi-card sky">
+          <div class="kpi-label">Diện Tích &amp; Vật Liệu Sàn</div>
+          <div class="kpi-val">14,5 m² (3,42 × 4,24m)</div>
+          <div class="kpi-sub">Sàn gỗ Sồi xương cá cốt +7.850 liên thông • Cửa gỗ Lim O1 (900mm) • Cửa lùa 4 cánh ngăn P. Thờ</div>
+        </div>
+        <div class="kpi-card rose">
+          <div class="kpi-label">Trần Phẳng &amp; Chiếu Sáng Hiện Đại</div>
+          <div class="kpi-val">Ray Nam Châm 48V / Spotlight</div>
+          <div class="kpi-sub">Trần phẳng 1 cốt +3.130mm • Ray nam châm âm trần (x=550mm) hoặc 9 Spotlight chóa sâu UGR&lt;16</div>
+        </div>
+        <div class="kpi-card purple">
+          <div class="kpi-label">Ổ Cắm Điện &amp; Mạng LAN Cat6</div>
+          <div class="kpi-val">04 Cụm (E1 – E4)</div>
+          <div class="kpi-sub">Gom vào tường đặc giữa 2 bàn (H=+600mm) • 14 lỗ cắm + 3 cổng LAN Cat6 + Ống Φ32 âm tường</div>
+        </div>
+        <div class="kpi-card emerald">
+          <div class="kpi-label">Điều Hòa &amp; Che Phẳng Hộp KT</div>
+          <div class="kpi-val">12.000 BTU + Tủ Sách</div>
+          <div class="kpi-sub">Treo tại vách Đông (trên Sofa), thoát nước 0,6m vào Hộp KT 980×500 được ốp gỗ phẳng lỳ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: INTERACTIVE 3D REALISTIC MATERIAL & LIGHTING VIEWER -->
+  <section id="sec-3d-interactive">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">1. MÔ HÌNH 3D THỰC TẾ VẬT LIỆU, NỘI THẤT &amp; HỆ TRẦN RAY NAM CHÂM / SPOTLIGHT (TỶ LỆ 1:1 MILIMÉT)</span>
+        <h2 class="section-title">Khám Phá Không Gian 3D Phòng Làm Việc Tầng 3 &amp; Bấm Chuyển Đổi Giữa 3 Phương Án Trần Thạch Cao</h2>
+        <p class="section-desc">
+          <strong>Giữ chuột trái &amp; kéo</strong> để xoay 360°, <strong>Cuộn con lăn</strong> để phóng to/thu nhỏ, <strong>Giữ chuột phải (hoặc Shift + chuột trái)</strong> để di chuyển tâm nhìn, và <strong>bấm chọn giữa 3 Kiểu Trần Thạch Cao</strong> ngay trên thanh công cụ để so sánh trực quan!
+        </p>
+      </div>
+
+      <div class="viewer3d-grid">
+        <!-- Left: 3D WebGL Canvas + Camera & Interactive Controls -->
+        <div class="stage3d-card">
+          <div class="stage3d-toolbar" style="border-bottom:1px solid var(--border);background:rgba(16,185,129,0.08);">
+            <div class="cam3d-group" role="group" aria-label="Chọn Phương Án Trần Thạch Cao 3D">
+              <span style="font-size:0.75rem;font-weight:800;color:var(--emerald);margin-right:4px;">CHỌN KIỂU TRẦN 3D &amp; 2D:</span>
+              <button class="cam3d-btn active" id="btn-ceil-magnetic" onclick="setCeilingStyle('magnetic', this)">⚡ PA Trần 1 (Khuyên dùng): Trần Phẳng (+3.130) + Ray Nam Châm 48V</button>
+              <button class="cam3d-btn" id="btn-ceil-flat_spot" onclick="setCeilingStyle('flat_spot', this)">🎯 PA Trần 2: Trần Phẳng (+3.130) + Ron Đen P-UT12 + 9 Spotlight</button>
+              <button class="cam3d-btn" id="btn-ceil-stepped" onclick="setCeilingStyle('stepped', this)">🏛️ PA Trần 3 (KT-4.03 Gốc): Trần Giật Cấp Khe Hắt C1</button>
+            </div>
+          </div>
+          <div class="stage3d-toolbar">
+            <div class="cam3d-group" role="group" aria-label="Góc nhìn Camera 3D">
+              <span style="font-size:0.75rem;font-weight:800;color:var(--accent);margin-right:4px;">GÓC CAMERA 3D:</span>
+              <button class="cam3d-btn active" onclick="setOfficeCam('overview', this)">🎥 1. Tổng Thể 3D</button>
+              <button class="cam3d-btn" onclick="setOfficeCam('desks_west', this)">💻 2. Cận Cảnh 2 Bàn LV &amp; Cửa Sổ Tây</button>
+              <button class="cam3d-btn" onclick="setOfficeCam('bookshelf_south', this)">📚 3. Tủ Sách Kịch Trần &amp; Hộp KT Phẳng</button>
+              <button class="cam3d-btn" onclick="setOfficeCam('sofa_east', this)">🛋️ 4. Sofa &amp; Điều Hòa Tường Đông</button>
+              <button class="cam3d-btn" onclick="setOfficeCam('from_altar', this)">🚪 5. Nhìn Từ P. Thờ Qua Cửa Lùa</button>
+              <button class="cam3d-btn" onclick="setOfficeCam('pov_seated', this)">👁️ 6. Góc Ngồi Làm Việc (POV)</button>
+              <button class="cam3d-btn" onclick="setOfficeCam('ceiling_up', this)">💡 7. Ngước Nhìn Hệ Trần &amp; Đèn</button>
+            </div>
+          </div>
+
+          <div class="canvas3d-wrap" id="office3d-container">
+            <canvas id="office3d-canvas"></canvas>
+
+            <div class="hud3d-top">
+              <h4 id="hud3d-title">🎥 Góc Phối Cảnh Tổng Thể (Phòng Làm Việc 14,5 m² + P. Ngủ Thờ + Hành Lang)</h4>
+              <p id="hud3d-desc">Trần thạch cao đang để chế độ Bán Trong Suốt để bạn nhìn xuyên thấy toàn bộ 02 Bàn làm việc 1,6m, Tủ sách kịch trần 2,44m nối phẳng Hộp KT 980×500, Cửa lùa 4 cánh và 09 chùm sáng Spotlight.</p>
+            </div>
+
+            <div class="hud3d-compass">
+              <strong style="color:#fff;">🧭 Định Hướng Thực Tế</strong>
+              <span>⬅️ Trái (Tây - Trục 1'): Cửa sổ S4 + V4 + 2 Bàn LV</span>
+              <span>⬇️ Dưới (Nam - Trục A): Tủ sách 2,44m + Hộp KT</span>
+              <span>➡️ Phải (Đông): Sofa + Điều hòa + Cửa O1</span>
+              <span>⬆️ Trên (Bắc): Cửa lùa 4 cánh → P. Ngủ Thờ</span>
+            </div>
+
+            <div class="hud3d-bottom">
+              <span class="mat-chip"><span class="mat-swatch" style="background:#b47b48;"></span>Sàn gỗ Sồi Xương Cá (+7.850)</span>
+              <span class="mat-chip"><span class="mat-swatch" style="background:#5c3a21;"></span>Gỗ Óc Chó (Bàn LV &amp; Tủ Sách)</span>
+              <span class="mat-chip"><span class="mat-swatch" style="background:#7c2d12;"></span>Gỗ Lim Nam Phi (Cửa O1 &amp; Khung Lùa)</span>
+              <span class="mat-chip"><span class="mat-swatch" style="background:#cbd5e1;"></span>Kính Mờ Sóng Cách Âm (4 Cánh)</span>
+              <span class="mat-chip"><span class="mat-swatch" style="background:#fde047;"></span>Chùm Sáng Spotlight (S1 • S2 • S3)</span>
+            </div>
+          </div>
+
+          <div class="stage3d-footer">
+            <div class="toggle3d-row">
+              <span style="font-size:0.75rem;font-weight:800;color:var(--accent);text-transform:uppercase;">ĐIỀU KHIỂN ÁNH SÁNG &amp; TƯƠNG TÁC 3D:</span>
+              <label class="toggle3d-pill">
+                <input type="checkbox" id="chk-s1" checked onchange="toggle3DState('s1', this.checked)">
+                💡 Lộ S1: 4 Spotlight Bàn LV (4000K)
+              </label>
+              <label class="toggle3d-pill">
+                <input type="checkbox" id="chk-s2" checked onchange="toggle3DState('s2', this.checked)">
+                🟢 Lộ S2: 3 Spotlight + LED Tủ Sách (3500K)
+              </label>
+              <label class="toggle3d-pill">
+                <input type="checkbox" id="chk-s3" checked onchange="toggle3DState('s3', this.checked)">
+                🟠 Lộ S3: 2 Spotlight Sofa + LED Trần C1
+              </label>
+              <label class="toggle3d-pill" style="border-color:rgba(168,85,247,0.45);">
+                <input type="checkbox" id="chk-partition-open" onchange="toggle3DState('partitionOpen', this.checked)">
+                🚪 Mở Thông Cửa Lùa 4 Cánh Sang P. Thờ
+              </label>
+              <label class="toggle3d-pill" style="border-color:rgba(56,189,248,0.45);">
+                <input type="checkbox" id="chk-blind-down" onchange="toggle3DState('blindDown', this.checked)">
+                🪟 Kéo Kín Rèm Cuốn Chống Nắng S4
+              </label>
+              <label class="toggle3d-pill">
+                <input type="checkbox" id="chk-ceiling-solid" onchange="toggle3DState('ceilingSolid', this.checked)">
+                🏠 Hiện Đậm Trần Thạch Cao C1 (+3.150)
+              </label>
+              <label class="toggle3d-pill">
+                <input type="checkbox" id="chk-shaft-xray" onchange="toggle3DState('shaftXray', this.checked)">
+                🔧 X-Ray Hộp KT 980×500 &amp; Ống Nước AC
+              </label>
+              <label class="toggle3d-pill" style="border-color:rgba(245,158,11,0.5);">
+                <input type="checkbox" id="chk-night-mode" checked onchange="toggle3DState('nightMode', this.checked)">
+                🌙 Chế Độ Studio Làm Nổi Ánh Đèn
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: 3D Material & Position Inspector Side Panel -->
+        <aside class="inspector-card" aria-label="Bảng thông số Vật liệu & Vị trí 3D">
+          <div>
+            <span class="inspector-badge pill sky" id="insp3d-badge">🧊 ĐANG CHỌN TRÊN MÔ HÌNH 3D</span>
+            <h3 class="inspector-title" id="insp3d-title">Hệ 02 Bàn Làm Việc Đôi 1.600 × 600mm + Tủ Máy In 300mm</h3>
+            <p class="inspector-sub" id="insp3d-desc">
+              Đặt dọc bức tường Tây dài 4.240mm: Bàn #1 (hưởng sáng cửa sổ mở hất S4), Tủ máy in &amp; Wifi Mesh ở giữa (300mm), và Bàn #2 (hưởng sáng vách kính V4 có 10 lam gạch chắn nắng bên ngoài).
+            </p>
+          </div>
+
+          <div class="spec-list">
+            <div class="spec-row">
+              <span class="spec-k">Vật liệu thực tế</span>
+              <span class="spec-v" id="insp3d-mat">Mặt bàn gỗ Óc Chó (Walnut) dày 40mm • Khung chân sắt hộp sơn tĩnh điện đen mờ</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-k">Kích thước (D×R×C)</span>
+              <span class="spec-v" id="insp3d-size">Mỗi bàn: 1.600 × 600 × 750 mm • Tủ máy in giữa: 300 × 600 × 750 mm (Tổng dài 3.500 mm)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-k">Vị trí định vị 3D</span>
+              <span class="spec-v"><code id="insp3d-pos">Tường Tây x = 0..600mm • Bàn #1: z = 240..1.840mm • Bàn #2: z = 2.140..3.740mm</code></span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-k">Phối hợp M&amp;E</span>
+              <span class="spec-v" id="insp3d-me">4 Spotlight SP1–SP4 (x=500mm) rọi từ phía trước mặt • Cụm ổ cắm E1, E2, E3 + Ống luồn dây Φ32 âm tường đặc giữa 2 bàn</span>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:0.75rem;font-weight:800;color:var(--accent);text-transform:uppercase;margin-bottom:6px;">
+              🎨 BẢNG VẬT LIỆU &amp; HẠNG MỤC 3D (BẤM ĐỂ SOI CẬN CẢNH):
+            </div>
+            <div class="mat-palette-grid">
+              <div class="mat-card-mini active" onclick="focus3DItem('DESKS', this)">
+                <div class="m-hdr"><span class="mat-swatch" style="background:#5c3a21;"></span>2 Bàn LV 1.6m &amp; Máy In</div>
+                <div class="m-sub">Gỗ Óc Chó + 4 màn hình 27" + Ổ cắm E1–E3 âm tường</div>
+              </div>
+              <div class="mat-card-mini" onclick="focus3DItem('TU-SACH', this)">
+                <div class="m-hdr"><span class="mat-swatch" style="background:#6b4226;"></span>Tủ Sách &amp; Ốp Hộp KT</div>
+                <div class="m-sub">Cao kịch trần 3,15m • Sâu 500mm phẳng lỳ Hộp KT</div>
+              </div>
+              <div class="mat-card-mini" onclick="focus3DItem('SPOTLIGHTS', this)">
+                <div class="m-hdr"><span class="mat-swatch" style="background:#fde047;"></span>09 Đèn Spotlight (3 Lộ)</div>
+                <div class="m-sub">Chóa sâu UGR&lt;16 • Không sấp bóng lưng • Rọi vòm tủ</div>
+              </div>
+              <div class="mat-card-mini" onclick="focus3DItem('VACH-LUA', this)">
+                <div class="m-hdr"><span class="mat-swatch" style="background:#cbd5e1;"></span>Cửa Lùa 4 Cánh P. Thờ</div>
+                <div class="m-sub">Rộng 2.400mm • Kính mờ sóng + Khung gỗ ray treo</div>
+              </div>
+              <div class="mat-card-mini" onclick="focus3DItem('WINDOWS-WEST', this)">
+                <div class="m-hdr"><span class="mat-swatch" style="background:#38bdf8;"></span>Cửa Sổ S4 &amp; Lam V4</div>
+                <div class="m-sub">Rèm cuốn cản nắng S4 + 10 khe gạch chắn nắng V4</div>
+              </div>
+              <div class="mat-card-mini" onclick="focus3DItem('SOFA-AC', this)">
+                <div class="m-hdr"><span class="mat-swatch" style="background:#94a3b8;"></span>Sofa &amp; Điều Hòa 12k</div>
+                <div class="m-sub">Sofa nỉ Bouclé + AC thoát nước 0,6m vào Hộp KT</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Photorealistic 3D Interior Render Showcase -->
+      <div class="blueprint-box" style="margin-top:20px;">
+        <div class="blueprint-hdr">
+          <h3>✨ Phối Cảnh 3D Thực Tế Vật Liệu &amp; Ánh Sáng Phòng Làm Việc Tầng 3 (Nhìn Từ Vách Cửa Lùa Kính Mờ Phòng Thờ Vào Trong)</h3>
+          <div style="display:flex;gap:8px;">
+            <button class="btn" onclick="openLightbox('assets/tang3_phong_lam_viec_3d_render.jpg')">🔍 Phóng To Phối Cảnh 3D</button>
+            <a class="btn primary" href="assets/tang3_phong_lam_viec_3d_render.jpg" download="Phoi_Canh_3D_Phong_Lam_Viec_Tang3_PA_T3A.jpg">⬇️ Tải Ảnh 3D Thực Tế</a>
+          </div>
+        </div>
+        <div class="blueprint-img-wrap" style="background:#0f172a;padding:10px;">
+          <img src="assets/tang3_phong_lam_viec_3d_render.jpg" alt="Phối cảnh 3D thực tế vật liệu Phòng Làm Việc Tầng 3" onclick="openLightbox(this.src)">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: INTERACTIVE 2D M&E BLUEPRINT -->
+  <section id="sec-2d-interactive">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">1. BẢN VẼ KỸ THUẬT 2D M&amp;E TƯƠNG TÁC (TỶ LỆ CHUẨN MILIMÉT)</span>
+        <h2 class="section-title">Mặt Bằng Định Vị Đèn Spotlight (SP1–SP9), Ổ Cắm &amp; LAN (E1–E4), Điều Hòa &amp; Nội Thất</h2>
+        <p class="section-desc">
+          Bấm chọn từng lớp kỹ thuật bên dưới để bật/tắt <strong>Lớp Đèn Spotlight &amp; Dây Công Tắc</strong>, <strong>Lớp Ổ Cắm Điện &amp; Mạng LAN</strong>, hoặc <strong>Lớp Điều Hòa &amp; Thoát Nước</strong>.
+          <strong>Click trực tiếp vào bất kỳ ký hiệu đèn Spotlight, ổ cắm hay thiết bị nào trên bản vẽ 2D</strong> để xem tọa độ khoét lỗ trần <code>(x, y, H)</code> và ghi chú riêng cho đội thợ!
+        </p>
+      </div>
+
+      <div class="workspace-bar">
+        <div class="layer-tabs" role="group" aria-label="Bật tắt lớp kỹ thuật 2D M&E">
+          <span style="font-size:0.76rem;font-weight:800;color:var(--text-muted);margin-right:4px;">LỚP 2D M&amp;E:</span>
+          <button class="btn active" onclick="setLayer('ALL')" id="btn-layer-ALL">🔍 Tất Cả Lớp M&amp;E</button>
+          <button class="btn" onclick="setLayer('LIGHT')" id="btn-layer-LIGHT">💡 Đèn Spotlight &amp; Công Tắc (SP1–SP9)</button>
+          <button class="btn" onclick="setLayer('POWER')" id="btn-layer-POWER">⚡ Ổ Cắm &amp; Mạng LAN (E1–E4)</button>
+          <button class="btn" onclick="setLayer('HVAC')" id="btn-layer-HVAC">❄️ Điều Hòa &amp; Thoát Nước</button>
+          <button class="btn" onclick="setLayer('DIM')" id="btn-layer-DIM">📏 Chỉ Xem Nội Thất &amp; Kích Thước</button>
+        </div>
+        <div class="action-btns">
+          <button class="btn" id="btn-add-pin" onclick="toggleAddPinMode()">➕ Thêm Note Mới Lên Bản Vẽ 2D</button>
+          <button class="btn" onclick="resetNotes()">🔄 Khôi Phục Mặc Định</button>
+        </div>
+      </div>
+
+      <div class="workspace-grid">
+        <!-- Left: Interactive 2D SVG CAD Canvas -->
+        <div class="canvas-card">
+          <div class="canvas-toolbar">
+            <div class="legend-bar">
+              <span class="legend-item"><span class="dot sp-desk"></span>Lộ S1: 4 Spotlight Bàn LV (36° • 4000K)</span>
+              <span class="legend-item"><span class="dot sp-book"></span>Lộ S2: 3 Spotlight Rọi Tủ Sách (24° • 3500K)</span>
+              <span class="legend-item"><span class="dot sp-sofa"></span>Lộ S3: 2 Spotlight Sofa + Khe C1</span>
+              <span class="legend-item"><span class="dot outlet"></span>Ổ cắm &amp; LAN Cat6 (E1–E4)</span>
+              <span class="legend-item"><span class="dot ac"></span>Điều hòa 12.000 BTU</span>
+            </div>
+            <span id="add-pin-hint" style="color:var(--accent);font-weight:700;display:none;">📌 Click vào vị trí bất kỳ trên mặt bằng 2D để gắn Note!</span>
+          </div>
+
+          <div class="svg-viewport">
+            <!-- Coordinate mapping: 1mm = 0.14 SVG units; Origin (0,0) of room inner corner is at SVG (180, 130) -->
+            <!-- Room width 3420mm = 478.8u (x: 180 -> 658.8); Room length 4240mm = 593.6u (y: 130 -> 723.6) -->
+            <svg id="me-svg" viewBox="0 0 920 820" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bản vẽ 2D M&E Phòng làm việc Tầng 3">
+              <defs>
+                <pattern id="grid-minor" width="14" height="14" patternUnits="userSpaceOnUse">
+                  <path d="M 14 0 L 0 0 0 14" fill="none" stroke="#e2e8f0" stroke-width="0.6"/>
+                </pattern>
+                <pattern id="grid-major" width="70" height="70" patternUnits="userSpaceOnUse">
+                  <rect width="70" height="70" fill="url(#grid-minor)"/>
+                  <path d="M 70 0 L 0 0 0 70" fill="none" stroke="#cbd5e1" stroke-width="1.1"/>
+                </pattern>
+                <radialGradient id="beam-red" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#fde047" stop-opacity="0.75"/>
+                  <stop offset="100%" stop-color="#ef4444" stop-opacity="0.12"/>
+                </radialGradient>
+                <radialGradient id="beam-green" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#fde047" stop-opacity="0.75"/>
+                  <stop offset="100%" stop-color="#10b981" stop-opacity="0.12"/>
+                </radialGradient>
+                <radialGradient id="beam-amber" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#fde047" stop-opacity="0.75"/>
+                  <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.12"/>
+                </radialGradient>
+              </defs>
+
+              <!-- CAD Grid Background -->
+              <rect x="0" y="0" width="920" height="820" fill="url(#grid-major)"/>
+
+              <!-- 1. ARCHITECTURAL BASE & ADJACENT ROOMS -->
+              <g id="layer-arch">
+                <!-- P. Ngủ Thờ (North) -->
+                <rect x="180" y="25" width="500" height="85" fill="#fefce8" stroke="#94a3b8" stroke-width="1.5"/>
+                <text x="420" y="58" text-anchor="middle" font-size="12" font-weight="bold" fill="#475569">P. NGỦ THỜ (PHÒNG THỜ PHÍA BẮC • CỐT +7.850)</text>
+
+                <!-- Main Study Room Floor (3.420 x 4.240mm -> 478.8 x 593.6) -->
+                <rect x="180" y="130" width="479" height="594" fill="#ffffff" stroke="none"/>
+
+                <!-- Hallway & Staircase on East -->
+                <rect x="680" y="85" width="215" height="269" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+                <text x="788" y="145" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#475569">HÀNH LANG TẦNG 3</text>
+                <text x="788" y="161" text-anchor="middle" font-size="10" fill="#64748b">(Cốt sàn gỗ +7.850)</text>
+
+                <rect x="680" y="354" width="215" height="370" fill="#f1f5f9" stroke="#475569" stroke-width="1.5"/>
+                <g stroke="#cbd5e1" stroke-width="1">
+                  <line x1="680" y1="385" x2="795" y2="385"/>
+                  <line x1="680" y1="420" x2="795" y2="420"/>
+                  <line x1="680" y1="455" x2="795" y2="455"/>
+                  <line x1="680" y1="490" x2="795" y2="490"/>
+                  <line x1="680" y1="525" x2="795" y2="525"/>
+                  <line x1="680" y1="560" x2="795" y2="560"/>
+                  <line x1="680" y1="595" x2="795" y2="595"/>
+                  <line x1="680" y1="630" x2="795" y2="630"/>
+                </g>
+                <text x="788" y="515" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#475569">CẦU THANG BỘ</text>
+                <text x="788" y="531" text-anchor="middle" font-size="10" fill="#64748b">(Lên từ Tầng 2)</text>
+
+                <!-- Structural Walls -->
+                <!-- North Wall Stubs & 4-Leaf Sliding Glass Partition (2.400mm -> x=243 to 579) -->
+                <rect x="145" y="110" width="98" height="20" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                <rect x="579" y="110" width="101" height="20" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                <g class="me-node" onclick="selectNode('VACH-LUA', event)">
+                  <rect x="243" y="112" width="336" height="16" fill="#f3e8ff" stroke="#7e22ce" stroke-width="2.2"/>
+                  <line x1="243" y1="120" x2="579" y2="120" stroke="#7e22ce" stroke-width="1.2" stroke-dasharray="6,3"/>
+                  <rect x="255" y="76" width="312" height="28" rx="5" fill="#ffffff" stroke="#7e22ce" stroke-width="1.3"/>
+                  <text x="411" y="94" text-anchor="middle" font-size="10.2" font-weight="bold" fill="#7e22ce">HỆ CỬA LÙA KÍNH MỜ 4 CÁNH (2.400mm) NGĂN P. THỜ</text>
+                </g>
+
+                <!-- West Wall + Window S4 (1.250mm: y=163.6 to 338.6) + Column + Solid Wall + Fixed Glass V4 (890mm: y=529 to 653.6) -->
+                <rect x="145" y="130" width="35" height="34" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                <g class="me-node" onclick="selectNode('REM-S4', event)">
+                  <rect x="145" y="164" width="35" height="175" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+                  <rect x="22" y="210" width="114" height="76" rx="6" fill="#ffffff" stroke="#0284c7" stroke-width="1.3"/>
+                  <text x="79" y="230" text-anchor="middle" font-size="9.8" font-weight="bold" fill="#0369a1">Cửa sổ S4</text>
+                  <text x="79" y="244" text-anchor="middle" font-size="9" fill="#0369a1">(1.250×3.000)</text>
+                  <text x="79" y="258" text-anchor="middle" font-size="9" font-weight="bold" fill="#dc2626">+ Rèm cuốn 100%</text>
+                </g>
+                <!-- Middle Column (1490..1750) & Solid Wall (1750..2850) -->
+                <rect x="145" y="339" width="35" height="36" fill="#fecaca" stroke="#b91c1c" stroke-width="1.8"/>
+                <rect x="145" y="375" width="35" height="154" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                <!-- Fixed Glass V4 (2850..3740) -->
+                <rect x="145" y="529" width="35" height="125" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.8"/>
+                <rect x="145" y="654" width="35" height="70" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                <rect x="145" y="724" width="35" height="35" fill="#fecaca" stroke="#b91c1c" stroke-width="1.8"/>
+
+                <!-- 10 Exterior Breeze-Block Louvers (KT-3.06) -->
+                <g fill="#cbd5e1" stroke="#475569" stroke-width="1">
+                  <rect x="102" y="362" width="26" height="12"/>
+                  <rect x="102" y="396" width="26" height="12"/>
+                  <rect x="102" y="430" width="26" height="12"/>
+                  <rect x="102" y="464" width="26" height="12"/>
+                  <rect x="102" y="498" width="26" height="12"/>
+                  <rect x="102" y="532" width="26" height="12"/>
+                  <rect x="102" y="566" width="26" height="12"/>
+                  <rect x="102" y="600" width="26" height="12"/>
+                  <rect x="102" y="634" width="26" height="12"/>
+                  <rect x="102" y="668" width="26" height="12"/>
+                </g>
+                <text x="52" y="515" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#475569">10 Khe gạch</text>
+                <text x="52" y="528" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#475569">chắn nắng</text>
+                <text x="52" y="541" text-anchor="middle" font-size="9.2" fill="#64748b">Tây Bắc (KT-3.06)</text>
+
+                <!-- South Wall & East Wall + Door O1 (900mm: y=179 to 305) -->
+                <rect x="180" y="724" width="500" height="35" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                <rect x="659" y="130" width="21" height="49" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                <rect x="656" y="179" width="27" height="126" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+                <text x="748" y="236" text-anchor="middle" font-size="10" font-weight="bold" fill="#0369a1">Cửa đi riêng O1 (900mm)</text>
+                <text x="748" y="250" text-anchor="middle" font-size="9.2" fill="#0369a1">Vào thẳng từ Hành lang T3</text>
+                <rect x="659" y="305" width="21" height="56" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                <rect x="645" y="361" width="35" height="46" fill="#fecaca" stroke="#b91c1c" stroke-width="1.8"/>
+                <rect x="659" y="407" width="21" height="317" fill="#94a3b8" stroke="#334155" stroke-width="1.5"/>
+                <rect x="645" y="724" width="35" height="35" fill="#fecaca" stroke="#b91c1c" stroke-width="1.8"/>
+
+                <!-- Plumbing Shaft (980 x 500mm -> x=521.6 to 658.8, y=653.6 to 723.6) -->
+                <rect x="522" y="654" width="137" height="70" fill="#fee2e2" stroke="#dc2626" stroke-width="1.8" stroke-dasharray="5,3"/>
+                <text x="590" y="683" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#dc2626">Hộp kỹ thuật 980×500</text>
+                <text x="590" y="697" text-anchor="middle" font-size="8.8" fill="#b91c1c">(Có sẵn trục thoát nước)</text>
+              </g>
+
+              <!-- 2. FURNITURE LAYER (PA T3-A) -->
+              <g id="layer-furniture">
+                <!-- Desk #1 (1.600 x 600mm -> x=182 to 266, y=164 to 388) -->
+                <rect x="182" y="164" width="84" height="224" rx="5" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                <rect x="188" y="182" width="18" height="86" fill="#93c5fd" stroke="#0284c7" stroke-width="1.2"/>
+                <rect x="188" y="282" width="18" height="86" fill="#93c5fd" stroke="#0284c7" stroke-width="1.2"/>
+                <text x="236" y="255" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#0369a1">BÀN LV #1</text>
+                <text x="236" y="269" text-anchor="middle" font-size="8.8" font-weight="bold" fill="#0369a1">(1.600×600)</text>
+                <text x="236" y="283" text-anchor="middle" font-size="8.2" fill="#0369a1">2 màn hình</text>
+                <!-- Chair #1 -->
+                <rect x="272" y="242" width="54" height="64" rx="14" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5"/>
+                <text x="299" y="278" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#0369a1">Ghế #1</text>
+
+                <!-- Printer & Wifi Cabinet (300 x 600mm -> x=182 to 266, y=388 to 430) -->
+                <rect x="182" y="388" width="84" height="42" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+                <text x="224" y="406" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#b45309">Tủ máy in</text>
+                <text x="224" y="419" text-anchor="middle" font-size="8.2" fill="#b45309">(300×600)</text>
+
+                <!-- Desk #2 (1.600 x 600mm -> x=182 to 266, y=430 to 654) -->
+                <rect x="182" y="430" width="84" height="224" rx="5" fill="#ede9fe" stroke="#6d28d9" stroke-width="2"/>
+                <rect x="188" y="448" width="18" height="86" fill="#c4b5fd" stroke="#6d28d9" stroke-width="1.2"/>
+                <rect x="188" y="548" width="18" height="86" fill="#c4b5fd" stroke="#6d28d9" stroke-width="1.2"/>
+                <text x="236" y="525" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#6d28d9">BÀN LV #2</text>
+                <text x="236" y="539" text-anchor="middle" font-size="8.8" font-weight="bold" fill="#6d28d9">(1.600×600)</text>
+                <text x="236" y="553" text-anchor="middle" font-size="8.2" fill="#6d28d9">2 màn hình</text>
+                <!-- Chair #2 -->
+                <rect x="272" y="508" width="54" height="64" rx="14" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.5"/>
+                <text x="299" y="544" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#6d28d9">Ghế #2</text>
+
+                <!-- Full-wall Bookshelf (2.440 x 500mm -> x=182 to 522, y=654 to 724) -->
+                <g class="me-node" onclick="selectNode('TU-SACH', event)">
+                  <rect x="182" y="654" width="340" height="70" fill="#dcfce7" stroke="#15803d" stroke-width="2.2"/>
+                  <text x="352" y="684" text-anchor="middle" font-size="9.8" font-weight="bold" fill="#15803d">HỆ TỦ SÁCH &amp; DECOR KỊCH TRẦN (2.440 × 500mm)</text>
+                  <text x="352" y="700" text-anchor="middle" font-size="8.8" fill="#166534">Nối phẳng lỳ với Hộp kỹ thuật 980×500 • Có LED thanh 3000K</text>
+                </g>
+
+                <!-- Reading Sofa & Tea Table (East wall -> x=565 to 655, y=407 to 627) -->
+                <rect x="565" y="407" width="90" height="220" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+                <text x="610" y="505" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#b45309">SOFA TRÀ</text>
+                <text x="610" y="519" text-anchor="middle" font-size="8.8" fill="#b45309">&amp; ĐỌC SÁCH</text>
+                <text x="610" y="533" text-anchor="middle" font-size="8.2" fill="#b45309">(1.570×640)</text>
+              </g>
+
+              <!-- 3. GYPSUM CEILING C1 & SPOTLIGHT / MAGNETIC TRACK LIGHTING LAYER -->
+              <g id="layer-light">
+                <!-- Ceiling Option 3: Stepped Tray C1 (+3.150, 1.930 x 2.440mm -> x=284 to 554, y=235 to 577) -->
+                <g id="svg-ceil-stepped" style="display:none;">
+                  <rect x="284" y="235" width="270" height="342" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="7,4"/>
+                  <text x="419" y="253" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#d97706">Ô TRẦN GIẬT CẤP C1 (+3.150 • 1.930×2.440mm • Có LED hắt khe)</text>
+                </g>
+
+                <!-- Ceiling Option 2: Flat Ceiling (+3.130) + Black Shadow Groove P-UT12 (12mm) -->
+                <g id="svg-ceil-flat_spot" style="display:none;">
+                  <rect x="260" y="210" width="318" height="395" fill="none" stroke="#1e293b" stroke-width="2.2"/>
+                  <text x="419" y="228" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#0f172a">TRẦN PHẲNG +3.130 • NẸP RON ÂM TRẦN NHỰA ĐEN P-UT12 (12mm)</text>
+                </g>
+
+                <!-- Ceiling Option 1 (Default): Flat Ceiling (+3.130) + Recessed 48V Magnetic Track Rails -->
+                <g id="svg-ceil-magnetic">
+                  <!-- West Track (x=550mm -> SVG x=250, y=186..609) -->
+                  <rect x="246" y="186" width="8" height="427" fill="#0f172a" rx="2"/>
+                  <!-- South Bookshelf Track (y=3420mm -> SVG y=609, x=246..509) -->
+                  <rect x="246" y="605" width="265" height="8" fill="#0f172a" rx="2"/>
+                  <!-- East Sofa Track (x=2620mm -> SVG x=547, y=326..609) -->
+                  <rect x="543" y="326" width="8" height="287" fill="#0f172a" rx="2"/>
+                  <!-- Linear Floodlight Bars on West & East Tracks -->
+                  <rect x="245" y="252" width="10" height="36" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+                  <rect x="245" y="492" width="10" height="36" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+                  <rect x="542" y="368" width="10" height="48" fill="#fde047" stroke="#d97706" stroke-width="1"/>
+                  <rect x="542" y="502" width="10" height="48" fill="#fde047" stroke="#d97706" stroke-width="1"/>
+                  <rect x="295" y="212" width="242" height="24" rx="4" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.2"/>
+                  <text x="416" y="228" text-anchor="middle" font-size="9.0" font-weight="bold" fill="#0369a1">TRẦN PHẲNG +3.130 + HỆ RAY NAM CHÂM ÂM TRẦN 48V</text>
+                </g>
+
+                <!-- Switch SW-T3 at Door O1 (x=642, y=318) -->
+                <g class="me-node" onclick="selectNode('SW-T3', event)">
+                  <rect x="630" y="310" width="28" height="34" rx="4" fill="#dcfce7" stroke="#15803d" stroke-width="2"/>
+                  <text x="644" y="325" text-anchor="middle" font-size="8.2" font-weight="bold" fill="#15803d">SW</text>
+                  <text x="644" y="337" text-anchor="middle" font-size="7.5" font-weight="bold" fill="#15803d">3 nút</text>
+                </g>
+
+                <!-- Wiring arcs from SW-T3 to Zone S1, S2, S3 -->
+                <path d="M 630 322 Q 440 185 250 197" fill="none" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="4,3"/>
+                <path d="M 250 197 L 250 558" fill="none" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="4,3"/>
+                <path d="M 630 330 Q 480 610 452 609 L 250 609" fill="none" stroke="#10b981" stroke-width="1.2" stroke-dasharray="4,3"/>
+                <path d="M 638 344 L 547 449 L 547 581" fill="none" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+                <!-- ZONE S1: 4 Anti-Glare Adjustable Spotlights (x=500mm -> SVG x=250) aimed West onto Desks #1 & #2 -->
+                <!-- SP1 (x=500, y=480 -> SVG 250, 197) -->
+                <g class="me-node" onclick="selectNode('SP1', event)">
+                  <polygon points="250,197 205,175 205,219" fill="url(#beam-red)" stroke="#ef4444" stroke-width="1"/>
+                  <circle cx="250" cy="197" r="11" fill="#ffffff" stroke="#ef4444" stroke-width="2.4"/>
+                  <circle cx="250" cy="197" r="4.5" fill="#ef4444"/>
+                  <text x="276" y="201" font-size="9.5" font-weight="bold" fill="#dc2626">SP1 (36°)</text>
+                </g>
+                <!-- SP2 (x=500, y=1480 -> SVG 250, 337) -->
+                <g class="me-node" onclick="selectNode('SP2', event)">
+                  <polygon points="250,337 205,315 205,359" fill="url(#beam-red)" stroke="#ef4444" stroke-width="1"/>
+                  <circle cx="250" cy="337" r="11" fill="#ffffff" stroke="#ef4444" stroke-width="2.4"/>
+                  <circle cx="250" cy="337" r="4.5" fill="#ef4444"/>
+                  <text x="276" y="341" font-size="9.5" font-weight="bold" fill="#dc2626">SP2 (36°)</text>
+                </g>
+                <!-- SP3 (x=500, y=2320 -> SVG 250, 455) -->
+                <g class="me-node" onclick="selectNode('SP3', event)">
+                  <polygon points="250,455 205,433 205,477" fill="url(#beam-red)" stroke="#ef4444" stroke-width="1"/>
+                  <circle cx="250" cy="455" r="11" fill="#ffffff" stroke="#ef4444" stroke-width="2.4"/>
+                  <circle cx="250" cy="455" r="4.5" fill="#ef4444"/>
+                  <text x="276" y="459" font-size="9.5" font-weight="bold" fill="#dc2626">SP3 (36°)</text>
+                </g>
+                <!-- SP4 (x=500, y=3060 -> SVG 250, 558) -->
+                <g class="me-node" onclick="selectNode('SP4', event)">
+                  <polygon points="250,558 205,536 205,580" fill="url(#beam-red)" stroke="#ef4444" stroke-width="1"/>
+                  <circle cx="250" cy="558" r="11" fill="#ffffff" stroke="#ef4444" stroke-width="2.4"/>
+                  <circle cx="250" cy="558" r="4.5" fill="#ef4444"/>
+                  <text x="276" y="562" font-size="9.5" font-weight="bold" fill="#dc2626">SP4 (36°)</text>
+                </g>
+
+                <!-- ZONE S2: 3 Bookshelf Accent Spotlights (y=3420mm -> SVG y=609, 320mm in front of Bookshelf) aimed South -->
+                <!-- SP5 (x=500, y=3420 -> SVG 250, 609) -->
+                <g class="me-node" onclick="selectNode('SP5', event)">
+                  <polygon points="250,609 226,653 274,653" fill="url(#beam-green)" stroke="#10b981" stroke-width="1"/>
+                  <circle cx="250" cy="609" r="10.5" fill="#ffffff" stroke="#10b981" stroke-width="2.4"/>
+                  <circle cx="250" cy="609" r="4.5" fill="#10b981"/>
+                  <text x="282" y="613" font-size="9.2" font-weight="bold" fill="#15803d">SP5 (24°)</text>
+                </g>
+                <!-- SP6 (x=1220, y=3420 -> SVG 351, 609) -->
+                <g class="me-node" onclick="selectNode('SP6', event)">
+                  <polygon points="351,609 327,653 375,653" fill="url(#beam-green)" stroke="#10b981" stroke-width="1"/>
+                  <circle cx="351" cy="609" r="10.5" fill="#ffffff" stroke="#10b981" stroke-width="2.4"/>
+                  <circle cx="351" cy="609" r="4.5" fill="#10b981"/>
+                  <text x="383" y="613" font-size="9.2" font-weight="bold" fill="#15803d">SP6 (24°)</text>
+                </g>
+                <!-- SP7 (x=1940, y=3420 -> SVG 452, 609) -->
+                <g class="me-node" onclick="selectNode('SP7', event)">
+                  <polygon points="452,609 428,653 476,653" fill="url(#beam-green)" stroke="#10b981" stroke-width="1"/>
+                  <circle cx="452" cy="609" r="10.5" fill="#ffffff" stroke="#10b981" stroke-width="2.4"/>
+                  <circle cx="452" cy="609" r="4.5" fill="#10b981"/>
+                  <text x="484" y="613" font-size="9.2" font-weight="bold" fill="#15803d">SP7 (24°)</text>
+                </g>
+
+                <!-- ZONE S3: 2 Sofa Reading Spotlights (x=2620mm -> SVG x=547, y=449 & 581) aimed East -->
+                <!-- SP8 -->
+                <g class="me-node" onclick="selectNode('SP8', event)">
+                  <polygon points="547,449 585,429 585,469" fill="url(#beam-amber)" stroke="#f59e0b" stroke-width="1"/>
+                  <circle cx="547" cy="449" r="10" fill="#ffffff" stroke="#f59e0b" stroke-width="2.2"/>
+                  <circle cx="547" cy="449" r="4.2" fill="#f59e0b"/>
+                  <text x="512" y="453" font-size="9" font-weight="bold" fill="#b45309">SP8</text>
+                </g>
+                <!-- SP9 -->
+                <g class="me-node" onclick="selectNode('SP9', event)">
+                  <polygon points="547,581 585,561 585,601" fill="url(#beam-amber)" stroke="#f59e0b" stroke-width="1"/>
+                  <circle cx="547" cy="581" r="10" fill="#ffffff" stroke="#f59e0b" stroke-width="2.2"/>
+                  <circle cx="547" cy="581" r="4.2" fill="#f59e0b"/>
+                  <text x="512" y="585" font-size="9" font-weight="bold" fill="#b45309">SP9</text>
+                </g>
+              </g>
+
+              <!-- 4. POWER & LAN CAT6 LAYER (E1, E2, E3, E4) -->
+              <g id="layer-power">
+                <!-- Concealed Wall Conduit linking E1, E2, E3 -->
+                <line x1="184" y1="365" x2="184" y2="452" stroke="#9333ea" stroke-width="3"/>
+                <!-- E1 (Desk #1: y=1680mm -> SVG y=365, H=+600mm) -->
+                <g class="me-node" onclick="selectNode('E1', event)">
+                  <rect x="172" y="352" width="34" height="24" rx="4" fill="#faf5ff" stroke="#9333ea" stroke-width="2.2"/>
+                  <text x="189" y="368" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7e22ce">E1</text>
+                </g>
+                <!-- E2 (Printer & Wifi Mesh: y=1990mm -> SVG y=408, H=+850mm) -->
+                <g class="me-node" onclick="selectNode('E2', event)">
+                  <rect x="172" y="396" width="34" height="24" rx="4" fill="#faf5ff" stroke="#9333ea" stroke-width="2.2"/>
+                  <text x="189" y="412" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7e22ce">E2</text>
+                </g>
+                <!-- E3 (Desk #2: y=2260mm -> SVG y=446, H=+600mm) -->
+                <g class="me-node" onclick="selectNode('E3', event)">
+                  <rect x="172" y="434" width="34" height="24" rx="4" fill="#faf5ff" stroke="#9333ea" stroke-width="2.2"/>
+                  <text x="189" y="450" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7e22ce">E3</text>
+                </g>
+                <!-- E4 (Sofa East Wall: x=3420, y=1880 -> SVG x=640, y=382, H=+400mm) -->
+                <g class="me-node" onclick="selectNode('E4', event)">
+                  <rect x="630" y="372" width="30" height="24" rx="4" fill="#faf5ff" stroke="#9333ea" stroke-width="2.2"/>
+                  <text x="645" y="388" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#7e22ce">E4</text>
+                </g>
+
+                <!-- Callout Box for E1-E3 -->
+                <rect x="334" y="378" width="212" height="58" rx="6" fill="#faf5ff" stroke="#9333ea" stroke-width="1.3"/>
+                <text x="440" y="396" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#7e22ce">Cụm Điện &amp; LAN Cat6 (E1, E2, E3)</text>
+                <text x="440" y="410" text-anchor="middle" font-size="8.5" fill="#6b21a8">Gom vào mảng tường đặc 1.360mm</text>
+                <text x="440" y="424" text-anchor="middle" font-size="8.5" fill="#6b21a8">giữa 2 bàn (H=+600mm &amp; +850mm)</text>
+              </g>
+
+              <!-- 5. HVAC (AC 12.000 BTU & DRAINAGE) LAYER -->
+              <g id="layer-hvac">
+                <!-- AC Indoor Unit on East Wall above Sofa (x=615..657, y=445..570) -->
+                <g class="me-node" onclick="selectNode('AC-T3', event)">
+                  <rect x="615" y="445" width="42" height="125" rx="6" fill="#cffafe" stroke="#0891b2" stroke-width="2.4"/>
+                  <text x="636" y="492" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#0e7490">ĐIỀU</text>
+                  <text x="636" y="505" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#0e7490">HÒA</text>
+                  <text x="636" y="518" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#0e7490">12.000</text>
+                  <text x="636" y="531" text-anchor="middle" font-size="8.5" font-weight="bold" fill="#0e7490">BTU</text>
+                </g>
+                <!-- Airflow vectors -->
+                <g stroke="#0891b2" stroke-width="1.6" stroke-dasharray="5,3">
+                  <line x1="610" y1="472" x2="395" y2="472"/>
+                  <line x1="610" y1="507" x2="395" y2="507"/>
+                  <line x1="610" y1="542" x2="395" y2="542"/>
+                </g>
+                <rect x="372" y="482" width="166" height="46" rx="6" fill="#ffffff" stroke="#0891b2" stroke-width="1.2"/>
+                <text x="455" y="501" text-anchor="middle" font-size="8.8" font-weight="bold" fill="#0e7490">Gió lạnh thổi dọc giữa phòng</text>
+                <text x="455" y="516" text-anchor="middle" font-size="8.3" fill="#0e7490">(Mát đều 2 bàn, không buốt đầu)</text>
+
+                <!-- Condensate drain pipe (0.6m into Plumbing Shaft!) -->
+                <line x1="636" y1="570" x2="636" y2="668" stroke="#dc2626" stroke-width="3"/>
+                <circle cx="636" cy="668" r="5" fill="#dc2626"/>
+                <rect x="690" y="275" width="195" height="58" rx="6" fill="#fff1f2" stroke="#e11d48" stroke-width="1.3"/>
+                <text x="787" y="294" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#be123c">Ống nước ngưng AC (PVC Φ27)</text>
+                <text x="787" y="308" text-anchor="middle" font-size="8.5" fill="#9f1239">Đi âm tường Đông 0,6m vào thẳng</text>
+                <text x="787" y="321" text-anchor="middle" font-size="8.5" fill="#9f1239">Hộp kỹ thuật • Ống đồng lên Tum</text>
+              </g>
+
+              <!-- 6. DIMENSIONS LAYER -->
+              <g id="layer-dim">
+                <!-- Spotlight X=500mm dimension -->
+                <line x1="180" y1="152" x2="250" y2="152" stroke="#dc2626" stroke-width="1.5"/>
+                <line x1="180" y1="145" x2="180" y2="160" stroke="#dc2626" stroke-width="1.2"/>
+                <line x1="250" y1="145" x2="250" y2="190" stroke="#dc2626" stroke-width="1" stroke-dasharray="3,2"/>
+                <rect x="190" y="138" width="50" height="18" rx="4" fill="#ffffff" stroke="#dc2626" stroke-width="1"/>
+                <text x="215" y="151" text-anchor="middle" font-size="8.8" font-weight="bold" fill="#dc2626">500mm</text>
+
+                <!-- Spotlight Bookshelf offset 320mm dimension -->
+                <line x1="495" y1="609" x2="495" y2="654" stroke="#15803d" stroke-width="1.5"/>
+                <rect x="455" y="622" width="82" height="18" rx="4" fill="#ffffff" stroke="#15803d" stroke-width="1"/>
+                <text x="496" y="635" text-anchor="middle" font-size="8.4" font-weight="bold" fill="#15803d">Cách tủ 320mm</text>
+
+                <!-- Overall Width 3.420 mm -->
+                <line x1="180" y1="782" x2="659" y2="782" stroke="#2563eb" stroke-width="1.8"/>
+                <line x1="180" y1="758" x2="180" y2="790" stroke="#2563eb" stroke-width="1.2"/>
+                <line x1="659" y1="758" x2="659" y2="790" stroke="#2563eb" stroke-width="1.2"/>
+                <rect x="330" y="770" width="180" height="24" rx="5" fill="#ffffff" stroke="#2563eb" stroke-width="1.3"/>
+                <text x="420" y="786" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1d4ed8">3.420 mm (Rộng thông thủy)</text>
+
+                <!-- Overall Length 4.240 mm -->
+                <line x1="82" y1="130" x2="82" y2="724" stroke="#2563eb" stroke-width="1.8"/>
+                <line x1="74" y1="130" x2="145" y2="130" stroke="#2563eb" stroke-width="1.2"/>
+                <line x1="74" y1="724" x2="145" y2="724" stroke="#2563eb" stroke-width="1.2"/>
+                <rect x="36" y="395" width="92" height="38" rx="5" fill="#ffffff" stroke="#2563eb" stroke-width="1.3"/>
+                <text x="82" y="412" text-anchor="middle" font-size="10" font-weight="bold" fill="#1d4ed8">4.240 mm</text>
+                <text x="82" y="426" text-anchor="middle" font-size="9" fill="#1d4ed8">(Dài phòng)</text>
+              </g>
+
+              <!-- 7. USER CUSTOM PINS LAYER -->
+              <g id="layer-custom-pins"></g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Technical Inspector & Note Editor -->
+        <aside class="inspector-card" aria-live="polite">
+          <span class="inspector-badge" id="insp-badge" style="background:var(--rose-soft);color:#fda4af;">💡 ĐÈN SPOTLIGHT LỘ S1</span>
+          <h3 class="inspector-title" id="insp-title">SP1 — Spotlight Chóa Sâu Bàn Làm Việc #1</h3>
+          <p id="insp-desc" style="font-size:0.85rem;color:var(--text-muted);">
+            Đèn Spotlight âm trần chóa sâu chống chói (Deep Anti-Glare UGR &lt; 16), có khớp xoay chỉnh góc 15° hướng về phía mặt bàn tường Tây giúp triệt tiêu 100% bóng lưng và không gây lóa màn hình.
+          </p>
+
+          <div class="spec-list">
+            <div class="spec-row">
+              <span>Phân loại / Lộ điều khiển:</span>
+              <span id="insp-zone">Lộ S1 (Nút 1 Công tắc SW-T3)</span>
+            </div>
+            <div class="spec-row">
+              <span>Thông số kỹ thuật:</span>
+              <span id="insp-spec">9W–12W • Góc 36° • 4000K • CRI&gt;95</span>
+            </div>
+            <div class="spec-row">
+              <span>Tọa độ định vị (x, y):</span>
+              <span id="insp-coord">Cách tường Tây 500mm, Bắc 480mm</span>
+            </div>
+            <div class="spec-row">
+              <span>Cao độ lắp đặt (H):</span>
+              <span id="insp-height">Trần thạch cao +3.000 / +3.150mm</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="insp-status">Trạng thái chốt thi công</label>
+            <select id="insp-status" class="form-control" onchange="saveCurrentNode()">
+              <option value="Chốt thi công">✅ Chốt thi công theo bản vẽ</option>
+              <option value="Đã báo thợ điện">👷 Đã giao thợ điện / thạch cao</option>
+              <option value="Đang cân nhắc">🤔 Đang cân nhắc chỉnh sửa</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="insp-note">Ghi chú dặn thợ (Tự động lưu trên trình duyệt)</label>
+            <textarea id="insp-note" rows="3" class="form-control" oninput="saveCurrentNode()" placeholder="Nhập ghi chú thi công cho vị trí này..."></textarea>
+          </div>
+
+          <div style="margin-top:14px;display:flex;justify-content:space-between;align-items:center;gap:8px;">
+            <span id="save-indicator" style="font-size:0.76rem;color:var(--emerald);font-weight:700;">✓ Đã lưu tự động</span>
+            <button class="btn" id="btn-delete-custom" style="display:none;background:var(--rose-soft);color:#fda4af;border-color:var(--rose);" onclick="deleteSelectedCustomPin()">🗑️ Xóa Note Này</button>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: 2D ELEVATIONS & PRINTABLE HIGH-RES BLUEPRINTS -->
+  <section id="sec-blueprints">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">3. BẢN VẼ KỸ THUẬT 2D CHUẨN CAD GỐC XHOME (KT-2.04 &amp; KT-4.08) • TRẦN PHẲNG RAY NAM CHÂM &amp; MẶT ĐỨNG</span>
+        <h2 class="section-title">Bản Vẽ 2D Đen Trắng Chuẩn Hồ Sơ Thiết Kế Gốc XHOME (KT-2.04 &amp; KT-4.08) + Bản Vẽ Triển Khai M&amp;E</h2>
+        <p class="section-desc">
+          Bao gồm <strong>Bản vẽ 2D Vector xuất trực tiếp trên nền bản vẽ gốc XHOME (<code>KT-2.04</code> Nội Thất &amp; <code>KT-4.08</code> Trần-Đèn kèm Khung tên + Bảng ký hiệu chuẩn)</strong> để đối chiếu 1:1 với bộ hồ sơ giấy <code>ThiCongKienTruc.pdf</code>, cùng 2 bản vẽ bóc tách chi tiết Ray Nam Châm 48V và Mặt đứng Tường Tây – Tường Nam. Click vào bất kỳ bản vẽ nào để phóng to toàn màn hình hoặc tải file PDF/PNG gốc.
+        </p>
+      </div>
+
+      <div class="blueprint-box" style="margin-bottom:20px;border-color:rgba(56,189,248,0.55);">
+        <div class="blueprint-hdr" style="flex-wrap:wrap;gap:10px;">
+          <h3>📄 Bộ Bản Vẽ CAD Tách Riêng Từng Tờ Độc Lập (KT-2.04 Nội Thất &amp; KT-4.08 Trần Đèn — Zoom Siêu Nét Giao Thợ)</h3>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="assets/Bo_Ban_Ve_Phong_Lam_Viec_Tang3_Cho_Tho_Dien_Nuoc.pdf" download class="btn emerald-active">📑 Tải Trọn Bộ PDF 7 Trang Tách Riêng Cho Thợ Điện Nước</a>
+            <a href="assets/KT-T3-PA-T3A-CAD-Goc.pdf" download class="btn primary">📑 Tải File PDF Vector Gốc 2 Trang (KT-2.04 &amp; KT-4.08)</a>
+          </div>
+        </div>
+        <div class="cards-2" style="padding:14px;gap:16px;background:#0f172a;">
+          <div class="blueprint-box" style="margin:0;">
+            <div class="blueprint-hdr">
+              <h3>1️⃣ Tờ Riêng KT-2.04: Mặt Bằng Nội Thất &amp; Điện Mạng Tầng 3 (1929×2962 px)</h3>
+              <a href="assets/tang3_kt204_noi_that_dien_mang_rieng.png" download="1_Tang3_KT204_Noi_That_Dien_Mang_Rieng.png" class="btn primary">⬇️ Tải Ảnh KT-2.04 Riêng</a>
+            </div>
+            <div class="blueprint-img-wrap" style="background:#ffffff;">
+              <img src="assets/tang3_kt204_noi_that_dien_mang_rieng.png" alt="Bản vẽ tách riêng KT-2.04 Mặt bằng bố trí nội thất và điện mạng Phòng làm việc Tầng 3" onclick="openLightbox(this.src)">
+            </div>
+          </div>
+          <div class="blueprint-box" style="margin:0;">
+            <div class="blueprint-hdr">
+              <h3>2️⃣ Tờ Riêng KT-4.08: Mặt Bằng Trần Phẳng (+3.130) &amp; Đèn Ray / Spotlight (2487×2962 px)</h3>
+              <a href="assets/tang3_kt408_tran_den_spotlight_rieng.png" download="2_Tang3_KT408_Tran_Den_Spotlight_Rieng.png" class="btn emerald-active">⬇️ Tải Ảnh KT-4.08 Riêng</a>
+            </div>
+            <div class="blueprint-img-wrap" style="background:#ffffff;">
+              <img src="assets/tang3_kt408_tran_den_spotlight_rieng.png" alt="Bản vẽ tách riêng KT-4.08 Mặt bằng trần phẳng và đèn ray nam châm / spotlight Phòng làm việc Tầng 3" onclick="openLightbox(this.src)">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-2">
+        <div class="blueprint-box">
+          <div class="blueprint-hdr">
+            <h3>⚡ Bản Vẽ Chi Tiết 1: Trần Thạch Cao Phẳng (+3.130) + Hệ Đèn Ray Nam Châm Âm Trần 48V &amp; Khe Rèm (KT-4.05)</h3>
+            <a href="assets/tang3_tran_phang_ray_nam_cham_2d.png" download class="btn primary">⬇️ Tải Bản Vẽ Trần Ray Nam Châm</a>
+          </div>
+          <div class="blueprint-img-wrap">
+            <img src="assets/tang3_tran_phang_ray_nam_cham_2d.png" alt="Bản vẽ kỹ thuật 2D Trần thạch cao phẳng và hệ đèn ray nam châm âm trần 48V Phòng làm việc Tầng 3" onclick="openLightbox(this.src)">
+          </div>
+        </div>
+
+        <div class="blueprint-box">
+          <div class="blueprint-hdr">
+            <h3>📐 Bản Vẽ Chi Tiết 2: Mặt Bằng 2D M&amp;E Spotlight + Mặt Đứng Tường Tây (4,24m) &amp; Tường Nam (3,42m)</h3>
+            <a href="assets/tang3_me_spotlight_2d.png" download class="btn sky-active">⬇️ Tải Bản Vẽ Mặt Đứng &amp; Điện</a>
+          </div>
+          <div class="blueprint-img-wrap">
+            <img src="assets/tang3_me_spotlight_2d.png" alt="Bản vẽ kỹ thuật 2D M&E Phòng làm việc Tầng 3 với đèn Spotlight, ổ cắm và điều hòa" onclick="openLightbox(this.src)">
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-3" style="margin-top:18px;">
+        <div class="info-card">
+          <h3>💡 Vì sao Tuyến Ray Nam Châm / Spotlight đặt tại x = 500–550mm?</h3>
+          <ul>
+            <li><strong>Triệt tiêu 100% sấp bóng lưng:</strong> Bàn làm việc sâu <code>600 mm</code>, đầu người ngồi ở vị trí <code>x = 650–750 mm</code>. Đặt thanh ray nam châm (hoặc đèn Spotlight) ở <code>x = 500–550 mm</code> nghĩa là nguồn sáng nằm <strong>phía trước đỉnh đầu</strong>, ánh sáng rơi thẳng xuống bàn phím và tài liệu.</li>
+            <li><strong>Chống chói tuyệt đối (UGR &lt; 16):</strong> Dùng cụm <strong>Đèn tiêu điểm nam châm chóa đen sâu (Grille Spotlight 12W, chỉnh góc nghiêng 15°)</strong> hoặc Spotlight âm sâu giúp mắt nhìn ngang không bao giờ thấy điểm sáng chói.</li>
+            <li><strong>Linh hoạt trượt vị trí đèn:</strong> Với thanh ray nam châm dài <code>3,0 m</code> chạy dọc 2 bàn, bạn có thể trượt đèn sang trái/phải hoặc gắn thêm thanh đèn tán quang bất kỳ lúc nào.</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>⚡ Gom cụm Điện &amp; LAN vào mảng tường đặc 1.360mm</h3>
+          <ul>
+            <li><strong>Không đục vào vách kính &amp; cột chịu lực:</strong> Cửa sổ <code>S4 (1.250mm)</code> và vách kính <code>V4 (890mm)</code> chiếm hai đầu tường Tây, ở giữa là mảng tường xây đặc dài <code>1.360 mm</code> (từ <code>y = 1.490</code> đến <code>2.850 mm</code>).</li>
+            <li><strong>Đi âm ống gen Φ32 luồn dây HDMI/Nguồn:</strong> Tại cụm <code>E1 (y=1.650, H=+600)</code> và <code>E3 (y=2.280, H=+600)</code>, toàn bộ củ sạc, ổ cắm 6 chấu và dây LAN nằm gọn dưới gầm bàn, luồn lên mặt bàn qua hộp cáp nhôm.</li>
+            <li><strong>Cụm E2 (y=1.990, H=+850):</strong> Đặt ngay trên mặt Tủ máy in <code>300mm</code> ở giữa 2 bàn để cắm <strong>Máy in dùng chung + Bộ phát Wifi Mesh / Switch Gigabit</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <h3>❄️ Điều hòa 12.000 BTU ở vách Đông &amp; Cửa lùa 4 cánh</h3>
+          <ul>
+            <li><strong>Bổ sung kịp thời thiếu sót của KT-4.03:</strong> Bản vẽ trần <code>KT-4.03</code> gốc đang để trống điều hòa tại phòng này.</li>
+            <li><strong>Vị trí vàng trên vách Đông (phía trên Sofa):</strong> Gió lạnh thổi dọc theo khoảng trống giữa phòng, làm mát đều sang 2 bàn làm việc mà <strong>không thổi buốt vào đầu hay gáy</strong>.</li>
+            <li><strong>Thoát nước ngưng 0,6m:</strong> Ống nước ngưng <code>PVC Φ27</code> đi âm tường Đông <code>0,6m</code> đấu thẳng vào <strong>Hộp kỹ thuật 980×500mm</strong> ngay góc Đông Nam (được ốp gỗ phẳng lỳ cùng Tủ sách).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: RESPONSIVE M&E SCHEDULE TABLE -->
+  <section id="sec-me-specs">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">4. BẢNG BÓC TÁCH KHỐI LƯỢNG &amp; TỌA ĐỘ THI CÔNG CHI TIẾT GIAO THỢ</span>
+        <h2 class="section-title">Danh Mục Đèn Ray Nam Châm / Spotlight, Công Tắc, Ổ Cắm Điện, Mạng LAN &amp; Điều Hòa Tầng 3</h2>
+        <p class="section-desc">
+          Bảng tổng hợp đầy đủ 17 hạng mục M&amp;E và nội thất của Phòng Làm Việc Tầng 3 (<code>14,5 m²</code>). Mọi thay đổi trạng thái hoặc ghi chú bạn nhập ở bản vẽ 2D phía trên đều được đồng bộ trực tiếp xuống bảng này.
+        </p>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="me-schedule-caption" class="table-wrapper">
+        <table class="me-table">
+          <caption id="me-schedule-caption">Bảng thống kê tọa độ lắp đặt Đèn Chiếu Sáng, Điện - Mạng LAN &amp; Điều hòa Phòng Làm Việc Tầng 3 (14,5 m²)</caption>
+          <thead>
+            <tr>
+              <th>Ký hiệu &amp; Hạng mục</th>
+              <th>Phân loại / Lộ</th>
+              <th>Thông số kỹ thuật yêu cầu</th>
+              <th>Tọa độ định vị (x, y, Cao độ H)</th>
+              <th>Ghi chú &amp; Hướng dẫn lắp đặt</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody id="me-table-body">
+            <!-- Populated dynamically by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: MODERN FLAT CEILING & MAGNETIC TRACK OPTIONS COMPARISON -->
+  <section id="sec-ceiling-options">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">5. PHÂN TÍCH &amp; LỰA CHỌN KIỂU TRẦN THẠCH CAO HIỆN ĐẠI CHO PHÒNG LÀM VIỆC TẦNG 3 (KT-4.03 • KT-4.05 • KT-4.06 • KT-4.08)</span>
+        <h2 class="section-title">Nên Làm Trần Thạch Cao Phẳng Kèm Ray Nam Châm 48V Hay Trần Phẳng Spotlight Không Viền?</h2>
+        <p class="section-desc">
+          Trong hồ sơ thiết kế gốc của XHOME, hệ <strong>Đèn Ray Nam Châm âm trần</strong> và <strong>Nẹp ron âm trần nhựa đen P-UT12 (12mm) / Nẹp U10 đen</strong> đã được sử dụng tại Phòng khách Tầng 1 (<code>KT-4.06</code>) và 2 phòng ngủ phía sau Tầng 3 (<code>KT-4.03 / KT-4.08</code>). Việc chuyển trần Phòng Làm Việc Tầng 3 từ <em>trần giật cấp hắt sáng cũ</em> sang <strong>Trần Thạch Cao Phẳng (+3.130) kèm Ray Nam Châm 48V</strong> hoàn toàn khả thi 100%, đồng bộ hồ sơ và đẹp hiện đại hơn rất nhiều:
+        </p>
+      </div>
+
+      <div class="cards-3">
+        <div class="info-card" style="border-color:rgba(56,189,248,0.55);">
+          <h3>⚡ PA Trần 1 (Khuyên Dùng Số 1): Trần Phẳng (+3.130) + Hệ Ray Nam Châm Âm Trần 48V</h3>
+          <ul>
+            <li><strong>Trần phẳng một cốt cao suốt +3.130mm (hoặc +3.150mm):</strong> Bỏ phần hạ trần <code>+3.000mm</code> xung quanh giúp trần phía trên 2 bàn làm việc và tủ sách cao thoáng thêm <code>13–15 cm</code>, xóa bỏ hoàn toàn khe hắt trần dễ bám bụi.</li>
+            <li><strong>3 Tuyến Ray Nam Châm Âm Trần (Rộng 25mm, đen mờ):</strong>
+              <br>– <em>Tuyến Tây (<code>x = 550mm</code>, dài <code>3,0m</code>, Lộ S1):</em> Gắn <strong>04 Đèn tiêu điểm Grille 12W chỉnh góc 15°</strong> + <strong>02 Đèn thanh tán quang 4000K</strong> chiếu thẳng xuống 2 bàn làm việc.
+              <br>– <em>Tuyến Nam (<code>y = 3.420mm</code>, dài <code>2,0m</code>, Lộ S2):</em> Gắn <strong>03 Spotlight nam châm chỉnh góc 24°</strong> rọi vào Hệ Tủ Sách.
+              <br>– <em>Tuyến Đông (<code>x = 2.620mm</code>, dài <code>2,0m</code>, Lộ S3):</em> Gắn <strong>02 Đèn thanh Linear 3500K</strong> chiếu sáng Sofa &amp; lối vào cửa <code>O1</code>.
+            </li>
+            <li><strong>Linh hoạt số 1:</strong> Tháo lắp, trượt đổi vị trí đèn dọc theo thanh ray chỉ bằng 1 tay trong 3 giây (điện áp <code>48V DC</code> an toàn tuyệt đối).</li>
+          </ul>
+          <div style="margin-top:12px;">
+            <button class="btn sky-active" onclick="setCeilingStyle('magnetic', document.getElementById('btn-ceil-magnetic')); document.getElementById('sec-3d-interactive').scrollIntoView({behavior:'smooth'});">🧊 Xem PA Trần 1 Trên Mô Hình 3D</button>
+          </div>
+        </div>
+
+        <div class="info-card" style="border-color:rgba(16,185,129,0.55);">
+          <h3>🎯 PA Trần 2 (Tối Giản Tinh Tế): Trần Phẳng (+3.130) + Ron Đen P-UT12 + 09 Spotlight Không Viền</h3>
+          <ul>
+            <li><strong>Đồng bộ 100% với 2 phòng phía sau trên KT-4.03:</strong> Đóng trần thạch cao phẳng một cốt <code>+3.130mm</code>, chạy 1 đường viền <strong>Nẹp ron âm trần nhựa đen P-UT12 rộng 12mm</strong> (chi tiết <code>P-UT12</code> đã có sẵn ngay góc dưới bản vẽ <code>KT-4.03</code>!).</li>
+            <li><strong>Sử dụng Đèn Spotlight Âm Trần Không Viền (Trimless) hoặc Chóa Đen Sâu:</strong> Khoét 09 lỗ đèn tại đúng tọa độ <code>SP1–SP9</code> (4 đèn bàn làm việc tại <code>x = 500mm</code>, 3 đèn rọi tủ sách tại <code>y = 3.420mm</code>, 2 đèn Sofa tại <code>x = 2.620mm</code>).</li>
+            <li><strong>Ưu điểm kinh tế:</strong> Mặt trần phẳng phiu, sắc nét như khách sạn 5 sao nhưng tiết kiệm chi phí thanh ray và bộ nguồn <code>48V</code> khoảng <code>2,5 – 3,5 triệu VNĐ</code>.</li>
+          </ul>
+          <div style="margin-top:12px;">
+            <button class="btn" style="border-color:var(--emerald);color:#6ee7b7;" onclick="setCeilingStyle('flat_spot', document.getElementById('btn-ceil-flat_spot')); document.getElementById('sec-3d-interactive').scrollIntoView({behavior:'smooth'});">🧊 Xem PA Trần 2 Trên Mô Hình 3D</button>
+          </div>
+        </div>
+
+        <div class="info-card" style="border-color:rgba(245,158,11,0.45);">
+          <h3>🛠️ 3 Lưu Ý Kỹ Thuật Bắt Buộc Khi Đóng Trần Phẳng Tầng 3 (Theo KT-4.03 &amp; KT-4.05)</h3>
+          <ul>
+            <li><strong>1. Chừa Khe Rèm Âm Trần (150 × 150mm) tại Cửa sổ S4 &amp; V4:</strong> Áp dụng đúng <code>Chi tiết T-01 (KT-4.05)</code> để giấu kín hoàn toàn ống lô cuốn của Rèm chống nắng <code>S4</code> lên trên cốt trần (kèm 1 đầu dây chờ 220V rút từ ổ cắm <code>E1</code> lên cho động cơ rèm cuốn tự động).</li>
+            <li><strong>2. Gia cố Thép hộp 50×50 cho Cửa lùa 4 cánh TRƯỚC khi bắn thạch cao:</strong> Đúng ghi chú góc trái <code>KT-4.03</code> (<em>"Thi công phần ray cửa trượt trước khi thi công trần thạch cao"</em>) tại vách Bắc (<code>y = 0mm</code>, dài <code>2.400mm</code>).</li>
+            <li><strong>3. Tách 03 Bộ Nguồn (Driver 48V DC) Riêng Biệt Cho 3 Lộ Ray Nam Châm:</strong> Không dùng chung 1 cục nguồn tổng! Phải dùng <strong>03 bộ nguồn Driver 48V độc lập</strong> cho 3 lộ <code>S1, S2, S3</code> (giấu gọn trong khoang đỉnh Tủ sách / Hộp KT có nắp mở) thì công tắc 3 nút <code>SW-T3</code> mới bật/tắt riêng từng vùng sáng được!</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: CROSS-CHECK WITH ELECTRICAL BLUEPRINTS CĐ-05, CĐ-10, CĐ-13 & AQARA SMARTHOME -->
+  <section id="sec-cd-crosscheck">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">6. ĐỐI CHIẾU CHÉO VỚI HỒ SƠ ĐIỆN NƯỚC (CĐ-05 • CĐ-10 • CĐ-13) &amp; CẢI TIẾN SMARTHOME AQARA</span>
+        <h2 class="section-title">6 Phát Hiện &amp; Cải Tiến Quan Trọng Khi Khớp Nối Bản Vẽ Kiến Trúc Với Bản Vẽ Điện – Mạng Tầng 3</h2>
+        <p class="section-desc">
+          Khi đối chiếu trực tiếp mặt bằng <strong>Phòng Làm Việc Đôi (PA T3-A)</strong> với bộ hồ sơ Điện &amp; Điện nhẹ gốc của XHOME (<code>CĐ-05</code> Ổ cắm, <code>CĐ-10</code> Điện nhẹ, <code>CĐ-13</code> Chiếu sáng trong <code>ThiCongDienNuoc.pdf</code>), có <strong>3 xung đột lớn cần báo thợ điện sửa ngay trước khi đục tường</strong> và <strong>3 nâng cấp Smarthome cực kỳ đáng giá</strong>:
+        </p>
+      </div>
+
+      <div class="cards-2" style="margin-bottom:20px;gap:18px;">
+        <div class="blueprint-box" style="border-color:rgba(16,185,129,0.5);">
+          <div class="blueprint-hdr">
+            <h3>💡 1. Zoom Cận Cảnh CĐ-13 (520 DPI): Chiếu Sáng, Công Tắc (17,18,19) &amp; Chờ LED Tủ</h3>
+            <a href="assets/tang3_cd13_chieu_sang_zoom_tho_dien.png" download="3_Tang3_CD13_Chieu_Sang_Cong_Tac_Zoom.png" class="btn emerald-active">⬇️ Tải Ảnh CĐ-13 Zoom</a>
+          </div>
+          <div class="blueprint-img-wrap" style="background:#fff;">
+            <img src="assets/tang3_cd13_chieu_sang_zoom_tho_dien.png" alt="Bản vẽ Zoom CĐ-13 Chiếu sáng và Công tắc Phòng Làm Việc Tầng 3" onclick="openLightbox(this.src)">
+          </div>
+        </div>
+
+        <div class="blueprint-box" style="border-color:rgba(168,85,247,0.5);">
+          <div class="blueprint-hdr">
+            <h3>🔌 2. Zoom Cận Cảnh CĐ-05 (520 DPI): Ổ Cắm S1/+0.4M &amp; Đầu Chờ Nguồn Rèm</h3>
+            <a href="assets/tang3_cd05_cap_dien_zoom_tho_dien.png" download="4_Tang3_CD05_O_Cam_Nguon_Rem_Zoom.png" class="btn primary">⬇️ Tải Ảnh CĐ-05 Zoom</a>
+          </div>
+          <div class="blueprint-img-wrap" style="background:#fff;">
+            <img src="assets/tang3_cd05_cap_dien_zoom_tho_dien.png" alt="Bản vẽ Zoom CĐ-05 Cấp điện ổ cắm và nguồn rèm Phòng Làm Việc Tầng 3" onclick="openLightbox(this.src)">
+          </div>
+        </div>
+
+        <div class="blueprint-box" style="border-color:rgba(56,189,248,0.5);">
+          <div class="blueprint-hdr">
+            <h3>📡 3. Zoom Cận Cảnh CĐ-10 (520 DPI): Điện Nhẹ WIFI Trần &amp; 2 Ổ Mạng LAN/+0.4M</h3>
+            <a href="assets/tang3_cd10_dien_nhe_zoom_tho_dien.png" download="5_Tang3_CD10_Dien_Nhe_Wifi_LAN_Zoom.png" class="btn sky-active">⬇️ Tải Ảnh CĐ-10 Zoom</a>
+          </div>
+          <div class="blueprint-img-wrap" style="background:#fff;">
+            <img src="assets/tang3_cd10_dien_nhe_zoom_tho_dien.png" alt="Bản vẽ Zoom CĐ-10 Điện nhẹ WIFI và 2 ổ mạng LAN Phòng Làm Việc Tầng 3" onclick="openLightbox(this.src)">
+          </div>
+        </div>
+
+        <div class="blueprint-box" style="border-color:rgba(245,158,11,0.5);">
+          <div class="blueprint-hdr">
+            <h3>❄️ 4. Zoom Cận Cảnh CĐ-17 (520 DPI): Điều Hòa IN 3.1 &amp; Thoát Nước Ngưng</h3>
+            <a href="assets/tang3_cd17_dieu_hoa_zoom_tho_dien.png" download="6_Tang3_CD17_Dieu_Hoa_IN31_Zoom.png" class="btn" style="border-color:#fbbf24;color:#fde68a;">⬇️ Tải Ảnh CĐ-17 Zoom</a>
+          </div>
+          <div class="blueprint-img-wrap" style="background:#fff;">
+            <img src="assets/tang3_cd17_dieu_hoa_zoom_tho_dien.png" alt="Bản vẽ Zoom CĐ-17 Điều hòa thông gió Phòng Làm Việc Tầng 3" onclick="openLightbox(this.src)">
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-3">
+        <div class="info-card" style="border-color:rgba(244,63,94,0.5);">
+          <h3>🚨 1. Phát hiện trên CĐ-13: Công tắc đang nằm BÊN TRONG Phòng Thờ!</h3>
+          <ul>
+            <li><strong>Lỗi trên bản vẽ CĐ-13 gốc:</strong> Cụm công tắc điều khiển đèn phòng làm việc cũ <code>(17, 18, 19, 17*)</code> đang đặt ở mặt tường phía Bắc vách ngăn — tức là <strong>nằm bên trong Phòng Thờ</strong>! Nếu giữ nguyên, khi đóng cửa lùa 4 cánh bật điều hòa, bạn bước từ hành lang qua cửa <code>O1</code> vào Phòng Làm Việc sẽ <strong>không có công tắc để bật đèn</strong>!</li>
+            <li><strong>Cải tiến chốt giao thợ:</strong> Tách riêng công tắc <code>(14, 15, 16, 26)</code> để lại trong Phòng Thờ; <strong>dời công tắc Phòng Làm Việc (<code>SW-T3</code>: Aqara H1 3 nút Có N) sang sát mép cửa gỗ <code>O1</code> bên trong Phòng Làm Việc</strong>.</li>
+            <li><strong>Mẹo cực tiện tại bàn làm việc:</strong> Dán thêm <strong>01 Nút bấm không dây <code>Aqara Wireless Mini Switch T1</code> (~320k)</strong> dưới gầm mép bàn (bấm 1 lần bật đèn bàn LV; bấm đúp bật cảnh <em>"Họp Zoom"</em> sáng đèn Tủ sách + hạ rèm Tây; bấm giữ tắt toàn bộ đèn + điều hòa khi rời phòng).</li>
+          </ul>
+        </div>
+
+        <div class="info-card" style="border-color:rgba(168,85,247,0.5);">
+          <h3>🔌 2. Phát hiện trên CĐ-05: Ổ cắm bị Tủ sách bịt kín &amp; Tường Tây trống trơn!</h3>
+          <ul>
+            <li><strong>Lỗi trên bản vẽ CĐ-05 gốc:</strong> Tường Tây (nơi kê 2 bàn làm việc + 4 màn hình) hiện <strong>chưa có bất kỳ ổ cắm nào</strong>, trong khi ổ cắm <code>S1 (+0.4M)</code> ở tường Nam (cách góc <code>400mm</code>) lại bị <strong>Tủ sách kịch trần sâu 500mm bịt kín hoàn toàn</strong>!</li>
+            <li><strong>Cải tiến chốt giao thợ:</strong>
+              <br>• <strong>Bỏ ổ cắm <code>S1 (+0.4M)</code> tường Nam</strong> &rarr; Rút dây nguồn đó đưa lên <strong>khoang đỉnh Tủ sách (<code>H=+2.850mm</code>)</strong> để cấp điện cho <strong>03 bộ nguồn Driver 48V của Ray nam châm + Adapter LED Tủ sách</strong> (giấu trong khoang tủ có nắp mở bảo trì cực dễ, không vứt nguồn trên trần thạch cao kín!).
+              <br>• <strong>Kéo mạch <code>S1</code> sang mảng tường đặc hướng Tây</strong> tạo thành 3 cụm <code>E1, E2, E3</code> + <strong>trích 1 đầu dây 220V từ <code>E1</code> lên Hốc rèm cửa sổ Tây (<code>H=+3.050mm</code>)</strong> để lắp <strong>Động cơ rèm cuốn tự động Aqara</strong> (không phải chồm người qua 4 màn hình máy tính để kéo dây hạt rèm mỗi chiều nắng Tây!).
+            </li>
+          </ul>
+        </div>
+
+        <div class="info-card" style="border-color:rgba(56,189,248,0.5);">
+          <h3>📡 3. Tận dụng Sợi Cáp Cat6 Thứ 4 trên CĐ-10 &amp; Hồng Ngoại Điều Hòa 12k</h3>
+          <ul>
+            <li><strong>Không tốn thêm cáp trục đứng &amp; cổng Switch TĐN Tầng 1:</strong> Bản vẽ <code>CĐ-10</code> đã ghi sẵn <code>"4 CÁP CAT6 LUỒN ỐNG PVC-D20"</code> từ Tầng 1 lên Tầng 3 nhưng mới dùng 3 sợi (1 Wifi trần hành lang + 1 LAN PN3 + 1 LAN PN2). Hãy bảo thợ <strong>kéo nốt sợi cáp Cat6 thứ 4 đang chờ ở hành lang sang cụm <code>E2</code> (Tủ máy in <code>H=+850mm</code>)</strong>!</li>
+            <li><strong>Chia mạng Gigabit cho cả 2 bàn:</strong> Đặt 1 chiếc <strong>Switch 5 cổng Gigabit vỏ thép <code>TP-Link TL-SG105</code> (320k)</strong> tại Tủ máy in <code>E2</code> (hoặc nối âm tường sang <code>E1, E3</code>) &rarr; Cả 2 máy tính + Máy in dùng chung đều có mạng dây <code>1000Mbps</code> mà dưới Tủ điện nhẹ Tầng 1 chỉ tốn đúng 1 cổng!</li>
+            <li><strong>Bắn hồng ngoại (IR) cho Điều hòa 12.000 BTU:</strong> Cắm 1 chiếc <strong>USB <code>Aqara Hub E1</code> / <code>Hub M2 (IR)</code></strong> ngay tại <code>E2</code> chiếu thẳng mặt sang Điều hòa <code>12.000 BTU</code> ở vách Đông đối diện (nguồn điện ĐH kéo từ tủ <code>TĐ3</code> ngay vách cầu thang cách chỉ <code>1,8m</code>).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Modal -->
+  <dialog id="img-modal" onclick="if(event.target===this)this.close()">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <strong style="font-size:0.9rem;color:#fff;">Xem Bản Vẽ Độ Phân Giải Cao (Click ra ngoài hoặc bấm Đóng để thoát)</strong>
+      <button class="btn" onclick="document.getElementById('img-modal').close()">✕ Đóng</button>
+    </div>
+    <img id="modal-img" src="" alt="Bản vẽ phóng to">
+  </dialog>
+
+  <footer>
+    <div class="container">
+      Mô hình 3D Thực tế &amp; Hồ sơ Kỹ thuật 2D M&amp;E Phòng Làm Việc Tầng 3 (PA T3-A • 14,5 m²) — Q Villa (Mr. Phùng Văn Quân • XHOME)
+    </div>
+  </footer>
+
+  <script>
+    const STORAGE_KEY = 'qvilla_t3_me_nodes_v2';
+
+    const DEFAULT_NODES = [
+      {
+        id: 'SP1',
+        name: 'SP1 — Đèn Spotlight Bàn Làm Việc #1 (Phía Bắc)',
+        badge: '💡 ĐÈN SPOTLIGHT LỘ S1',
+        badgeClass: 'red',
+        zone: 'Lộ S1 (Nút 1 Công tắc SW-T3)',
+        spec: 'Spotlight âm trần chóa sâu 9W–12W • Góc 36° • 4000K • CRI>95 • UGR<16',
+        coord: 'x = 500mm (cách tường Tây), y = 480mm (cách tường Bắc)',
+        height: 'Trần thạch cao +3.000mm (Ngoài ô giật cấp C1)',
+        desc: 'Chiếu sáng nửa trái Bàn Làm Việc #1 (màn hình 1). Chóa đèn đặt cách tường Tây 500mm (phía trước đỉnh đầu người ngồi) và bẻ góc nghiêng 15° hướng vào mặt bàn để không sấp bóng lưng và không gây chói mắt.',
+        status: 'Chốt thi công',
+        note: 'Khoét lỗ trần cách tường Tây đúng 500mm, chọn dòng Spotlight chóa sâu chỉnh góc chiếu 36° ánh sáng trung tính 4000K.'
+      },
+      {
+        id: 'SP2',
+        name: 'SP2 — Đèn Spotlight Bàn Làm Việc #1 (Phía Nam)',
+        badge: '💡 ĐÈN SPOTLIGHT LỘ S1',
+        badgeClass: 'red',
+        zone: 'Lộ S1 (Nút 1 Công tắc SW-T3)',
+        spec: 'Spotlight âm trần chóa sâu 9W–12W • Góc 36° • 4000K • CRI>95 • UGR<16',
+        coord: 'x = 500mm (cách tường Tây), y = 1.480mm (cách tường Bắc)',
+        height: 'Trần thạch cao +3.000mm',
+        desc: 'Chiếu sáng nửa phải Bàn Làm Việc #1 (màn hình 2) và khu vực bàn phím. Đấu chung lộ dây S1 với SP1, SP3, SP4 về Nút 1 công tắc SW-T3.',
+        status: 'Chốt thi công',
+        note: 'Bẻ góc chóa 15° hướng về phía tường Tây.'
+      },
+      {
+        id: 'SP3',
+        name: 'SP3 — Đèn Spotlight Bàn Làm Việc #2 (Phía Bắc)',
+        badge: '💡 ĐÈN SPOTLIGHT LỘ S1',
+        badgeClass: 'red',
+        zone: 'Lộ S1 (Nút 1 Công tắc SW-T3)',
+        spec: 'Spotlight âm trần chóa sâu 9W–12W • Góc 36° • 4000K • CRI>95 • UGR<16',
+        coord: 'x = 500mm (cách tường Tây), y = 2.320mm (cách tường Bắc)',
+        height: 'Trần thạch cao +3.000mm',
+        desc: 'Chiếu sáng nửa trái Bàn Làm Việc #2 (màn hình 1 của bàn #2). Không đặt đèn lùi ra x=850mm để tránh bóng đầu người ngồi đổ xuống bàn.',
+        status: 'Chốt thi công',
+        note: 'Khoét lỗ thẳng hàng trục x = 500mm với SP1, SP2, SP4.'
+      },
+      {
+        id: 'SP4',
+        name: 'SP4 — Đèn Spotlight Bàn Làm Việc #2 (Phía Nam)',
+        badge: '💡 ĐÈN SPOTLIGHT LỘ S1',
+        badgeClass: 'red',
+        zone: 'Lộ S1 (Nút 1 Công tắc SW-T3)',
+        spec: 'Spotlight âm trần chóa sâu 9W–12W • Góc 36° • 4000K • CRI>95 • UGR<16',
+        coord: 'x = 500mm (cách tường Tây), y = 3.060mm (cách tường Bắc)',
+        height: 'Trần thạch cao +3.000mm',
+        desc: 'Chiếu sáng nửa phải Bàn Làm Việc #2 (màn hình 2 của bàn #2). Cách SP5 (đèn rọi tủ sách) 360mm để không bị giao thoa vùng sáng.',
+        status: 'Chốt thi công',
+        note: 'Bẻ góc chóa 15° hướng vào mặt bàn #2.'
+      },
+      {
+        id: 'SP5',
+        name: 'SP5 — Spotlight Rọi Tủ Sách Khoang Trái (Góc 24°)',
+        badge: '🟢 ĐÈN SPOTLIGHT LỘ S2',
+        badgeClass: 'green',
+        zone: 'Lộ S2 (Nút 2 Công tắc SW-T3)',
+        spec: 'Spotlight âm trần chỉnh góc 7W–10W • Góc chiếu hẹp 24° • 3500K Ấm • CRI>95',
+        coord: 'x = 500mm, y = 3.420mm (Cách mặt Tủ sách 320mm / Cách tường Nam 820mm)',
+        height: 'Trần thạch cao +3.000mm',
+        desc: 'Rọi điểm mặt đứng Khoang #1 của Hệ Tủ Sách tường Nam, tạo vệt sáng hình vòm (Scallop Light) sang trọng làm nền Background khi họp video call.',
+        status: 'Chốt thi công',
+        note: 'Khoét lỗ cách mặt tủ sách 320–350mm, bẻ góc chóa 25° hướng vào mặt tủ sách.'
+      },
+      {
+        id: 'SP6',
+        name: 'SP6 — Spotlight Rọi Tủ Sách Khoang Giữa (Góc 24°)',
+        badge: '🟢 ĐÈN SPOTLIGHT LỘ S2',
+        badgeClass: 'green',
+        zone: 'Lộ S2 (Nút 2 Công tắc SW-T3)',
+        spec: 'Spotlight âm trần chỉnh góc 7W–10W • Góc chiếu hẹp 24° • 3500K Ấm • CRI>95',
+        coord: 'x = 1.220mm (Chính giữa Tủ sách), y = 3.420mm (Cách mặt tủ 320mm)',
+        height: 'Trần thạch cao +3.000mm',
+        desc: 'Rọi điểm chính giữa Hệ Tủ Sách 2.440mm. Đấu chung lộ S2 cùng với bộ nguồn LED thanh 3000K âm trong các đợt kệ sách.',
+        status: 'Chốt thi công',
+        note: 'Đi kèm 1 dây nguồn chờ 220V giấu trên nóc tủ sách cho Driver LED thanh 12V/24V.'
+      },
+      {
+        id: 'SP7',
+        name: 'SP7 — Spotlight Rọi Tủ Sách Khoang Phải (Góc 24°)',
+        badge: '🟢 ĐÈN SPOTLIGHT LỘ S2',
+        badgeClass: 'green',
+        zone: 'Lộ S2 (Nút 2 Công tắc SW-T3)',
+        spec: 'Spotlight âm trần chỉnh góc 7W–10W • Góc chiếu hẹp 24° • 3500K Ấm • CRI>95',
+        coord: 'x = 1.940mm, y = 3.420mm (Cách mặt Tủ sách 320mm)',
+        height: 'Trần thạch cao +3.000mm',
+        desc: 'Rọi điểm Khoang #3 của Hệ Tủ Sách kịch trần (sát cạnh Hộp kỹ thuật 980×500mm).',
+        status: 'Chốt thi công',
+        note: 'Bẻ góc chóa 25° hướng vào khoang phải tủ sách.'
+      },
+      {
+        id: 'SP8',
+        name: 'SP8 — Spotlight Đọc Sách Sofa & Bàn Trà #1',
+        badge: '🟠 ĐÈN SPOTLIGHT LỘ S3',
+        badgeClass: 'amber',
+        zone: 'Lộ S3 (Nút 3 Công tắc SW-T3)',
+        spec: 'Spotlight âm trần chóa sâu 7W–10W • Góc 36° • 3500K–4000K',
+        coord: 'x = 2.620mm (Cách tường Đông 800mm), y = 2.280mm',
+        height: 'Trần thạch cao +3.000mm',
+        desc: 'Chiếu sáng khu vực ghế Sofa đọc sách và bàn trà phía Đông, đồng thời bật cùng đèn LED dây hắt khe trần giật cấp C1 (+3.150).',
+        status: 'Chốt thi công',
+        note: 'Chỉnh góc hướng nhẹ về phía ghế Sofa tường Đông.'
+      },
+      {
+        id: 'SP9',
+        name: 'SP9 — Spotlight Đọc Sách Sofa & Bàn Trà #2',
+        badge: '🟠 ĐÈN SPOTLIGHT LỘ S3',
+        badgeClass: 'amber',
+        zone: 'Lộ S3 (Nút 3 Công tắc SW-T3)',
+        spec: 'Spotlight âm trần chóa sâu 7W–10W • Góc 36° • 3500K–4000K',
+        coord: 'x = 2.620mm (Cách tường Đông 800mm), y = 3.220mm',
+        height: 'Trần thạch cao +3.000mm',
+        desc: 'Chiếu sáng nửa Nam của ghế Sofa đọc sách. Đấu chung lộ S3 với SP8 và LED dây hắt trần C1.',
+        status: 'Chốt thi công',
+        note: 'Đấu chung lộ S3 về Nút 3 công tắc SW-T3.'
+      },
+      {
+        id: 'SW-T3',
+        name: 'SW-T3 — Công Tắc Thông Minh Aqara H1 3 Nút (Có N) + Nút Không Dây Gầm Bàn',
+        badge: '🟢 CÔNG TẮC AQARA H1 3 NÚT',
+        badgeClass: 'green',
+        zone: 'Tổng 3 lộ S1, S2, S3 (Tách riêng khỏi công tắc Phòng Thờ trên CĐ-13!)',
+        spec: 'Aqara H1 Quốc tế 3 nút (Có dây N) + 01 Nút bấm không dây Aqara Mini Switch T1 dán gầm bàn',
+        coord: 'Tường Đông x = 3.420mm, y = 1.380mm (Cách mép cửa gỗ O1 130mm — Bên trong Phòng Làm Việc)',
+        height: 'H = +1.250mm (Tính từ cốt sàn gỗ +7.850)',
+        desc: 'PHÁT HIỆN QUAN TRỌNG TRÊN CĐ-13: Bản vẽ gốc đang đặt công tắc (17,18,19) ở bên trong Phòng Thờ! Bắt buộc dời sang cạnh cửa gỗ O1 bên trong Phòng Làm Việc: Nút 1 bật Ray/Spotlight bàn làm việc (S1); Nút 2 bật Spotlight + LED tủ sách (S2); Nút 3 bật Ray/Spotlight Sofa (S3). Kết hợp 01 Nút bấm không dây Aqara Mini Switch dưới gầm bàn để ngồi tại chỗ bật cảnh Họp Zoom / tắt toàn bộ phòng.',
+        status: 'Chốt thi công',
+        note: 'Bắt buộc dùng 03 bộ nguồn Driver 48V riêng biệt cho 3 lộ Ray nam châm S1, S2, S3 (giấu trong khoang đỉnh Tủ sách có nắp mở) và kéo dây Nguội (N) xuống đế âm Sino 86x86.'
+      },
+      {
+        id: 'E1',
+        name: 'Cụm E1 — Ổ Cắm Điện & Mạng LAN Bàn Làm Việc #1 (Schneider AvatarOn)',
+        badge: '⚡ Ổ CẮM & LAN CAT6',
+        badgeClass: 'purple',
+        zone: 'Dời mạch ổ cắm S1 trên CĐ-05 sang mảng tường đặc hướng Tây + Cáp LAN từ Switch E2',
+        spec: '02 Ổ cắm đôi 3 chấu Schneider AvatarOn (6 lỗ cắm) + 01 Hạt mạng LAN Cat6 + 01 Ống gen Φ32 âm tường',
+        coord: 'Tường Tây x = 0mm, y = 1.650mm (Tại phần cột/tường đặc dưới gầm góc phải Bàn #1)',
+        height: 'H = +600mm (Dưới gầm mặt bàn 750mm) + Hộp luồn dây mặt bàn H = +780mm',
+        desc: 'Cấp nguồn cho PC/Laptop + 2 màn hình + Đèn ScreenBar + Sạc điện thoại của Bàn #1. Từ đế E1 trích thêm 1 nhánh dây nguồn 220V đi thẳng lên Hốc rèm cửa sổ Tây S4 (H=+3.050mm) chờ cho Động cơ rèm cuốn tự động Aqara.',
+        status: 'Chốt thi công',
+        note: 'Chôn 3 đế âm vuông Sino 86x86 kê cữ ống PVC Φ20 dài 1.5cm giữa các đế; chôn kèm ống PVC Φ32 âm tường từ H=+600mm thông lên H=+780mm giấu dây màn hình.'
+      },
+      {
+        id: 'E2',
+        name: 'Cụm E2 — Ổ Cắm & LAN Tủ Máy In + Switch 5 Cổng Gigabit + Hồng Ngoại IR Điều Hòa',
+        badge: '⚡ LAN CAT6 + SWITCH + IR',
+        badgeClass: 'purple',
+        zone: 'Tận dụng sợi cáp Cat6 thứ 4 có sẵn trong bó "4 CÁP CAT6" trên bản vẽ CĐ-10',
+        spec: '01 Ổ cắm đôi Schneider + 01 Ổ mạng LAN Cat6 + Switch Gigabit 5 cổng TP-Link TL-SG105 (320k) + USB Aqara Hub E1/M2 (IR)',
+        coord: 'Tường Tây x = 0mm, y = 1.990mm (Chính giữa Tủ máy in 300mm)',
+        height: 'H = +850mm (Ngay phía trên nắp Tủ máy in)',
+        desc: 'Tận dụng đúng sợi cáp Cat6 thứ 4 đang chờ ở hành lang Tầng 3 (trên CĐ-10) kéo vào E2: Đặt Switch Gigabit 5 cổng (320k) chia mạng dây 1000Mbps cho cả 2 Bàn LV (E1, E3) và Máy in mạng mà chỉ tốn đúng 1 cổng trên Switch PoE Tầng 1! Đồng thời cắm USB Aqara Hub E1 / M2 (IR) tại E2 bắn hồng ngoại thẳng sang Điều hòa 12.000 BTU ở tường Đông đối diện.',
+        status: 'Chốt thi công',
+        note: 'Kéo sợi cáp Cat6 thứ 4 từ hộp nối trần hành lang T3 (cạnh Đĩa Wifi PoE T3) vào thẳng đế âm E2.'
+      },
+      {
+        id: 'E3',
+        name: 'Cụm E3 — Ổ Cắm Điện & Mạng LAN Bàn Làm Việc #2 (Schneider AvatarOn)',
+        badge: '⚡ Ổ CẮM & LAN CAT6',
+        badgeClass: 'purple',
+        zone: 'Tuyến ổ cắm tường Tây + Cáp mạng LAN Cat6 nối từ Switch E2',
+        spec: '02 Ổ cắm đôi 3 chấu Schneider AvatarOn (6 lỗ cắm) + 01 Hạt mạng LAN Cat6 + 01 Ống gen Φ32 âm tường',
+        coord: 'Tường Tây x = 0mm, y = 2.280mm (Tại phần tường đặc dưới gầm góc trái Bàn #2)',
+        height: 'H = +600mm (Dưới gầm mặt bàn 750mm)',
+        desc: 'Cấp nguồn và mạng dây Gigabit cho PC/Laptop + 2 màn hình + Đèn ScreenBar của Bàn #2. Nằm gọn dưới gầm bàn tại đoạn tường đặc trước khi tới vách kính V4.',
+        status: 'Chốt thi công',
+        note: 'Chôn 3 đế âm vuông Sino 86x86 kê cữ ống PVC Φ20 dài 1.5cm giữa các đế tại cao độ H=+600mm.'
+      },
+      {
+        id: 'E4',
+        name: 'Cụm E4 — Ổ Cắm Điện & Sạc USB-C Cạnh Sofa Đọc Sách (Giữ nguyên từ CĐ-05)',
+        badge: '⚡ Ổ CẮM PHỤ SOFA',
+        badgeClass: 'purple',
+        zone: 'Giữ nguyên vị trí ổ cắm S1 (+0.4M) cạnh Hộp kỹ thuật trên bản vẽ CĐ-05',
+        spec: '01 Ổ cắm đôi 3 chấu Schneider AvatarOn tích hợp cổng sạc nhanh USB-A / Type-C',
+        coord: 'Tường Đông x = 3.420mm, y = 1.880mm (Cạnh tay vịn Bắc của Sofa)',
+        height: 'H = +400mm',
+        desc: 'Tận dụng đúng vị trí ổ cắm S1 (+0.4M) đã có sẵn trên vách Đông trong bản vẽ CĐ-05 để cắm sạc điện thoại, iPad, đèn cây đọc sách khi ngồi nghỉ tại Sofa.',
+        status: 'Chốt thi công',
+        note: 'Giữ nguyên đường ống cấp điện S1 (+0.4M) tại vách Đông theo bản vẽ CĐ-05.'
+      },
+      {
+        id: 'AC-T3',
+        name: 'AC-T3 — Máy Điều Hòa Inverter 12.000 BTU (Kéo nguồn từ Tủ TĐ3 cách 1,8m)',
+        badge: '❄️ ĐIỀU HÒA & IR THÔNG MINH',
+        badgeClass: 'sky',
+        zone: 'Aptomat riêng 16A tại Tủ điện TĐ3 (cách 1,8m) + Thoát nước 0,6m vào Hộp KT 980×500',
+        spec: 'Điều hòa treo tường 12.000 BTU (1,5 HP) Inverter (Daikin / Panasonic có Wifi hoặc điều khiển qua IR tại E2)',
+        coord: 'Treo trên vách tường Đông x = 3.420mm, tâm máy tại y = 2.700mm (Phía trên Sofa)',
+        height: 'H = +2.550mm .. +2.850mm (Dưới cốt trần phẳng +3.130mm)',
+        desc: 'Bổ sung máy điều hòa cho phòng làm việc 14,5 m²: Trên bản vẽ CĐ-05, Tủ điện tầng 3 (TĐ3 +1.5M) nằm ngay vách cầu thang chỉ cách vị trí treo dàn lạnh 1,8m! Kéo 1 lộ dây 2x2.5mm2 từ TĐ3 sang cực gọn; thoát nước ngưng 0,6m vào Hộp KT góc phòng.',
+        status: 'Chốt thi công',
+        note: 'Ống thoát nước ngưng PVC Φ27 bọc bảo ôn đi âm tường Đông dài 0,6m đấu thẳng vào Hộp kỹ thuật 980×500mm; ống đồng đi thẳng lên mái Tum.'
+      },
+      {
+        id: 'VACH-LUA',
+        name: 'VACH-LUA — Hệ Cửa Lùa Kính Mờ 4 Cánh Ngăn Phòng Thờ (2.400mm • Có Gioăng Khít)',
+        badge: '🚪 VÁCH KÍNH CÁCH ÂM & GIỮ LẠNH',
+        badgeClass: 'purple',
+        zone: 'Ngăn giữa Phòng Làm Việc (14,5 m²) và Phòng Ngủ Thờ (12,1 m²)',
+        spec: 'Cửa lùa 4 cánh hệ nhôm Slim có nẹp lông & gioăng cao su EPDM khít giữa các cánh (2.400 × 2.750mm)',
+        coord: 'Tường Bắc y = 0mm, từ x = 450mm đến x = 2.850mm',
+        height: 'Cao kịch trần H = 2.750mm – 3.130mm (Hàn khung thép hộp 50×50 chịu lực ray treo TRƯỚC khi đóng trần)',
+        desc: 'Giữ lạnh điều hòa 12.000 BTU tuyệt đối, ngăn mùi khói hương từ Phòng Thờ bay sang phòng làm việc và cách âm khi họp online; ngày Giỗ/Tết mở thông thành phòng rộng 26,6 m².',
+        status: 'Chốt thi công',
+        note: 'Dặn thợ nhôm kính bắt buộc có phớt lông/gioăng khít giữa các cánh trượt để không lọt khí lạnh điều hòa và mùi hương.'
+      },
+      {
+        id: 'REM-S4',
+        name: 'REM-S4 — Rèm Cuốn Tự Động Aqara Chống Nắng Hướng Tây (Cửa Sổ S4 & V4)',
+        badge: '☀️ RÈM CUỐN TỰ ĐỘNG AQARA',
+        badgeClass: 'sky',
+        zone: 'Hốc rèm âm trần 150×150mm (Chi tiết T-01 KT-4.05) + Đầu chờ điện 220V rút từ E1',
+        spec: 'Rèm cuốn cản sáng 100% (Blackout Roller Blind) + Động cơ rèm cuốn ống Aqara Roller Shade E1 / Zigbee',
+        coord: 'Hốc rèm âm trần sát tường Tây (y = 240mm .. 3.420mm)',
+        height: 'Giấu âm trong hốc trần thạch cao H = +3.130mm (+150mm)',
+        desc: 'Do mặt bàn sâu 600mm đặt 4 màn hình sát tường Tây nên rất khó vươn tay ra sau màn hình để kéo dây hạt rèm bằng tay! Trích sẵn 1 đầu dây nguồn 220V từ ổ cắm E1 lên hốc rèm để lắp Động cơ rèm cuốn Aqara: Tự động hạ rèm lúc 13h30 chiều chống nắng Tây chiếu chói màn hình.',
+        status: 'Chốt thi công',
+        note: 'Nhắc thợ điện rút 1 sợi dây nguồn 2x1.5mm2 từ đế ổ cắm E1 thẳng lên hốc rèm cửa sổ S4 (dài ~2,4m).'
+      },
+      {
+        id: 'TU-SACH',
+        name: 'TU-SACH — Hệ Tủ Sách Kịch Trần (2.440 × 500mm) + Khoang Chứa 3 Nguồn Driver 48V',
+        badge: '📚 TỦ SÁCH & HỘP KỸ THUẬT NGUỒN',
+        badgeClass: 'green',
+        zone: 'Tường Nam (Trục A) + Ốp phẳng Hộp kỹ thuật 980×500mm + Rút dây ổ cắm S1 tường Nam lên đỉnh tủ',
+        spec: 'Gỗ MDF lõi xanh chống ẩm phủ Laminate Óc Chó + LED thanh 3000K + Khoang nắp mở chứa 03 Driver 48V & Nguồn LED 24V',
+        coord: 'Tường Nam từ x = 0mm đến x = 2.440mm, sâu 500mm (bằng đúng độ sâu Hộp kỹ thuật)',
+        height: 'Cao kịch trần +3.130mm (Khoang trên cùng H=+2.850..3.130mm làm nắp mở kỹ thuật)',
+        desc: 'Bỏ ổ cắm S1 (+0.4M) ở tường Nam trên bản vẽ CĐ-05 (vì bị hậu tủ sách bịt kín), rút sợi dây nguồn đó đưa lên khoang đỉnh Tủ sách để cấp nguồn và giấu toàn bộ 03 cục Driver 48V của Đèn Ray Nam Châm + 01 cục Adapter LED 24V của Tủ sách (sau này bảo trì chỉ cần mở cánh tủ trên cùng, không phải đục trần thạch cao!).',
+        status: 'Chốt thi công',
+        note: 'Bỏ 4 bóng đèn downlight 17 & 17* sát tường Nam trên bản vẽ CĐ-13 cũ (do cách tường 250-400mm sẽ đâm thẳng vào nóc tủ sách sâu 500mm).'
+      }
+    ];
+
+    let nodesData = [];
+    let selectedNodeId = 'SP1';
+    let addPinMode = false;
+
+    function loadData() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            nodesData = parsed;
+            return;
+          }
+        }
+      } catch (e) {
+        console.warn(e);
+      }
+      nodesData = JSON.parse(JSON.stringify(DEFAULT_NODES));
+    }
+
+    function saveData() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(nodesData));
+        const ind = document.getElementById('save-indicator');
+        ind.textContent = '✓ Đã lưu tự động (' + new Date().toLocaleTimeString('vi-VN') + ')';
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    function selectNode(id, evt) {
+      if (evt) evt.stopPropagation();
+      const item = nodesData.find(n => n.id === id);
+      if (!item) return;
+      selectedNodeId = id;
+
+      const badgeEl = document.getElementById('insp-badge');
+      badgeEl.textContent = item.badge || '📌 GHI CHÚ BẢN VẼ';
+      badgeEl.className = 'inspector-badge pill ' + (item.badgeClass || 'amber');
+
+      document.getElementById('insp-title').textContent = item.name;
+      document.getElementById('insp-desc').textContent = item.desc;
+      document.getElementById('insp-zone').textContent = item.zone;
+      document.getElementById('insp-spec').textContent = item.spec;
+      document.getElementById('insp-coord').textContent = item.coord;
+      document.getElementById('insp-height').textContent = item.height;
+      document.getElementById('insp-status').value = item.status || 'Chốt thi công';
+      document.getElementById('insp-note').value = item.note || '';
+
+      const delBtn = document.getElementById('btn-delete-custom');
+      delBtn.style.display = item.isCustom ? 'inline-flex' : 'none';
+    }
+
+    function saveCurrentNode() {
+      const item = nodesData.find(n => n.id === selectedNodeId);
+      if (!item) return;
+      item.status = document.getElementById('insp-status').value;
+      item.note = document.getElementById('insp-note').value;
+      saveData();
+      renderScheduleTable();
+    }
+
+    function renderCustomPins() {
+      const container = document.getElementById('layer-custom-pins');
+      container.innerHTML = '';
+      nodesData.filter(n => n.isCustom).forEach(pin => {
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.setAttribute('class', 'me-node');
+        g.onclick = (e) => selectNode(pin.id, e);
+
+        const c = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        c.setAttribute('cx', pin.svgX);
+        c.setAttribute('cy', pin.svgY);
+        c.setAttribute('r', '12');
+        c.setAttribute('fill', '#f59e0b');
+        c.setAttribute('stroke', '#ffffff');
+        c.setAttribute('stroke-width', '2.2');
+
+        const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        t.setAttribute('x', pin.svgX);
+        t.setAttribute('y', pin.svgY + 4);
+        t.setAttribute('text-anchor', 'middle');
+        t.setAttribute('font-size', '9');
+        t.setAttribute('font-weight', 'bold');
+        t.setAttribute('fill', '#000000');
+        t.textContent = pin.shortLabel || 'N';
+
+        g.appendChild(c);
+        g.appendChild(t);
+        container.appendChild(g);
+      });
+    }
+
+    function toggleAddPinMode() {
+      addPinMode = !addPinMode;
+      const btn = document.getElementById('btn-add-pin');
+      const hint = document.getElementById('add-pin-hint');
+      if (addPinMode) {
+        btn.classList.add('active');
+        btn.textContent = '✕ Đang Chọn Vị Trí (Bấm Để Hủy)';
+        hint.style.display = 'inline';
+      } else {
+        btn.classList.remove('active');
+        btn.textContent = '➕ Thêm Note Mới Lên Bản Vẽ 2D';
+        hint.style.display = 'none';
+      }
+    }
+
+    document.getElementById('me-svg').addEventListener('click', function(e) {
+      if (!addPinMode) return;
+      const svg = this;
+      const pt = svg.createSVGPoint();
+      pt.x = e.clientX;
+      pt.y = e.clientY;
+      const cursorPt = pt.matrixTransform(svg.getScreenCTM().inverse());
+      const sx = Math.round(cursorPt.x);
+      const sy = Math.round(cursorPt.y);
+
+      // Convert SVG coords back to approximate room mm (Origin 180, 130; 0.14u/mm)
+      const mmX = Math.max(0, Math.round((sx - 180) / 0.14));
+      const mmY = Math.max(0, Math.round((sy - 130) / 0.14));
+
+      const customCount = nodesData.filter(n => n.isCustom).length + 1;
+      const newId = 'NOTE-' + Date.now();
+      const shortLbl = 'N' + customCount;
+      const titlePrompt = prompt('Nhập tên ghi chú mới tại tọa độ (' + mmX + 'mm, ' + mmY + 'mm):', 'Ghi chú bổ sung #' + customCount);
+      if (!titlePrompt) {
+        toggleAddPinMode();
+        return;
+      }
+
+      const newNode = {
+        id: newId,
+        shortLabel: shortLbl,
+        name: shortLbl + ' — ' + titlePrompt,
+        badge: '📌 GHI CHÚ BỔ SUNG',
+        badgeClass: 'amber',
+        zone: 'Ghi chú trực tiếp trên mặt bằng 2D',
+        spec: 'Tùy chỉnh theo yêu cầu chủ nhà',
+        coord: 'x ≈ ' + mmX + 'mm, y ≈ ' + mmY + 'mm',
+        height: 'Tùy chỉnh',
+        desc: 'Vị trí ghi chú bổ sung do chủ nhà đánh dấu trực tiếp trên bản vẽ 2D M&E Tầng 3.',
+        status: 'Chốt thi công',
+        note: titlePrompt,
+        isCustom: true,
+        svgX: sx,
+        svgY: sy
+      };
+
+      nodesData.push(newNode);
+      saveData();
+      renderCustomPins();
+      renderScheduleTable();
+      selectNode(newId);
+      toggleAddPinMode();
+    });
+
+    function deleteSelectedCustomPin() {
+      const idx = nodesData.findIndex(n => n.id === selectedNodeId && n.isCustom);
+      if (idx === -1) return;
+      nodesData.splice(idx, 1);
+      saveData();
+      renderCustomPins();
+      renderScheduleTable();
+      selectNode('SP1');
+    }
+
+    function resetNotes() {
+      if (!confirm('Khôi phục toàn bộ thông số & ghi chú M&E Tầng 3 về mặc định?')) return;
+      localStorage.removeItem(STORAGE_KEY);
+      loadData();
+      renderCustomPins();
+      renderScheduleTable();
+      selectNode('SP1');
+    }
+
+    function setLayer(mode) {
+      ['ALL', 'LIGHT', 'POWER', 'HVAC', 'DIM'].forEach(m => {
+        const b = document.getElementById('btn-layer-' + m);
+        if (b) b.classList.toggle('active', m === mode);
+      });
+
+      const lLight = document.getElementById('layer-light');
+      const lPower = document.getElementById('layer-power');
+      const lHvac = document.getElementById('layer-hvac');
+      const lDim = document.getElementById('layer-dim');
+
+      if (mode === 'ALL') {
+        lLight.style.display = 'inline';
+        lPower.style.display = 'inline';
+        lHvac.style.display = 'inline';
+        lDim.style.display = 'inline';
+      } else if (mode === 'LIGHT') {
+        lLight.style.display = 'inline';
+        lPower.style.display = 'none';
+        lHvac.style.display = 'none';
+        lDim.style.display = 'inline';
+      } else if (mode === 'POWER') {
+        lLight.style.display = 'none';
+        lPower.style.display = 'inline';
+        lHvac.style.display = 'none';
+        lDim.style.display = 'inline';
+      } else if (mode === 'HVAC') {
+        lLight.style.display = 'none';
+        lPower.style.display = 'none';
+        lHvac.style.display = 'inline';
+        lDim.style.display = 'inline';
+      } else if (mode === 'DIM') {
+        lLight.style.display = 'none';
+        lPower.style.display = 'none';
+        lHvac.style.display = 'none';
+        lDim.style.display = 'inline';
+      }
+    }
+
+    function renderScheduleTable() {
+      const tbody = document.getElementById('me-table-body');
+      tbody.innerHTML = '';
+      nodesData.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.style.cursor = 'pointer';
+        tr.onclick = () => {
+          selectNode(item.id);
+          document.getElementById('sec-2d-interactive').scrollIntoView({ behavior: 'smooth' });
+        };
+
+        const statusClass = item.status === 'Đã báo thợ điện' ? 'sky' : (item.status === 'Đang cân nhắc' ? 'amber' : 'green');
+
+        tr.innerHTML = `
+          <th>${item.name}</th>
+          <td><span class="pill ${item.badgeClass || 'amber'}">${item.zone}</span></td>
+          <td>${item.spec}</td>
+          <td><code>${item.coord}</code><br><small style="color:var(--text-muted);">Cao độ: ${item.height}</small></td>
+          <td>${item.note || item.desc}</td>
+          <td><span class="pill ${statusClass}">${item.status || 'Chốt thi công'}</span></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function openLightbox(src) {
+      const modal = document.getElementById('img-modal');
+      document.getElementById('modal-img').src = src;
+      modal.showModal();
+    }
+
+    // Initialize
+    loadData();
+    renderCustomPins();
+    renderScheduleTable();
+    selectNode('SP1');
+
+    // =========================================================================
+    // 3D REALISTIC MATERIAL, FURNITURE & M&E VIEWER (Three.js PBR 1:1 Scale)
+    // Origin (0,0,0) = North-West inner corner of Floor 3 Study Room at +7.850
+    // X-axis (West -> East): 0.00m .. 3.42m (Room) | 3.57m .. 5.20m (Hallway/Stairs)
+    // Z-axis (North -> South): 0.00m .. 4.24m (Room) | -3.21m .. -0.14m (P. Ngủ Thờ)
+    // Y-axis (Floor -> Ceiling): 0.00m .. 3.00m (Outer ceiling) / 3.15m (Recessed tray C1)
+    // =========================================================================
+    (function initOffice3D() {
+      const container = document.getElementById('office3d-container');
+      const canvas = document.getElementById('office3d-canvas');
+      if (!container || !canvas || typeof THREE === 'undefined') return;
+
+      const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.toneMapping = THREE.ACESFilmicToneMapping;
+      renderer.toneMappingExposure = 1.08;
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x0b1017);
+
+      const camera = new THREE.PerspectiveCamera(46, 1.6, 0.1, 60);
+
+      // Orbit / Pan state (Spherical around target)
+      const target = new THREE.Vector3(1.75, 1.15, 2.05);
+      const targetPan = new THREE.Vector3(1.75, 1.15, 2.05);
+      let spherical = { theta: 0.72, phi: 1.02, radius: 6.8 };
+      let targetSpherical = { theta: 0.72, phi: 1.02, radius: 6.8 };
+
+      // Ambient & Directional Lights
+      const hemiLight = new THREE.HemisphereLight(0xf8fafc, 0x334155, 0.55);
+      scene.add(hemiLight);
+
+      const sunLight = new THREE.DirectionalLight(0xfff7ed, 0.75);
+      sunLight.position.set(-4.5, 5.2, 2.2); // West-Northwest afternoon sunlight outside S4 & V4
+      sunLight.castShadow = true;
+      sunLight.shadow.mapSize.width = 2048;
+      sunLight.shadow.mapSize.height = 2048;
+      sunLight.shadow.camera.near = 0.5;
+      sunLight.shadow.camera.far = 16;
+      sunLight.shadow.camera.left = -5;
+      sunLight.shadow.camera.right = 6;
+      sunLight.shadow.camera.top = 6;
+      sunLight.shadow.camera.bottom = -5;
+      sunLight.shadow.bias = -0.0005;
+      scene.add(sunLight);
+
+      const fillLight = new THREE.DirectionalLight(0xe0f2fe, 0.35);
+      fillLight.position.set(5.5, 4.5, 1.5);
+      scene.add(fillLight);
+
+      // =======================================================================
+      // PROCEDURAL PBR TEXTURES
+      // =======================================================================
+      function createHerringboneOakTexture() {
+        const c = document.createElement('canvas');
+        c.width = 512; c.height = 512;
+        const g = c.getContext('2d');
+        g.fillStyle = '#b9834f';
+        g.fillRect(0, 0, 512, 512);
+        const tones = ['#c48f5a', '#b57c46', '#a86f3b', '#cc9864', '#9e6634'];
+        const pw = 64, ph = 16;
+        for (let y = 0; y < 512; y += ph) {
+          for (let x = 0; x < 512; x += pw) {
+            const idx = ((x / pw) + (y / ph)) % tones.length;
+            g.fillStyle = tones[idx];
+            g.fillRect(x + 1, y + 1, pw - 2, ph - 2);
+            // Wood grain lines
+            g.strokeStyle = 'rgba(65,35,12,0.14)';
+            g.lineWidth = 1;
+            g.beginPath();
+            g.moveTo(x + 3, y + ph * 0.45);
+            g.lineTo(x + pw - 3, y + ph * 0.52);
+            g.stroke();
+          }
+        }
+        const tex = new THREE.CanvasTexture(c);
+        tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+        tex.repeat.set(4.5, 5.5);
+        return tex;
+      }
+
+      function createWalnutWoodTexture(darkness) {
+        const c = document.createElement('canvas');
+        c.width = 512; c.height = 512;
+        const g = c.getContext('2d');
+        const grad = g.createLinearGradient(0, 0, 512, 512);
+        grad.addColorStop(0, darkness ? '#3e2414' : '#58351e');
+        grad.addColorStop(0.5, darkness ? '#4d2e1a' : '#6b4226');
+        grad.addColorStop(1, darkness ? '#361f10' : '#4e2f1a');
+        g.fillStyle = grad;
+        g.fillRect(0, 0, 512, 512);
+        for (let i = 0; i < 160; i++) {
+          const y = Math.random() * 512;
+          g.fillStyle = i % 2 === 0 ? 'rgba(25,12,4,0.16)' : 'rgba(210,160,110,0.06)';
+          g.fillRect(0, y, 512, 1.5 + Math.random() * 3);
+        }
+        const tex = new THREE.CanvasTexture(c);
+        tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+        tex.repeat.set(2, 2);
+        return tex;
+      }
+
+      function createPlasterWallTexture(hex) {
+        const c = document.createElement('canvas');
+        c.width = 256; c.height = 256;
+        const g = c.getContext('2d');
+        g.fillStyle = hex;
+        g.fillRect(0, 0, 256, 256);
+        for (let i = 0; i < 1400; i++) {
+          g.fillStyle = i % 2 === 0 ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.025)';
+          g.fillRect(Math.random() * 256, Math.random() * 256, 2, 2);
+        }
+        const tex = new THREE.CanvasTexture(c);
+        tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+        tex.repeat.set(3, 2);
+        return tex;
+      }
+
+      function createFlutedGlassTexture() {
+        const c = document.createElement('canvas');
+        c.width = 256; c.height = 256;
+        const g = c.getContext('2d');
+        for (let x = 0; x < 256; x += 8) {
+          const gr = g.createLinearGradient(x, 0, x + 8, 0);
+          gr.addColorStop(0, 'rgba(226,232,240,0.85)');
+          gr.addColorStop(0.5, 'rgba(255,255,255,0.98)');
+          gr.addColorStop(1, 'rgba(148,163,184,0.75)');
+          g.fillStyle = gr;
+          g.fillRect(x, 0, 8, 256);
+        }
+        const tex = new THREE.CanvasTexture(c);
+        tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+        tex.repeat.set(3, 1);
+        return tex;
+      }
+
+      function createMonitorScreenTexture(title, accentHex) {
+        const c = document.createElement('canvas');
+        c.width = 512; c.height = 288;
+        const g = c.getContext('2d');
+        g.fillStyle = '#0f172a';
+        g.fillRect(0, 0, 512, 288);
+        // Header bar
+        g.fillStyle = '#1e293b';
+        g.fillRect(0, 0, 512, 30);
+        g.fillStyle = accentHex || '#38bdf8';
+        g.beginPath(); g.arc(18, 15, 5, 0, Math.PI * 2); g.fill();
+        g.fillStyle = '#f8fafc';
+        g.font = 'bold 14px sans-serif';
+        g.fillText(title, 34, 20);
+        // CAD / Dashboard graphics
+        g.strokeStyle = accentHex || '#38bdf8';
+        g.lineWidth = 2;
+        g.strokeRect(24, 48, 280, 210);
+        g.strokeStyle = 'rgba(56,189,248,0.35)';
+        for (let x = 54; x < 290; x += 35) {
+          g.beginPath(); g.moveTo(x, 48); g.lineTo(x, 258); g.stroke();
+        }
+        for (let y = 78; y < 250; y += 35) {
+          g.beginPath(); g.moveTo(24, y); g.lineTo(304, y); g.stroke();
+        }
+        // Right code/chart column
+        g.fillStyle = '#1e293b';
+        g.fillRect(322, 48, 166, 98);
+        g.fillRect(322, 160, 166, 98);
+        g.fillStyle = '#10b981';
+        g.fillRect(338, 110, 24, 26);
+        g.fillStyle = '#f59e0b';
+        g.fillRect(372, 86, 24, 50);
+        g.fillStyle = '#38bdf8';
+        g.fillRect(406, 68, 24, 68);
+        g.fillStyle = '#a855f7';
+        g.fillRect(440, 92, 24, 44);
+        return new THREE.CanvasTexture(c);
+      }
+
+      // =======================================================================
+      // MATERIALS LIBRARY
+      // =======================================================================
+      const matOakFloor = new THREE.MeshStandardMaterial({
+        map: createHerringboneOakTexture(),
+        roughness: 0.45,
+        metalness: 0.06
+      });
+      const matHallTile = new THREE.MeshStandardMaterial({
+        color: 0xe2e8f0,
+        roughness: 0.35,
+        metalness: 0.05
+      });
+      const matWallCream = new THREE.MeshStandardMaterial({
+        map: createPlasterWallTexture('#f4f1ea'),
+        roughness: 0.82,
+        metalness: 0.02
+      });
+      const matWallCut = new THREE.MeshStandardMaterial({
+        color: 0xcbd5e1,
+        roughness: 0.85
+      });
+      const matColumnRC = new THREE.MeshStandardMaterial({
+        color: 0xd6d3d1,
+        roughness: 0.78
+      });
+      const matWalnut = new THREE.MeshStandardMaterial({
+        map: createWalnutWoodTexture(false),
+        roughness: 0.38,
+        metalness: 0.08
+      });
+      const matWalnutDark = new THREE.MeshStandardMaterial({
+        map: createWalnutWoodTexture(true),
+        roughness: 0.42,
+        metalness: 0.08
+      });
+      const matLimWood = new THREE.MeshStandardMaterial({
+        color: 0x7c2d12,
+        roughness: 0.36,
+        metalness: 0.08
+      });
+      const matBlackMetal = new THREE.MeshStandardMaterial({
+        color: 0x1e293b,
+        roughness: 0.32,
+        metalness: 0.82
+      });
+      const matWindowGlass = new THREE.MeshPhysicalMaterial({
+        color: 0xbae6fd,
+        transparent: true,
+        opacity: 0.34,
+        roughness: 0.08,
+        metalness: 0.1,
+        side: THREE.DoubleSide
+      });
+      const matFlutedGlass = new THREE.MeshPhysicalMaterial({
+        map: createFlutedGlassTexture(),
+        color: 0xf1f5f9,
+        transparent: true,
+        opacity: 0.72,
+        roughness: 0.28,
+        metalness: 0.05,
+        side: THREE.DoubleSide
+      });
+      const matRollerBlind = new THREE.MeshStandardMaterial({
+        color: 0xe5e0d5,
+        roughness: 0.75,
+        side: THREE.DoubleSide
+      });
+      const matSofaBoucle = new THREE.MeshStandardMaterial({
+        color: 0x94a3b8,
+        roughness: 0.88,
+        metalness: 0.02
+      });
+      const matRug = new THREE.MeshStandardMaterial({
+        color: 0xd6d3d1,
+        roughness: 0.92
+      });
+      const matWhiteAC = new THREE.MeshStandardMaterial({
+        color: 0xf8fafc,
+        roughness: 0.25,
+        metalness: 0.1
+      });
+      const matCeilingGypsum = new THREE.MeshStandardMaterial({
+        color: 0xf8fafc,
+        transparent: true,
+        opacity: 0.24,
+        roughness: 0.85,
+        side: THREE.DoubleSide
+      });
+      const matShelfLED = new THREE.MeshBasicMaterial({ color: 0xfde68a });
+      const matCoveLED = new THREE.MeshBasicMaterial({ color: 0xfef08a });
+
+      // Groups for interactive toggling & raycasting
+      const interactiveMeshes = [];
+      function tagItem(meshOrGroup, itemKey) {
+        meshOrGroup.traverse(obj => {
+          if (obj.isMesh) {
+            obj.userData.itemKey = itemKey;
+            interactiveMeshes.push(obj);
+          }
+        });
+      }
+
+      function addBox(w, h, d, mat, x, y, z, parent, itemKey) {
+        const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+        m.position.set(x, y, z);
+        m.castShadow = true;
+        m.receiveShadow = true;
+        (parent || scene).add(m);
+        if (itemKey) tagItem(m, itemKey);
+        return m;
+      }
+
+      // =======================================================================
+      // 1. FLOORS (+7.850 SEAMLESS OAK PARQUET) & WALL SHELL
+      // =======================================================================
+      const grpShell = new THREE.Group();
+      scene.add(grpShell);
+
+      // Study Room Oak Floor (X: 0..3.42m, Z: 0..4.24m)
+      addBox(3.42, 0.12, 4.24, matOakFloor, 1.71, -0.06, 2.12, grpShell);
+      // Adjacent P. Ngủ Thờ Oak Floor (X: 0..3.77m, Z: -3.21..0.00m) — same +7.850 level!
+      addBox(3.77, 0.12, 3.21, matOakFloor, 1.885, -0.06, -1.605, grpShell);
+      // East Hallway & Stair Landing Floor (+7.850)
+      addBox(1.85, 0.12, 5.50, matOakFloor, 3.42 + 0.925, -0.06, 1.49, grpShell);
+
+      const wallH = 3.15;
+      // West Wall (X = -0.11m, thickness 0.22m, Z = 0..4.24m):
+      // - Segment 1 (Z = 0.00..0.24m): North-West corner pier
+      addBox(0.22, wallH, 0.24, matWallCream, -0.11, wallH / 2, 0.12, grpShell);
+      // - Segment 2 (Z = 0.24..1.49m): Window S4 (1.250m wide, sill H=0.85m, head H=2.90m)
+      addBox(0.22, 0.85, 1.25, matWallCream, -0.11, 0.425, 0.865, grpShell, 'WINDOWS-WEST');
+      addBox(0.22, 0.25, 1.25, matWallCream, -0.11, 3.025, 0.865, grpShell, 'WINDOWS-WEST');
+      // Window S4 Black Aluminum Frame & Awning Glass Leaf
+      addBox(0.08, 2.05, 1.25, matWindowGlass, -0.10, 1.875, 0.865, grpShell, 'WINDOWS-WEST');
+      addBox(0.10, 0.05, 1.25, matBlackMetal, -0.10, 0.87, 0.865, grpShell, 'WINDOWS-WEST');
+      addBox(0.10, 0.05, 1.25, matBlackMetal, -0.10, 2.88, 0.865, grpShell, 'WINDOWS-WEST');
+      addBox(0.10, 2.05, 0.05, matBlackMetal, -0.10, 1.875, 0.26, grpShell, 'WINDOWS-WEST');
+      addBox(0.10, 2.05, 0.05, matBlackMetal, -0.10, 1.875, 1.47, grpShell, 'WINDOWS-WEST');
+      addBox(0.10, 2.05, 0.04, matBlackMetal, -0.10, 1.875, 0.865, grpShell, 'WINDOWS-WEST');
+
+      // Interactive Roller Blind S4 (REM-S4) inside Window S4
+      addBox(0.09, 0.08, 1.24, matWalnutDark, -0.03, 2.88, 0.865, grpShell, 'WINDOWS-WEST'); // Pelmet box
+      const blindMeshS4 = addBox(0.02, 1.98, 1.20, matRollerBlind, -0.03, 2.85 - 0.18, 0.865, grpShell, 'WINDOWS-WEST');
+      blindMeshS4.scale.y = 0.18; // Default rolled up 82% so light comes in
+
+      // - Segment 3 (Z = 1.49..1.75m): Middle RC Column (260mm)
+      addBox(0.24, wallH, 0.26, matColumnRC, -0.11, wallH / 2, 1.62, grpShell);
+      // - Segment 4 (Z = 1.75..2.85m): Solid Wall behind Printer Cabinet & Desks (1.100m)
+      addBox(0.22, wallH, 1.10, matWallCream, -0.11, wallH / 2, 2.30, grpShell);
+      // - Segment 5 (Z = 2.85..3.74m): Fixed Glass Window V4 (890mm wide)
+      addBox(0.22, 0.80, 0.89, matWallCream, -0.11, 0.40, 3.295, grpShell, 'WINDOWS-WEST');
+      addBox(0.22, 0.30, 0.89, matWallCream, -0.11, 3.00, 3.295, grpShell, 'WINDOWS-WEST');
+      addBox(0.08, 2.05, 0.89, matWindowGlass, -0.10, 1.825, 3.295, grpShell, 'WINDOWS-WEST');
+      addBox(0.10, 0.05, 0.89, matBlackMetal, -0.10, 0.82, 3.295, grpShell, 'WINDOWS-WEST');
+      addBox(0.10, 0.05, 0.89, matBlackMetal, -0.10, 2.84, 3.295, grpShell, 'WINDOWS-WEST');
+
+      // 10 Exterior Sun-Shading Masonry Louvers outside V4 & Solid Wall (KT-3.06)
+      for (let i = 0; i < 10; i++) {
+        const zLouv = 1.82 + i * 0.22;
+        addBox(0.18, 2.45, 0.09, matWallCream, -0.34, 1.55, zLouv, grpShell, 'WINDOWS-WEST');
+      }
+
+      // - Segment 6 (Z = 3.74..4.24m): South-West Corner Pier & RC Column
+      addBox(0.24, wallH, 0.50, matColumnRC, -0.11, wallH / 2, 3.99, grpShell);
+
+      // South Wall (Axis A, Z = 4.35m, low cutaway or full wall behind bookshelf)
+      addBox(3.64, wallH, 0.22, matWallCream, 1.71, wallH / 2, 4.35, grpShell);
+
+      // East Wall (X = 3.49m, thickness 0.14m, Z = 0..4.24m) with Entrance Door O1 (Z = 0.35..1.25m, H = 2.40m)
+      addBox(0.14, wallH, 0.35, matWallCream, 3.49, wallH / 2, 0.175, grpShell);
+      addBox(0.14, 0.75, 0.90, matWallCream, 3.49, 2.775, 0.80, grpShell); // Lintel over Door O1
+      addBox(0.14, wallH, 2.99, matWallCream, 3.49, wallH / 2, 2.745, grpShell);
+
+      // Entrance Door O1 (900 x 2400mm Lim Wood Door slightly ajar 25 degrees)
+      addBox(0.16, 2.42, 0.05, matLimWood, 3.49, 1.21, 0.35, grpShell);
+      addBox(0.16, 2.42, 0.05, matLimWood, 3.49, 1.21, 1.25, grpShell);
+      const doorLeafO1 = new THREE.Group();
+      doorLeafO1.position.set(3.45, 0, 0.37);
+      const leafMesh = addBox(0.05, 2.38, 0.86, matLimWood, 0, 1.19, 0.43, doorLeafO1);
+      doorLeafO1.rotation.y = -0.38; // Slightly open welcoming into the office
+      grpShell.add(doorLeafO1);
+
+      // =======================================================================
+      // 2. NORTH PARTITION: 4-LEAF SLIDING FROSTED GLASS & WOOD DOOR (2.400mm)
+      //    + ADJACENT WORSHIP ROOM (P. NGỦ THỜ) WITH ANCESTRAL ALTAR
+      // =======================================================================
+      // Fixed wall piers on North Partition (Z = -0.07m): Left pier X=0..0.45m, Right pier X=2.85..3.42m
+      addBox(0.45, wallH, 0.14, matWallCream, 0.225, wallH / 2, -0.07, grpShell);
+      addBox(0.57, wallH, 0.14, matWallCream, 3.135, wallH / 2, -0.07, grpShell);
+      addBox(2.40, 0.40, 0.14, matWallCream, 1.65, 2.95, -0.07, grpShell); // Top header above 2.75m sliding track
+
+      // Top Aluminum/Wood Pelmet Track (No bottom floor track!)
+      addBox(2.44, 0.07, 0.12, matLimWood, 1.65, 2.73, -0.07, grpShell, 'VACH-LUA');
+
+      function createSlidingDoorLeaf(xCenter, zOffset) {
+        const g = new THREE.Group();
+        g.position.set(xCenter, 0, zOffset);
+        // Frame stiles & rails (600mm wide x 2.70m high)
+        addBox(0.60, 0.06, 0.04, matLimWood, 0, 2.67, 0, g, 'VACH-LUA');
+        addBox(0.60, 0.08, 0.04, matLimWood, 0, 0.04, 0, g, 'VACH-LUA');
+        addBox(0.05, 2.70, 0.04, matLimWood, -0.275, 1.35, 0, g, 'VACH-LUA');
+        addBox(0.05, 2.70, 0.04, matLimWood, 0.275, 1.35, 0, g, 'VACH-LUA');
+        addBox(0.50, 0.03, 0.04, matLimWood, 0, 0.90, 0, g, 'VACH-LUA');
+        addBox(0.50, 0.03, 0.04, matLimWood, 0, 1.85, 0, g, 'VACH-LUA');
+        // Fluted frosted glass pane
+        addBox(0.50, 2.56, 0.018, matFlutedGlass, 0, 1.36, 0, g, 'VACH-LUA');
+        return g;
+      }
+
+      // 4 leaves spanning X = 0.45m .. 2.85m (each leaf 0.60m wide)
+      const leaf1Fixed = createSlidingDoorLeaf(0.75, -0.09);
+      const leaf4Fixed = createSlidingDoorLeaf(2.55, -0.09);
+      const leaf2Slide = createSlidingDoorLeaf(1.35, -0.04);
+      const leaf3Slide = createSlidingDoorLeaf(1.95, -0.04);
+      grpShell.add(leaf1Fixed, leaf4Fixed, leaf2Slide, leaf3Slide);
+
+      // Adjacent P. Ngủ Thờ (Worship Room context Z = -3.21m .. -0.14m)
+      addBox(0.22, 1.45, 3.21, matWallCut, -0.11, 0.725, -1.605, grpShell);
+      addBox(3.99, 1.45, 0.22, matWallCut, 1.885, 0.725, -3.32, grpShell);
+      addBox(0.14, 1.45, 3.21, matWallCut, 3.84, 0.725, -1.605, grpShell);
+      // Ancestral Altar (Ban Thờ Gia Tiên) in P. Ngủ Thờ against North wall (X=1.85m, Z=-2.85m)
+      addBox(1.53, 1.27, 0.69, matWalnutDark, 1.85, 0.635, -2.85, grpShell);
+      addBox(1.65, 0.06, 0.75, matLimWood, 1.85, 1.28, -2.85, grpShell);
+      // Decorative warm altar lamps
+      const matAltarGold = new THREE.MeshBasicMaterial({ color: 0xf59e0b });
+      addBox(0.08, 0.22, 0.08, matAltarGold, 1.35, 1.42, -2.85, grpShell);
+      addBox(0.08, 0.22, 0.08, matAltarGold, 2.35, 1.42, -2.85, grpShell);
+
+      // =======================================================================
+      // 3. TWO 1.600 x 600mm DESKS + 300mm PRINTER CABINET + 4 MONITORS (WEST WALL)
+      // =======================================================================
+      const grpDesks = new THREE.Group();
+      scene.add(grpDesks);
+
+      function buildWorkstationDesk(zStart, zEnd, labelLeft, labelRight) {
+        const zLen = zEnd - zStart; // 1.60m
+        const zMid = (zStart + zEnd) / 2;
+        const xDepth = 0.60;
+        const xMid = 0.32;
+
+        // Walnut Desktop Slab (1.600 x 600 x 40mm at H = 0.73..0.77m)
+        addBox(xDepth, 0.04, zLen, matWalnut, xMid, 0.75, zMid, grpDesks, 'DESKS');
+        // Black powder-coated steel leg frames + modest modesty panel
+        addBox(0.56, 0.73, 0.04, matBlackMetal, xMid, 0.365, zStart + 0.04, grpDesks, 'DESKS');
+        addBox(0.56, 0.73, 0.04, matBlackMetal, xMid, 0.365, zEnd - 0.04, grpDesks, 'DESKS');
+        addBox(0.03, 0.32, zLen - 0.12, matBlackMetal, 0.08, 0.56, zMid, grpDesks, 'DESKS');
+        // Cable management grommet box on desk
+        addBox(0.08, 0.045, 0.22, matBlackMetal, 0.10, 0.752, zMid, grpDesks, 'DESKS');
+
+        // Dual 27-inch Ultrawide/QHD Monitors on Dual Monitor Arm + LED ScreenBar
+        const monPositions = [zMid - 0.36, zMid + 0.36];
+        monPositions.forEach((zm, idx) => {
+          const scrTex = createMonitorScreenTexture(idx === 0 ? labelLeft : labelRight, idx === 0 ? '#38bdf8' : '#10b981');
+          const matScreen = new THREE.MeshBasicMaterial({ map: scrTex });
+          // Monitor bezel
+          const monGrp = new THREE.Group();
+          monGrp.position.set(0.18, 1.06, zm);
+          monGrp.rotation.y = idx === 0 ? -0.10 : 0.10; // Slight ergonomic curve toward user
+          addBox(0.025, 0.36, 0.61, matBlackMetal, 0, 0, 0, monGrp, 'DESKS');
+          addBox(0.01, 0.33, 0.58, matScreen, 0.015, 0, 0, monGrp, 'DESKS');
+          // LED ScreenBar clipped on top of monitor
+          addBox(0.03, 0.02, 0.44, matBlackMetal, 0.04, 0.195, 0, monGrp, 'DESKS');
+          addBox(0.015, 0.01, 0.42, matShelfLED, 0.04, 0.188, 0, monGrp, 'DESKS');
+          grpDesks.add(monGrp);
+          // Monitor arm post
+          addBox(0.04, 0.32, 0.04, matBlackMetal, 0.09, 0.91, zm, grpDesks, 'DESKS');
+        });
+
+        // Keyboard, Mousepad & Mouse
+        addBox(0.28, 0.005, 0.78, matBlackMetal, 0.42, 0.773, zMid, grpDesks, 'DESKS');
+        addBox(0.13, 0.018, 0.38, matWhiteAC, 0.42, 0.782, zMid - 0.06, grpDesks, 'DESKS');
+        addBox(0.09, 0.022, 0.06, matWhiteAC, 0.42, 0.782, zMid + 0.24, grpDesks, 'DESKS');
+
+        // Ergonomic Mesh Office Chair (at X = 0.92m, facing West wall)
+        const chairGrp = new THREE.Group();
+        chairGrp.position.set(0.92, 0, zMid);
+        // 5-star base & gas lift cylinder
+        addBox(0.52, 0.04, 0.06, matBlackMetal, 0, 0.06, 0, chairGrp, 'DESKS');
+        addBox(0.06, 0.04, 0.52, matBlackMetal, 0, 0.06, 0, chairGrp, 'DESKS');
+        const cyl = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.42, 16), matBlackMetal);
+        cyl.position.set(0, 0.25, 0);
+        chairGrp.add(cyl);
+        // Seat cushion, mesh backrest & headrest
+        addBox(0.48, 0.07, 0.50, matBlackMetal, -0.02, 0.46, 0, chairGrp, 'DESKS');
+        addBox(0.06, 0.56, 0.46, matBlackMetal, 0.21, 0.78, 0, chairGrp, 'DESKS');
+        addBox(0.07, 0.14, 0.26, matBlackMetal, 0.19, 1.13, 0, chairGrp, 'DESKS');
+        // Armrests
+        addBox(0.30, 0.03, 0.06, matBlackMetal, 0.02, 0.64, -0.25, chairGrp, 'DESKS');
+        addBox(0.30, 0.03, 0.06, matBlackMetal, 0.02, 0.64, 0.25, chairGrp, 'DESKS');
+        tagItem(chairGrp, 'DESKS');
+        grpDesks.add(chairGrp);
+      }
+
+      // Desk #1 (Z = 0.24m .. 1.84m) & Desk #2 (Z = 2.14m .. 3.74m)
+      buildWorkstationDesk(0.24, 1.84, 'BÀN #1 — MÀN HÌNH 1', 'BÀN #1 — MÀN HÌNH 2');
+      buildWorkstationDesk(2.14, 3.74, 'BÀN #2 — MÀN HÌNH 1', 'BÀN #2 — MÀN HÌNH 2');
+
+      // Center Printer & Wifi Mesh Cabinet (300 x 600 x 750mm at Z = 1.84m .. 2.14m)
+      addBox(0.60, 0.75, 0.30, matWalnutDark, 0.32, 0.375, 1.99, grpDesks, 'DESKS');
+      // Laser Printer & Wifi 6 Mesh Router on top of the 300mm cabinet
+      addBox(0.36, 0.22, 0.26, matWhiteAC, 0.34, 0.86, 1.99, grpDesks, 'DESKS');
+      addBox(0.22, 0.03, 0.18, matBlackMetal, 0.36, 0.975, 1.99, grpDesks, 'DESKS');
+      const wifiMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.055, 0.16, 20), matWhiteAC);
+      wifiMesh.position.set(0.14, 0.83, 1.99);
+      grpDesks.add(wifiMesh);
+      tagItem(wifiMesh, 'DESKS');
+
+      // =======================================================================
+      // 4. SOUTH WALL FULL-HEIGHT BOOKSHELF (2.440 x 500 x 3.150mm)
+      //    + FLUSH WOOD CLADDING OVER PLUMBING SHAFT (980 x 500 x 3.150mm)
+      // =======================================================================
+      const grpBookshelf = new THREE.Group();
+      scene.add(grpBookshelf);
+
+      // A) Bookshelf (X = 0.00..2.44m, Z = 3.74..4.24m, H = 0..3.15m)
+      // Lower closed storage cabinet (H = 0..0.75m, depth 0.50m)
+      addBox(2.44, 0.75, 0.50, matWalnutDark, 1.22, 0.375, 3.99, grpBookshelf, 'TU-SACH');
+      // 6 cabinet door reveals
+      for (let i = 0; i < 6; i++) {
+        addBox(0.39, 0.68, 0.02, matWalnut, 0.205 + i * 0.405, 0.38, 3.735, grpBookshelf, 'TU-SACH');
+      }
+      // Upper open bookcase back panel & side/divider uprights (H = 0.75..3.15m, depth 0.38m..0.50m)
+      addBox(2.44, 2.40, 0.04, matWalnutDark, 1.22, 1.95, 4.22, grpBookshelf, 'TU-SACH');
+      [0.02, 0.82, 1.62, 2.42].forEach(xp => {
+        addBox(0.04, 2.40, 0.48, matWalnut, xp, 1.95, 3.99, grpBookshelf, 'TU-SACH');
+      });
+
+      const grpShelfLEDs = new THREE.Group();
+      scene.add(grpShelfLEDs);
+
+      // 5 horizontal shelves + Warm 3000K recessed LED strips + Architectural Books & Decor
+      const bookColors = [0xd97706, 0x0284c7, 0x059669, 0xe11d48, 0x7c3aed, 0xf8fafc, 0x475569];
+      const shelfHeights = [1.22, 1.68, 2.14, 2.60, 3.12];
+      shelfHeights.forEach((sy, sIdx) => {
+        addBox(2.40, 0.035, 0.48, matWalnut, 1.22, sy, 3.99, grpBookshelf, 'TU-SACH');
+        // Warm 3000K LED bar underneath each shelf
+        const ledBar = addBox(2.34, 0.012, 0.02, matShelfLED, 1.22, sy - 0.022, 3.82, grpShelfLEDs, 'TU-SACH');
+        // Populate books on the lower 4 shelves
+        if (sIdx < 4) {
+          const baseH = sIdx === 0 ? 0.75 : shelfHeights[sIdx - 1] + 0.02;
+          [0.12, 0.92, 1.72].forEach((bayX, bIdx) => {
+            for (let b = 0; b < 7; b++) {
+              const bh = 0.22 + ((b + sIdx) % 3) * 0.04;
+              const bMat = new THREE.MeshStandardMaterial({
+                color: bookColors[(b + sIdx + bIdx) % bookColors.length],
+                roughness: 0.6
+              });
+              addBox(0.042, bh, 0.24, bMat, bayX + b * 0.048, baseH + bh / 2, 3.96, grpBookshelf, 'TU-SACH');
+            }
+          });
+        }
+      });
+
+      // B) Plumbing Shaft 980 x 500mm (X = 2.44..3.42m, Z = 3.74..4.24m)
+      // Internal masonry shaft + vertical PVC plumbing pipes + AC drain tie-in (visible in X-Ray mode!)
+      const grpShaftInternal = new THREE.Group();
+      scene.add(grpShaftInternal);
+      const matPipePVC = new THREE.MeshStandardMaterial({ color: 0x38bdf8, roughness: 0.35 });
+      const matPipeDrain = new THREE.MeshStandardMaterial({ color: 0x10b981, roughness: 0.35 });
+      const p1 = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 3.10, 16), matPipePVC);
+      p1.position.set(2.75, 1.55, 4.02);
+      const p2 = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.045, 3.10, 16), matPipePVC);
+      p2.position.set(3.05, 1.55, 4.02);
+      // 0.6m AC Condensate Drain Pipe sloping from AC (Z=2.95, Y=2.55) into Shaft (Z=3.85, Y=2.35)
+      const acDrainPipe = new THREE.Mesh(new THREE.CylinderGeometry(0.018, 0.018, 0.95, 12), matPipeDrain);
+      acDrainPipe.rotation.x = Math.PI / 2 + 0.18;
+      acDrainPipe.position.set(3.38, 2.48, 3.42);
+      grpShaftInternal.add(p1, p2, acDrainPipe);
+
+      // Flush Walnut Wood Cladding Panel covering the 980x500mm Shaft (aligns strictly at Z = 3.74m with Bookshelf!)
+      const shaftCladdingGrp = new THREE.Group();
+      scene.add(shaftCladdingGrp);
+      const matShaftWalnut = matWalnut.clone();
+      addBox(0.98, 3.15, 0.50, matShaftWalnut, 2.93, 1.575, 3.99, shaftCladdingGrp, 'TU-SACH');
+      // Subtle vertical architectural shadow-gap reveal for hidden inspection door
+      addBox(0.012, 2.20, 0.015, matBlackMetal, 2.62, 1.15, 3.738, shaftCladdingGrp, 'TU-SACH');
+      addBox(0.012, 2.20, 0.015, matBlackMetal, 3.24, 1.15, 3.738, shaftCladdingGrp, 'TU-SACH');
+
+      // =======================================================================
+      // 5. EAST WALL READING SOFA (1.570 x 640mm) + TEA TABLE + 12.000 BTU AC
+      // =======================================================================
+      const grpSofaAC = new THREE.Group();
+      scene.add(grpSofaAC);
+
+      // Woven Area Rug under Sofa & Tea Table
+      addBox(1.55, 0.012, 1.85, matRug, 2.58, 0.006, 2.70, grpSofaAC, 'SOFA-AC');
+
+      // Reading Sofa (X = 2.68..3.36m, Z = 1.92..3.49m)
+      addBox(0.66, 0.38, 1.57, matSofaBoucle, 3.04, 0.22, 2.705, grpSofaAC, 'SOFA-AC'); // Seat
+      addBox(0.16, 0.46, 1.57, matSofaBoucle, 3.29, 0.60, 2.705, grpSofaAC, 'SOFA-AC'); // Backrest
+      addBox(0.66, 0.32, 0.14, matSofaBoucle, 3.04, 0.46, 1.99, grpSofaAC, 'SOFA-AC');  // North armrest
+      addBox(0.66, 0.32, 0.14, matSofaBoucle, 3.04, 0.46, 3.42, grpSofaAC, 'SOFA-AC');  // South armrest
+
+      // Round Walnut Tea Table (X = 2.25m, Z = 2.70m)
+      const teaTop = new THREE.Mesh(new THREE.CylinderGeometry(0.28, 0.28, 0.03, 28), matWalnut);
+      teaTop.position.set(2.22, 0.46, 2.70);
+      teaTop.castShadow = true;
+      const teaBase = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.18, 0.44, 20), matBlackMetal);
+      teaBase.position.set(2.22, 0.22, 2.70);
+      grpSofaAC.add(teaTop, teaBase);
+      tagItem(teaTop, 'SOFA-AC');
+
+      // 12.000 BTU Inverter Wall-Mounted AC Unit (X = 3.26..3.42m, Z = 2.25..3.15m, Y = 2.62..2.88m)
+      addBox(0.22, 0.28, 0.92, matWhiteAC, 3.31, 2.74, 2.70, grpSofaAC, 'SOFA-AC');
+      addBox(0.02, 0.04, 0.86, matBlackMetal, 3.20, 2.63, 2.70, grpSofaAC, 'SOFA-AC'); // Louver vane
+      // Subtle cool air stream indicator
+      const matAirStream = new THREE.MeshBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.14, side: THREE.DoubleSide });
+      const airCone = new THREE.Mesh(new THREE.ConeGeometry(0.42, 1.45, 20, 1, true), matAirStream);
+      airCone.rotation.z = -Math.PI / 2 - 0.25;
+      airCone.position.set(2.52, 2.42, 2.70);
+      grpSofaAC.add(airCone);
+
+      // =======================================================================
+      // 6. M&E OUTLETS (E1–E4) & 3-GANG SMART SWITCH (SW-T3) IN 3D
+      // =======================================================================
+      const grpOutlets = new THREE.Group();
+      scene.add(grpOutlets);
+      const matOutletGold = new THREE.MeshStandardMaterial({ color: 0xa855f7, roughness: 0.3, emissive: 0x581c87, emissiveIntensity: 0.35 });
+      const matSwitchGreen = new THREE.MeshStandardMaterial({ color: 0x10b981, roughness: 0.3, emissive: 0x065f46, emissiveIntensity: 0.35 });
+
+      // E1: West wall x=0.01m, z=1.65m, y=0.60m + Φ32 pass-through tube to y=0.78m
+      addBox(0.02, 0.09, 0.24, matOutletGold, 0.01, 0.60, 1.65, grpOutlets, 'DESKS');
+      addBox(0.015, 0.20, 0.03, matBlackMetal, 0.01, 0.70, 1.65, grpOutlets, 'DESKS');
+      // E2: West wall x=0.01m, z=1.99m, y=0.85m (above printer cabinet)
+      addBox(0.02, 0.09, 0.16, matOutletGold, 0.01, 0.85, 1.99, grpOutlets, 'DESKS');
+      // E3: West wall x=0.01m, z=2.28m, y=0.60m + Φ32 pass-through tube to y=0.78m
+      addBox(0.02, 0.09, 0.24, matOutletGold, 0.01, 0.60, 2.28, grpOutlets, 'DESKS');
+      addBox(0.015, 0.20, 0.03, matBlackMetal, 0.01, 0.70, 2.28, grpOutlets, 'DESKS');
+      // E4: East wall x=3.41m, z=1.88m, y=0.40m (beside Sofa)
+      addBox(0.02, 0.09, 0.14, matOutletGold, 3.41, 0.40, 1.88, grpOutlets, 'SOFA-AC');
+      // SW-T3: East wall x=3.41m, z=1.38m, y=1.25m (3-gang Switch beside Door O1)
+      addBox(0.02, 0.09, 0.09, matSwitchGreen, 3.41, 1.25, 1.38, grpOutlets, 'SPOTLIGHTS');
+
+      // =======================================================================
+      // 7. THREE CEILING OPTIONS IN 3D:
+      //    - Option 1 ('magnetic'): Flat Ceiling (+3.130) + 48V Recessed Magnetic Track System
+      //    - Option 2 ('flat_spot'): Flat Ceiling (+3.130) + Black Shadow Groove P-UT12 + 9 Spotlights
+      //    - Option 3 ('stepped'): Stepped Tray Ceiling C1 (+3.000 / +3.150) + 9 Spotlights
+      // =======================================================================
+      const grpCeilMagnetic = new THREE.Group();
+      const grpCeilFlatSpot = new THREE.Group();
+      const grpCeilStepped = new THREE.Group();
+      const grpSpotHousings = new THREE.Group();
+      const grpCoveS3Stepped = new THREE.Group();
+      const grpLinearS3Magnetic = new THREE.Group();
+      scene.add(grpCeilMagnetic, grpCeilFlatSpot, grpCeilStepped, grpSpotHousings, grpCoveS3Stepped, grpLinearS3Magnetic);
+
+      // A) Flat Gypsum Ceiling (+3.130m) + Curtain Recess (150mm along West windows) for Option 1 & Option 2
+      addBox(3.27, 0.035, 3.74, matCeilingGypsum, 0.15 + 3.27 / 2, 3.13, 3.74 / 2, grpCeilMagnetic);
+      addBox(3.27, 0.035, 3.74, matCeilingGypsum, 0.15 + 3.27 / 2, 3.13, 3.74 / 2, grpCeilFlatSpot);
+
+      // Option 1 ('magnetic'): Recessed 25mm Matte-Black Magnetic Track Channels at Y = 3.115m
+      // 1) West Track (x = 0.50m, z = 0.35m..3.44m, length 3.09m)
+      addBox(0.045, 0.03, 3.09, matBlackMetal, 0.50, 3.115, 1.895, grpCeilMagnetic, 'SPOTLIGHTS');
+      // 2) South Bookshelf Track (z = 3.42m, x = 0.50m..2.35m, length 1.85m)
+      addBox(1.85, 0.03, 0.045, matBlackMetal, 1.425, 3.115, 3.42, grpCeilMagnetic, 'SPOTLIGHTS');
+      // 3) East Sofa Track (x = 2.62m, z = 1.40m..3.44m, length 2.04m)
+      addBox(0.045, 0.03, 2.04, matBlackMetal, 2.62, 3.115, 2.42, grpCeilMagnetic, 'SPOTLIGHTS');
+
+      // Magnetic Track Snap-in Grille Directional Modules & Linear Flood Bars
+      const matLinearGlow = new THREE.MeshBasicMaterial({ color: 0xe0f2fe });
+      [0.48, 1.48, 2.32, 3.06].forEach(zp => {
+        addBox(0.036, 0.035, 0.24, matBlackMetal, 0.50, 3.105, zp, grpCeilMagnetic, 'SPOTLIGHTS');
+        addBox(0.024, 0.01, 0.20, matCoveLED, 0.50, 3.088, zp, grpCeilMagnetic, 'SPOTLIGHTS');
+      });
+      // 2 Linear Diffused Flood Bars on West Track
+      [0.98, 2.70].forEach(zp => {
+        addBox(0.032, 0.015, 0.38, matLinearGlow, 0.50, 3.102, zp, grpCeilMagnetic, 'SPOTLIGHTS');
+      });
+      // 3 Magnetic Spotlight Modules on South Bookshelf Track
+      [0.50, 1.22, 1.94].forEach(xp => {
+        addBox(0.22, 0.035, 0.036, matBlackMetal, xp, 3.105, 3.42, grpCeilMagnetic, 'SPOTLIGHTS');
+        addBox(0.18, 0.01, 0.024, matCoveLED, xp, 3.088, 3.42, grpCeilMagnetic, 'SPOTLIGHTS');
+      });
+      // 2 Linear Warm Bars on East Sofa Track
+      [1.85, 2.85].forEach(zp => {
+        addBox(0.032, 0.018, 0.52, matCoveLED, 2.62, 3.102, zp, grpLinearS3Magnetic, 'SPOTLIGHTS');
+      });
+
+      // Option 2 ('flat_spot'): Perimeter Black Shadow Groove P-UT12 (12mm) on Flat Ceiling (+3.130)
+      addBox(2.30, 0.018, 0.02, matBlackMetal, 1.71, 3.115, 0.58, grpCeilFlatSpot, 'SPOTLIGHTS');
+      addBox(2.30, 0.018, 0.02, matBlackMetal, 1.71, 3.115, 3.38, grpCeilFlatSpot, 'SPOTLIGHTS');
+      addBox(0.02, 0.018, 2.80, matBlackMetal, 0.56, 3.115, 1.98, grpCeilFlatSpot, 'SPOTLIGHTS');
+      addBox(0.02, 0.018, 2.80, matBlackMetal, 2.86, 3.115, 1.98, grpCeilFlatSpot, 'SPOTLIGHTS');
+
+      // Option 3 ('stepped'): Original Stepped Tray Ceiling C1 (+3.000 outer / +3.150 center tray)
+      addBox(0.745, 0.04, 4.24, matCeilingGypsum, 0.3725, 3.00, 2.12, grpCeilStepped);
+      addBox(0.745, 0.04, 4.24, matCeilingGypsum, 3.0475, 3.00, 2.12, grpCeilStepped);
+      addBox(1.93, 0.04, 0.75, matCeilingGypsum, 1.71, 3.00, 0.375, grpCeilStepped);
+      addBox(1.93, 0.04, 1.05, matCeilingGypsum, 1.71, 3.00, 3.715, grpCeilStepped);
+      addBox(1.93, 0.04, 2.44, matCeilingGypsum, 1.71, 3.15, 1.97, grpCeilStepped);
+
+      addBox(1.92, 0.02, 0.02, matCoveLED, 1.71, 3.04, 0.76, grpCoveS3Stepped, 'SPOTLIGHTS');
+      addBox(1.92, 0.02, 0.02, matCoveLED, 1.71, 3.04, 3.18, grpCoveS3Stepped, 'SPOTLIGHTS');
+      addBox(0.02, 0.02, 2.42, matCoveLED, 0.755, 3.04, 1.97, grpCoveS3Stepped, 'SPOTLIGHTS');
+      addBox(0.02, 0.02, 2.42, matCoveLED, 2.665, 3.04, 1.97, grpCoveS3Stepped, 'SPOTLIGHTS');
+
+      const grpZoneS1 = new THREE.Group();
+      const grpZoneS2 = new THREE.Group();
+      const grpZoneS3 = new THREE.Group();
+      scene.add(grpZoneS1, grpZoneS2, grpZoneS3);
+
+      function createSpotlightFixtureAndCone(x, z, tiltX, tiltZ, colorHex, coneHeight, coneRadius, targetZoneGrp) {
+        // Round Spotlight Fixture housing (Visible in Option 2 'flat_spot' and Option 3 'stepped')
+        const housing = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.04, 20), matWhiteAC);
+        housing.position.set(x, 3.09, z);
+        grpSpotHousings.add(housing);
+        tagItem(housing, 'SPOTLIGHTS');
+
+        const baffle = new THREE.Mesh(new THREE.CylinderGeometry(0.038, 0.038, 0.042, 16), matBlackMetal);
+        baffle.position.set(x, 3.088, z);
+        grpSpotHousings.add(baffle);
+
+        // Glowing emitter + Volumetric light cone + Real SpotLight inside targetZoneGrp
+        const bulb = new THREE.Mesh(
+          new THREE.SphereGeometry(0.026, 12, 12),
+          new THREE.MeshBasicMaterial({ color: colorHex })
+        );
+        bulb.position.set(x, 3.08, z);
+        targetZoneGrp.add(bulb);
+
+        const coneGeo = new THREE.ConeGeometry(coneRadius, coneHeight, 24, 1, true);
+        coneGeo.translate(0, -coneHeight / 2, 0);
+        const coneMat = new THREE.MeshBasicMaterial({
+          color: colorHex,
+          transparent: true,
+          opacity: 0.13,
+          side: THREE.DoubleSide,
+          depthWrite: false
+        });
+        const coneMesh = new THREE.Mesh(coneGeo, coneMat);
+        coneMesh.position.set(x, 3.08, z);
+        coneMesh.rotation.z = tiltX;
+        coneMesh.rotation.x = tiltZ;
+        targetZoneGrp.add(coneMesh);
+        tagItem(coneMesh, 'SPOTLIGHTS');
+
+        const spLight = new THREE.SpotLight(colorHex, 0.95, 4.5, Math.PI / 5.2, 0.55, 1.2);
+        spLight.position.set(x, 3.06, z);
+        spLight.target.position.set(x - Math.sin(tiltX) * 2.0, 0.75, z + Math.sin(tiltZ) * 2.0);
+        targetZoneGrp.add(spLight);
+        targetZoneGrp.add(spLight.target);
+      }
+
+      // Zone S1: 4 Anti-Glare Desk Light Beams (x = 0.50m, z = 0.48, 1.48, 2.32, 3.06m, tilted 15 deg toward West desks)
+      [0.48, 1.48, 2.32, 3.06].forEach(zp => {
+        createSpotlightFixtureAndCone(0.50, zp, -0.16, 0, 0xfef08a, 2.30, 0.52, grpZoneS1);
+      });
+
+      // Zone S2: 3 Narrow-Beam Bookshelf Light Beams (x = 0.50, 1.22, 1.94m, z = 3.42m, tilted 25 deg toward South Bookshelf)
+      [0.50, 1.22, 1.94].forEach(xp => {
+        createSpotlightFixtureAndCone(xp, 3.42, 0, 0.28, 0xfde68a, 2.22, 0.40, grpZoneS2);
+      });
+
+      // Zone S3: 2 Reading Sofa Light Beams (x = 2.62m, z = 2.28, 3.22m, tilted slightly toward East Sofa)
+      [2.28, 3.22].forEach(zp => {
+        createSpotlightFixtureAndCone(2.62, zp, 0.14, 0, 0xfde68a, 2.52, 0.55, grpZoneS3);
+      });
+
+      // Default Ceiling Style = 'magnetic' (PA Trần 1: Trần Phẳng + Ray Nam Châm 48V)
+      grpCeilMagnetic.visible = true;
+      grpLinearS3Magnetic.visible = true;
+      grpCeilFlatSpot.visible = false;
+      grpCeilStepped.visible = false;
+      grpSpotHousings.visible = false;
+      grpCoveS3Stepped.visible = false;
+
+      window.setCeilingStyle = function(styleKey, btnEl) {
+        ['magnetic', 'flat_spot', 'stepped'].forEach(k => {
+          const b = document.getElementById('btn-ceil-' + k);
+          if (b) b.classList.toggle('active', k === styleKey);
+          const svgG = document.getElementById('svg-ceil-' + k);
+          if (svgG) svgG.style.display = (k === styleKey) ? 'inline' : 'none';
+        });
+
+        const s3Checked = document.getElementById('chk-s3').checked;
+        grpCeilMagnetic.visible = (styleKey === 'magnetic');
+        grpLinearS3Magnetic.visible = (styleKey === 'magnetic') && s3Checked;
+        grpCeilFlatSpot.visible = (styleKey === 'flat_spot');
+        grpCeilStepped.visible = (styleKey === 'stepped');
+        grpSpotHousings.visible = (styleKey !== 'magnetic');
+        grpCoveS3Stepped.visible = (styleKey === 'stepped') && s3Checked;
+
+        if (styleKey === 'magnetic') {
+          document.getElementById('hud3d-title').textContent = '⚡ PA Trần 1 (Khuyên Dùng): Trần Thạch Cao Phẳng (+3.130) + Hệ Ray Nam Châm Âm Trần 48V';
+          document.getElementById('hud3d-desc').textContent = 'Trần phẳng một cốt cao +3.130mm suốt toàn phòng, tích hợp 3 tuyến Ray nam châm âm trần màu đen mờ (Tuyến Tây x=550mm rọi 2 bàn; Tuyến Nam y=3.420mm rọi Tủ sách; Tuyến Đông x=2.620mm chiếu Sofa).';
+        } else if (styleKey === 'flat_spot') {
+          document.getElementById('hud3d-title').textContent = '🎯 PA Trần 2: Trần Thạch Cao Phẳng (+3.130) + Nẹp Ron Đen P-UT12 + 09 Đèn Spotlight Âm Sâu';
+          document.getElementById('hud3d-desc').textContent = 'Đồng bộ 100% với 2 phòng ngủ phía sau Tầng 3 trên KT-4.03: Trần thạch cao phẳng một cốt +3.130mm chạy chỉ âm nhựa đen P-UT12 (12mm) kết hợp 09 đèn Spotlight chóa sâu chống chói.';
+        } else {
+          document.getElementById('hud3d-title').textContent = '🏛️ PA Trần 3 (Bản Vẽ KT-4.03 Gốc): Trần Giật Cấp Khe Hắt C1 (+3.000 / +3.150) + 09 Đèn Spotlight';
+          document.getElementById('hud3d-desc').textContent = 'Trần xung quanh hạ thấp xuống +3.000mm, ở giữa giật cấp lên +3.150mm (1.930 × 2.440mm) kèm khe hắt đèn LED dây 3000K.';
+        }
+      };
+
+      // =======================================================================
+      // 8. INTERACTIVE STATES (DOOR SLIDING, BLIND ROLLING, CAMERA PRESETS)
+      // =======================================================================
+      let partitionTargetOpen = 0; // 0 = closed, 1 = open
+      let partitionCurrOpen = 0;
+      let blindTargetDown = 0.18;  // 0.18 = rolled up, 1.0 = full blackout down
+      let blindCurrDown = 0.18;
+
+      window.toggle3DState = function(key, checked) {
+        if (key === 's1') {
+          grpZoneS1.visible = checked;
+        } else if (key === 's2') {
+          grpZoneS2.visible = checked;
+          grpShelfLEDs.visible = checked;
+        } else if (key === 's3') {
+          grpZoneS3.visible = checked;
+          grpLinearS3Magnetic.visible = checked && grpCeilMagnetic.visible;
+          grpCoveS3Stepped.visible = checked && grpCeilStepped.visible;
+        } else if (key === 'partitionOpen') {
+          partitionTargetOpen = checked ? 1 : 0;
+        } else if (key === 'blindDown') {
+          blindTargetDown = checked ? 1.0 : 0.18;
+        } else if (key === 'ceilingSolid') {
+          matCeilingGypsum.opacity = checked ? 0.94 : 0.24;
+        } else if (key === 'shaftXray') {
+          matShaftWalnut.transparent = checked;
+          matShaftWalnut.opacity = checked ? 0.22 : 1.0;
+        } else if (key === 'nightMode') {
+          scene.background.setHex(checked ? 0x0b1017 : 0x1e293b);
+          hemiLight.intensity = checked ? 0.48 : 0.92;
+          sunLight.intensity = checked ? 0.65 : 1.35;
+        }
+      };
+
+      const camPresets = {
+        overview: {
+          pan: [1.75, 1.15, 2.05],
+          sph: { theta: 0.72, phi: 1.02, radius: 6.8 },
+          title: '🎥 1. Góc Phối Cảnh Tổng Thể (Phòng Làm Việc 14,5 m² + P. Ngủ Thờ + Hành Lang)',
+          desc: 'Nhìn bao quát toàn bộ Phòng làm việc Tầng 3 (3,42 × 4,24m): Tường Tây đặt 2 bàn làm việc 1,6m + Tủ máy in 300mm; Tường Nam đặt Tủ sách kịch trần nối phẳng Hộp KT; Tường Đông đặt Sofa + Điều hòa 12.000 BTU; Tường Bắc là Cửa lùa 4 cánh sang Phòng Thờ.'
+        },
+        desks_west: {
+          pan: [0.45, 1.12, 2.00],
+          sph: { theta: 0.08, phi: 1.28, radius: 3.35 },
+          title: '💻 2. Cận Cảnh 02 Bàn Làm Việc 1.600mm, Tủ Máy In 300mm & Cụm Ổ Cắm E1–E3',
+          desc: '4 đèn Spotlight SP1–SP4 (x=500mm) rọi từ phía trước mặt xuống 2 bàn, triệt tiêu hoàn toàn bóng lưng. Cụm ổ cắm E1, E2, E3 và ống luồn dây Φ32 nằm gọn tại mảng tường đặc giữa 2 bàn.'
+        },
+        bookshelf_south: {
+          pan: [1.65, 1.45, 3.75],
+          sph: { theta: -1.48, phi: 1.32, radius: 3.65 },
+          title: '📚 3. Hệ Tủ Sách Kịch Trần (2.440 × 500mm) & Ốp Gỗ Phẳng Lỳ Hộp Kỹ Thuật (980 × 500mm)',
+          desc: 'Tủ sách sâu đúng 500mm bằng Hộp kỹ thuật góc Đông Nam, tạo thành một bức tường gỗ Óc Chó phẳng lỳ rộng 3.420mm. 3 đèn Spotlight góc hẹp 24° (SP5–SP7) cách mặt tủ 320mm rọi hiệu ứng vòm sáng sang trọng.'
+        },
+        sofa_east: {
+          pan: [2.85, 1.35, 2.55],
+          sph: { theta: 3.05, phi: 1.28, radius: 3.45 },
+          title: '🛋️ 4. Khu Sofa Đọc Sách, Cửa Gỗ Lim O1 & Điều Hòa 12.000 BTU Treo Tường Đông',
+          desc: 'Máy điều hòa 12.000 BTU treo trên Sofa (y=2.700mm) thổi dọc giữa phòng mát dịu, ống thoát nước ngưng chỉ dài 0,6m đi âm tường vào thẳng Hộp kỹ thuật bên phải (Bấm nút "X-Ray Hộp KT" để xem ống nước xanh bên trong!).'
+        },
+        from_altar: {
+          pan: [1.65, 1.25, 0.85],
+          sph: { theta: 1.57, phi: 1.34, radius: 4.30 },
+          title: '🚪 5. Góc Nhìn Từ Phòng Ngủ Thờ Xuyên Qua Hệ Cửa Lùa Kính Mờ 4 Cánh (2.400mm)',
+          desc: 'Bấm nút "🚪 Mở Thông Cửa Lùa 4 Cánh Sang P. Thờ" ở thanh công cụ dưới để xem 2 cánh giữa trượt mở nhẹ nhàng trên hệ ray treo (không có ray dưới sàn gỗ +7.850), kết nối liên thông 26,6 m².'
+        },
+        pov_seated: {
+          pan: [0.15, 1.12, 1.04],
+          sph: { theta: 0.02, phi: 1.48, radius: 1.35 },
+          title: '👁️ 6. Góc Nhìn Thực Tế Khi Ngồi Làm Việc Tại Bàn #1 (POV)',
+          desc: 'Góc nhìn trực diện 2 màn hình 27 inch + đèn ScreenBar tại Bàn #1, bên phải là cửa sổ mở hất S4 có rèm cuốn cản nắng 100% (Bấm "🪟 Kéo Kín Rèm Cuốn S4" để thử kéo rèm xuống!).'
+        },
+        ceiling_up: {
+          pan: [1.71, 2.65, 2.12],
+          sph: { theta: 0.45, phi: 2.15, radius: 3.60 },
+          title: '💡 7. Góc Nhìn Ngước Lên Trần Thạch Cao C1 (+3.000 / +3.150) & 09 Đèn Spotlight',
+          desc: 'Quan sát rõ khe hắt sáng LED trần giật cấp C1 (+3.150) ở giữa phòng và vị trí khoét lỗ của 9 đèn Spotlight âm trần chóa sâu chống chói (SP1–SP9 chia làm 3 lộ S1, S2, S3).'
+        }
+      };
+
+      window.setOfficeCam = function(presetKey, btnEl) {
+        document.querySelectorAll('.cam3d-btn').forEach(b => b.classList.remove('active'));
+        if (btnEl) btnEl.classList.add('active');
+        const p = camPresets[presetKey];
+        if (!p) return;
+        targetPan.set(p.pan[0], p.pan[1], p.pan[2]);
+        targetSpherical = { theta: p.sph.theta, phi: p.sph.phi, radius: p.sph.radius };
+        document.getElementById('hud3d-title').textContent = p.title;
+        document.getElementById('hud3d-desc').textContent = p.desc;
+
+        if (presetKey === 'from_altar') {
+          partitionTargetOpen = 1;
+          document.getElementById('chk-partition-open').checked = true;
+        }
+      };
+
+      const itemSpecs3D = {
+        'DESKS': {
+          badge: '💻 ĐỒ GỖ & ĐIỆN MẠNG TƯỜNG TÂY',
+          title: 'Hệ 02 Bàn Làm Việc Đôi 1.600 × 600mm + Tủ Máy In 300mm & Ổ Cắm E1–E3',
+          desc: 'Đặt dọc bức tường Tây dài 4.240mm: Bàn #1 (cửa sổ S4), Tủ máy in & Wifi Mesh ở giữa (300mm), và Bàn #2 (vách kính V4). Mỗi bàn đặt thoải mái 2 màn hình 27 inch.',
+          mat: 'Gỗ Óc Chó (Walnut) dày 40mm • Khung chân sắt sơn tĩnh điện đen mờ • Ghế Công thái học lưới',
+          size: 'Bàn #1 & #2: 1.600 × 600 × 750 mm • Tủ máy in: 300 × 600 × 750 mm (Tổng dài 3.500 mm)',
+          pos: 'Tường Tây x = 0..600mm • Bàn #1: z = 240..1.840mm • Bàn #2: z = 2.140..3.740mm',
+          me: 'Ổ cắm E1 (y=1.650), E2 (y=1.990, H=850), E3 (y=2.280) + 2 Ống luồn dây Φ32 âm tường',
+          cam: 'desks_west',
+          node2D: 'E1'
+        },
+        'TU-SACH': {
+          badge: '📚 HỆ TỦ SÁCH & ỐP PHẲNG HỘP KT',
+          title: 'Tủ Sách Kịch Trần (2.440 × 500 × 3.150mm) + Vách Gỗ Ốp Phẳng Hộp Kỹ Thuật (980 × 500mm)',
+          desc: 'Giải pháp "ăn tiền" nhất về thẩm mỹ: tận dụng độ sâu 500mm của Hộp kỹ thuật góc Đông Nam để đóng Hệ Tủ Sách sâu 500mm nối phẳng thành một bức tường gỗ Óc Chó sang trọng rộng 3.420mm.',
+          mat: 'Gỗ MDF lõi xanh chống ẩm phủ Laminate vân Óc Chó + Đèn LED thanh 3000K âm đợt kệ',
+          size: 'Tủ sách: 2.440 × 500 × 3.150 mm • Ốp phẳng Hộp KT: 980 × 500 × 3.150 mm (Có cửa thăm ẩn)',
+          pos: 'Tường Nam (Trục A) z = 3.740..4.240mm, chạy suốt chiều ngang phòng x = 0..3.420mm',
+          me: 'Lộ S2: 3 đèn Spotlight góc 24° (SP5, SP6, SP7 tại y=3.420mm) + Nguồn chờ 220V trên nóc tủ',
+          cam: 'bookshelf_south',
+          node2D: 'TU-SACH'
+        },
+        'SPOTLIGHTS': {
+          badge: '💡 HỆ 09 ĐÈN SPOTLIGHT CHỐNG CHÓI',
+          title: '09 Đèn Spotlight Âm Trần Chóa Sâu (UGR<16) Chia 3 Lộ Độc Lập (S1 • S2 • S3)',
+          desc: 'Không dùng đèn tuýp hay downlight tán quang giữa nhà gây sấp bóng lưng. 4 đèn S1 đặt tại x=500mm chiếu từ phía trước mặt người ngồi; 3 đèn S2 rọi vòm tủ sách; 2 đèn S3 chiếu Sofa.',
+          mat: 'Thân nhôm đúc tản nhiệt • Chóa đen sâu chống chói UGR<16 • Chip LED Bridgelux/Cree CRI>95',
+          size: 'Lỗ khoét trần Φ75–Φ90mm • Công suất 7W–12W • Chỉnh góc nghiêng 15°–25°',
+          pos: 'Lộ S1: x=500mm • Lộ S2: y=3.420mm (cách tủ 320mm) • Lộ S3: x=2.620mm • Công tắc SW-T3 tại cửa O1',
+          me: 'Đấu về Công tắc thông minh 3 nút SW-T3 (H=+1.250mm, có dây Nguội N) ngay cửa gỗ O1',
+          cam: 'ceiling_up',
+          node2D: 'SP1'
+        },
+        'VACH-LUA': {
+          badge: '🚪 VÁCH NGĂN CÁCH ÂM & GIỮ NHIỆT',
+          title: 'Hệ Cửa Lùa Kính Mờ Sóng 4 Cánh (2.400 × 2.750mm) Ngăn Với P. Ngủ Thờ',
+          desc: 'Thay vách ngăn ước lệ bằng hệ cửa lùa 4 cánh ray treo giảm chấn: Ngày thường đóng kín để giữ lạnh điều hòa 12.000 BTU và cách âm khi họp; ngày Giỗ/Tết mở thông 2 phòng thành 26,6 m².',
+          mat: 'Khung gỗ Lim / Óc Chó hoặc Nhôm Slim đen mờ + Kính mờ sóng (Fluted Glass) / Kính hộp rèm',
+          size: 'Rộng thông thủy 2.400 mm (4 cánh × 600 mm) × Cao 2.750 mm (Ray treo phía trên, không ray sàn)',
+          pos: 'Tường Bắc z = 0mm, từ x = 450mm đến x = 2.850mm (Giữa Phòng làm việc & P. Ngủ Thờ)',
+          me: 'Gia cố xương thép hộp trên trần thạch cao tại z = 0mm để chịu lực hệ ray treo 4 cánh',
+          cam: 'from_altar',
+          node2D: 'VACH-LUA'
+        },
+        'WINDOWS-WEST': {
+          badge: '☀️ CỬA SỔ MẶT TIỀN HƯỚNG TÂY (TRỤC 1\')',
+          title: 'Cửa Sổ Mở Hất S4 (Kèm Rèm Cuốn 100%) & Vách Kính V4 (Sau 10 Lam Gạch Chắn Nắng)',
+          desc: 'Giữ nguyên 100% thiết kế mặt tiền KT-2.09 & KT-3.06: Cửa sổ S4 lắp thêm rèm cuốn cản sáng 100% chống chói nắng chiều; Vách kính V4 đã được 10 khe gạch mặt tiền lọc nắng gắt.',
+          mat: 'Nhôm Xingfa/PMA hệ 55 màu ghi đen + Kính an toàn + Rèm cuốn Blackout 100% màu kem ấm',
+          size: 'Cửa sổ S4: 1.250 × 2.050 mm (Bàn #1) • Vách kính V4: 890 × 2.050 mm (Bàn #2)',
+          pos: 'Tường Tây x = 0mm • S4: z = 240..1.490mm • V4: z = 2.850..3.740mm',
+          me: 'Lắp lọt lòng khuôn cửa sổ S4 (Bấm nút "🪟 Kéo Kín Rèm Cuốn S4" để xem hiệu ứng che nắng)',
+          cam: 'desks_west',
+          node2D: 'REM-S4'
+        },
+        'SOFA-AC': {
+          badge: '❄️ ĐIỀU HÒA 12.000 BTU & GÓC THƯ GIÃN',
+          title: 'Sofa Đọc Sách (1.570 × 640mm) + Điều Hòa Inverter 12.000 BTU Thoát Nước 0,6m Vào Hộp KT',
+          desc: 'Treo điều hòa phía trên Sofa tường Đông giúp luồng gió mát lan tỏa đều khắp phòng mà không thổi trực tiếp vào gáy hay đỉnh đầu của 2 người ngồi làm việc bên tường Tây.',
+          mat: 'Sofa bọc vải nỉ Bouclé kem xám + Bàn trà tròn gỗ Óc Chó + Máy lạnh 12.000 BTU Inverter trắng mờ',
+          size: 'Sofa: 1.570 × 640 × 780 mm • Điều hòa: 920 × 220 × 280 mm (Treo tại H = +2.650mm)',
+          pos: 'Tường Đông x = 3.420mm • Sofa: z = 1.920..3.490mm • Tâm điều hòa: z = 2.700mm',
+          me: 'Ống thoát nước ngưng PVC Φ27 đi âm tường Đông dài 0,6m đấu thẳng vào Hộp KT 980×500mm; ổ cắm phụ E4 (H=+400mm) cạnh Sofa',
+          cam: 'sofa_east',
+          node2D: 'AC-T3'
+        }
+      };
+
+      window.focus3DItem = function(itemKey, cardEl) {
+        document.querySelectorAll('.mat-card-mini').forEach(c => c.classList.remove('active'));
+        if (cardEl) cardEl.classList.add('active');
+        const info = itemSpecs3D[itemKey];
+        if (!info) return;
+        document.getElementById('insp3d-badge').textContent = info.badge;
+        document.getElementById('insp3d-title').textContent = info.title;
+        document.getElementById('insp3d-desc').textContent = info.desc;
+        document.getElementById('insp3d-mat').textContent = info.mat;
+        document.getElementById('insp3d-size').textContent = info.size;
+        document.getElementById('insp3d-pos').textContent = info.pos;
+        document.getElementById('insp3d-me').textContent = info.me;
+
+        if (info.cam) setOfficeCam(info.cam);
+        if (info.node2D) selectNode(info.node2D);
+      };
+
+      // =======================================================================
+      // 9. ORBIT, PAN, ZOOM & CLICK RAYCASTING
+      // =======================================================================
+      let isOrbit = false;
+      let isPan = false;
+      let downPos = { x: 0, y: 0 };
+      let prevPos = { x: 0, y: 0 };
+      const raycaster = new THREE.Raycaster();
+      const mouseNDC = new THREE.Vector2();
+
+      canvas.addEventListener('mousedown', (e) => {
+        if (e.button === 2 || e.shiftKey) {
+          isPan = true;
+        } else {
+          isOrbit = true;
+        }
+        downPos.x = prevPos.x = e.clientX;
+        downPos.y = prevPos.y = e.clientY;
+      });
+
+      window.addEventListener('mousemove', (e) => {
+        if (!isOrbit && !isPan) return;
+        const dx = e.clientX - prevPos.x;
+        const dy = e.clientY - prevPos.y;
+        prevPos.x = e.clientX;
+        prevPos.y = e.clientY;
+
+        if (isOrbit) {
+          targetSpherical.theta += dx * 0.0075;
+          targetSpherical.phi = Math.max(0.14, Math.min(Math.PI * 0.72, targetSpherical.phi - dy * 0.0065));
+        } else if (isPan) {
+          const panSpeed = targetSpherical.radius * 0.0012;
+          targetPan.x -= dx * Math.sin(targetSpherical.theta) * panSpeed;
+          targetPan.z += dx * Math.cos(targetSpherical.theta) * panSpeed;
+          targetPan.y += dy * panSpeed * 0.8;
+        }
+      });
+
+      window.addEventListener('mouseup', (e) => {
+        const moveDist = Math.hypot(e.clientX - downPos.x, e.clientY - downPos.y);
+        if (isOrbit && moveDist < 5 && e.target === canvas) {
+          const rect = canvas.getBoundingClientRect();
+          mouseNDC.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+          mouseNDC.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+          raycaster.setFromCamera(mouseNDC, camera);
+          const hits = raycaster.intersectObjects(interactiveMeshes, false);
+          if (hits.length > 0 && hits[0].object.userData.itemKey) {
+            focus3DItem(hits[0].object.userData.itemKey);
+          }
+        }
+        isOrbit = false;
+        isPan = false;
+      });
+
+      canvas.addEventListener('contextmenu', (e) => e.preventDefault());
+
+      canvas.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        const factor = e.deltaY > 0 ? 1.08 : 0.92;
+        targetSpherical.radius = Math.max(1.1, Math.min(14.5, targetSpherical.radius * factor));
+      }, { passive: false });
+
+      canvas.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1) {
+          isOrbit = true;
+          prevPos.x = e.touches[0].clientX;
+          prevPos.y = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      canvas.addEventListener('touchmove', (e) => {
+        if (!isOrbit || e.touches.length !== 1) return;
+        const dx = e.touches[0].clientX - prevPos.x;
+        const dy = e.touches[0].clientY - prevPos.y;
+        prevPos.x = e.touches[0].clientX;
+        prevPos.y = e.touches[0].clientY;
+        targetSpherical.theta += dx * 0.0075;
+        targetSpherical.phi = Math.max(0.14, Math.min(Math.PI * 0.72, targetSpherical.phi - dy * 0.0065));
+      }, { passive: true });
+
+      canvas.addEventListener('touchend', () => { isOrbit = false; });
+
+      function updateCameraAndAnimations() {
+        spherical.theta += (targetSpherical.theta - spherical.theta) * 0.14;
+        spherical.phi += (targetSpherical.phi - spherical.phi) * 0.14;
+        spherical.radius += (targetSpherical.radius - spherical.radius) * 0.14;
+        target.lerp(targetPan, 0.14);
+
+        const sinPhi = Math.sin(spherical.phi);
+        camera.position.x = target.x + spherical.radius * sinPhi * Math.cos(spherical.theta);
+        camera.position.y = target.y + spherical.radius * Math.cos(spherical.phi);
+        camera.position.z = target.z + spherical.radius * sinPhi * Math.sin(spherical.theta);
+        camera.lookAt(target);
+
+        // Smooth 4-Leaf Sliding Partition animation
+        partitionCurrOpen += (partitionTargetOpen - partitionCurrOpen) * 0.12;
+        leaf2Slide.position.x = 1.35 - partitionCurrOpen * 0.56;
+        leaf3Slide.position.x = 1.95 + partitionCurrOpen * 0.56;
+
+        // Smooth Roller Blind S4 animation
+        blindCurrDown += (blindTargetDown - blindCurrDown) * 0.12;
+        blindMeshS4.scale.y = blindCurrDown;
+        blindMeshS4.position.y = 2.85 - (1.98 * blindCurrDown) / 2;
+      }
+
+      function resize3D() {
+        const rect = container.getBoundingClientRect();
+        if (rect.width === 0 || rect.height === 0) return;
+        renderer.setSize(rect.width, rect.height, false);
+        camera.aspect = rect.width / rect.height;
+        camera.updateProjectionMatrix();
+      }
+      window.addEventListener('resize', resize3D);
+      resize3D();
+
+      // Efficient Background Processing (modern-web-guidance: pause WebGL loop when off-screen)
+      let isRendering3D = true;
+      let rafId = null;
+
+      function animate3D() {
+        if (!isRendering3D) return;
+        rafId = requestAnimationFrame(animate3D);
+        updateCameraAndAnimations();
+        renderer.render(scene, camera);
+      }
+
+      function pause3D() {
+        isRendering3D = false;
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+      }
+
+      function resume3D() {
+        if (!isRendering3D) {
+          isRendering3D = true;
+          resize3D();
+          animate3D();
+        }
+      }
+
+      const sec3DEl = document.getElementById('sec-3d-interactive');
+      sec3DEl.addEventListener('contentvisibilityautostatechange', (event) => {
+        if (event.skipped) {
+          pause3D();
+        } else {
+          resume3D();
+        }
+      });
+
+      const isCVSupported = 'contentVisibility' in document.documentElement.style;
+      if (!isCVSupported && 'IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) resume3D();
+            else pause3D();
+          });
+        }, { rootMargin: '200px' });
+        obs.observe(sec3DEl);
+      }
+
+      animate3D();
+    })();
+  </script>
+</body>
+</html>

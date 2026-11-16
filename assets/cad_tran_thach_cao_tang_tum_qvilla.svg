@@ -1,0 +1,276 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 920" width="1680" height="920">
+    
+  <defs>
+    <pattern id="hatch-moisture" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="12" height="12" fill="#ecfdf5"/>
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.45"/>
+    </pattern>
+    <pattern id="hatch-void" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="#f8fafc"/>
+      <line x1="0" y1="0" x2="16" y2="16" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="16" y1="0" x2="0" y2="16" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+    </pattern>
+    <pattern id="hatch-cabinet" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect width="10" height="10" fill="#f1f5f9"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#64748b" stroke-width="1.1" stroke-opacity="0.4"/>
+    </pattern>
+    <pattern id="hatch-rattan" width="10" height="10" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#fef3c7"/>
+      <path d="M 0 5 L 10 5 M 5 0 L 5 10" stroke="#d97706" stroke-width="0.8" stroke-opacity="0.38"/>
+    </pattern>
+    <pattern id="hatch-concrete" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="10" fill="#cbd5e1"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#475569" stroke-width="1.4"/>
+    </pattern>
+    <pattern id="hatch-insul" width="12" height="8" patternUnits="userSpaceOnUse">
+      <rect width="12" height="8" fill="#fef9c3"/>
+      <path d="M0,8 Q3,0 6,8 T12,8" fill="none" stroke="#ca8a04" stroke-width="1.1"/>
+    </pattern>
+    <marker id="dim-tick" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <line x1="2" y1="8" x2="8" y2="2" stroke="#dc2626" stroke-width="1.8"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0284c7"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+      .title-h1 { font-size: 20px; font-weight: 800; fill: #ffffff; }
+      .title-sub { font-size: 12px; font-weight: 600; fill: #cbd5e1; }
+      .axis-circle { fill: #ffffff; stroke: #0f172a; stroke-width: 2; }
+      .axis-txt { font-size: 14px; font-weight: 800; fill: #0f172a; text-anchor: middle; dominant-baseline: central; }
+      .axis-line { stroke: #94a3b8; stroke-width: 1; stroke-dasharray: 10,4,2,4; }
+      .wall { fill: #334155; stroke: #0f172a; stroke-width: 1.5; }
+      .room-c1 { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .cove-box { fill: #fffbeb; stroke: #d97706; stroke-width: 2.2; }
+      .led-line { fill: none; stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 6,4; }
+      .shadowline { fill: none; stroke: #ef4444; stroke-width: 1.4; stroke-dasharray: 3,3; }
+      .curtain-box { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.8; }
+      .ac-unit { fill: #e0f2fe; stroke: #0284c7; stroke-width: 2; }
+      .ac-grille { fill: #0284c7; stroke: #0369a1; stroke-width: 1.2; }
+      .ac-duct { fill: none; stroke: #0284c7; stroke-width: 3; stroke-dasharray: 7,4; opacity: 0.85; }
+      .pipe-line { fill: none; stroke: #e11d48; stroke-width: 2.2; stroke-dasharray: 8,4; }
+      .hatch-access { fill: #fef2f2; stroke: #dc2626; stroke-width: 1.8; }
+      .elev-tag { fill: #ecfeff; stroke: #0891b2; stroke-width: 1.5; rx: 4; }
+      .elev-txt { font-size: 11px; font-weight: 800; fill: #0e7490; text-anchor: middle; }
+      .room-lbl { font-size: 13px; font-weight: 800; fill: #0f172a; text-anchor: middle; }
+      .note-lbl { font-size: 10.5px; font-weight: 600; fill: #334155; text-anchor: middle; }
+      .dim-line { stroke: #dc2626; stroke-width: 1.3; marker-start: url(#dim-tick); marker-end: url(#dim-tick); }
+      .dim-txt { font-size: 11px; font-weight: 800; fill: #b91c1c; text-anchor: middle; }
+      .spot { fill: #ffffff; stroke: #0284c7; stroke-width: 1.8; }
+      .spot-cross { stroke: #0284c7; stroke-width: 1.1; }
+      .tbl-hdr { fill: #0f172a; }
+      .tbl-hdr-txt { font-size: 11.5px; font-weight: 800; fill: #ffffff; }
+      .tbl-cell-txt { font-size: 10.1px; font-weight: 600; fill: #1e293b; }
+      .tbl-bold { font-size: 11px; font-weight: 800; fill: #0f172a; }
+    </style>
+  </defs>
+
+    <rect width="1680" height="920" fill="#ffffff"/>
+    
+    <rect x="0" y="0" width="1680" height="72" fill="#0f172a"/>
+    <rect x="18" y="14" width="108" height="44" rx="8" fill="#f59e0b"/>
+    <text x="72" y="42" style="font-size:17px;font-weight:900;fill:#0f172a;text-anchor:middle;">KT-TC-04</text>
+    <text x="142" y="34" class="title-h1">MẶT BẰNG ĐÓNG TRẦN THẠCH CAO TẦNG TUM &amp; NÚT GIAO GIẾNG TRỜI / HỘP KỸ THUẬT</text>
+    <text x="142" y="55" class="title-sub">Biệt Thự Q Villa • Cốt sàn Tum (+11.400) • Đồng bộ KT-2.05, CĐ-14, N-05/N-06 &amp; 02 Ô Mái Kính (Đơn vị: mm)</text>
+    <rect x="1520" y="16" width="142" height="40" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="1591" y="41" style="font-size:13px;font-weight:800;fill:#fde68a;text-anchor:middle;">TỜ 04 / 06</text>
+    
+    <line x1="65" y1="115" x2="65" y2="805" class="axis-line"/>
+<circle cx="65" cy="100" r="14" class="axis-circle"/><text x="65" y="100" class="axis-txt">1</text>
+<circle cx="65" cy="822" r="14" class="axis-circle"/><text x="65" y="822" class="axis-txt">1</text>
+<line x1="120" y1="115" x2="120" y2="805" class="axis-line"/>
+<circle cx="120" cy="100" r="14" class="axis-circle"/><text x="120" y="100" class="axis-txt">1'</text>
+<circle cx="120" cy="822" r="14" class="axis-circle"/><text x="120" y="822" class="axis-txt">1'</text>
+<line x1="405" y1="115" x2="405" y2="805" class="axis-line"/>
+<circle cx="405" cy="100" r="14" class="axis-circle"/><text x="405" y="100" class="axis-txt">2</text>
+<circle cx="405" cy="822" r="14" class="axis-circle"/><text x="405" y="822" class="axis-txt">2</text>
+<line x1="820" y1="115" x2="820" y2="805" class="axis-line"/>
+<circle cx="820" cy="100" r="14" class="axis-circle"/><text x="820" y="100" class="axis-txt">3</text>
+<circle cx="820" cy="822" r="14" class="axis-circle"/><text x="820" y="822" class="axis-txt">3</text>
+<line x1="1075" y1="115" x2="1075" y2="805" class="axis-line"/>
+<circle cx="1075" cy="100" r="14" class="axis-circle"/><text x="1075" y="100" class="axis-txt">4</text>
+<circle cx="1075" cy="822" r="14" class="axis-circle"/><text x="1075" y="822" class="axis-txt">4</text>
+<line x1="45" y1="165" x2="1225" y2="165" class="axis-line"/>
+<circle cx="30" cy="165" r="14" class="axis-circle"/><text x="30" y="165" class="axis-txt">C</text>
+<line x1="45" y1="405" x2="1225" y2="405" class="axis-line"/>
+<circle cx="30" cy="405" r="14" class="axis-circle"/><text x="30" y="405" class="axis-txt">B</text>
+<line x1="45" y1="760" x2="1225" y2="760" class="axis-line"/>
+<circle cx="30" cy="760" r="14" class="axis-circle"/><text x="30" y="760" class="axis-txt">A</text>
+
+    <line x1="120" y1="134" x2="405" y2="134" class="dim-line"/>
+    <rect x="190.5" y="120" width="144.0" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="262.5" y="130" class="dim-txt">3.580 mm (Trục 1'–2)</text>
+
+    <line x1="405" y1="134" x2="820" y2="134" class="dim-line"/>
+    <rect x="543.9" y="120" width="137.2" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="612.5" y="130" class="dim-txt">5.220 mm (Trục 2–3)</text>
+
+    <line x1="820" y1="134" x2="1075" y2="134" class="dim-line"/>
+    <rect x="878.9" y="120" width="137.2" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="947.5" y="130" class="dim-txt">3.210 mm (Trục 3–4)</text>
+
+    <line x1="1075" y1="134" x2="1215" y2="134" class="dim-line"/>
+    <rect x="1093.4" y="120" width="103.2" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="1145.0" y="130" class="dim-txt">2.000 (Sân/BC)</text>
+
+    <line x1="52" y1="165" x2="52" y2="405" class="dim-line"/>
+    <g transform="translate(46,285.0) rotate(-90)">
+      <rect x="-31.2" y="-11" width="62.4" height="13" fill="#ffffff" opacity="0.92"/>
+      <text x="0" y="-1" class="dim-txt">3.010 mm</text>
+    </g>
+
+    <line x1="52" y1="405" x2="52" y2="760" class="dim-line"/>
+    <g transform="translate(46,582.5) rotate(-90)">
+      <rect x="-31.2" y="-11" width="62.4" height="13" fill="#ffffff" opacity="0.92"/>
+      <text x="0" y="-1" class="dim-txt">4.490 mm</text>
+    </g>
+
+    <!-- Outdoor Terraces (Front, BBQ North, Laundry East) -->
+    <rect x="120" y="165" width="955" height="595" fill="#f8fafc" stroke="#64748b" stroke-width="1.5" stroke-dasharray="8,4"/>
+    <text x="260" y="560" class="room-lbl" style="fill:#475569;">SÂN THƯỢNG TRƯỚC (+11.400)</text>
+    <text x="260" y="580" class="note-lbl">Không đóng thạch cao • 03 Đèn ống bơ nổi D71</text>
+
+    <text x="615" y="255" class="room-lbl" style="fill:#475569;">SÂN THƯỢNG BẮC &amp; HỆ LAM BBQ / GYM</text>
+    <text x="615" y="275" class="note-lbl">Không đóng thạch cao • Chờ 08 đầu dây đèn ống bơ nổi (bước chuẩn 1.845mm)</text>
+
+    <text x="950" y="555" class="room-lbl" style="fill:#475569;">SÂN GIẶT PHƠI &amp; 02 BỒN INOX</text>
+    <text x="950" y="575" class="note-lbl">04 Đèn ống bơ nổi 4000K (Không khoét)</text>
+    <!-- 2 Water Tanks -->
+    <rect x="865" y="615" width="175" height="54" rx="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.8"/>
+    <rect x="865" y="680" width="175" height="54" rx="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.8"/>
+    <text x="952" y="646" style="font-size:9.5px;font-weight:800;fill:#0369a1;text-anchor:middle;">BỒN NƯỚC INOX SỐ 1</text>
+    <text x="952" y="711" style="font-size:9.5px;font-weight:800;fill:#0369a1;text-anchor:middle;">BỒN NƯỚC INOX SỐ 2</text>
+
+    <!-- Indoor Core of Tum (405..820, 405..760) -->
+    <rect x="405" y="405" width="415" height="355" fill="#ffffff" stroke="#0f172a" stroke-width="2.4"/>
+
+    <!-- Tum Corridor (405..820, 405..495) -->
+    <rect x="405" y="405" width="415" height="90" class="room-c1"/>
+    <rect x="435" y="422" width="305" height="56" class="cove-box"/>
+    <rect x="441" y="428" width="293" height="44" class="led-line"/>
+    <text x="587" y="442" style="font-size:10px;font-weight:800;fill:#92400e;text-anchor:middle;">HỘP HÀNH LANG TUM 2.345×595 (+3.130 / Viền +3.000)</text>
+    <rect x="748" y="460" width="64" height="22" rx="4" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+    <text x="780" y="475" style="font-size:8.5px;font-weight:800;fill:#92400e;text-anchor:middle;">NGUỒN 24V</text>
+
+    <!-- Skylight #1 over Staircase (405..595, 495..760) -->
+    <rect x="405" y="495" width="190" height="265" fill="url(#hatch-void)" stroke="#0284c7" stroke-width="2.2"/>
+    <rect x="422" y="575" width="156" height="64" rx="6" fill="#ffffff" stroke="#0284c7" stroke-width="1.8"/>
+    <text x="500" y="602" style="font-size:10.5px;font-weight:900;fill:#0369a1;text-anchor:middle;">Ô MÁI KÍNH SỐ 1</text>
+    <text x="500" y="618" style="font-size:9px;font-weight:700;fill:#334155;text-anchor:middle;">2.150×1.770 (Cầu thang)</text>
+    <text x="500" y="632" style="font-size:8.5px;font-weight:800;fill:#dc2626;text-anchor:middle;">KHÔNG ĐÓNG THẠCH CAO</text>
+
+    <!-- Storage &amp; Solar Room (595..820, 495..665) -->
+    <rect x="595" y="495" width="225" height="170" fill="url(#hatch-moisture)" stroke="#059669" stroke-width="2"/>
+    
+    <g transform="translate(654.0,562)">
+      <rect width="108" height="32" class="elev-tag"/>
+      <line x1="0" y1="16" x2="108" y2="16" stroke="#0891b2" stroke-width="1"/>
+      <text x="54.0" y="12" class="elev-txt">C2 (KHO SOLAR)</text>
+      <text x="54.0" y="27" class="elev-txt" style="fill:#0f172a;">TRẦN BTCT</text>
+    </g>
+    <text x="708" y="616" style="font-size:9.5px;font-weight:800;fill:#065f46;text-anchor:middle;">Khoét 03 lỗ Ø75 cách tường 500</text>
+
+    <!-- Shaft TX2 &amp; Skylight #2 -->
+    <rect x="595" y="665" width="95" height="95" fill="#ffe4e6" stroke="#e11d48" stroke-width="2.2"/>
+    <text x="642" y="704" style="font-size:9.5px;font-weight:900;fill:#be123c;text-anchor:middle;">ĐỈNH TX2</text>
+    <text x="642" y="720" style="font-size:8.5px;font-weight:700;fill:#be123c;text-anchor:middle;">Cổ ngỗng ĐH</text>
+    <text x="642" y="733" style="font-size:8.5px;font-weight:700;fill:#be123c;text-anchor:middle;">&amp; Solar D32</text>
+
+    <rect x="690" y="665" width="130" height="95" fill="url(#hatch-void)" stroke="#0284c7" stroke-width="2.2"/>
+    <text x="755" y="708" style="font-size:10px;font-weight:900;fill:#0369a1;text-anchor:middle;">Ô MÁI KÍNH 2</text>
+    <text x="755" y="724" style="font-size:9px;font-weight:700;fill:#334155;text-anchor:middle;">Giếng trời 1×1m</text>
+
+    <!-- Small TX1 at Grid 2-A -->
+    <rect x="368" y="722" width="37" height="38" fill="#dcfce7" stroke="#16a34a" stroke-width="1.8"/>
+    <text x="386" y="745" style="font-size:8.5px;font-weight:800;fill:#15803d;text-anchor:middle;">TX1</text>
+
+    <!-- Surface Downlight markers on BBQ &amp; Terraces -->
+    <rect x="209" y="352" width="12" height="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/><rect x="304" y="352" width="12" height="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/><rect x="399" y="352" width="12" height="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/><rect x="494" y="352" width="12" height="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/><rect x="589" y="352" width="12" height="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/><rect x="684" y="352" width="12" height="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/><rect x="779" y="352" width="12" height="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/><rect x="874" y="352" width="12" height="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+    <circle cx="445" cy="450" r="6.5" class="spot"/><line x1="438.5" y1="450" x2="451.5" y2="450" class="spot-cross"/><line x1="445" y1="443.5" x2="445" y2="456.5" class="spot-cross"/><circle cx="535" cy="450" r="6.5" class="spot"/><line x1="528.5" y1="450" x2="541.5" y2="450" class="spot-cross"/><line x1="535" y1="443.5" x2="535" y2="456.5" class="spot-cross"/><circle cx="625" cy="450" r="6.5" class="spot"/><line x1="618.5" y1="450" x2="631.5" y2="450" class="spot-cross"/><line x1="625" y1="443.5" x2="625" y2="456.5" class="spot-cross"/><circle cx="715" cy="450" r="6.5" class="spot"/><line x1="708.5" y1="450" x2="721.5" y2="450" class="spot-cross"/><line x1="715" y1="443.5" x2="715" y2="456.5" class="spot-cross"/><circle cx="635" cy="535" r="6.5" class="spot"/><line x1="628.5" y1="535" x2="641.5" y2="535" class="spot-cross"/><line x1="635" y1="528.5" x2="635" y2="541.5" class="spot-cross"/><circle cx="765" cy="535" r="6.5" class="spot"/><line x1="758.5" y1="535" x2="771.5" y2="535" class="spot-cross"/><line x1="765" y1="528.5" x2="765" y2="541.5" class="spot-cross"/><circle cx="635" cy="625" r="6.5" class="spot"/><line x1="628.5" y1="625" x2="641.5" y2="625" class="spot-cross"/><line x1="635" y1="618.5" x2="635" y2="631.5" class="spot-cross"/>
+
+    
+    <line x1="405" y1="782" x2="820" y2="782" class="dim-line"/>
+    <rect x="421.5" y="768" width="382.0" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="612.5" y="778" class="dim-txt">5.220 mm (Khối Trong Nhà Tầng Tum: Chỉ khoét 07 lỗ Ø75)</text>
+    <rect x="1245" y="96" width="418" height="748" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="1245" y="96" width="418" height="36" rx="8" class="tbl-hdr"/>
+<text x="1454" y="119" class="tbl-hdr-txt" text-anchor="middle">BẢNG QUY CÁCH ĐÓNG TRẦN TẦNG TUM (GIAO THỢ)</text>
+<rect x="1253" y="144" width="402" height="76" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="153" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="169" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">CHỈ 20m²</text>
+<text x="1344" y="169" class="tbl-bold">Phạm Vi Đóng Thạch Cao Trong Nhà Tum</text>
+<text x="1263" y="190" class="tbl-cell-txt">• Chỉ đóng thạch cao tại Hành lang thang &amp; Phòng Kho Kỹ Thuật</text>
+<text x="1263" y="208" class="tbl-cell-txt" style="fill:#0369a1;">• Tổng khoét đúng 07 lỗ Ø75mm (04 Hành lang + 03 Phòng Kho)</text>
+<rect x="1253" y="226" width="402" height="76" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="235" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="251" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">+3.130</text>
+<text x="1344" y="251" class="tbl-bold">Hành Lang Cầu Thang Tum (C1 + Khe LED)</text>
+<text x="1263" y="272" class="tbl-cell-txt">• Viền xung quanh +3.000mm • Lòng hộp 2.345×595mm (+3.130mm)</text>
+<text x="1263" y="290" class="tbl-cell-txt" style="fill:#0369a1;">• Đặt 01 nguồn đũa LED 24V 200W ngay đầu gờ hắt sát cửa Kho Solar</text>
+<rect x="1253" y="308" width="402" height="76" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="317" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="333" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">2 Ô KÍNH</text>
+<text x="1344" y="333" class="tbl-bold">Chừa Thoáng 02 Giếng Trời Mái Kính Tum</text>
+<text x="1263" y="354" class="tbl-cell-txt">• Ô Kính #1 Cầu thang (2.150×1.770) &amp; Ô Kính #2 Giếng trời (1×1m)</text>
+<text x="1263" y="372" class="tbl-cell-txt" style="fill:#0369a1;">• Không đóng bịt thạch cao • Xây trát bả phẳng cổ giếng trời</text>
+<rect x="1253" y="390" width="402" height="76" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="399" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="415" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">KHO SOLAR</text>
+<text x="1344" y="415" class="tbl-bold">Phòng Kho &amp; Inverter Solar (Sàn BTCT Kín)</text>
+<text x="1263" y="436" class="tbl-cell-txt">• Đã đổ trần BTCT cao 1.850mm tách biệt khỏi 2 ô mái kính</text>
+<text x="1263" y="454" class="tbl-cell-txt" style="fill:#0369a1;">• Dùng tấm chịu ẩm C2 hoặc sơn bả trực tiếp + 03 đèn Ø75mm</text>
+<rect x="1253" y="472" width="402" height="76" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="481" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="497" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">HỘP TX2</text>
+<text x="1344" y="497" class="tbl-bold">Đỉnh Hộp Kỹ Thuật Lớn TX2 (600×420mm)</text>
+<text x="1263" y="518" class="tbl-cell-txt">• Nằm gọn trong Phòng Kho: gom 5–7 cặp ống đồng ĐH từ mái xuống</text>
+<text x="1263" y="536" class="tbl-cell-txt" style="fill:#0369a1;">• Gom cáp Solar D32 + Ống cấp nước tổng PPR D32 từ 2 bồn Inox</text>
+<rect x="1253" y="554" width="402" height="76" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="563" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="579" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">HỘP TX1</text>
+<text x="1344" y="579" class="tbl-bold">Hộp Kỹ Thuật Nhỏ TX1 (Góc Trục 2 – Trục A)</text>
+<text x="1263" y="600" class="tbl-cell-txt">• Dừng ngay mặt sàn Tum (+11.400) — chỉ chứa 1 ống nước D32</text>
+<text x="1263" y="618" class="tbl-cell-txt" style="fill:#0369a1;">• Không xây nhô lên vướng Cầu thang &amp; không chạm trần Tum</text>
+<rect x="1253" y="636" width="402" height="76" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="645" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="661" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">15 NỔI</text>
+<text x="1344" y="661" class="tbl-bold">Sân Thượng Trước • Lam BBQ &amp; Sân Phơi Sau</text>
+<text x="1263" y="682" class="tbl-cell-txt">• Không đóng thạch cao ngoài trời • Chỉ để chờ 15 đầu dây ống bơ</text>
+<text x="1263" y="700" class="tbl-cell-txt" style="fill:#0369a1;">• 03 Sân trước + 08 Lam BBQ (bước 1.845mm) + 04 Sân giặt phơi</text>
+<rect x="1253" y="718" width="402" height="76" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="727" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="743" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">CHỐNG ẨM</text>
+<text x="1344" y="743" class="tbl-bold">Yêu Cầu Chống Thấm &amp; Nồm Ẩm Cổ Mái Tum</text>
+<text x="1263" y="764" class="tbl-cell-txt">• Chỉ bắn tấm thạch cao sau khi thử ngâm nước sàn mái +14.780</text>
+<text x="1263" y="782" class="tbl-cell-txt" style="fill:#0369a1;">• Bịt kín cổ ngỗng chữ U D90/D110 trên mái trước khi đóng trần</text>
+    
+    <g transform="translate(18, 854)">
+      <rect width="1645" height="52" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.2"/>
+      <rect x="14" y="14" width="24" height="22" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+      <text x="45" y="29" class="tbl-cell-txt">C1: Tấm tiêu chuẩn 9mm</text>
+
+      <rect x="195" y="14" width="24" height="22" fill="url(#hatch-moisture)" stroke="#10b981" stroke-width="1.5"/>
+      <text x="226" y="29" class="tbl-cell-txt">C2: Tấm siêu chịu ẩm 9mm</text>
+
+      <rect x="388" y="14" width="26" height="22" class="cove-box"/>
+      <text x="421" y="29" class="tbl-cell-txt">Ô giật cấp + Khe LED 24V</text>
+
+      <rect x="585" y="14" width="26" height="22" class="curtain-box"/>
+      <text x="618" y="29" class="tbl-cell-txt">Hốc rèm âm (Lót Plywood 18mm)</text>
+
+      <rect x="822" y="18" width="32" height="14" class="ac-grille"/>
+      <text x="861" y="29" class="tbl-cell-txt">Miệng gió ĐH (SAG/RAG)</text>
+
+      <rect x="1020" y="14" width="22" height="22" class="hatch-access"/>
+      <line x1="1020" y1="14" x2="1042" y2="36" stroke="#dc2626" stroke-width="1.2"/>
+      <line x1="1042" y1="14" x2="1020" y2="36" stroke="#dc2626" stroke-width="1.2"/>
+      <text x="1049" y="29" class="tbl-cell-txt">Nắp thăm 450×450</text>
+
+      <line x1="1180" y1="25" x2="1216" y2="25" class="pipe-line"/>
+      <text x="1223" y="29" class="tbl-cell-txt">Tuyến ống nước/ống đồng cần né</text>
+
+      <line x1="1435" y1="25" x2="1470" y2="25" class="shadowline"/>
+      <text x="1477" y="29" class="tbl-cell-txt">Nẹp Z-Shadowline chống nứt</text>
+    </g>
+    
+    </svg>

@@ -1,0 +1,3575 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Giám Sát Ốp Lát, Chia Khổ Gạch 1m / 1m2, Xương Cá &amp; 4 Phòng WC (60×120) — Biệt Thự Q Villa</title>
+  <style>
+    :root {
+      --bg-dark: #070b12;
+      --bg-panel: #0f172a;
+      --bg-card: #152035;
+      --bg-card-hover: #1b2944;
+      --accent: #f59e0b;
+      --accent-light: #fcd34d;
+      --emerald: #10b981;
+      --emerald-soft: rgba(16, 185, 129, 0.14);
+      --sky: #38bdf8;
+      --sky-soft: rgba(56, 189, 248, 0.14);
+      --teal: #14b8a6;
+      --rose: #f43f5e;
+      --rose-soft: rgba(244, 63, 94, 0.14);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(148, 163, 184, 0.2);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-lg: 0 20px 45px rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 12% 8%, rgba(20, 184, 166, 0.10), transparent 34%),
+        radial-gradient(circle at 88% 12%, rgba(245, 158, 11, 0.10), transparent 36%);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding-bottom: 84px;
+    }
+
+    .container {
+      width: min(1440px, 95%);
+      margin-inline: auto;
+    }
+
+    /* Sticky Top Portal Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 18, 0.93);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    a.brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      padding: 4px 10px 4px 4px;
+      border-radius: 12px;
+      transition: background 0.2s ease;
+    }
+
+    a.brand:hover {
+      background: rgba(245, 158, 11, 0.1);
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #14b8a6, #0d9488);
+      color: #04130d;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 6px 11px;
+      border-radius: 8px;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(20, 184, 166, 0.3);
+    }
+
+    .brand-title h1 {
+      font-size: clamp(0.96rem, 0.85rem + 0.55vw, 1.24rem);
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.25;
+    }
+
+    .brand-title p {
+      font-size: 0.77rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #e2e8f0;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: rgba(20, 184, 166, 0.18);
+      color: #5eead4;
+      border-color: rgba(20, 184, 166, 0.6);
+    }
+
+    /* Hero Banner */
+    .hero {
+      padding: 26px 0 14px;
+    }
+
+    .hero-card {
+      background: linear-gradient(155deg, rgba(15, 23, 42, 0.96), rgba(21, 32, 53, 0.94));
+      border: 1px solid rgba(20, 184, 166, 0.35);
+      border-radius: var(--radius-lg);
+      padding: 24px 26px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #5eead4;
+      background: rgba(20, 184, 166, 0.14);
+      border: 1px solid rgba(20, 184, 166, 0.35);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    /* Responsive typography per modern-web-guidance: responsive-design */
+    .hero-card h2 {
+      font-size: clamp(1.32rem, 1rem + 1.3vw, 1.98rem);
+      line-height: 1.26;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .hero-card p.lead {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      max-width: 105ch;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(232px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .kpi-box {
+      background: rgba(7, 11, 18, 0.68);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 15px 16px;
+    }
+
+    .kpi-box.highlight-teal {
+      border-color: rgba(20, 184, 166, 0.55);
+      background: linear-gradient(145deg, rgba(20, 184, 166, 0.12), rgba(7, 11, 18, 0.78));
+    }
+
+    .kpi-box.highlight-amber {
+      border-color: rgba(245, 158, 11, 0.55);
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.12), rgba(7, 11, 18, 0.78));
+    }
+
+    .kpi-box.highlight-sky {
+      border-color: rgba(56, 189, 248, 0.55);
+      background: linear-gradient(145deg, rgba(56, 189, 248, 0.12), rgba(7, 11, 18, 0.78));
+    }
+
+    .kpi-box.highlight-rose {
+      border-color: rgba(244, 63, 94, 0.5);
+      background: linear-gradient(145deg, rgba(244, 63, 94, 0.11), rgba(7, 11, 18, 0.78));
+    }
+
+    .kpi-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .kpi-val {
+      font-size: clamp(1.05rem, 0.95rem + 0.45vw, 1.28rem);
+      font-weight: 800;
+      margin-top: 3px;
+      color: #fff;
+    }
+
+    .kpi-sub {
+      font-size: 0.8rem;
+      color: #cbd5e1;
+      margin-top: 4px;
+      line-height: 1.45;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.84em;
+      background: rgba(148, 163, 184, 0.16);
+      color: #fde68a;
+      padding: 1px 6px;
+      border-radius: 5px;
+    }
+
+    /* Section Headings */
+    .section-block {
+      margin-top: 30px;
+    }
+
+    .section-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.15rem, 0.98rem + 0.75vw, 1.52rem);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-header p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Interactive 2D CAD Studio */
+    .zone-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .zone-tab {
+      text-align: left;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg-panel);
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .zone-tab:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    .zone-tab.active {
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.24), rgba(14, 165, 233, 0.18));
+      border-color: #2dd4bf;
+      box-shadow: 0 8px 22px rgba(20, 184, 166, 0.18);
+    }
+
+    .zone-tab .zt-code {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #5eead4;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .zone-tab .zt-name {
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-top: 2px;
+      color: #fff;
+    }
+
+    .zone-tab .zt-sub {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .studio-panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .studio-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .studio-top h3 {
+      font-size: clamp(0.98rem, 0.9rem + 0.35vw, 1.15rem);
+      color: #f8fafc;
+    }
+
+    .verdict-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      background: rgba(16, 185, 129, 0.18);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+    }
+
+    .verdict-pill.warn {
+      background: rgba(244, 63, 94, 0.18);
+      color: #fda4af;
+      border-color: rgba(244, 63, 94, 0.5);
+    }
+
+    .option-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .opt-btn {
+      padding: 8px 13px;
+      border-radius: 9px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: #e2e8f0;
+      transition: all 0.16s ease;
+    }
+
+    .opt-btn:hover {
+      border-color: rgba(245, 158, 11, 0.55);
+      color: #fff;
+    }
+
+    .opt-btn.active {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #070b12;
+      border-color: #fbbf24;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+    }
+
+    .opt-btn.active.warn {
+      background: linear-gradient(135deg, #f43f5e, #e11d48);
+      color: #fff;
+      border-color: #fb7185;
+      box-shadow: 0 4px 14px rgba(244, 63, 94, 0.35);
+    }
+
+    .canvas-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      background: rgba(7, 11, 18, 0.65);
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
+    }
+
+    .layer-toggles {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.79rem;
+      color: #cbd5e1;
+    }
+
+    .layer-toggles label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .layer-toggles input[type="checkbox"] {
+      accent-color: #14b8a6;
+      width: 15px;
+      height: 15px;
+      cursor: pointer;
+    }
+
+    .btn-export-png {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      background: rgba(56, 189, 248, 0.14);
+      color: #bae6fd;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .btn-export-png:hover {
+      background: rgba(56, 189, 248, 0.26);
+      color: #fff;
+    }
+
+    .canvas-frame {
+      background: #070c17;
+      border: 1px solid rgba(148, 163, 184, 0.26);
+      border-radius: 12px;
+      padding: 8px;
+      overflow: hidden;
+    }
+
+    #cad-canvas {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .legend-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      padding: 4px 2px;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .swatch-datum {
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+      border: 2px solid #fbbf24;
+      background: rgba(245, 158, 11, 0.36);
+      display: inline-block;
+    }
+
+    .swatch-axis {
+      width: 20px;
+      height: 3px;
+      background: #10b981;
+      display: inline-block;
+    }
+
+    .swatch-warn {
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+      border: 1.5px solid #fb7185;
+      background: rgba(244, 63, 94, 0.36);
+      display: inline-block;
+    }
+
+    .swatch-furn {
+      width: 15px;
+      height: 15px;
+      border-radius: 3px;
+      border: 1.5px dashed #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      display: inline-block;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 15px;
+    }
+
+    .metric-card h4 {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: #fde68a;
+      margin-bottom: 6px;
+    }
+
+    .metric-card p,
+    .metric-card div {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+
+    /* Section 2: Screed & Construction Details (KT-4.10) */
+    .screed-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 14px;
+    }
+
+    .screed-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+
+    .screed-card.alert-card {
+      border-color: rgba(245, 158, 11, 0.5);
+      background: linear-gradient(160deg, rgba(245, 158, 11, 0.09), rgba(15, 23, 42, 0.95));
+    }
+
+    .screed-card h3 {
+      font-size: 0.96rem;
+      color: #fff;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .screed-card ul {
+      padding-left: 18px;
+      font-size: 0.83rem;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .layer-stack {
+      margin-top: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .layer-row {
+      padding: 7px 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Section 3: Responsive Data Table (modern-web-guidance: responsive-table) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(640px, 80dvh);
+      container-type: inline-size;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--bg-panel);
+      box-shadow: var(--shadow-lg);
+    }
+
+    table.boq-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.83rem;
+      --label-2: "Phân khu & Kích thước thông thủy";
+      --label-3: "Khổ gạch & Quy cách lát";
+      --label-4: "Tọa độ Viên / Trục Định Vị giao thợ";
+      --label-5: "Kích thước viên cắt biên";
+      --label-6: "Khối lượng đặt mua (+hao hụt)";
+    }
+
+    table.boq-table caption {
+      text-align: left;
+      padding: 13px 16px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      color: #5eead4;
+      background: rgba(15, 23, 42, 0.98);
+      border-bottom: 1px solid var(--border);
+    }
+
+    table.boq-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 3;
+    }
+
+    table.boq-table thead th {
+      background: #1e293b;
+      color: #f8fafc;
+      font-weight: 800;
+      font-size: 0.77rem;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      padding: 12px 14px;
+      border-bottom: 2px solid rgba(20, 184, 166, 0.45);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    table.boq-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 1;
+      background: #131d31;
+      color: #fff;
+      font-weight: 700;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      text-align: left;
+      min-width: 205px;
+      vertical-align: top;
+    }
+
+    table.boq-table tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+
+    table.boq-table tbody tr:hover td {
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    @container (width < 600px) {
+      table.boq-table,
+      table.boq-table thead,
+      table.boq-table tbody,
+      table.boq-table tr,
+      table.boq-table th,
+      table.boq-table td {
+        display: block;
+      }
+
+      table.boq-table thead {
+        display: none;
+      }
+
+      table.boq-table tbody tr {
+        margin-block-end: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      table.boq-table tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: #1e293b;
+        border-right: none;
+      }
+
+      table.boq-table tbody td {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      table.boq-table td:nth-child(2)::before {
+        content: var(--label-2) ": ";
+        font-weight: 700;
+        color: #f8fafc;
+      }
+      table.boq-table td:nth-child(3)::before {
+        content: var(--label-3) ": ";
+        font-weight: 700;
+        color: #f8fafc;
+      }
+      table.boq-table td:nth-child(4)::before {
+        content: var(--label-4) ": ";
+        font-weight: 700;
+        color: #f8fafc;
+      }
+      table.boq-table td:nth-child(5)::before {
+        content: var(--label-5) ": ";
+        font-weight: 700;
+        color: #f8fafc;
+      }
+      table.boq-table td:nth-child(6)::before {
+        content: var(--label-6) ": ";
+        font-weight: 700;
+        color: #f8fafc;
+      }
+    }
+
+    /* Section 4: Original XHOME CAD Gallery + Lightbox Dialog */
+    .cad-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .cad-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .cad-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(20, 184, 166, 0.6);
+    }
+
+    .cad-thumb-btn {
+      border: none;
+      background: #fff;
+      padding: 0;
+      cursor: zoom-in;
+      display: block;
+      width: 100%;
+      position: relative;
+    }
+
+    .cad-thumb-btn img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 11;
+      object-fit: contain;
+      background: #ffffff;
+    }
+
+    .cad-zoom-hint {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      background: rgba(7, 11, 18, 0.84);
+      color: #5eead4;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(20, 184, 166, 0.45);
+    }
+
+    .cad-meta {
+      padding: 12px 14px;
+    }
+
+    .cad-meta h3 {
+      font-size: 0.88rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .cad-meta p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Modal Dialog Lightbox per modern-web-guidance: light-dismiss-a-dialog */
+    dialog#cad-lightbox {
+      margin: auto;
+      width: min(1260px, 95vw);
+      max-height: 92dvh;
+      background: var(--bg-panel);
+      color: var(--text-main);
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      border-radius: 16px;
+      padding: 0;
+      box-shadow: 0 25px 65px rgba(0, 0, 0, 0.85);
+    }
+
+    dialog#cad-lightbox::backdrop {
+      background-color: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox-inner {
+      display: flex;
+      flex-direction: column;
+      max-height: 92dvh;
+    }
+
+    .lightbox-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(7, 11, 18, 0.9);
+    }
+
+    .lightbox-bar h3 {
+      font-size: 0.95rem;
+      color: #f8fafc;
+    }
+
+    .lightbox-close {
+      padding: 6px 13px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: #f8fafc;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(244, 63, 94, 0.25);
+      border-color: #fb7185;
+    }
+
+    .lightbox-body {
+      overflow: auto;
+      padding: 12px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .lightbox-body img {
+      max-width: 100%;
+      max-height: 78dvh;
+      height: auto;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY PORTAL HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" title="Về Trang Chủ — Tổng Hợp Hạng Mục &amp; Dự Toán Chi Phí Q Villa">
+        <span class="brand-badge">🏠 Q VILLA • TRANG CHỦ</span>
+        <div class="brand-title">
+          <h1>Hồ Sơ Giám Sát Ốp Lát: Gạch 1m / 1m2, Xương Cá 150×900 &amp; 4 Phòng WC 600×1200 — Q Villa</h1>
+          <p>Đối chiếu bản vẽ gốc XHOME (KT-4.06..4.10 &amp; KT-5.01..5.04) • Viên Gạch Định Vị, So Sánh WC Ốp Dọc vs Ngang &amp; Dây Mực chuẩn mm</p>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng hồ sơ ốp lát">
+        <a href="#sec-studio" class="active">📐 1. Bàn Chia Gạch 2D CAD (8 Khu)</a>
+        <a href="#sec-screed">🛠️ 2. Cốt Cán Nền &amp; Đánh Dốc WC</a>
+        <a href="#sec-boq">📦 3. Bảng Khối Lượng &amp; Số Hộp</a>
+        <a href="#sec-cad">📑 4. Bản Vẽ KT-4 &amp; KT-5</a>
+        <a href="giam-sat-wc.html" style="border-color:rgba(56,189,248,0.55);color:#7dd3fc;">🚿 Hồ Sơ 4 WC</a>
+        <a href="son-gach-phoi-mau.html" style="border-color:rgba(245,158,11,0.55);color:#fde68a;">🎨 Phối Màu Sơn &amp; Gạch</a>
+        <a href="phong-master-tang2.html" style="border-color:rgba(234,88,12,0.55);color:#fdba74;">👑 P. Master T2</a>
+        <a href="index.html#sec-cost-table" style="border-color:rgba(16,185,129,0.55);color:#6ee7b7;">💰 Bảng Dự Toán</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO EXECUTIVE SUMMARY -->
+    <section class="hero">
+      <div class="hero-card">
+        <span class="hero-eyebrow">📐 HỒ SƠ CHIA GẠCH THỰC CHIẾN GIAO THỢ NỀ • ĐO CHÍNH XÁC TỪ VECTOR CAD KT-4.06..4.10 &amp; KT-5.01..5.04</span>
+        <h2>Chia Khổ Lớn Tầng 1 (1m / 1m2), Gạch Gỗ Xương Cá 150×900 &amp; Ốp Lát 04 Phòng WC (600×1200 Dọc vs Ngang)</h2>
+        <p class="lead">
+          Thiết kế gốc XHOME (<code>KT-4.06..4.09</code> &amp; <code>KT-5.01..5.04</code>) đang chia gạch <code>800×800</code> (lệch mạch Tiền Sảnh 350mm), dùng sàn gỗ CN cốt chờ <code>-14mm</code> và có mẩu cắt <code>40mm</code> tại vách Lavabo <code>WC-02</code>. Trang này tính toán lại toàn bộ lưới chia gạch khổ lớn <strong>thông mạch 100% không mẩu vụn</strong>, định vị <strong>Dây mực trục tim gạch giả gỗ xương cá</strong>, đối chiếu trực quan <strong>Tường trên &amp; Sàn dưới 04 phòng WC (Ốp Dọc 600×1200 vs Ốp Ngang 1200×600, Ga thoát sàn vuông vs dài)</strong> và chốt cốt cán nền mới để giao trực tiếp cho đội thợ ốp lát.
+        </p>
+
+        <div class="kpi-grid">
+          <div class="kpi-box highlight-teal">
+            <div class="kpi-label">1. Tầng 1 Khách – Ăn – Bếp – Sảnh (55,1 m²)</div>
+            <div class="kpi-val">1000×1000 hoặc 1200×1200</div>
+            <div class="kpi-sub">
+              • <strong>1m×1m (Khuyên dùng #1):</strong> Định vị tại <code>(X=0, Y=0)</code> góc kính <code>V1</code> &rarr; Thông mạch Tiền sảnh, đặt <strong>62,0 m² (31 hộp)</strong>.<br>
+              • <strong>1m2×1m2 (Đại cảnh):</strong> Bắt buộc định vị tại <strong>Mép cửa chính D1 <code>(X=1.150, Y=0)</code></strong> để xóa mẩu vụn <code>52 mm</code>! Đặt <strong>63,36 m² (22 hộp)</strong>.
+            </div>
+          </div>
+
+          <div class="kpi-box highlight-amber">
+            <div class="kpi-label">2. Phòng Ngủ &amp; Khu Gỗ T1–T3 (Xương Cá 45°)</div>
+            <div class="kpi-val">Porcelain 150 × 900 mm</div>
+            <div class="kpi-sub">
+              Tỷ lệ vàng <code>1:6</code> mài cạnh Rectified Matt R9/R10 (tránh <code>200×1200</code> dễ bị gờ vồng bụng).<br>
+              • <strong>5 Phòng Ngủ (80,6 m²):</strong> Đặt <strong>91,8 m² (85 hộp)</strong>.<br>
+              • <strong>Full T1–T3 cả P.Làm Việc (120,6 m²):</strong> Đặt <strong>137,2 m² (127 hộp)</strong>.
+            </div>
+          </div>
+
+          <div class="kpi-box">
+            <div class="kpi-label">3. Hành Lang T2, T3 &amp; Tum (Rộng 1.280 mm)</div>
+            <div class="kpi-val">Giữ 800×800 hoặc Lát Tràn Gỗ</div>
+            <div class="kpi-sub">
+              <strong>Tuyệt đối không đưa 1200×1200</strong> lên hành lang <code>1.280 mm</code> (sẽ bị dải vụn <code>78 mm</code> dài suốt 5,04m). Giữ <strong>800×800 đồng màu T1</strong> (<code>800 + 478 mm</code> = <strong>30,72 m² / 16 hộp</strong>) hoặc lát tràn gạch gỗ xương cá ở T2–T3.
+            </div>
+          </div>
+
+          <div class="kpi-box highlight-sky">
+            <div class="kpi-label">4. 04 Phòng WC (Tường 100m² • Sàn 24m²)</div>
+            <div class="kpi-val">Ốp Dọc 600×1200 + Sàn R10/R11</div>
+            <div class="kpi-sub">
+              • <strong>Tường trên (+2.40m):</strong> Ốp Dọc đúng <strong>2 viên kịch trần</strong> (chỉ 1 ron ngang <code>+1.20m</code>, xóa mẩu vụn <code>76mm</code>).<br>
+              • <strong>Sàn dưới:</strong> <code>600×600</code> trùng mạch 100% (nếu lát sàn <code>600×1200</code> bắt buộc dùng <strong>Ga dài 800–900mm</strong>).
+            </div>
+          </div>
+
+          <div class="kpi-box highlight-rose">
+            <div class="kpi-label">⚠️ 5. Lệnh Cán Nền Khẩn Cấp (KT-4.10)</div>
+            <div class="kpi-val">Hạ Cốt Nền -15 .. -17 mm</div>
+            <div class="kpi-sub">
+              Bản <code>KT-4.10</code> cũ cán âm <code>-14 mm</code> cho sàn gỗ CN. Đổi sang gạch giả gỗ dày <code>10–11 mm</code> + keo C2 <code>5–6 mm</code> phải cán âm <strong>-15 đến -17 mm</strong>, lát phẳng cốt hành lang &amp; <strong>bỏ toàn bộ nẹp Inox T8 lồi</strong>!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: INTERACTIVE 2D CAD TILE & DATUM STUDIO -->
+    <section id="sec-studio" class="section-block">
+      <div class="section-header">
+        <div>
+          <h2>📐 1. Bàn Chia Gạch &amp; Viên Lát Định Vị 2D CAD Tương Tác (8 Phân Khu — Có Cả Sàn &amp; Tường 4 Phòng WC)</h2>
+          <p>Chọn từng mặt bằng (hoặc cụm Mặt Bằng Sàn Dưới + Mặt Đứng Tường Trên của WC-01 &amp; WC-02 Master) và bấm đổi phương án để kiểm tra trực quan Viên Định Vị, độ trùng mạch trên – dưới và kích thước từng viên cắt biên (mm).</p>
+        </div>
+      </div>
+
+      <!-- 8 Zone Selector Buttons -->
+      <nav class="zone-tabs" aria-label="Chọn mặt bằng chia gạch">
+        <button type="button" class="zone-tab active" id="tab-t1" onclick="selectZone('t1')">
+          <div class="zt-code">KT-4.06 • 55,1 m²</div>
+          <div class="zt-name">1. Khách – Ăn – Bếp T1</div>
+          <div class="zt-sub">So sánh 1m×1m, 1m2×1m2 &amp; 80×80</div>
+        </button>
+
+        <button type="button" class="zone-tab" id="tab-master" onclick="selectZone('master')">
+          <div class="zt-code">KT-4.07 • 20,8 m²</div>
+          <div class="zt-name">2. Master Open-Suite T2</div>
+          <div class="zt-sub">Xương cá thông suốt 5,71m</div>
+        </button>
+
+        <button type="button" class="zone-tab" id="tab-bed_ab" onclick="selectZone('bed_ab')">
+          <div class="zt-code">T1, T2, T3 • 3 Phòng</div>
+          <div class="zt-name">3. P.Ngủ Trục A–B (3,0×4,3m)</div>
+          <div class="zt-sub">Ông Bà T1 • PN2 T2 • PN Con T3</div>
+        </button>
+
+        <button type="button" class="zone-tab" id="tab-bed_bd" onclick="selectZone('bed_bd')">
+          <div class="zt-code">T2, T3 • 2 Phòng</div>
+          <div class="zt-name">4. P.Ngủ Trục B–D (4,95×3,17m)</div>
+          <div class="zt-sub">Đón nắng Ban công Đông D8</div>
+        </button>
+
+        <button type="button" class="zone-tab" id="tab-study_t3" onclick="selectZone('study_t3')">
+          <div class="zt-code">PA T3-A • 21,2 m²</div>
+          <div class="zt-name">5. P.Làm Việc &amp; P.Thờ T3</div>
+          <div class="zt-sub">Lát xuyên cửa lùa không ray dưới</div>
+        </button>
+
+        <button type="button" class="zone-tab" id="tab-hall" onclick="selectZone('hall')">
+          <div class="zt-code">KT-4.07/08 • 7,1 m²/tầng</div>
+          <div class="zt-name">6. Hành Lang T2 &amp; T3</div>
+          <div class="zt-sub">Rộng 1,28m (Lưu ý tránh 1m2)</div>
+        </button>
+
+        <button type="button" class="zone-tab" id="tab-wc01" onclick="selectZone('wc01')">
+          <div class="zt-code">KT-5.01/02 • 3 Phòng (T1–T3)</div>
+          <div class="zt-name">7. WC-01: Sàn &amp; Tường 60×120</div>
+          <div class="zt-sub">So sánh Ốp Dọc vs Ngang &amp; Thoát sàn</div>
+        </button>
+
+        <button type="button" class="zone-tab" id="tab-wc02" onclick="selectZone('wc02')">
+          <div class="zt-code">KT-5.03/04 • WC Master T2</div>
+          <div class="zt-name">8. WC-02 Master (3 Khoang)</div>
+          <div class="zt-sub">Dài 3,42m • Cao 2,40m kịch trần</div>
+        </button>
+      </nav>
+
+      <!-- Main Studio Panel -->
+      <div class="studio-panel">
+        <div class="studio-top">
+          <h3 id="zone-heading">Tầng 1: Đại Không Gian Phòng Khách – Ăn – Bếp (11.760 × 4.600/4.950 mm) &amp; Tiền Sảnh</h3>
+          <span id="option-verdict-badge" class="verdict-pill">⭐ Khuyên dùng tối ưu #1</span>
+        </div>
+
+        <div id="option-buttons" class="option-bar" role="group" aria-label="Chọn phương án khổ gạch và viên định vị"></div>
+
+        <div class="canvas-toolbar">
+          <div class="layer-toggles">
+            <label>
+              <input type="checkbox" id="chk-furn" checked onchange="drawBlueprint()" />
+              🛋️ Hiện đồ nội thất cố định (Tủ bếp 600mm, Giường, Đảo)
+            </label>
+            <label>
+              <input type="checkbox" id="chk-tags" checked onchange="drawBlueprint()" />
+              🏷️ Hiện nhãn kích thước viên biên (mm)
+            </label>
+            <label>
+              <input type="checkbox" id="chk-datum" checked onchange="drawBlueprint()" />
+              ⊕ Hiện tâm &amp; hướng Viên Định Vị
+            </label>
+          </div>
+          <button type="button" class="btn-export-png" onclick="downloadCurrentBlueprint()">
+            📥 Tải Ảnh Bản Vẽ PNG Giao Thợ
+          </button>
+        </div>
+
+        <div class="canvas-frame">
+          <canvas id="cad-canvas"></canvas>
+        </div>
+
+        <div class="legend-bar">
+          <span class="legend-item">
+            <span class="swatch-datum"></span>
+            <strong style="color:#f8fafc;">Viên Gạch / Cặp Chữ V Định Vị</strong> (kèm tâm ⊕ &amp; hướng phát triển gạch)
+          </span>
+          <span class="legend-item">
+            <span class="swatch-axis"></span>
+            <strong style="color:#f8fafc;">Dây Mực Trục Tim / Khe Co Giãn 10mm</strong>
+          </span>
+          <span class="legend-item">
+            <span class="swatch-warn"></span>
+            <strong style="color:#fda4af;">Cảnh báo mẩu gạch vụn (&lt; 200 mm)</strong>
+          </span>
+          <span class="legend-item">
+            <span class="swatch-furn"></span>
+            <span>Nội thất che chân tường (Tủ bếp sâu 600mm, Tủ áo, Tủ giày, Giường)</span>
+          </span>
+        </div>
+
+        <div id="metrics-grid" class="metrics-grid"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: SCREED ELEVATION & TECHNICAL DETAILS (VS KT-4.10 & KT-5.01..5.04) -->
+    <section id="sec-screed" class="section-block">
+      <div class="section-header">
+        <div>
+          <h2>🛠️ 2. Giám Sát Cốt Cán Nền, Đánh Dốc Thoát Sàn WC &amp; Keo Dán Gạch C2 (KT-4.10 &amp; KT-5.01..5.04)</h2>
+          <p>5 quy chuẩn kỹ thuật bắt buộc phải phổ biến cho đội thợ hồ và đội ốp lát trước khi cán vữa nền các tầng và chống thấm 4 phòng WC.</p>
+        </div>
+      </div>
+
+      <div class="screed-grid">
+        <article class="screed-card alert-card">
+          <h3>📏 1. Cốt Cán Nền Khu Gạch Gỗ Xương Cá: -15 đến -17 mm</h3>
+          <ul>
+            <li><strong>Thiết kế cũ (<code>KT-4.10</code>):</strong> Cán nền âm <code>-14 mm</code> (Sàn gỗ CN <code>12 mm</code> + Foam <code>2 mm</code>) và đóng <strong>nẹp Inox chữ T (<code>T8</code>)</strong> lồi lên ở mọi ngưỡng cửa.</li>
+            <li><strong>Cấu tạo mới chốt thi công:</strong> Hạ cốt vữa cán nền M75 phẳng thước nhôm 2m xuống <strong><code>-15 đến -17 mm</code></strong> so với cốt sàn hoàn thiện <code>±0.000</code>.</li>
+            <li><strong>Lợi ích lớn:</strong> Mặt gạch giả gỗ phòng ngủ bằng phẳng tuyệt đối với hành lang, không cạ đáy 07 bộ cửa gỗ Lim <code>D3</code> và <strong>bỏ 100% nẹp T8 lồi</strong> (chỉ đi 1 đường ron Silicone/Epoxy 2mm dưới tim cánh cửa!).</li>
+          </ul>
+          <div class="layer-stack">
+            <div class="layer-row" style="background:rgba(245,158,11,0.22);color:#fef3c7;">
+              <span>1. Gạch giả gỗ Porcelain 150×900 mài cạnh</span>
+              <span>Dày 10 – 11 mm</span>
+            </div>
+            <div class="layer-row" style="background:rgba(20,184,166,0.2);color:#a7f3d0;">
+              <span>2. Keo dán gạch chuẩn C2 kéo bay răng cưa 2 mặt</span>
+              <span>Nén thực tế 5 – 6 mm</span>
+            </div>
+            <div class="layer-row" style="background:rgba(148,163,184,0.16);color:#cbd5e1;">
+              <span>3. Vữa xi măng cát cán phẳng M75 (Cốt chờ thợ hồ)</span>
+              <span>Âm -15 .. -17 mm</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="screed-card">
+          <h3>🧱 2. Quy Trình Lát Gạch 1m×1m / 1m2×1m2 Không Bộp Rỗng</h3>
+          <ul>
+            <li><strong>Tuyệt đối cấm lát hồ dầu xi măng:</strong> Gạch Porcelain khổ lớn <code>1000×1000</code> (~23 kg/viên) và <code>1200×1200</code> (~35 kg/viên) có độ hút nước <code>&lt; 0,1%</code>; dùng hồ dầu xi măng sẽ tách lớp và bộp rỗng sau 1–2 mùa nồm miền Bắc.</li>
+            <li><strong>Trét keo 2 mặt (Double-Buttering):</strong> Dùng <strong>Keo dán gạch chuẩn C2 / C2S1</strong> (Weber.tai gres, SikaCeram-200 HP), dùng bay răng cưa 10mm kéo rãnh song song một chiều trên nền vữa VÀ trét mỏng kín 100% lưng viên gạch.</li>
+            <li><strong>Ke cân bằng + Máy đầm rung hít kính:</strong> Bắt buộc khóa 4 cạnh bằng <strong>ke nêm / ke vít cân bằng ron 2mm</strong> và dùng máy hít rung điện ép hết bọt khí rỗng dưới bụng gạch.</li>
+          </ul>
+        </article>
+
+        <article class="screed-card">
+          <h3>🪵 3. Kỹ Thuật Búng Mực Xương Cá 150×900 Phẳng Tuyệt Đối</h3>
+          <ul>
+            <li><strong>Vì sao chọn <code>150×900 mm</code> thay vì <code>200×1200 mm</code>:</strong> Khi lát xương cá, đầu viên này đâm vuông góc vào đúng giữa bụng viên kia. Thanh <code>1.200 mm</code> có độ vồng nung tự nhiên sẽ tạo gờ mấp mô (lippage) vấp chân trần; thanh <code>150×900 mm</code> Rectified phẳng tuyệt đối và lên đúng 4–5 dải sóng chữ V trong phòng rộng 3,0–3,5m.</li>
+            <li><strong>Màu keo chà ron:</strong> Chọn keo ron chống bám bẩn màu <strong>Nâu Óc Chó / Nâu Gỗ Trầm</strong> tiệp hoàn toàn với màu gạch để giấu mạch <code>1.5 – 2 mm</code> như ván gỗ tự nhiên ghép khít.</li>
+            <li><strong>Tận dụng phôi cắt 45°:</strong> Mảnh tam giác cắt chéo 45° dư ở chân tường trái được xoay đảo chiều đưa sang ốp vừa khít chân tường phải, giảm hao hụt thực tế chỉ còn <code>~11–13%</code>.</li>
+          </ul>
+        </article>
+
+        <article class="screed-card">
+          <h3>🛡️ 4. Giữ Khe Co Giãn 10mm &amp; Len Chân Tường Âm DF-1212</h3>
+          <ul>
+            <li><strong>Khe co giãn nhiệt Tầng 1 (<code>KT-4.06</code>):</strong> Không gian Phòng Khách – Ăn – Bếp dài liên tục <code>11,76 m</code>. Bắt buộc giữ nguyên <strong>Khe co giãn rộng 10mm sâu 35mm bơm keo Silicone đàn hồi đồng màu ron</strong> tại ranh giới Tiền Sảnh – Phòng Khách (<code>Y = 0</code>), cộng khe hở <code>5–8 mm</code> sát chân tường chung quanh.</li>
+            <li><strong>Len chân tường âm <code>DF-1212</code> (<code>KT-4.10</code>):</strong> Nhắc thợ trát tường chừa chân tường cao <code>100 mm</code> gắn <strong>nẹp nhôm chỉ âm DF-1212</strong> ở cốt <code>+92 mm</code>; viên gạch len chân tường cao <code>80 mm</code> (cắt từ chính gạch sàn hoặc gạch giả gỗ) nằm phẳng mặt tường trát, không bám bụi!</li>
+          </ul>
+        </article>
+
+        <article class="screed-card alert-card" style="grid-column: 1 / -1;">
+          <h3>🚿 5. Giám Sát Ốp Lát 04 Phòng WC (Trên &amp; Dưới): Bề Mặt R9 vs R10/R11, Ốp Dọc 2.40m &amp; Đánh Dốc Thoát Sàn</h3>
+          <ul>
+            <li><strong>Tách rõ Bề mặt Gạch Tường Trên vs Sàn Dưới:</strong> Tường trên dùng <strong>Matt mịn / Satin (<code>R9</code>)</strong> để không bám cặn canxi &amp; bọt xà phòng; Sàn dưới bắt buộc chọn <strong>Matt nhám chống trơn <code>R10</code> (khu khô) / <code>R11</code> (khu tắm ướt — đặc biệt <code>WC-01</code> Tầng 1 của Ông Bà)</strong>, tuyệt đối không lấy gạch tường bán bóng đem lát xuống sàn ướt!</li>
+            <li><strong>Vì sao Ốp Dọc <code>600×1200</code> thắng tuyệt đối ở trần <code>+2.400 mm</code>:</strong> Cả 4 phòng WC Q Villa đều đóng trần thạch cao chống ẩm ở cao độ chuẩn <strong><code>+2.400 mm</code></strong>. Ốp dọc (<code>600</code> ngang × <code>1.200</code> cao) lên vừa khít <strong>2 viên nguyên kịch trần</strong> (chỉ có <strong>1 đường ron ngang duy nhất ở <code>+1.200 mm</code></strong>, xóa sạch mẩu vụn <code>76 mm</code> trên vách <code>2.480 mm</code> và <strong>trùng mạch 100% từ tường chạy thẳng xuống sàn <code>600×600</code></strong>). Ốp ngang <code>1200×600</code> sinh tới 3 đường ron ngang đọng nước và lệch toàn bộ mạch sàn.</li>
+            <li><strong>Quy tắc Sàn Dưới (<code>600×600</code> vs <code>600×1200</code>) &amp; Đổi Phễu Thoát Sàn:</strong> Khu tắm ướt âm <code>-20 mm</code> so với khu khô. Nếu giữ <strong>phễu thu vuông góc <code>10×10 cm</code></strong> như bản vẽ <code>KT-5.01/5.03</code> thì lát sàn <strong><code>600×600</code></strong> để tạo dốc êm và trùng mạch tường. Nếu muốn đồng bộ lát cả sàn dưới bằng tấm lớn <strong><code>600×1200</code></strong>, <strong>BẮT BUỘC đổi sang Ga thoát sàn thanh dài Inox 304 (<code>800–900 × 70 mm</code>)</strong> đặt sát chân vách sen để cán dốc 1 mặt phẳng (<code>1,5–2%</code>), tránh bị cắt chéo rẻ quạt 4 mảnh làm vỡ vân gạch!</li>
+            <li><strong>Mòi vát 45° &amp; Keo ron Epoxy chống mốc:</strong> Mòi cạnh 45° (chừa mép dày <code>1.5–2 mm</code> chống sứt men) tại góc dương hộp kỹ thuật <code>WC-01</code> &amp; đầu vách ngăn <code>110 mm</code> của <code>WC-02 Master</code>; chà mạch khu ướt bằng <strong>keo ron Epoxy 2 thành phần</strong> kháng nấm mốc đen.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 3: FULL BOQ & DATUM COORDINATES TABLE (modern-web-guidance: responsive-table) -->
+    <section id="sec-boq" class="section-block">
+      <div class="section-header">
+        <div>
+          <h2>📦 3. Bảng Bóc Tách Khối Lượng, Tọa Độ Định Vị &amp; Số Hộp Đặt Mua Toàn Công Trình</h2>
+          <p>Số liệu đo bóc trực tiếp từ bản vẽ CAD <code>KT-4.06..4.09</code>, đã cộng hệ số hao hụt cắt biên &amp; cắt len âm chân tường.</p>
+        </div>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="boq-table-caption" class="table-wrapper">
+        <table class="boq-table">
+          <caption id="boq-table-caption">
+            Bảng tổng hợp quy cách gạch ốp lát, tọa độ Viên / Trục Định Vị giao thợ và khối lượng đặt mua toàn nhà Q Villa
+          </caption>
+          <thead>
+            <tr>
+              <th>Hạng mục / Phương án</th>
+              <th>Phân khu &amp; Kích thước thông thủy</th>
+              <th>Khổ gạch &amp; Quy cách lát</th>
+              <th>Tọa độ Viên / Trục Định Vị giao thợ</th>
+              <th>Kích thước viên cắt biên lộ thiên</th>
+              <th>Khối lượng đặt mua (+hao hụt)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>⭐ Tầng 1 — PA1 Khuyên dùng:<br>Gạch Khổ Lớn 1000×1000</th>
+              <td>P.Khách – Ăn – Bếp (<code>11.760 × 4.600/4.950 mm</code>) + Tiền Sảnh (<code>2.160 × 2.650 mm</code>) = <strong>55,1 m²</strong></td>
+              <td><strong>1000 × 1000 mm</strong><br>Porcelain Lappato/Matt • Ron 2mm</td>
+              <td><strong>PA-1A (Góc Tây-Nam PK):</strong> Cạnh trái sát vách kính <code>V1 (X=0)</code>, cạnh dưới sát Khe co giãn Tiền sảnh <code>(Y=0)</code>.<br><em>(Hoặc PA-1B tại Góc Tây-Bắc X=0, Y=4.600)</em></td>
+              <td>• Thông mạch Tiền sảnh: <code>854 mm</code> (cửa D1) &amp; <code>304 mm</code> (thang)<br>• Tường Bắc PK: <code>592 mm</code> (hoặc <code>1.000 mm</code> ở PA-1B)<br>• Tường Đông Bếp: <code>738 mm</code><br>✅ <strong>0% mẩu gạch vụn</strong></td>
+              <td><strong>62,00 m²</strong><br>(62 viên = <strong>31 hộp</strong> loại 2 viên/hộp, đã +10% hao hụt &amp; len âm)</td>
+            </tr>
+            <tr>
+              <th>👑 Tầng 1 — PA2 Đại cảnh:<br>Gạch Khổ Lớn 1200×1200</th>
+              <td>P.Khách – Ăn – Bếp + Tiền Sảnh = <strong>55,1 m²</strong></td>
+              <td><strong>1200 × 1200 mm</strong><br>Porcelain Khổ Lớn • Ron 2mm</td>
+              <td><strong>Mép trong Ngạch đá Cửa chính D1 &amp; Khe co giãn:</strong> Cách vách kính <code>V1</code> đúng <code>X = 1.150 mm</code>, tại <code>Y = 0</code>.<br>⚠️ <em>Cấm đặt ở X=0 vì sẽ sinh mẩu 52mm ngay cửa D1!</em></td>
+              <td>• Sát kính V1: <code>1.150 mm</code> (96% viên)<br>• Ngay cửa D1: <code>1.200 mm</code> (nguyên viên)<br>• Tường Bắc PK: <code>994 mm</code><br>• Tường Đông Bếp: <code>994 mm</code><br>• Gầm tủ bếp (che kín): <code>142 mm</code></td>
+              <td><strong>63,36 m²</strong><br>(44 viên = <strong>22 hộp</strong> loại 2 viên/hộp, đã +12% hao hụt khổ lớn)</td>
+            </tr>
+            <tr>
+              <th>📐 Đối chiếu Thiết kế gốc:<br>Tầng 1 Gạch 800×800</th>
+              <td>P.Khách – Ăn – Bếp + Tiền Sảnh = <strong>55,1 m²</strong> (Theo <code>KT-4.06</code>)</td>
+              <td><strong>800 × 800 mm</strong><br>Granite vân đá • Ron 2mm</td>
+              <td>02 Viên định vị tách rời: #1 tại <code>(X=0, Y=0)</code>; #2 tại góc Tây-Bắc Tiền sảnh <code>(X=1.150, Y=-10)</code></td>
+              <td>• Tường Bắc PK: <code>590 mm</code><br>• Tường Đông Bếp: <code>532 mm</code><br>• Lệch mạch dọc <code>350 mm</code> giữa Tiền sảnh &amp; P.Khách</td>
+              <td><strong>59,52 m²</strong><br>(93 viên = <strong>31 hộp</strong> loại 3 viên/hộp)</td>
+            </tr>
+            <tr>
+              <th>Phòng Master Tầng 2<br>(Vách Tủ Đảo 2 Mặt • 2 Lối Đi 850mm)</th>
+              <td>Khu Ngủ + Khu Thay Đồ (<code>3.440/3.910 × 5.710 mm</code>) = <strong>20,8 m²</strong></td>
+              <td><strong>150 × 900 mm</strong><br>Gạch giả gỗ Porcelain mài cạnh lát <strong>Xương cá 45°</strong></td>
+              <td><strong>Dây mực Trục Tim Bắc–Nam:</strong> Cách tường Tây <code>X = 1.720 mm</code> (đi thẳng qua tâm Đảo kính, Vách Tủ Đảo &amp; Giường). <strong>Cặp chữ V #1</strong> tại <code>Y = 2.250 mm</code> chính diện cửa <code>O1</code></td>
+              <td>Sống lưng chữ V chạy liền mạch <code>5,71 m</code> từ cửa kính <code>WC-02</code> lên đầu giường; 2 biên tường đối xứng cân đều</td>
+              <td><strong>23,76 m²</strong><br>(<strong>22 hộp</strong> loại 8 thanh = 1,08 m²/hộp, đã +13% cắt 45°)</td>
+            </tr>
+            <tr>
+              <th>03 Phòng Ngủ Trục A–B<br>(Ông Bà T1, PN2 T2, PN Con T3)</th>
+              <td>Mỗi phòng thông thủy <code>3.000 × 4.295 mm</code> = <strong>13,5 – 13,6 m²/phòng</strong> (Tổng 3 phòng = <strong>40,6 m²</strong>)</td>
+              <td><strong>150 × 900 mm</strong><br>Gạch giả gỗ lát <strong>Xương cá 45°</strong> mũi Bắc–Nam</td>
+              <td><strong>Dây mực Trục Tim Bắc–Nam:</strong> Cách tường Tây (vách TV) đúng <code>X = 1.500 mm</code> (chính tâm phòng &amp; tim giường 1m8). <strong>Cặp chữ V #1</strong> cách tường Nam <code>2.150 mm</code></td>
+              <td>Hiện đúng 4 dải sóng xương cá cân đối trên bề ngang <code>3,00 m</code>; giao cửa Lim <code>D3</code> phẳng cốt không nẹp T8</td>
+              <td><strong>46,44 m²</strong> cho 3 phòng<br>(<strong>43 hộp</strong> ≈ 14–15 hộp/phòng, đã +13% cắt 45°)</td>
+            </tr>
+            <tr>
+              <th>02 Phòng Ngủ Trục B–D<br>(P.Ngủ 1 T2 &amp; Phòng Bắc T3)</th>
+              <td>Mỗi phòng thông thủy <code>4.950 × 3.165 mm</code> = <strong>16,2 m²/phòng</strong> (Tổng 2 phòng = <strong>32,4 m²</strong>)</td>
+              <td><strong>150 × 900 mm</strong><br>Gạch giả gỗ lát <strong>Xương cá 45°</strong> mũi Đông–Tây</td>
+              <td><strong>Dây mực Trục Tim Đông–Tây:</strong> Cách tường Bắc <code>Y = 1.580 mm</code> (đón ánh sáng cửa Ban công Đông <code>D8</code>). <strong>Cặp chữ V #1</strong> cách tường Tây <code>X = 2.200 mm</code></td>
+              <td>Ánh nắng ban công Đông trượt dọc vân gỗ Matt; cạnh cắt 45° giấu dưới tủ áo tường Nam sâu 600mm</td>
+              <td><strong>36,72 m²</strong> cho 2 phòng<br>(<strong>34 hộp</strong> = 17 hộp/phòng, đã +13% cắt 45°)</td>
+            </tr>
+            <tr>
+              <th>Cụm P.Làm Việc &amp; P.Thờ T3<br>(PA T3-A • Vách Kính Lùa Treo)</th>
+              <td>P.Làm Việc (<code>3.420 × 4.240 mm = 14,5 m²</code>) + P.Ngủ Thờ (<code>2.950 × 2.270 mm = 6,7 m²</code>) + Phụ = <strong>26,8 m²</strong></td>
+              <td><strong>150 × 900 mm</strong><br>Gạch giả gỗ lát <strong>Xương cá 45°</strong> xuyên khe cửa lùa</td>
+              <td><strong>Dây mực Trục Tim Bắc–Nam:</strong> Cách tường Tây đúng <code>X = 1.710 mm</code> (chia đôi P.Làm Việc 3.420mm, chạy thẳng xuyên qua cửa lùa 4 cánh không ray âm sàn)</td>
+              <td>Không làm bậu đá ngắt sàn giữa 2 phòng; khi mở dồn 4 cánh kính tạo không gian <code>6,71 m</code> liền thảm</td>
+              <td><strong>30,24 m²</strong> (<strong>28 hộp</strong>)<br>&rarr; <em>Tổng Full Khu Gỗ T1–T3 (120,6 m²):</em> <strong>137,16 m² (127 hộp)</strong></td>
+            </tr>
+            <tr>
+              <th>Hành Lang T2, T3 &amp; Sảnh Tum<br>(KT-4.07 .. KT-4.09)</th>
+              <td>Hành lang T2 (<code>7,1 m²</code>) + T3 (<code>7,1 m²</code>) + Sảnh/Kho Tum (<code>13,5 m²</code>) = <strong>27,7 m²</strong> (Rộng <code>1.280 mm</code>)</td>
+              <td><strong>PA-A: 800 × 800 mm</strong> đồng màu T1<br><em>(PA-B: Lát tràn gạch gỗ 150×900 cho HL T2–T3)</em></td>
+              <td><strong>Đầu bậc thang bước lên sảnh tầng:</strong> Cạnh trái sát tường Trục 2 cạnh cửa Master / P.Làm Việc, cạnh dưới thẳng cổ bậc thang cuối</td>
+              <td>Với <code>800×800</code>: 1 viên nguyên <code>800 mm</code> + 1 viên <code>478 mm</code> (tránh lỗi mẩu vụn <code>78 mm</code> nếu lát 1200×1200)</td>
+              <td><strong>30,72 m²</strong> gạch 800×800<br>(48 viên = <strong>16 hộp</strong> loại 3 viên/hộp)</td>
+            </tr>
+            <tr>
+              <th>🚿 03 Phòng WC-01 Điển Hình<br>(Tầng 1, Tầng 2, Tầng 3 • KT-5.01/02)</th>
+              <td>Mỗi phòng chữ L: Khoang chính <code>2.480 × 1.400 mm</code> + Khoang Cầu <code>1.105 × 980 mm</code> • Trần <code>+2.400 mm</code><br>(3 phòng ≈ <strong>16,5 m² sàn</strong> + <strong>72,0 m² tường</strong>)</td>
+              <td>• <strong>Tường trên: 600 × 1200 mm Ốp Dọc</strong> (Porcelain Matt mịn R9, 2 viên kịch trần)<br>• <strong>Sàn dưới: 600 × 600 mm</strong> R10/R11 <em>(hoặc 600×1200 R11 + Ga dài 900mm)</em></td>
+              <td>• <strong>Viên sàn #1:</strong> Sát tường Bắc ngay cửa <code>DW1 (X=890..1490, Y=0..600)</code> — mép phải trùng khít gờ kính tắm <code>-20mm</code>!<br>• <strong>Viên sàn #2 (Khu Cầu):</strong> Chia đôi trục bồn cầu <code>490 + 490 mm</code></td>
+              <td>• Tường &amp; Sàn <code>2.480mm</code>: <code>290 + 600×3 + 390 mm</code> (<strong>Trùng mạch 100%</strong>, tránh mẩu <code>76mm</code> nếu ốp ngang)<br>• Vách sen &amp; Lavabo <code>1.400mm</code>: <code>600 + 600 + 200 mm</code></td>
+              <td>• Tường 60×120: <strong>73,44 m² (51 hộp × 2 viên)</strong><br>• Sàn 60×60 R10/11: <strong>17,28 m² (12 hộp × 4 viên)</strong></td>
+            </tr>
+            <tr>
+              <th>👑 01 Phòng WC-02 Master<br>(Tầng 2 • 3 Khoang • KT-5.03/04)</th>
+              <td>Dài <code>3.420 mm</code> (Cầu <code>980</code> + Vách <code>110</code> + Lavabo <code>1.240</code> + Vách <code>110</code> + Tắm <code>980 mm</code>) × Sâu <code>1.160/1.380 mm</code> • Trần <code>+2.400 mm</code><br>(<strong>~6,0 m² sàn</strong> + <strong>28,0 m² tường</strong>)</td>
+              <td>• <strong>Tường trên: 600 × 1200 mm Ốp Dọc</strong> (Matt R9, chỉ 1 ron ngang <code>+1.20m</code>)<br>• <strong>Sàn dưới: 600 × 600 mm</strong> R10/R11 <em>(hoặc 600×1200 R11 + Ga dài 800mm)</em></td>
+              <td>• <strong>Khoang Cầu &amp; Tắm (980mm):</strong> Mạch đứng chia tâm <code>490 + 490 mm</code> đi thẳng tim bồn cầu &amp; cây sen<br>• <strong>Khoang Lavabo (1.240mm):</strong> Đặt <strong>1 viên 600 nguyên chính tâm</strong> (<code>320 + 600 + 320 mm</code>) để <strong>xóa mẩu vụn 40mm</strong> của bản <code>KT-5.04</code>!</td>
+              <td>• Vách bên <code>1.380mm</code>: <code>600 + 600 + 180 mm</code> (trùng mạch sàn 100%)<br>• Vách bên Cầu <code>1.160mm</code>: <code>600 + 560 mm</code><br>✅ <strong>Tổng cả 4 WC: 100,8 m² tường (70 hộp) + 24,48 m² sàn (17 hộp)</strong></td>
+              <td>• Tường 60×120: <strong>27,36 m² (19 hộp × 2 viên)</strong><br>• Sàn 60×60 R10/11: <strong>7,20 m² (5 hộp × 4 viên)</strong></td>
+            </tr>
+            <tr>
+              <th>Sân T1, Sân Thượng Tum, 5 Ban Công &amp; Vật Tư Phụ Keo C2</th>
+              <td>• Sân trước/sau T1 &amp; Sân thượng Tum: <code>88,0 m²</code><br>• 05 Ban công T2 &amp; T3: <code>24,5 m²</code></td>
+              <td>• Sân/Tum: <code>600 × 600 mm</code> nhám R11<br>• Ban công: <code>300 × 600 mm</code> chống trơn</td>
+              <td>Theo bản vẽ <code>KT-4.06..4.09</code> (cán đánh dốc 1,5% hướng thẳng về phễu thu nước mưa góc sân &amp; ban công)</td>
+              <td>• Keo dán gạch C2/C2S1: ~<strong>54 bao (25kg)</strong><br>• Ke vít cân bằng 2mm: <strong>500 bộ</strong> + Keo ron Epoxy WC<br>• Nẹp âm chân tường <code>DF-1212</code>: <strong>~165 md</strong></td>
+              <td>• Sân/Tum 600×600: <strong>88,0 m²</strong><br>• Ban công 300×600: <strong>24,5 m²</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4: ORIGINAL XHOME CAD DRAWINGS GALLERY + LIGHTBOX -->
+    <section id="sec-cad" class="section-block">
+      <div class="section-header">
+        <div>
+          <h2>📑 4. Hồ Sơ Bản Vẽ Ốp Lát Sàn &amp; 4 Phòng WC CAD Gốc XHOME (KT-4.06 .. KT-4.10 &amp; KT-5.01 .. KT-5.04)</h2>
+          <p>Bấm vào từng bản vẽ để phóng to độ phân giải cao (320 DPI) kiểm tra kích thước thông thủy, viên định vị sàn – tường WC, vị trí khe co giãn và chi tiết nẹp chân tường âm <code>DF-1212</code>.</p>
+        </div>
+      </div>
+
+      <div class="cad-gallery">
+        <article class="cad-card">
+          <button type="button" class="cad-thumb-btn" onclick="openCadModal('assets/kt406_latsan_t1_zoom.png', 'KT-4.06 (Zoom 320 DPI) — Mặt Bằng Lát Sàn Tầng 1 Gốc (800×800 & Khe Co Giãn 10mm)')">
+            <img src="assets/kt406_latsan_t1_zoom.png" alt="Bản vẽ CAD KT-4.06 Mặt bằng lát sàn Tầng 1 Q Villa" loading="lazy" />
+            <span class="cad-zoom-hint">🔍 Bấm phóng to 320 DPI</span>
+          </button>
+          <div class="cad-meta">
+            <h3>KT-4.06 — Mặt Bằng Lát Sàn Tầng 1 (Zoom Sắc Nét)</h3>
+            <p>Thể hiện diện tích gốc <code>55,1 m²</code>, vị trí <code>Khe co giãn rộng 10mm sâu 35 chèn Silicon Sealand</code> tại cửa Tiền sảnh và P.Ngủ Ông Bà <code>13,6 m²</code>.</p>
+          </div>
+        </article>
+
+        <article class="cad-card">
+          <button type="button" class="cad-thumb-btn" onclick="openCadModal('assets/kt407_latsan_t2_zoom.png', 'KT-4.07 (Zoom 320 DPI) — Mặt Bằng Lát Sàn Tầng 2 Gốc (Hành Lang 7,1 m² & Khu Gỗ 53,5 m²)')">
+            <img src="assets/kt407_latsan_t2_zoom.png" alt="Bản vẽ CAD KT-4.07 Mặt bằng lát sàn Tầng 2 Q Villa" loading="lazy" />
+            <span class="cad-zoom-hint">🔍 Bấm phóng to 320 DPI</span>
+          </button>
+          <div class="cad-meta">
+            <h3>KT-4.07 — Mặt Bằng Lát Sàn Tầng 2 (Zoom Sắc Nét)</h3>
+            <p>Thể hiện Sảnh thang + Khu thư giãn rộng <code>1.280 mm</code> (<code>7,1 m²</code>) và 3 phòng ngủ + thay đồ tổng <code>53,5 m²</code> lát xương cá.</p>
+          </div>
+        </article>
+
+        <article class="cad-card">
+          <button type="button" class="cad-thumb-btn" onclick="openCadModal('assets/kt408_latsan_t3_zoom.png', 'KT-4.08 (Zoom 320 DPI) — Mặt Bằng Lát Sàn Tầng 3 Gốc (Hành Lang 7,1 m² & Khu Gỗ 53,5 m²)')">
+            <img src="assets/kt408_latsan_t3_zoom.png" alt="Bản vẽ CAD KT-4.08 Mặt bằng lát sàn Tầng 3 Q Villa" loading="lazy" />
+            <span class="cad-zoom-hint">🔍 Bấm phóng to 320 DPI</span>
+          </button>
+          <div class="cad-meta">
+            <h3>KT-4.08 — Mặt Bằng Lát Sàn Tầng 3 (Zoom Sắc Nét)</h3>
+            <p>Thể hiện cụm Phòng Làm Việc + Phòng Thờ Trục 1–2, 2 phòng ngủ Trục 2–4 và hành lang <code>7,1 m²</code>.</p>
+          </div>
+        </article>
+
+        <article class="cad-card">
+          <button type="button" class="cad-thumb-btn" onclick="openCadModal('assets/kt409_latsan_tum.png', 'KT-4.09 — Mặt Bằng Lát Sàn Tầng Tum (Sảnh Thang + Kho 13,5 m² & Sân Thượng 56,5 m²)')">
+            <img src="assets/kt409_latsan_tum.png" alt="Bản vẽ CAD KT-4.09 Mặt bằng lát sàn Tầng Tum Q Villa" loading="lazy" />
+            <span class="cad-zoom-hint">🔍 Bấm phóng to CAD</span>
+          </button>
+          <div class="cad-meta">
+            <h3>KT-4.09 — Mặt Bằng Lát Sàn Tầng Tum</h3>
+            <p>Thể hiện Sảnh thang + Kho trong nhà (<code>13,5 m²</code> gạch 800×800) và Sân thượng trước/sau (<code>36,0 + 20,5 = 56,5 m²</code> gạch 600×600 R11).</p>
+          </div>
+        </article>
+
+        <article class="cad-card">
+          <button type="button" class="cad-thumb-btn" onclick="openCadModal('assets/kt410_chitiet_latsan.png', 'KT-4.10 — Chi Tiết Cấu Tạo Lát Sàn, Len Chân Tường Âm DF-1212, Bậu Cửa Đá Kim Sa & Nẹp T8')">
+            <img src="assets/kt410_chitiet_latsan.png" alt="Bản vẽ CAD KT-4.10 Chi tiết lát sàn và len chân tường âm DF-1212" loading="lazy" />
+            <span class="cad-zoom-hint">🔍 Bấm phóng to CAD</span>
+          </button>
+          <div class="cad-meta">
+            <h3>KT-4.10 — Chi Tiết Cấu Tạo Sàn &amp; Len Âm DF-1212</h3>
+            <p>Đối chiếu vết cắt <code>Sàn gỗ 12+2mm (-14mm)</code> cũ cần đổi sang <strong>cốt cán nền <code>-15..-17mm</code></strong> cho gạch giả gỗ xương cá + giữ chi tiết <strong>Len âm DF-1212</strong>.</p>
+          </div>
+        </article>
+
+        <article class="cad-card">
+          <button type="button" class="cad-thumb-btn" onclick="openCadModal('assets/kt406_latsan_t1.png', 'KT-4.06 (Full Khung Tên A3) — Mặt Bằng Lát Sàn Tầng 1 & Bảng Ký Hiệu Vật Liệu Gốc')">
+            <img src="assets/kt406_latsan_t1.png" alt="Bản vẽ CAD KT-4.06 đầy đủ khung tên và bảng chú thích" loading="lazy" />
+            <span class="cad-zoom-hint">🔍 Xem Full Khung Tên A3</span>
+          </button>
+          <div class="cad-meta">
+            <h3>KT-4.06 — Bản Full Khung Tên &amp; Bảng Ký Hiệu Gốc</h3>
+            <p>Bảng thống kê ký hiệu gốc của XHOME: Gạch 800×800, 600×600 chống trơn, 300×600 ban công và ghi chú mạch gạch tiêu chuẩn 2mm.</p>
+          </div>
+        </article>
+
+        <article class="cad-card">
+          <button type="button" class="cad-thumb-btn" onclick="openCadModal('assets/wc_kt501_wc01_mb.png', 'KT-5.01 — Mặt Bằng Thiết Bị, Lát Sàn 600×600 (Viên Định Vị) & Trần Đèn WC-01 Điển Hình (T1, T2, T3)')">
+            <img src="assets/wc_kt501_wc01_mb.png" alt="Bản vẽ CAD KT-5.01 Mặt bằng lát sàn 600x600 và viên định vị WC-01 điển hình" loading="lazy" />
+            <span class="cad-zoom-hint">🔍 Bấm phóng to KT-5.01</span>
+          </button>
+          <div class="cad-meta">
+            <h3>KT-5.01 — Mặt Bằng Lát Sàn 600×600 WC-01 (T1, T2, T3)</h3>
+            <p>Thể hiện 02 Viên lát định vị <code>600×600</code> (nhịp <code>290 + 600×3 + 390 = 2.480 mm</code> và <code>490 + 490 = 980 mm</code>), cốt âm <code>-0.020</code> khu tắm và 3 phễu thoát sàn.</p>
+          </div>
+        </article>
+
+        <article class="cad-card">
+          <button type="button" class="cad-thumb-btn" onclick="openCadModal('assets/wc_kt502_wc01_matdung.png', 'KT-5.02 — 04 Mặt Đứng Ốp Tường Dọc 600×1200 Kịch Trần +2.400mm Phòng WC-01 Điển Hình')">
+            <img src="assets/wc_kt502_wc01_matdung.png" alt="Bản vẽ CAD KT-5.02 Bốn mặt đứng ốp tường dọc 600x1200 phòng WC-01" loading="lazy" />
+            <span class="cad-zoom-hint">🔍 Bấm phóng to KT-5.02</span>
+          </button>
+          <div class="cad-meta">
+            <h3>KT-5.02 — 04 Mặt Đứng Ốp Dọc 600×1200 WC-01</h3>
+            <p>Thể hiện rõ chiều cao <code>1.200 + 1.200 = 2.400 mm</code> kịch trần (chỉ 1 ron ngang) và toàn bộ mạch đứng trùng 100% với mặt bằng sàn <code>KT-5.01</code>.</p>
+          </div>
+        </article>
+
+        <article class="cad-card">
+          <button type="button" class="cad-thumb-btn" onclick="openCadModal('assets/wc_kt503_wc02_mb.png', 'KT-5.03 — Mặt Bằng Thiết Bị, Lát Sàn 600×600 & Trần Đèn Phòng WC-02 Master Tầng 2 (3 Khoang 3.420mm)')">
+            <img src="assets/wc_kt503_wc02_mb.png" alt="Bản vẽ CAD KT-5.03 Mặt bằng lát sàn 600x600 phòng WC-02 Master Tầng 2" loading="lazy" />
+            <span class="cad-zoom-hint">🔍 Bấm phóng to KT-5.03</span>
+          </button>
+          <div class="cad-meta">
+            <h3>KT-5.03 — Mặt Bằng Lát Sàn 600×600 WC-02 Master</h3>
+            <p>Bố cục 3 khoang <code>980 + 110 + 1.240 + 110 + 980 = 3.420 mm</code>; lưu ý điều chỉnh khoang giữa từ <code>40+600+600</code> sang <code>320+600+320 mm</code> để xóa mẩu 4cm.</p>
+          </div>
+        </article>
+
+        <article class="cad-card">
+          <button type="button" class="cad-thumb-btn" onclick="openCadModal('assets/wc_kt504_wc02_matdung.png', 'KT-5.04 — 04 Mặt Đứng Ốp Tường Dọc 600×1200 Kịch Trần +2.400mm Phòng WC-02 Master Tầng 2')">
+            <img src="assets/wc_kt504_wc02_matdung.png" alt="Bản vẽ CAD KT-5.04 Bốn mặt đứng ốp tường dọc 600x1200 phòng WC-02 Master" loading="lazy" />
+            <span class="cad-zoom-hint">🔍 Bấm phóng to KT-5.04</span>
+          </button>
+          <div class="cad-meta">
+            <h3>KT-5.04 — 04 Mặt Đứng Ốp Dọc 600×1200 WC-02 Master</h3>
+            <p>Mặt đứng 3 khoang cao <code>2.400 mm</code> với mạch giữa <code>490 + 490 mm</code> đi thẳng tim bồn cầu TOTO &amp; cây sen tắm đứng.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL LIGHTBOX DIALOG (modern-web-guidance: light-dismiss-a-dialog) -->
+  <dialog id="cad-lightbox" closedby="any" aria-labelledby="lightbox-title">
+    <div class="lightbox-inner">
+      <div class="lightbox-bar">
+        <h3 id="lightbox-title">Chi tiết bản vẽ CAD</h3>
+        <form method="dialog">
+          <button type="submit" class="lightbox-close">✕ Đóng (Esc)</button>
+        </form>
+      </div>
+      <div class="lightbox-body">
+        <img id="lightbox-img" src="assets/kt406_latsan_t1_zoom.png" alt="Bản vẽ phóng to" fetchpriority="low" />
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // Modal Lightbox + Mandatory non-closedBy fallback (modern-web-guidance: light-dismiss-a-dialog)
+    const cadDialog = document.getElementById("cad-lightbox");
+    const cadModalImg = document.getElementById("lightbox-img");
+    const cadModalTitle = document.getElementById("lightbox-title");
+
+    function openCadModal(imgSrc, titleText) {
+      cadModalImg.src = imgSrc;
+      cadModalImg.alt = titleText;
+      cadModalTitle.textContent = titleText;
+      cadDialog.showModal();
+    }
+
+    if (!("closedBy" in HTMLDialogElement.prototype)) {
+      cadDialog.addEventListener("click", (event) => {
+        if (event.target !== cadDialog) return;
+        const rect = cadDialog.getBoundingClientRect();
+        const isDialogContent = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (isDialogContent) return;
+        cadDialog.close();
+      });
+    }
+
+    // Interactive 2D CAD Blueprint Engine
+    const ZONES = {
+      t1: {
+        heading: "Tầng 1: Đại Không Gian Phòng Khách – Ăn – Bếp (11.760 × 4.600/4.950 mm) & Tiền Sảnh (2.160 × 2.650 mm)",
+        options: [
+          {
+            id: "1000_sw",
+            label: "⭐ 1000×1000 (PA-1A: Định vị Góc Tây-Nam X=0, Y=0)",
+            badge: "⭐ Khuyên dùng tối ưu #1 (Tỷ lệ vàng & Thông mạch Tiền sảnh)",
+            size: 1000,
+            ax: 0,
+            ay: 0,
+            splitFoyer: false,
+            metrics: [
+              { title: "📍 Tọa Độ Viên Định Vị Giao Thợ", body: "Đặt <strong>01 Viên 1000×1000 nguyên</strong> tại <strong>Góc Tây-Nam Phòng Khách</strong>: cạnh trái áp sát vách kính mặt tiền <code>V1 (X = 0)</code>, cạnh dưới áp sát đường Khe co giãn Tiền sảnh <code>(Y = 0, cách tim Trục A 2.775 mm)</code>." },
+              { title: "📏 Kích Thước Viên Biên (Không Mẩu Vụn)", body: "• Dài <code>11.760 mm</code>: <strong>11 viên nguyên + 1 viên 738 mm</strong> sát tường Đông Bếp.<br>• Rộng PK <code>4.600 mm</code>: <strong>4 viên nguyên + 1 viên 592 mm</strong> sát tường Bắc.<br>• <strong>Thông mạch dọc 100% ra Tiền sảnh:</strong> Sát cửa chính <code>D1</code> rộng <strong>854 mm</strong>, sát vách thang <strong>304 mm</strong>, đáy tủ giày <strong>646 mm</strong>!" },
+              { title: "📦 Số Lượng Đặt Mua & Thi Công", body: "Diện tích thuần <code>55,1 m²</code> &rarr; Đặt mua <strong>62,0 m² (62 viên = 31 hộp × 2 viên)</strong>. Dễ xoay trở qua cửa hơn 1m2, ít hao hụt và tỷ lệ cực cân đối với chiều rộng khu Bếp <code>3,17 m</code>." }
+            ]
+          },
+          {
+            id: "1000_nw",
+            label: "✨ 1000×1000 (PA-1B: Định vị Góc Tây-Bắc X=0, Y=4.600)",
+            badge: "✨ Ưu tiên nguyên viên dọc Tường Bắc Phòng Khách",
+            size: 1000,
+            ax: 0,
+            ay: 4600,
+            splitFoyer: false,
+            metrics: [
+              { title: "📍 Tọa Độ Viên Định Vị Giao Thợ", body: "Đặt <strong>01 Viên 1000×1000 nguyên</strong> tại <strong>Góc Tây-Bắc Phòng Khách</strong>: cạnh trái áp sát vách kính <code>V1 (X = 0)</code>, cạnh trên áp sát <strong>Tường Bắc Phòng Khách (Y = 4.600 mm)</strong>." },
+              { title: "📏 Kích Thước Viên Biên Lộ Thiên", body: "• Tường Bắc PK: <strong>1.000 mm (Nguyên viên)</strong> • Sát Khe co giãn <code>Y=0</code>: <strong>592 mm</strong>.<br>• Sát vách kính Bồn hoa P.Ăn: <strong>734 mm</strong> • Tường Nam Bếp: <strong>811 mm</strong> • Mép ngoài chân Tủ bếp: <strong>752 mm</strong>." },
+              { title: "📦 Khi Nào Nên Chọn PA-1B?", body: "Đặt mua <strong>62,0 m² (31 hộp × 2 viên)</strong>. Chọn PA-1B nếu bạn kê Sofa rời xa tường Bắc để lộ nguyên hàng gạch 1m chạy dọc suốt vách Bắc Phòng Khách." }
+            ]
+          },
+          {
+            id: "1200_d1",
+            label: "👑 1200×1200 (PA-1m2 Chuẩn: Định vị Mép Cửa D1 X=1.150, Y=0)",
+            badge: "👑 Phương án Đại Cảnh Cao Cấp (Thông mạch chữ thập 100%)",
+            size: 1200,
+            ax: 1150,
+            ay: 0,
+            splitFoyer: false,
+            metrics: [
+              { title: "📍 Bí Quyết Đặt Viên Định Vị 1m2×1m2", body: "<strong>Tuyệt đối KHÔNG đặt ở góc kính V1 (X=0)!</strong> Đặt Viên <code>1200×1200</code> chuẩn tại <strong>Giao điểm Mép trong Ngạch đá Cửa chính D1 (X = 1.150 mm) &amp; Khe co giãn (Y = 0)</strong>, phát triển lưới chữ thập sang 4 phía." },
+              { title: "📏 Hóa Giải Đẹp Mọi Cạnh Tường", body: "• Lùi sang trái ra kính <code>V1</code> đúng <strong>1.150 mm (96% viên nguyên!)</strong>; ngay ngưỡng cửa chính <code>D1</code> <strong>nguyên viên 1.200 mm</strong>!<br>• Tường Bắc PK: <strong>994 mm</strong> • Kính Bồn hoa: <strong>926 mm</strong> • Tường Đông Bếp: <strong>994 mm</strong>.<br>• Dải <code>142 mm</code> sát tường Bắc Bếp nằm <strong>khuất 100% dưới gầm Tủ bếp sâu 600mm</strong> (mép ngoài tủ bếp hiện viên lớn <code>744 mm</code>)!" },
+              { title: "📦 Số Lượng Đặt Mua & Yêu Cầu Thợ", body: "Đặt mua <strong>63,36 m² (44 viên = 22 hộp × 2 viên)</strong>. Gạch nặng ~35kg/viên nên bắt buộc đội thợ có bàn đẩy cắt 1m2, máy hít rung điện &amp; trét keo C2S1 hai mặt." }
+            ]
+          },
+          {
+            id: "1200_bad",
+            label: "⚠️ 1200×1200 (Cảnh báo lỗi mẩu 52mm nếu đặt X=0)",
+            badge: "⚠️ Minh họa bẫy kỹ thuật: Dính dải vụn 52mm ngay Cửa chính D1!",
+            size: 1200,
+            ax: 0,
+            ay: 0,
+            splitFoyer: false,
+            isWarn: true,
+            metrics: [
+              { title: "❌ Vì Sao Cấm Copy Vị Trí Định Vị Cũ?", body: "Khoảng cách từ kính mặt tiền <code>V1 (X=0)</code> đến mép tường cửa chính <code>D1</code> là <code>1.150 mm</code>, trong khi 1 bước gạch 1m2 + ron 2mm là <code>1.202 mm</code>." },
+              { title: "⚠️ Hậu Quả Ngay Bậu Cửa Chính D1", body: "Nếu thợ cứ quen tay đặt viên <code>1200×1200</code> ở góc kính <code>V1 (X=0)</code> rồi kéo thẳng mạch ra Tiền sảnh, ngay sát ngưỡng cửa chính <code>D1</code> sẽ bị lọt một <strong>dải gạch cắt vụn rộng đúng 52 mm (5,2 cm)</strong> chạy dài <code>2,65 m</code>!" },
+              { title: "✅ Cách Khắc Phục Chỉ Trong 1 Bước", body: "Dịch Viên Định Vị sang phải đúng <code>1.150 mm</code> về mép cửa chính <code>D1</code> (bấm xem nút <strong>👑 1200×1200 PA-1m2 Chuẩn</strong>) là mẩu <code>52 mm</code> biến mất hoàn toàn!" }
+            ]
+          },
+          {
+            id: "800_orig",
+            label: "📐 800×800 Gốc (Theo KT-4.06 XHOME)",
+            badge: "📐 Bản vẽ thiết kế gốc (Tách 2 viên định vị, lệch mạch Tiền sảnh 350mm)",
+            size: 800,
+            ax: 0,
+            ay: 0,
+            splitFoyer: true,
+            metrics: [
+              { title: "📍 Thiết Kế Gốc KT-4.06 Đang Chia Thế Nào?", body: "Bản vẽ <code>KT-4.06</code> dùng <strong>02 Viên Định Vị 800×800 riêng biệt</strong>: Viên #1 ở góc Tây-Nam P.Khách <code>(X=0, Y=0)</code>; Viên #2 ở góc Tây-Bắc Tiền sảnh <code>(X=1.150, Y=-10)</code> vì nếu kéo thông mạch từ <code>(0,0)</code> sẽ dư mẩu <code>102 mm</code> ở tường thang." },
+              { title: "📏 Nhược Điểm Khi Nhìn Thực Tế", body: "• Đường ron dọc giữa Tiền sảnh và Phòng Khách <strong>bị lệch so le nhau 350 mm</strong> ngay tại khe co giãn.<br>• Không gian dài <code>11,76 m</code> bị chia vụn thành 15 cột gạch (nhiều đường mạch hơn 44% so với <code>1000×1000</code> và gấp đôi số ô so với <code>1200×1200</code>)." },
+              { title: "📦 Số Lượng Bản Gốc", body: "55,1 m² &rarr; <strong>59,52 m² (93 viên = 31 hộp × 3 viên)</strong>." }
+            ]
+          }
+        ]
+      },
+      master: {
+        heading: "Tầng 2: Phòng Ngủ Master + Khu Thay Đồ Open-Suite (3.440/3.910 × 5.710 mm = 20,8 m² — Đã Bỏ Vách Tivi)",
+        options: [
+          {
+            id: "hb_150_900",
+            label: "⭐ Gạch Giả Gỗ 150×900 mm — Xương Cá 45° (Khuyên dùng #1)",
+            badge: "⭐ Tỷ lệ vàng 1:6 • Phẳng tuyệt đối • Sống chữ V xuyên suốt 5,71m",
+            plankW: 150,
+            plankL: 900,
+            metrics: [
+              { title: "📍 Dây Mực Trục Tim & Cặp Viên Định Vị", body: "Búng <strong>01 Dây mực Trục Tim Bắc–Nam xuyên suốt 5,71m</strong> cách tường Tây hoàn thiện đúng <strong>X = 1.720 mm</strong> (chia đôi Khu Thay Đồ 3.440mm, đi thẳng qua chính tâm Đảo kính, Vách Tủ Đảo &amp; Giường Master). Đặt <strong>Cặp Viên Chữ V Đầu Tiên</strong> tại <code>Y = 2.250 mm</code> (chính diện cửa gỗ Lim <code>O1</code> bước vào)." },
+              { title: "✨ Hiệu Ứng Liên Hoàn Qua 2 Lối Đi Mở 850mm", body: "Đường sống mũi nhọn chữ V chạy liền một mạch <code>5,71 m</code> từ cửa kính khói <code>WC-02</code> qua 2 lối đi mở <code>850 mm</code> lên tận vách đầu giường. Bề ngang <code>3,44 m</code> hiện gần <strong>5 dải sóng xương cá</strong> sang trọng chuẩn khách sạn 5 sao." },
+              { title: "📦 Khối Lượng Đặt Mua Riêng Master", body: "Diện tích sàn <code>20,8 m²</code> + 13% hao hụt cắt 45° = <strong>23,76 m² (22 hộp loại 8 thanh = 1,08 m²/hộp)</strong>. Giao cửa <code>O1</code> lát phẳng cốt không dùng nẹp T8." }
+            ]
+          },
+          {
+            id: "hb_150_800",
+            label: "✨ Gạch Giả Gỗ 150×800 mm — Xương Cá 45°",
+            badge: "✨ Nhịp xương cá dày & cổ điển kiểu Âu",
+            plankW: 150,
+            plankL: 800,
+            metrics: [
+              { title: "📍 Dây Mực Trục Tim Định Vị", body: "Giữ nguyên <strong>Trục Tim Bắc–Nam X = 1.720 mm</strong> từ tường Tây và <strong>Cặp Viên Định Vị Chữ V #1</strong> tại <code>Y = 2.250 mm</code> trước cửa <code>O1</code>." },
+              { title: "📏 Đặc Điểm Khổ 150×800 mm", body: "Bước sóng ngang ~670 mm, tạo nhịp chữ V dày hơn một chút, gần với kích thước ván gỗ tự nhiên ghép thanh truyền thống và rất dễ cân phẳng." },
+              { title: "🎨 Tiêu Chuẩn Chọn Gạch", body: "Chọn xương <strong>Porcelain mài cạnh vuông (Rectified)</strong> bề mặt Matt sần nhẹ R9/R10, đi ron <code>1.5 – 2 mm</code> keo màu Nâu Óc Chó." }
+            ]
+          },
+          {
+            id: "hb_200_1200_warn",
+            label: "⚠️ Gạch Giả Gỗ 200×1200 mm (Cảnh báo khi lát xương cá)",
+            badge: "⚠️ Dễ bị gờ vồng bụng (lippage) & sải chữ V quá lớn",
+            plankW: 200,
+            plankL: 1200,
+            isWarn: true,
+            metrics: [
+              { title: "⚠️ Rủi Ro Gờ Mấp Mô Chân Trần", body: "Thanh dài <code>1.200 mm</code> luôn có độ vồng nung nhẹ ở giữa bụng (<code>0,8–1,2 mm</code>). Khi lát xương cá, góc nhọn đầu thanh này đâm vào giữa bụng thanh kia dễ tạo gờ mấp mô gây cộm chân trần." },
+              { title: "📐 Tỷ Lệ Không Đủ Chỗ Thở Quanh Giường", body: "Sau khi đặt Đảo kính, Vách Tủ Đảo và Giường <code>2,0×2,2 m</code>, hành lang đi lại hai bên chỉ còn <code>700–850 mm</code> — không hiện trọn nổi 1 thanh <code>1.200 mm</code>!" },
+              { title: "✅ Khuyến Nghị", body: "Khổ <code>200×1200</code> chỉ hợp lát thẳng so le 1/4 – 1/5. Đã lát <strong>Xương Cá</strong> cho phòng ngủ thì <strong><code>150×900 mm</code></strong> đẹp và phẳng hơn vượt trội." }
+            ]
+          }
+        ]
+      },
+      bed_ab: {
+        heading: "03 Phòng Ngủ Trục A–B (3.000 × 4.295 mm ≈ 13,5 m²/phòng): P.Ngủ Ông Bà T1 • P.Ngủ 2 T2 • P.Ngủ Con Nam T3",
+        options: [
+          {
+            id: "ab_150_900",
+            label: "⭐ Gạch Giả Gỗ 150×900 mm — Mũi Xương Cá Bắc–Nam (Khuyên dùng)",
+            badge: "⭐ Chuẩn áp dụng đồng bộ cho cả 3 phòng Trục A–B (T1, T2, T3)",
+            plankW: 150,
+            plankL: 900,
+            metrics: [
+              { title: "📍 Tọa Độ Búng Mực Giao Thợ (Cả 3 Tầng)", body: "Búng <strong>Dây mực Trục Tim Bắc–Nam</strong> song song tường Tây (vách Tivi), <strong>cách tường Tây hoàn thiện đúng X = 1.500 mm</strong> (chia đôi chính xác chiều ngang <code>3.000 mm</code> và trùng khít tim Giường ngủ 1m8!). Đặt <strong>Cặp Viên Chữ V #1</strong> trên trục tim, cách tường Nam (đầu giường) <code>2.150 mm</code>." },
+              { title: "🧭 Hiệu Ứng Kéo Dài Chiều Sâu Từ Cửa D3", body: "Mở cửa gỗ Lim <code>D3</code> từ góc Tây-Bắc bước vào, mắt nhìn dọc chiều sâu <code>4,30 m</code>. Mũi nhọn xương cá hướng Bắc–Nam dẫn hướng thị giác thẳng về đầu giường, làm căn phòng ngang <code>3,0 m</code> rộng và sâu hơn hẳn." },
+              { title: "📦 Khối Lượng Đặt Mua 3 Phòng", body: "~15,48 m²/phòng &rarr; Tổng 3 phòng đặt <strong>46,44 m² (43 hộp loại 1,08 m²/hộp)</strong>, đã bao gồm 13% hao hụt cắt góc 45°." }
+            ]
+          },
+          {
+            id: "ab_150_800",
+            label: "✨ Gạch Giả Gỗ 150×800 mm — Mũi Xương Cá Bắc–Nam",
+            badge: "✨ Phương án thanh 800mm nhịp dày",
+            plankW: 150,
+            plankL: 800,
+            metrics: [
+              { title: "📍 Giữ Nguyên Tọa Độ Dây Mực", body: "Trục tim Bắc–Nam cách tường Tây <strong>X = 1.500 mm</strong>; Cặp chữ V #1 đặt tại khoảng sàn thoáng trước mũi giường (cách tường Nam <code>2.150 mm</code>)." },
+              { title: "📏 Tỷ Lệ Trên Bề Ngang 3.000 mm", body: "Thanh <code>150×800</code> hiện khoảng 4,5 nhịp sóng chữ V ngang phòng <code>3,00 m</code>, hai mép cắt 45° sát tường Tây &amp; tường Đông đối xứng bằng nhau từng milimet." },
+              { title: "🛠️ Giao Tiếp Cửa Ban Công Đông D4", body: "Tại ngưỡng cửa nhôm lùa <code>D4</code> ra ban công (T2 &amp; T3), gạch giả gỗ lát kịch sát khuôn nhôm Hệ 100 hoặc ngạch đá Kim Sa chống hắt mưa." }
+            ]
+          }
+        ]
+      },
+      bed_bd: {
+        heading: "02 Phòng Trục B–D (4.950 × 3.165 mm = 16,2 m²/phòng): P.Ngủ 1 Tầng 2 & Phòng Phía Bắc Tầng 3",
+        options: [
+          {
+            id: "bd_150_900",
+            label: "⭐ Gạch Giả Gỗ 150×900 mm — Mũi Xương Cá Đông–Tây Đón Nắng D8",
+            badge: "⭐ Ánh sáng Ban công Đông trượt dọc vân gỗ & mũi chữ V",
+            plankW: 150,
+            plankL: 900,
+            mode: "hb",
+            metrics: [
+              { title: "📍 Tọa Độ Búng Mực Giao Thợ", body: "Búng <strong>Dây mực Trục Tim Đông–Tây</strong> song song tường Bắc (vách đầu giường), <strong>cách tường Bắc hoàn thiện đúng Y = 1.580 mm</strong> (chính giữa bề rộng <code>3.165 mm</code> và thẳng tâm cửa kính lùa Ban công Đông <code>D8</code>). Đặt <strong>Cặp Viên Chữ V #1</strong> tại <code>X = 2.200 mm</code> cách tường Tây." },
+              { title: "☀️ Nguyên Lý Ánh Sáng Trượt Dọc Xương Cá", body: "Phòng có chiều dài Đông–Tây lớn (<code>4,95 m</code>) mở ra Ban công hướng Đông. Xoay trục xương cá chạy Đông–Tây giúp nắng sớm chiếu dọc theo thớ gạch vân gỗ Matt, không bị bóng đổ cắt ngang và kéo căn phòng dài sang trọng." },
+              { title: "📦 Khối Lượng Đặt Mua 2 Phòng", body: "Mỗi phòng <code>16,2 m²</code> + 13% hao hụt = <code>18,36 m²</code> (17 hộp) &rarr; Tổng 2 phòng đặt <strong>36,72 m² (34 hộp loại 1,08 m²/hộp)</strong>." }
+            ]
+          },
+          {
+            id: "bd_straight",
+            label: "📐 Đối chiếu: Lát Thẳng So Le 1/4 (150×900 mm)",
+            badge: "📐 Hao hụt thấp (~5%) nhưng kém điểm nhấn biệt thự",
+            plankW: 150,
+            plankL: 900,
+            mode: "straight",
+            metrics: [
+              { title: "📍 Khi Nào Dùng Lát Thẳng So Le 1/4?", body: "Lát thẳng song song chiều dài <code>4.950 mm</code> từ tường Bắc xuống tường Nam, các hàng lệch mạch nhau <code>1/4</code> chiều dài thanh (<code>225 mm</code> — tuyệt đối không lát so le 1/2 giữa bụng để tránh vồng)." },
+              { title: "⚖️ So Sánh Với Lát Xương Cá 45°", body: "Lát thẳng tiết kiệm khoảng ~7% gạch hao hụt cắt biên (~1,2 hộp/phòng ≈ 600k/phòng), nhưng hiệu ứng thị giác đơn điệu hơn nhiều so với lát <strong>Xương Cá 45°</strong>." },
+              { title: "✅ Lời Khuyên", body: "Chênh lệch hao hụt toàn nhà chỉ ~4–5 triệu ₫, nên đồng bộ <strong>100% kiểu lát Xương Cá 45°</strong> cho tất cả các phòng ngủ để nâng tầm không gian biệt thự." }
+            ]
+          }
+        ]
+      },
+      study_t3: {
+        heading: "Tầng 3 (PA T3-A): Cụm Phòng Làm Việc (3.420 × 4.240 mm) & Phòng Ngủ Thờ (2.950 × 2.270 mm) — Cửa Lùa Kính Không Ray Dưới",
+        options: [
+          {
+            id: "t3_seamless_hb",
+            label: "⭐ Gạch Gỗ 150×900 — Xương Cá Chạy Xuyên Qua Khe Cửa Lùa Kính (Khuyên dùng)",
+            badge: "⭐ Không bậu đá ngắt sàn • Liền thảm 6,71m khi mở cửa lùa 4 cánh",
+            plankW: 150,
+            plankL: 900,
+            metrics: [
+              { title: "📍 Dây Mực Trục Tim Xuyên 2 Phòng", body: "Búng <strong>01 Dây mực Trục Tim Bắc–Nam duy nhất</strong> cách tường Tây đúng <strong>X = 1.710 mm</strong> (chia đôi chính xác chiều ngang Phòng Làm Việc <code>3.420 mm</code> và đi thẳng qua chính tâm hệ cửa lùa 4 cánh rộng <code>2.400 mm</code> sang Phòng Ngủ Thờ!). Đặt <strong>Cặp Viên Chữ V #1</strong> tại tâm Phòng Làm Việc (cách tường Bắc <code>2.120 mm</code>)." },
+              { title: "🚪 Lợi Thế Cửa Lùa Ray Treo Không Ray Âm Sàn", body: "Vì hệ vách ngăn kính mờ sóng dùng <strong>ray treo giảm chấn trên trần (không có ray nhôm dưới sàn)</strong>, thợ ốp lát chạy sóng xương cá <strong>xuyên thẳng qua ô cửa 2.400 mm</strong> mà không đặt đá ngạch cửa! Khi mở dồn 4 cánh kính, cả hai phòng hợp thành không gian <code>6,71 m</code> liền mạch." },
+              { title: "📦 Khối Lượng Cụm Trục 1–2 Tầng 3", body: "Diện tích thông thủy 2 phòng <code>21,2 m²</code> (+ khu phụ 5,6 m²) &rarr; Nằm trọn trong gói <strong>Full Khu Gỗ T1–T3: 137,16 m² (127 hộp)</strong>." }
+            ]
+          }
+        ]
+      },
+      hall: {
+        heading: "Hành Lang Sảnh Thang Tầng 2 & Tầng 3 (5.040 × 1.280/1.750 mm = 7,1 m²/tầng)",
+        options: [
+          {
+            id: "hall_800",
+            label: "⭐ Giữ Khổ 800×800 Đồng Màu Tầng 1 (Khuyên dùng #1)",
+            badge: "⭐ Tỷ lệ 800 + 478mm cân đối nhất cho hành lang rộng 1,28m",
+            mode: "800",
+            metrics: [
+              { title: "📍 Tọa Độ Viên Định Vị (Chuẩn KT-4.07 & KT-4.08)", body: "Đặt <strong>01 Viên 800×800 nguyên</strong> ngay <strong>đầu bậc thang bước lên sảnh tầng</strong>: cạnh trái áp sát tường Trục 2 (cạnh cửa Master / P.Làm Việc), cạnh dưới thẳng mép cổ bậc thang cuối cùng." },
+              { title: "📏 Tỷ Lệ Vàng Cho Bề Rộng 1.280 mm", body: "• Chiều rộng dọc cầu thang <code>1.280 mm</code> = <strong>1 viên nguyên 800 mm + 1 viên 478 mm</strong> (đạt 60% viên nguyên, cực kỳ cân mắt!).<br>• Chiều dài <code>5.040 mm</code> = <strong>6 viên nguyên + 228 mm</strong> cuối sảnh." },
+              { title: "📦 Khối Lượng Hành Lang T2 + T3 + Tum", body: "Tổng <code>7,1 + 7,1 + 13,5 = 27,7 m²</code> &rarr; Đặt mua <strong>30,72 m² (48 viên = 16 hộp × 3 viên)</strong> gạch 800×800 cùng bộ sưu tập màu Xám Sáng Ấm với gạch 1m/1m2 Tầng 1." }
+            ]
+          },
+          {
+            id: "hall_hb",
+            label: "✨ Lát Tràn Gạch Gỗ Xương Cá 150×900 Cho Hành Lang T2 & T3",
+            badge: "✨ Bỏ toàn bộ đá ngạch cửa phòng ngủ • Liền mạch cả tầng",
+            mode: "hb",
+            metrics: [
+              { title: "💡 Đặc Quyền Khi Dùng Gạch Giả Gỗ Thay Sàn Gỗ CN", body: "Sàn gỗ công nghiệp sợ ẩm trước cửa WC nên bắt buộc lát gạch hành lang. Nhưng <strong>Gạch giả gỗ Porcelain chịu nước 100%</strong>, nên bạn hoàn toàn có thể lát <strong>gạch giả gỗ xương cá phủ tràn cả 7,1 m² Hành lang T2 &amp; T3</strong>!" },
+              { title: "✨ Thẩm Mỹ Không Ngưỡng Cửa", body: "Bỏ được 6 tấm đá ngạch cửa Kim Sa Đen ở cửa các phòng ngủ T2–T3, nhìn từ sảnh cầu thang vào các phòng ngủ liền một thảm gỗ sang trọng và đỡ phải mua lẻ 14 m² gạch 800×800 kéo lên lầu." },
+              { title: "📍 Trục Định Vị Hành Lang Xương Cá", body: "Búng dây mực Đông–Tây chính giữa đoạn hành lang <code>1.280 mm</code> (cách kính lan can thang <code>640 mm</code>)." }
+            ]
+          },
+          {
+            id: "hall_1200_warn",
+            label: "⚠️ Nếu Đưa Gạch 1200×1200 Lên Hành Lang 1,28m (Tránh!)",
+            badge: "⚠️ Lỗi dải gạch cắt vụn 78 mm (7,8 cm) chạy dài suốt 5,04 m!",
+            mode: "1200_warn",
+            isWarn: true,
+            metrics: [
+              { title: "❌ Lỗi Mẩu Gạch Vụn Dọc Tường Bắc", body: "Hành lang rộng <code>1.280 mm</code> trừ 1 viên <code>1.200 mm</code> + ron <code>2 mm</code> chỉ còn dư đúng <strong>78 mm (7,8 cm)</strong> chạy dọc suốt <code>5,04 m</code>!" },
+              { title: "⚠️ Chia Giữa Tâm Cũng Hỏng & Hao Phí Gấp Đôi", body: "Nếu đặt tâm viên 1m2 vào giữa thì mỗi bên dư <code>39 mm</code> (vỡ gạch); nếu cắt đôi 2 viên <code>640 + 640 mm</code> thì mỗi viên 1m2 đắt tiền phải vứt bỏ gần nửa viên và rất cực khi khiêng lên thang bộ." },
+              { title: "✅ Kết Luận Dứt Khoát", body: "Chỉ lát <code>1000×1000</code> hoặc <code>1200×1200</code> cho đại không gian Tầng 1; Hành lang T2–T3 dùng <strong>800×800 đồng màu</strong> hoặc <strong>Gạch gỗ xương cá 150×900</strong>." }
+            ]
+          }
+        ]
+      },
+      wc01: {
+        heading: "03 Phòng WC-01 Điển Hình (Tầng 1, Tầng 2, Tầng 3 • KT-5.01 & KT-5.02): Mặt Bằng Sàn Dưới & Mặt Đứng Tường Trên Cao +2.400 mm",
+        options: [
+          {
+            id: "wc01_vert_600",
+            label: "⭐ Ốp Tường Dọc 600×1200 + Sàn Dưới 600×600 R10/R11 (Chuẩn KT-5.01/02)",
+            badge: "⭐ Khuyên dùng tối ưu #1: 2 viên kịch trần 2.40m • Chỉ 1 ron ngang • Trùng mạch sàn 100%",
+            wallOrient: "vertical",
+            floorMode: "600_sq",
+            metrics: [
+              { title: "📍 Tọa Độ Viên Định Vị Sàn Dưới & Tường Trên", body: "• <strong>Sàn dưới (600×600 R10/R11):</strong> Viên Định Vị #1 đặt sát tường Bắc ngay trước cửa <code>DW1 (X = 890..1.490, Y = 0..600 mm)</code> — cạnh phải <code>X = 1.490</code> trùng khít vách kính tắm âm <code>-20 mm</code>! Viên #2 ở khoang Cầu chia tâm <code>490 + 490 = 980 mm</code>.<br>• <strong>Tường trên (600×1200 R9 Ốp Dọc):</strong> Gióng thẳng mạch từ sàn chạy dọc lên trần <code>+2.400 mm</code>." },
+              { title: "📏 Trùng Mạch Tuyệt Đối 100% & 0% Mẩu Vụn", body: "• Vách chính dài <code>2.480 mm</code>: Cả tường trên và sàn dưới đều chia <strong>290 + 600 + 600 + 600 + 390 mm</strong>.<br>• Vách đầu sen &amp; Lavabo rộng <code>1.400 mm</code>: Cả tường và sàn đều chia <strong>600 + 600 + 200 mm</strong>.<br>• Chiều cao trần <code>2.400 mm</code> = đúng <strong>2 viên 1.200 mm nguyên</strong> (chỉ có <strong>1 đường ron ngang ở +1.200 mm</strong>, trần cao và thoáng mắt)." },
+              { title: "📦 Khối Lượng Đặt Mua (Tổng 03 Phòng WC-01)", body: "• Gạch tường <code>600×1200</code> Matt mịn R9: <strong>73,44 m² (51 hộp × 2 viên)</strong>.<br>• Gạch sàn <code>600×600</code> Matt nhám R10/R11 (cùng bộ màu tường): <strong>17,28 m² (12 hộp × 4 viên)</strong> • Giữ nguyên 3 phễu thu vuông góc <code>10×10 cm</code>." }
+            ]
+          },
+          {
+            id: "wc01_horiz_warn",
+            label: "⚠️ Đối Chiếu: Ốp Tường Ngang 1200×600 + Sàn 600×600 (Dính mẩu 76mm & Lệch sàn)",
+            badge: "⚠️ Cảnh báo khi ốp ngang WC-01: Dính dải vụn 76mm (7,6cm), 3 ron ngang & lệch mạch sàn!",
+            wallOrient: "horizontal",
+            floorMode: "600_sq",
+            isWarn: true,
+            metrics: [
+              { title: "❌ Bẫy Mẩu Vụn 76 mm Trên Vách Dài 2.480 mm", body: "Nếu xoay ngang viên gạch (<code>1.200</code> ngang × <code>600</code> cao) ốp từ góc trái sang: <code>1.202 + 1.202 = 2.404 mm</code> &rarr; sát góc phải buồng tắm bị lọt một <strong>dải gạch cắt vụn rộng chỉ 76 mm (7,6 cm)</strong> chạy từ sàn lên kịch trần! <em>(Nếu dịch tâm 638 + 1200 + 638 thì tốn 3 viên/hàng, vứt bỏ 560mm phôi và vẫn lệch toàn bộ mạch sàn!)</em>" },
+              { title: "⚠️ Gấp 3 Lần Đường Ron Ngang & Lệch Mạch Sàn", body: "• Chiều cao <code>2.400 mm</code> bị băm thành 4 tầng (<code>600 × 4</code>) &rarr; sinh ra <strong>3 đường ron ngang (+600, +1.200, +1.800 mm)</strong> dễ bám cặn xà phòng ở khu sen tắm và làm trần <code>2,40 m</code> nhìn thấp hơn.<br>• Vách <code>1.400 mm</code> bị lệch <code>1.200 + 198 mm</code>, mất hoàn toàn sự liên kết thông mạch với sàn dưới <code>600×600</code>." },
+              { title: "✅ Kết Luận Cho WC-01", body: "Với chiều cao trần <code>2.400 mm</code> và vách <code>2.480 × 1.400 mm</code> của <code>WC-01</code>, <strong>Ốp Dọc 600×1200</strong> đẹp hơn, tiết kiệm gạch hơn và chuẩn kỹ thuật hơn vượt trội so với ốp ngang." }
+            ]
+          },
+          {
+            id: "wc01_full_linear",
+            label: "✨ Full 600×1200 Cả Tường Dọc & Sàn Dưới (Bắt buộc Ga Thoát Sàn Dài 900mm)",
+            badge: "✨ Đồng bộ tấm lớn 600×1200 cả Trên & Dưới • Cán dốc 1 chiều về Ga dài Inox 900mm",
+            wallOrient: "vertical",
+            floorMode: "600x1200_linear",
+            metrics: [
+              { title: "🚿 Điều Kiện Bắt Buộc Khi Lát Sàn Dưới Bằng 600×1200", body: "Nếu bạn muốn dùng <strong>600×1200 cho cả sàn dưới</strong> (chọn mã bề mặt nhám <strong>R10/R11</strong> cùng tông tường), tại buồng tắm đứng <code>990 × 1.400 mm</code> <strong>BẮT BUỘC thay phễu vuông góc bằng Ga thoát sàn thanh dài Inox 304 (900 × 70 mm)</strong> đặt áp sát chân tường Bắc dưới vòi sen!" },
+              { title: "📏 Hiệu Ứng Liền Tấm Không Cắt Chéo", body: "• Viên sàn <code>600×1200</code> đặt dọc chiều <code>1.400 mm</code> (<code>1.200 + 200 mm</code>) và ngang <code>600 mm</code> (<code>290 + 600×3 + 390 mm</code>) &rarr; <strong>trùng mạch 100% với gạch tường ốp dọc</strong> và giảm một nửa số đường ron ngang dưới sàn!<br>• Nền khu tắm cán <strong>dốc 1 mặt phẳng duy nhất (1,5–2%)</strong> đổ thẳng về ga dài, mặt gạch phẳng nguyên tấm." },
+              { title: "🛡️ Lưu Ý An Toàn Cho WC Tầng 1 Ông Bà", body: "Riêng sàn <code>WC-01</code> Tầng 1 sát Phòng ngủ Ông Bà, dù lát <code>600×600</code> hay <code>600×1200</code> đều phải chỉ định <strong>bề mặt nhám sần R11</strong> để chống trượt tuyệt đối khi sàn ướt xà phòng." }
+            ]
+          },
+          {
+            id: "wc01_full_bad_drain",
+            label: "⚠️ Lỗi Cần Tránh: Lát Sàn 600×1200 Nhưng Giữ Phễu Vuông Góc (Bị cắt chéo rẻ quạt)",
+            badge: "⚠️ Bẫy thi công phổ biến: Gạch sàn 600×1200 gặp phễu vuông 10×10cm phải cắt chéo 4 mảnh!",
+            wallOrient: "vertical",
+            floorMode: "600x1200_bad_drain",
+            isWarn: true,
+            metrics: [
+              { title: "❌ Vì Sao Phễu Vuông 10×10cm Phá Hỏng Sàn 600×1200?", body: "Tấm Porcelain <code>600×1200 mm</code> cứng và phẳng tuyệt đối, không thể uốn cong 4 phía về chiếc phễu vuông nhỏ <code>100×100 mm</code> đặt ở góc phòng. Nếu không cắt gạch mà ép nghiêng sẽ bị đọng vũng nước ở góc đối diện." },
+              { title: "⚠️ Hậu Quả Thẩm Mỹ & Rát Chân Trần", body: "Thợ ốp lát bắt buộc phải dùng máy cắt <strong>xẻ chéo chữ X (cắt rẻ quạt 4 đường)</strong> ngay trên tấm gạch <code>600×1200</code> đắt tiền để bẻ dốc về phễu vuông &rarr; vừa phá nát vân đá khổ lớn, vừa tạo nhiều mép cắt sắc dễ bám bẩn dưới chân khi tắm." },
+              { title: "✅ Quy Tắc Chốt Trước Khi Cán Nền WC", body: "• Giữ phễu vuông góc <code>10×10 cm</code> &rarr; Lát sàn <strong>600×600 R10/R11</strong>.<br>• Muốn lát sàn <strong>600×1200 R10/R11</strong> &rarr; Đặt mua sẵn <strong>Ga thoát sàn dài 800–900 mm</strong> trước khi thợ điện nước đặt cổ ống thu sàn!" }
+            ]
+          }
+        ]
+      },
+      wc02: {
+        heading: "Phòng WC-02 Master Tầng 2 (3 Khoang Dài 3.420 × 1.160/1.380 mm • Cao +2.400 mm • KT-5.03 & KT-5.04)",
+        options: [
+          {
+            id: "wc02_vert_opt",
+            label: "⭐ Ốp Tường Dọc 600×1200 + Sàn 600×600 (Tối ưu xóa mẩu 40mm bản gốc KT-5.04)",
+            badge: "⭐ Khuyên dùng #1: Trùng mạch 3 khoang 100% • Đã nâng cấp 320+600+320 xóa mẩu vụn 40mm!",
+            wallOrient: "vertical",
+            floorMode: "600_sq",
+            metrics: [
+              { title: "📍 Chia Mạch Đối Xứng Tâm Cho Cả 3 Khoang", body: "• <strong>Khoang Cầu trái (980 mm) &amp; Khoang Tắm phải (980 mm):</strong> Đặt đường mạch đứng chính tâm <strong>490 + 490 mm</strong> chạy thẳng từ tim bồn cầu TOTO &amp; tim cây sen đứng xuống thẳng mạch sàn <code>600×600</code>!<br>• <strong>Khoang Lavabo giữa (1.240 mm):</strong> Thay vì chia <code>40 + 600 + 600 mm</code> bị dính <strong>mẩu vụn 40 mm</strong> như bản vẽ <code>KT-5.04</code>, đặt <strong>01 viên 600 nguyên chính tâm</strong> &rarr; hai bên còn <strong>320 + 600 + 320 mm</strong> cân đối tuyệt hảo mà không tốn thêm 1 viên gạch nào!" },
+              { title: "📏 Chiều Cao +2.400 mm & Vách Bên 1.380 mm", body: "• Trần thạch cao <code>+2.400 mm</code> = đúng <strong>2 viên 1.200 mm ốp dọc</strong> (chỉ 1 đường ron ngang duy nhất ở <code>+1.200 mm</code>), giúp các khoang rộng <code>980 mm</code> vươn cao thanh thoát.<br>• Vách bên <code>1.380 mm</code> chia <strong>600 + 600 + 180 mm</strong> trùng khít 100% từ tường xuống sàn." },
+              { title: "📦 Khối Lượng Đặt Mua Riêng WC-02 Master", body: "• Gạch tường <code>600×1200</code> Matt R9: <strong>27,36 m² (19 hộp × 2 viên)</strong>.<br>• Gạch sàn <code>600×600</code> Matt nhám R10/R11: <strong>7,20 m² (5 hộp × 4 viên)</strong>." }
+            ]
+          },
+          {
+            id: "wc02_horiz_compare",
+            label: "✨ Đối Chiếu: Ốp Tường Ngang 1200×600 (Liền tấm khoang 980mm nhưng 3 ron ngang & lệch sàn)",
+            badge: "✨ Có 1 ưu điểm ở vách 980mm nhưng dính mẩu 38mm ở Lavabo 1.240mm, 3 ron ngang & lệch sàn",
+            wallOrient: "horizontal",
+            floorMode: "600_sq",
+            isWarn: true,
+            metrics: [
+              { title: "💡 Ưu Điểm Duy Nhất Khi Ốp Ngang Ở WC-02", body: "Vì Khoang Cầu &amp; Khoang Tắm của <code>WC-02</code> có bề ngang <code>980 mm &lt; 1.200 mm</code>, nếu ốp ngang <code>1200×600</code> thì 1 viên cắt còn <code>980 mm</code> sẽ phủ kín từ vách trái sang vách phải <strong>không có đường ron đứng ở giữa</strong>, tạo cảm giác mở rộng bề ngang hốc <code>980 mm</code>." },
+              { title: "⚠️ 3 Nhược Điểm Phải Đánh Đổi", body: "1. <strong>Khoang Lavabo giữa rộng 1.240 mm</strong> (hơn 1m2 đúng 4cm): ốp từ góc bị dính <strong>mẩu vụn 38 mm</strong>, còn chia đôi <code>620 + 620 mm</code> phải cắt bỏ mất <code>580 mm</code> của 8 tấm gạch!<br>2. Sinh ra <strong>3 đường ron ngang (+600, +1.200, +1.800 mm)</strong> chạy vòng quanh phòng tắm.<br>3. <strong>Lệch toàn bộ mạch đứng</strong> so với sàn dưới <code>600×600</code> và hao hụt <code>220 mm</code> phôi bỏ đi ở mọi hàng gạch khoang <code>980 mm</code>." },
+              { title: "✅ Lời Khuyên", body: "Ưu tiên <strong>Ốp Dọc 600×1200</strong> (nhịp <code>490+490</code> &amp; <code>320+600+320</code>) để đồng bộ chuẩn khách sạn 5 sao với cả 3 phòng <code>WC-01</code>." }
+            ]
+          },
+          {
+            id: "wc02_full_linear",
+            label: "👑 Full 600×1200 Cả Tường Dọc & Sàn Dưới + Ga Thoát Sàn Dài 800mm Sát Vách Sen",
+            badge: "👑 Chuẩn Suite 5 Sao: Full 600×1200 Trên & Dưới • Ga thoát sàn dài 800mm âm gạch",
+            wallOrient: "vertical",
+            floorMode: "600x1200_linear",
+            metrics: [
+              { title: "👑 Phương Án Cao Cấp Nhất Cho Phòng Tắm Master", body: "Dùng đồng bộ <strong>600×1200</strong> cho cả tường (Matt mịn R9 ốp dọc) và sàn dưới (Matt nhám R10/R11 đặt dọc chiều sâu <code>1.380 mm = 1.200 + 180 mm</code>), kết hợp <strong>Ga thoát sàn dài âm gạch 800 × 70 mm</strong> đặt sát chân vách sen Khoang Tắm." },
+              { title: "📏 Thông Mạch Từ Sàn Lên Trần Không Đường Cắt Chéo", body: "• Mỗi khoang gần như chỉ còn <strong>1 đường mạch dọc chính tâm</strong> chạy từ cửa kính Slimdoor suốt dưới sàn rồi leo thẳng lên trần <code>+2.400 mm</code>!<br>• Sàn khoang tắm <code>980 × 1.380 mm</code> cán dốc phẳng 1 chiều (<code>1,5–2%</code>) về ga dài <code>800 mm</code> sát tường, cực êm chân trần." },
+              { title: "📦 Khối Lượng Khi Chọn Full 600×1200 Cho WC-02", body: "• Tường <code>600×1200</code> R9: <strong>27,36 m² (19 hộp)</strong> • Sàn <code>600×1200</code> R10/R11: <strong>8,64 m² (6 hộp × 2 viên)</strong> + 01 Ga thoát sàn dài Inox 304 <code>800 mm</code>." }
+            ]
+          }
+        ]
+      }
+    };
+
+    let activeZoneKey = "t1";
+    let activeOptIndex = 0;
+
+    function selectZone(zoneKey) {
+      activeZoneKey = zoneKey;
+      activeOptIndex = 0;
+      document.querySelectorAll(".zone-tab").forEach(btn => {
+        btn.classList.toggle("active", btn.id === "tab-" + zoneKey);
+      });
+      renderControlsAndCanvas();
+    }
+
+    function selectOption(idx) {
+      activeOptIndex = idx;
+      renderControlsAndCanvas();
+    }
+
+    function renderControlsAndCanvas() {
+      const zone = ZONES[activeZoneKey];
+      const opt = zone.options[activeOptIndex];
+
+      document.getElementById("zone-heading").textContent = zone.heading;
+
+      const badge = document.getElementById("option-verdict-badge");
+      badge.textContent = opt.badge;
+      badge.className = opt.isWarn ? "verdict-pill warn" : "verdict-pill";
+
+      const btnWrap = document.getElementById("option-buttons");
+      btnWrap.innerHTML = zone.options.map((o, i) => {
+        const cls = "opt-btn" + (i === activeOptIndex ? " active" : "") + (o.isWarn ? " warn" : "");
+        return `<button type="button" class="${cls}" onclick="selectOption(${i})">${o.label}</button>`;
+      }).join("");
+
+      const metricsWrap = document.getElementById("metrics-grid");
+      metricsWrap.innerHTML = opt.metrics.map(m => `
+        <article class="metric-card">
+          <h4>${m.title}</h4>
+          <div>${m.body}</div>
+        </article>
+      `).join("");
+
+      drawBlueprint();
+    }
+
+    function getPalette() {
+      return {
+        bg: "#080e1c",
+        subGrid: "rgba(51, 65, 85, 0.25)",
+        floor: "#152138",
+        woodFloor: "#291c14",
+        woodAlt: "#231710",
+        grout: "rgba(148, 163, 184, 0.36)",
+        woodStroke: "rgba(217, 155, 102, 0.44)",
+        wallStroke: "#e2e8f0",
+        glass: "#38bdf8",
+        furnFill: "rgba(56, 189, 248, 0.11)",
+        furnStroke: "rgba(56, 189, 248, 0.58)",
+        text: "#f8fafc",
+        muted: "#94a3b8",
+        datumFill: "rgba(245, 158, 11, 0.40)",
+        datumStroke: "#fbbf24",
+        axisLine: "#10b981",
+        warnFill: "rgba(244, 63, 94, 0.42)",
+        warnStroke: "#fb7185",
+        tagBg: "rgba(15, 23, 42, 0.93)",
+        tagBorder: "rgba(148, 163, 184, 0.38)"
+      };
+    }
+
+    function isLayerOn(id) {
+      const el = document.getElementById(id);
+      return !el || el.checked;
+    }
+
+    function drawTag(ctx, x, y, text, pal, accentColor) {
+      if (!isLayerOn("chk-tags")) return;
+      ctx.save();
+      ctx.font = "600 12px -apple-system, BlinkMacSystemFont, sans-serif";
+      const padX = 9;
+      const w = ctx.measureText(text).width + padX * 2;
+      const h = 24;
+      ctx.fillStyle = pal.tagBg;
+      ctx.strokeStyle = accentColor || pal.tagBorder;
+      ctx.lineWidth = accentColor ? 1.6 : 1;
+      ctx.beginPath();
+      ctx.roundRect(x - w / 2, y - h / 2, w, h, 6);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = accentColor || pal.text;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(text, x, y + 0.5);
+      ctx.restore();
+    }
+
+    function drawDatumSymbol(ctx, rx, ry, rw, rh, pal, dirs) {
+      if (!isLayerOn("chk-datum")) return;
+      ctx.save();
+      ctx.fillStyle = pal.datumFill;
+      ctx.strokeStyle = pal.datumStroke;
+      ctx.lineWidth = 2.3;
+      ctx.fillRect(rx, ry, rw, rh);
+      ctx.strokeRect(rx, ry, rw, rh);
+
+      const cx = rx + rw / 2;
+      const cy = ry + rh / 2;
+      const rad = Math.max(4, Math.min(rw, rh) * 0.16);
+      ctx.beginPath();
+      ctx.arc(cx, cy, rad, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.moveTo(rx + 3, cy);
+      ctx.lineTo(rx + rw - 3, cy);
+      ctx.moveTo(cx, ry + 3);
+      ctx.lineTo(cx, ry + rh - 3);
+      ctx.stroke();
+
+      ctx.fillStyle = pal.datumStroke;
+      const arrowLen = 18;
+      (dirs || []).forEach(([dx, dy]) => {
+        const sx = cx + dx * (rw / 2 + 3);
+        const sy = cy + dy * (rh / 2 + 3);
+        const ex = sx + dx * arrowLen;
+        const ey = sy + dy * arrowLen;
+        ctx.beginPath();
+        ctx.moveTo(sx, sy);
+        ctx.lineTo(ex, ey);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(ex, ey, 3.2, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.restore();
+    }
+
+    function drawHerringboneClip(ctx, clipFn, cx, cy, plankW_px, plankL_px, angleRad, pal, drawDatumPair) {
+      ctx.save();
+      clipFn();
+      ctx.clip();
+
+      ctx.fillStyle = pal.woodFloor;
+      ctx.fillRect(0, 0, 2200, 1400);
+
+      ctx.translate(cx, cy);
+      ctx.rotate(angleRad);
+
+      ctx.strokeStyle = pal.woodStroke;
+      ctx.lineWidth = 1.15;
+
+      // Rotate -45 deg and translate +W along u so every outer 90-deg V-tip (-W+kW, kW) lies strictly on y'=0!
+      ctx.save();
+      ctx.rotate(-Math.PI / 4);
+      const W = plankW_px;
+      const N = Math.round(plankL_px / plankW_px);
+      ctx.translate(W, 0);
+
+      const span = 1200;
+      const iMin = -Math.ceil(span / W) - N;
+      const iMax = Math.ceil(span / W) + N;
+
+      for (let i = iMin; i <= iMax; i++) {
+        for (let j = iMin; j <= iMax; j++) {
+          const mod = ((i - j) % (2 * N) + 2 * N) % (2 * N);
+          if (mod === 0) {
+            ctx.strokeRect(i * W, j * W, N * W, W);
+          } else if (mod === N) {
+            ctx.fillStyle = pal.woodAlt;
+            ctx.fillRect(i * W, (j - N + 1) * W, W, N * W);
+            ctx.strokeRect(i * W, (j - N + 1) * W, W, N * W);
+          }
+        }
+      }
+
+      if (drawDatumPair && isLayerOn("chk-datum")) {
+        const pA = { x: 0, y: 0, w: N * W, h: W };
+        const pB = { x: -W, y: 0, w: W, h: N * W };
+        [pA, pB].forEach(p => {
+          ctx.fillStyle = pal.datumFill;
+          ctx.strokeStyle = pal.datumStroke;
+          ctx.lineWidth = 2.4;
+          ctx.fillRect(p.x, p.y, p.w, p.h);
+          ctx.strokeRect(p.x, p.y, p.w, p.h);
+        });
+      }
+      ctx.restore();
+
+      // Laser chalk centerline
+      ctx.save();
+      ctx.strokeStyle = pal.axisLine;
+      ctx.lineWidth = 2.3;
+      ctx.setLineDash([8, 5]);
+      ctx.beginPath();
+      ctx.moveTo(-1100, 0);
+      ctx.lineTo(1100, 0);
+      ctx.stroke();
+      ctx.restore();
+
+      if (drawDatumPair && isLayerOn("chk-datum")) {
+        ctx.fillStyle = pal.datumStroke;
+        ctx.beginPath();
+        ctx.arc(0, 0, 5.2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.restore();
+    }
+
+    function drawBlueprint() {
+      const canvas = document.getElementById("cad-canvas");
+      if (!canvas) return;
+      const rect = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      const W = Math.max(820, Math.round(rect.width));
+      const H = Math.round(W * 9 / 16);
+      canvas.width = W * dpr;
+      canvas.height = H * dpr;
+
+      const ctx = canvas.getContext("2d");
+      ctx.scale(dpr, dpr);
+
+      const pal = getPalette();
+      ctx.fillStyle = pal.bg;
+      ctx.fillRect(0, 0, W, H);
+
+      // Subtle architectural background grid
+      ctx.strokeStyle = pal.subGrid;
+      ctx.lineWidth = 1;
+      for (let gx = 0; gx < W; gx += 32) {
+        ctx.beginPath();
+        ctx.moveTo(gx, 0);
+        ctx.lineTo(gx, H);
+        ctx.stroke();
+      }
+      for (let gy = 0; gy < H; gy += 32) {
+        ctx.beginPath();
+        ctx.moveTo(0, gy);
+        ctx.lineTo(W, gy);
+        ctx.stroke();
+      }
+
+      const opt = ZONES[activeZoneKey].options[activeOptIndex];
+
+      if (activeZoneKey === "t1") {
+        drawT1Plan(ctx, W, H, opt, pal);
+      } else if (activeZoneKey === "master") {
+        drawMasterPlan(ctx, W, H, opt, pal);
+      } else if (activeZoneKey === "bed_ab") {
+        drawBedABPlan(ctx, W, H, opt, pal);
+      } else if (activeZoneKey === "bed_bd") {
+        drawBedBDPlan(ctx, W, H, opt, pal);
+      } else if (activeZoneKey === "study_t3") {
+        drawStudyT3Plan(ctx, W, H, opt, pal);
+      } else if (activeZoneKey === "hall") {
+        drawHallPlan(ctx, W, H, opt, pal);
+      } else if (activeZoneKey === "wc01") {
+        drawWC01Plan(ctx, W, H, opt, pal);
+      } else if (activeZoneKey === "wc02") {
+        drawWC02Plan(ctx, W, H, opt, pal);
+      }
+    }
+
+    function drawT1Plan(ctx, W, H, opt, pal) {
+      const padL = 74, padR = 74, padT = 56, padB = 52;
+      const sc = Math.min((W - padL - padR) / 11760, (H - padT - padB) / 7600);
+      const ox = padL + ((W - padL - padR) - 11760 * sc) / 2;
+      const oy = padT + 4950 * sc;
+      const X = mm => ox + mm * sc;
+      const Y = mm => oy - mm * sc;
+
+      function traceMainFloor() {
+        ctx.beginPath();
+        ctx.moveTo(X(0), Y(0));
+        ctx.lineTo(X(0), Y(4600));
+        ctx.lineTo(X(4510), Y(4600));
+        ctx.lineTo(X(4510), Y(3330));
+        ctx.lineTo(X(6810), Y(3330));
+        ctx.lineTo(X(6810), Y(4950));
+        ctx.lineTo(X(11760), Y(4950));
+        ctx.lineTo(X(11760), Y(2545));
+        ctx.lineTo(X(11380), Y(2545));
+        ctx.lineTo(X(11380), Y(1785));
+        ctx.lineTo(X(8675), Y(1785));
+        ctx.lineTo(X(8675), Y(110));
+        ctx.lineTo(X(3310), Y(110));
+        ctx.lineTo(X(3310), Y(0));
+        if (!opt.splitFoyer) {
+          ctx.lineTo(X(3310), Y(-2650));
+          ctx.lineTo(X(1150), Y(-2650));
+          ctx.lineTo(X(1150), Y(0));
+        }
+        ctx.closePath();
+      }
+
+      function traceFoyerOnly() {
+        ctx.beginPath();
+        ctx.rect(X(1150), Y(0), 2160 * sc, 2650 * sc);
+      }
+
+      const pitch = opt.size + 2;
+
+      ctx.save();
+      traceMainFloor();
+      ctx.fillStyle = pal.floor;
+      ctx.fill();
+      ctx.clip();
+
+      ctx.strokeStyle = pal.grout;
+      ctx.lineWidth = 1.15;
+      for (let k = -15; k <= 20; k++) {
+        const gx = opt.ax + k * pitch;
+        ctx.beginPath();
+        ctx.moveTo(X(gx), Y(-3000));
+        ctx.lineTo(X(gx), Y(5500));
+        ctx.stroke();
+
+        const gy = opt.ay + k * pitch;
+        ctx.beginPath();
+        ctx.moveTo(X(-500), Y(gy));
+        ctx.lineTo(X(12500), Y(gy));
+        ctx.stroke();
+      }
+
+      if (opt.id === "1200_bad") {
+        ctx.fillStyle = pal.warnFill;
+        ctx.strokeStyle = pal.warnStroke;
+        ctx.lineWidth = 2.2;
+        ctx.fillRect(X(1150), Y(0), 52 * sc, 2650 * sc);
+        ctx.strokeRect(X(1150), Y(0), 52 * sc, 2650 * sc);
+      }
+      ctx.restore();
+
+      if (opt.splitFoyer) {
+        ctx.save();
+        traceFoyerOnly();
+        ctx.fillStyle = pal.floor;
+        ctx.fill();
+        ctx.clip();
+        ctx.strokeStyle = pal.grout;
+        ctx.lineWidth = 1.15;
+        for (let k = 0; k <= 6; k++) {
+          const gx = 1150 + k * pitch;
+          ctx.beginPath();
+          ctx.moveTo(X(gx), Y(-2800));
+          ctx.lineTo(X(gx), Y(100));
+          ctx.stroke();
+          const gy = -k * pitch;
+          ctx.beginPath();
+          ctx.moveTo(X(1000), Y(gy));
+          ctx.lineTo(X(3500), Y(gy));
+          ctx.stroke();
+        }
+        drawDatumSymbol(ctx, X(1150), Y(0), opt.size * sc, opt.size * sc, pal, [[1, 0], [0, 1]]);
+        ctx.restore();
+      }
+
+      const dX = opt.ax;
+      const dYTop = opt.ay === 4600 ? 4600 : opt.ay + opt.size;
+      const dirs = opt.ay === 4600
+        ? [[1, 0], [0, 1]]
+        : (opt.ax === 1150 ? [[-1, 0], [1, 0], [0, -1], [0, 1]] : [[1, 0], [0, -1], [0, 1]]);
+      drawDatumSymbol(ctx, X(dX), Y(dYTop), opt.size * sc, opt.size * sc, pal, dirs);
+
+      if (isLayerOn("chk-furn")) {
+        ctx.save();
+        ctx.fillStyle = pal.furnFill;
+        ctx.strokeStyle = pal.furnStroke;
+        ctx.setLineDash([5, 4]);
+        ctx.lineWidth = 1.4;
+        // Kitchen I-cabinet 4950 x 600
+        ctx.fillRect(X(6810), Y(4950), 4950 * sc, 600 * sc);
+        ctx.strokeRect(X(6810), Y(4950), 4950 * sc, 600 * sc);
+        // Island at Axis 3 (KT-2.02 horizontal island 1400x800 + side cabinet 550mm along South wall)
+        ctx.fillRect(X(8275), Y(3600), 800 * sc, 1400 * sc);
+        ctx.strokeRect(X(8275), Y(3600), 800 * sc, 1400 * sc);
+        ctx.fillRect(X(8675), Y(2335), 2500 * sc, 550 * sc);
+        ctx.strokeRect(X(8675), Y(2335), 2500 * sc, 550 * sc);
+        // Shoe cabinet along Tien Sanh South wall
+        ctx.fillRect(X(1450), Y(-2270), 1860 * sc, 380 * sc);
+        ctx.strokeRect(X(1450), Y(-2270), 1860 * sc, 380 * sc);
+        ctx.restore();
+      }
+
+      // Expansion joint 10mm at Y=0
+      ctx.save();
+      ctx.strokeStyle = pal.axisLine;
+      ctx.lineWidth = 3.4;
+      ctx.beginPath();
+      ctx.moveTo(X(1150), Y(0));
+      ctx.lineTo(X(3310), Y(0));
+      ctx.stroke();
+      ctx.restore();
+
+      // Walls & Doors
+      ctx.save();
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.6;
+      traceMainFloor();
+      ctx.stroke();
+      if (opt.splitFoyer) {
+        traceFoyerOnly();
+        ctx.stroke();
+      }
+      ctx.strokeStyle = pal.glass;
+      ctx.lineWidth = 4.2;
+      ctx.beginPath();
+      ctx.moveTo(X(0), Y(400));
+      ctx.lineTo(X(0), Y(4200));
+      ctx.moveTo(X(4700), Y(3330));
+      ctx.lineTo(X(6600), Y(3330));
+      ctx.stroke();
+
+      ctx.strokeStyle = pal.datumStroke;
+      ctx.lineWidth = 4.2;
+      ctx.beginPath();
+      ctx.moveTo(X(1150), Y(-450));
+      ctx.lineTo(X(1150), Y(-2150));
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.fillStyle = pal.muted;
+      ctx.font = "700 12px -apple-system, BlinkMacSystemFont, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("PHÒNG KHÁCH (4,51 × 4,60 m)", X(2250), Y(2500));
+      ctx.fillText("PHÒNG ĂN", X(5660), Y(1950));
+      ctx.fillText("KHU BẾP (4,95 × 3,17 m)", X(9950), Y(3350));
+      ctx.fillText("TIỀN SẢNH", X(2230), Y(-1150));
+      if (isLayerOn("chk-furn")) {
+        ctx.fillText("Tủ bếp chữ I sâu 600mm (che chân tường Bắc)", X(9285), Y(4650));
+      }
+
+      if (opt.id === "1000_sw") {
+        drawTag(ctx, X(500), Y(500), "Định vị #1 (1000×1000)", pal, pal.datumStroke);
+        drawTag(ctx, X(2250), Y(4350), "Biên Bắc PK: 592 mm ✅", pal);
+        drawTag(ctx, X(11000), Y(2750), "Biên Đông: 738 mm ✅", pal);
+        drawTag(ctx, X(2230), Y(-450), "Thông mạch: Cửa D1 854mm | Thang 304mm ✅", pal, pal.axisLine);
+      } else if (opt.id === "1000_nw") {
+        drawTag(ctx, X(500), Y(4100), "Định vị #1 (Góc Tây-Bắc)", pal, pal.datumStroke);
+        drawTag(ctx, X(2450), Y(4350), "Sát tường Bắc PK: Nguyên 1.000 mm ⭐", pal, pal.axisLine);
+        drawTag(ctx, X(5660), Y(3060), "Sát kính Bồn hoa: 734 mm ✅", pal);
+        drawTag(ctx, X(2230), Y(260), "Sát Khe co giãn: 592 mm ✅", pal);
+      } else if (opt.id === "1200_d1") {
+        drawTag(ctx, X(1750), Y(600), "Định vị 1m2 (X=1.150, Y=0)", pal, pal.datumStroke);
+        drawTag(ctx, X(575), Y(1750), "Sát V1: 1.150 mm ⭐", pal, pal.axisLine);
+        drawTag(ctx, X(2250), Y(4350), "Biên Bắc PK: 994 mm ⭐", pal);
+        drawTag(ctx, X(10950), Y(2750), "Biên Đông: 994 mm ⭐", pal);
+        drawTag(ctx, X(2230), Y(-650), "Sát cửa chính D1: Nguyên 1.200 mm ⭐", pal, pal.axisLine);
+      } else if (opt.id === "1200_bad") {
+        drawTag(ctx, X(600), Y(600), "Đặt sai ở (0,0)", pal, pal.datumStroke);
+        drawTag(ctx, X(2350), Y(-1550), "⚠️ LỖI: Mẩu gạch vụn 52 mm ngay cửa chính D1!", pal, pal.warnStroke);
+      } else if (opt.id === "800_orig") {
+        drawTag(ctx, X(550), Y(400), "Định vị #1 (800)", pal, pal.datumStroke);
+        drawTag(ctx, X(2200), Y(-400), "Định vị #2 (Lệch mạch 350mm)", pal, pal.datumStroke);
+        drawTag(ctx, X(2250), Y(4350), "Biên Bắc: 590 mm", pal);
+        drawTag(ctx, X(11000), Y(2750), "Biên Đông: 532 mm", pal);
+      }
+
+      ctx.fillStyle = pal.text;
+      ctx.font = "600 12px -apple-system, BlinkMacSystemFont, sans-serif";
+      ctx.fillText("← Tổng chiều dài thông thủy suốt Trục 1 → Trục 4: 11.760 mm (11,76 m) →", X(5880), padT - 22);
+      ctx.save();
+      ctx.translate(ox - 24, Y(2300));
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillText("Vách kính V1 • 4.600 mm", 0, 0);
+      ctx.restore();
+    }
+
+    function drawMasterPlan(ctx, W, H, opt, pal) {
+      const pad = 54;
+      const sc = Math.min((W - pad * 2) / 5710, (H - pad * 2) / 3910);
+      const ox = (W - 5710 * sc) / 2;
+      const oy = (H - 3910 * sc) / 2;
+      const U = u => ox + u * sc;
+      const V = v => oy + v * sc;
+
+      function clipRoom() {
+        ctx.beginPath();
+        ctx.moveTo(U(0), V(0));
+        ctx.lineTo(U(5710), V(0));
+        ctx.lineTo(U(5710), V(3910));
+        ctx.lineTo(U(2700), V(3910));
+        ctx.lineTo(U(2700), V(3440));
+        ctx.lineTo(U(0), V(3440));
+        ctx.closePath();
+      }
+
+      drawHerringboneClip(ctx, clipRoom, U(2250), V(1720), opt.plankW * sc, opt.plankL * sc, 0, pal, true);
+
+      if (isLayerOn("chk-furn")) {
+        ctx.save();
+        ctx.fillStyle = pal.furnFill;
+        ctx.strokeStyle = pal.furnStroke;
+        ctx.setLineDash([5, 4]);
+        ctx.lineWidth = 1.5;
+        ctx.fillRect(U(0), V(0), 600 * sc, 1180 * sc);
+        ctx.strokeRect(U(0), V(0), 600 * sc, 1180 * sc);
+        ctx.fillRect(U(0), V(2260), 600 * sc, 1180 * sc);
+        ctx.strokeRect(U(0), V(2260), 600 * sc, 1180 * sc);
+        ctx.fillRect(U(1250), V(1720 - 575), 550 * sc, 1150 * sc);
+        ctx.strokeRect(U(1250), V(1720 - 575), 550 * sc, 1150 * sc);
+        ctx.fillRect(U(2580), V(1720 - 625), 450 * sc, 1250 * sc);
+        ctx.strokeRect(U(2580), V(1720 - 625), 450 * sc, 1250 * sc);
+        ctx.fillRect(U(3510), V(1720 - 1000), 2200 * sc, 2000 * sc);
+        ctx.strokeRect(U(3510), V(1720 - 1000), 2200 * sc, 2000 * sc);
+        ctx.fillRect(U(2950), V(3310), 2010 * sc, 600 * sc);
+        ctx.strokeRect(U(2950), V(3310), 2010 * sc, 600 * sc);
+        ctx.restore();
+      }
+
+      ctx.save();
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.8;
+      clipRoom();
+      ctx.stroke();
+
+      ctx.strokeStyle = pal.glass;
+      ctx.lineWidth = 4.2;
+      ctx.beginPath();
+      ctx.moveTo(U(0), V(1180));
+      ctx.lineTo(U(0), V(2260));
+      ctx.moveTo(U(3000), V(0));
+      ctx.lineTo(U(5300), V(0));
+      ctx.stroke();
+
+      ctx.strokeStyle = pal.datumStroke;
+      ctx.lineWidth = 4.2;
+      ctx.beginPath();
+      ctx.moveTo(U(1800), V(3440));
+      ctx.lineTo(U(2700), V(3440));
+      ctx.stroke();
+      ctx.restore();
+
+      drawTag(ctx, U(2250), V(2320), "Cặp Viên Định Vị Chữ V #1 (Chính diện cửa O1)", pal, pal.datumStroke);
+      drawTag(ctx, U(4450), V(1720), "Giường Master 2,0×2,2m (Trùng khít Trục Tim X=1.720 mm)", pal, pal.axisLine);
+      drawTag(ctx, U(1525), V(1060), "Đảo Kính Phụ Kiện", pal);
+      drawTag(ctx, U(2250), V(3640), "🚪 Cửa O1 từ Hành lang T2", pal);
+
+      ctx.fillStyle = pal.text;
+      ctx.font = "600 12px -apple-system, BlinkMacSystemFont, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("← KHU THAY ĐỒ (2.700 mm)  •  BỎ VÁCH TIVI THÔNG SUỐT 5.710 mm (5,71 m)  •  KHU NGỦ MASTER (3.010 mm) →", U(2855), oy - 18);
+    }
+
+    function drawBedABPlan(ctx, W, H, opt, pal) {
+      const pad = 58;
+      const sc = Math.min((W - pad * 2) / 4295, (H - pad * 2) / 3000);
+      const ox = (W - 4295 * sc) / 2;
+      const oy = (H - 3000 * sc) / 2;
+      const U = u => ox + u * sc;
+      const V = v => oy + v * sc;
+
+      function clipRoom() {
+        ctx.beginPath();
+        ctx.rect(U(0), V(0), 4295 * sc, 3000 * sc);
+      }
+
+      drawHerringboneClip(ctx, clipRoom, U(2145), V(1500), opt.plankW * sc, opt.plankL * sc, 0, pal, true);
+
+      if (isLayerOn("chk-furn")) {
+        ctx.save();
+        ctx.fillStyle = pal.furnFill;
+        ctx.strokeStyle = pal.furnStroke;
+        ctx.setLineDash([5, 4]);
+        ctx.lineWidth = 1.5;
+        ctx.fillRect(U(2295), V(600), 2000 * sc, 1800 * sc);
+        ctx.strokeRect(U(2295), V(600), 2000 * sc, 1800 * sc);
+        ctx.fillRect(U(0), V(900), 600 * sc, 2100 * sc);
+        ctx.strokeRect(U(0), V(900), 600 * sc, 2100 * sc);
+        ctx.restore();
+      }
+
+      ctx.save();
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.8;
+      clipRoom();
+      ctx.stroke();
+
+      ctx.strokeStyle = pal.datumStroke;
+      ctx.lineWidth = 4.5;
+      ctx.beginPath();
+      ctx.moveTo(U(0), V(50));
+      ctx.lineTo(U(0), V(900));
+      ctx.stroke();
+
+      ctx.strokeStyle = pal.glass;
+      ctx.lineWidth = 4.5;
+      ctx.beginPath();
+      ctx.moveTo(U(900), V(3000));
+      ctx.lineTo(U(2900), V(3000));
+      ctx.stroke();
+      ctx.restore();
+
+      drawTag(ctx, U(1600), V(1500), "Cặp Viên Chữ V #1 (Cách tường đầu giường 2.150 mm)", pal, pal.datumStroke);
+      drawTag(ctx, U(3300), V(1500), "Giường 1,8×2,0m (Chính tâm Dây mực X = 1.500 mm)", pal, pal.axisLine);
+      drawTag(ctx, U(460), V(450), "🚪 Cửa Lim D3", pal);
+      drawTag(ctx, U(1900), V(2810), "🪟 Cửa Ban công Đông D4", pal);
+
+      ctx.fillStyle = pal.text;
+      ctx.font = "600 12px -apple-system, BlinkMacSystemFont, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("← Chiều dài Bắc → Nam: 4.295 mm • Mũi xương cá dẫn hướng từ Cửa D3 về Đầu Giường →", U(2147), oy - 18);
+      ctx.save();
+      ctx.translate(ox - 22, V(1500));
+      ctx.rotate(-Math.PI / 2);
+      ctx.fillText("Ngang 3.000 mm (Tim = 1.500)", 0, 0);
+      ctx.restore();
+    }
+
+    function drawBedBDPlan(ctx, W, H, opt, pal) {
+      const pad = 58;
+      const sc = Math.min((W - pad * 2) / 4950, (H - pad * 2) / 3165);
+      const ox = (W - 4950 * sc) / 2;
+      const oy = (H - 3165 * sc) / 2;
+      const X = x => ox + x * sc;
+      const Y = y => oy + y * sc;
+
+      function clipRoom() {
+        ctx.beginPath();
+        ctx.rect(X(0), Y(0), 4950 * sc, 3165 * sc);
+      }
+
+      if (opt.mode === "straight") {
+        ctx.save();
+        clipRoom();
+        ctx.fillStyle = pal.woodFloor;
+        ctx.fill();
+        ctx.clip();
+        ctx.strokeStyle = pal.woodStroke;
+        ctx.lineWidth = 1.15;
+        const pW = opt.plankW * sc;
+        const pL = opt.plankL * sc;
+        for (let r = 0; r <= 24; r++) {
+          const yy = oy + r * pW;
+          const stag = (r % 4) * (pL * 0.25);
+          for (let c = -2; c <= 8; c++) {
+            ctx.strokeRect(ox + c * pL + stag, yy, pL, pW);
+          }
+        }
+        drawDatumSymbol(ctx, X(0), Y(0), pL, pW, pal, [[1, 0], [0, 1]]);
+        ctx.restore();
+      } else {
+        drawHerringboneClip(ctx, clipRoom, X(2200), Y(1580), opt.plankW * sc, opt.plankL * sc, 0, pal, true);
+      }
+
+      if (isLayerOn("chk-furn")) {
+        ctx.save();
+        ctx.fillStyle = pal.furnFill;
+        ctx.strokeStyle = pal.furnStroke;
+        ctx.setLineDash([5, 4]);
+        ctx.lineWidth = 1.5;
+        ctx.fillRect(X(2100), Y(0), 1800 * sc, 2000 * sc);
+        ctx.strokeRect(X(2100), Y(0), 1800 * sc, 2000 * sc);
+        ctx.fillRect(X(0), Y(350), 600 * sc, 1800 * sc);
+        ctx.strokeRect(X(0), Y(350), 600 * sc, 1800 * sc);
+        ctx.fillRect(X(1300), Y(2565), 3200 * sc, 600 * sc);
+        ctx.strokeRect(X(1300), Y(2565), 3200 * sc, 600 * sc);
+        ctx.restore();
+      }
+
+      ctx.save();
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.8;
+      clipRoom();
+      ctx.stroke();
+
+      ctx.strokeStyle = pal.datumStroke;
+      ctx.lineWidth = 4.5;
+      ctx.beginPath();
+      ctx.moveTo(X(150), Y(3165));
+      ctx.lineTo(X(1050), Y(3165));
+      ctx.stroke();
+
+      ctx.strokeStyle = pal.glass;
+      ctx.lineWidth = 4.5;
+      ctx.beginPath();
+      ctx.moveTo(X(4950), Y(550));
+      ctx.lineTo(X(4950), Y(2550));
+      ctx.stroke();
+      ctx.restore();
+
+      if (opt.mode === "straight") {
+        drawTag(ctx, X(2475), Y(1580), "Đối chiếu: Lát thẳng so le 1/4 (225 mm) dọc chiều 4,95m", pal);
+      } else {
+        drawTag(ctx, X(1800), Y(1580), "Cặp Viên Chữ V #1 (X=2.200, Y=1.580 mm)", pal, pal.datumStroke);
+        drawTag(ctx, X(3820), Y(1580), "Trục Đông–Tây đón nắng Ban công D8 ☀️", pal, pal.axisLine);
+      }
+      drawTag(ctx, X(650), Y(2960), "🚪 Cửa Lim D3", pal);
+
+      ctx.fillStyle = pal.text;
+      ctx.font = "600 12px -apple-system, BlinkMacSystemFont, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("← Chiều dài Tây → Đông: 4.950 mm (4,95 m) • Rộng Nam–Bắc: 3.165 mm →", X(2475), oy - 18);
+    }
+
+    function drawStudyT3Plan(ctx, W, H, opt, pal) {
+      // Drawn horizontally: North (Study 4.240m, left) -> 200mm partition with 2.400m trackless glass door -> South (Worship/Bedroom 2.270m, right)
+      // Total length U = 4240 + 200 + 2270 = 6710 mm; Width V: Study = 3420 mm (v in [0..3420]), Worship = 2950 mm (v in [0..2950])
+      const pad = 56;
+      const sc = Math.min((W - pad * 2) / 6710, (H - pad * 2) / 3420);
+      const ox = (W - 6710 * sc) / 2;
+      const oy = (H - 3420 * sc) / 2;
+      const U = u => ox + u * sc;
+      const V = v => oy + v * sc;
+
+      function clipDoubleRoom() {
+        ctx.beginPath();
+        // Study [0..4240] x [0..3420] + Sliding door opening [4240..4440] x [510..2910] + Worship [4440..6710] x [0..2950]
+        ctx.moveTo(U(0), V(0));
+        ctx.lineTo(U(6710), V(0));
+        ctx.lineTo(U(6710), V(2950));
+        ctx.lineTo(U(4440), V(2950));
+        ctx.lineTo(U(4440), V(2910));
+        ctx.lineTo(U(4240), V(2910));
+        ctx.lineTo(U(4240), V(3420));
+        ctx.lineTo(U(0), V(3420));
+        ctx.closePath();
+      }
+
+      // Continuous centerline at v = 1710 mm from West wall, first V-pair at u = 2120 mm!
+      drawHerringboneClip(ctx, clipDoubleRoom, U(2120), V(1710), opt.plankW * sc, opt.plankL * sc, 0, pal, true);
+
+      // Left stub wall at sliding partition [4240..4440] x [0..510]
+      ctx.save();
+      ctx.fillStyle = pal.bg;
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.4;
+      ctx.fillRect(U(4240), V(0), 200 * sc, 510 * sc);
+      ctx.strokeRect(U(4240), V(0), 200 * sc, 510 * sc);
+      ctx.restore();
+
+      if (isLayerOn("chk-furn")) {
+        ctx.save();
+        ctx.fillStyle = pal.furnFill;
+        ctx.strokeStyle = pal.furnStroke;
+        ctx.setLineDash([5, 4]);
+        ctx.lineWidth = 1.5;
+        // Double desk along West wall (v=0..650, u=900..3300)
+        ctx.fillRect(U(900), V(0), 2400 * sc, 650 * sc);
+        ctx.strokeRect(U(900), V(0), 2400 * sc, 650 * sc);
+        // Bookcase along North wall (u=0..400, v=700..3100)
+        ctx.fillRect(U(0), V(700), 400 * sc, 2400 * sc);
+        ctx.strokeRect(U(0), V(700), 400 * sc, 2400 * sc);
+        // Altar / Bed zone in South room
+        ctx.fillRect(U(5950), V(650), 760 * sc, 1550 * sc);
+        ctx.strokeRect(U(5950), V(650), 760 * sc, 1550 * sc);
+        ctx.restore();
+      }
+
+      ctx.save();
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.8;
+      clipDoubleRoom();
+      ctx.stroke();
+
+      // Trackless 4-panel glass sliding door dashed cyan line across u=4340, v=510..2910
+      ctx.strokeStyle = pal.glass;
+      ctx.lineWidth = 4;
+      ctx.setLineDash([7, 4]);
+      ctx.beginPath();
+      ctx.moveTo(U(4340), V(510));
+      ctx.lineTo(U(4340), V(2910));
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // West windows S4 & V4 + Entry Door D3 on East wall
+      ctx.beginPath();
+      ctx.moveTo(U(400), V(0));
+      ctx.lineTo(U(1200), V(0));
+      ctx.moveTo(U(2560), V(0));
+      ctx.lineTo(U(3660), V(0));
+      ctx.stroke();
+
+      ctx.strokeStyle = pal.datumStroke;
+      ctx.lineWidth = 4.2;
+      ctx.beginPath();
+      ctx.moveTo(U(3250), V(3420));
+      ctx.lineTo(U(4150), V(3420));
+      ctx.stroke();
+      ctx.restore();
+
+      drawTag(ctx, U(2120), V(1710), "Cặp Chữ V #1 (Trục Tim X = 1.710 mm từ tường Tây)", pal, pal.datumStroke);
+      drawTag(ctx, U(4340), V(1320), "Cửa lùa 4 cánh ray treo — Lát xuyên không bậu đá! ⭐", pal, pal.axisLine);
+      drawTag(ctx, U(3700), V(3220), "🚪 Cửa D3 từ Hành lang T3", pal);
+
+      ctx.fillStyle = pal.text;
+      ctx.font = "600 12px -apple-system, BlinkMacSystemFont, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("← PHÒNG LÀM VIỆC ĐÔI (4.240 × 3.420 mm)  •  LÁT LIỀN MẠCH 6,71m  •  P.NGỦ THỜ (2.270 × 2.950 mm) →", U(3355), oy - 18);
+    }
+
+    function drawHallPlan(ctx, W, H, opt, pal) {
+      const pad = 70;
+      const sc = Math.min((W - pad * 2) / 5040, (H - pad * 2) / 2200);
+      const ox = (W - 5040 * sc) / 2;
+      const oy = (H - 1750 * sc) / 2 + 1280 * sc;
+      const X = x => ox + x * sc;
+      const Y = y => oy - y * sc;
+
+      function clipHall() {
+        ctx.beginPath();
+        ctx.moveTo(X(0), Y(0));
+        ctx.lineTo(X(0), Y(1280));
+        ctx.lineTo(X(5040), Y(1280));
+        ctx.lineTo(X(5040), Y(-470));
+        ctx.lineTo(X(2430), Y(-470));
+        ctx.lineTo(X(2430), Y(0));
+        ctx.closePath();
+      }
+
+      if (opt.mode === "hb") {
+        drawHerringboneClip(ctx, clipHall, X(900), Y(640), 150 * sc, 900 * sc, 0, pal, true);
+      } else {
+        const size = opt.mode === "800" ? 800 : 1200;
+        const pitch = size + 2;
+        ctx.save();
+        clipHall();
+        ctx.fillStyle = pal.floor;
+        ctx.fill();
+        ctx.clip();
+
+        ctx.strokeStyle = pal.grout;
+        ctx.lineWidth = 1.2;
+        for (let k = -2; k <= 8; k++) {
+          ctx.beginPath();
+          ctx.moveTo(X(k * pitch), Y(-600));
+          ctx.lineTo(X(k * pitch), Y(1400));
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.moveTo(X(-100), Y(k * pitch));
+          ctx.lineTo(X(5200), Y(k * pitch));
+          ctx.stroke();
+        }
+
+        if (opt.mode === "1200_warn") {
+          ctx.fillStyle = pal.warnFill;
+          ctx.strokeStyle = pal.warnStroke;
+          ctx.lineWidth = 2.2;
+          ctx.fillRect(X(0), Y(1280), 5040 * sc, 78 * sc);
+          ctx.strokeRect(X(0), Y(1280), 5040 * sc, 78 * sc);
+        }
+        ctx.restore();
+
+        drawDatumSymbol(ctx, X(0), Y(size), size * sc, size * sc, pal, [[1, 0], [0, -1]]);
+      }
+
+      ctx.save();
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.8;
+      clipHall();
+      ctx.stroke();
+
+      ctx.strokeStyle = pal.glass;
+      ctx.lineWidth = 4.2;
+      ctx.beginPath();
+      ctx.moveTo(X(700), Y(0));
+      ctx.lineTo(X(2430), Y(0));
+      ctx.moveTo(X(1200), Y(1280));
+      ctx.lineTo(X(3200), Y(1280));
+      ctx.stroke();
+      ctx.restore();
+
+      if (opt.mode === "800") {
+        drawTag(ctx, X(400), Y(400), "Định vị 800×800", pal, pal.datumStroke);
+        drawTag(ctx, X(2600), Y(1040), "Hàng trên: 478 mm (60% viên — Cực kỳ cân đối!) ✅", pal, pal.axisLine);
+      } else if (opt.mode === "hb") {
+        drawTag(ctx, X(2520), Y(640), "Trục Tim Đông–Tây (Y = 640 mm) — Lát tràn thẳng vào 3 Phòng Ngủ!", pal, pal.axisLine);
+      } else {
+        drawTag(ctx, X(2650), Y(1235), "⚠️ LỖI: Dải gạch cắt vụn 78 mm (7,8 cm) chạy dọc suốt 5,04 m!", pal, pal.warnStroke);
+      }
+
+      ctx.fillStyle = pal.text;
+      ctx.font = "600 12px -apple-system, BlinkMacSystemFont, sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("← Hành lang Tầng 2 & Tầng 3 dài 5.040 mm • Đoạn dọc lan can kính cầu thang rộng 1.280 mm →", X(2520), Y(1280) - 22);
+    }
+
+    // Shared CAD Helpers for WC Floor + Unfolded Wall Elevation Views
+    function drawCadDimRow(ctx, xStartPx, yPx, segsMm, sc, pal, warnIdx) {
+      if (!isLayerOn("chk-tags")) return;
+      ctx.save();
+      let curX = xStartPx;
+      ctx.font = "700 10.5px -apple-system, BlinkMacSystemFont, sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "bottom";
+
+      segsMm.forEach((seg, idx) => {
+        const wPx = seg * sc;
+        const nextX = curX + wPx;
+        const isW = idx === warnIdx || seg < 120;
+        ctx.strokeStyle = isW ? pal.warnStroke : "rgba(94, 234, 212, 0.65)";
+        ctx.lineWidth = isW ? 1.8 : 1.1;
+
+        ctx.beginPath();
+        ctx.moveTo(curX, yPx);
+        ctx.lineTo(nextX, yPx);
+        ctx.moveTo(curX, yPx - 4);
+        ctx.lineTo(curX, yPx + 4);
+        ctx.moveTo(nextX, yPx - 4);
+        ctx.lineTo(nextX, yPx + 4);
+        ctx.stroke();
+
+        ctx.fillStyle = isW ? "#fda4af" : "#e2e8f0";
+        const label = seg >= 180 ? String(seg) : `${seg}!`;
+        ctx.fillText(label, (curX + nextX) / 2, yPx - 3);
+        curX = nextX;
+      });
+      ctx.restore();
+    }
+
+    function drawElevTicks(ctx, xPx, yTopPx, heightMm, stepMm, sc, pal, alignLeft) {
+      if (!isLayerOn("chk-tags")) return;
+      ctx.save();
+      ctx.font = "600 10px ui-monospace, SFMono-Regular, Menlo, monospace";
+      ctx.textBaseline = "middle";
+      ctx.textAlign = alignLeft ? "right" : "left";
+      for (let z = 0; z <= heightMm; z += stepMm) {
+        const py = yTopPx + (heightMm - z) * sc;
+        const isMidOrTop = z === 0 || z === 1200 || z === 2400;
+        ctx.strokeStyle = isMidOrTop ? "#5eead4" : pal.warnStroke;
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(xPx - 4, py);
+        ctx.lineTo(xPx + 4, py);
+        ctx.stroke();
+
+        ctx.fillStyle = isMidOrTop ? "#99f6e4" : "#fda4af";
+        const txt = z === 0 ? "±0.00" : `+${(z / 1000).toFixed(2)}m`;
+        ctx.fillText(txt, alignLeft ? xPx - 7 : xPx + 7, py);
+      }
+      ctx.restore();
+    }
+
+    function drawSquareDrainIcon(ctx, cx, cy, halfPx, pal, isWarn) {
+      ctx.save();
+      const s = Math.max(5, halfPx);
+      ctx.fillStyle = isWarn ? "rgba(244, 63, 94, 0.35)" : "rgba(56, 189, 248, 0.22)";
+      ctx.strokeStyle = isWarn ? pal.warnStroke : pal.glass;
+      ctx.lineWidth = 1.5;
+      ctx.fillRect(cx - s, cy - s, s * 2, s * 2);
+      ctx.strokeRect(cx - s, cy - s, s * 2, s * 2);
+      ctx.beginPath();
+      ctx.arc(cx, cy, s * 0.55, 0, Math.PI * 2);
+      ctx.moveTo(cx - s, cy - s);
+      ctx.lineTo(cx + s, cy + s);
+      ctx.moveTo(cx + s, cy - s);
+      ctx.lineTo(cx - s, cy + s);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawLinearDrainIcon(ctx, rx, ry, rw, rh, pal) {
+      ctx.save();
+      ctx.fillStyle = "rgba(16, 185, 129, 0.32)";
+      ctx.strokeStyle = "#34d399";
+      ctx.lineWidth = 1.8;
+      ctx.fillRect(rx, ry, rw, rh);
+      ctx.strokeRect(rx, ry, rw, rh);
+      ctx.beginPath();
+      const slots = 7;
+      for (let i = 1; i < slots; i++) {
+        const sx = rx + (rw * i) / slots;
+        ctx.moveTo(sx, ry + 2);
+        ctx.lineTo(sx, ry + rh - 2);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    function drawSlopeArrow(ctx, x1, y1, x2, y2, color) {
+      ctx.save();
+      ctx.strokeStyle = color;
+      ctx.fillStyle = color;
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+      const ang = Math.atan2(y2 - y1, x2 - x1);
+      const head = 6;
+      ctx.beginPath();
+      ctx.moveTo(x2, y2);
+      ctx.lineTo(x2 - head * Math.cos(ang - 0.45), y2 - head * Math.sin(ang - 0.45));
+      ctx.lineTo(x2 - head * Math.cos(ang + 0.45), y2 - head * Math.sin(ang + 0.45));
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+    }
+
+    function drawWC01Plan(ctx, W, H, opt, pal) {
+      // 3 coordinated panels: [1] Floor L-shape 2480x2540 | [2] Main Wall 3-3 2480x2400 | [3] Side Wall 4-4 1400x2400
+      const gap1 = 520, gap2 = 480;
+      const totalW = 2480 + gap1 + 2480 + gap2 + 1400; // 7360 mm
+      const totalH = 2540;
+      const padL = 46, padR = 46, padT = 68, padB = 54;
+      const sc = Math.min((W - padL - padR) / totalW, (H - padT - padB) / totalH);
+      const ox = padL + ((W - padL - padR) - totalW * sc) / 2;
+      const oy = padT + ((H - padT - padB) - totalH * sc) / 2;
+
+      const fx0 = ox;
+      const wx0 = ox + (2480 + gap1) * sc;
+      const sx0 = ox + (2480 + gap1 + 2480 + gap2) * sc;
+      const FX = mm => fx0 + mm * sc;
+      const FY = mm => oy + mm * sc;
+      const WX = mm => wx0 + mm * sc;
+      const WY = zMm => oy + (2400 - zMm) * sc;
+      const SX = mm => sx0 + mm * sc;
+      const SY = zMm => oy + (2400 - zMm) * sc;
+
+      // Panel Titles
+      ctx.save();
+      ctx.font = "800 12px -apple-system, BlinkMacSystemFont, sans-serif";
+      ctx.textAlign = "left";
+      ctx.fillStyle = "#5eead4";
+      ctx.fillText("① MẶT BẰNG SÀN DƯỚI WC-01 (CHỮ L 2.480×2.540)", fx0, oy - 26);
+      ctx.fillStyle = "#fde68a";
+      ctx.fillText("② MẶT ĐỨNG TƯỜNG TRÊN 3-3 (2.480 × CAO 2.400)", wx0, oy - 26);
+      ctx.fillStyle = "#7dd3fc";
+      ctx.fillText("③ VÁCH SEN / LAVABO (1.400×2.400)", sx0, oy - 26);
+      ctx.restore();
+
+      // ================= PANEL 1: WC-01 L-SHAPED FLOOR PLAN =================
+      function traceWC01Floor() {
+        ctx.beginPath();
+        // Upper main bay 0..2480 x 0..1400
+        ctx.rect(FX(0), FY(0), 2480 * sc, 1400 * sc);
+        // Door passage between upper bay & toilet bay (x=650..1340, y=1400..1560)
+        ctx.rect(FX(650), FY(1400), 690 * sc, 160 * sc);
+        // Lower toilet alcove (x=260..1365, y=1560..2540 => 1105 x 980 mm)
+        ctx.rect(FX(260), FY(1560), 1105 * sc, 980 * sc);
+      }
+
+      ctx.save();
+      traceWC01Floor();
+      ctx.fillStyle = pal.floor;
+      ctx.fill();
+      ctx.clip();
+
+      // Recessed wet shower zone (-20mm) at x=1490..2480, y=0..1400
+      ctx.fillStyle = "rgba(14, 165, 233, 0.13)";
+      ctx.fillRect(FX(1490), FY(0), 990 * sc, 1400 * sc);
+
+      // Floor grout grid: X joints always [290, 890, 1490, 2090] in upper bay & x=765 in toilet bay
+      ctx.strokeStyle = pal.grout;
+      ctx.lineWidth = 1.25;
+      [290, 890, 1490, 2090].forEach(jx => {
+        ctx.beginPath();
+        ctx.moveTo(FX(jx), FY(0));
+        ctx.lineTo(FX(jx), FY(1560));
+        ctx.stroke();
+      });
+      // Toilet bay vertical joint (505 + 600 = 1105 => x = 260 + 505 = 765)
+      ctx.beginPath();
+      ctx.moveTo(FX(765), FY(1560));
+      ctx.lineTo(FX(765), FY(2540));
+      ctx.stroke();
+
+      const isFloor1200 = opt.floorMode !== "600_sq";
+      const upperYJoints = isFloor1200 ? [1200] : [600, 1200];
+      upperYJoints.forEach(jy => {
+        ctx.beginPath();
+        ctx.moveTo(FX(0), FY(jy));
+        ctx.lineTo(FX(2480), FY(jy));
+        ctx.stroke();
+      });
+      // Toilet bay horizontal centerline joint (490 + 490 = 980 => y = 1560 + 490 = 2050)
+      ctx.beginPath();
+      ctx.moveTo(FX(260), FY(2050));
+      ctx.lineTo(FX(1365), FY(2050));
+      ctx.stroke();
+
+      // Bad drain warning: 600x1200 floor slabs forced into 4-way diagonal envelope cuts around corner square drain (2330, 150)
+      if (opt.floorMode === "600x1200_bad_drain") {
+        ctx.fillStyle = "rgba(244, 63, 94, 0.24)";
+        ctx.fillRect(FX(1490), FY(0), 990 * sc, 1400 * sc);
+        ctx.strokeStyle = pal.warnStroke;
+        ctx.lineWidth = 2.0;
+        ctx.setLineDash([5, 3]);
+        [[1490, 0], [2480, 0], [2480, 1400], [1490, 1400]].forEach(([cx, cy]) => {
+          ctx.beginPath();
+          ctx.moveTo(FX(cx), FY(cy));
+          ctx.lineTo(FX(2330), FY(150));
+          ctx.stroke();
+        });
+        ctx.setLineDash([]);
+      }
+      ctx.restore();
+
+      // Datum Floor Tiles
+      const d1H = isFloor1200 ? 1200 : 600;
+      drawDatumSymbol(ctx, FX(890), FY(0), 600 * sc, d1H * sc, pal, [[-1, 0], [1, 0], [0, 1]]);
+      drawDatumSymbol(ctx, FX(765), FY(1560), 600 * sc, 490 * sc, pal, [[-1, 0], [0, 1]]);
+
+      // Drains & Slope Arrows on Floor
+      drawSquareDrainIcon(ctx, FX(200), FY(200), 65 * sc, pal, false);
+      drawSquareDrainIcon(ctx, FX(380), FY(1680), 65 * sc, pal, false);
+      if (opt.floorMode === "600x1200_linear") {
+        drawLinearDrainIcon(ctx, FX(1535), FY(55), 900 * sc, 75 * sc, pal);
+        [1680, 1985, 2290].forEach(ax => {
+          drawSlopeArrow(ctx, FX(ax), FY(1150), FX(ax), FY(190), "#34d399");
+        });
+      } else {
+        const bad = opt.floorMode === "600x1200_bad_drain";
+        drawSquareDrainIcon(ctx, FX(2330), FY(150), 70 * sc, pal, bad);
+        drawSlopeArrow(ctx, FX(1720), FY(980), FX(2240), FY(250), bad ? pal.warnStroke : "#38bdf8");
+      }
+
+      // Technical Plumbing Box (0..260 x 1560..2540)
+      ctx.save();
+      ctx.fillStyle = "rgba(15, 23, 42, 0.9)";
+      ctx.strokeStyle = "rgba(148, 163, 184, 0.5)";
+      ctx.lineWidth = 1.4;
+      ctx.fillRect(FX(0), FY(1560), 260 * sc, 980 * sc);
+      ctx.strokeRect(FX(0), FY(1560), 260 * sc, 980 * sc);
+      ctx.beginPath();
+      ctx.moveTo(FX(0), FY(1560));
+      ctx.lineTo(FX(260), FY(2540));
+      ctx.moveTo(FX(260), FY(1560));
+      ctx.lineTo(FX(0), FY(2540));
+      ctx.stroke();
+      ctx.restore();
+
+      // Floor Fixtures (Lavabo, Toilet, Shower Glass, Entry Door DW1)
+      if (isLayerOn("chk-furn")) {
+        ctx.save();
+        ctx.fillStyle = pal.furnFill;
+        ctx.strokeStyle = pal.furnStroke;
+        ctx.lineWidth = 1.5;
+        // Double Lavabo vanity 0..500 x 0..1400
+        ctx.fillRect(FX(0), FY(0), 500 * sc, 1400 * sc);
+        ctx.strokeRect(FX(0), FY(0), 500 * sc, 1400 * sc);
+        [400, 1000].forEach(by => {
+          ctx.beginPath();
+          ctx.arc(FX(260), FY(by), 145 * sc, 0, Math.PI * 2);
+          ctx.stroke();
+        });
+        // 1-piece Toilet mounted on x=260, centered at y=2050
+        ctx.beginPath();
+        ctx.roundRect(FX(260), FY(1860), 660 * sc, 380 * sc, [4, 24, 24, 4]);
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // Floor Outer Walls + Glass Shower Partition (x=1490) + Door DW1 (x=610..1350)
+      ctx.save();
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.4;
+      ctx.beginPath();
+      ctx.moveTo(FX(0), FY(0));
+      ctx.lineTo(FX(610), FY(0));
+      ctx.moveTo(FX(1350), FY(0));
+      ctx.lineTo(FX(2480), FY(0));
+      ctx.lineTo(FX(2480), FY(1400));
+      ctx.lineTo(FX(1365), FY(1400));
+      ctx.lineTo(FX(1365), FY(2540));
+      ctx.lineTo(FX(260), FY(2540));
+      ctx.lineTo(FX(260), FY(1560));
+      ctx.lineTo(FX(650), FY(1560));
+      ctx.moveTo(FX(650), FY(1400));
+      ctx.lineTo(FX(0), FY(1400));
+      ctx.closePath();
+      ctx.stroke();
+
+      // Door DW1 leaf + Glass Shower Line
+      ctx.strokeStyle = pal.glass;
+      ctx.lineWidth = 3.2;
+      ctx.beginPath();
+      ctx.moveTo(FX(1490), FY(0));
+      ctx.lineTo(FX(1490), FY(1400));
+      ctx.stroke();
+
+      ctx.strokeStyle = "#fbbf24";
+      ctx.lineWidth = 1.6;
+      ctx.setLineDash([4, 3]);
+      ctx.beginPath();
+      ctx.moveTo(FX(610), FY(0));
+      ctx.lineTo(FX(610), FY(740));
+      ctx.arc(FX(610), FY(0), 740 * sc, Math.PI / 2, 0, true);
+      ctx.stroke();
+      ctx.restore();
+
+      drawCadDimRow(ctx, fx0, oy - 7, [290, 600, 600, 600, 390], sc, pal, -1);
+
+      // ================= PANEL 2: MAIN WALL ELEVATION 3-3 (2480 x 2400 mm) =================
+      ctx.save();
+      ctx.fillStyle = "#182640";
+      ctx.fillRect(WX(0), WY(2400), 2480 * sc, 2400 * sc);
+
+      if (opt.wallOrient === "vertical") {
+        ctx.strokeStyle = pal.grout;
+        ctx.lineWidth = 1.3;
+        [290, 890, 1490, 2090].forEach(jx => {
+          ctx.beginPath();
+          ctx.moveTo(WX(jx), WY(2400));
+          ctx.lineTo(WX(jx), WY(0));
+          ctx.stroke();
+        });
+        // Single horizontal joint at +1200 mm!
+        ctx.strokeStyle = "#5eead4";
+        ctx.lineWidth = 1.7;
+        ctx.beginPath();
+        ctx.moveTo(WX(0), WY(1200));
+        ctx.lineTo(WX(2480), WY(1200));
+        ctx.stroke();
+        ctx.restore();
+
+        drawDatumSymbol(ctx, WX(1490), WY(1200), 600 * sc, 1200 * sc, pal, [[-1, 0], [1, 0], [0, -1]]);
+        drawCadDimRow(ctx, wx0, oy - 7, [290, 600, 600, 600, 390], sc, pal, -1);
+        drawElevTicks(ctx, wx0, oy, 2400, 1200, sc, pal, true);
+      } else {
+        // Horizontal 1200x600: 1202 + 1202 + 76 mm sliver! + 3 horizontal joints (+600, +1200, +1800)
+        ctx.strokeStyle = pal.grout;
+        ctx.lineWidth = 1.3;
+        [1202, 2404].forEach(jx => {
+          ctx.beginPath();
+          ctx.moveTo(WX(jx), WY(2400));
+          ctx.lineTo(WX(jx), WY(0));
+          ctx.stroke();
+        });
+        ctx.strokeStyle = pal.warnStroke;
+        ctx.lineWidth = 1.6;
+        ctx.setLineDash([6, 4]);
+        [600, 1200, 1800].forEach(jz => {
+          ctx.beginPath();
+          ctx.moveTo(WX(0), WY(jz));
+          ctx.lineTo(WX(2480), WY(jz));
+          ctx.stroke();
+        });
+        ctx.setLineDash([]);
+
+        // Highlight 76 mm vertical sliver on right corner!
+        ctx.fillStyle = pal.warnFill;
+        ctx.strokeStyle = pal.warnStroke;
+        ctx.lineWidth = 2.2;
+        ctx.fillRect(WX(2404), WY(2400), 76 * sc, 2400 * sc);
+        ctx.strokeRect(WX(2404), WY(2400), 76 * sc, 2400 * sc);
+        ctx.restore();
+
+        drawCadDimRow(ctx, wx0, oy - 7, [1202, 1202, 76], sc, pal, 2);
+        drawElevTicks(ctx, wx0, oy, 2400, 600, sc, pal, true);
+      }
+
+      // Elevation 3-3 Fixtures (Vanity side view, Door DW1 740x2360, Glass 2000, Rain Shower)
+      if (isLayerOn("chk-furn")) {
+        ctx.save();
+        // Vanity cabinet + basin at x=0..500, z=300..900
+        ctx.fillStyle = "rgba(15, 23, 42, 0.72)";
+        ctx.strokeStyle = pal.furnStroke;
+        ctx.lineWidth = 1.6;
+        ctx.fillRect(WX(0), WY(780), 500 * sc, 480 * sc);
+        ctx.strokeRect(WX(0), WY(780), 500 * sc, 480 * sc);
+        ctx.fillRect(WX(40), WY(900), 380 * sc, 120 * sc);
+        ctx.strokeRect(WX(40), WY(900), 380 * sc, 120 * sc);
+
+        // Composite Door DW1 at x=610..1350, z=0..2350
+        ctx.fillStyle = "rgba(30, 41, 59, 0.58)";
+        ctx.strokeStyle = "#cbd5e1";
+        ctx.fillRect(WX(610), WY(2350), 740 * sc, 2350 * sc);
+        ctx.strokeRect(WX(610), WY(2350), 740 * sc, 2350 * sc);
+
+        // Glass Partition 12.38ly at x=1490, z=0..2000
+        ctx.strokeStyle = pal.glass;
+        ctx.lineWidth = 3.4;
+        ctx.beginPath();
+        ctx.moveTo(WX(1490), WY(0));
+        ctx.lineTo(WX(1490), WY(2000));
+        ctx.stroke();
+
+        // Rain shower column at x=1990
+        ctx.strokeStyle = "#e2e8f0";
+        ctx.lineWidth = 2.4;
+        ctx.beginPath();
+        ctx.moveTo(WX(1990), WY(950));
+        ctx.lineTo(WX(1990), WY(2050));
+        ctx.moveTo(WX(1870), WY(2050));
+        ctx.lineTo(WX(2110), WY(2050));
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      ctx.save();
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.3;
+      ctx.strokeRect(WX(0), WY(2400), 2480 * sc, 2400 * sc);
+      ctx.restore();
+
+      // ================= PANEL 3: SIDE SHOWER / LAVABO WALL (1400 x 2400 mm) =================
+      ctx.save();
+      ctx.fillStyle = "#182640";
+      ctx.fillRect(SX(0), SY(2400), 1400 * sc, 2400 * sc);
+
+      if (opt.wallOrient === "vertical") {
+        ctx.strokeStyle = pal.grout;
+        ctx.lineWidth = 1.3;
+        [600, 1200].forEach(jx => {
+          ctx.beginPath();
+          ctx.moveTo(SX(jx), SY(2400));
+          ctx.lineTo(SX(jx), SY(0));
+          ctx.stroke();
+        });
+        ctx.strokeStyle = "#5eead4";
+        ctx.lineWidth = 1.7;
+        ctx.beginPath();
+        ctx.moveTo(SX(0), SY(1200));
+        ctx.lineTo(SX(1400), SY(1200));
+        ctx.stroke();
+        ctx.restore();
+
+        drawCadDimRow(ctx, sx0, oy - 7, [600, 600, 200], sc, pal, -1);
+      } else {
+        ctx.strokeStyle = pal.grout;
+        ctx.lineWidth = 1.3;
+        ctx.beginPath();
+        ctx.moveTo(SX(1202), SY(2400));
+        ctx.lineTo(SX(1202), SY(0));
+        ctx.stroke();
+
+        ctx.strokeStyle = pal.warnStroke;
+        ctx.lineWidth = 1.6;
+        ctx.setLineDash([6, 4]);
+        [600, 1200, 1800].forEach(jz => {
+          ctx.beginPath();
+          ctx.moveTo(SX(0), SY(jz));
+          ctx.lineTo(SX(1400), SY(jz));
+          ctx.stroke();
+        });
+        ctx.setLineDash([]);
+
+        ctx.fillStyle = pal.warnFill;
+        ctx.strokeStyle = pal.warnStroke;
+        ctx.fillRect(SX(1202), SY(2400), 198 * sc, 2400 * sc);
+        ctx.strokeRect(SX(1202), SY(2400), 198 * sc, 2400 * sc);
+        ctx.restore();
+
+        drawCadDimRow(ctx, sx0, oy - 7, [1202, 198], sc, pal, 1);
+      }
+
+      if (isLayerOn("chk-furn")) {
+        ctx.save();
+        // LED Mirror + Double Vanity front silhouette on 1400mm wall
+        ctx.fillStyle = "rgba(56, 189, 248, 0.10)";
+        ctx.strokeStyle = pal.glass;
+        ctx.lineWidth = 1.4;
+        ctx.fillRect(SX(60), SY(2150), 1280 * sc, 1100 * sc);
+        ctx.strokeRect(SX(60), SY(2150), 1280 * sc, 1100 * sc);
+        ctx.fillStyle = "rgba(15, 23, 42, 0.72)";
+        ctx.strokeStyle = pal.furnStroke;
+        ctx.fillRect(SX(0), SY(780), 1400 * sc, 480 * sc);
+        ctx.strokeRect(SX(0), SY(780), 1400 * sc, 480 * sc);
+        ctx.restore();
+      }
+
+      ctx.save();
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.3;
+      ctx.strokeRect(SX(0), SY(2400), 1400 * sc, 2400 * sc);
+      ctx.restore();
+
+      // Callout Tags
+      if (opt.floorMode === "600x1200_bad_drain") {
+        drawTag(ctx, FX(1985), FY(740), "⚠️ Cắt chéo rẻ quạt 4 mảnh!", pal, pal.warnStroke);
+      } else if (opt.floorMode === "600x1200_linear") {
+        drawTag(ctx, FX(1985), FY(1290), "Ga dài Inox 900mm (Dốc 1 chiều) ✅", pal, pal.axisLine);
+      } else {
+        drawTag(ctx, FX(810), FY(2290), "Khu Cầu: 490 + 490 mm", pal, pal.datumStroke);
+      }
+
+      if (opt.wallOrient === "vertical") {
+        drawTag(ctx, (WX(0) + SX(1400)) / 2, WY(0) + 24, "✅ ỐP DỌC 600×1200: Đúng 2 viên kịch trần (+2.40m) • Chỉ 1 ron ngang • Trùng mạch sàn 100%", pal, pal.axisLine);
+      } else {
+        drawTag(ctx, WX(1920), WY(1500), "⚠️ Mẩu vụn 76 mm!", pal, pal.warnStroke);
+        drawTag(ctx, (WX(0) + SX(1400)) / 2, WY(0) + 24, "⚠️ ỐP NGANG 1200×600: Dính mẩu vụn 76 mm • 3 đường ron ngang đọng nước • Lệch mạch sàn!", pal, pal.warnStroke);
+      }
+    }
+
+    function drawWC02Plan(ctx, W, H, opt, pal) {
+      // Collinear layout: Top-Left = Wall 3-3 (3420x2400), Bottom-Left = Floor Plan (3420x1380) aligned on X!
+      // Top-Right = Side Shower Wall 4-4 (1380x2400) + Side Toilet Wall (1160x2400); Bottom-Right = Spec Summary Card
+      const projGap = 440;
+      const totalW = 3420 + 520 + 1380 + 360 + 1160; // 6840 mm
+      const totalH = 2400 + projGap + 1380; // 4220 mm
+      const padL = 52, padR = 44, padT = 56, padB = 36;
+      const sc = Math.min((W - padL - padR) / totalW, (H - padT - padB) / totalH);
+      const ox = padL + ((W - padL - padR) - totalW * sc) / 2;
+      const oy = padT + ((H - padT - padB) - totalH * sc) / 2;
+
+      const WX = mm => ox + mm * sc;
+      const WY = zMm => oy + (2400 - zMm) * sc;
+      const floorTopPx = oy + (2400 + projGap) * sc;
+      const FX = mm => ox + mm * sc;
+      const FY = mm => floorTopPx + mm * sc;
+
+      const s1x0 = ox + (3420 + 520) * sc;
+      const s2x0 = ox + (3420 + 520 + 1380 + 360) * sc;
+      const S1X = mm => s1x0 + mm * sc;
+      const S2X = mm => s2x0 + mm * sc;
+
+      // Titles
+      ctx.save();
+      ctx.font = "800 11.5px -apple-system, BlinkMacSystemFont, sans-serif";
+      ctx.textAlign = "left";
+      ctx.fillStyle = "#fde68a";
+      ctx.fillText("② MẶT ĐỨNG TƯỜNG TRÊN 3-3 (3 KHOANG DÀI 3.420 × CAO 2.400 mm)", ox, oy - 24);
+      ctx.fillStyle = "#7dd3fc";
+      ctx.fillText("③ VÁCH SEN 4-4 (1.380)", s1x0, oy - 24);
+      ctx.fillText("④ VÁCH CẦU (1.160)", s2x0, oy - 24);
+      ctx.fillStyle = "#5eead4";
+      ctx.fillText("① MẶT BẰNG SÀN DƯỚI WC-02 MASTER (CHIẾU THẲNG TRỤC X TỪ TƯỜNG XUỐNG)", ox, floorTopPx - 8);
+      ctx.restore();
+
+      const bays = [
+        { x: 0, w: 980, name: "Cầu 980" },
+        { x: 1090, w: 1240, name: "Lavabo 1.240" },
+        { x: 2440, w: 980, name: "Tắm 980" }
+      ];
+
+      // ================= TOP-LEFT: WALL ELEVATION 3-3 (3420 x 2400) =================
+      bays.forEach((b, bi) => {
+        ctx.save();
+        ctx.fillStyle = "#182640";
+        ctx.fillRect(WX(b.x), WY(2400), b.w * sc, 2400 * sc);
+
+        if (opt.wallOrient === "vertical") {
+          ctx.strokeStyle = pal.grout;
+          ctx.lineWidth = 1.3;
+          const localJoints = bi === 1 ? [320, 920] : [490];
+          localJoints.forEach(lj => {
+            ctx.beginPath();
+            ctx.moveTo(WX(b.x + lj), WY(2400));
+            ctx.lineTo(WX(b.x + lj), WY(0));
+            ctx.stroke();
+          });
+          ctx.strokeStyle = "#5eead4";
+          ctx.lineWidth = 1.7;
+          ctx.beginPath();
+          ctx.moveTo(WX(b.x), WY(1200));
+          ctx.lineTo(WX(b.x + b.w), WY(1200));
+          ctx.stroke();
+        } else {
+          // Horizontal 1200x600: 980mm bays have 0 vertical joints! 1240mm bay has 1202 + 38mm sliver!
+          if (bi === 1) {
+            ctx.strokeStyle = pal.grout;
+            ctx.lineWidth = 1.3;
+            ctx.beginPath();
+            ctx.moveTo(WX(b.x + 1202), WY(2400));
+            ctx.lineTo(WX(b.x + 1202), WY(0));
+            ctx.stroke();
+
+            ctx.fillStyle = pal.warnFill;
+            ctx.strokeStyle = pal.warnStroke;
+            ctx.lineWidth = 2.0;
+            ctx.fillRect(WX(b.x + 1202), WY(2400), 38 * sc, 2400 * sc);
+            ctx.strokeRect(WX(b.x + 1202), WY(2400), 38 * sc, 2400 * sc);
+          }
+          ctx.strokeStyle = pal.warnStroke;
+          ctx.lineWidth = 1.5;
+          ctx.setLineDash([6, 4]);
+          [600, 1200, 1800].forEach(jz => {
+            ctx.beginPath();
+            ctx.moveTo(WX(b.x), WY(jz));
+            ctx.lineTo(WX(b.x + b.w), WY(jz));
+            ctx.stroke();
+          });
+          ctx.setLineDash([]);
+        }
+        ctx.restore();
+      });
+
+      // Center Datum Wall Tile on Lavabo Bay when vertical
+      if (opt.wallOrient === "vertical") {
+        drawDatumSymbol(ctx, WX(1090 + 320), WY(1200), 600 * sc, 1200 * sc, pal, [[-1, 0], [1, 0], [0, -1]]);
+        drawCadDimRow(ctx, WX(0), oy - 6, [490, 490], sc, pal, -1);
+        drawCadDimRow(ctx, WX(1090), oy - 6, [320, 600, 320], sc, pal, -1);
+        drawCadDimRow(ctx, WX(2440), oy - 6, [490, 490], sc, pal, -1);
+        drawElevTicks(ctx, ox, oy, 2400, 1200, sc, pal, true);
+      } else {
+        drawCadDimRow(ctx, WX(0), oy - 6, [980], sc, pal, -1);
+        drawCadDimRow(ctx, WX(1090), oy - 6, [1202, 38], sc, pal, 1);
+        drawCadDimRow(ctx, WX(2440), oy - 6, [980], sc, pal, -1);
+        drawElevTicks(ctx, ox, oy, 2400, 600, sc, pal, true);
+      }
+
+      // Partition Pillars (110 mm at x=980..1090 & x=2330..2440)
+      ctx.save();
+      ctx.fillStyle = "#0b1324";
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.0;
+      ctx.fillRect(WX(980), WY(2400), 110 * sc, 2400 * sc);
+      ctx.strokeRect(WX(980), WY(2400), 110 * sc, 2400 * sc);
+      ctx.fillStyle = "rgba(56, 189, 248, 0.25)";
+      ctx.strokeStyle = pal.glass;
+      ctx.fillRect(WX(2330), WY(2150), 110 * sc, 2150 * sc);
+      ctx.strokeRect(WX(2330), WY(2150), 110 * sc, 2150 * sc);
+      ctx.restore();
+
+      // Elevation 3-3 Fixtures
+      if (isLayerOn("chk-furn")) {
+        ctx.save();
+        // Toilet front elevation centered at x=490
+        ctx.fillStyle = "rgba(30, 41, 59, 0.78)";
+        ctx.strokeStyle = pal.furnStroke;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(WX(300), WY(780), 380 * sc, 780 * sc, 10);
+        ctx.fill();
+        ctx.stroke();
+
+        // Lavabo Vanity + Basin + LED Mirror in Center Bay (1090..2330)
+        ctx.fillStyle = "rgba(56, 189, 248, 0.10)";
+        ctx.strokeStyle = pal.glass;
+        ctx.fillRect(WX(1150), WY(2150), 1120 * sc, 1080 * sc);
+        ctx.strokeRect(WX(1150), WY(2150), 1120 * sc, 1080 * sc);
+
+        ctx.fillStyle = "rgba(15, 23, 42, 0.76)";
+        ctx.strokeStyle = pal.furnStroke;
+        ctx.fillRect(WX(1090), WY(780), 1240 * sc, 480 * sc);
+        ctx.strokeRect(WX(1090), WY(780), 1240 * sc, 480 * sc);
+        ctx.fillRect(WX(1460), WY(900), 500 * sc, 120 * sc);
+        ctx.strokeRect(WX(1460), WY(900), 500 * sc, 120 * sc);
+
+        // Standing Shower Column centered at x = 2440 + 490 = 2930
+        ctx.strokeStyle = "#e2e8f0";
+        ctx.lineWidth = 2.3;
+        ctx.beginPath();
+        ctx.moveTo(WX(2930), WY(950));
+        ctx.lineTo(WX(2930), WY(2050));
+        ctx.moveTo(WX(2810), WY(2050));
+        ctx.lineTo(WX(3050), WY(2050));
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      ctx.save();
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.2;
+      ctx.strokeRect(WX(0), WY(2400), 3420 * sc, 2400 * sc);
+      ctx.restore();
+
+      // ================= COLLINEAR JOINT PROJECTION LINES (WALL -> FLOOR) =================
+      const floorJointsX = [490, 1410, 2010, 2930];
+      ctx.save();
+      ctx.strokeStyle = opt.wallOrient === "vertical" ? "#10b981" : pal.warnStroke;
+      ctx.lineWidth = 1.7;
+      ctx.setLineDash([4, 3]);
+      floorJointsX.forEach(jx => {
+        ctx.beginPath();
+        ctx.moveTo(WX(jx), WY(0) + 3);
+        ctx.lineTo(FX(jx), floorTopPx - 14);
+        ctx.stroke();
+      });
+      ctx.restore();
+
+      // ================= BOTTOM-LEFT: WC-02 FLOOR PLAN (3420 x 1160/1380 mm) =================
+      const isFloor1200 = opt.floorMode === "600x1200_linear";
+      // Bay 1 Toilet floor: x=0..980, y=220..1380 (1160mm deep; top 220mm is concealed cistern ledge)
+      ctx.save();
+      ctx.fillStyle = "#0b1324";
+      ctx.fillRect(FX(0), FY(0), 980 * sc, 220 * sc);
+      ctx.fillStyle = pal.floor;
+      ctx.fillRect(FX(0), FY(220), 980 * sc, 1160 * sc);
+      ctx.fillRect(FX(1090), FY(0), 1240 * sc, 1380 * sc);
+      ctx.fillRect(FX(2440), FY(0), 980 * sc, 1380 * sc);
+      ctx.fillStyle = "rgba(14, 165, 233, 0.14)";
+      ctx.fillRect(FX(2440), FY(0), 980 * sc, 1380 * sc);
+
+      // Floor X-joints: 490 | 1410, 2010 | 2930
+      ctx.strokeStyle = pal.grout;
+      ctx.lineWidth = 1.3;
+      floorJointsX.forEach((jx, idx) => {
+        const yStart = idx === 0 ? 220 : 0;
+        ctx.beginPath();
+        ctx.moveTo(FX(jx), FY(yStart));
+        ctx.lineTo(FX(jx), FY(1380));
+        ctx.stroke();
+      });
+
+      // Floor Y-joints measured from bottom entry y=1380 upward (600, 180 or single 180 when 600x1200)
+      if (!isFloor1200) {
+        // Toilet bay: 1380 - 600 = 780 (560 top + 600 bottom = 1160)
+        ctx.beginPath();
+        ctx.moveTo(FX(0), FY(780));
+        ctx.lineTo(FX(980), FY(780));
+        // Lavabo & Shower bays: 1380 - 600 = 780, 1380 - 1200 = 180 (180 + 600 + 600 = 1380)
+        ctx.moveTo(FX(1090), FY(780));
+        ctx.lineTo(FX(2330), FY(780));
+        ctx.moveTo(FX(1090), FY(180));
+        ctx.lineTo(FX(2330), FY(180));
+        ctx.moveTo(FX(2440), FY(780));
+        ctx.lineTo(FX(3420), FY(780));
+        ctx.moveTo(FX(2440), FY(180));
+        ctx.lineTo(FX(3420), FY(180));
+        ctx.stroke();
+      } else {
+        // 600x1200 slabs anchored from entry y=1380 up 1200mm -> single transverse joint at y=180!
+        ctx.beginPath();
+        ctx.moveTo(FX(1090), FY(180));
+        ctx.lineTo(FX(2330), FY(180));
+        ctx.moveTo(FX(2440), FY(180));
+        ctx.lineTo(FX(3420), FY(180));
+        ctx.stroke();
+      }
+
+      // Partition walls on floor plan
+      ctx.fillStyle = "#0b1324";
+      ctx.fillRect(FX(980), FY(0), 110 * sc, 1380 * sc);
+      ctx.fillStyle = "rgba(56, 189, 248, 0.35)";
+      ctx.fillRect(FX(2330), FY(0), 110 * sc, 1380 * sc);
+      ctx.restore();
+
+      // Floor Datum Tiles
+      const fDatumH = isFloor1200 ? 1200 : 600;
+      drawDatumSymbol(ctx, FX(1410), FY(1380 - fDatumH), 600 * sc, fDatumH * sc, pal, [[-1, 0], [1, 0], [0, -1]]);
+      drawDatumSymbol(ctx, FX(490), FY(isFloor1200 ? 220 : 780), 490 * sc, (isFloor1200 ? 1160 : 600) * sc, pal, [[-1, 0]]);
+      drawDatumSymbol(ctx, FX(2440), FY(1380 - fDatumH), 490 * sc, fDatumH * sc, pal, [[1, 0], [0, -1]]);
+
+      // Floor Drains
+      drawSquareDrainIcon(ctx, FX(130), FY(340), 60 * sc, pal, false);
+      drawSquareDrainIcon(ctx, FX(1210), FY(110), 60 * sc, pal, false);
+      if (isFloor1200) {
+        drawLinearDrainIcon(ctx, FX(2530), FY(50), 800 * sc, 72 * sc, pal);
+        [2680, 2930, 3180].forEach(ax => {
+          drawSlopeArrow(ctx, FX(ax), FY(1180), FX(ax), FY(175), "#34d399");
+        });
+      } else {
+        drawSquareDrainIcon(ctx, FX(2560), FY(110), 60 * sc, pal, false);
+        drawSlopeArrow(ctx, FX(3150), FY(950), FX(2640), FY(200), "#38bdf8");
+      }
+
+      // Floor Fixtures
+      if (isLayerOn("chk-furn")) {
+        ctx.save();
+        ctx.fillStyle = pal.furnFill;
+        ctx.strokeStyle = pal.furnStroke;
+        ctx.lineWidth = 1.4;
+        // Toilet bowl centered at x=490, y=220..880
+        ctx.beginPath();
+        ctx.roundRect(FX(300), FY(220), 380 * sc, 660 * sc, [4, 4, 24, 24]);
+        ctx.fill();
+        ctx.stroke();
+        // Vanity counter x=1090..2330, y=0..500
+        ctx.fillRect(FX(1090), FY(0), 1240 * sc, 500 * sc);
+        ctx.strokeRect(FX(1090), FY(0), 1240 * sc, 500 * sc);
+        ctx.beginPath();
+        ctx.arc(FX(1710), FY(260), 150 * sc, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      // Floor Outer Walls + Slimdoor Glass Doors at bottom y=1380
+      ctx.save();
+      ctx.strokeStyle = pal.wallStroke;
+      ctx.lineWidth = 2.3;
+      ctx.strokeRect(FX(0), FY(0), 3420 * sc, 1380 * sc);
+      ctx.strokeStyle = pal.glass;
+      ctx.lineWidth = 3.4;
+      ctx.beginPath();
+      ctx.moveTo(FX(160), FY(1380));
+      ctx.lineTo(FX(860), FY(1380));
+      ctx.moveTo(FX(2560), FY(1380));
+      ctx.lineTo(FX(3260), FY(1380));
+      ctx.stroke();
+      ctx.restore();
+
+      // ================= TOP-RIGHT: SIDE WALLS 4-4 (1380x2400) & 2-2 (1160x2400) =================
+      function drawSideWall(xOriginPx, widthMm, vertSegs, horizSegs) {
+        const SX_ = mm => xOriginPx + mm * sc;
+        ctx.save();
+        ctx.fillStyle = "#182640";
+        ctx.fillRect(SX_(0), WY(2400), widthMm * sc, 2400 * sc);
+        if (opt.wallOrient === "vertical") {
+          ctx.strokeStyle = pal.grout;
+          ctx.lineWidth = 1.3;
+          let acc = 0;
+          for (let i = 0; i < vertSegs.length - 1; i++) {
+            acc += vertSegs[i];
+            ctx.beginPath();
+            ctx.moveTo(SX_(acc), WY(2400));
+            ctx.lineTo(SX_(acc), WY(0));
+            ctx.stroke();
+          }
+          ctx.strokeStyle = "#5eead4";
+          ctx.lineWidth = 1.7;
+          ctx.beginPath();
+          ctx.moveTo(SX_(0), WY(1200));
+          ctx.lineTo(SX_(widthMm), WY(1200));
+          ctx.stroke();
+          ctx.restore();
+          drawCadDimRow(ctx, xOriginPx, oy - 6, vertSegs, sc, pal, -1);
+        } else {
+          ctx.strokeStyle = pal.grout;
+          ctx.lineWidth = 1.3;
+          if (horizSegs.length > 1) {
+            ctx.beginPath();
+            ctx.moveTo(SX_(horizSegs[0]), WY(2400));
+            ctx.lineTo(SX_(horizSegs[0]), WY(0));
+            ctx.stroke();
+            ctx.fillStyle = pal.warnFill;
+            ctx.fillRect(SX_(horizSegs[0]), WY(2400), horizSegs[1] * sc, 2400 * sc);
+          }
+          ctx.strokeStyle = pal.warnStroke;
+          ctx.lineWidth = 1.5;
+          ctx.setLineDash([6, 4]);
+          [600, 1200, 1800].forEach(jz => {
+            ctx.beginPath();
+            ctx.moveTo(SX_(0), WY(jz));
+            ctx.lineTo(SX_(widthMm), WY(jz));
+            ctx.stroke();
+          });
+          ctx.setLineDash([]);
+          ctx.restore();
+          drawCadDimRow(ctx, xOriginPx, oy - 6, horizSegs, sc, pal, horizSegs.length > 1 ? 1 : -1);
+        }
+        ctx.save();
+        ctx.strokeStyle = pal.wallStroke;
+        ctx.lineWidth = 2.1;
+        ctx.strokeRect(SX_(0), WY(2400), widthMm * sc, 2400 * sc);
+        ctx.restore();
+      }
+
+      drawSideWall(s1x0, 1380, [180, 600, 600], [1202, 178]);
+      drawSideWall(s2x0, 1160, [560, 600], [1160]);
+
+      // ================= BOTTOM-RIGHT: ARCHITECTURAL SPEC SUMMARY BOX =================
+      const boxX = s1x0;
+      const boxY = floorTopPx;
+      const boxW = (1380 + 360 + 1160) * sc;
+      const boxH = 1380 * sc;
+      ctx.save();
+      ctx.fillStyle = "rgba(15, 23, 42, 0.92)";
+      ctx.strokeStyle = opt.wallOrient === "vertical" ? "rgba(20, 184, 166, 0.55)" : pal.warnStroke;
+      ctx.lineWidth = 1.7;
+      ctx.beginPath();
+      ctx.roundRect(boxX, boxY, boxW, boxH, 10);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.textAlign = "left";
+      ctx.fillStyle = opt.wallOrient === "vertical" ? "#5eead4" : "#fda4af";
+      ctx.font = "800 11.5px -apple-system, BlinkMacSystemFont, sans-serif";
+      const boxTitle = opt.wallOrient === "vertical"
+        ? "✅ CHỐT THI CÔNG WC-02 MASTER (ỐP DỌC):"
+        : "⚠️ LƯU Ý KHI ỐP NGANG WC-02 MASTER:";
+      ctx.fillText(boxTitle, boxX + 12, boxY + 22);
+
+      ctx.fillStyle = "#e2e8f0";
+      ctx.font = "600 10.5px -apple-system, BlinkMacSystemFont, sans-serif";
+      const lines = opt.wallOrient === "vertical"
+        ? [
+            "• Trần +2.40m = 2 viên 1.20m nguyên (1 ron ngang).",
+            "• Khoang Cầu & Tắm 980: Chia tâm 490 + 490 mm.",
+            "• Khoang Lavabo 1.240: 320 + 600 + 320 (xóa mẩu 4cm).",
+            "• Vách bên 1.380: 180 + 600 + 600 trùng mạch sàn!",
+            isFloor1200
+              ? "• Sàn 60×120 R11 + Ga thoát sàn dài 800mm sát vách."
+              : "• Sàn 60×60 R10/R11 + Phễu thu vuông âm -20mm."
+          ]
+        : [
+            "• Ưu: Hốc 980mm & 1.160mm cắt 1 viên ngang liền tấm.",
+            "• Nhược 1: Vách Lavabo 1.240mm dính mẩu vụn 38 mm!",
+            "• Nhược 2: Vách bên 1.380mm bị dải lẻ 178 mm.",
+            "• Nhược 3: Sinh 3 đường ron ngang (+0.6/+1.2/+1.8m).",
+            "• Nhược 4: Lệch toàn bộ mạch đứng với sàn 600×600!"
+          ];
+      const stepY = Math.max(16, Math.min(24, (boxH - 34) / lines.length));
+      lines.forEach((ln, idx) => {
+        ctx.fillText(ln, boxX + 12, boxY + 42 + idx * stepY);
+      });
+      ctx.restore();
+
+      // Projection Corridor Status Tag
+      if (opt.wallOrient === "vertical") {
+        drawTag(ctx, WX(1710), WY(0) + (projGap * sc) / 2 - 4, "✅ Mạch tường gióng thẳng 100% xuống mạch sàn (Đã xóa mẩu 40mm bản gốc)", pal, pal.axisLine);
+      } else {
+        drawTag(ctx, WX(1710), WY(0) + (projGap * sc) / 2 - 4, "⚠️ Lệch mạch tường – sàn & dính mẩu 38mm ở khoang Lavabo 1.240mm!", pal, pal.warnStroke);
+      }
+    }
+
+    function downloadCurrentBlueprint() {
+      const canvas = document.getElementById("cad-canvas");
+      if (!canvas) return;
+      const opt = ZONES[activeZoneKey].options[activeOptIndex];
+      const link = document.createElement("a");
+      link.download = `QVilla_ChiaGach_${activeZoneKey}_${opt.id}.png`;
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    }
+
+    window.addEventListener("resize", () => drawBlueprint());
+    const initZoneParam = new URLSearchParams(window.location.search || "").get("zone");
+    if (initZoneParam && ZONES[initZoneParam]) {
+      selectZone(initZoneParam);
+    } else {
+      renderControlsAndCanvas();
+    }
+  </script>
+</body>
+</html>

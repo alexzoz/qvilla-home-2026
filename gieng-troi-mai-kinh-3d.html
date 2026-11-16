@@ -1,0 +1,1919 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chuyên Đề Riêng 3D: Lựa Chọn Phương Án 2 Ô Mái Kính Giếng Trời Đỉnh Tum (+14.780) — Q Villa</title>
+  <script src="assets/three.min.js"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-base: #070b12;
+      --bg-surface: #0f172a;
+      --bg-elevated: #1e293b;
+      --bg-glass: rgba(15, 23, 42, 0.90);
+      --border: rgba(148, 163, 184, 0.20);
+      --border-strong: rgba(16, 185, 129, 0.50);
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --emerald: #10b981;
+      --emerald-light: #6ee7b7;
+      --amber: #f59e0b;
+      --amber-light: #fde68a;
+      --sky: #38bdf8;
+      --sky-light: #bae6fd;
+      --purple: #a855f7;
+      --purple-light: #e9d5ff;
+      --rose: #f43f5e;
+      --rose-light: #fecdd3;
+      --orange: #fb923c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(16, 185, 129, 0.10), transparent 35%),
+        radial-gradient(circle at 88% 15%, rgba(56, 189, 248, 0.10), transparent 35%),
+        var(--bg-base);
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+    .container { max-width: 1460px; margin: 0 auto; padding: 0 20px; }
+
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(7, 11, 18, 0.93);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; flex-wrap: wrap;
+    }
+    a.brand {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; color: inherit;
+    }
+    .brand-badge {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #04130d; font-weight: 900; font-size: 0.76rem;
+      padding: 7px 13px; border-radius: 999px; text-transform: uppercase;
+      letter-spacing: 0.05em; white-space: nowrap;
+    }
+    .brand-title h1 { font-size: 1.08rem; font-weight: 800; color: #fff; }
+    .brand-title p { font-size: 0.79rem; color: var(--text-muted); }
+    .nav-links { display: flex; gap: 7px; flex-wrap: wrap; align-items: center; }
+    .nav-links a {
+      color: var(--text-secondary); text-decoration: none;
+      font-size: 0.79rem; font-weight: 700; padding: 6px 12px;
+      border-radius: 999px; border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.6); transition: all 0.18s ease;
+    }
+    .nav-links a:hover { color: #fff; border-color: var(--emerald); background: rgba(16, 185, 129, 0.18); }
+
+    .hero { padding: 24px 0 14px; }
+    .hero-box {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.85));
+      border: 1.5px solid var(--border-strong);
+      border-radius: 18px; padding: 22px 24px;
+      box-shadow: 0 20px 45px -15px rgba(0,0,0,0.7);
+    }
+    .hero-eyebrow {
+      display: inline-block; font-size: 0.75rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--emerald-light); background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 4px 12px; border-radius: 999px; margin-bottom: 10px;
+    }
+    .hero-box h2 { font-size: clamp(1.28rem, 2.2vw, 1.68rem); font-weight: 900; color: #fff; margin-bottom: 8px; }
+    .hero-box p { font-size: 0.91rem; color: var(--text-secondary); margin-bottom: 14px; }
+
+    .kpi-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px; margin-top: 10px;
+    }
+    .kpi-card {
+      background: rgba(7, 11, 18, 0.72); border: 1px solid var(--border);
+      border-radius: 12px; padding: 13px 15px;
+    }
+    .kpi-card.emerald { border-color: rgba(16, 185, 129, 0.5); }
+    .kpi-card.sky { border-color: rgba(56, 189, 248, 0.5); }
+    .kpi-card.amber { border-color: rgba(245, 158, 11, 0.5); }
+    .kpi-card.rose { border-color: rgba(244, 63, 94, 0.5); }
+    .kpi-label { font-size: 0.74rem; font-weight: 800; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+    .kpi-val { font-size: 1.05rem; font-weight: 900; color: #fff; margin-bottom: 5px; }
+    .kpi-sub { font-size: 0.80rem; color: var(--text-secondary); line-height: 1.45; }
+
+    /* Interactive 3D Stage */
+    .stage-card {
+      background: var(--bg-surface);
+      border: 1.5px solid rgba(56, 189, 248, 0.35);
+      border-radius: 18px; overflow: hidden;
+      box-shadow: 0 22px 50px -15px rgba(0,0,0,0.8);
+      margin-top: 18px;
+    }
+    .stage-toolbar {
+      background: rgba(7, 11, 18, 0.92);
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .toolbar-group-label {
+      font-size: 0.77rem; font-weight: 900; text-transform: uppercase;
+      letter-spacing: 0.05em; color: var(--amber-light);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .option-tabs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 8px;
+    }
+    .opt-btn {
+      appearance: none;
+      background: rgba(30, 41, 59, 0.75);
+      border: 1.5px solid rgba(148, 163, 184, 0.25);
+      color: var(--text-secondary);
+      border-radius: 11px;
+      padding: 10px 13px;
+      font-size: 0.82rem; font-weight: 700;
+      text-align: left; cursor: pointer;
+      transition: all 0.16s ease;
+      line-height: 1.35;
+    }
+    .opt-btn:hover {
+      border-color: var(--sky); color: #fff;
+      background: rgba(30, 41, 59, 0.95);
+    }
+    .opt-btn.active {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.26), rgba(6, 78, 59, 0.55));
+      border-color: #10b981;
+      color: #fff;
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+    }
+    .opt-btn .opt-tag {
+      display: inline-block; font-size: 0.70rem; font-weight: 900;
+      padding: 2px 7px; border-radius: 6px; margin-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    .sub-controls-bar {
+      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+      padding-top: 8px; border-top: 1px dashed rgba(148, 163, 184, 0.2);
+    }
+    .ctrl-pill {
+      appearance: none;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1.5px solid rgba(148, 163, 184, 0.3);
+      color: var(--text-secondary);
+      padding: 7px 13px; border-radius: 9px;
+      font-size: 0.80rem; font-weight: 800;
+      cursor: pointer; transition: all 0.15s ease;
+    }
+    .ctrl-pill:hover { color: #fff; border-color: var(--sky); }
+    .ctrl-pill.active {
+      background: rgba(56, 189, 248, 0.22);
+      border-color: var(--sky); color: #fff;
+    }
+    .ctrl-pill.amber-active {
+      background: rgba(245, 158, 11, 0.24);
+      border-color: var(--amber); color: #fde68a;
+    }
+
+    .canvas-container {
+      position: relative;
+      width: 100%;
+      height: 670px;
+      background: radial-gradient(circle at 50% 35%, #162238 0%, #090e17 100%);
+      overflow: hidden;
+    }
+    #sky3d-canvas {
+      width: 100%; height: 100%; display: block; cursor: grab;
+    }
+    #sky3d-canvas:active { cursor: grabbing; }
+
+    .hud-overlay {
+      position: absolute; top: 14px; left: 14px;
+      max-width: 650px;
+      background: rgba(7, 11, 18, 0.88);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(16, 185, 129, 0.45);
+      border-radius: 13px;
+      padding: 12px 15px;
+      pointer-events: none;
+    }
+    .hud-overlay h4 {
+      font-size: 0.92rem; font-weight: 900; color: #6ee7b7;
+      margin-bottom: 5px;
+    }
+    .hud-overlay p {
+      font-size: 0.81rem; color: #e2e8f0; line-height: 1.48;
+    }
+
+    .hud-QuickActions {
+      position: absolute; top: 14px; right: 14px;
+      display: flex; flex-direction: column; gap: 7px;
+      z-index: 10;
+    }
+    .qa-btn {
+      appearance: none;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1.5px solid rgba(148, 163, 184, 0.35);
+      color: #f8fafc;
+      font-size: 0.78rem; font-weight: 800;
+      padding: 8px 12px; border-radius: 9px;
+      cursor: pointer; text-align: left;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.45);
+      transition: all 0.15s ease;
+    }
+    .qa-btn:hover { border-color: var(--emerald); transform: translateY(-1px); }
+
+    .hud-legend {
+      position: absolute; bottom: 12px; left: 14px; right: 14px;
+      display: flex; flex-wrap: wrap; gap: 8px;
+      background: rgba(7, 11, 18, 0.85);
+      border: 1px solid var(--border);
+      padding: 8px 12px; border-radius: 10px;
+      pointer-events: none;
+    }
+    .legend-chip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.75rem; font-weight: 700; color: #cbd5e1;
+    }
+    .legend-dot {
+      width: 11px; height: 11px; border-radius: 3px; display: inline-block;
+    }
+
+    .cam-footer {
+      background: rgba(7, 11, 18, 0.94);
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      display: flex; flex-wrap: wrap; gap: 7px; align-items: center;
+    }
+    .cam-btn {
+      appearance: none;
+      background: rgba(30, 41, 59, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      color: var(--text-secondary);
+      padding: 7px 12px; border-radius: 8px;
+      font-size: 0.79rem; font-weight: 700;
+      cursor: pointer; transition: all 0.15s ease;
+    }
+    .cam-btn:hover, .cam-btn.active {
+      background: rgba(16, 185, 129, 0.22);
+      border-color: var(--emerald); color: #fff;
+    }
+
+    /* Comparison Cards Grid */
+    .section-block { margin-top: 32px; }
+    .sec-title {
+      font-size: 1.32rem; font-weight: 900; color: #fff;
+      margin-bottom: 6px; display: flex; align-items: center; gap: 10px;
+    }
+    .sec-desc { font-size: 0.90rem; color: var(--text-secondary); margin-bottom: 16px; }
+
+    .pa-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 16px;
+    }
+    .pa-card {
+      background: rgba(15, 23, 42, 0.92);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .pa-card.best {
+      border: 2px solid #10b981;
+      background: linear-gradient(145deg, rgba(6, 78, 59, 0.30), rgba(15, 23, 42, 0.96));
+    }
+    .pa-card h3 { font-size: 1.04rem; font-weight: 900; color: #fff; line-height: 1.35; }
+    .pa-meta-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pa-badge {
+      font-size: 0.73rem; font-weight: 800; padding: 3px 9px;
+      border-radius: 999px; border: 1px solid rgba(255,255,255,0.18);
+    }
+    .pa-list {
+      list-style: none; display: flex; flex-direction: column; gap: 6px;
+      font-size: 0.83rem; color: var(--text-secondary); flex: 1;
+    }
+    .pa-actions {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      padding-top: 10px; border-top: 1px solid rgba(148, 163, 184, 0.15);
+    }
+    .pa-action-btn {
+      flex: 1; appearance: none;
+      background: rgba(56, 189, 248, 0.18);
+      border: 1px solid #38bdf8; color: #bae6fd;
+      padding: 8px 11px; border-radius: 9px;
+      font-size: 0.79rem; font-weight: 800;
+      cursor: pointer; text-align: center;
+    }
+    .pa-action-btn.primary {
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-color: #10b981; color: #04130d;
+    }
+
+    /* Drawings Gallery */
+    .drawings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 16px;
+    }
+    .drawing-card {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1.5px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      cursor: pointer; transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+    .drawing-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--sky);
+    }
+    .drawing-card img {
+      width: 100%; height: 260px; object-fit: contain;
+      background: #05080f; display: block;
+      border-bottom: 1px solid var(--border);
+    }
+    .drawing-info { padding: 12px 15px; }
+    .drawing-info h4 { font-size: 0.92rem; font-weight: 800; color: #fff; margin-bottom: 4px; }
+    .drawing-info p { font-size: 0.80rem; color: var(--text-secondary); }
+
+    /* Lightbox */
+    dialog#lightbox-modal {
+      width: 96vw; max-width: 1500px; max-height: 94vh;
+      margin: auto; padding: 0;
+      background: #070b12; color: #fff;
+      border: 1.5px solid var(--sky); border-radius: 16px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.9);
+    }
+    dialog#lightbox-modal::backdrop { background: rgba(0, 0, 0, 0.86); backdrop-filter: blur(6px); }
+    .lb-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 18px; border-bottom: 1px solid var(--border);
+      background: #0f172a;
+    }
+    .lb-body {
+      padding: 14px; display: flex; justify-content: center; align-items: center;
+      max-height: calc(94vh - 64px); overflow: auto;
+    }
+    .lb-body img { max-width: 100%; max-height: calc(90vh - 80px); object-fit: contain; border-radius: 8px; }
+
+    @media (max-width: 768px) {
+      .canvas-container { height: 500px; }
+      .hud-overlay { max-width: calc(100% - 28px); }
+      .hud-QuickActions { top: auto; bottom: 58px; right: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="tang-tum-3d.html" class="brand">
+        <span class="brand-badge">🌤️ Chuyên Đề Riêng 3D</span>
+        <div class="brand-title">
+          <h1>2 Ô Mái Kính Giếng Trời Đỉnh Tum (+14.780): So Sánh Từng Phương Án</h1>
+          <p>Tách riêng cụm Mái Kính Cầu Thang (2.15×1.77m) &amp; Giếng Trời WC (1.0×1.0m) • Bịt Kín Hướng Tây • Đổ Kín Trần Kho Solar</p>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html" style="border-color:rgba(245,158,11,0.55);color:#fde68a;">🏠 Trang Chủ</a>
+        <a href="tang-tum-3d.html" style="border-color:var(--sky);color:#bae6fd;">⬅️ Quay Lại Tổng Thể Tầng Tum 3D</a>
+        <a href="#sec-3d-skylight" style="border-color:var(--emerald);color:#6ee7b7;">🧊 1. Mô Hình 3D Chọn Phương Án</a>
+        <a href="#sec-cards-compare" style="border-color:var(--amber);color:#fde68a;">⚖️ 2. So Sánh 6 Phương Án</a>
+        <a href="#sec-drawings" style="border-color:#c084fc;color:#e9d5ff;">📐 3. Bản Vẽ Kỹ Thuật (6 Hình)</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <span class="hero-eyebrow">🎯 Đã Tách Riêng Cụm Mái Kính Giếng Trời (Không Lẫn Các Hạng Mục Khác Của Tầng Tum)</span>
+        <h2>Mô Hình 3D Riêng Cho 2 Ô Giếng Trời Đỉnh Tum (+14.780): Xây Bịt Kín Hướng Tây &amp; So Sánh Trực Tiếp Từng Phương Án</h2>
+        <p>
+          Theo đúng yêu cầu của bạn, trang chuyên đề này <strong>chỉ hiển thị riêng cụm 2 Ô Mái Kính Giếng Trời trên đỉnh Tầng Tum (+14.780) và phần cổ giếng bên dưới</strong> để bạn nhìn thật thoáng và dễ chọn.
+          Cả 2 giếng trời đều đã <strong>xây tường gạch đặc 220mm bịt kín 100% ở Mặt Hướng Tây (Trục A)</strong> và <strong>đổ bê tông kín trần Phòng Kho Solar (1,85m ở giữa)</strong>.
+          Bạn hãy bấm chọn từng phương án (<strong>Cửa Hất Chữ A</strong>, <strong>Khe Thở 10–12cm</strong>, <strong>Lam Chớp Nhôm Chữ Z</strong>, <strong>Ống Thông Hơi Chữ L D110</strong>, <strong>Gạch Bông Gió Chữ Z</strong>) và bấm nút <strong>🔬 Bổ Mặt Cắt 3D (1:1)</strong> để xem tận mắt cấu tạo từng phương án!
+        </p>
+        <div class="kpi-grid">
+          <div class="kpi-card emerald">
+            <div class="kpi-label">1. Chốt Cửa Hất Gọn Giữa Tường (PA1 ★)</div>
+            <div class="kpi-val">Đồng Bộ 03 Cửa: 600 × 250mm</div>
+            <div class="kpi-sub">
+              • <strong>Không làm dài 2m hết mặt giếng!</strong> Hai bên xây trụ gạch đặc rộng <code>350–625mm</code> ôm cứng góc.<br>
+              • <strong>Ô 1:</strong> Cửa Đông <code>600×250mm</code> + Cửa Nam <code>600×250mm</code> • <strong>Ô 2:</strong> 1 Cửa Đông <code>600×250mm</code>.
+            </div>
+          </div>
+          <div class="kpi-card rose">
+            <div class="kpi-label">2. Các Mặt Xây Gạch 220mm Bịt Kín 100%</div>
+            <div class="kpi-val">Ô 1: Tây &amp; Bắc • Ô 2: Tây, Bắc &amp; Nam</div>
+            <div class="kpi-sub">
+              • <strong>Ô 1:</strong> Xây gạch đặc <code>220mm</code> cao <code>600mm</code> bịt kín Mặt Tây (Trục A) &amp; Mặt Bắc (Trục 2).<br>
+              • <strong>Ô 2:</strong> Bịt kín cả <strong>Mặt Nam (Trục 3 sát mép vực)</strong> để không phải leo ra gờ biên nguy hiểm!
+            </div>
+          </div>
+          <div class="kpi-card sky">
+            <div class="kpi-label">3. Cửa S6 Ngoài Trời vs Cửa Trong Kho Solar</div>
+            <div class="kpi-val">Bỏ Hẳn S6 Ngoài • Giữ Cửa Trong Kho</div>
+            <div class="kpi-sub">
+              • <strong>Bỏ hẳn cửa S6</strong> ở tường ngoài <code>Trục 3</code> (xây gạch đặc bịt kín 100%).<br>
+              • <strong>Chỉ giữ lại cửa sổ <code>1.000×600mm</code> + quạt hút</strong> trên tường chữ L <code>V5</code> <strong>bên trong Phòng Kho Solar</strong>!
+            </div>
+          </div>
+          <div class="kpi-card amber">
+            <div class="kpi-label">4. Độ Nhô Kính Chuẩn 100% Từng Cạnh</div>
+            <div class="kpi-val">Tây: 0mm • Bịt Kín: 60mm • Cửa Hất: 350mm</div>
+            <div class="kpi-sub">
+              • <strong>Mặt Tây (Trục A giáp hàng xóm):</strong> Nhô <code>0mm</code> (bằng phẳng mép tường + ốp Flashing Inox chữ L).<br>
+              • <strong>Mặt xây bịt kín (Bắc Ô 1, Bắc &amp; Nam Ô 2):</strong> Chỉ nhô <code>60mm (6cm)</code> gờ cắt nước.<br>
+              • <strong>Mặt có Cửa Hất (Đông &amp; Nam Ô 1, Đông Ô 2):</strong> Đua <code>350mm (35cm)</code> che kín cánh mở!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: DEDICATED 3D VIEWER -->
+  <section id="sec-3d-skylight">
+    <div class="container">
+      <div class="stage-card">
+        <div class="stage-toolbar">
+          <div class="toolbar-group-label">
+            <span>👆 BƯỚC 1 — BẤM CHỌN TỪNG PHƯƠNG ÁN CẤU TẠO CỔ GIẾNG TRỜI ĐỂ XEM TRÊN 3D:</span>
+          </div>
+          <div class="option-tabs" id="pa-tabs">
+            <button class="opt-btn active" data-pa="pa1_awning" onclick="selectSkylightPA('pa1_awning', this)">
+              <span class="opt-tag" style="background:#10b981;color:#04130d;">★ Khuyên Dùng Số 1 (Chống Nồm 100%)</span><br>
+              🏆 <strong>Phương Án 1: Cửa Sổ Mở Hất Ra Ngoài 30° + Lưới Chống Muỗi Inox 304</strong><br>
+              <span style="font-size:0.76rem;color:#a7f3d0;">Mùa hè mở hất ra ngoài 30° thoát nhiệt • Mùa nồm &amp; rét đóng ép gioăng EPDM kín 100%</span>
+            </button>
+            <button class="opt-btn" data-pa="pa2_slot10" onclick="selectSkylightPA('pa2_slot10', this)">
+              <span class="opt-tag" style="background:#38bdf8;color:#07131f;">Đơn Giản • Bền Vĩnh Cửu</span><br>
+              🌬️ <strong>Phương Án 2: Khe Thở 10–12cm Sát Đáy Kính + La Sắt 45° + Lưới Inox 304</strong><br>
+              <span style="font-size:0.76rem;color:#bae6fd;">Xây gạch cao thêm 25cm, chừa khe hẹp 10–12cm sát nách kính (không dùng chớp nhôm)</span>
+            </button>
+            <button class="opt-btn" data-pa="pa3_zlouver" onclick="selectSkylightPA('pa3_zlouver', this)">
+              <span class="opt-tag" style="background:#f59e0b;color:#1f1204;">Thẩm Mỹ Đồng Bộ Nhôm Kính</span><br>
+              🪟 <strong>Phương Án 3: Hệ Lam Chớp Nhôm Chữ Z (Louver Z) + Lưới Inox 304</strong><br>
+              <span style="font-size:0.76rem;color:#fde68a;">Khung nhôm lá chớp chữ Z nghiêng 45° chắn mưa tạt + Ốp lưới Inox 304 mặt trong</span>
+            </button>
+            <button class="opt-btn" data-pa="pa4_lpipe" onclick="selectSkylightPA('pa4_lpipe', this)">
+              <span class="opt-tag" style="background:#a855f7;color:#fff;">Chống Bụi &amp; Kín Mưa Tuyệt Đối</span><br>
+              🔧 <strong>Phương Án 4: Xây Bịt Kín + Đặt Ống Chữ L (PVC D110 Cút 90° Chúc Xuống)</strong><br>
+              <span style="font-size:0.76rem;color:#e9d5ff;">Xây gạch bịt kín 4 mặt, đặt ống D110 cút 90° + Lưới Inox + Nắp vặn mùa nồm</span>
+            </button>
+            <button class="opt-btn" data-pa="pa5_zbrick" onclick="selectSkylightPA('pa5_zbrick', this)">
+              <span class="opt-tag" style="background:#fb923c;color:#1f0d04;">Vật Liệu Xây Truyền Thống</span><br>
+              🧱 <strong>Phương Án 5: Gạch Bông Gió Chắn Mưa Chữ Z (200×200) + Lưới Inox 304</strong><br>
+              <span style="font-size:0.76rem;color:#fed7aa;">Xây hàng gạch thông gió rãnh chữ Z sát đáy kính + Ốp khung lưới Inox 304 mặt trong</span>
+            </button>
+            <button class="opt-btn" data-pa="pa6_old_kt309" onclick="selectSkylightPA('pa6_old_kt309', this)">
+              <span class="opt-tag" style="background:#f43f5e;color:#fff;">Đối Chiếu Bản Vẽ Cũ</span><br>
+              ⚠️ <strong>Phương Án 6 (Bản Vẽ Cũ KT-3.09): 1 Ô Kính Liền 5,04m + Chớp 4 Mặt</strong><br>
+              <span style="font-size:0.76rem;color:#fecdd3;">Lợp kính trên cả Phòng Kho Solar (nóng 55°C) + Chớp cao 28cm 4 mặt + Còn cửa S6</span>
+            </button>
+          </div>
+
+          <div class="sub-controls-bar">
+            <span style="font-size:0.78rem;font-weight:900;color:#6ee7b7;">🧭 BƯỚC 2 — HƯỚNG MỞ LẤY GIÓ:</span>
+            <button class="ctrl-pill active" id="btn-dir-es" onclick="setWindDirectionMode('east_south', this)">
+              🔥 Bịt Kín Cả Tây &amp; Bắc • Chỉ Mở 2 Hướng ĐÔNG – NAM (★ Khuyên Dùng: Chặn Gió Đông Bắc, Nồm Ẩm &amp; Bụi Đường Chính)
+            </button>
+            <button class="ctrl-pill" id="btn-dir-3sides" onclick="setWindDirectionMode('three_sides', this)">
+              🧭 Chỉ Bịt Hướng TÂY (Trục A) • Mở 3 Hướng ĐÔNG – BẮC – NAM (So Sánh Để Thấy Mặt Bắc Trục 2 Hứng Gió)
+            </button>
+
+            <span style="font-size:0.78rem;font-weight:900;color:#fde68a;margin-left:6px;">⚙️ TƯƠNG TÁC RIÊNG:</span>
+            <button class="ctrl-pill amber-active" id="btn-toggle-awning" onclick="toggleAwningOpenClose()">
+              ☀️ Cửa Hất (PA1): ĐANG MỞ HẤT RA NGOÀI 30° (Mùa Hè) — Bấm Để Đóng Kín 0° (Mùa Nồm)!
+            </button>
+            <button class="ctrl-pill" id="btn-toggle-viewmode" onclick="toggleCutawayMode()">
+              🔬 Bấm Xem MẶT CẮT 3D CHI TIẾT (Tỷ Lệ 1:1) Của Phương Án Đang Chọn
+            </button>
+          </div>
+        </div>
+
+        <div class="canvas-container" id="sky3d-wrapper">
+          <canvas id="sky3d-canvas"></canvas>
+
+          <div class="hud-overlay">
+            <h4 id="hud-title">🏆 Phương Án 1 ★: Cửa Sổ Mở Hất Chữ A (Đông–Nam) + Lưới Inox 304 + Bịt Kín Tây–Bắc</h4>
+            <p id="hud-desc">
+              • <strong>Mặt Tây (Trục A) &amp; Mặt Bắc (Trục 2):</strong> Xây tường gạch đặc <code>220mm</code> cao <code>480mm</code> bịt kín 100% lên sát đáy kính.<br>
+              • <strong>Mặt Đông &amp; Mặt Nam (Quay vào sàn mái nhà mình):</strong> Xây tường gạch cao thêm <code>250mm</code> trên dầm lật + Lắp <strong>Cửa sổ mở hất chữ A (cao 20cm, mở 35°)</strong> + <strong>Lưới chống muỗi Inox 304 mặt trong</strong>. Đứng trên sàn mái đóng/mở cực dễ &amp; bỏ hẳn cửa S6 dưới Tum!
+            </p>
+          </div>
+
+          <div class="hud-QuickActions">
+            <button class="qa-btn" id="btn-qa-cutaway" onclick="toggleCutawayMode()" style="border-color:#38bdf8;color:#bae6fd;">
+              🔬 Chuyển Sang Bổ Mặt Cắt 3D (1:1)
+            </button>
+            <button class="qa-btn" id="btn-qa-dims" onclick="toggleDims3D()" style="border-color:#f59e0b;color:#fde68a;">
+              📏 Kích Thước 3D (Tường / Kính / Cửa): ĐANG BẬT
+            </button>
+            <button class="qa-btn" id="btn-qa-labels" onclick="toggleLabels3D()" style="border-color:#10b981;color:#6ee7b7;">
+              💬 Nhãn Chú Thích 3D: ĐANG BẬT
+            </button>
+            <button class="qa-btn" id="btn-qa-glass" onclick="toggleGlassXray()" style="border-color:#c084fc;color:#e9d5ff;">
+              💎 Làm Trong Suốt Kính (Nhìn Xuyên Vào Trong Cổ Giếng)
+            </button>
+          </div>
+
+          <div class="hud-legend">
+            <span class="legend-chip"><span class="legend-dot" style="background:#ea580c;"></span> Tường Gạch Đặc 220mm Xây Bịt Kín (Hướng Tây &amp; Bắc)</span>
+            <span class="legend-chip"><span class="legend-dot" style="background:#38bdf8;"></span> Cửa Hất Chữ A / Khung Thoáng Hướng Đông &amp; Nam</span>
+            <span class="legend-chip"><span class="legend-dot" style="background:#94a3b8;border:1px solid #fff;"></span> Lưới Chống Muỗi Inox 304 (Ô 1×1mm Mặt Trong)</span>
+            <span class="legend-chip"><span class="legend-dot" style="background:#10b981;"></span> Sàn BTCT Đổ Kín Trần Phòng Kho Solar (Giữa 2 Ô Kính)</span>
+            <span class="legend-chip"><span class="legend-dot" style="background:#f59e0b;"></span> Tường Xây Bịt Kín Cửa Sổ S6 Dưới Tum (Trục 3)</span>
+          </div>
+        </div>
+
+        <div class="cam-footer">
+          <span style="font-size:0.79rem;font-weight:900;color:#94a3b8;">🎥 GÓC NHÌN 3D NHANH:</span>
+          <button class="cam-btn active" onclick="setSkyCam('overview', this)">1. Tổng Thể Cụm 2 Ô Giếng Trời (Đông – Nam)</button>
+          <button class="cam-btn" onclick="setSkyCam('stair_o1', this)">2. Cận Cảnh Ô Kính Số 1 (Cầu Thang 2.15×1.77m)</button>
+          <button class="cam-btn" onclick="setSkyCam('wc_o2_s6', this)">3. Cận Cảnh Ô Kính Số 2 (WC 1.0×1.0m) &amp; Cửa S6 Đã Bịt</button>
+          <button class="cam-btn" onclick="setSkyCam('west_north_sealed', this)">4. Nhìn Mặt Tây &amp; Bắc (Xây Gạch 220mm Bịt Kín 100%)</button>
+          <button class="cam-btn" onclick="setSkyCam('roof_deck_walk', this)">5. Góc Đứng Thao Tác Trên Sàn Mái Nhìn Vào Cửa Hất / Chớp</button>
+          <button class="cam-btn" onclick="setSkyCam('cutaway_1to1', this)" style="border-color:#38bdf8;color:#bae6fd;">🔬 6. Bổ Mặt Cắt 3D (Tỷ Lệ 1:1) Theo Phương Án Đang Chọn</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: DETAILED CARDS FOR EACH OPTION -->
+  <section id="sec-cards-compare" class="section-block">
+    <div class="container">
+      <h2 class="sec-title">⚖️ Phân Tích Chi Tiết &amp; Đặt Lên Bàn Cân Từng Phương Án Giếng Trời</h2>
+      <p class="sec-desc">
+        Tất cả các phương án từ <strong>Phương án 1 &rarr; Phương án 5</strong> đều áp dụng nguyên tắc chuẩn:
+        <strong>Tách riêng 2 ô mái kính (đổ BTCT kín trần Phòng Kho Solar ở giữa)</strong> + <strong>Xây tường gạch đặc 220mm bịt kín hướng Tây (và khuyên bịt kín cả hướng Bắc)</strong> + <strong>Kính cường lực 12mm đua rộng 280mm che mưa bão</strong>. Điểm khác nhau nằm ở <strong>cấu tạo khe lấy gió &amp; thoát nhiệt ở hướng Đông – Nam</strong>:
+      </p>
+
+      
+      <!-- BẢNG CHỐT VỊ TRÍ, KÍCH THƯỚC CỬA HẤT & ĐỘ ĐUA KÍNH 350MM (PHƯƠNG ÁN 1 — CHỐT THI CÔNG) -->
+      <div style="margin-bottom: 22px; background: linear-gradient(145deg, rgba(6,78,59,0.34), rgba(15,23,42,0.98)); border: 2px solid #10b981; border-radius: 16px; padding: 20px 24px;">
+        <h3 style="font-size:1.12rem; font-weight:900; color:#6ee7b7; margin-bottom:10px;">
+          🎯 BẢNG CHỐT KÍCH THƯỚC CỬA SỔ MỞ HẤT (TỐI ĐA 2 CỬA/GIẾNG) &amp; ĐỘ ĐUA KÍNH ĐỈNH 350MM CHE KÍN CỬA HẤT:
+        </h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(430px, 1fr)); gap:14px; font-size:0.84rem; color:#e2e8f0; margin-bottom:14px;">
+          <div style="background:rgba(7,11,18,0.80); border:1px solid rgba(16,185,129,0.50); border-radius:12px; padding:14px 16px;">
+            <strong style="color:#38bdf8; font-size:0.95rem;">1. Ô Mái Kính Số 1 — Cầu Thang Bộ (Lọt lòng 2.150 × 1.770mm) &rarr; 02 CỬA HẤT ĐỒNG BỘ 600×250MM:</strong>
+            <ul style="list-style:none; margin-top:8px; display:flex; flex-direction:column; gap:6px;">
+              <li>• <strong>Nguyên tắc vàng (Đồng bộ cả 3 cửa hất về 1 cỡ <code>600 × 250mm</code>):</strong> Xây trụ tường gạch đặc <code>220mm</code> thật rộng ở 2 đầu góc để gánh tấm kính nặng ~230kg, chống mưa tạt góc, giúp bên nhôm kính sản xuất đồng loạt 3 bộ giống hệt nhau và ép gioăng <code>EPDM</code> kín khít 100% mùa nồm!</li>
+              <li>• <strong>Bộ Cửa Hất Số 1 — MẶT ĐÔNG (Cạnh 2.150mm quay ra sàn mái 2,66m):</strong>
+                <br>&nbsp;&nbsp;+ Kích thước phủ bì khung nhôm Xingfa hệ 55: <strong><code>Rộng 600mm × Cao 250mm</code> (01 cánh đơn gọn nhẹ ở chính giữa)</strong>.
+                <br>&nbsp;&nbsp;+ Hai đầu Bắc &amp; Nam xây tường gạch đặc <code>220mm</code> dài <strong><code>775mm</code> mỗi bên</strong> (<code>775 + 600 + 775 = 2.150mm</code>).</li>
+              <li>• <strong>Bộ Cửa Hất Số 2 — MẶT NAM (Cạnh 1.770mm giáp trần BTCT Phòng Kho Solar):</strong>
+                <br>&nbsp;&nbsp;+ Kích thước phủ bì khung nhôm Xingfa: <strong><code>Rộng 600mm × Cao 250mm</code> (01 cánh đơn mở hất 30° ở chính giữa)</strong>.
+                <br>&nbsp;&nbsp;+ Hai đầu Tây &amp; Đông xây trụ gạch đặc dài đều <strong><code>585mm</code> mỗi bên</strong> (<code>585 + 600 + 585 = 1.770mm</code> — vượt qua hộp kỹ thuật <code>TX2</code> sâu <code>420mm</code> tới <code>165mm</code>!).</li>
+            </ul>
+          </div>
+          <div style="background:rgba(7,11,18,0.80); border:1px solid rgba(56,189,248,0.50); border-radius:12px; padding:14px 16px;">
+            <strong style="color:#fde68a; font-size:0.95rem;">2. Ô Mái Kính Số 2 — Giếng Trời WC (Lọt lòng 1.000 × 1.000mm) &rarr; DUY NHẤT 01 CỬA HẤT ĐƠN 600MM:</strong>
+            <ul style="list-style:none; margin-top:8px; display:flex; flex-direction:column; gap:6px;">
+              <li>• <strong>3 Mặt TÂY (Trục A), BẮC (giáp Kho Solar) &amp; NAM (Trục 3 sát mép vực):</strong> Đều xây tường gạch đặc <code>220mm</code> cao <code>600mm</code> <strong>BỊT KÍN 100%</strong>!</li>
+              <li>• <strong>Bộ Cửa Hất Duy Nhất — MẶT ĐÔNG (Cạnh 1.000mm quay ra sàn mái rộng 3,33m):</strong>
+                <br>&nbsp;&nbsp;+ Kích thước phủ bì khung nhôm Xingfa: <strong><code>Rộng 600mm × Cao 250mm</code> (01 cánh đơn mở hất ra ngoài 30°)</strong>.
+                <br>&nbsp;&nbsp;+ Hai đầu Bắc &amp; Nam xây trụ tường gạch đặc <strong><code>200mm</code> mỗi bên</strong> (<code>200 + 600 + 200 = 1.000mm</code>) giúp 2 góc giếng cứng vững tuyệt đối.</li>
+              <li>• <strong>Xử lý đồng bộ dưới Tầng Tum (+11.400):</strong>
+                <br>&nbsp;&nbsp;+ <strong>Tường ngoài Trục 3:</strong> Xây gạch đặc <code>220mm</code> <strong>BỊT KÍN BỎ HẲN CỬA SỔ S6 NGOÀI TRỜI</strong>.
+                <br>&nbsp;&nbsp;+ <strong>Tường chữ L <code>V5</code> bên trong Phòng Kho Solar:</strong> <strong>CHỈ GIỮ LẠI cửa sổ lấy sáng &amp; thoát nhiệt <code>1.000 × 600mm</code> sát trần</strong> kèm <strong>quạt hút nhiệt <code>200×200mm</code></strong> thổi hơi nóng Inverter ra lòng Giếng trời WC!</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- BẢNG TÍNH ĐỘ ĐUA KÍNH CHUẨN 100% TỪNG CẠNH (BỊT KÍN VS CÓ CỬA HẤT) & KÍCH THƯỚC ĐẶT KÍNH NHÀ MÁY -->
+        <div style="background:rgba(7,11,18,0.88); border:1.5px solid rgba(245,158,11,0.55); border-radius:12px; padding:14px 18px; font-size:0.83rem; color:#e2e8f0;">
+          <strong style="color:#fde68a; font-size:0.94rem; display:block; margin-bottom:8px;">
+            📐 QUY CHUẨN ĐỘ NHÔ KÍNH 100% THEO TỪNG LOẠI CẠNH (TÂY 0MM • TƯỜNG BỊT KÍN 60MM • CỬA HẤT 350MM) &amp; KÍCH THƯỚC ĐẶT NHÀ MÁY:
+          </strong>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(380px, 1fr)); gap:12px;">
+            <div>
+              • <strong>1) Cạnh giáp ranh hàng xóm xây bịt kín — Mặt Tây (<code>Trục A</code> của cả Ô 1 &amp; Ô 2):</strong>
+              <br>&nbsp;&nbsp;&rarr; <strong>Độ nhô kính ra ngoài tường = <code>0mm</code> (Cắt bằng phẳng mép ngoài tường <code>Trục A</code>)</strong> + Ốp <strong>thanh Flashing Inox 304 / tôn chấn chữ L</strong> ôm kín mép kính và mặt tường biên (không lấn sang không gian nhà hàng xóm, nước mưa dốc <code>2%</code> chảy ngược hết về phía Đông sân mái nhà mình).
+              <br>• <strong>2) Cạnh xây gạch đặc <code>220mm</code> bịt kín trong nhà mình — Mặt Bắc Ô 1 (<code>Trục 2</code>), Mặt Bắc &amp; Mặt Nam Ô 2 (<code>Trục 3</code>):</strong>
+              <br>&nbsp;&nbsp;&rarr; <strong>Chỉ nhô ra khỏi mặt ngoài tường đúng <code>60mm (6cm)</code></strong> để làm <strong>gờ nhỏ giọt cắt nước (Drip Edge)</strong> &amp; che nắng cho mạch keo Silicon <em>Dow Corning 791</em> (tường đã xây đặc kịch đáy kính nên không cần đua rộng, tránh cản gió bão).
+            </div>
+            <div>
+              • <strong>3) Cạnh CÓ LẮP CỬA MỞ HẤT — Mặt Đông &amp; Nam của Ô 1; Mặt Đông của Ô 2:</strong>
+              <br>&nbsp;&nbsp;&rarr; Cánh cửa cao <code>250mm</code> mở hất ra ngoài <code>30°</code> nhô ra <code>125mm (12,5cm)</code> &rarr; <strong>Đua kính rộng <code>350mm (35cm)</code> tính từ mặt ngoài tường</strong> (vượt qua mép cánh mở thêm <code>225mm = 22,5cm</code>, có đà thép hộp <code>50×100mm</code> vươn консоль đỡ hết tầm đua <code>35cm</code>).
+              <br>• <strong>4) KÍCH THƯỚC ĐẶT KÍNH CƯỜNG LỰC <code>12MM</code> (HOẶC DÁN AN TOÀN <code>10.38MM</code>) TẠI NHÀ MÁY:</strong>
+              <br>&nbsp;&nbsp;+ <strong>Ô Kính Số 1 (Cầu thang):</strong> Chiều Bắc–Nam = <code>2.150 + 220×2 + 60 (Bắc) + 350 (Nam) = <strong>3.000mm</strong></code> • Chiều Tây–Đông = <code>1.770 + 220×2 + 0 (Tây) + 350 (Đông) = <strong>2.560mm</strong></code> &rarr; Chia <strong>02 tấm ghép bằng nhau kích thước chẵn <code>1.500 &times; 2.560mm</code></strong>.
+              <br>&nbsp;&nbsp;+ <strong>Ô Kính Số 2 (Giếng trời WC):</strong> Chiều Bắc–Nam = <code>1.000 + 220×2 + 60 (Bắc) + 60 (Nam) = <strong>1.560mm</strong></code> • Chiều Tây–Đông = <code>1.000 + 220×2 + 0 (Tây) + 350 (Đông) = <strong>1.790mm</code></strong> &rarr; Đặt <strong>01 tấm nguyên khối <code>1.560 &times; 1.790mm</code></strong>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pa-cards-grid">
+        <!-- PA1 -->
+        <div class="pa-card best">
+          <div class="pa-meta-badges">
+            <span class="pa-badge" style="background:#10b981;color:#04130d;">★ KHUYÊN DÙNG SỐ 1 CHO MIỀN BẮC</span>
+            <span class="pa-badge" style="background:rgba(16,185,129,0.2);color:#6ee7b7;">Chống Nồm Ẩm: 100%</span>
+            <span class="pa-badge" style="background:rgba(56,189,248,0.2);color:#bae6fd;">Chống Mưa &amp; Muỗi: 100%</span>
+          </div>
+          <h3>🏆 Phương Án 1: Cửa Sổ Nhôm Kính Mở Hất Đơn Gọn (Đồng bộ 03 bộ 600×250mm, Mở Ra Ngoài 30°) + Tường Gạch Góc Rộng</h3>
+          <ul class="pa-list">
+            <li>• <strong>Cấu tạo tối ưu (Không mở dài hết 2m mặt giếng):</strong> Xây trụ tường gạch đặc <code>220mm</code> rộng <code>350–625mm</code> ở hai đầu góc để chịu tải mái kính <code>~230kg</code> &amp; chắn gió quẩn góc. Ở chính giữa chỉ lắp <strong>01 bộ Cửa Hất đơn gọn</strong>: Ô 1 gồm <strong>Đông <code>600×250mm</code></strong> &amp; <strong>Nam <code>600×250mm</code></strong>; Ô 2 chỉ <strong>01 cửa Đông <code>600×250mm</code></strong> (mở hất ra ngoài <code>30°</code>, gioăng kép <code>EPDM</code> + lưới Inox 304 mặt trong).</li>
+            <li>• <strong>Tại sao tối ưu nhất ở miền Bắc?</strong>
+              <br>1) <strong>Mùa Hè (Tháng 5–9):</strong> Mở hất ra ngoài <code>30°</code> suốt mùa giúp thoát khí nóng hiệu ứng ống khói; bản cánh nghiêng <code>30°</code> kết hợp mái kính đua <code>35cm</code> chắn mưa tạt kép 2 lớp.
+              <br>2) <strong>Mùa Nồm Ẩm (Tháng 2–4) &amp; Gió Mùa Đông Bắc:</strong> Bước ra sàn mái gạt tay vặn đóng sập cánh cửa ép chặt vào gioăng cao su <code>EPDM</code> &rarr; <strong>Kín khít tuyệt đối 100% như bức tường gạch</strong>, không một giọt hơi ẩm hay bụi mịn nào lọt vào cầu thang &amp; trục WC!</li>
+            <li>• <strong>Cửa sổ S6 dưới Tum:</strong> Xây gạch đặc <strong>bịt kín bỏ hẳn S6 ngoài trời Trục 3</strong>, chỉ giữ lại <strong>cửa sổ trong Phòng Kho Solar (<code>1.000×600mm</code>)</strong>.</li>
+          </ul>
+          <div class="pa-actions">
+            <button class="pa-action-btn primary" onclick="selectSkylightPA('pa1_awning'); document.getElementById('sec-3d-skylight').scrollIntoView({behavior:'smooth'});">
+              👁️ Xem Phương Án 1 Trên 3D
+            </button>
+            <button class="pa-action-btn" onclick="selectSkylightPA('pa1_awning'); openCutawayForCurrentPA();">
+              🔬 Xem Mặt Cắt 1:1 Cửa Hất
+            </button>
+          </div>
+        </div>
+
+        <!-- PA2 -->
+        <div class="pa-card">
+          <div class="pa-meta-badges">
+            <span class="pa-badge" style="background:rgba(56,189,248,0.25);color:#bae6fd;">Đơn Giản • Không Tốn Tiền Chớp Nhôm</span>
+            <span class="pa-badge" style="background:rgba(245,158,11,0.2);color:#fde68a;">Chống Nồm Ẩm: Cần Nắp Đậy Phụ</span>
+          </div>
+          <h3>🌬️ Phương Án 2: Khe Thở 10–12cm Sát Đáy Kính + 1 Thanh La Sắt Nghiêng 45° + Lưới Inox 304</h3>
+          <ul class="pa-list">
+            <li>• <strong>Cấu tạo:</strong> Xây tường gạch đặc cao thêm <code>250–280mm</code> trên dầm lật ở mặt Đông &amp; Nam, chỉ chừa lại đúng <strong>Khe thở cao <code>10–12cm</code> sát nách đáy kính</strong> (nằm lọt hoàn toàn trong vùng bóng râm che mưa <code>72°</code> của tấm kính đua <code>280mm</code>).</li>
+            <li>• <strong>Chống mưa, chim chuột &amp; côn trùng:</strong> Mặt ngoài hàn <strong>1 thanh la sắt (hoặc hộp dẹt 15×45mm) nghiêng 45°</strong> chạy dọc giữa khe để cản gió bão và chim chuột; mặt trong căng phẳng <strong>Lưới chống muỗi Inox 304 (ô 1×1mm)</strong> kẹp nẹp sắt 4 cạnh kín khít.</li>
+            <li>• <strong>Ưu / Nhược điểm:</strong> Rẻ, bền vĩnh cửu, ít bám bụi hơn chớp nhiều lá. Tuy nhiên vì khe hở cố định 24/7 nên vào <strong>mùa nồm ẩm miền Bắc</strong> hơi ẩm vẫn lùa qua lưới vào nhà (nếu chọn PA2 nên làm thêm tấm nắp nhựa Mica/nhôm cài nam châm để đậy lại mùa nồm).</li>
+          </ul>
+          <div class="pa-actions">
+            <button class="pa-action-btn primary" onclick="selectSkylightPA('pa2_slot10'); document.getElementById('sec-3d-skylight').scrollIntoView({behavior:'smooth'});">
+              👁️ Xem Phương Án 2 Trên 3D
+            </button>
+            <button class="pa-action-btn" onclick="selectSkylightPA('pa2_slot10'); openCutawayForCurrentPA();">
+              🔬 Xem Mặt Cắt 1:1 Khe 10cm
+            </button>
+          </div>
+        </div>
+
+        <!-- PA3 -->
+        <div class="pa-card">
+          <div class="pa-meta-badges">
+            <span class="pa-badge" style="background:rgba(245,158,11,0.25);color:#fde68a;">Thẩm Mỹ Nhôm Kính Hiện Đại</span>
+            <span class="pa-badge" style="background:rgba(56,189,248,0.2);color:#bae6fd;">Chắn Mưa Tạt Tốt Bằng Lá Chữ Z</span>
+          </div>
+          <h3>🪟 Phương Án 3: Hệ Lam Chớp Nhôm Chữ Z (Louver Z-Blade) + Lưới Chống Muỗi Inox 304 Mặt Trong</h3>
+          <ul class="pa-list">
+            <li>• <strong>Cấu tạo:</strong> Xây tường gạch đặc cao thêm <code>180–200mm</code> trên dầm lật; phần cổ trên cao <code>180–200mm</code> sát đáy kính ở mặt Đông &amp; Nam lắp <strong>Khung Lam Chớp Nhôm Chữ Z sơn tĩnh điện</strong> (các lá chớp chữ Z nghiêng <code>45°</code> có gờ móc chắn nước mưa hắt ngược ở mép trong).</li>
+            <li>• <strong>Cách chống muỗi bắt buộc:</strong> Bản thân bộ chớp nhôm chữ Z ngoài thị trường có khe hở giữa các lá rộng <code>3–5cm</code> nên <strong>bắt buộc phải ốp thêm 1 lớp Lưới chống muỗi Inox 304 phẳng ở mặt trong khung nhôm</strong>.</li>
+            <li>• <strong>Ưu / Nhược điểm:</strong> Nhìn từ ngoài sân mái rất đẹp, đồng bộ màu nhôm Xingfa xám đá và lá chữ Z chắn mưa hắt rất tốt. Nhược điểm: Nhiều lá chớp chữ Z xếp chồng nên <strong>dễ đọng bụi ở các rãnh lá hơn</strong>, và mùa nồm ẩm không tự đóng kín được nếu không chế thêm cánh chớp lật hoặc nắp đậy mặt trong.</li>
+          </ul>
+          <div class="pa-actions">
+            <button class="pa-action-btn primary" onclick="selectSkylightPA('pa3_zlouver'); document.getElementById('sec-3d-skylight').scrollIntoView({behavior:'smooth'});">
+              👁️ Xem Phương Án 3 (Chớp Z) Trên 3D
+            </button>
+            <button class="pa-action-btn" onclick="selectSkylightPA('pa3_zlouver'); openCutawayForCurrentPA();">
+              🔬 Xem Mặt Cắt 1:1 Lam Chớp Z
+            </button>
+          </div>
+        </div>
+
+        <!-- PA4 -->
+        <div class="pa-card">
+          <div class="pa-meta-badges">
+            <span class="pa-badge" style="background:rgba(168,85,247,0.25);color:#e9d5ff;">Kín Mưa Bão &amp; Bụi 100%</span>
+            <span class="pa-badge" style="background:rgba(16,185,129,0.2);color:#6ee7b7;">Có Nắp Vặn Chống Nồm 100%</span>
+          </div>
+          <h3>🔧 Phương Án 4: Xây Gạch Bịt Kín 4 Mặt + Đặt Ống Thông Hơi Chữ L (PVC D110 Cút 90° Chúc Xuống)</h3>
+          <ul class="pa-list">
+            <li>• <strong>Cấu tạo:</strong> Xây tường gạch đặc <code>220mm</code> <strong>bịt kín cả 4 mặt</strong> lên sát đáy kính. Tại mặt Đông &amp; Nam (sát nách đáy kính <code>5cm</code>), đặt các <strong>ống nhựa PVC <code>D110</code> xuyên tường</strong> (Ô Kính 1 đặt <code>4–6 ống</code>, Ô Kính 2 đặt <code>2 ống</code>).</li>
+            <li>• <strong>Đầu ngoài &amp; Đầu trong:</strong> Đầu ngoài lắp <strong>Cút chữ L 90° chúc thẳng miệng xuống dưới</strong> (nằm gọn dưới gầm kính đua <code>28cm</code>) + bịt <strong>Lưới chống muỗi Inox 304</strong> ở miệng cút; đầu trong cổ giếng lắp <strong>Nắp bịt ren vặn / Van bướm D110</strong>.</li>
+            <li>• <strong>Ưu / Nhược điểm:</strong> Chống mưa bão cấp 12 và chống bụi bẩn gần như tuyệt đối 100%, chi phí cực rẻ (~350k), mùa nồm vặn nắp bịt lại là kín 100%. Nhược điểm duy nhất: Lưu lượng thoát khí nóng mùa hè nhỏ hơn so với mở Cửa hất chữ A (PA1).</li>
+          </ul>
+          <div class="pa-actions">
+            <button class="pa-action-btn primary" onclick="selectSkylightPA('pa4_lpipe'); document.getElementById('sec-3d-skylight').scrollIntoView({behavior:'smooth'});">
+              👁️ Xem Phương Án 4 (Ống Chữ L) Trên 3D
+            </button>
+            <button class="pa-action-btn" onclick="selectSkylightPA('pa4_lpipe'); openCutawayForCurrentPA();">
+              🔬 Xem Mặt Cắt 1:1 Ống Chữ L
+            </button>
+          </div>
+        </div>
+
+        <!-- PA5 -->
+        <div class="pa-card">
+          <div class="pa-meta-badges">
+            <span class="pa-badge" style="background:rgba(251,146,60,0.25);color:#fed7aa;">Thợ Nề Xây Liền Mạch</span>
+            <span class="pa-badge" style="background:rgba(244,63,94,0.2);color:#fecdd3;">Độ Thoáng Thấp (~35%)</span>
+          </div>
+          <h3>🧱 Phương Án 5: Gạch Bông Gió Chắn Mưa Chữ Z (200×200×60mm) + Lưới Inox 304 Mặt Trong</h3>
+          <ul class="pa-list">
+            <li>• <strong>Cấu tạo:</strong> Xây tường gạch đặc ở dưới, hàng trên cùng sát đáy kính ở mặt Đông &amp; Nam xây bằng <strong>viên gạch bông gió chắn mưa rãnh chữ Z (đất nung hoặc bê tông 200×200×60mm)</strong> + Ốp khung lưới chống muỗi Inox 304 ở mặt phẳng bên trong.</li>
+            <li>• <strong>Ưu / Nhược điểm:</strong> Không cần gọi thợ nhôm kính hay thợ sắt làm nan chớp, rãnh chữ Z dày 60mm chắn mưa tạt tốt. Nhưng diện tích lỗ thoáng thực tế chỉ đạt ~35% (bí hơn PA1, PA2, PA3) và mùa nồm ẩm không đóng kín lại được.</li>
+          </ul>
+          <div class="pa-actions">
+            <button class="pa-action-btn primary" onclick="selectSkylightPA('pa5_zbrick'); document.getElementById('sec-3d-skylight').scrollIntoView({behavior:'smooth'});">
+              👁️ Xem Phương Án 5 (Gạch Z) Trên 3D
+            </button>
+            <button class="pa-action-btn" onclick="selectSkylightPA('pa5_zbrick'); openCutawayForCurrentPA();">
+              🔬 Xem Mặt Cắt 1:1 Gạch Chữ Z
+            </button>
+          </div>
+        </div>
+
+        <!-- PA6 -->
+        <div class="pa-card" style="border-color:rgba(244,63,94,0.4);">
+          <div class="pa-meta-badges">
+            <span class="pa-badge" style="background:#f43f5e;color:#fff;">⚠️ BẢN VẼ CŨ KT-3.09 (KHÔNG NÊN LÀM)</span>
+          </div>
+          <h3>⚠️ Phương Án 6 (Đối Chiếu Thiết Kế Cũ KT-3.09): 1 Ô Kính Dài 5,04m + Chớp 4 Mặt + Còn Cửa S6</h3>
+          <ul class="pa-list">
+            <li>• <strong>3 Lỗi lớn của thiết kế cũ đã được khắc phục:</strong>
+              <br>1) Lợp kính liền dải trên đỉnh <strong>Phòng Kho Solar</strong> gây hiệu ứng nhà kính nóng <code>50–60°C</code> làm hỏng Inverter &amp; Pin Lithium.
+              <br>2) Làm chớp nhôm cao <code>280mm</code> ở cả <strong>4 mặt (kể cả Mặt Tây Trục A &amp; Mặt Bắc Trục 2)</strong> khiến mưa bão hướng Tây tạt vào và gió mùa Đông Bắc / nồm ẩm thổi thẳng xuống cầu thang.
+              <br>3) Vẫn mở cửa sổ <code>S6</code> dưới Tum gây trùng lặp chức năng và hở ẩm.</li>
+          </ul>
+          <div class="pa-actions">
+            <button class="pa-action-btn" style="border-color:#f43f5e;color:#fecdd3;" onclick="selectSkylightPA('pa6_old_kt309'); document.getElementById('sec-3d-skylight').scrollIntoView({behavior:'smooth'});">
+              👁️ Bật Xem Bản Vẽ Cũ Trên 3D Để Đối Chiếu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: 10 HIGH-RES TECHNICAL DRAWINGS & 3D RENDERS -->
+  <section id="sec-drawings" class="section-block">
+    <div class="container">
+      <h2 class="sec-title">📸 Ảnh Phối Cảnh 3D Thực Tế &amp; Bản Vẽ Kỹ Thuật Giao Thợ Xây, Thợ Sắt &amp; Nhôm Kính (Bấm Vào Ảnh Để Phóng To HD)</h2>
+      <p class="sec-desc">Bấm trực tiếp vào bất kỳ ảnh phối cảnh 3D thực tế hoặc bản vẽ kỹ thuật nào bên dưới để mở chế độ phóng to toàn màn hình (Lightbox HD) đưa trực tiếp cho tổ đội thợ:</p>
+
+      <div class="drawings-grid">
+        <div class="drawing-card" style="border:2px solid #10b981;" onclick="openLightbox(this.querySelector('img').src, 'Ảnh 3D Thực Tế Kèm Chú Thích Kích Thước Giao Thợ Xây & Nhôm Kính: 2 Giếng Trời + 3 Cửa Hất Mở Ngoài 30° + Kính Dốc 2% Tây➔Đông + Thang Inox 304 Trục 3')">
+          <img src="assets/anh_3d_thuc_te_2_gieng_troi_va_thang_inox_giao_tho_xay.png" alt="Ảnh 3D thực tế kèm chú thích kích thước giao thợ xây" />
+          <div class="drawing-info">
+            <h4>⭐ 1. Ảnh Phối Cảnh 3D Thực Tế Kèm Chú Thích Kích Thước (Giao Thợ Xây &amp; Nhôm Kính)</h4>
+            <p>Tổng hợp 2 góc nhìn 3D thực tế + 10 chú thích kích thước xây gạch đặc, chừa lỗ cửa hất 30°, độ dốc mái 2% Tây➔Đông &amp; Thang Inox 304.</p>
+          </div>
+        </div>
+
+        <div class="drawing-card" style="border:2px solid #38bdf8;" onclick="openLightbox(this.querySelector('img').src, 'Bản Vẽ Phối Cảnh 3D Kỹ Thuật Bóc Tách Giao Thợ Xây, Thợ Sắt & Nhôm Kính: 2 Ô Giếng Trời Mái Tum & Thang Inox Trục 3')">
+          <img src="assets/ban_ve_3d_chi_tiet_xay_tuong_2_gieng_troi_giao_tho_xay.png" alt="Bản vẽ phối cảnh 3D kỹ thuật giao thợ xây" />
+          <div class="drawing-info">
+            <h4>📐 2. Bản Vẽ 3D Bóc Tách Kỹ Thuật Xây Tường &amp; Mặt Đứng Trục 3 (Thang Inox + Cửa D10)</h4>
+            <p>Bóc tách từng đoạn trụ gạch đặc (775mm, 585mm, 200mm), lỗ chờ 3 cửa hất mở ngoài 30° và khoảng cách Thang Inox (380mm / 705mm).</p>
+          </div>
+        </div>
+
+        <div class="drawing-card" style="border:2px solid #f59e0b;" onclick="openLightbox(this.querySelector('img').src, 'Ảnh Render 3D Thực Tế Sàn Mái (+14.800): 02 Giếng Trời Xây Gạch Đặc + 03 Cửa Hất Đơn Mở Ngoài 30° Ở Giữa + Mái Kính Đua 350mm')">
+          <img src="assets/render_3d_2_gieng_troi_1_cua_giua_chuan.jpg" alt="Ảnh Render 3D thực tế 2 giếng trời trên sàn mái" />
+          <div class="drawing-info">
+            <h4>📸 3. Ảnh Render 3D Thực Tế Góc Nhìn Trên Sàn Mái (+14.800): 02 Giếng Trời &amp; 03 Cửa Hất 30°</h4>
+            <p>Hình ảnh thực tế 2 cổ giếng trời xây gạch đặc: Mặt Tây &amp; Bắc bịt kín, Mặt Đông &amp; Nam xây trụ gạch 2 đầu và chừa 1 cửa hất đơn ở giữa.</p>
+          </div>
+        </div>
+
+        <div class="drawing-card" style="border:2px solid #a855f7;" onclick="openLightbox(this.querySelector('img').src, 'Ảnh Render 3D Thực Tế Tường Mặt Nam Trục 3: Tường Bịt Kín Bỏ Cửa S6 + Giếng Trời Số 2 + Thang Inox 304 + Cửa Đi D10')">
+          <img src="assets/render_3d_thang_inox_cua_d10_chuan.jpg" alt="Ảnh Render 3D thực tế tường Trục 3 Thang Inox và Cửa D10" />
+          <div class="drawing-info">
+            <h4>🪜 4. Ảnh Render 3D Thực Tế Tường Nam Trục 3: Thang Inox 304, Cửa D10 &amp; Tường Bịt Kín S6</h4>
+            <p>Góc nhìn từ sân thượng sau: Tường trái xây kín bỏ S6, Thang Inox 304 (rộng 450mm) cách mép Giếng Số 2 đúng 380mm và cách Cửa D10 đúng 705mm.</p>
+          </div>
+        </div>
+
+        <div class="drawing-card" onclick="openLightbox(this.querySelector('img').src, 'Bản Vẽ 5: Phương Án Tối Ưu Nhất (PA1 ★) — Bịt Kín Tây–Bắc + Mở Cửa Hất Chữ A Hướng Đông–Nam + Lưới Inox 304 + Bỏ Cửa S6')">
+          <img src="assets/phuong_an_toi_uu_nhat_chong_nom_am_bui_mua_bao_2_mai_kinh.png" alt="Phương án tối ưu nhất PA1 Cửa hất chữ A" />
+          <div class="drawing-info">
+            <h4>5. 🏆 Phương Án 1 ★ (Tối Ưu Nhất): Cửa Hất Chữ A + Lưới Inox 304</h4>
+            <p>Giải quyết trọn vẹn 4 bài toán miền Bắc: Chống Nồm Ẩm 100% + Chống Bụi + Chống Muỗi Inox 304 + Chống Bão Cấp 12.</p>
+          </div>
+        </div>
+
+        <div class="drawing-card" onclick="openLightbox(this.querySelector('img').src, 'Bản Vẽ 2: Mặt Bằng & Mặt Cắt Tách Đôi 2 Ô Mái Kính + Đổ Kín Trần BTCT Phòng Kho Solar')">
+          <img src="assets/ban_ve_chi_tiet_thi_cong_2_mai_kinh_tum_kt309_moi.png" alt="Bản vẽ tách đôi 2 ô mái kính" />
+          <div class="drawing-info">
+            <h4>2. 🧱 Chi Tiết Tách 2 Ô Kính &amp; Đổ Kín Trần Phòng Kho Solar</h4>
+            <p>Ô Kính 1 Cầu thang (2.150×1.770mm) • Kho Solar đổ BTCT kín ở giữa (1.850mm) • Ô Kính 2 Giếng trời WC (1.000×1.000mm).</p>
+          </div>
+        </div>
+
+        <div class="drawing-card" onclick="openLightbox(this.querySelector('img').src, 'Bản Vẽ 3: Mô Phỏng Hướng Mưa Bão Tạt Hắt & Góc Che Mưa 72° Của Kính Đua 280mm')">
+          <img src="assets/mo_phong_huong_mua_gio_tat_hat_2_mai_kinh_tum.png" alt="Mô phỏng hướng mưa gió tạt hắt" />
+          <div class="drawing-info">
+            <h4>3. 🌧️ Mô Phỏng Góc Mưa Bão Tạt Hắt &amp; Hướng Gió Đông–Nam</h4>
+            <p>Phân tích quỹ đạo hạt mưa bão xiên 60°–70° và lý do phải xây bịt kín Mặt Tây (Trục A) &amp; Mặt Bắc (Trục 2).</p>
+          </div>
+        </div>
+
+        <div class="drawing-card" onclick="openLightbox(this.querySelector('img').src, 'Bản Vẽ 4: Chi Tiết Phương Án 2 — Khe Thở 10–12cm + La Sắt Nghiêng 45° + Lưới Chống Muỗi Inox 304')">
+          <img src="assets/chi_tiet_lap_luoi_chong_muoi_inox304_phuong_an_1.png" alt="Chi tiết lắp lưới chống muỗi Inox 304" />
+          <div class="drawing-info">
+            <h4>4. 🌬️ Phương Án 2: Khe Thở 10–12cm + La Sắt 45° + Lưới Inox 304</h4>
+            <p>Cấu tạo khung thép hộp khép kín chừa khe 10–12cm sát đáy kính, hàn la sắt 45° mặt ngoài và kẹp lưới Inox 304 mặt trong.</p>
+          </div>
+        </div>
+
+        <div class="drawing-card" onclick="openLightbox(this.querySelector('img').src, 'Bản Vẽ 5: Chi Tiết Phương Án 4 — Xây Bịt Kín 4 Mặt + Đặt Ống Thông Hơi Chữ L (PVC D110 Cút 90° Chúc Xuống)')">
+          <img src="assets/phuong_an_ong_thong_hoi_chu_L_2_mai_kinh_tum.png" alt="Phương án ống thông hơi chữ L D110" />
+          <div class="drawing-info">
+            <h4>5. 🔧 Phương Án 4: Ống Thông Hơi Chữ L (PVC D110 Cút 90°)</h4>
+            <p>Xây gạch đặc bịt kín 4 mặt, đặt ống PVC D110 cút 90° chúc xuống ở hướng Đông–Nam + Lưới Inox 304 + Nắp vặn mùa nồm.</p>
+          </div>
+        </div>
+
+        <div class="drawing-card" onclick="openLightbox(this.querySelector('img').src, 'Bản Vẽ 6: Tổng Hợp So Sánh Các Phương Án Thay Thế Nan Chớp Nhôm Cũ (Cửa Hất / Khe 10cm / Lam Chớp Z / Gạch Z)')">
+          <img src="assets/4_phuong_an_thay_the_nan_chop_nhom_mai_kinh_tum.png" alt="So sánh các phương án cổ giếng trời" />
+          <div class="drawing-info">
+            <h4>6. ⚖️ Tổng Hợp So Sánh Cấu Tạo Các Phương Án Cổ Giếng Trời</h4>
+            <p>Đối chiếu trực quan giữa Cửa sổ mở hất chữ A, Khe thở 10–12cm, Lam chớp chữ Z và Gạch thông gió chắn mưa chữ Z.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dialog id="lightbox-modal" onclick="if(event.target===this)this.close()">
+    <div class="lb-header">
+      <strong id="lb-title" style="font-size:0.92rem;color:#bae6fd;">Bản Vẽ Chi Tiết</strong>
+      <button onclick="document.getElementById('lightbox-modal').close()" style="background:#ef4444;color:#fff;border:none;padding:6px 12px;border-radius:7px;font-weight:800;cursor:pointer;">✕ Đóng (ESC)</button>
+    </div>
+    <div class="lb-body">
+      <img id="lb-img" src="" alt="Phóng to" />
+    </div>
+  </dialog>
+
+  <script>
+    window.openLightbox = function(src, title) {
+      var dlg = document.getElementById("lightbox-modal");
+      var img = document.getElementById("lb-img");
+      var ttl = document.getElementById("lb-title");
+      if (img) img.src = src;
+      if (ttl) ttl.textContent = title || "Bản Vẽ Chi Tiết";
+      if (dlg && typeof dlg.showModal === "function") dlg.showModal();
+    };
+
+    (function initDedicatedSkylight3D() {
+      const container = document.getElementById("sky3d-wrapper");
+      const canvas = document.getElementById("sky3d-canvas");
+      if (!container || !canvas || typeof THREE === "undefined") return;
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x090f1a);
+
+      const camera = new THREE.PerspectiveCamera(42, container.clientWidth / container.clientHeight, 0.1, 200);
+      const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, preserveDrawingBuffer: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setSize(container.clientWidth, container.clientHeight, false);
+      renderer.shadowMap.enabled = true;
+
+      // Lighting
+      const hemi = new THREE.HemisphereLight(0xe0f2fe, 0x1e293b, 0.95);
+      scene.add(hemi);
+      const dirLight = new THREE.DirectionalLight(0xffffff, 1.15);
+      dirLight.position.set(12, 22, 14);
+      dirLight.castShadow = true;
+      scene.add(dirLight);
+      const fillLight = new THREE.DirectionalLight(0x93c5fd, 0.55);
+      fillLight.position.set(-12, 10, -10);
+      scene.add(fillLight);
+
+      // Orbit Controls (Custom smooth spherical orbit)
+      let spherical = { theta: -0.85, phi: 1.08, radius: 8.6 };
+      let targetSpherical = { theta: -0.85, phi: 1.08, radius: 8.6 };
+      let target = new THREE.Vector3(0.0, 0.75, 0.2);
+      let targetPan = new THREE.Vector3(0.0, 0.75, 0.2);
+
+      let isDragging = false, isRightDrag = false;
+      let prevMouse = { x: 0, y: 0 };
+
+      canvas.addEventListener("mousedown", e => {
+        isDragging = true;
+        isRightDrag = (e.button === 2 || e.shiftKey);
+        prevMouse = { x: e.clientX, y: e.clientY };
+      });
+      window.addEventListener("mouseup", () => { isDragging = false; });
+      canvas.addEventListener("contextmenu", e => e.preventDefault());
+      window.addEventListener("mousemove", e => {
+        if (!isDragging) return;
+        const dx = e.clientX - prevMouse.x;
+        const dy = e.clientY - prevMouse.y;
+        prevMouse = { x: e.clientX, y: e.clientY };
+        if (!isRightDrag) {
+          targetSpherical.theta += dx * 0.0075;
+          targetSpherical.phi = Math.max(0.15, Math.min(1.52, targetSpherical.phi - dy * 0.0075));
+        } else {
+          const panSpeed = targetSpherical.radius * 0.0014;
+          const right = new THREE.Vector3(-Math.sin(targetSpherical.theta), 0, Math.cos(targetSpherical.theta));
+          targetPan.addScaledVector(right, -dx * panSpeed);
+          targetPan.y += dy * panSpeed;
+        }
+      });
+      canvas.addEventListener("wheel", e => {
+        e.preventDefault();
+        targetSpherical.radius = Math.max(2.2, Math.min(22.0, targetSpherical.radius * (1 + e.deltaY * 0.001)));
+      }, { passive: false });
+
+      // Touch support
+      let prevTouch = null;
+      canvas.addEventListener("touchstart", e => {
+        if (e.touches.length === 1) {
+          prevTouch = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        }
+      }, { passive: true });
+      canvas.addEventListener("touchmove", e => {
+        if (e.touches.length === 1 && prevTouch) {
+          const dx = e.touches[0].clientX - prevTouch.x;
+          const dy = e.touches[0].clientY - prevTouch.y;
+          prevTouch = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+          targetSpherical.theta += dx * 0.0075;
+          targetSpherical.phi = Math.max(0.15, Math.min(1.52, targetSpherical.phi - dy * 0.0075));
+        }
+      }, { passive: true });
+
+      // Materials
+      const matRoofSlab = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.75, metalness: 0.1, side: THREE.DoubleSide });
+      const matTumWall = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.65, metalness: 0.05, side: THREE.DoubleSide });
+      const matCurbConcrete = new THREE.MeshStandardMaterial({ color: 0x94a3b8, roughness: 0.6, metalness: 0.1, side: THREE.DoubleSide });
+      const matBrickSealed = new THREE.MeshStandardMaterial({ color: 0xea580c, roughness: 0.68, metalness: 0.06, side: THREE.DoubleSide });
+      const matSolarSlabGreen = new THREE.MeshStandardMaterial({ color: 0x059669, roughness: 0.50, metalness: 0.12, side: THREE.DoubleSide });
+      const matBlackAlu = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.35, metalness: 0.75, side: THREE.DoubleSide });
+      const matZLouverAlu = new THREE.MeshStandardMaterial({ color: 0x38bdf8, roughness: 0.30, metalness: 0.65, side: THREE.DoubleSide });
+      const matAwningFrame = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.28, metalness: 0.65, side: THREE.DoubleSide });
+      const matAwningGlass = new THREE.MeshPhysicalMaterial({ color: 0x7dd3fc, roughness: 0.08, metalness: 0.1, transparent: true, opacity: 0.72, side: THREE.DoubleSide });
+      const matTopSkylightGlass = new THREE.MeshPhysicalMaterial({ color: 0x38bdf8, roughness: 0.06, metalness: 0.15, transparent: true, opacity: 0.62, side: THREE.DoubleSide });
+      const matInoxMesh = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.25, metalness: 0.85, transparent: true, opacity: 0.58, wireframe: false, side: THREE.DoubleSide });
+      const matPvcPipe = new THREE.MeshStandardMaterial({ color: 0xc084fc, roughness: 0.32, metalness: 0.20, side: THREE.DoubleSide });
+      const matZBrick = new THREE.MeshStandardMaterial({ color: 0xd97706, roughness: 0.72, metalness: 0.08, side: THREE.DoubleSide });
+      const matS6Sealed = new THREE.MeshStandardMaterial({ color: 0xf59e0b, roughness: 0.55, metalness: 0.10, side: THREE.DoubleSide });
+      const matDangerRed = new THREE.MeshStandardMaterial({ color: 0xe11d48, roughness: 0.45, metalness: 0.2, transparent: true, opacity: 0.55, side: THREE.DoubleSide });
+
+      function makeBox(w, h, d, mat, x, y, z, parent) {
+        const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+        m.position.set(x, y, z);
+        m.castShadow = true;
+        m.receiveShadow = true;
+        if (parent) parent.add(m);
+        return m;
+      }
+
+      function makeSpriteLabel(title, sub, borderHex, x, y, z, scaleW, scaleH) {
+        const c = document.createElement("canvas");
+        c.width = 780; c.height = 160;
+        const ctx = c.getContext("2d");
+        ctx.fillStyle = "rgba(7, 11, 18, 0.92)";
+        ctx.strokeStyle = borderHex || "#10b981";
+        ctx.lineWidth = 6;
+        ctx.beginPath();
+        ctx.roundRect(6, 6, 768, 148, 18);
+        ctx.fill();
+        ctx.stroke();
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "800 28px system-ui, -apple-system, sans-serif";
+        ctx.fillText(title, 24, 58);
+        ctx.fillStyle = "#cbd5e1";
+        ctx.font = "600 23px system-ui, -apple-system, sans-serif";
+        ctx.fillText(sub, 24, 112);
+        const tex = new THREE.CanvasTexture(c);
+        const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, depthTest: false, transparent: true }));
+        sp.position.set(x, y, z);
+        sp.scale.set(scaleW || 1.55, scaleH || 0.32, 1);
+        sp.renderOrder = 999;
+        return sp;
+      }
+
+      // =====================================================================
+      // COORDINATE SYSTEM FOR DEDICATED SKYLIGHT SCENE:
+      //   X axis: West (-X, Trục A) ---> East (+X, Sàn mái nhà mình)
+      //   Z axis: North (-Z, Trục 2 Mặt tiền) ---> South (+Z, Sân sau Trục 3-4)
+      //   Y axis: Height (Y = 0.0 is Roof Slab +14.580 / +14.780, Y = -1.6 is Tum Shaft below)
+      //
+      //   - Ô Mái Kính Số 1 (Cầu thang bộ):
+      //       Z from -2.50m (North Trục 2) to -0.35m (2.15m long)
+      //       X from -1.40m (West Trục A) to +0.37m (1.77m wide)
+      //   - Khoang Giữa (Trần Phòng Kho Solar đổ BTCT kín):
+      //       Z from -0.35m to +1.50m (1.85m long)
+      //       X from -1.40m to +0.37m (1.77m wide)
+      //   - Ô Mái Kính Số 2 (Giếng trời WC):
+      //       Z from +1.50m to +2.50m (1.00m long)
+      //       X from -1.40m (West Trục A) to -0.40m (1.00m wide)
+      //   - Tường Trục 3 dưới Tum (chứa Cửa sổ S6 đã bịt kín):
+      //       at Z = +1.50m, Y from -1.65m to -0.05m
+      // =====================================================================
+
+      const grpMainOverview = new THREE.Group();
+      scene.add(grpMainOverview);
+
+      const grpLabelsOverview = new THREE.Group();
+      grpMainOverview.add(grpLabelsOverview);
+
+      // 1. Base Roof Deck (+14.580) & Tum Shaft Walls below (Y = -1.65 .. 0.0)
+      // East & South Roof Deck where homeowner stands to operate skylights
+      makeBox(4.80, 0.14, 6.80, matRoofSlab, 0.60, -0.07, 0.10, grpMainOverview);
+
+      // West Wall Trục A (X = -1.40m) below roof
+      makeBox(0.22, 1.65, 5.20, matTumWall, -1.40, -0.825, 0.00, grpMainOverview);
+      // North Wall Trục 2 (Z = -2.50m) below roof
+      makeBox(1.90, 1.65, 0.22, matTumWall, -0.51, -0.825, -2.50, grpMainOverview);
+      // East Wall of Tum Shaft (X = +0.37m)
+      makeBox(0.20, 1.65, 4.10, matTumWall, 0.37, -0.825, -0.50, grpMainOverview);
+
+      // Partition wall at Z = -0.35m (between Stairwell & Solar Storage Room)
+      makeBox(1.77, 1.65, 0.15, matTumWall, -0.515, -0.825, -0.35, grpMainOverview);
+
+      // Wall V5 (L-shaped interior wall between Solar Room & WC Skylight Shaft: Z = +1.50m and X = -0.40m)
+      makeBox(1.00, 1.65, 0.20, matTumWall, -0.90, -0.825, 1.50, grpMainOverview);
+      makeBox(0.20, 1.65, 1.00, matTumWall, -0.40, -0.825, 2.00, grpMainOverview);
+      // Exterior South Wall Trục 3 at Z = +2.50m (where old exterior Window S6 was, extending East to Cửa đi D10 at X = +1.245m)
+      makeBox(2.90, 1.65, 0.22, matTumWall, -0.05, -0.825, 2.50, grpMainOverview);
+      // Cửa đi D10 (1.390 × 2.700mm, 2 cánh mở gập dồn về hướng tường Trục 3) bắt đầu tại X = +1.245m (cách thanh phải thang đúng 705mm)
+      makeBox(0.06, 1.65, 0.24, matBlackAlu, 1.245, -0.825, 2.50, grpMainOverview);
+      makeBox(0.55, 0.06, 0.24, matBlackAlu, 1.52, -0.03, 2.50, grpMainOverview);
+      makeBox(0.52, 1.58, 0.06, matAwningGlass, 1.52, -0.84, 2.50, grpMainOverview);
+
+      // INOX 304 ROOFTOP ACCESS LADDER (THANG LÊN THĂM MÁI TUM: Rộng 450mm, cách mép tường Giếng Ô 2 đúng 380mm & cách Cửa D10 đúng 705mm)
+      const matLadderInox = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.18, metalness: 0.88 });
+      const grpRoofLadder = new THREE.Group();
+      grpMainOverview.add(grpRoofLadder);
+      const ladX = 0.315, ladW = 0.45, ladZ = 2.74; // Thanh trái X = +0.090m (cách tường giếng X = -0.290m đúng 380mm) • Thanh phải X = +0.540m (cách Cửa D10 X = +1.245m đúng 705mm)
+      [-ladW / 2, ladW / 2].forEach(dx => {
+        // 2 Vertical side rails (Y = -1.60 .. +0.85m)
+        const rail = new THREE.Mesh(new THREE.CylinderGeometry(0.021, 0.021, 2.45, 16), matLadderInox);
+        rail.position.set(ladX + dx, -0.375, ladZ);
+        grpRoofLadder.add(rail);
+        // Gooseneck top handrail arching onto roof deck (+14.780)
+        makeBox(0.042, 0.042, 0.34, matLadderInox, ladX + dx, 0.85, ladZ - 0.15, grpRoofLadder);
+        makeBox(0.042, 0.65, 0.042, matLadderInox, ladX + dx, 0.525, ladZ - 0.31, grpRoofLadder);
+        // Wall stand-off brackets (chân chó bắt bulông nở Inox vào tường Trục 3)
+        [-1.30, -0.45, 0.12].forEach(by => {
+          makeBox(0.035, 0.035, 0.16, matLadderInox, ladX + dx, by, ladZ - 0.08, grpRoofLadder);
+        });
+      });
+      // Anti-slip rungs every 280mm
+      for (let ry = -1.45; ry <= 0.25; ry += 0.28) {
+        const rung = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.014, ladW, 14), matLadderInox);
+        rung.rotation.z = Math.PI / 2;
+        rung.position.set(ladX, ry, ladZ);
+        grpRoofLadder.add(rung);
+      }
+
+      // Highlighted Sealed Exterior Window S6 on Exterior Wall Trục 3 (Z = +2.50m, Y = -0.80m) + Kept Interior Window inside Solar Room on Wall V5 (Z = +1.50m, Y = -0.42m)
+      const grpS6SealedBlock = new THREE.Group();
+      grpMainOverview.add(grpS6SealedBlock);
+      // 1) Exterior S6 on Trục 3 (Z = +2.50m) -> 100% SEALED SOLID BRICK
+      makeBox(0.88, 1.05, 0.25, matS6Sealed, -0.90, -0.80, 2.50, grpS6SealedBlock);
+      // 2) Interior High Window (1.000 x 600mm) + Exhaust Fan (200x200mm) on Wall V5 (Z = +1.50m) KEPT inside Solar Storage Room!
+      makeBox(0.86, 0.56, 0.24, matAwningFrame, -0.90, -0.42, 1.50, grpS6SealedBlock);
+      makeBox(0.78, 0.48, 0.26, matAwningGlass, -0.90, -0.42, 1.50, grpS6SealedBlock);
+      makeBox(0.22, 0.22, 0.27, matSolarSlabGreen, -0.58, -0.36, 1.50, grpS6SealedBlock); // Exhaust Fan 200x200
+
+      // Technical shaft TX2 gooseneck pipes under SW corner of Skylight #1 (X = -1.18, Z = -0.50)
+      const tx2Pipe = new THREE.Mesh(new THREE.CylinderGeometry(0.055, 0.055, 0.45, 18), matPvcPipe);
+      tx2Pipe.position.set(-1.15, 0.25, -0.22);
+      grpMainOverview.add(tx2Pipe);
+
+      // Compass Direction Floor Plates around the model
+      const spWestDir = makeSpriteLabel("⬅️ HƯỚNG TÂY (TRỤC A — GIÁP HÀNG XÓM, XÂY BỊT KÍN)", "Kính cắt BẰNG PHẲNG mép tường (Nhô 0mm) + Ốp Flashing Inox chữ L khóa nước!", "#f43f5e", -2.35, 0.35, 0.0, 1.82, 0.35);
+      const spNorthDir = makeSpriteLabel("⬆️ HƯỚNG BẮC (TRỤC 2 — XÂY GẠCH ĐẶC BỊT KÍN 100%)", "Chỉ nhô kính 60mm (6cm) làm gờ nhỏ giọt cắt nước & che mạch keo Silicon!", "#fb923c", -0.50, 0.35, -3.35, 1.85, 0.36);
+      const spEastDir = makeSpriteLabel("➡️ HƯỚNG ĐÔNG (QUAY VÀO SÀN MÁI NHÀ MÌNH — CÓ CỬA HẤT)", "Ô 1 mở Cửa Hất 600×250mm • Ô 2 mở 1 Cửa Hất 600×250mm • Kính đua 350mm!", "#10b981", 2.05, 0.25, -0.60, 1.85, 0.36);
+      const spSouthDir = makeSpriteLabel("⬇️ HƯỚNG NAM (Ô 1 ĐUA 350MM • Ô 2 XÂY BỊT KÍN NHÔ 60MM)", "Ô 1 mở Cửa Hất 600×250mm (đua 350mm) • Ô 2 xây bịt kín mặt Nam (chỉ nhô 60mm)!", "#38bdf8", -0.30, 0.25, 3.35, 1.88, 0.36);
+      grpLabelsOverview.add(spWestDir, spNorthDir, spEastDir, spSouthDir);
+
+      // 2. Group for NEW Split 2-Skylight Structure (used by PA1, PA2, PA3, PA4, PA5)
+      const grpSplitBase = new THREE.Group();
+      grpMainOverview.add(grpSplitBase);
+
+      // 2A. Concrete Roof Slab over Solar Storage Room in the middle (Z = -0.35 .. +1.50, X = -1.51 .. +0.47)
+      makeBox(1.98, 0.16, 1.85, matSolarSlabGreen, -0.52, 0.08, 0.575, grpSplitBase);
+      // Upstand curbs around Solar roof & Drain D90
+      const drainMesh = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.18, 20), new THREE.MeshBasicMaterial({ color: 0x38bdf8 }));
+      drainMesh.position.set(0.28, 0.12, 0.575);
+      grpSplitBase.add(drainMesh);
+
+      // 2B. Concrete Upstand Beam (Dầm lật BTCT 200mm: Y = 0.0 .. +0.20m) for Skylight #1 (Stairwell) & Skylight #2 (WC)
+      // Skylight #1 perimeter: X in [-1.40, +0.37], Z in [-2.50, -0.35]
+      makeBox(0.20, 0.20, 2.15, matCurbConcrete, -1.40, 0.10, -1.425, grpSplitBase); // West curb
+      makeBox(0.20, 0.20, 2.15, matCurbConcrete,  0.37, 0.10, -1.425, grpSplitBase); // East curb
+      makeBox(1.97, 0.20, 0.20, matCurbConcrete, -0.515, 0.10, -2.50, grpSplitBase); // North curb
+      makeBox(1.97, 0.20, 0.20, matCurbConcrete, -0.515, 0.10, -0.35, grpSplitBase); // South curb
+
+      // Skylight #2 perimeter: X in [-1.40, -0.40], Z in [+1.50, +2.50]
+      makeBox(0.20, 0.20, 1.00, matCurbConcrete, -1.40, 0.10, 2.00, grpSplitBase); // West curb
+      makeBox(0.20, 0.20, 1.00, matCurbConcrete, -0.40, 0.10, 2.00, grpSplitBase); // East curb
+      makeBox(1.20, 0.20, 0.20, matCurbConcrete, -0.90, 0.10, 1.50, grpSplitBase); // North curb
+      makeBox(1.20, 0.20, 0.20, matCurbConcrete, -0.90, 0.10, 2.50, grpSplitBase); // South curb
+
+      // 2C. WEST SIDE (X = -1.40m, outer face X = -1.51m): ALWAYS 100% SEALED WITH 220MM SOLID BRICK UP TO GLASS (Y = +0.20 .. +0.68m)
+      makeBox(0.22, 0.48, 2.22, matBrickSealed, -1.40, 0.44, -1.425, grpSplitBase); // West wall O1
+      makeBox(0.22, 0.48, 1.08, matBrickSealed, -1.40, 0.44,  2.000, grpSplitBase); // West wall O2
+      // L-shaped Inox 304 Flashing strip along West boundary wall Trục A (X = -1.51m, 0mm glass overhang)
+      makeBox(0.03, 0.08, 2.38, matBlackAlu, -1.505, 0.69, -1.425, grpSplitBase);
+      makeBox(0.03, 0.08, 1.24, matBlackAlu, -1.505, 0.69,  2.000, grpSplitBase);
+
+      // North Wall of O2 (Z = +1.50m, outer face Z = +1.39m): ALWAYS sealed brick up to glass
+      makeBox(1.22, 0.48, 0.22, matBrickSealed, -0.90, 0.44, 1.50, grpSplitBase);
+      // South Wall of O2 (Z = +2.50m, outer face Z = +2.61m, Trục 3 edge): ALWAYS sealed brick up to glass!
+      makeBox(1.22, 0.48, 0.22, matBrickSealed, -0.90, 0.44, 2.50, grpSplitBase);
+
+      // 2D. Top Tempered Glass 12mm with 100% EXACT Overhangs:
+      //   - West (Trục A sealed boundary): 0mm overhang (flush at X = -1.51m)
+      //   - Sealed brick walls inside property (North O1 at Z = -2.61m; North O2 at Z = +1.39m; South O2 at Z = +2.61m): 60mm (0.06m) drip-edge overhang!
+      //   - Awning window walls (East O1 at X = +0.48m; South O1 at Z = -0.24m; East O2 at X = -0.29m): 350mm (0.35m) overhang covering open sash!
+      //
+      //   => Skylight #1 Glass:
+      //      X from -1.51m (West 0mm) to +0.83m (East +350mm) -> width = 2.34m, center X = -0.34m
+      //      Z from -2.67m (North +60mm) to +0.11m (South +350mm) -> depth = 2.78m, center Z = -1.28m
+      const glassO1 = makeBox(2.34, 0.032, 2.78, matTopSkylightGlass, -0.34, 0.71, -1.28, grpSplitBase);
+      glassO1.rotation.z = -0.022;
+      // Middle structural steel beam 50x100mm supporting the 2 glass panels of Skylight #1 (1.500 x 2.560mm each)
+      makeBox(2.32, 0.05, 0.08, matBlackAlu, -0.34, 0.67, -1.425, grpSplitBase);
+
+      //   => Skylight #2 Glass:
+      //      X from -1.51m (West 0mm) to +0.06m (East +350mm) -> width = 1.57m, center X = -0.725m
+      //      Z from +1.33m (North +60mm) to +2.67m (South +60mm) -> depth = 1.34m, center Z = +2.00m
+      const glassO2 = makeBox(1.57, 0.032, 1.34, matTopSkylightGlass, -0.725, 0.71, 2.00, grpSplitBase);
+      glassO2.rotation.z = -0.022;
+
+      // Callout Sprites for Overview
+      grpLabelsOverview.add(
+        makeSpriteLabel("1. Ô KÍNH SỐ 1 (KÍNH 3.000×2.560MM: CHIA 2 TẤM 1.500×2.560)", "Tây nhô 0mm • Bắc bịt kín nhô 60mm • Đông & Nam có Cửa Hất đua 350mm!", "#38bdf8", -0.35, 1.30, -1.45, 1.88, 0.36),
+        makeSpriteLabel("2. TRẦN PHÒNG KHO SOLAR (ĐỔ BÊ TÔNG KÍN 1.850mm)", "Đứng trên sàn này đóng/mở Cửa Hất Mặt Nam Ô 1 • Có Phễu D90", "#10b981", -0.45, 0.68, 0.58, 1.75, 0.35),
+        makeSpriteLabel("3. Ô KÍNH SỐ 2 (KÍNH NGUYÊN TẤM 1.560×1.790MM)", "Tây nhô 0mm • Bắc & Nam bịt kín nhô 60mm • Chỉ Mặt Đông có Cửa Hất đua 350mm!", "#38bdf8", -0.75, 1.24, 2.05, 1.88, 0.36),
+        makeSpriteLabel("4A. BỎ HẲN CỬA S6 NGOÀI TRỜI (XÂY GẠCH ĐẶC BỊT KÍN TRỤC 3)", "Mặt Nam Trục 3 kín 100% từ dưới Tum lên đỉnh giếng • Chặn đứt nồm ẩm!", "#f59e0b", -0.85, -0.95, 2.65, 1.82, 0.35),
+        makeSpriteLabel("4B. GIỮ LẠI CỬA 1.000×600MM + QUẠT HÚT TRONG KHO SOLAR (TƯỜNG V5)", "Phòng Kho lấy sáng & xả khí nóng Inverter vào lòng Giếng trời WC!", "#10b981", -0.85, -0.38, 1.32, 1.85, 0.35),
+        makeSpriteLabel("🪜 5. THANG INOX 304 LÊN THĂM MÁI TUM (RỘNG 450MM • TƯỜNG TRỤC 3 SÂN SAU)", "Cách Cửa đi D10 đúng 705mm (> cánh gập 645mm) • Không vướng D10 & Ô Kính 2!", "#fde047", 0.45, 0.98, 2.85, 1.95, 0.36)
+      );
+
+      // =====================================================================
+      // HELPER BUILDERS FOR EACH OPTION ON A GIVEN WALL SEGMENT
+      //   Every ventilated wall has:
+      //   - Concrete curb (200mm) + 2 rows solid brick (150mm) = 350mm solid base
+      //   - Upper ventilation zone right under steel beam: H = 250mm
+      // =====================================================================
+      const awningPivots = [];
+      const grpWindArrows = new THREE.Group();
+      grpSplitBase.add(grpWindArrows);
+
+      function addWindArrow3D(x1, y1, z1, dirX, dirZ) {
+        const len = 0.65;
+        const dir = new THREE.Vector3(dirX, 0.08, dirZ).normalize();
+        const origin = new THREE.Vector3(x1, y1, z1);
+        const arrow = new THREE.ArrowHelper(dir, origin, len, 0x34d399, 0.22, 0.16);
+        grpWindArrows.add(arrow);
+      }
+      addWindArrow3D(1.18, 0.52, -1.425, -1, 0); // East wind into O1 (Awning #1: 1400x250)
+      addWindArrow3D(-0.28, 0.52, 0.35, 0, -1);  // South wind into O1 (Awning #2: 1000x250 offset East)
+      addWindArrow3D(0.35, 0.52, 2.00, -1, 0);   // East wind into O2 (Only 1 Awning: 800x250 on East!)
+
+      // Create option groups for both wind modes ('east_south' vs 'three_sides')
+      const optionGroups = {
+        pa1_awning: new THREE.Group(),
+        pa2_slot10: new THREE.Group(),
+        pa3_zlouver: new THREE.Group(),
+        pa4_lpipe: new THREE.Group(),
+        pa5_zbrick: new THREE.Group()
+      };
+      Object.values(optionGroups).forEach(g => grpSplitBase.add(g));
+
+      // Sub-groups for North Wall O1 (Z = -2.50m, X in [-1.40, +0.37], length = 1.77m)
+      // When windDirectionMode === 'east_south', North wall O1 is SOLID BRICK.
+      // When windDirectionMode === 'three_sides', North wall O1 has the active option's vent!
+      const grpNorthWallBrickSealed = new THREE.Group();
+      makeBox(1.97, 0.48, 0.22, matBrickSealed, -0.515, 0.44, -2.50, grpNorthWallBrickSealed);
+      grpSplitBase.add(grpNorthWallBrickSealed);
+
+      const northVentByOption = {
+        pa1_awning: new THREE.Group(),
+        pa2_slot10: new THREE.Group(),
+        pa3_zlouver: new THREE.Group(),
+        pa4_lpipe: new THREE.Group(),
+        pa5_zbrick: new THREE.Group()
+      };
+      Object.values(northVentByOption).forEach(g => {
+        g.visible = false;
+        grpSplitBase.add(g);
+      });
+
+      // Helper to build finalized PA1 Awning Window wall with exact brick piers and 250mm high awning sash
+      function buildPA1ExactAwningWall(targetGrp, cx, cz, totalLen, winLen, winOffsetAlongWall, nSashes, axis, outSign) {
+        // 1) Raised brick base 150mm on top of 200mm concrete curb (total 350mm solid base: Y = 0.20 .. 0.38m)
+        if (axis === "z") {
+          makeBox(0.22, 0.18, totalLen, matBrickSealed, cx, 0.29, cz, targetGrp);
+        } else {
+          makeBox(totalLen, 0.18, 0.22, matBrickSealed, cx, 0.29, cz, targetGrp);
+        }
+        // 2) Calculate window start/end along wall [-totalLen/2, +totalLen/2]
+        const wCenter = winOffsetAlongWall;
+        const wStart = wCenter - winLen / 2;
+        const wEnd = wCenter + winLen / 2;
+        const leftBrickLen = wStart - (-totalLen / 2);
+        const rightBrickLen = (totalLen / 2) - wEnd;
+
+        // Solid brick piers (Y = 0.38 .. 0.65m) on both sides of the awning window
+        if (leftBrickLen > 0.02) {
+          const lPos = -totalLen / 2 + leftBrickLen / 2;
+          if (axis === "z") makeBox(0.22, 0.28, leftBrickLen, matBrickSealed, cx, 0.52, cz + lPos, targetGrp);
+          else makeBox(leftBrickLen, 0.28, 0.22, matBrickSealed, cx + lPos, 0.52, cz, targetGrp);
+        }
+        if (rightBrickLen > 0.02) {
+          const rPos = wEnd + rightBrickLen / 2;
+          if (axis === "z") makeBox(0.22, 0.28, rightBrickLen, matBrickSealed, cx, 0.52, cz + rPos, targetGrp);
+          else makeBox(rightBrickLen, 0.28, 0.22, matBrickSealed, cx + rPos, 0.52, cz, targetGrp);
+        }
+
+        // 3) Awning Window Outer Frame (Y = 0.38 .. 0.64m, H = 250mm) + Inner Inox 304 Mosquito Screen
+        const wx = axis === "z" ? cx : cx + wCenter;
+        const wz = axis === "z" ? cz + wCenter : cz;
+        if (axis === "z") {
+          makeBox(0.012, 0.24, winLen - 0.04, matInoxMesh, wx - outSign * 0.09, 0.51, wz, targetGrp);
+          makeBox(0.09, 0.032, winLen, matBlackAlu, wx, 0.395, wz, targetGrp);
+          makeBox(0.11, 0.040, winLen, matBlackAlu, wx, 0.645, wz, targetGrp);
+        } else {
+          makeBox(winLen - 0.04, 0.24, 0.012, matInoxMesh, wx, 0.51, wz - outSign * 0.09, targetGrp);
+          makeBox(winLen, 0.032, 0.09, matBlackAlu, wx, 0.395, wz, targetGrp);
+          makeBox(winLen, 0.040, 0.11, matBlackAlu, wx, 0.645, wz, targetGrp);
+        }
+
+        // 4) Top-hung Awning Sash(es) (250mm tall, opening OUTWARD 30 deg = Math.PI/6 rad -> bottom projects 125mm outward, shielded by 350mm glass overhang)
+        const open30Rad = Math.PI / 6; // Exact 30 degrees outward!
+        const sashW = winLen / nSashes;
+        for (let s = 0; s < nSashes; s++) {
+          const sOffset = -winLen / 2 + (s + 0.5) * sashW;
+          const pivot = new THREE.Group();
+          pivot.position.set(
+            wx + (axis === "z" ? outSign * 0.06 : sOffset),
+            0.63,
+            wz + (axis === "x" ? outSign * 0.06 : sOffset)
+          );
+          targetGrp.add(pivot);
+          if (axis === "z") {
+            makeBox(0.032, 0.23, sashW - 0.03, matAwningFrame, 0, -0.115, 0, pivot);
+            makeBox(0.042, 0.18, sashW - 0.10, matAwningGlass, 0, -0.115, 0, pivot);
+            // Positive rotation.z swings negative-Y bottom edge towards +X (OUTWARD when outSign = +1)
+            pivot.rotation.z = outSign * open30Rad;
+          } else {
+            makeBox(sashW - 0.03, 0.23, 0.032, matAwningFrame, 0, -0.115, 0, pivot);
+            makeBox(sashW - 0.10, 0.18, 0.042, matAwningGlass, 0, -0.115, 0, pivot);
+            // Negative rotation.x swings negative-Y bottom edge towards +Z (OUTWARD when outSign = +1)
+            pivot.rotation.x = -outSign * open30Rad;
+          }
+          awningPivots.push({ pivot: pivot, axis: axis, outSign: outSign });
+        }
+      }
+
+      // Helper to populate a wall segment of length `len` centered at `(cx, cz)` along `axis` for PA2..PA5
+      function buildOptionWallSegment(paKey, targetGrp, cx, cz, len, axis, outSign) {
+        if (paKey === "pa4_lpipe") {
+          // PA4: Full height solid brick wall (Y = 0.20 .. 0.68m) + PVC D110 L-pipes near top (Y = 0.57m)
+          if (axis === "z") {
+            makeBox(0.20, 0.48, len, matBrickSealed, cx, 0.44, cz, targetGrp);
+          } else {
+            makeBox(len, 0.48, 0.20, matBrickSealed, cx, 0.44, cz, targetGrp);
+          }
+          const numPipes = len > 1.3 ? 3 : 2;
+          const step = len / (numPipes + 1);
+          for (let i = 1; i <= numPipes; i++) {
+            const offset = -len / 2 + i * step;
+            const px = axis === "z" ? cx : cx + offset;
+            const pz = axis === "z" ? cz + offset : cz;
+            // Horizontal pipe through wall
+            const hGeo = new THREE.CylinderGeometry(0.055, 0.055, 0.34, 18);
+            const hMesh = new THREE.Mesh(hGeo, matPvcPipe);
+            if (axis === "z") hMesh.rotation.z = Math.PI / 2;
+            else hMesh.rotation.x = Math.PI / 2;
+            hMesh.position.set(px + (axis === "z" ? outSign * 0.05 : 0), 0.56, pz + (axis === "x" ? outSign * 0.05 : 0));
+            targetGrp.add(hMesh);
+            // 90-degree Elbow pointing DOWN outside
+            const ex = px + (axis === "z" ? outSign * 0.20 : 0);
+            const ez = pz + (axis === "x" ? outSign * 0.20 : 0);
+            const vGeo = new THREE.CylinderGeometry(0.058, 0.058, 0.18, 18);
+            const vMesh = new THREE.Mesh(vGeo, matPvcPipe);
+            vMesh.position.set(ex, 0.49, ez);
+            targetGrp.add(vMesh);
+            // Inox 304 mesh disk at bottom mouth
+            const mDisk = new THREE.Mesh(new THREE.CylinderGeometry(0.056, 0.056, 0.015, 16), matInoxMesh);
+            mDisk.position.set(ex, 0.40, ez);
+            targetGrp.add(mDisk);
+          }
+          return;
+        }
+
+        // For PA2, PA3, PA5:
+        if (axis === "z") {
+          makeBox(0.20, 0.24, len, matBrickSealed, cx, 0.32, cz, targetGrp);
+          makeBox(0.012, 0.22, len - 0.06, matInoxMesh, cx - outSign * 0.09, 0.55, cz, targetGrp);
+          makeBox(0.08, 0.03, len, matBlackAlu, cx, 0.455, cz, targetGrp);
+          makeBox(0.10, 0.035, len, matBlackAlu, cx, 0.655, cz, targetGrp);
+        } else {
+          makeBox(len, 0.24, 0.20, matBrickSealed, cx, 0.32, cz, targetGrp);
+          makeBox(len - 0.06, 0.22, 0.012, matInoxMesh, cx, 0.55, cz - outSign * 0.09, targetGrp);
+          makeBox(len, 0.03, 0.08, matBlackAlu, cx, 0.455, cz, targetGrp);
+          makeBox(len, 0.035, 0.10, matBlackAlu, cx, 0.655, cz, targetGrp);
+        }
+
+        if (paKey === "pa2_slot10") {
+          // PA2: 10-12cm Breathing Slot + Single 45-degree Slanted Steel Bar sloping DOWN-AND-OUTWARD
+          if (axis === "z") {
+            const bar = makeBox(0.018, 0.06, len - 0.04, matBlackAlu, cx + outSign * 0.07, 0.555, cz, targetGrp);
+            bar.rotation.z = outSign * 0.72;
+          } else {
+            const bar = makeBox(len - 0.04, 0.06, 0.018, matBlackAlu, cx, 0.555, cz + outSign * 0.07, targetGrp);
+            bar.rotation.x = -outSign * 0.72;
+          }
+        } else if (paKey === "pa3_zlouver") {
+          // PA3: Multi-blade Z-Louver Frame sloping DOWN-AND-OUTWARD
+          [0.495, 0.555, 0.615].forEach(yp => {
+            if (axis === "z") {
+              const blade = makeBox(0.022, 0.052, len - 0.04, matZLouverAlu, cx + outSign * 0.065, yp, cz, targetGrp);
+              blade.rotation.z = outSign * 0.75;
+            } else {
+              const blade = makeBox(len - 0.04, 0.052, 0.022, matZLouverAlu, cx, yp, cz + outSign * 0.065, targetGrp);
+              blade.rotation.x = -outSign * 0.75;
+            }
+          });
+        } else if (paKey === "pa5_zbrick") {
+          // PA5: Row of Z-Ventilation Bricks (200x200mm) along the top slot
+          const nBricks = Math.max(2, Math.floor(len / 0.22));
+          const bStep = len / nBricks;
+          for (let i = 0; i < nBricks; i++) {
+            const pos = -len / 2 + (i + 0.5) * bStep;
+            const bx = axis === "z" ? cx : cx + pos;
+            const bz = axis === "z" ? cz + pos : cz;
+            if (axis === "z") {
+              makeBox(0.12, 0.19, bStep - 0.02, matZBrick, bx, 0.55, bz, targetGrp);
+              const fin = makeBox(0.08, 0.04, bStep - 0.06, matBrickSealed, bx + outSign * 0.03, 0.55, bz, targetGrp);
+              fin.rotation.z = outSign * 0.65;
+            } else {
+              makeBox(bStep - 0.02, 0.19, 0.12, matZBrick, bx, 0.55, bz, targetGrp);
+              const fin = makeBox(bStep - 0.06, 0.04, 0.08, matBrickSealed, bx, 0.55, bz + outSign * 0.03, targetGrp);
+              fin.rotation.x = -outSign * 0.65;
+            }
+          }
+        }
+      }
+
+      // 1) Build Finalized PA1 (Compact single-sash Awning Windows 600x250mm synchronized across all 3 windows on O1 & O2):
+      (function populateFinalPA1() {
+        const g1 = optionGroups.pa1_awning;
+        // Skylight #1 East Wall (len = 2.15m): Compact 1-sash Awning Window #1 (600 x 250mm centered, 775mm solid brick piers on both North & South ends!)
+        buildPA1ExactAwningWall(g1, 0.37, -1.425, 2.15, 0.60, 0.0, 1, "z", 1);
+        // Skylight #1 South Wall (len = 1.77m): Compact 1-sash Awning Window #2 (600 x 250mm centered, 585mm solid brick piers on both West & East ends!)
+        buildPA1ExactAwningWall(g1, -0.515, -0.35, 1.77, 0.60, 0.0, 1, "x", 1);
+        // Skylight #2 East Wall (len = 1.00m): ONLY 1 Compact Awning Window (600 x 250mm, 1 sash centered, 200mm solid brick piers on both ends!)
+        buildPA1ExactAwningWall(g1, -0.40, 2.00, 1.00, 0.60, 0.0, 1, "z", 1);
+        // Note: Skylight #2 South Wall (Z = +2.50m) is 100% SEALED SOLID BRICK in grpSplitBase!
+
+        // North Wall O1 for 3-sides comparison mode:
+        buildPA1ExactAwningWall(northVentByOption.pa1_awning, -0.515, -2.50, 1.77, 0.60, 0.0, 1, "x", -1);
+      })();
+
+      // 2) Populate East & South walls for PA2..PA5
+      ["pa2_slot10", "pa3_zlouver", "pa4_lpipe", "pa5_zbrick"].forEach(paKey => {
+        const g = optionGroups[paKey];
+        buildOptionWallSegment(paKey, g, 0.37, -1.425, 2.15, "z", 1);
+        buildOptionWallSegment(paKey, g, -0.515, -0.35, 1.77, "x", 1);
+        buildOptionWallSegment(paKey, g, -0.40, 2.00, 1.00, "z", 1);
+        buildOptionWallSegment(paKey, g, -0.515, -2.50, 1.77, "x", -1);
+      });
+
+      // =====================================================================
+      // PA6: OLD DESIGN KT-3.09 (1 Long Continuous Skylight 5.04m over Solar Room + 4-Sided Louvers + Old S6 Window)
+      // =====================================================================
+      const grpOldKT309 = new THREE.Group();
+      grpOldKT309.visible = false;
+      grpMainOverview.add(grpOldKT309);
+
+      // Continuous curb & 4-sided louvers from Z = -2.50 to +2.50
+      makeBox(1.85, 0.28, 5.00, matDangerRed, -0.515, 0.38, 0.0, grpOldKT309);
+      makeBox(2.05, 0.03, 5.20, matTopSkylightGlass, -0.515, 0.56, 0.0, grpOldKT309);
+      grpOldKT309.add(
+        makeSpriteLabel("⚠️ BẢN VẼ CŨ KT-3.09: LỢP KÍNH TRÊN CẢ PHÒNG KHO SOLAR", "Gây hiệu ứng nhà kính nóng 55–60°C hại Inverter & Chớp hở cả 4 mặt!", "#f43f5e", -0.45, 1.15, 0.0, 1.95, 0.38)
+      );
+
+      // =====================================================================
+      // DEDICATED 1:1 3D CROSS-SECTION CUTAWAY GROUP (DYNAMICALLY SWITCHES DETAILS BY PA1..PA5)
+      // =====================================================================
+      const grpCutaway1to1 = new THREE.Group();
+      grpCutaway1to1.visible = false;
+      scene.add(grpCutaway1to1);
+
+      const cutSubGroups = {
+        pa1_awning: new THREE.Group(),
+        pa2_slot10: new THREE.Group(),
+        pa3_zlouver: new THREE.Group(),
+        pa4_lpipe: new THREE.Group(),
+        pa5_zbrick: new THREE.Group()
+      };
+
+      (function buildAllCutaways1to1() {
+        const sliceLen = 1.50;
+        // Common Left Side (X = -0.85m, outer face X = -0.96m): WEST WALL (TRỤC A) — 100% SEALED SOLID BRICK 220MM UP TO GLASS + 0mm Overhang + L-Flashing
+        makeBox(0.22, 0.45, sliceLen, matCurbConcrete, -0.85, -0.05, 0, grpCutaway1to1);
+        makeBox(0.22, 0.50, sliceLen, matBrickSealed, -0.85, 0.425, 0, grpCutaway1to1);
+        makeBox(0.10, 0.05, sliceLen + 0.01, matBlackAlu, -0.82, 0.70, 0, grpCutaway1to1);
+        // L-shaped Inox 304 Flashing strip hugging outer West edge (X = -0.96m, 0mm glass overhang)
+        makeBox(0.025, 0.09, sliceLen + 0.02, matBlackAlu, -0.96, 0.71, 0, grpCutaway1to1);
+
+        // Common Right Side Lower Base (X = +0.55m, outer face X = +0.65m): Concrete Curb (200mm) + East Roof Slab
+        makeBox(1.10, 0.14, sliceLen, matRoofSlab, 1.05, -0.07, 0, grpCutaway1to1);
+        makeBox(0.20, 0.24, sliceLen, matCurbConcrete, 0.55, 0.12, 0, grpCutaway1to1);
+
+        // Common Top Tempered Glass 12mm (West X = -0.96m with 0mm overhang; East X = +1.00m with exact 350mm overhang -> width = 1.96m, center X = +0.02m) + 50x100mm Cantilever Steel Outrigger
+        makeBox(1.93, 0.045, 0.08, matBlackAlu, 0.015, 0.68, 0, grpCutaway1to1);
+        const topGlass = makeBox(1.96, 0.034, sliceLen + 0.01, matTopSkylightGlass, 0.02, 0.72, 0, grpCutaway1to1);
+        topGlass.rotation.z = -0.025;
+
+        // Common Callouts on Cutaway
+        grpCutaway1to1.add(
+          makeSpriteLabel("⬅️ BÊN TRÁI (MẶT TÂY TRỤC A): KÍNH BẰNG MÉP TƯỜNG (NHÔ 0MM)", "Ốp Flashing Inox chữ L khóa nước • Các mặt xây bịt kín khác chỉ nhô 60mm (6cm)!", "#f43f5e", -1.15, 0.95, 0, 1.88, 0.34),
+          makeSpriteLabel("☔ BÊN PHẢI (MẶT CÓ CỬA HẤT): KÍNH ĐUA RỘNG 350MM (35CM)", "Cánh cửa cao 250mm mở 28° nhô ra 12cm -> Mép kính 35cm vượt xa thêm 23cm!", "#38bdf8", 0.42, 1.12, 0, 1.88, 0.35)
+        );
+
+        Object.values(cutSubGroups).forEach(g => grpCutaway1to1.add(g));
+
+        // 1) Cutaway PA1: Awning Window (Cửa sổ mở hất chữ A 250mm mở HẤT RA NGOÀI 30° + Gioăng EPDM + Lưới Inox 304)
+        const g1 = cutSubGroups.pa1_awning;
+        makeBox(0.20, 0.18, sliceLen, matBrickSealed, 0.55, 0.33, 0, g1); // 200mm curb + 150mm brick = 350mm solid base
+        makeBox(0.09, 0.035, sliceLen, matBlackAlu, 0.55, 0.435, 0, g1);   // Bottom frame
+        makeBox(0.10, 0.04, sliceLen, matBlackAlu, 0.55, 0.665, 0, g1);    // Top frame
+        makeBox(0.012, 0.23, sliceLen - 0.04, matInoxMesh, 0.47, 0.55, 0, g1); // Inner Inox 304 mesh
+        const p1 = new THREE.Group();
+        p1.position.set(0.61, 0.65, 0);
+        g1.add(p1);
+        makeBox(0.032, 0.23, sliceLen - 0.04, matAwningFrame, 0, -0.115, 0, p1);
+        makeBox(0.040, 0.18, sliceLen - 0.12, matAwningGlass, 0, -0.115, 0, p1);
+        p1.rotation.z = Math.PI / 6; // +30 deg (+0.5236 rad) swings bottom OUTWARD (+X) by 125mm, shielded by 350mm overhang!
+        awningPivots.push({ pivot: p1, axis: "z", outSign: 1 });
+        g1.add(
+          makeSpriteLabel("🏆 PA1 ★: CỬA HẤT ĐƠN GỌN GIỮA TƯỜNG MỞ RA NGOÀI 30°", "Ô 1 làm 2 cửa đơn (900×250 & 800×250) • Ô 2 làm 1 cửa Đông (600×250mm)", "#10b981", 1.38, 0.62, 0, 1.92, 0.35),
+          makeSpriteLabel("🛡️ BỆ TƯỜNG ĐẶC 350MM + LƯỚI CHỐNG MUỖI INOX 304 MẶT TRONG", "Mùa nồm đóng ép gioăng EPDM kín 100% • Bỏ S6 ngoài, giữ cửa trong Kho Solar!", "#6ee7b7", 1.38, 0.24, 0, 1.88, 0.35)
+        );
+
+        // 2) Cutaway PA2: 10-12cm Slot + 45 deg Slanted Bar + Inox 304 Mesh
+        const g2 = cutSubGroups.pa2_slot10;
+        makeBox(0.20, 0.26, sliceLen, matBrickSealed, 0.55, 0.37, 0, g2);
+        makeBox(0.09, 0.035, sliceLen, matBlackAlu, 0.55, 0.515, 0, g2);
+        makeBox(0.10, 0.04, sliceLen, matBlackAlu, 0.55, 0.665, 0, g2);
+        const bar2 = makeBox(0.018, 0.06, sliceLen, matBlackAlu, 0.62, 0.59, 0, g2);
+        bar2.rotation.z = 0.72;
+        makeBox(0.012, 0.15, sliceLen - 0.04, matInoxMesh, 0.48, 0.59, 0, g2);
+        g2.add(
+          makeSpriteLabel("🌬️ PA2: KHE THỞ 10–12CM SÁT NÁCH KÍNH + LA SẮT NGHIÊNG 45°", "Không cần mua chớp nhôm • La sắt 45° cản gió bão & chim chuột", "#38bdf8", 1.35, 0.62, 0, 1.80, 0.35),
+          makeSpriteLabel("🛡️ LƯỚI INOX 304 CĂNG PHẲNG MẶT TRONG KHE 10CM", "Kẹp nẹp 4 cạnh kín khít • Thông gió 24/7 bền vĩnh cửu", "#6ee7b7", 1.35, 0.24, 0, 1.80, 0.35)
+        );
+
+        // 3) Cutaway PA3: Aluminum Z-Louver Frame + Inner Inox 304 Mesh
+        const g3 = cutSubGroups.pa3_zlouver;
+        makeBox(0.20, 0.22, sliceLen, matBrickSealed, 0.55, 0.35, 0, g3);
+        makeBox(0.09, 0.035, sliceLen, matBlackAlu, 0.55, 0.475, 0, g3);
+        makeBox(0.10, 0.04, sliceLen, matBlackAlu, 0.55, 0.665, 0, g3);
+        [0.515, 0.57, 0.625].forEach(yp => {
+          const zb = makeBox(0.022, 0.055, sliceLen, matZLouverAlu, 0.61, yp, 0, g3);
+          zb.rotation.z = 0.75;
+        });
+        makeBox(0.012, 0.19, sliceLen - 0.04, matInoxMesh, 0.47, 0.57, 0, g3);
+        g3.add(
+          makeSpriteLabel("🪟 PA3: HỆ LAM CHỚP NHÔM CHỮ Z (LOUVER Z-BLADE 45°)", "Các lá nhôm chữ Z cản mưa tạt trực diện & đồng bộ thẩm mỹ", "#f59e0b", 1.35, 0.62, 0, 1.80, 0.35),
+          makeSpriteLabel("🛡️ LƯỚI CHỐNG MUỖI INOX 304 ỐP PHẲNG MẶT TRONG KHUNG CHỚP", "Khắc phục nhược điểm khe lá chớp rộng 3–5cm không chặn được muỗi", "#6ee7b7", 1.35, 0.24, 0, 1.80, 0.35)
+        );
+
+        // 4) Cutaway PA4: Sealed Brick Wall + L-shaped PVC D110 Pipe
+        const g4 = cutSubGroups.pa4_lpipe;
+        makeBox(0.20, 0.46, sliceLen, matBrickSealed, 0.55, 0.47, 0, g4);
+        [-0.42, 0.42].forEach(zp => {
+          const hp = new THREE.Mesh(new THREE.CylinderGeometry(0.058, 0.058, 0.38, 20), matPvcPipe);
+          hp.rotation.z = Math.PI / 2;
+          hp.position.set(0.62, 0.58, zp);
+          g4.add(hp);
+          const vp = new THREE.Mesh(new THREE.CylinderGeometry(0.062, 0.062, 0.20, 20), matPvcPipe);
+          vp.position.set(0.77, 0.50, zp);
+          g4.add(vp);
+          const md = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.06, 0.018, 18), matInoxMesh);
+          md.position.set(0.77, 0.40, zp);
+          g4.add(md);
+        });
+        g4.add(
+          makeSpriteLabel("🔧 PA4: XÂY GẠCH BỊT KÍN + ĐẶT ỐNG CHỮ L (PVC D110 CÚT 90°)", "Miệng cút chúc thẳng xuống dưới gầm kính đua 28cm + Lưới Inox 304", "#c084fc", 1.35, 0.62, 0, 1.80, 0.35),
+          makeSpriteLabel("🔒 ĐẦU ỐNG TRONG NHÀ CÓ NẮP VẶN / VAN BƯỚM CHỐNG NỒM", "Chống bụi & mưa bão 100% • Mùa nồm vặn nắp bịt kín tuyệt đối", "#6ee7b7", 1.35, 0.24, 0, 1.80, 0.35)
+        );
+
+        // 5) Cutaway PA5: Z-Ventilation Brick (Gạch bông gió chắn mưa chữ Z)
+        const g5 = cutSubGroups.pa5_zbrick;
+        makeBox(0.20, 0.22, sliceLen, matBrickSealed, 0.55, 0.35, 0, g5);
+        [-0.52, -0.26, 0.0, 0.26, 0.52].forEach(zp => {
+          makeBox(0.14, 0.20, 0.22, matZBrick, 0.55, 0.57, zp, g5);
+          const zf = makeBox(0.10, 0.04, 0.18, matBrickSealed, 0.58, 0.57, zp, g5);
+          zf.rotation.z = 0.65;
+        });
+        makeBox(0.012, 0.20, sliceLen - 0.04, matInoxMesh, 0.46, 0.57, 0, g5);
+        g5.add(
+          makeSpriteLabel("🧱 PA5: GẠCH BÔNG GIÓ CHẮN MƯA RÃNH CHỮ Z (200×200×60MM)", "Thợ nề xây liền mạch sát đáy kính • Rãnh chữ Z cản mưa hắt", "#fb923c", 1.35, 0.62, 0, 1.80, 0.35),
+          makeSpriteLabel("🛡️ KHUNG LƯỚI CHỐNG MUỖI INOX 304 ỐP PHẲNG MẶT TRONG", "Chặn côn trùng & thạch sùng chui qua lỗ gạch thông gió", "#6ee7b7", 1.35, 0.24, 0, 1.80, 0.35)
+        );
+      })();
+
+      // =====================================================================
+      // 3D CAD DIMENSION LINES & BADGES (TƯỜNG GẠCH • ĐỘ ĐUA KÍNH • Ô CỬA HẤT)
+      //   Có nút Bật / Tắt độc lập giống Nhãn Chú Thích 3D!
+      // =====================================================================
+      const grpDimsOverview = new THREE.Group();
+      scene.add(grpDimsOverview);
+      const grpDimsCutaway = new THREE.Group();
+      grpDimsCutaway.visible = false;
+      scene.add(grpDimsCutaway);
+
+      function makeDimBadgeSprite(mainText, subText, hexColor, x, y, z, scaleW, scaleH) {
+        const c = document.createElement("canvas");
+        c.width = 640; c.height = 148;
+        const ctx = c.getContext("2d");
+        ctx.fillStyle = "rgba(4, 9, 20, 0.95)";
+        ctx.strokeStyle = hexColor || "#fde047";
+        ctx.lineWidth = 6;
+        ctx.beginPath();
+        ctx.roundRect(6, 6, 628, 136, 18);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = hexColor || "#fde047";
+        ctx.font = "900 28px system-ui, -apple-system, sans-serif";
+        ctx.textAlign = "center";
+        ctx.fillText(mainText, 320, subText ? 56 : 82);
+        if (subText) {
+          ctx.fillStyle = "#e2e8f0";
+          ctx.font = "700 22px system-ui, -apple-system, sans-serif";
+          ctx.fillText(subText, 320, 108);
+        }
+        const tex = new THREE.CanvasTexture(c);
+        const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: tex, depthTest: false, transparent: true }));
+        sp.position.set(x, y, z);
+        sp.scale.set(scaleW || 1.12, scaleH || 0.26, 1);
+        sp.renderOrder = 1002;
+        sp.userData.isDimSprite = true;
+        return sp;
+      }
+
+      function addCADDim3D(targetGrp, p1Arr, p2Arr, extArr, mainText, subText, hexColor, scaleW, scaleH) {
+        const p1 = new THREE.Vector3(p1Arr[0], p1Arr[1], p1Arr[2]);
+        const p2 = new THREE.Vector3(p2Arr[0], p2Arr[1], p2Arr[2]);
+        const ext = new THREE.Vector3(extArr[0], extArr[1], extArr[2]);
+        const d1 = p1.clone().add(ext);
+        const d2 = p2.clone().add(ext);
+        const extOver = ext.clone().multiplyScalar(1.22);
+
+        const col = new THREE.Color(hexColor || "#fde047");
+        const lineMat = new THREE.LineBasicMaterial({ color: col, depthTest: false, transparent: true, opacity: 0.96 });
+        const meshMat = new THREE.MeshBasicMaterial({ color: col, depthTest: false, transparent: true, opacity: 0.96 });
+
+        // 2 Extension lines from geometry points to dimension line
+        [
+          [p1, p1.clone().add(extOver)],
+          [p2, p2.clone().add(extOver)],
+          [d1, d2]
+        ].forEach(seg => {
+          const geo = new THREE.BufferGeometry().setFromPoints(seg);
+          const ln = new THREE.Line(geo, lineMat);
+          ln.renderOrder = 1000;
+          targetGrp.add(ln);
+        });
+
+        // 3D Solid Tube along main dimension line d1 -> d2 for crisp visibility
+        const dist = d1.distanceTo(d2);
+        if (dist > 0.01) {
+          const mid = d1.clone().add(d2).multiplyScalar(0.5);
+          const tubeGeo = new THREE.CylinderGeometry(0.007, 0.007, dist, 8);
+          const tube = new THREE.Mesh(tubeGeo, meshMat);
+          tube.position.copy(mid);
+          tube.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), d2.clone().sub(d1).normalize());
+          tube.renderOrder = 1000;
+          targetGrp.add(tube);
+        }
+
+        // End tick spheres at d1 and d2
+        const tickGeo = new THREE.SphereGeometry(0.022, 10, 10);
+        [d1, d2].forEach(pt => {
+          const tk = new THREE.Mesh(tickGeo, meshMat);
+          tk.position.copy(pt);
+          tk.renderOrder = 1001;
+          targetGrp.add(tk);
+        });
+
+        // Midpoint Dimension Badge Sprite
+        const badgePos = d1.clone().add(d2).multiplyScalar(0.5);
+        // Slight lift along extension direction so badge sits cleanly on the dimension line
+        const liftDir = ext.length() > 0.001 ? ext.clone().normalize().multiplyScalar(0.04) : new THREE.Vector3(0, 0.05, 0);
+        badgePos.add(liftDir);
+        const sp = makeDimBadgeSprite(mainText, subText, hexColor, badgePos.x, badgePos.y, badgePos.z, scaleW, scaleH);
+        targetGrp.add(sp);
+      }
+
+      (function buildAll3DDimensions() {
+        // -------------------------------------------------------------------
+        // A. KÍCH THƯỚC Ô KÍNH SỐ 1 (CẦU THANG: LỌT LÒNG 2.150 x 1.770mm)
+        // -------------------------------------------------------------------
+        // 1) Mặt Đông Ô 1 (Dài 2.150mm = Tường Bắc 625mm + Cửa Hất 600×250mm + Tường Nam 625mm)
+        addCADDim3D(grpDimsOverview, [0.48, 0.51, -2.50], [0.48, 0.51, -1.875], [0.28, 0, 0], "🧱 Tường Bắc: 625mm", "Trụ gạch đặc 220mm", "#fb923c", 0.92, 0.22);
+        addCADDim3D(grpDimsOverview, [0.48, 0.51, -1.875], [0.48, 0.51, -0.975], [0.30, 0, 0], "🪟 Cửa Hất Đông: 600×250mm", "Lỗ xây 910×260 • Hở 5mm bắn keo", "#10b981", 1.18, 0.25);
+        addCADDim3D(grpDimsOverview, [0.48, 0.51, -0.975], [0.48, 0.51, -0.35], [0.28, 0, 0], "🧱 Tường Nam: 625mm", "Trụ gạch đặc 220mm", "#fb923c", 0.92, 0.22);
+
+        // 2) Mặt Nam Ô 1 (Rộng 1.770mm = Tường Tây 620mm né TX2 + Cửa Hất 600×250mm + Tường Đông 350mm)
+        addCADDim3D(grpDimsOverview, [-1.40, 0.51, -0.24], [-0.78, 0.51, -0.24], [0, 0, 0.26], "🧱 Tường Tây: 620mm", "Né hộp kỹ thuật TX2", "#fb923c", 0.94, 0.22);
+        addCADDim3D(grpDimsOverview, [-0.78, 0.51, -0.24], [0.02, 0.51, -0.24], [0, 0, 0.28], "🪟 Cửa Hất Nam: 600×250mm", "Lỗ xây 810×260 • Hở 5mm bắn keo", "#10b981", 1.18, 0.25);
+        addCADDim3D(grpDimsOverview, [0.02, 0.51, -0.24], [0.37, 0.51, -0.24], [0, 0, 0.26], "🧱 Trụ Đông: 350mm", "Gạch đặc 220mm", "#fb923c", 0.88, 0.22);
+
+        // 3) Độ đua kính 4 cạnh Ô Kính Số 1 (Đông 350mm • Nam 350mm • Bắc 60mm • Tây 0mm) & Tổng khổ kính 3.000×2.560mm
+        addCADDim3D(grpDimsOverview, [0.48, 0.72, -1.425], [0.83, 0.72, -1.425], [0, 0.24, 0], "☔ Kính Đua Đông: 350mm", "Che cửa mở 30° (125mm)", "#38bdf8", 1.06, 0.24);
+        addCADDim3D(grpDimsOverview, [-0.38, 0.72, -0.24], [-0.38, 0.72, 0.11], [0, 0.24, 0], "☔ Kính Đua Nam: 350mm", "Che cửa mở 30° (125mm)", "#38bdf8", 1.06, 0.24);
+        addCADDim3D(grpDimsOverview, [-0.515, 0.72, -2.61], [-0.515, 0.72, -2.67], [0, 0.22, -0.16], "💧 Gờ Kính Bắc: Nhô 60mm", "Mặt Bắc xây gạch bịt kín", "#fde047", 1.04, 0.23);
+        addCADDim3D(grpDimsOverview, [-1.51, 0.44, -1.425], [-1.51, 0.72, -1.425], [-0.30, 0.08, 0], "🛡️ Mép Tây (Trục A): Nhô 0mm", "Tường cao 600mm + Flashing Inox L", "#f43f5e", 1.15, 0.24);
+
+        addCADDim3D(grpDimsOverview, [-1.51, 0.74, -2.67], [0.83, 0.74, -2.67], [0, 0.34, -0.22], "📐 Rộng Kính Ô 1: 2.560mm", "1.770 + Tường 440 + Tây 0 + Đông 350", "#e879f9", 1.26, 0.25);
+        addCADDim3D(grpDimsOverview, [0.83, 0.74, -2.67], [0.83, 0.74, 0.11], [0.38, 0.32, 0], "📐 Dài Kính Ô 1: 3.000mm (2 Tấm 1.500)", "2.150 + Tường 440 + Bắc 60 + Nam 350", "#e879f9", 1.32, 0.25);
+
+        // -------------------------------------------------------------------
+        // B. KÍCH THƯỚC Ô KÍNH SỐ 2 (GIẾNG TRỜI WC: LỌT LÒNG 1.000 x 1.000mm)
+        // -------------------------------------------------------------------
+        // 1) Mặt Đông Ô 2 (Dài 1.000mm = Trụ Bắc 200mm + Cửa Hất 600×250mm + Trụ Nam 200mm)
+        addCADDim3D(grpDimsOverview, [-0.29, 0.51, 1.50], [-0.29, 0.51, 1.70], [0.24, 0, 0], "🧱 Trụ Bắc: 200mm", "Gạch đặc 220mm", "#fb923c", 0.86, 0.22);
+        addCADDim3D(grpDimsOverview, [-0.29, 0.51, 1.70], [-0.29, 0.51, 2.30], [0.28, 0, 0], "🪟 Cửa Hất Đông Ô 2: 600×250mm", "Lỗ xây 610×260 • Hở 5mm bắn keo", "#10b981", 1.20, 0.25);
+        addCADDim3D(grpDimsOverview, [-0.29, 0.51, 2.30], [-0.29, 0.51, 2.50], [0.24, 0, 0], "🧱 Trụ Nam: 200mm", "Gạch đặc 220mm", "#fb923c", 0.86, 0.22);
+
+        // 2) Độ đua kính Ô 2 (Đông 350mm • Bắc & Nam 60mm • Tây 0mm) & Tổng khổ kính 1.560×1.790mm
+        addCADDim3D(grpDimsOverview, [-0.29, 0.72, 2.00], [0.06, 0.72, 2.00], [0, 0.24, 0], "☔ Kính Đua Đông Ô 2: 350mm", "Che cửa mở 30° (125mm)", "#38bdf8", 1.08, 0.24);
+        addCADDim3D(grpDimsOverview, [-0.90, 0.72, 2.61], [-0.90, 0.72, 2.67], [0, 0.22, 0.16], "💧 Gờ Kính Nam Ô 2: Nhô 60mm", "Tường Nam Trục 3 xây bịt kín 100%", "#fde047", 1.08, 0.23);
+        addCADDim3D(grpDimsOverview, [-1.51, 0.74, 2.67], [0.06, 0.74, 2.67], [0, 0.34, 0.22], "📐 Kính Nguyên Tấm Ô 2: 1.560×1.790mm", "Bắc–Nam 1.560mm • Tây–Đông 1.790mm", "#e879f9", 1.30, 0.25);
+
+        // 3) CHUỖI KÍCH THƯỚC VỊ TRÍ THANG INOX 304 TRÊN TƯỜNG NAM TRỤC 3 (MÉP GIẾNG Ô 2 -> THANG -> MÉP CỬA ĐI D10) & ĐỘ DỐC MÁI KÍNH 2%
+        addCADDim3D(grpDimsOverview, [-0.290, -0.25, 2.74], [0.090, -0.25, 2.74], [0, 0, 0.28], "↔️ Cách Mép Giếng Ô 2: 380mm", "Ngoài mép kính đua 350mm đúng 30mm", "#38bdf8", 1.16, 0.24);
+        addCADDim3D(grpDimsOverview, [0.090, 0.10, 2.74], [0.540, 0.10, 2.74], [0, 0, 0.28], "🪜 Rộng Thang Inox: 450mm", "Tọa độ Z = 1.820m .. 2.270m", "#fde047", 1.08, 0.24);
+        addCADDim3D(grpDimsOverview, [0.540, -0.25, 2.74], [1.245, -0.25, 2.74], [0, 0, 0.28], "↔️ Cách Mép Cửa D10: 705mm", "Né 2 cánh D10 gập 645mm (dư 60mm)", "#10b981", 1.18, 0.24);
+        addCADDim3D(grpDimsOverview, [-1.51, 0.74, -1.28], [0.83, 0.69, -1.28], [0, 0.44, 0], "💧 Độ Dốc Kính 2%: TÂY ➔ ĐÔNG", "Đỉnh Tây +45mm ➔ Chảy về Sàn mái Đông", "#38bdf8", 1.26, 0.25);
+
+        // -------------------------------------------------------------------
+        // C. KÍCH THƯỚC TRÊN MẶT CẮT 3D TỶ LỆ 1:1 (grpDimsCutaway)
+        // -------------------------------------------------------------------
+        addCADDim3D(grpDimsCutaway, [0.65, 0.00, 0.74], [0.65, 0.42, 0.74], [0.24, 0, 0], "🧱 Bệ Tường Đặc: Cao 350mm", "Dầm BTCT 200mm + Xây gạch 150mm", "#fb923c", 1.14, 0.24);
+        addCADDim3D(grpDimsCutaway, [0.65, 0.42, -0.74], [0.65, 0.67, -0.74], [0.24, 0, 0], "🪟 Khung Cửa Hất: Cao 250mm", "Lỗ chờ 260mm • Hở 5–7mm bắn keo", "#10b981", 1.18, 0.24);
+        addCADDim3D(grpDimsCutaway, [0.65, 0.43, 0.0], [0.78, 0.43, 0.0], [0, -0.18, 0], "↗️ Mở 30°: Nhô 125mm", "Cánh mở hất ra ngoài", "#fde047", 0.98, 0.23);
+        addCADDim3D(grpDimsCutaway, [0.65, 0.72, 0.0], [1.00, 0.72, 0.0], [0, 0.22, 0], "☔ Kính Đua Che Cửa: 350mm", "Dư 225mm ngoài mép cánh mở", "#38bdf8", 1.14, 0.24);
+        addCADDim3D(grpDimsCutaway, [-0.96, 0.18, 0.0], [-0.96, 0.70, 0.0], [-0.26, 0, 0], "🧱 Tường Tây Bịt Kín: Cao 600mm", "Kính nhô 0mm + Ốp Flashing Inox L", "#f43f5e", 1.16, 0.24);
+        addCADDim3D(grpDimsCutaway, [-0.96, 0.75, 0.0], [1.00, 0.70, 0.0], [0, 0.36, 0], "💧 Độ Dốc Mái Kính 2%: TÂY ➔ ĐÔNG", "Đỉnh Tây kê cao +45mm ➔ Thoát về Sàn Đông", "#38bdf8", 1.28, 0.25);
+      })();
+
+      // =====================================================================
+      // INTERACTIVE STATE MANAGEMENT
+      // =====================================================================
+      let currentPA = "pa1_awning";
+      let currentWindDir = "east_south"; // "east_south" | "three_sides"
+      let isAwningOpen = true;
+      let isCutawayView = false;
+      let isLabelsOn = true;
+      let isDimsOn = true;
+      let isGlassXray = false;
+
+      const paMeta = {
+        pa1_awning: {
+          title: "🏆 Phương Án 1 ★ (Chốt Thi Công): Cửa Hất Đơn Gọn (Đồng bộ 03 bộ 600×250mm) Giữa Tường Gạch • Mở Ra Ngoài 30°",
+          desc: "• <strong>Không mở dài hết 2m mặt giếng:</strong> Xây trụ tường gạch đặc <code>220mm</code> rộng <code>350–625mm</code> ở hai đầu góc chịu tải mái kính; ở giữa chỉ đặt <strong>01 Cửa Hất đơn gọn</strong> (Ô 1: Đông <code>600×250mm</code> &amp; Nam <code>600×250mm</code> • Ô 2: Đông <code>600×250mm</code>) mở hất ra ngoài <code>30°</code>.<br>• <strong>Độ nhô kính chuẩn 100%:</strong> Mặt Tây (<code>Trục A</code>) nhô <code>0mm</code> • Mặt xây bịt kín nhô <code>60mm</code> • Mặt có cửa hất đua <code>350mm</code> (Ô 1 = <code>3.000×2.560mm</code> • Ô 2 = <code>1.560×1.790mm</code>)."
+        },
+        pa2_slot10: {
+          title: "🌬️ Phương Án 2: Khe Thở 10–12cm Sát Đáy Kính + La Sắt Nghiêng 45° + Lưới Inox 304",
+          desc: "• <strong>Cấu tạo:</strong> Xây tường gạch đặc cao thêm <code>250–280mm</code> trên dầm lật, chỉ chừa <strong>Khe thở <code>10–12cm</code> sát nách đáy kính</strong> (không dùng nan chớp nhôm). Mặt ngoài hàn <strong>1 thanh la sắt nghiêng 45°</strong>, mặt trong căng phẳng <strong>Lưới chống muỗi Inox 304</strong>.<br>• <strong>Đặc điểm:</strong> Rẻ, bền vĩnh cửu, nằm trọn trong góc che mưa <code>72°</code> của kính đua <code>28cm</code>."
+        },
+        pa3_zlouver: {
+          title: "🪟 Phương Án 3: Hệ Lam Chớp Nhôm Chữ Z (Louver Z-Blade) + Lưới Chống Muỗi Inox 304",
+          desc: "• <strong>Cấu tạo:</strong> Xây tường gạch đặc cao thêm <code>180–200mm</code> trên dầm lật; phần trên lắp <strong>Khung Lam Chớp Nhôm Chữ Z sơn tĩnh điện</strong> (các lá chữ Z nghiêng <code>45°</code> có móc chắn nước mưa) + <strong>Ốp phẳng Lưới chống muỗi Inox 304 ở mặt trong</strong>.<br>• <strong>Đặc điểm:</strong> Nhìn từ ngoài đồng bộ thẩm mỹ nhôm kính hiện đại, lá chữ Z cản mưa tạt tốt."
+        },
+        pa4_lpipe: {
+          title: "🔧 Phương Án 4: Xây Bịt Kín 4 Mặt + Đặt Ống Thông Hơi Chữ L (PVC D110 Cút 90° Chúc Xuống)",
+          desc: "• <strong>Cấu tạo:</strong> Xây tường gạch đặc <code>220mm</code> <strong>bịt kín cả 4 mặt</strong> lên kịch đáy kính. Sát nách đáy kính ở hướng Đông &amp; Nam đặt các <strong>ống PVC D110 lắp Cút chữ L 90° chúc thẳng miệng xuống</strong> + <strong>Lưới Inox 304</strong> + <strong>Nắp vặn mùa nồm bên trong</strong>.<br>• <strong>Đặc điểm:</strong> Kín mưa bão &amp; chống bụi gần như tuyệt đối 100%, chi phí cực rẻ."
+        },
+        pa5_zbrick: {
+          title: "🧱 Phương Án 5: Gạch Bông Gió Chắn Mưa Rãnh Chữ Z (200×200×60mm) + Lưới Inox 304",
+          desc: "• <strong>Cấu tạo:</strong> Xây tường gạch đặc ở dưới; hàng trên cùng sát đáy kính xây bằng <strong>gạch bông gió chắn mưa rãnh chữ Z (200×200×60mm)</strong> + <strong>Ốp khung lưới chống muỗi Inox 304</strong> ở mặt phẳng bên trong.<br>• <strong>Đặc điểm:</strong> Thợ nề xây liền mạch, chắn mưa tốt nhưng diện tích lỗ thoáng thấp hơn (~35%)."
+        },
+        pa6_old_kt309: {
+          title: "⚠️ Phương Án 6 (Bản Vẽ Cũ KT-3.09): 1 Ô Kính Liền Dải 5,04m Trên Phòng Kho Solar + Chớp 4 Mặt",
+          desc: "• <strong>Đối chiếu bản vẽ cũ KT-3.09:</strong> Lợp kính liền dải trên đỉnh Phòng Kho Solar gây <strong>hiệu ứng nhà kính nóng 50–60°C</strong> hại thiết bị điện mặt trời; dùng chớp nhôm cao <code>280mm</code> ở cả 4 mặt (kể cả hướng Tây &amp; Bắc) dễ bị mưa bão tạt nước và gió nồm ẩm thổi thẳng xuống cầu thang."
+        }
+      };
+
+      function refreshSceneVisibility() {
+        const isOld = (currentPA === "pa6_old_kt309");
+
+        if (isCutawayView && !isOld) {
+          grpMainOverview.visible = false;
+          grpCutaway1to1.visible = true;
+          grpDimsOverview.visible = false;
+          grpDimsCutaway.visible = isDimsOn;
+          Object.keys(cutSubGroups).forEach(k => {
+            cutSubGroups[k].visible = (k === currentPA);
+          });
+        } else {
+          grpCutaway1to1.visible = false;
+          grpMainOverview.visible = true;
+          grpSplitBase.visible = !isOld;
+          grpOldKT309.visible = isOld;
+          grpS6SealedBlock.visible = !isOld;
+          grpDimsOverview.visible = !isOld && isDimsOn;
+          grpDimsCutaway.visible = false;
+
+          Object.keys(optionGroups).forEach(k => {
+            optionGroups[k].visible = (!isOld && k === currentPA);
+          });
+
+          const isNorthSealed = (currentWindDir === "east_south") || (currentPA === "pa4_lpipe");
+          grpNorthWallBrickSealed.visible = !isOld && isNorthSealed;
+          Object.keys(northVentByOption).forEach(k => {
+            northVentByOption[k].visible = (!isOld && !isNorthSealed && k === currentPA);
+          });
+        }
+
+        const m = paMeta[currentPA];
+        if (m) {
+          document.getElementById("hud-title").textContent = (isCutawayView ? "🔬 [MẶT CẮT 1:1] " : "") + m.title;
+          document.getElementById("hud-desc").innerHTML = m.desc;
+        }
+      }
+
+      window.selectSkylightPA = function(paKey, btnEl) {
+        currentPA = paKey;
+        document.querySelectorAll("#pa-tabs .opt-btn").forEach(b => {
+          b.classList.toggle("active", b.getAttribute("data-pa") === paKey);
+        });
+        if (btnEl) btnEl.classList.add("active");
+        refreshSceneVisibility();
+      };
+
+      window.setWindDirectionMode = function(dirMode, btnEl) {
+        currentWindDir = dirMode;
+        document.getElementById("btn-dir-es").classList.toggle("active", dirMode === "east_south");
+        document.getElementById("btn-dir-3sides").classList.toggle("active", dirMode === "three_sides");
+        if (isCutawayView) {
+          isCutawayView = false;
+          updateCutawayButtonsUI();
+        }
+        refreshSceneVisibility();
+      };
+
+      window.toggleAwningOpenClose = function() {
+        if (currentPA !== "pa1_awning") {
+          window.selectSkylightPA("pa1_awning");
+        }
+        isAwningOpen = !isAwningOpen;
+        const angle = isAwningOpen ? (Math.PI / 6) : 0.0; // Exact 30 degrees outward!
+        awningPivots.forEach(item => {
+          if (item.axis === "z") item.pivot.rotation.z = item.outSign * angle;
+          else item.pivot.rotation.x = -item.outSign * angle;
+        });
+        grpWindArrows.visible = isAwningOpen;
+        const btn = document.getElementById("btn-toggle-awning");
+        if (btn) {
+          btn.textContent = isAwningOpen
+            ? "☀️ Cửa Hất (PA1): ĐANG MỞ HẤT RA NGOÀI 30° (Mùa Hè) — Bấm Để Đóng Kín 0° (Mùa Nồm)!"
+            : "❄️ Cửa Hất (PA1): ĐANG ĐÓNG ÉP GIOĂNG KÍN 100% (Chặn Đứt Nồm Ẩm) — Bấm Để Mở Hè!";
+        }
+      };
+
+      function updateCutawayButtonsUI() {
+        const b1 = document.getElementById("btn-toggle-viewmode");
+        const b2 = document.getElementById("btn-qa-cutaway");
+        if (b1) {
+          b1.classList.toggle("active", isCutawayView);
+          b1.textContent = isCutawayView
+            ? "🏢 Quay Lại Mô Hình 3D Tổng Thể 2 Ô Giếng Trời"
+            : "🔬 Bấm Xem MẶT CẮT 3D CHI TIẾT (Tỷ Lệ 1:1) Của Phương Án Đang Chọn";
+        }
+        if (b2) {
+          b2.textContent = isCutawayView
+            ? "🏢 Quay Lại Tổng Thể 2 Ô Giếng Trời"
+            : "🔬 Chuyển Sang Bổ Mặt Cắt 3D (1:1)";
+        }
+      }
+
+      window.toggleCutawayMode = function() {
+        if (currentPA === "pa6_old_kt309") currentPA = "pa1_awning";
+        isCutawayView = !isCutawayView;
+        updateCutawayButtonsUI();
+        if (isCutawayView) {
+          targetPan.set(0.05, 0.42, 0.0);
+          targetSpherical = { theta: -1.57, phi: 1.34, radius: 3.6 };
+        } else {
+          targetPan.set(0.0, 0.35, 0.2);
+          targetSpherical = { theta: -0.85, phi: 1.08, radius: 8.6 };
+        }
+        refreshSceneVisibility();
+      };
+
+      window.openCutawayForCurrentPA = function() {
+        isCutawayView = false;
+        window.toggleCutawayMode();
+        document.getElementById("sec-3d-skylight").scrollIntoView({ behavior: "smooth" });
+      };
+
+      window.toggleLabels3D = function() {
+        isLabelsOn = !isLabelsOn;
+        grpLabelsOverview.visible = isLabelsOn;
+        grpCutaway1to1.traverse(obj => {
+          if (obj.isSprite && !(obj.userData && obj.userData.isDimSprite)) obj.visible = isLabelsOn;
+        });
+        const btn = document.getElementById("btn-qa-labels");
+        if (btn) {
+          btn.textContent = isLabelsOn ? "💬 Nhãn Chú Thích 3D: ĐANG BẬT" : "💬 Nhãn Chú Thích 3D: ĐANG TẮT";
+        }
+      };
+
+      window.toggleDims3D = function() {
+        isDimsOn = !isDimsOn;
+        refreshSceneVisibility();
+        const btn = document.getElementById("btn-qa-dims");
+        if (btn) {
+          btn.textContent = isDimsOn
+            ? "📏 Kích Thước 3D (Tường / Kính / Cửa): ĐANG BẬT"
+            : "📏 Kích Thước 3D (Tường / Kính / Cửa): ĐANG TẮT";
+          btn.style.opacity = isDimsOn ? "1.0" : "0.65";
+        }
+      };
+
+      window.toggleGlassXray = function() {
+        isGlassXray = !isGlassXray;
+        matTopSkylightGlass.opacity = isGlassXray ? 0.18 : 0.62;
+        const btn = document.getElementById("btn-qa-glass");
+        if (btn) {
+          btn.textContent = isGlassXray
+            ? "💎 Kính Đang Trong Suốt X-Ray (Bấm Để Hiện Rõ Kính)"
+            : "💎 Làm Trong Suốt Kính (Nhìn Xuyên Vào Trong Cổ Giếng)";
+        }
+      };
+
+      window.setSkyCam = function(preset, btnEl) {
+        document.querySelectorAll(".cam-footer .cam-btn").forEach(b => b.classList.remove("active"));
+        if (btnEl) btnEl.classList.add("active");
+
+        if (preset === "cutaway_1to1") {
+          isCutawayView = false;
+          window.toggleCutawayMode();
+          return;
+        }
+        if (isCutawayView) {
+          isCutawayView = false;
+          updateCutawayButtonsUI();
+          refreshSceneVisibility();
+        }
+        if (preset === "overview") {
+          targetPan.set(0.0, 0.35, 0.2);
+          targetSpherical = { theta: -0.85, phi: 1.08, radius: 8.6 };
+        } else if (preset === "stair_o1") {
+          targetPan.set(-0.35, 0.50, -1.42);
+          targetSpherical = { theta: -0.65, phi: 1.15, radius: 4.8 };
+        } else if (preset === "wc_o2_s6") {
+          targetPan.set(-0.75, -0.10, 1.95);
+          targetSpherical = { theta: -0.88, phi: 1.18, radius: 4.8 };
+        } else if (preset === "west_north_sealed") {
+          targetPan.set(-0.80, 0.45, -0.40);
+          targetSpherical = { theta: 2.35, phi: 1.12, radius: 7.4 };
+        } else if (preset === "roof_deck_walk") {
+          targetPan.set(-0.20, 0.48, 0.20);
+          targetSpherical = { theta: -0.25, phi: 1.38, radius: 5.2 };
+        }
+      };
+
+      window.addEventListener("resize", () => {
+        const w = container.clientWidth, h = container.clientHeight;
+        if (w > 0 && h > 0) {
+          renderer.setSize(w, h, false);
+          camera.aspect = w / h;
+          camera.updateProjectionMatrix();
+        }
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        spherical.theta += (targetSpherical.theta - spherical.theta) * 0.14;
+        spherical.phi += (targetSpherical.phi - spherical.phi) * 0.14;
+        spherical.radius += (targetSpherical.radius - spherical.radius) * 0.14;
+        target.lerp(targetPan, 0.14);
+
+        const sinP = Math.sin(spherical.phi);
+        camera.position.set(
+          target.x + spherical.radius * sinP * Math.cos(spherical.theta),
+          target.y + spherical.radius * Math.cos(spherical.phi),
+          target.z + spherical.radius * sinP * Math.sin(spherical.theta)
+        );
+        camera.lookAt(target);
+        renderer.render(scene, camera);
+      }
+      refreshSceneVisibility();
+      animate();
+    })();
+  </script>
+</body>
+</html>

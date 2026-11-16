@@ -1,0 +1,2026 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phòng Phối Màu Sơn &amp; Chọn Gạch Ốp Lát Trực Quan — Biệt Thự Q Villa (XHOME)</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-base: #070b12;
+      --bg-surface: #0f172a;
+      --bg-elevated: #1e293b;
+      --bg-glass: rgba(15, 23, 42, 0.9);
+      --border: rgba(148, 163, 184, 0.22);
+      --border-strong: rgba(245, 158, 11, 0.5);
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-light: #fde68a;
+      --emerald: #10b981;
+      --emerald-light: #6ee7b7;
+      --sky: #38bdf8;
+      --sky-light: #bae6fd;
+      --purple: #a855f7;
+      --rose: #f43f5e;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-lg: 0 20px 45px -15px rgba(0, 0, 0, 0.75);
+      --active-wall-color: #f4f1ea;
+      --active-accent-wall: #d6cfc2;
+      --active-tile-color: #d8d5ce;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 10% 10%, color-mix(in oklab, var(--accent) 10%, transparent), transparent 35%),
+        radial-gradient(circle at 90% 15%, color-mix(in oklab, var(--emerald) 10%, transparent), transparent 35%),
+        var(--bg-base);
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 18, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    a.brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    a.brand:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #070b12;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 7px 13px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+    }
+
+    .brand-title h1 {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .brand-title p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.6);
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      border-color: var(--accent);
+      background: rgba(245, 158, 11, 0.2);
+    }
+
+    /* Hero Banner */
+    .hero {
+      padding: 26px 0 18px;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.84));
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      padding: 24px 26px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--emerald-light);
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .hero-top h2 {
+      font-size: clamp(1.35rem, 2.3vw, 1.8rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .hero-top p {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      max-width: 850px;
+    }
+
+    /* Quick Harmony & Anchor Bar */
+    .anchor-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .anchor-chip {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(7, 11, 18, 0.7);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 10px 14px;
+    }
+
+    .anchor-swatch {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      flex-shrink: 0;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .anchor-meta {
+      font-size: 0.78rem;
+    }
+
+    .anchor-meta strong {
+      display: block;
+      color: #fff;
+      font-size: 0.83rem;
+    }
+
+    .anchor-meta span {
+      color: var(--text-muted);
+    }
+
+    /* Section Headers */
+    section {
+      padding: 28px 0;
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .section-header h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      max-width: 920px;
+    }
+
+    /* Room Tabs */
+    .room-tabs {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 1180px) {
+      .room-tabs {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .room-tabs {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .room-tab {
+      appearance: none;
+      background: var(--bg-surface);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 14px;
+      text-align: left;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .room-tab:hover {
+      background: var(--bg-elevated);
+      border-color: rgba(248, 250, 252, 0.4);
+    }
+
+    .room-tab.active {
+      background: color-mix(in oklab, var(--bg-elevated) 85%, var(--accent));
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.22);
+    }
+
+    .room-tab-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(245, 158, 11, 0.18);
+      color: var(--accent-light);
+      margin-bottom: 5px;
+    }
+
+    .room-tab h3 {
+      font-size: 0.88rem;
+      font-weight: 800;
+      margin-bottom: 3px;
+      color: #fff;
+    }
+
+    .room-tab p {
+      font-size: 0.74rem;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    /* Studio Main Grid */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 1.38fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (max-width: 1120px) {
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .visualizer-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .visualizer-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 12px 16px;
+      background: rgba(7, 11, 18, 0.8);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .kelvin-bar {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .kelvin-btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 6px 11px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .kelvin-btn:hover {
+      color: #fff;
+      border-color: var(--sky);
+    }
+
+    .kelvin-btn.active {
+      background: var(--accent);
+      color: #070b12;
+      border-color: #fff;
+      font-weight: 800;
+    }
+
+    .canvas-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      background: #0b111e;
+      overflow: hidden;
+    }
+
+    canvas#room-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Reference 3D Render Strip below Canvas */
+    .render-compare-bar {
+      display: grid;
+      grid-template-columns: 190px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 16px;
+      background: rgba(7, 11, 18, 0.75);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 680px) {
+      .render-compare-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .render-thumb-wrap {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      cursor: zoom-in;
+      aspect-ratio: 16 / 10;
+    }
+
+    .render-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 0.25s ease;
+    }
+
+    /* Controls Panel */
+    .controls-panel {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .harmony-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+    }
+
+    .harmony-banner.warn {
+      background: rgba(244, 63, 94, 0.14);
+      border-color: rgba(244, 63, 94, 0.5);
+    }
+
+    .harmony-score-pill {
+      font-size: 1.25rem;
+      font-weight: 900;
+      padding: 6px 12px;
+      border-radius: 10px;
+      background: rgba(7, 11, 18, 0.75);
+      color: var(--emerald-light);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      white-space: nowrap;
+    }
+
+    .harmony-banner.warn .harmony-score-pill {
+      color: #fda4af;
+      border-color: rgba(244, 63, 94, 0.5);
+    }
+
+    .control-group {
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+
+    .control-group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 8px;
+    }
+
+    .control-group-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent-light);
+    }
+
+    .brand-toggle {
+      display: inline-flex;
+      background: rgba(7, 11, 18, 0.8);
+      padding: 3px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .brand-toggle button {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .brand-toggle button.active {
+      background: var(--emerald);
+      color: #070b12;
+    }
+
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    @media (max-width: 480px) {
+      .swatch-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .swatch-btn {
+      appearance: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(7, 11, 18, 0.65);
+      border: 2px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      text-align: left;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .swatch-btn:hover {
+      border-color: rgba(248, 250, 252, 0.5);
+      background: var(--bg-elevated);
+    }
+
+    .swatch-btn.active {
+      border-color: var(--accent);
+      background: rgba(245, 158, 11, 0.15);
+      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25);
+    }
+
+    .swatch-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .swatch-info {
+      font-size: 0.76rem;
+      line-height: 1.3;
+    }
+
+    .swatch-info strong {
+      display: block;
+      color: #fff;
+      font-size: 0.8rem;
+    }
+
+    .swatch-info span {
+      color: var(--text-muted);
+    }
+
+    /* Brand Comparison Cards */
+    .brand-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 980px) {
+      .brand-cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .brand-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .brand-card.recommended {
+      border-color: var(--emerald);
+      background: linear-gradient(155deg, rgba(16, 185, 129, 0.11), var(--bg-surface));
+    }
+
+    .brand-card h3 {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 8px 0;
+    }
+
+    .brand-card ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-top: 10px;
+    }
+
+    /* Responsive Table (modern-web-guidance: responsive-table) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(680px, 80vh);
+      container-type: inline-size;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    table.spec-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.84rem;
+      --label-2: "Phân khu & Diện tích";
+      --label-3: "Hãng & Dòng khuyên chọn";
+      --label-4: "Mã màu / Quy cách chuẩn";
+      --label-5: "Bề mặt";
+      --label-6: "Số lượng đặt mua";
+      --label-7: "Dự toán (VNĐ)";
+    }
+
+    table.spec-table caption {
+      text-align: left;
+      padding: 14px 18px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--accent-light);
+      background: rgba(7, 11, 18, 0.88);
+      border-bottom: 1px solid var(--border);
+    }
+
+    table.spec-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 3;
+    }
+
+    table.spec-table thead th {
+      background: #090e1a;
+      color: var(--text-secondary);
+      font-weight: 800;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 12px 14px;
+      border-bottom: 2px solid rgba(245, 158, 11, 0.45);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    table.spec-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 1;
+      background: #0f172a;
+      color: #fff;
+      font-weight: 700;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid rgba(148, 163, 184, 0.16);
+      text-align: left;
+      min-width: 210px;
+    }
+
+    table.spec-table tbody td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: middle;
+    }
+
+    table.spec-table tbody tr:hover th {
+      background: #17233b;
+    }
+
+    table.spec-table tbody tr:hover td {
+      background: rgba(30, 41, 59, 0.6);
+    }
+
+    @container (width < 600px) {
+      table.spec-table,
+      table.spec-table thead,
+      table.spec-table tbody,
+      table.spec-table tr,
+      table.spec-table th,
+      table.spec-table td {
+        display: block;
+      }
+
+      table.spec-table thead {
+        display: none;
+      }
+
+      table.spec-table tbody tr {
+        margin-block-end: 1.2rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      table.spec-table tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: #1e293b;
+      }
+
+      table.spec-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        text-align: right;
+      }
+
+      table.spec-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+      table.spec-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+      table.spec-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+      table.spec-table td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+      table.spec-table td:nth-child(6)::before { content: var(--label-6) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+      table.spec-table td:nth-child(7)::before { content: var(--label-7) ": "; font-weight: 700; color: var(--text-muted); text-align: left; }
+    }
+
+    /* Light-dismiss Dialog (modern-web-guidance: light-dismiss-a-dialog) */
+    dialog#image-lightbox {
+      margin: auto;
+      padding: 0;
+      border: 1px solid var(--border-strong);
+      border-radius: 16px;
+      background: var(--bg-surface);
+      color: var(--text-main);
+      max-width: min(94vw, 1240px);
+      max-height: 92vh;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+      overflow: hidden;
+    }
+
+    dialog#image-lightbox::backdrop {
+      background-color: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(4px);
+    }
+
+    .lightbox-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 18px;
+      background: #090e1a;
+      border-bottom: 1px solid var(--border);
+      gap: 12px;
+    }
+
+    .lightbox-close {
+      appearance: none;
+      background: var(--bg-elevated);
+      color: #fff;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lightbox-body {
+      padding: 12px;
+      background: #05080f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-body img {
+      max-width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" title="Về Trang Chủ — Tổng Hợp Hạng Mục &amp; Dự Toán Chi Phí Q Villa">
+        <span class="brand-badge">🏠 Q VILLA • TRANG CHỦ</span>
+        <div class="brand-title">
+          <h1>Phòng Phối Màu Sơn &amp; Chọn Gạch Ốp Lát Trực Quan — Q Villa (XHOME)</h1>
+          <p>Đồng bộ 100% với Cửa Gỗ Lim D3 • Sàn Gỗ Óc Chó • Đá Bếp Vicostone • Đèn OPPLE 3500K–4000K &amp; Mặt Tiền Thực Tế</p>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng dự án">
+        <a href="index.html">🏠 Trang Chủ &amp; Dự Toán</a>
+        <a href="#sec-studio" class="active">🎨 1. Phòng Phối Màu &amp; Gạch</a>
+        <a href="#sec-brands">🪣 2. Hãng Sơn &amp; Hãng Gạch</a>
+        <a href="#sec-takeoff">📋 3. Bảng Mã &amp; Số Thùng Đặt Mua</a>
+        <a href="op-lat-chia-gach.html" style="border-color:rgba(20,184,166,0.7);color:#5eead4;">📐 Chia Gạch 1m/1m2 &amp; Định Vị</a>
+        <a href="mat-tien.html">🏛️ Mặt Tiền</a>
+        <a href="cua-chinh-d1.html">🚪 Cửa Chính D1</a>
+        <a href="cua-go-lim-d3.html">🚪 Cửa Gỗ D3</a>
+        <a href="chieu-sang-opple-3d.html">💡 3D Đèn OPPLE</a>
+        <a href="giam-sat-wc.html">🚽 Giám Sát WC</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO & 5 FIXED MATERIAL ANCHORS -->
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-top">
+          <div>
+            <span class="hero-eyebrow">🎨 ĐỒNG BỘ VẬT LIỆU HOÀN THIỆN TOÀN CÔNG TRÌNH Q VILLA</span>
+            <h2>5 "Mỏ Neo Vật Liệu Cố Định" Quyết Định Màu Sơn &amp; Màu Gạch Nhà Bạn</h2>
+            <p>
+              Trước khi chọn mã sơn tường hay viên gạch lát nền, hệ thống lấy <strong>5 vật liệu cố định bạn đã chốt ở các conversation trước</strong> làm chuẩn quy chiếu để tính toán độ ăn khớp (Harmony Score) dưới từng nhiệt độ màu ánh sáng đèn OPPLE:
+            </p>
+          </div>
+        </div>
+
+        <div class="anchor-strip" aria-label="5 vật liệu cố định làm mỏ neo phối màu">
+          <div class="anchor-chip">
+            <div class="anchor-swatch" style="background: linear-gradient(135deg, #6d371e, #4a2311);"></div>
+            <div class="anchor-meta">
+              <strong>1. Cửa Gỗ Lim Phẳng D3 &amp; D1</strong>
+              <span>7 bộ 900×2400 • Nâu đỏ trầm ấm</span>
+            </div>
+          </div>
+          <div class="anchor-chip">
+            <div class="anchor-swatch" style="background: repeating-linear-gradient(45deg, #5c4028 0px, #5c4028 8px, #47301d 8px, #47301d 16px);"></div>
+            <div class="anchor-meta">
+              <strong>2. Sàn Gỗ Xương Cá 12mm</strong>
+              <span>130 m² (T1, T2, T3) • Nâu Óc Chó</span>
+            </div>
+          </div>
+          <div class="anchor-chip">
+            <div class="anchor-swatch" style="background: linear-gradient(135deg, #f3f1ed 0%, #dcd8d0 45%, #f7f5f0 100%);"></div>
+            <div class="anchor-meta">
+              <strong>3. Đá Bếp &amp; 13 Kệ WC Vicostone</strong>
+              <span>Trắng vân mây Calacatta Nhóm A</span>
+            </div>
+          </div>
+          <div class="anchor-chip">
+            <div class="anchor-swatch" style="background: linear-gradient(135deg, #2b3036, #181b1f);"></div>
+            <div class="anchor-meta">
+              <strong>4. Nhôm Xingfa Hệ 100 &amp; Slimdoor</strong>
+              <span>Xám đá đậm &amp; Khung kính WC Đen mờ</span>
+            </div>
+          </div>
+          <div class="anchor-chip">
+            <div class="anchor-swatch" style="background: radial-gradient(circle, #fff3d1 15%, #f59e0b 100%);"></div>
+            <div class="anchor-meta">
+              <strong>5. Đèn OPPLE CRI≥92 &amp; Aqara H1</strong>
+              <span>Ánh sáng 3500K–4000K + Mặt trắng mờ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: INTERACTIVE PAINT & TILE STUDIO -->
+    <section id="sec-studio">
+      <div class="section-header">
+        <span class="section-tag">PHẦN 1 • BÀN PHỐI MÀU SƠN DULUX / KOVA &amp; GẠCH ỐP LÁT TƯƠNG TÁC THỜI GIAN THỰC</span>
+        <h2>Bấm Chọn Không Gian • Đổi Thử Mã Sơn Dulux/Kova, Mẫu Gạch &amp; Nhiệt Độ Đèn OPPLE</h2>
+        <p>
+          Chọn 1 trong 6 phân khu thực tế của Q Villa bên dưới, sau đó bấm đổi <strong>Màu sơn tường (Dulux / Kova)</strong>, <strong>Màu vách nhấn</strong>, <strong>Mẫu gạch lát nền/ốp tường</strong> và <strong>Nhiệt độ đèn (3000K / 3500K / 4000K / Ban ngày)</strong> để kiểm tra trực quan:
+        </p>
+      </div>
+
+      <!-- 6 Room Selector Tabs -->
+      <div class="room-tabs" role="tablist" aria-label="Chọn phân khu phối màu">
+        <button type="button" class="room-tab active" role="tab" aria-selected="true" data-room="living" onclick="selectRoom('living')">
+          <span class="room-tab-badge">Tầng 1 • 55,1 m²</span>
+          <h3>🛋️ 1. Phòng Khách &amp; Sảnh</h3>
+          <p>Gạch 800×800 + Tường chính + Trần chỉ đen + Quạt trần gỗ</p>
+        </button>
+        <button type="button" class="room-tab" role="tab" aria-selected="false" data-room="kitchen" onclick="selectRoom('kitchen')">
+          <span class="room-tab-badge">Tầng 1 • Tủ KITPRO</span>
+          <h3>🍳 2. Bếp &amp; Bàn Ăn 8 Ghế</h3>
+          <p>Gạch 800×800 + Đá Vicostone Calacatta + Tủ cánh kính</p>
+        </button>
+        <button type="button" class="room-tab" role="tab" aria-selected="false" data-room="bedroom" onclick="selectRoom('bedroom')">
+          <span class="room-tab-badge">T1, T2, T3 • 130 m²</span>
+          <h3>🛏️ 3. P.Ngủ &amp; Cửa Gỗ Lim D3</h3>
+          <p>Sàn gỗ xương cá Óc chó + Cửa Lim 2.4m + Vách đầu giường</p>
+        </button>
+        <button type="button" class="room-tab" role="tab" aria-selected="false" data-room="wc" onclick="selectRoom('wc')">
+          <span class="room-tab-badge">04 Phòng WC • 124 m²</span>
+          <h3>🚿 4. Nhà Vệ Sinh &amp; Kệ Đá</h3>
+          <p>Tường 600×1200 kịch trần + Cabin Slimdoor + 13 kệ đá bếp</p>
+        </button>
+        <button type="button" class="room-tab" role="tab" aria-selected="false" data-room="facade" onclick="selectRoom('facade')">
+          <span class="room-tab-badge">Mặt Tiền &amp; Trục C</span>
+          <h3>🏛️ 5. Ngoại Thất Mặt Tiền</h3>
+          <p>Đá ong T1 + Khối T2 nhô 20cm + Hộp vát T3 Corten</p>
+        </button>
+        <button type="button" class="room-tab" role="tab" aria-selected="false" data-room="outdoor" onclick="selectRoom('outdoor')">
+          <span class="room-tab-badge">Sân T1 &amp; Tum • 112 m²</span>
+          <h3>🌿 6. Sân Vườn &amp; Tầng Tum</h3>
+          <p>Gạch chống trơn R11 + Thảm đá Phú Yên dẫn vào Tiền sảnh</p>
+        </button>
+      </div>
+
+      <!-- Studio Split View -->
+      <div class="studio-grid">
+        <!-- Left: Live 2.5D Architectural Canvas + Real 3D Render Preview -->
+        <div class="visualizer-panel">
+          <div class="visualizer-toolbar">
+            <div style="font-size: 0.84rem; font-weight: 700; color: #fff;">
+              <span id="stage-room-title">🛋️ Mô Phỏng Phối Màu: Phòng Khách &amp; Tiền Sảnh Tầng 1</span>
+            </div>
+            <div class="kelvin-bar" role="group" aria-label="Chọn nhiệt độ màu ánh sáng">
+              <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">💡 Đèn OPPLE:</span>
+              <button type="button" class="kelvin-btn" data-k="5500" onclick="setKelvin(5500)">☀️ Ban ngày (5500K)</button>
+              <button type="button" class="kelvin-btn active" data-k="4000" onclick="setKelvin(4000)">⭐ Trung tính (4000K)</button>
+              <button type="button" class="kelvin-btn" data-k="3500" onclick="setKelvin(3500)">🌅 Phòng ngủ (3500K)</button>
+              <button type="button" class="kelvin-btn" data-k="3000" onclick="setKelvin(3000)">🌙 Vàng ấm (3000K)</button>
+            </div>
+          </div>
+
+          <div class="canvas-stage">
+            <canvas id="room-canvas" width="960" height="600" aria-label="Mô phỏng phối màu sơn tường và gạch ốp lát trực quan"></canvas>
+          </div>
+
+          <!-- Reference 3D Render Strip -->
+          <div class="render-compare-bar">
+            <div class="render-thumb-wrap" onclick="openCurrentRenderLightbox()">
+              <img id="ref-render-img" src="assets/2026_phong_khach_quat_tran_1792425234068.jpg" alt="Phối cảnh 3D thực tế của phân khu đang chọn" />
+            </div>
+            <div>
+              <div style="font-size: 0.74rem; font-weight: 800; text-transform: uppercase; color: var(--accent-light);">
+                📸 Đối chiếu Phối cảnh 3D Thực tế của Q Villa (Bấm ảnh để phóng to)
+              </div>
+              <div id="ref-render-title" style="font-size: 0.92rem; font-weight: 800; color: #fff; margin: 2px 0;">
+                Phòng Khách Tầng 1 — Trần giật cấp chỉ đen P-UT12 + Quạt trần cánh gỗ óc chó
+              </div>
+              <p id="ref-render-desc" style="font-size: 0.8rem; color: var(--text-secondary);">
+                Tường sơn Trắng kem ấm (Dulux 30GY 88/014 White Cotton / Kova AP12-1) giúp nối êm giữa Cửa chính gỗ Lim D1, Quạt trần gỗ óc chó và Sàn gạch 800×800 Xám sáng ấm.
+              </p>
+            </div>
+            <button type="button" class="kelvin-btn" onclick="openCurrentRenderLightbox()" style="padding: 9px 14px;">
+              🔍 Phóng to 3D
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Interactive Swatch Selector & Harmony Evaluator -->
+        <div class="controls-panel">
+          <!-- Harmony Score Banner -->
+          <div class="harmony-banner" id="harmony-banner">
+            <div>
+              <div style="font-size: 0.74rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;" id="harmony-status-label">
+                ✅ ĐỘ ĂN KHỚP VỚI CỬA GỖ LIM D3 &amp; ĐÁ BẾP VICOSTONE
+              </div>
+              <div style="font-size: 0.84rem; color: var(--text-secondary); margin-top: 3px;" id="harmony-reason">
+                Tường Trắng kem ấm (Dulux White Cotton / Kova AP12-1) + Gạch Xám sáng ấm tôn vân gỗ Lim và không bị rối với đá bếp Calacatta.
+              </div>
+            </div>
+            <div class="harmony-score-pill" id="harmony-score">98% ★</div>
+          </div>
+
+          <!-- Group 1: Main Wall Paint -->
+          <div class="control-group" style="border-top: none; padding-top: 0;">
+            <div class="control-group-header">
+              <span class="control-group-title">1. Màu Sơn Tường Chính (Nội Thất / Khối Trắng A2)</span>
+              <div class="brand-toggle" role="group" aria-label="Chọn hãng sơn hiển thị mã">
+                <button type="button" class="active" id="btn-brand-dulux" onclick="setPaintBrand('dulux')">DULUX</button>
+                <button type="button" id="btn-brand-kova" onclick="setPaintBrand('kova')">KOVA</button>
+              </div>
+            </div>
+            <div class="swatch-grid" id="wall-swatch-grid"></div>
+          </div>
+
+          <!-- Group 2: Accent Wall / Facade D1 Paint -->
+          <div class="control-group">
+            <div class="control-group-header">
+              <span class="control-group-title" id="accent-group-title">2. Vách Điểm Nhấn (Đầu Giường / P.Thờ / Khối T2 Mặt Tiền)</span>
+            </div>
+            <div class="swatch-grid" id="accent-swatch-grid"></div>
+          </div>
+
+          <!-- Group 3: Floor / Wall Tile Selection -->
+          <div class="control-group">
+            <div class="control-group-header">
+              <span class="control-group-title" id="tile-group-title">3. Màu &amp; Bề Mặt Gạch Ốp Lát / Sàn Gỗ</span>
+            </div>
+            <div class="swatch-grid" id="tile-swatch-grid"></div>
+          </div>
+
+          <!-- Quick Preset Reset -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; padding-top: 6px; border-top: 1px solid var(--border);">
+            <button type="button" class="kelvin-btn active" style="flex: 1; padding: 9px 12px;" onclick="applyRecommendedPalette()">
+              ⭐ Áp Dụng Bộ Phối Màu Khuyên Dùng Chuẩn Nhất Cho Q Villa
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: BRAND & PRODUCT LINE STRATEGY -->
+    <section id="sec-brands">
+      <div class="section-header">
+        <span class="section-tag">PHẦN 2 • CHIẾN LƯỢC CHỌN HÃNG SƠN &amp; HÃNG GẠCH (BEST PRICE / PERFORMANCE)</span>
+        <h2>Phân Tầng Dòng Sơn &amp; Thương Hiệu Gạch Để Đạt Thẩm Mỹ Cao Nhất Trong Ngân Sách</h2>
+        <p>
+          Không cần mua dòng đắt nhất cho mọi bức tường, nhưng <strong>tuyệt đối không tiết kiệm ở lớp Sơn lót kháng kiềm và Keo dán gạch C2</strong>:
+        </p>
+      </div>
+
+      <div class="brand-cards-grid">
+        <article class="brand-card recommended">
+          <span class="room-tab-badge" style="background: rgba(16, 185, 129, 0.2); color: var(--emerald-light);">★ Khuyên Dùng Số 1 Cho Sơn Nội/Ngoại Thất</span>
+          <h3>🪣 Hệ Sơn DULUX &amp; KOVA (Phối Hợp Tối Ưu Nhất)</h3>
+          <p style="font-size: 0.84rem; color: var(--text-muted);">Tổng dự toán: <strong>~84,4 Triệu ₫</strong> (Nội thất 54,6tr + Ngoại thất 29,8tr)</p>
+          <ul>
+            <li>✅ <strong>Bột bả:</strong> Dùng <strong>Bột bả Dulux cao cấp</strong> hoặc <strong>Kova MB-T Nội thất</strong> (dẻo, xả nhám phẳng mịn dưới đèn Spotlight chóa sâu OPPLE).</li>
+            <li>✅ <strong>Tường trong nhà (550 m²):</strong> 1 lớp lót kháng kiềm <em>Dulux SuperSealer Z505 (hoặc Kova K-109)</em> + 2 lớp phủ <strong>Dulux Ambiance 5in1 / EasyClean (Bóng Mờ)</strong> mã <code>30GY 88/014 (White Cotton)</code> hoặc <strong>Kova K-260 / K-5500</strong> mã <code>AP12-1</code>.</li>
+            <li>✅ <strong>Trần thạch cao (228 m²):</strong> <strong>Dulux Ceiling White (Trắng trần siêu mờ)</strong> hoặc <strong>Kova K-771</strong> chống lóa khe LED.</li>
+            <li>✅ <strong>Ngoại thất (350 m²):</strong> <strong>Dulux Weathershield Powerflexx</strong> (Mặt tiền co giãn che vết nứt) + <strong>Chống thấm Kova CT-11A Plus &amp; Phủ Kova CT-04 / K-5800</strong> cho 2 bức tường biên Trục A, D &amp; sân sau.</li>
+          </ul>
+        </article>
+
+        <article class="brand-card recommended">
+          <span class="room-tab-badge" style="background: rgba(56, 189, 248, 0.2); color: var(--sky-light);">★ Khuyên Dùng Số 1 Cho Gạch Ốp Lát (327 m²)</span>
+          <h3>🪨 Gạch EUROTILE &amp; Á MỸ (AMYGRES)</h3>
+          <p style="font-size: 0.84rem; color: var(--text-muted);">Tổng dự toán vật tư: <strong>~100,5 Triệu ₫</strong> + Keo C2 &amp; Nẹp <strong>16,5 Triệu ₫</strong></p>
+          <ul>
+            <li>✅ <strong>Sàn T1, Bếp &amp; Hành lang (91 m²):</strong> Gạch <strong>Á Mỹ (AMYGRES) hoặc Eurotile 800×800</strong> xương đá Porcelain, màu <strong>Xám sáng ấm (Light Warm Grey)</strong> bề mặt <em>Bán bóng (Lappato)</em> (~350k/m²).</li>
+            <li>✅ <strong>04 Phòng WC (100 m² tường 600×1200 + 24 m² sàn 600×600):</strong> Gạch <strong>Eurotile bề mặt Matt Lụa (Baby Skin)</strong> tông Xám đá sáng (không bám cặn canxi, tôn 13 kệ đá trắng Vicostone).</li>
+            <li>✅ <strong>Sân T1, Sân thượng Tum &amp; 5 Ban công (112,5 m²):</strong> Gạch Granite chống trơn <strong>R11 / Sugar nhám</strong> của <strong>Viglacera / Á Mỹ / Prime</strong> (~235k/m²).</li>
+          </ul>
+        </article>
+
+        <article class="brand-card">
+          <span class="room-tab-badge">★ Điểm Nhấn Mặt Tiền (Thay Đá Khổ Lớn)</span>
+          <h3>🏛️ Sơn Hiệu Ứng Bê Tông &amp; Gỉ Sét Corten</h3>
+          <p style="font-size: 0.84rem; color: var(--text-muted);">Tổng dự toán: <strong>~28,0 Triệu ₫</strong> (Tiết kiệm ~50tr so với ốp đá Á Mỹ T2)</p>
+          <ul>
+            <li>✅ <strong>Khối Tầng 2 nhô 20cm (Mã D1 — 42 m²):</strong> Dùng <strong>Sơn hiệu ứng bê tông Ghi đậm (Pukaco / Conpa / Waldo)</strong> + đặt <strong>nẹp nhựa chỉ âm 10×10mm</strong> chia 5 nhịp <code>1590mm</code>. Hợp thức hóa 100% phần tường trục C xây nhô 20cm!</li>
+            <li>✅ <strong>Hộp vát 2 cửa sổ Tầng 3:</strong> Dùng <strong>Sơn hiệu ứng thép gỉ sét Corten</strong> + <strong>Nẹp ngắt nước mũi vát GMN-04</strong> (theo Concept 29.05.29, khoe trọn 2 ô cửa sổ đứng T3).</li>
+            <li>✅ <strong>Tầng 1 (Mã D2 — 32,5 m²):</strong> Giữ nguyên <strong>Đá ong xám tự nhiên 100×300 / 200×400mm</strong> ốp bằng keo C2.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 3: QUANTITY & COLOR CODE TAKEOFF TABLE -->
+    <section id="sec-takeoff">
+      <div class="section-header">
+        <span class="section-tag">PHẦN 3 • BẢNG BÓC TÁCH MÃ MÀU &amp; SỐ LƯỢNG THÙNG SƠN / HỘP GẠCH ĐẶT MUA</span>
+        <h2>Bảng Chốt Mã Vật Liệu Chi Tiết Để Cầm Đi Đại Lý Sơn &amp; Showroom Gạch</h2>
+        <p>
+          Đã quy đổi sẵn từ diện tích bản vẽ (<code>KT-4.10..4.14</code>, <code>KT-5.01..5.04</code>, <code>KT-2.12</code>) ra số lượng thùng sơn 18L/15L/5L và diện tích gạch đặt mua (đã cộng hao hụt cắt gạch &amp; len chân tường âm):
+        </p>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="spec-table-caption" class="table-wrapper">
+        <table class="spec-table">
+          <caption id="spec-table-caption">
+            Bảng tổng hợp mã màu sơn Dulux / Kova và quy cách gạch ốp lát toàn công trình Q Villa
+          </caption>
+          <thead>
+            <tr>
+              <th>Hạng mục vật tư</th>
+              <th>Phân khu &amp; Diện tích</th>
+              <th>Hãng &amp; Dòng khuyên chọn</th>
+              <th>Mã màu / Quy cách chuẩn</th>
+              <th>Bề mặt</th>
+              <th>Số lượng đặt mua</th>
+              <th style="text-align:right;">Dự toán (VNĐ)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>1. Sơn Phủ Tường Nội Thất Chính</th>
+              <td>P.Khách, Bếp, Hành lang, 4 P.Ngủ, P.Làm việc T3 (~500 m²)</td>
+              <td><strong>Dulux Ambiance 5in1 / EasyClean</strong><br><small>(Hoặc Kova K-260 / K-5500 Gold)</small></td>
+              <td>⭐ Dulux: <strong>30GY 88/014 (White Cotton)</strong> hoặc <strong>40YY 83/043</strong><br><small>Kova: <strong>AP12-1 (Ivory White)</strong> hoặc <strong>AP13-1</strong></small></td>
+              <td>Bóng Mờ (Matt / Bán bóng)</td>
+              <td>~6 thùng 15L/20kg (Lăn 2 lớp phủ)</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">24.500.000 ₫</td>
+            </tr>
+            <tr>
+              <th>2. Sơn Vách Điểm Nhấn &amp; Phòng Thờ</th>
+              <td>Vách đầu giường Master, Ông Bà &amp; P.Thờ T3 (~50 m²)</td>
+              <td><strong>Dulux Ambiance 5in1</strong><br><small>(Hoặc Kova K-260 / K-5500)</small></td>
+              <td>⭐ Đầu giường: Dulux <strong>30YY 56/060 (Warm Pewter)</strong> / Kova <strong>AP16-2</strong><br>P.Thờ: Dulux <strong>20YY 74/055</strong> / Kova <strong>AP14-2</strong></td>
+              <td>Bóng Mờ (Matt)</td>
+              <td>2 lon 5L / 4kg (Pha máy theo mã)</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">2.800.000 ₫</td>
+            </tr>
+            <tr>
+              <th>3. Sơn Phủ Trần Thạch Cao 4 Tầng</th>
+              <td>Toàn bộ trần thạch cao T1, T2, T3, Tum (228 m²)</td>
+              <td><strong>Dulux Ceiling White</strong><br><small>(Hoặc Kova K-771 Trắng Trần)</small></td>
+              <td>Dulux <strong>99GY 90/000 (Pure White)</strong> / Kova <strong>K-771 White</strong></td>
+              <td>Siêu Mờ (Ultra Flat)</td>
+              <td>3 thùng 18L / 20kg</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">6.300.000 ₫</td>
+            </tr>
+            <tr>
+              <th>4. Bột Bả &amp; Sơn Lót Nội Thất + Công Thợ</th>
+              <td>Toàn bộ 780 m² tường &amp; trần trong nhà</td>
+              <td><strong>Bột bả Dulux (hoặc Kova MB-T)</strong> + <strong>Lót Dulux SuperSealer Z505 (hoặc Kova K-109)</strong></td>
+              <td>2 lớp bả xả phẳng + 1 lớp lót kháng kiềm 100%</td>
+              <td>Lót kháng kiềm</td>
+              <td>~22 bao bột bả + 6 thùng lót 18L/20kg + Công lăn</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">21.000.000 ₫</td>
+            </tr>
+            <tr>
+              <th>5. Sơn Ngoại Thất Chống Thấm (A1, A2)</th>
+              <td>Mặt tiền, tường bên, sân sau &amp; Tum (~350 m²)</td>
+              <td><strong>Dulux Weathershield Powerflexx</strong> + <strong>Kova CT-11A Plus / K-5800</strong></td>
+              <td>• Khối trắng A2: Dulux <strong>99GY 90/000</strong> / Kova <strong>K-261 White</strong><br>• Viền ghi A1: Dulux <strong>00NN 37/000</strong> / Kova <strong>AP35-5</strong></td>
+              <td>Bóng Mờ Ngoại Thất</td>
+              <td>4 thùng lót + 5 thùng phủ 15L + 4 thùng Kova CT-11A</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">29.800.000 ₫</td>
+            </tr>
+            <tr>
+              <th>6. Sơn Hiệu Ứng Mặt Tiền (Khối T2 &amp; Hộp T3)</th>
+              <td>Khung chữ C T2 &amp; Mặt bên nhô 20cm (42 m²) + Hộp vát T3</td>
+              <td><strong>Pukaco / Conpa / Waldo</strong> (Hệ ngoại thất + 2 lớp Clear Coat)</td>
+              <td>• T2 (D1): <strong>Bê tông Ghi đậm #06</strong> + Chỉ âm 10×10mm<br>• T3: <strong>Gỉ sét Corten</strong> + Nẹp GMN-04</td>
+              <td>Gai đá mờ chống rêu</td>
+              <td>Trọn gói vật tư &amp; thợ chuyên nghiệp</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">28.000.000 ₫</td>
+            </tr>
+            <tr>
+              <th>7. Gạch Sàn Tầng 1, Bếp &amp; Hành Lang T2–Tum</th>
+              <td>T1 (55,1m²), T2 (7,1m²), T3 (7,1m²), Tum (13,5m²) = 82,8 m²</td>
+              <td><strong>Á Mỹ (AMYGRES)</strong> hoặc <strong>Eurotile / Viglacera</strong></td>
+              <td>Khổ <strong>800×800 mm</strong> • Xương Porcelain<br>Màu: <strong>Xám Sáng Ấm (Light Warm Grey)</strong></td>
+              <td>Bán bóng (Lappato) / Bóng kính</td>
+              <td><strong>91 m²</strong> (~48 hộp, gồm cả cắt len âm chân tường)</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">32.000.000 ₫</td>
+            </tr>
+            <tr>
+              <th>8. Gạch Ốp &amp; Lát 04 Phòng Vệ Sinh</th>
+              <td>Tường kịch trần +2.4m (100 m²) + Sàn (24 m²)</td>
+              <td><strong>Eurotile</strong> (BST An Niên / Mộc Châu) hoặc <strong>Á Mỹ</strong></td>
+              <td>• Tường: <strong>600×1200 mm</strong> Xám Đá Sáng (Master phối thêm Xám Than)<br>• Sàn: <strong>600×600 mm</strong> đồng màu</td>
+              <td>Tường: <strong>Matt Lụa</strong><br>Sàn: <strong>Nhám R10</strong></td>
+              <td><strong>100 m²</strong> gạch 600×1200 + <strong>24 m²</strong> gạch 600×600</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">42.000.000 ₫</td>
+            </tr>
+            <tr>
+              <th>9. Gạch Sân T1, Sân Thượng Tum &amp; 5 Ban Công</th>
+              <td>Sân T1 (27,3m²), Tum (56,5m²), 5 Ban công (22,4m²)</td>
+              <td><strong>Viglacera / Á Mỹ / Prime</strong> (Xương Granite ngoài trời)</td>
+              <td>• Sân &amp; Tum: <strong>600×600 mm</strong> Ghi xám đá<br>• 5 Ban công: <strong>300×600 mm</strong> Ghi xám</td>
+              <td>Nhám Chống Trơn <strong>R11</strong></td>
+              <td><strong>88 m²</strong> (600×600) + <strong>24,5 m²</strong> (300×600)</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">26.500.000 ₫</td>
+            </tr>
+            <tr>
+              <th>10. Keo Dán Gạch C2, Keo Ron &amp; Nẹp Âm Chân Tường</th>
+              <td>Toàn bộ ~327 m² gạch ốp lát các tầng</td>
+              <td><strong>Weber / SikaCeram</strong> + Keo ron <strong>Saveto / Webercolor</strong></td>
+              <td>Keo C2 ốp gạch 600×1200 &amp; 800×800 + Ron <strong>Xám Bạc (Silver Grey)</strong> + Nẹp âm <strong>DF-1212</strong></td>
+              <td>Chống bộp &amp; chống ố</td>
+              <td>Trọn gói toàn nhà</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">16.500.000 ₫</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal Dialog with declarative light-dismiss (closedby="any") -->
+  <dialog id="image-lightbox" closedby="any" aria-labelledby="lightbox-title">
+    <div class="lightbox-header">
+      <strong id="lightbox-title" style="font-size: 0.92rem; color: var(--accent-light);">Phối cảnh 3D Thực tế Q Villa</strong>
+      <button type="button" class="lightbox-close" onclick="document.getElementById('image-lightbox').close()">✕ Đóng (Esc)</button>
+    </div>
+    <div class="lightbox-body">
+      <img id="lightbox-img" src="" alt="Ảnh phóng to phối cảnh Q Villa" />
+    </div>
+  </dialog>
+
+  <script>
+    // Fallback for browsers without <dialog closedby="any"> support (modern-web-guidance: light-dismiss-a-dialog)
+    const dialog = document.getElementById('image-lightbox');
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      dialog.addEventListener('click', (event) => {
+        if (event.target !== dialog) return;
+        const rect = dialog.getBoundingClientRect();
+        const isDialogContent = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (isDialogContent) return;
+        dialog.close();
+      });
+    }
+
+    const ROOM_CONFIGS = {
+      living: {
+        title: "🛋️ Mô Phỏng Phối Màu: Phòng Khách & Tiền Sảnh Tầng 1",
+        img: "assets/2026_phong_khach_quat_tran_1792425234068.jpg",
+        renderTitle: "Phòng Khách Tầng 1 — Trần giật cấp chỉ đen P-UT12 + Quạt trần cánh gỗ óc chó",
+        renderDesc: "Tường sơn Trắng kem ấm (Dulux 30GY 88/014 White Cotton / Kova AP12-1) giúp nối êm giữa Cửa chính gỗ Lim D1, Quạt trần gỗ óc chó và Sàn gạch 800×800 Xám sáng ấm.",
+        defaultKelvin: 4000
+      },
+      kitchen: {
+        title: "🍳 Mô Phỏng Phối Màu: Phòng Bếp & Bàn Ăn 8 Ghế (Tủ KITPRO + Đá Vicostone)",
+        img: "assets/2026_phong_bep_an_quat_tran_1792425237150.jpg",
+        renderTitle: "Phòng Bếp & Bàn Ăn 8 Ghế — Tủ bếp cánh kính + Mặt đá Vicostone Trắng vân mây",
+        renderDesc: "Sàn gạch 800×800 Xám sáng ấm Lappato làm nổi bật bàn đảo đá trắng Calacatta mà không bị rối vân hay lộ vết bẩn khi nấu nướng.",
+        defaultKelvin: 4000
+      },
+      bedroom: {
+        title: "🛏️ Mô Phỏng Phối Màu: Phòng Ngủ Master / Ông Bà & Cửa Gỗ Lim D3 (900×2400)",
+        img: "assets/2026_phong_ngu_master_t2_1792425234834.jpg",
+        renderTitle: "Phòng Ngủ Master Tầng 2 — Sàn gỗ xương cá Óc chó + Cửa gỗ Lim D3 + Đèn 3500K",
+        renderDesc: "Sơn tường Trắng kem (Dulux White Cotton / Kova AP12-1) + Vách đầu giường Xám Be (Dulux Warm Pewter / Kova AP16-2) tôn tuyệt đối màu Cửa gỗ Lim D3 và Sàn gỗ xương cá.",
+        defaultKelvin: 3500
+      },
+      wc: {
+        title: "🚿 Mô Phỏng Phối Màu: 04 Phòng WC (Tường 600×1200 Kịch Trần + 13 Kệ Đá Bếp)",
+        img: "assets/wc02_master_3khoang_chuan_kt503_3d.jpg",
+        renderTitle: "WC-02 Master 3 Khoang — Gạch 600×1200 Matt Lụa + Cabin Slimdoor Đen + Kệ Đá Trắng",
+        renderDesc: "Gạch Eurotile 600×1200 Matt Lụa Xám đá sáng (phối vách Xám đậm ở Master) làm nổi bật 13 tấm kệ đá góc Vicostone trắng vân mây tận dụng từ đá khoét bếp.",
+        defaultKelvin: 4000
+      },
+      facade: {
+        title: "🏛️ Mô Phỏng Phối Màu: Mặt Tiền Thực Tế (Khối T2 Nhô 20cm & Hộp Vát T3 Corten)",
+        img: "assets/persp_thucte_chuan_2cua_t3.jpg",
+        renderTitle: "Mặt Tiền Chuẩn Thực Tế Đã Xây — Đá Ong T1 + Khối T2 Ghi Đậm + Hộp Vát T3 Corten",
+        renderDesc: "Sơn hiệu ứng bê tông Ghi đậm (hoặc Dulux 00NN 37/000 / Kova AP35-5) ôm trọn mặt bên Tầng 2 nhô 20cm, kết hợp hộp vát Tầng 3 Sơn gỉ sét Corten + Nẹp ngắt nước GMN-04.",
+        defaultKelvin: 5500
+      },
+      outdoor: {
+        title: "🌿 Mô Phỏng Phối Màu: Sân Trước T1 (Thảm Đá Dẫn Hướng) & Sân Thượng Tầng Tum",
+        img: "assets/phoi_canh_dan_huong_tien_sanh_1792919164279.jpg",
+        renderTitle: "Sân Trước Tầng 1 & Sảnh Đón — Thảm Đá Xám Sáng Phú Yên Dẫn Hướng Vào Tiền Sảnh",
+        renderDesc: "Nền sân gạch/đá Xám đen R11 tương phản với dải Thảm đá Phú Yên Xám sáng dẫn thẳng mắt khách rẽ vào khe Tiền sảnh (Trục A → B).",
+        defaultKelvin: 5500
+      }
+    };
+
+    const WALL_PAINTS = [
+      {
+        id: "w_skylight",
+        rec: true,
+        hex: "#f3f0e8",
+        dulux: "⭐ 30GY 88/014 (White Cotton)",
+        kova: "⭐ Kova AP12-1 (Ivory White)",
+        name: "Trắng Kem Ấm Nhẹ (Khuyên dùng #1)",
+        scoreBonus: 0,
+        note: "Trắng ngà dịu mắt, tôn Cửa gỗ Lim D3, Sàn gỗ Óc chó & Công tắc Aqara trắng."
+      },
+      {
+        id: "w_eggwhite",
+        rec: true,
+        hex: "#efe9db",
+        dulux: "✨ 40YY 83/043 (Almond White)",
+        kova: "✨ Kova AP13-1 (Creamy Almond)",
+        name: "Trắng Kem Hạnh Nhân Ấm",
+        scoreBonus: -2,
+        note: "Ấm áp rõ nét, cực hợp với Phòng ngủ Ông Bà và không gian nhiều gỗ."
+      },
+      {
+        id: "w_classic",
+        rec: false,
+        hex: "#f9fafb",
+        dulux: "🏛️ 99GY 90/000 (Pure White)",
+        kova: "🏛️ Kova K-771 / K-261 Trắng Tinh",
+        name: "Trắng Tinh Hiện Đại (Chuẩn Trần & A2)",
+        scoreBonus: -6,
+        note: "Rất đẹp cho Trần thạch cao & Mặt tiền A2, nhưng làm tường nội thất hơi thiếu độ ấm với gỗ Lim."
+      },
+      {
+        id: "w_coolblue",
+        rec: false,
+        hex: "#e6eef6",
+        dulux: "⚠️ 10BB 83/020 (Cool Ice White)",
+        kova: "⚠️ Kova AP22-1 (Trắng Xanh Lạnh)",
+        name: "Trắng Sứ Ánh Xanh (Không khuyên dùng)",
+        scoreBonus: -28,
+        note: "❌ Cảnh báo: Ánh xanh lạnh bị xung đột sắc độ với Cửa gỗ Lim đỏ ấm và Sàn gỗ Óc chó!"
+      }
+    ];
+
+    const ACCENT_PAINTS = [
+      {
+        id: "a_linen",
+        rec: true,
+        hex: "#cfc7ba",
+        dulux: "⭐ 30YY 56/060 (Warm Pewter)",
+        kova: "⭐ Kova AP16-2 (Warm Greige)",
+        name: "Xám Be Ấm (Greige Đầu Giường)",
+        scoreBonus: 0
+      },
+      {
+        id: "a_kalkgra",
+        rec: true,
+        hex: "#9e988e",
+        dulux: "✨ 10YY 38/065 (Taupe Stone)",
+        kova: "✨ Kova AP35-3 (Stone Grey)",
+        name: "Ghi Đá Trầm Sang Trọng",
+        scoreBonus: -1
+      },
+      {
+        id: "a_sand",
+        rec: false,
+        hex: "#dfd3c1",
+        dulux: "🧘 20YY 74/055 (Desert Sand)",
+        kova: "🧘 Kova AP14-2 (Warm Sand)",
+        name: "Kem Cát Ấm (Chuẩn Phòng Thờ T3)",
+        scoreBonus: -2
+      },
+      {
+        id: "a_aske",
+        rec: true,
+        hex: "#4c5054",
+        dulux: "🏛️ 00NN 37/000 (Anthracite)",
+        kova: "🏛️ Kova AP35-5 / CT-04 Ghi Đậm",
+        name: "Ghi Đậm Mặt Tiền T2 (Khối D1 & A1)",
+        scoreBonus: 0
+      }
+    ];
+
+    const FLOOR_TILES = [
+      {
+        id: "t_warmgrey",
+        rec: true,
+        hex: "#d6d3cb",
+        vein: "#b8b4aa",
+        brand: "⭐ Á Mỹ / Eurotile 800×800",
+        name: "Xám Sáng Ấm (Light Warm Grey Lappato)",
+        spec: "Bán bóng Lappato • Ron Xám Bạc",
+        scoreBonus: 0,
+        warnText: ""
+      },
+      {
+        id: "t_ivory",
+        rec: true,
+        hex: "#e5dec9",
+        vein: "#cabfa6",
+        brand: "✨ Eurotile 800×800 Travertine",
+        name: "Kem Đá Ngà Ấm (Warm Ivory Satin)",
+        spec: "Satin Mờ • Rất hợp Cửa gỗ Lim",
+        scoreBonus: -2,
+        warnText: ""
+      },
+      {
+        id: "t_wc_silk",
+        rec: true,
+        hex: "#bfc3c6",
+        vein: "#5a6065",
+        brand: "🚿 Eurotile 600×1200 Matt Lụa",
+        name: "Xám Đá Sáng + Vách Master Xám Than",
+        spec: "Chuẩn 4 Phòng WC • Tôn 13 kệ đá bếp",
+        scoreBonus: 0,
+        warnText: ""
+      },
+      {
+        id: "t_whitevein",
+        rec: false,
+        hex: "#f5f7fa",
+        vein: "#475569",
+        brand: "⚠️ Gạch 800×800 Trắng Vân Đậm",
+        name: "Trắng Bóng Vân Mây Đen Đậm",
+        spec: "Dễ chói & đụng vân đá bếp Calacatta",
+        scoreBonus: -22,
+        warnText: "⚠️ Gạch trắng vân đen đậm đặt cạnh bàn đá bếp Vicostone Calacatta sẽ bị tranh chấp vân và lộ tóc rụng!"
+      }
+    ];
+
+    let currentRoom = "living";
+    let currentBrand = "dulux";
+    let currentKelvin = 4000;
+    let selectedWall = WALL_PAINTS[0];
+    let selectedAccent = ACCENT_PAINTS[0];
+    let selectedTile = FLOOR_TILES[0];
+
+    function setPaintBrand(brand) {
+      currentBrand = brand;
+      document.getElementById("btn-brand-dulux").classList.toggle("active", brand === "dulux");
+      document.getElementById("btn-brand-kova").classList.toggle("active", brand === "kova");
+      renderSwatches();
+      updateHarmonyBanner();
+      drawStudioCanvas();
+    }
+
+    function setKelvin(k) {
+      currentKelvin = k;
+      document.querySelectorAll(".kelvin-btn[data-k]").forEach(btn => {
+        btn.classList.toggle("active", Number(btn.getAttribute("data-k")) === k);
+      });
+      const imgEl = document.getElementById("ref-render-img");
+      if (k === 3000) imgEl.style.filter = "sepia(0.24) saturate(1.15) brightness(0.96)";
+      else if (k === 3500) imgEl.style.filter = "sepia(0.12) saturate(1.08) brightness(0.98)";
+      else if (k === 4000) imgEl.style.filter = "none";
+      else imgEl.style.filter = " contrast(1.04) brightness(1.04)";
+      drawStudioCanvas();
+    }
+
+    function selectRoom(roomKey) {
+      currentRoom = roomKey;
+      document.querySelectorAll(".room-tab").forEach(tab => {
+        const isAct = tab.getAttribute("data-room") === roomKey;
+        tab.classList.toggle("active", isAct);
+        tab.setAttribute("aria-selected", isAct ? "true" : "false");
+      });
+
+      const cfg = ROOM_CONFIGS[roomKey];
+      document.getElementById("stage-room-title").textContent = cfg.title;
+      document.getElementById("ref-render-img").src = cfg.img;
+      document.getElementById("ref-render-title").textContent = cfg.renderTitle;
+      document.getElementById("ref-render-desc").textContent = cfg.renderDesc;
+
+      if (roomKey === "wc") {
+        selectedTile = FLOOR_TILES[2];
+      } else if (roomKey === "facade") {
+        selectedAccent = ACCENT_PAINTS[3];
+      } else if (selectedTile.id === "t_wc_silk" && (roomKey === "living" || roomKey === "kitchen")) {
+        selectedTile = FLOOR_TILES[0];
+      }
+
+      setKelvin(cfg.defaultKelvin);
+      renderSwatches();
+      updateHarmonyBanner();
+      drawStudioCanvas();
+    }
+
+    function applyRecommendedPalette() {
+      selectedWall = WALL_PAINTS[0];
+      selectedAccent = currentRoom === "facade" ? ACCENT_PAINTS[3] : ACCENT_PAINTS[0];
+      selectedTile = currentRoom === "wc" ? FLOOR_TILES[2] : FLOOR_TILES[0];
+      setKelvin(ROOM_CONFIGS[currentRoom].defaultKelvin);
+      renderSwatches();
+      updateHarmonyBanner();
+      drawStudioCanvas();
+    }
+
+    function renderSwatches() {
+      const wallGrid = document.getElementById("wall-swatch-grid");
+      wallGrid.innerHTML = WALL_PAINTS.map(w => {
+        const code = currentBrand === "dulux" ? w.dulux : w.kova;
+        const activeCls = selectedWall.id === w.id ? "active" : "";
+        return `
+          <button type="button" class="swatch-btn ${activeCls}" onclick="pickWall('${w.id}')">
+            <span class="swatch-circle" style="background:${w.hex};"></span>
+            <span class="swatch-info">
+              <strong>${code}</strong>
+              <span>${w.name}</span>
+            </span>
+          </button>
+        `;
+      }).join("");
+
+      const accentGrid = document.getElementById("accent-swatch-grid");
+      accentGrid.innerHTML = ACCENT_PAINTS.map(a => {
+        const code = currentBrand === "dulux" ? a.dulux : a.kova;
+        const activeCls = selectedAccent.id === a.id ? "active" : "";
+        return `
+          <button type="button" class="swatch-btn ${activeCls}" onclick="pickAccent('${a.id}')">
+            <span class="swatch-circle" style="background:${a.hex};"></span>
+            <span class="swatch-info">
+              <strong>${code}</strong>
+              <span>${a.name}</span>
+            </span>
+          </button>
+        `;
+      }).join("");
+
+      const tileGrid = document.getElementById("tile-swatch-grid");
+      tileGrid.innerHTML = FLOOR_TILES.map(t => {
+        const activeCls = selectedTile.id === t.id ? "active" : "";
+        return `
+          <button type="button" class="swatch-btn ${activeCls}" onclick="pickTile('${t.id}')">
+            <span class="swatch-circle" style="background: linear-gradient(135deg, ${t.hex} 65%, ${t.vein} 100%);"></span>
+            <span class="swatch-info">
+              <strong>${t.brand}</strong>
+              <span>${t.name}</span>
+            </span>
+          </button>
+        `;
+      }).join("");
+    }
+
+    function pickWall(id) {
+      selectedWall = WALL_PAINTS.find(x => x.id === id) || WALL_PAINTS[0];
+      renderSwatches();
+      updateHarmonyBanner();
+      drawStudioCanvas();
+    }
+
+    function pickAccent(id) {
+      selectedAccent = ACCENT_PAINTS.find(x => x.id === id) || ACCENT_PAINTS[0];
+      renderSwatches();
+      updateHarmonyBanner();
+      drawStudioCanvas();
+    }
+
+    function pickTile(id) {
+      selectedTile = FLOOR_TILES.find(x => x.id === id) || FLOOR_TILES[0];
+      renderSwatches();
+      updateHarmonyBanner();
+      drawStudioCanvas();
+    }
+
+    function updateHarmonyBanner() {
+      let score = 98 + selectedWall.scoreBonus + selectedAccent.scoreBonus + selectedTile.scoreBonus;
+      score = Math.max(55, Math.min(99, score));
+      const banner = document.getElementById("harmony-banner");
+      const label = document.getElementById("harmony-status-label");
+      const reason = document.getElementById("harmony-reason");
+      const scoreEl = document.getElementById("harmony-score");
+
+      const wallCode = currentBrand === "dulux" ? selectedWall.dulux : selectedWall.kova;
+      if (score >= 90) {
+        banner.classList.remove("warn");
+        label.textContent = "✅ ĐỘ ĂN KHỚP CAO VỚI CỬA GỖ LIM D3, SÀN ÓC CHÓ & ĐÁ VICOSTONE";
+        reason.textContent = `${wallCode} kết hợp ${selectedTile.name}: ${selectedWall.note}`;
+        scoreEl.textContent = `${score}% ★`;
+      } else {
+        banner.classList.add("warn");
+        label.textContent = "⚠️ CẢNH BÁO LỆCH TÔNG VỚI VẬT LIỆU CỐ ĐỊNH TRONG NHÀ";
+        reason.textContent = selectedTile.warnText || selectedWall.note;
+        scoreEl.textContent = `${score}% ⚠️`;
+      }
+    }
+
+    function applyKelvinTint(hexColor, kelvin) {
+      // Blend hex color with warm/cool kelvin filter for realistic preview
+      const c = hexColor.replace("#", "");
+      let r = parseInt(c.substring(0, 2), 16);
+      let g = parseInt(c.substring(2, 4), 16);
+      let b = parseInt(c.substring(4, 6), 16);
+
+      if (kelvin === 3000) {
+        r = Math.min(255, Math.round(r * 1.04));
+        g = Math.round(g * 0.96);
+        b = Math.round(b * 0.84);
+      } else if (kelvin === 3500) {
+        r = Math.min(255, Math.round(r * 1.02));
+        g = Math.round(g * 0.98);
+        b = Math.round(b * 0.91);
+      } else if (kelvin === 5500) {
+        r = Math.round(r * 0.99);
+        g = Math.round(g * 1.0);
+        b = Math.min(255, Math.round(b * 1.03));
+      }
+      return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    function drawStudioCanvas() {
+      const canvas = document.getElementById("room-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      const W = canvas.width;
+      const H = canvas.height;
+      ctx.clearRect(0, 0, W, H);
+
+      const wallColor = applyKelvinTint(selectedWall.hex, currentKelvin);
+      const accentColor = applyKelvinTint(selectedAccent.hex, currentKelvin);
+      const ceilingColor = applyKelvinTint("#f9fafb", currentKelvin);
+      const tileColor = applyKelvinTint(selectedTile.hex, currentKelvin);
+      const wallCode = (currentBrand === "dulux" ? selectedWall.dulux : selectedWall.kova).replace(/[⭐✨🏛️⚠️]/g, "").trim();
+      const accentCode = (currentBrand === "dulux" ? selectedAccent.dulux : selectedAccent.kova).replace(/[⭐✨🧘🏛️]/g, "").trim();
+
+      if (currentRoom === "facade") {
+        drawFacadeScene(ctx, W, H, wallColor, accentColor, wallCode, accentCode);
+        return;
+      }
+
+      // 1. Ceiling (+3.53m / +3.13m / +2.40m) with black P-UT12 / Shadowline trim
+      ctx.fillStyle = ceilingColor;
+      ctx.fillRect(0, 0, W, 110);
+
+      // Recessed ceiling cove & LED glow
+      const ledGlow = ctx.createLinearGradient(0, 55, 0, 115);
+      ledGlow.addColorStop(0, currentKelvin <= 3500 ? "rgba(251, 191, 36, 0.42)" : "rgba(254, 243, 199, 0.38)");
+      ledGlow.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = ledGlow;
+      ctx.fillRect(120, 55, W - 240, 55);
+
+      // Black P-UT12 recessed slot line
+      ctx.strokeStyle = "#18181b";
+      ctx.lineWidth = 4;
+      ctx.strokeRect(120, 52, W - 240, 4);
+
+      // 2. Left Wall, Back Wall, Right Wall (2.5D perspective room box)
+      // Back wall (Main wall or Accent wall in bedroom/WC)
+      ctx.fillStyle = (currentRoom === "bedroom" || currentRoom === "wc") ? accentColor : wallColor;
+      ctx.fillRect(150, 110, W - 300, 310);
+
+      // Left wall (Main wall)
+      ctx.fillStyle = wallColor;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(150, 110);
+      ctx.lineTo(150, 420);
+      ctx.lineTo(0, H);
+      ctx.closePath();
+      ctx.fill();
+
+      // Right wall (Main wall)
+      ctx.fillStyle = wallColor;
+      ctx.beginPath();
+      ctx.moveTo(W, 0);
+      ctx.lineTo(W - 150, 110);
+      ctx.lineTo(W - 150, 420);
+      ctx.lineTo(W, H);
+      ctx.closePath();
+      ctx.fill();
+
+      // Shadowline Z-trim between ceiling and walls
+      ctx.strokeStyle = "#111827";
+      ctx.lineWidth = 3;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(150, 110);
+      ctx.lineTo(W - 150, 110);
+      ctx.lineTo(W, 0);
+      ctx.stroke();
+
+      // 3. Floor (800x800 Tile / 600x600 WC / Walnut Herringbone Wood in Bedroom)
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(150, 420);
+      ctx.lineTo(W - 150, 420);
+      ctx.lineTo(W, H);
+      ctx.lineTo(0, H);
+      ctx.closePath();
+      ctx.clip();
+
+      if (currentRoom === "bedroom") {
+        // Walnut Herringbone 12mm wood floor
+        ctx.fillStyle = applyKelvinTint("#5a3e28", currentKelvin);
+        ctx.fillRect(0, 420, W, H - 420);
+        ctx.strokeStyle = "rgba(38, 22, 11, 0.55)";
+        ctx.lineWidth = 2;
+        for (let x = -100; x < W + 100; x += 48) {
+          for (let y = 420; y < H; y += 28) {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + 24, y + 14);
+            ctx.lineTo(x + 48, y);
+            ctx.stroke();
+          }
+        }
+      } else {
+        // Porcelain Tile Floor with Silver Grey grout lines
+        ctx.fillStyle = tileColor;
+        ctx.fillRect(0, 420, W, H - 420);
+
+        // Perspective tile grid
+        ctx.strokeStyle = "rgba(120, 124, 130, 0.45)";
+        ctx.lineWidth = 1.5;
+        for (let i = -4; i <= 10; i++) {
+          const topX = 150 + (i * (W - 300)) / 6;
+          const botX = (i * W) / 5;
+          ctx.beginPath();
+          ctx.moveTo(topX, 420);
+          ctx.lineTo(botX, H);
+          ctx.stroke();
+        }
+        for (let r = 1; r <= 4; r++) {
+          const y = 420 + r * 42;
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(W, y);
+          ctx.stroke();
+        }
+
+        // Subtle marble veins
+        ctx.strokeStyle = selectedTile.vein;
+        ctx.globalAlpha = 0.28;
+        ctx.lineWidth = 2;
+        for (let v = 0; v < 12; v++) {
+          ctx.beginPath();
+          ctx.moveTo(80 + v * 75, 435 + (v % 3) * 45);
+          ctx.bezierCurveTo(110 + v * 75, 450 + (v % 2) * 40, 130 + v * 75, 470, 155 + v * 75, 495 + (v % 3) * 30);
+          ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+      }
+      ctx.restore();
+
+      // Recessed baseboard DF-1212
+      ctx.strokeStyle = "#27272a";
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(0, H - 4);
+      ctx.lineTo(150, 420);
+      ctx.lineTo(W - 150, 420);
+      ctx.lineTo(W, H - 4);
+      ctx.stroke();
+
+      // 4. Fixed Anchor 1: Cửa Gỗ Lim Phẳng D3 (900x2400mm) on Left Wall / Back-Left
+      drawLimDoorD3(ctx, 210, 155, 115, 265);
+
+      // 5. Fixed Anchor 2: Aqara H1 + Schneider AvatarOn Switch next to Door D3
+      drawAqaraSwitch(ctx, 342, 275);
+
+      // 6. Room-Specific Anchor Elements
+      if (currentRoom === "kitchen") {
+        drawKitchenIslandAndVicostone(ctx, 430, 175);
+      } else if (currentRoom === "wc") {
+        drawWCSlimdoorAndVicostoneShelves(ctx, 420, 110);
+      } else {
+        drawDconsWindowAndBedOrSofa(ctx, 450, 155, currentRoom);
+      }
+
+      // 7. OPPLE Deep-Recessed Spotlight Cones (UGR < 16)
+      drawOppleSpotlights(ctx, W, currentKelvin);
+
+      // 8. Floating Callout Badges with exact Codes
+      drawCalloutTag(ctx, 28, 72, `Trần: ${currentBrand === "dulux" ? "Dulux Ceiling White (Siêu mờ)" : "Kova K-771 Trắng Trần (Siêu mờ)"}`, "#0f172a");
+      drawCalloutTag(ctx, 24, 185, `Tường chính: ${wallCode}`, "#0f172a");
+      drawCalloutTag(ctx, 180, 130, `🚪 Cửa Gỗ Lim D3 (900×2400)`, "#451a03");
+
+      if (currentRoom === "bedroom" || currentRoom === "wc") {
+        drawCalloutTag(ctx, 460, 128, `Vách nhấn: ${accentCode}`, "#1e293b");
+      }
+      if (currentRoom === "bedroom") {
+        drawCalloutTag(ctx, 330, 545, `🪵 Sàn gỗ xương cá 12mm Nâu Óc Chó (130 m²)`, "#3b2313");
+      } else {
+        drawCalloutTag(ctx, 290, 545, `🪨 Sàn: ${selectedTile.brand} — ${selectedTile.name}`, "#0f172a");
+      }
+    }
+
+    function drawLimDoorD3(ctx, x, y, w, h) {
+      // Frame 60x140mm
+      ctx.fillStyle = "#4a2210";
+      ctx.fillRect(x - 8, y - 8, w + 16, h + 8);
+      // Flat Lim wood slab with 4 vertical staves & 2mm V-grooves (PA2)
+      const grad = ctx.createLinearGradient(x, y, x + w, y + h);
+      grad.addColorStop(0, "#78391d");
+      grad.addColorStop(0.5, "#632d15");
+      grad.addColorStop(1, "#4e220f");
+      ctx.fillStyle = grad;
+      ctx.fillRect(x, y, w, h);
+
+      ctx.strokeStyle = "rgba(28, 12, 5, 0.65)";
+      ctx.lineWidth = 1.5;
+      for (let i = 1; i <= 3; i++) {
+        ctx.beginPath();
+        ctx.moveTo(x + (w * i) / 4, y);
+        ctx.lineTo(x + (w * i) / 4, y + h);
+        ctx.stroke();
+      }
+      // Matte black lever handle
+      ctx.fillStyle = "#18181b";
+      ctx.fillRect(x + w - 22, y + h * 0.52, 14, 5);
+    }
+
+    function drawAqaraSwitch(ctx, x, y) {
+      // 86x86 matte white Aqara H1 switch
+      ctx.fillStyle = "#f8fafc";
+      ctx.strokeStyle = "#94a3b8";
+      ctx.lineWidth = 1.5;
+      ctx.fillRect(x, y, 24, 24);
+      ctx.strokeRect(x, y, 24, 24);
+      // Blue LED indicator at bottom
+      ctx.fillStyle = "#38bdf8";
+      ctx.fillRect(x + 8, y + 20, 8, 2);
+    }
+
+    function drawKitchenIslandAndVicostone(ctx, x, y) {
+      // Upper glass cabinet
+      ctx.fillStyle = "rgba(30, 41, 59, 0.85)";
+      ctx.strokeStyle = "#334155";
+      ctx.lineWidth = 2;
+      ctx.fillRect(x, y, 330, 85);
+      ctx.strokeRect(x, y, 330, 85);
+
+      // Backsplash Calacatta stone (600mm height)
+      ctx.fillStyle = "#f5f4f0";
+      ctx.fillRect(x, y + 85, 330, 62);
+      // Calacatta grey veins
+      ctx.strokeStyle = "#94a3b8";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(x + 20, y + 95);
+      ctx.lineTo(x + 110, y + 140);
+      ctx.moveTo(x + 190, y + 90);
+      ctx.lineTo(x + 280, y + 138);
+      ctx.stroke();
+
+      // Lower Inox 3-layer glass cabinet + Vicostone 600mm countertop
+      ctx.fillStyle = "#f8fafc";
+      ctx.fillRect(x - 6, y + 147, 342, 10);
+      ctx.fillStyle = "#273244";
+      ctx.fillRect(x, y + 157, 330, 88);
+
+      drawCalloutTag(ctx, x + 20, y + 115, "✨ Đá bếp & Cổ bếp Vicostone Trắng Vân Mây", "#0f172a");
+    }
+
+    function drawWCSlimdoorAndVicostoneShelves(ctx, x, y) {
+      // 600x1200 wall tile grid on back wall
+      ctx.strokeStyle = "rgba(255,255,255,0.22)";
+      ctx.lineWidth = 1;
+      for (let gx = x; gx <= x + 360; gx += 90) {
+        ctx.beginPath();
+        ctx.moveTo(gx, y);
+        ctx.lineTo(gx, y + 310);
+        ctx.stroke();
+      }
+      for (let gy = y; gy <= y + 310; gy += 77) {
+        ctx.beginPath();
+        ctx.moveTo(x, gy);
+        ctx.lineTo(x + 360, gy);
+        ctx.stroke();
+      }
+
+      // Slimdoor black PVD shower enclosure
+      ctx.strokeStyle = "#090d16";
+      ctx.lineWidth = 4;
+      ctx.strokeRect(x + 160, y + 30, 180, 280);
+      ctx.fillStyle = "rgba(186, 230, 253, 0.12)";
+      ctx.fillRect(x + 162, y + 32, 176, 276);
+
+      // Recessed wall niche + 3 White Vicostone corner shelves (reused from kitchen cutout!)
+      ctx.fillStyle = "#1e293b";
+      ctx.fillRect(x + 210, y + 100, 95, 65);
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(x + 210, y + 132, 95, 5);
+      ctx.fillRect(x + 210, y + 162, 95, 5);
+
+      // Corner triangular Vicostone shelves
+      ctx.fillStyle = "#f8fafc";
+      ctx.fillRect(x + 305, y + 95, 32, 6);
+      ctx.fillRect(x + 305, y + 135, 32, 6);
+
+      drawCalloutTag(ctx, x + 130, y + 205, "♻️ 13 Kệ đá góc & Hốc âm Trắng Vicostone (Từ đá bếp)", "#064e3b");
+    }
+
+    function drawDconsWindowAndBedOrSofa(ctx, x, y, room) {
+      // DCONS System 100 Aluminum Sliding Door / Window (Dark Anthracite frame)
+      ctx.fillStyle = "#262b33";
+      ctx.fillRect(x + 130, y, 210, 265);
+      ctx.fillStyle = "rgba(186, 230, 253, 0.28)";
+      ctx.fillRect(x + 140, y + 10, 90, 245);
+      ctx.fillRect(x + 240, y + 10, 90, 245);
+
+      // Furniture anchor (Walnut bed / sofa)
+      ctx.fillStyle = "#4b3621";
+      ctx.fillRect(x - 30, y + 185, 145, 80);
+      ctx.fillStyle = "#e2ddd5";
+      ctx.fillRect(x - 22, y + 160, 129, 35);
+
+      drawCalloutTag(ctx, x + 135, y + 235, "🪟 Cửa nhôm DCONS Hệ 100 Xám đá", "#1e293b");
+    }
+
+    function drawOppleSpotlights(ctx, W, kelvin) {
+      const positions = [260, 480, 700];
+      const beamColor = kelvin <= 3000
+        ? "rgba(251, 191, 36, 0.22)"
+        : kelvin <= 3500
+          ? "rgba(253, 224, 71, 0.18)"
+          : kelvin === 4000
+            ? "rgba(255, 251, 235, 0.16)"
+            : "rgba(224, 242, 254, 0.18)";
+
+      positions.forEach(px => {
+        const grad = ctx.createRadialGradient(px, 110, 5, px, 260, 175);
+        grad.addColorStop(0, beamColor);
+        grad.addColorStop(1, "rgba(0,0,0,0)");
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.moveTo(px - 18, 110);
+        ctx.lineTo(px + 18, 110);
+        ctx.lineTo(px + 115, 340);
+        ctx.lineTo(px - 115, 340);
+        ctx.closePath();
+        ctx.fill();
+      });
+    }
+
+    function drawFacadeScene(ctx, W, H, whiteA2, darkD1, whiteCode, darkCode) {
+      // Sky background
+      const sky = ctx.createLinearGradient(0, 0, 0, H);
+      sky.addColorStop(0, "#0f172a");
+      sky.addColorStop(1, "#1e293b");
+      ctx.fillStyle = sky;
+      ctx.fillRect(0, 0, W, H);
+
+      // Floor 3 Left White Block (A2) & Right Beveled Corten Box (2 windows)
+      ctx.fillStyle = whiteA2;
+      ctx.fillRect(190, 85, 240, 155);
+
+      // Floor 3 Right Beveled Box (Corten Rust effect + 2 vertical windows + GMN-04 drip edge)
+      const cortenGrad = ctx.createLinearGradient(430, 85, 760, 240);
+      cortenGrad.addColorStop(0, "#8c3f23");
+      cortenGrad.addColorStop(0.5, "#6e2f18");
+      cortenGrad.addColorStop(1, "#4a1f10");
+      ctx.fillStyle = cortenGrad;
+      ctx.fillRect(430, 80, 330, 160);
+
+      // 2 Symmetrical Windows on Floor 3
+      ctx.fillStyle = "#1e293b";
+      ctx.fillRect(495, 105, 75, 120);
+      ctx.fillRect(615, 105, 75, 120);
+
+      // Floor 2 Protruding C-Frame + 20cm Side Block (D1 - Dark Concrete Effect / Dulux 00NN 37/000 / Kova AP35-5)
+      ctx.fillStyle = darkD1;
+      ctx.fillRect(175, 240, 595, 165);
+
+      // 10x10mm Groove lines (5 equal spans of 1590mm)
+      ctx.strokeStyle = "rgba(0,0,0,0.55)";
+      ctx.lineWidth = 2;
+      for (let i = 1; i <= 4; i++) {
+        const gx = 175 + (595 * i) / 5;
+        ctx.beginPath();
+        ctx.moveTo(gx, 240);
+        ctx.lineTo(gx, 285);
+        ctx.stroke();
+      }
+
+      // 2 Symmetrical Windows on Floor 2 + G2 Grey Lava Stone Pillar between them
+      ctx.fillStyle = "#1e293b";
+      ctx.fillRect(495, 285, 75, 110);
+      ctx.fillRect(615, 285, 75, 110);
+      ctx.fillStyle = "#64748b";
+      ctx.fillRect(570, 285, 45, 110);
+
+      // Floor 1 Grey Lava Stone (Đá ong xám D2) + Main Door D1 & V1 Glass
+      ctx.fillStyle = "#6b7280";
+      ctx.fillRect(190, 405, 570, 145);
+      // V1 Glass (Left) & Lim Wood Main Door D1 (Right)
+      ctx.fillStyle = "rgba(186, 230, 253, 0.25)";
+      ctx.fillRect(235, 420, 240, 130);
+      drawLimDoorD3(ctx, 560, 420, 125, 130);
+
+      drawCalloutTag(ctx, 200, 115, `Khối A2 Tầng 3: ${whiteCode}`, "#0f172a");
+      drawCalloutTag(ctx, 445, 52, `🔥 Hộp vát T3 (2 cửa sổ): Sơn Gỉ Sét Corten + Nẹp GMN-04`, "#451a03");
+      drawCalloutTag(ctx, 195, 255, `🧱 Khối T2 nhô 20cm (D1): ${darkCode} + Chỉ âm 10×10mm`, "#0f172a");
+      drawCalloutTag(ctx, 235, 558, `🪨 Tầng 1 (D2): Đá ong xám tự nhiên + Tam cấp Đá Phú Yên`, "#1e293b");
+    }
+
+    function drawCalloutTag(ctx, x, y, text, bg) {
+      ctx.save();
+      ctx.font = "bold 12px -apple-system, BlinkMacSystemFont, sans-serif";
+      const padX = 10;
+      const metrics = ctx.measureText(text);
+      const boxW = metrics.width + padX * 2;
+      const boxH = 26;
+
+      ctx.fillStyle = bg || "rgba(15, 23, 42, 0.9)";
+      ctx.strokeStyle = "rgba(245, 158, 11, 0.65)";
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.roundRect(x, y, boxW, boxH, 7);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = "#f8fafc";
+      ctx.fillText(text, x + padX, y + 17);
+      ctx.restore();
+    }
+
+    function openCurrentRenderLightbox() {
+      const cfg = ROOM_CONFIGS[currentRoom];
+      const dlg = document.getElementById("image-lightbox");
+      document.getElementById("lightbox-title").textContent = cfg.renderTitle;
+      document.getElementById("lightbox-img").src = cfg.img;
+      dlg.showModal();
+    }
+
+    // Initialize Studio on load
+    renderSwatches();
+    updateHarmonyBanner();
+    drawStudioCanvas();
+  </script>
+</body>
+</html>

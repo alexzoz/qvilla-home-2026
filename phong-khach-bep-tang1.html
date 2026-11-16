@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tổng Thể Phòng Khách – Tiền Sảnh – Phòng Ăn – Bếp &amp; Chiếu Sáng – Điều Hòa Tầng 1 — Q Villa</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-base: #070b12;
+      --bg-surface: #0f172a;
+      --bg-elevated: #1e293b;
+      --bg-glass: rgba(15, 23, 42, 0.88);
+      --border: rgba(148, 163, 184, 0.18);
+      --border-strong: rgba(245, 158, 11, 0.45);
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-light: #fde68a;
+      --hermes: #ea580c;
+      --hermes-light: #fed7aa;
+      --emerald: #10b981;
+      --emerald-light: #6ee7b7;
+      --sky: #38bdf8;
+      --sky-light: #bae6fd;
+      --purple: #a855f7;
+      --purple-light: #e9d5ff;
+      --rose: #f43f5e;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-lg: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.58;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(245, 158, 11, 0.10), transparent 35%),
+        radial-gradient(circle at 88% 15%, rgba(16, 185, 129, 0.08), transparent 35%),
+        radial-gradient(circle at 50% 85%, rgba(56, 189, 248, 0.07), transparent 40%),
+        var(--bg-base);
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 18, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    a.brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    a.brand:hover { transform: translateY(-1px); opacity: 0.95; }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 7px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+    }
+
+    .brand-title h1 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .brand-title p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.55);
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #fff;
+      border-color: var(--accent);
+      background: rgba(245, 158, 11, 0.22);
+    }
+
+    /* Hero */
+    .hero { margin-top: 26px; }
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.82));
+      border: 1px solid rgba(245, 158, 11, 0.42);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-light);
+      background: rgba(245, 158, 11, 0.16);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .hero-card h2 {
+      font-size: 1.55rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .hero-card p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      max-width: 1220px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .kpi-box {
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 15px 18px;
+    }
+
+    .kpi-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .kpi-val {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--accent-light);
+      margin: 4px 0;
+    }
+
+    .kpi-sub {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* Quick Jump Bar inside Hero */
+    .quick-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: rgba(30, 41, 59, 0.75);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      transition: all 0.16s ease;
+    }
+
+    .quick-link:hover {
+      border-color: var(--sky);
+      background: rgba(56, 189, 248, 0.15);
+      color: #fff;
+    }
+
+    /* Section Styling */
+    section.block {
+      margin-top: 32px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .section-title {
+      font-size: 1.28rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-sub {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    /* Interactive 3D Viewer Tabs */
+    .tab-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .tab-btn {
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      text-align: left;
+    }
+
+    .tab-btn:hover {
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.28), rgba(234, 88, 12, 0.22));
+      color: #fff;
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.22);
+    }
+
+    .viewer-grid {
+      display: grid;
+      grid-template-columns: 1.38fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    @media (max-width: 1024px) {
+      .viewer-grid { grid-template-columns: 1fr; }
+    }
+
+    .img-frame {
+      position: relative;
+      background: #05080f;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .img-frame img {
+      width: 100%;
+      max-height: 680px;
+      object-fit: contain;
+      display: block;
+      cursor: zoom-in;
+      background: #070b12;
+    }
+
+    .img-caption {
+      padding: 10px 14px;
+      background: rgba(15, 23, 42, 0.95);
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--accent-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .info-panel {
+      background: rgba(30, 41, 59, 0.45);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .info-panel h3 {
+      font-size: 1.12rem;
+      color: var(--accent-light);
+      margin-bottom: 10px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .check-list li {
+      background: rgba(15, 23, 42, 0.78);
+      border-left: 3px solid var(--accent);
+      padding: 11px 14px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.87rem;
+      color: var(--text-secondary);
+    }
+
+    .check-list li strong {
+      color: #fff;
+    }
+
+    /* 2-Column Plan Grid */
+    .plan-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (max-width: 1024px) {
+      .plan-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Mini Blueprint Switcher Buttons */
+    .bp-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .bp-btn {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--sky-light);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 0.79rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .bp-btn:hover {
+      background: rgba(56, 189, 248, 0.2);
+      color: #fff;
+    }
+
+    /* Scenarios Grid */
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .scenario-card {
+      background: rgba(15, 23, 42, 0.82);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--emerald);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+    }
+
+    .scenario-card h4 {
+      font-size: 0.92rem;
+      color: #fff;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .scenario-card p {
+      font-size: 0.81rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Spec Table */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
+
+    table.spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+
+    table.spec-table th {
+      background: rgba(30, 41, 59, 0.92);
+      color: var(--accent-light);
+      text-align: left;
+      padding: 12px 14px;
+      font-weight: 700;
+      border-bottom: 1px solid var(--border);
+    }
+
+    table.spec-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    table.spec-table tr:hover td {
+      background: rgba(30, 41, 59, 0.38);
+    }
+
+    .zone-pill {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .zone-foyer { background: rgba(245, 158, 11, 0.18); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .zone-living { background: rgba(234, 88, 12, 0.18); color: #fdba74; border: 1px solid rgba(234, 88, 12, 0.4); }
+    .zone-dining { background: rgba(16, 185, 129, 0.16); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.35); }
+    .zone-kitchen { background: rgba(56, 189, 248, 0.16); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.35); }
+    .zone-backyard { background: rgba(168, 85, 247, 0.16); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.35); }
+
+    code {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--sky-light);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.82em;
+    }
+
+    /* Native Dialog Lightbox (modern-web-guidance: html) */
+    dialog#lightbox-modal {
+      margin: auto;
+      padding: 0;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-md);
+      background: #05080f;
+      color: var(--text-main);
+      max-width: 96vw;
+      max-height: 94vh;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.88);
+    }
+
+    dialog#lightbox-modal::backdrop {
+      background: rgba(3, 6, 12, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .dialog-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dialog-close-btn {
+      background: var(--bg-elevated);
+      color: #fff;
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .dialog-close-btn:hover {
+      background: var(--rose);
+      border-color: var(--rose);
+    }
+
+    .dialog-img-wrap {
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dialog-img-wrap img {
+      max-width: 93vw;
+      max-height: 82vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" title="Quay về Trang Chủ &amp; Bảng Tổng Hợp Dự Toán Q Villa">
+        <span class="brand-badge">🏠 Q VILLA • TRANG CHỦ</span>
+        <div class="brand-title">
+          <h1>Tổng Thể Phòng Khách – Tiền Sảnh – Phòng Ăn – Bếp &amp; Chiếu Sáng – Điều Hòa Tầng 1</h1>
+          <p>Không gian mở xuyên suốt 12,01m (+2,0m Sân sau) • Hợp nhất Nội thất + Tủ bếp + Trần thạch cao + Đèn OPPLE + Quạt trần + Điều hòa ống gió</p>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng dự án">
+        <a href="index.html">💰 Bảng Dự Toán</a>
+        <a href="phong-khach-bep-tang1.html" class="active">🛋️ P. Khách &amp; Bếp T1</a>
+        <a href="bep-tang1.html" style="border-color:rgba(236,72,153,0.55);color:#f9a8d4;">🍳 Mô Hình 3D Tủ Bếp</a>
+        <a href="san-sau-tang1.html" style="border-color:rgba(16,185,129,0.55);color:#6ee7b7;">🌿 Sân Sau &amp; Lọc Nước 3D</a>
+        <a href="phong-master-tang2.html" style="border-color:rgba(234,88,12,0.55);color:#fdba74;">👑 P. Master T2</a>
+        <a href="son-gach-phoi-mau.html">🎨 Sơn &amp; Gạch</a>
+        <a href="aqara-smarthome.html">⚡ Công Tắc Aqara</a>
+        <a href="chieu-sang-opple-3d.html">💡 3D Đèn OPPLE</a>
+        <a href="mat-tien.html">🏛️ Mặt Tiền</a>
+        <a href="cua-chinh-d1.html">🚪 Cửa Chính D1</a>
+        <a href="cua-go-lim-d3.html">🚪 Cửa Gỗ D3</a>
+        <a href="phong-lam-viec-tang3.html">💻 P. Làm Việc T3</a>
+        <a href="giam-sat-wc.html">🚽 Giám Sát WC</a>
+        <a href="tang-tum-3d.html">🧊 3D Tầng Tum</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card">
+        <span class="hero-eyebrow">🛋️ HỒ SƠ TỔNG THỂ TẦNG 1 HỢP NHẤT (KHÔNG TÁCH LẺ) • TIỀN SẢNH + PHÒNG KHÁCH + PHÒNG ĂN + BẾP CHỮ I + TRẦN ĐÈN &amp; ĐIỀU HÒA ỐNG GIÓ</span>
+        <h2>Giải Pháp Không Gian Mở Xuyên Suốt 12,01m (Trục 1 &rarr; Trục 4) — Đồng Bộ 100% Kiến Trúc, Nội Thất &amp; M&amp;E</h2>
+        <p>
+          Giống như cách thiết kế trọn gói <strong>Phòng Ngủ Master Tầng 2</strong>, toàn bộ không gian sinh hoạt chung Tầng 1 dài <strong><code>12.010 mm</code></strong> (cộng thêm <strong><code>2.000 mm</code> Sân sau Bếp ướt</strong>) được hợp nhất vào một hồ sơ duy nhất: từ <strong>Tiền sảnh đón (<code>D1</code>)</strong> &rarr; <strong>Phòng khách (Vách Tivi đá nung kết 3,2m trên tường Bắc đã xây bịt 2 ô kính <code>V2</code> + Sofa góc chữ L)</strong> &rarr; <strong>Phòng ăn 8 ghế (Cửa lùa sân vườn <code>D2</code> + Ổ cắm âm sàn <code>S1</code>)</strong> &rarr; <strong>Hệ Tủ Bếp Chữ I (<code>4.950 × 600 × 890 mm</code>) + Bàn Đảo + Tủ Rượu/Cafe LED</strong> &rarr; cùng hệ thống <strong>Trần thạch cao giật cấp, 02 Quạt trần đèn LED, Hệ đèn Spotlight chóa sâu OPPLE chống chói và 02 Dàn lạnh âm trần nối ống gió (<code>30.000 BTU</code> &amp; <code>18.000 BTU</code>)</strong>.
+        </p>
+
+        <div class="kpi-grid">
+          <div class="kpi-box">
+            <div class="kpi-label">1. Không Gian Mở Liên Thông 5 Phân Khu</div>
+            <div class="kpi-val">Dài 12,01m (+2,0m Sân Sau)</div>
+            <div class="kpi-sub">Tiền sảnh (<code>6,3m²</code>) + P.Khách (<code>16,6m²</code>) + P.Ăn 8 ghế (<code>18,5m²</code>) + Bếp &amp; Đảo (<code>16,2m²</code>) + Bếp ướt Sân sau</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">2. Vách Tivi Đá 3,2m &amp; Sofa Chữ L</div>
+            <div class="kpi-val">Tường Bắc Phẳng Liền Mạch</div>
+            <div class="kpi-sub">Đã <strong>xây bịt 2 ô kính nhỏ <code>V2</code> (Bản 3.1)</strong> tạo Vách Tivi Đá Nung Kết + Lam gỗ Sồi phẳng <code>3.200mm</code> đối diện Sofa <code>2,8×1,85m</code></div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">3. Bếp Chữ I (4,95m) • Đảo Ngang Trục 3 + Tủ Phụ (KT-2.02)</div>
+            <div class="kpi-val">Đảo 1.400×800 + Tủ Phụ 550</div>
+            <div class="kpi-sub"><strong>PA Ưu Tiên (KT-2.02):</strong> Đảo ngang Trục 3 (2 ghế Bar, khe đi <code>1.110mm</code>) nối chữ L Tủ Rượu/Cafe <code>550mm</code> (sàn trước chậu rửa rộng <code>1.960mm</code>)</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">4. Trần – Đèn OPPLE – Quạt – Điều Hòa</div>
+            <div class="kpi-val">48.000 BTU + 02 Quạt Đèn</div>
+            <div class="kpi-sub">ĐH ống gió <code>IN 1.2 (30k)</code> &amp; <code>IN 1.1 (18k)</code> • 02 Quạt trần đèn <code>Lộ 6 &amp; 6A</code> • Spotlight đặt ngoài cánh quạt <code>2,0m</code> không chớp bóng</div>
+          </div>
+        </div>
+
+        <div class="quick-bar">
+          <a href="#sec-3d" class="quick-link">✨ 1. Xem 6 Góc Phối Cảnh 3D Hợp Nhất</a>
+          <a href="#sec-2d" class="quick-link">📐 2. Bản Vẽ Kỹ Thuật 2D &amp; Mặt Cắt Dọc Trần – Đèn – Điều Hòa</a>
+          <a href="#sec-lighting" class="quick-link">💡 3. Bảng Phân Lộ Công Tắc Aqara &amp; 5 Kịch Bản Ánh Sáng</a>
+          <a href="#sec-specs" class="quick-link">📋 4. Bảng Quy Cách 16 Hạng Mục Nội Thất &amp; M&amp;E Tầng 1</a>
+          <a href="bep-tang1.html#sec-3d" class="quick-link" style="border-color:rgba(16,185,129,0.5);color:#6ee7b7;">🧊 Mở Mô Hình 3D WebGL Xoay 360° Tủ Bếp &amp; Đảo &rarr;</a>
+          <a href="san-sau-tang1.html" class="quick-link" style="border-color:rgba(56,189,248,0.55);color:#7dd3fc;">🌿 Mở Trang 3D Sân Sau Chữ L, Lọc Nước 2 Cấp &amp; Điện Nước &rarr;</a>
+          <a href="chieu-sang-opple-3d.html" class="quick-link" style="border-color:rgba(245,158,11,0.5);color:#fde68a;">🔦 Mở Studio 3D Test Độ Rọi Lux &amp; Góc Chóa Đèn Tầng 1 &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: INTERACTIVE 3D VIEWS OF THE UNIFIED GROUND FLOOR -->
+    <section class="block" id="sec-3d">
+      <h2 class="section-title">✨ 1. Phối Cảnh 3D Tổng Thể Không Gian Mở Tầng 1: So Sánh Trần Hộp Bo Cong Kiểu Master vs. Trần Hộp Vuông Chuẩn CAD (Kèm Khung Ray Nam Châm Lộ 5)</h2>
+      <p class="section-sub">
+        <strong>Đã tích hợp đầy đủ <code>Khung Đèn Ray Nam Châm Âm Trần (Lộ 5 — 1.825 × 2.970 mm)</code> lùi <code>215 mm</code> trong lòng hộp trần Phòng Khách (<code>+3.530m</code>):</strong> Bấm chọn các tab bên dưới để so sánh trực tiếp giữa <strong>Phương án Trần Hộp Bo Cong 4 Góc (<code>R400mm</code> giống Khu ngủ Master Tầng 2)</strong> và <strong>Phương án Trần Hộp Vuông gốc (<code>KT-4.06</code>)</strong>, kết hợp mặt trần <strong>Phòng Ăn &amp; Khu Bếp phẳng liên thông 100% (<code>C1 +3.400m</code>)</strong>:
+      </p>
+
+      <div class="tab-bar" role="tablist" aria-label="Các góc phối cảnh 3D Tầng 1">
+        <button type="button" class="tab-btn active" onclick="switch3D('rounded_living_to_kitchen')" id="tab-rounded_living_to_kitchen">
+          ✨ Góc 1A (Mới — Trần Bo Cong Kiểu Master): P.Khách Trần Bo Cong R400 + Ray Nam Châm Lộ 5 &rarr; Bếp Đảo Ngang Trục 3 (KT-2.02)
+        </button>
+        <button type="button" class="tab-btn" onclick="switch3D('rounded_living_closeup')" id="tab-rounded_living_closeup">
+          👑 Góc 1B (Mới — Cận Cảnh Trần Bo Cong P.Khách): Hộp Trần Bo Cong 4 Góc + Khung Ray Nam Châm Lộ 5 + Vách Tivi 3,2m
+        </button>
+        <button type="button" class="tab-btn" onclick="switch3D('living_to_kitchen')" id="tab-living_to_kitchen">
+          📐 Góc 2A (Chuẩn CAD KT-4.06 &amp; KT-2.02): P.Khách Trần Hộp Vuông + Ray Nam Châm Lộ 5 &rarr; Bếp Đảo Ngang Trục 3 + Tủ Phụ
+        </button>
+        <button type="button" class="tab-btn" onclick="switch3D('living_ceiling_d1')" id="tab-living_ceiling_d1">
+          💨 Góc 2B (Chuẩn CAD KT-4.06): Cận Cảnh Trần Hộp Vuông P.Khách + Khung Ray Nam Châm Lộ 5 + Tiền Sảnh D1
+        </button>
+        <button type="button" class="tab-btn" onclick="switch3D('kitchen_to_living')" id="tab-kitchen_to_living">
+          🍳 Góc 3 (Chuẩn KT-2.02): Nhìn Ngược Từ Bếp (Sàn Rộng 1,96m • Đảo Ngang Trục 3 + Tủ Phụ 550mm) Qua Bàn Ăn Về P.Khách
+        </button>
+        <button type="button" class="tab-btn" onclick="switch3D('dining_courtyard')" id="tab-dining_courtyard">
+          🌟 Góc 4 (PA Ưu Tiên KT-2.02): Phòng Ăn 8 Ghế + Bếp Chữ I + Bàn Đảo Ngang Trục 3 (2 Ghế Bar) Nối Tủ Phụ 550mm &amp; Cửa Lùa Sân Sau
+        </button>
+        <button type="button" class="tab-btn" onclick="switch3D('kitchen_left_tower')" id="tab-kitchen_left_tower">
+          🍚 Góc 5: Cận Cảnh Cột Tủ Trái (650mm) — Lò Nướng Bosch &amp; Đợt Kéo Nồi Cơm Blum (+890mm)
+        </button>
+        <button type="button" class="tab-btn" onclick="switch3D('kitchen_appliances')" id="tab-kitchen_appliances">
+          🧊 Góc 6: Cận Cảnh Cột Tủ Phải (1.000mm) — Tủ Lạnh Panasonic Sâu 600mm &amp; Hộc Kéo 152mm Mở 120°
+        </button>
+      </div>
+
+      <div class="viewer-grid">
+        <div class="img-frame">
+          <img id="main-3d-img" src="assets/tang1_pa_tran_bo_cong_xuyen_bep_3d.jpg" alt="Phối cảnh 3D Tầng 1 Phương án Trần Giật Cấp Bo Cong 4 Góc kiểu Master kèm Khung Đèn Ray Nam Châm Lộ 5" onclick="openLightbox(this.src, document.getElementById('main-3d-caption').textContent)" />
+          <div class="img-caption">
+            <span id="main-3d-caption">Góc 1A (Phương Án Trần Bo Cong Kiểu Master Tầng 2): Hộp trần P.Khách (+3.530m) bo cong 4 góc R400mm hắt LED ấm 3000K (Lộ 4) + Khung chữ nhật Đèn Ray Nam Châm âm trần 1.825×2.970mm (Lộ 5) + Quạt trần đèn (Lộ 6), nhìn xuyên sang Phòng Ăn &amp; Bếp chữ I trần phẳng 100% (+3.400m)</span>
+            <span>🔍 Bấm vào ảnh để phóng to 8K</span>
+          </div>
+        </div>
+
+        <div class="info-panel" id="main-3d-info">
+          <h3>Phương Án Mới: Trần P.Khách Bo Cong 4 Góc (Kiểu Master) + Khung Ray Nam Châm Lộ 5 &amp; Bếp Đảo Ngang Trục 3 (PA Ưu Tiên KT-2.02)</h3>
+          <ul class="check-list">
+            <li>
+              <strong>1. Hộp Trần Giật Cấp Bo Cong 4 Góc (<code>R400mm</code>) + Khung Đèn Ray Nam Châm Âm Trần (<code>Lộ 5 — 1.825 × 2.970 mm</code>):</strong>
+              Miệng hộp trần Phòng Khách (<code>C1 +3.530m</code>) được <strong>bo cong tròn mềm mại ở cả 4 góc (<code>R350–R400mm</code>) kèm khe LED dây COB <code>3000K</code> (<code>Lộ 4</code>)</strong> đồng bộ Khu ngủ Master Tầng 2; lùi vào <code>215 mm</code> bên trong lòng trần là <strong>khung chữ nhật Đèn Ray Nam Châm âm trần màu đen (<code>Lộ 5 — 1.825 × 2.970 mm</code>)</strong> bao quanh Quạt trần đèn <code>Lộ 6</code>.
+            </li>
+            <li>
+              <strong>2. Chuẩn Hóa Khu Bếp Theo 🌟 PA Ưu Tiên (<code>KT-2.02</code>): Bàn Đảo Ngang Trục 3 (<code>1.400×800mm</code>) + Hệ Tủ Phụ Dọc Tường (<code>Sâu 550mm</code>):</strong>
+              Đúng theo mặt bằng nội thất <code>KT-2.02</code> và hiện trạng nhà: <strong>Bàn đảo đá Calacatta đặt vuông góc tại cột Trục 3 (<code>1.400 × 800 × 890 mm</code>, đầu đảo bo tròn <code>R400mm</code>, 02 ghế Bar đặt bên trái đảo)</strong> nối liền chữ L với <strong>Hệ Tủ Phụ / Tủ Rượu kính LED &amp; Quầy Pha Cafe chạy dọc tường P.Ngủ Ông Bà (<code>sâu 550mm</code>)</strong>. Khe đi qua đầu đảo rộng <strong><code>1.110 mm</code></strong> và khoảng sàn trống trước Chậu rửa &amp; Tủ lạnh rộng mênh mông <strong><code>1.960 mm (~2,0m)</code></strong>!
+            </li>
+            <li>
+              <strong>3. Trần Phòng Ăn &amp; Khu Bếp Phẳng Liên Thông 100% (<code>C1 +3.400m</code>):</strong>
+              Toàn bộ trần từ Bàn ăn 8 ghế sang Khu bếp chữ I <code>4,95m</code> và Bàn đảo ngang đều phẳng liền mạch ở cốt <code>+3.400m</code> (không giật cấp khe hắt), kết hợp hộp trán đứng hạ xuống <code>+2.330m</code> che đỉnh tủ bếp trên.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 2D TECHNICAL FLOOR PLAN & LONGITUDINAL SECTION -->
+    <section class="block" id="sec-2d">
+      <h2 class="section-title">📐 2. Bản Vẽ Kỹ Thuật 2D &amp; Mặt Cắt Dọc Tổng Thể: Nội Thất – Trần Thạch Cao – Đèn OPPLE – Điều Hòa Ống Gió</h2>
+      <p class="section-sub">
+        Bản vẽ tổng hợp toàn bộ <strong>5 phân khu Tầng 1 trên cùng 1 mặt bằng &amp; mặt cắt dọc xuyên suốt (Trục 1 &rarr; Trục 4)</strong>, thể hiện rõ <strong>02 ô trần giật cấp tại Tiền sảnh (Lộ 2) &amp; Phòng khách (<code>C1 +3.530m</code>, Lộ 4)</strong> và <strong>mặt trần phẳng liên thông <code>C1 +3.400m</code> suốt Phòng Ăn &amp; Khu Bếp</strong>:
+      </p>
+
+      <div class="plan-grid">
+        <div>
+          <div class="img-frame">
+            <img id="blueprint-main-img" src="assets/tang1_full_khach_bep_tran_den_2d.png" alt="Bản vẽ kỹ thuật 2D Tổng thể Tầng 1: Phòng Khách, Tiền Sảnh, Phòng Ăn, Bếp và Hệ Trần - Đèn OPPLE - Điều hòa ống gió" onclick="openLightbox(this.src, 'Bản vẽ kỹ thuật 2D & Mặt cắt dọc tổng thể Tầng 1: Phòng Khách • Tiền Sảnh • Phòng Ăn • Bếp & Trần – Đèn OPPLE – Điều Hòa Ống Gió')" />
+            <div class="img-caption">
+              <span id="blueprint-main-caption">Bản vẽ 2D Hợp Nhất + Mặt Cắt Dọc Tầng 1 Chuẩn KT-4.06 &amp; CĐ-11 (Trục 1 &rarr; Trục 4 • 12,01m + 2,0m Sân sau)</span>
+              <span>🔍 Bấm vào bản vẽ để phóng to toàn màn hình</span>
+            </div>
+          </div>
+
+          <div class="bp-btn-row">
+            <button type="button" class="bp-btn" onclick="openLightbox('assets/tang1_full_khach_bep_tran_den_2d.png', 'Bản vẽ kỹ thuật 2D & Mặt cắt dọc tổng thể Tầng 1 Hợp Nhất')">
+              🗺️ 1. Bản Vẽ Hợp Nhất Tầng 1 (Chuẩn KT-4.06)
+            </button>
+            <button type="button" class="bp-btn" onclick="openLightbox('assets/cd11_chieusang_t1_crop.png', 'Bản vẽ gốc Mặt bằng chiếu sáng Tầng 1 (CĐ-11 — XHOME)')">
+              💡 2. Bản Vẽ Chiếu Sáng Gốc (CĐ-11)
+            </button>
+            <button type="button" class="bp-btn" onclick="openLightbox('assets/cd_p16.png', 'Bản vẽ gốc Mặt bằng Điều hòa & Thông gió Tầng 1 (CĐ-15 — IN 1.2 30.000 BTU & IN 1.1 18.000 BTU)')">
+              ❄️ 3. Bản Vẽ Điều Hòa Ống Gió (CĐ-15)
+            </button>
+            <button type="button" class="bp-btn" onclick="openLightbox('assets/cd03_capdien_t1_crop.png', 'Bản vẽ gốc Mặt bằng Cấp điện ổ cắm Tầng 1 (CĐ-03 — Có ổ âm sàn S1 bàn ăn & nguồn rèm tự động)')">
+              🔌 4. Bản Vẽ Ổ Cắm &amp; Cấp Nguồn (CĐ-03)
+            </button>
+            <button type="button" class="bp-btn" onclick="openLightbox('assets/so_sanh_cad_2_phuong_an_tang_1.png', 'Bản vẽ Mặt bằng trần KT-4.06 & Hướng dẫn khoét lỗ trần thạch cao Tầng 1')">
+              🎯 5. Mặt Bằng Trần KT-4.06 &amp; Khoét Lỗ Đèn
+            </button>
+            <button type="button" class="bp-btn" onclick="openLightbox('assets/ban_ve_ky_thuat_tu_bep_890_qvilla.png', 'Bản vẽ kỹ thuật chi tiết Hệ Tủ Bếp Chữ I (4.950×890×600mm) & Bàn Đảo')">
+              🍳 6. Bản Vẽ Chi Tiết Tủ Bếp 4.950mm
+            </button>
+          </div>
+        </div>
+
+        <div class="info-panel">
+          <h3>4 Lưu Ý Giám Sát Sống Còn Cho Đội Thợ Xây, Thạch Cao, Điện Nước &amp; Nội Thất Tầng 1</h3>
+          <ul class="check-list">
+            <li>
+              <strong>1. Đội Thợ Xây (Bịt 2 ô kính V2 &amp; Bỏ vách phụ tủ bếp):</strong>
+              • Tại tường Bắc Phòng Khách (Trục 1–2): <strong>Xây gạch đặc bịt kín 2 ô kính nhỏ <code>V2 (0,9×3,0m)</code></strong> giáp nhà hàng xóm để tạo bức tường phẳng <code>3.580 mm</code> ốp Vách Tivi.<br>
+              • Tại đầu Tủ bếp (cột Trục 3): <strong>Bỏ mỏm tường chữ L <code>650 mm</code></strong> che hông tủ để Cột lò nướng &amp; Khay nồi cơm mở thoáng về phía Bàn ăn.
+            </li>
+            <li>
+              <strong>2. Đội Thợ Trần Thạch Cao (Chỉ giật cấp Sảnh &amp; P.Khách • Trần Ăn &amp; Bếp phẳng <code>+3.400m</code>):</strong>
+              • <strong>Chỉ có 02 ô trần giật cấp hắt LED:</strong> (1) Ô trần Tiền Sảnh <code>2.090 × 1.125 mm</code> hắt LED 4 cạnh <code>Lộ 2</code>; (2) Hộp trần Phòng Khách giật cấp lên cốt <strong><code>C1 +3.530m</code></strong> (viền ngoài <code>C1 +3.400m</code>, chênh cốt <code>130 mm</code>) hắt LED 4 cạnh <code>Lộ 4</code> + hốc rèm tự động <code>215 mm</code> sát vách kính <code>V1</code>.<br>
+              • <strong>Phòng Ăn &amp; Khu Bếp (Trục 2 &rarr; Trục 4):</strong> Đóng <strong>trần phẳng liên thông 100% ở cốt <code>C1 +3.400m</code> (KHÔNG giật cấp khe hắt trần ở Bếp và Bàn ăn)</strong>; riêng dọc trên đỉnh Tủ bếp chữ I đóng <strong>hộp trán thạch cao thẳng tắp <code>60 cm</code> (<code>4.950 × 595 × 600 mm</code>, hạ từ <code>+3.400m</code> xuống <code>+2.800m</code>)</strong> khớp với dải cánh giả sâu <code>600mm</code> (<code>05</code> đèn Spotlight bếp <code>Lộ 12</code> khoét cách tường <code>980 mm</code>).<br>
+              • <strong>Cấy ty sắt <code>Φ10–12</code> vào sàn bê tông</strong> tại đúng tâm Phòng Khách (Lộ 6) và tâm Bàn Ăn (Lộ 6A) trước khi bắn tấm thạch cao để treo 02 Quạt trần đèn.
+            </li>
+            <li>
+              <strong>3. Đội Thợ Điện Nước (Ổ cắm âm sàn Bàn ăn, Ổ cắm Tủ lạnh <code>+2.020mm</code> &amp; Ống hút mùi <code>Ø150</code>):</strong>
+              • <strong>Giữa gầm Bàn Ăn 8 ghế:</strong> Đặt <strong>01 đế ổ cắm âm sàn chống nước <code>S1 (+0.0M)</code></strong> (đúng bản vẽ <code>CĐ-03</code>) để ăn lẩu/nướng.<br>
+              • <strong>Tủ lạnh Panasonic sâu 600mm &amp; Hốc Nồi cơm:</strong> Ổ cắm riêng <code>16A</code> của Tủ lạnh đặt ở khoang tủ mở cánh thật trên nóc tủ lạnh (<strong><code>+2.020 mm</code></strong>, đẩy tủ kịch tường 100%); Hốc mở Nồi cơm đặt ổ đôi ở <code>+1.100 mm</code>.<br>
+              • <strong>Ống cứng thoát mùi <code>PVC Ø150</code> &amp; Nguồn LED <code>Lộ 10</code>:</strong> Khoan rút lõi tường Sân sau ở <code>+2.530 mm</code> đi ống cứng <code>Ø150</code> + đặt nguồn Adapter LED ở <code>+2.450 mm</code> giấu sau dải cánh giả gài pát âm <code>Keku</code>.
+            </li>
+            <li>
+              <strong>4. Đội Điều Hòa &amp; Thông Gió (<code>CĐ-15</code>):</strong>
+              • <strong>Phòng Khách:</strong> Dàn lạnh âm trần nối ống gió <code>IN 1.2 (30.000 BTU/H)</code> + 02 khe cấp <code>SAG 150×1.000</code> + 02 khe hồi <code>RAG 150×1.000</code> sơn tĩnh điện đen.<br>
+              • <strong>Phòng Ăn &amp; Bếp:</strong> Dàn lạnh âm trần nối ống gió <code>IN 1.1 (18.000 BTU/H)</code> + 02 khe gió đen <code>150×1.000</code> âm phẳng trên trần <code>+3.400m</code> + Ống thoát hút mùi bếp <code>Ø150</code> (<code>1.000 m³/h</code>) đi trong hộp trán bếp ra Sân sau.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: LIGHTING CIRCUITS, AQARA SWITCHES & 5 SMART SCENARIOS -->
+    <section class="block" id="sec-lighting">
+      <h2 class="section-title">💡 3. Thiết Kế Ánh Sáng Kết Hợp (OPPLE + Quạt Trần Đèn + Công Tắc Aqara) &amp; 5 Kịch Bản Cảm Xúc</h2>
+      <p class="section-sub">
+        Toàn bộ hệ thống chiếu sáng Tầng 1 được chia thành <strong>08 lộ đèn độc lập trên công tắc thông minh Aqara</strong>, kết hợp nhiệt độ màu <strong><code>4000K</code> Trung tính (CRI &ge; 92)</strong> cho Spotlight tiếp khách/nấu ăn và <strong><code>3000K</code> Vàng ấm</strong> cho khe LED hắt trần, đèn Tủ rượu, Tủ giày &amp; Bàn ăn:
+      </p>
+
+      <div class="table-wrap">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Ký Hiệu Lộ</th>
+              <th>Phân Khu</th>
+              <th>Thiết Bị Chiếu Sáng &amp; Công Suất</th>
+              <th>Nhiệt Độ Màu</th>
+              <th>Vị Trí Lắp Đặt &amp; Góc Chỉnh Chóa Chống Chói (Chuẩn OPPLE)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Lộ 1</strong></td>
+              <td><span class="zone-pill zone-foyer">Tiền Sảnh</span></td>
+              <td><code>04</code> Spotlight âm trần <code>12W</code> (Lỗ khoét <code>Φ90</code>)</td>
+              <td><code>4000K</code> Trung tính</td>
+              <td>Đặt tại 4 góc ô trần Tiền sảnh (<code>2.090 × 1.125 mm</code>). Rọi sáng sảnh đón Cửa chính <code>D1</code> và mặt Tủ giày kịch trần (độ rọi <code>250 Lux</code>).</td>
+            </tr>
+            <tr>
+              <td><strong>Lộ 2 + 4</strong></td>
+              <td><span class="zone-pill zone-living">Sảnh &amp; P.Khách</span></td>
+              <td><code>~22 m</code> LED dây COB <code>24V 10W/m</code> + LED Tủ giày</td>
+              <td><code>3000K</code> Vàng ấm</td>
+              <td>• <strong>Lộ 2 (Giật cấp #2):</strong> Hắt 4 cạnh ô trần Tiền sảnh (<code>2.090 × 1.125 mm</code>) + LED cảm biến trong Tủ giày (<code>+1.6m</code>).<br>• <strong>Lộ 4 (Giật cấp #1):</strong> Hắt 4 cạnh hộp trần Phòng Khách (<code>C1 +3.530m</code> — chọn kiểu Hộp Vuông <code>KT-4.06</code> hoặc Bo Cong 4 Góc <code>R400mm</code> kiểu Master) &amp; hốc rèm tự động <code>V1</code>.</td>
+            </tr>
+            <tr>
+              <td><strong>Lộ 5 (Ray Nam Châm)</strong></td>
+              <td><span class="zone-pill zone-living">Lòng Trần P.Khách</span></td>
+              <td><strong>Khung Chữ Nhật Đèn Ray Nam Châm Âm Trần <code>48V</code></strong> (<code>1.825 × 2.970 mm</code>, tổng <code>~9,6m</code> ray)</td>
+              <td><code>4000K</code> / <code>3500K</code> (<code>CRI&ge;92</code>)</td>
+              <td>• <strong>Đúng ký hiệu <code>ĐÈN RAY NAM CHÂM</code> (Lộ 5) trên <code>CĐ-11</code> &amp; <code>KT-4.06</code>:</strong> Lắp âm phẳng trong lòng hộp trần <code>+3.530m</code> (<strong>lùi vào <code>215 mm</code> từ mép khe hắt Lộ 4</strong>).<br>• Gắn <code>04–06</code> thanh đèn LED tán quang phẳng (Floodlight <code>12W</code>) + <code>04</code> cụm đèn tiêu điểm nam châm (Grille Spotlight <code>7W</code>) tạo khung viền đen hiện đại bao quanh Quạt trần Lộ 6.</td>
+            </tr>
+            <tr>
+              <td><strong>Lộ 3</strong></td>
+              <td><span class="zone-pill zone-living">Phòng Khách</span></td>
+              <td><code>12</code> Spotlight chóa sâu lòng đen <code>12W</code> (<code>Φ90</code>, góc chiếu <code>24°</code>)</td>
+              <td><code>4000K</code> (<code>CRI&ge;92</code>)</td>
+              <td>Chạy dọc 4 cạnh viền trần <code>C1 +3.400m</code> (cách tường <code>300mm</code>, <strong>cách tâm quạt trần <code>2,0m</code> — ngoài vùng cánh quạt</strong>):<br>• <code>04 bóng</code> cạnh Bắc: <strong>Bẻ góc chóa <code>15°</code> rửa sáng Vách Đá Tivi <code>3,2m</code></strong>.<br>• <code>08 bóng</code> còn lại: Bẻ <code>12°–15°</code> rọi tranh tường và viền Sofa (không rọi vào mắt người ngồi).</td>
+            </tr>
+            <tr>
+              <td><strong>Lộ 6</strong></td>
+              <td><span class="zone-pill zone-living">Tâm P.Khách</span></td>
+              <td><strong>Quạt Trần 5 Cánh Gỗ Kèm Đèn LED <code>24W</code></strong><br><em>(Hoặc 02 cặp Spotlight đôi <code>12W</code>)</em></td>
+              <td><code>3000K–4000K</code> (Đổi màu Remote)</td>
+              <td>Đặt chính tâm hộp trần Phòng Khách (<code>C1 +3.530m</code>). Đèn LED nằm dưới bầu quạt nên <strong>khi quạt quay tuyệt đối không gây bóng cánh quạt trên sàn</strong>. Nếu muốn trần phẳng 100%, dùng nguồn Lộ 6 đấu vào 02 cặp Spotlight đôi âm trần (cách nhau <code>200mm</code>).</td>
+            </tr>
+            <tr>
+              <td><strong>Lộ 5A</strong></td>
+              <td><span class="zone-pill zone-dining">Bàn Ăn &amp; Đảo</span></td>
+              <td><code>04</code> Spotlight góc Bàn ăn + <code>03</code> Spotlight rọi Bàn đảo (<code>9W–12W</code>)</td>
+              <td><code>4000K</code> (<code>CRI&ge;92</code>)</td>
+              <td>• Lắp âm phẳng trên trần <code>C1 +3.400m</code>: <code>04 bóng</code> đặt tại 4 góc ngoài Bàn ăn 8 ghế (cách nhau <code>1.700 × 1.200 mm</code>, ngoài sải cánh quạt Lộ 6A).<br>• <code>03 bóng</code> xếp thẳng hàng rọi thẳng xuống mặt đá <strong>Bàn Đảo Bếp</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Lộ 6A</strong></td>
+              <td><span class="zone-pill zone-dining">Tâm Bàn Ăn</span></td>
+              <td><strong>Quạt Trần 5 Cánh Gỗ Kèm Đèn LED</strong><br><em>(Hoặc Đèn thả bàn ăn / Cặp Spotlight đôi)</em></td>
+              <td><code>3000K</code> Vàng ấm</td>
+              <td>Đặt chính tâm Bàn ăn 8 ghế trên mặt trần phẳng <code>C1 +3.400m</code>. Đồng bộ kiểu dáng với quạt Phòng khách giúp đối lưu gió mát khắp khu bàn ăn &amp; bếp, hoặc treo Đèn thả pha lê dài <code>1,2m</code>.</td>
+            </tr>
+            <tr>
+              <td><strong>Lộ 12 + 10</strong></td>
+              <td><span class="zone-pill zone-kitchen">Bếp Chữ I</span></td>
+              <td><code>05</code> Spotlight Bếp <code>12W</code> (Lộ 12) + LED thanh đáy tủ trên &amp; Tủ rượu (Lộ 10)</td>
+              <td><code>4000K</code> (Trần) &amp; <code>3000K</code> (Tủ)</td>
+              <td>• <strong>Lộ 12:</strong> <code>05</code> bóng Spotlight lắp âm trên trần bếp phẳng <code>C1 +3.400m</code> (cách mặt tủ bếp <code>450mm</code>) cấp sáng <code>550 Lux</code>.<br>• <strong>Lộ 10:</strong> Đèn LED thanh nhôm cảm biến vẫy tay dưới đáy tủ bếp trên + LED trong Hốc nồi cơm &amp; Tủ rượu kính.</td>
+            </tr>
+            <tr>
+              <td><strong>Lộ 13 + 3A/4A/7</strong></td>
+              <td><span class="zone-pill zone-backyard">Sân Sau &amp; Vườn</span></td>
+              <td><code>03</code> Đèn gắn tường Sân sau (Lộ 13) + Đèn hắt tiểu cảnh <code>D2</code> &amp; Mặt tiền</td>
+              <td><code>3000K</code> Chống nước <code>IP65</code></td>
+              <td>Chiếu sáng Quầy bếp ướt <code>3,0m</code> &amp; Tháp giặt sấy ngoài Sân sau (Lộ 13) và mảng cây xanh tiểu cảnh nhìn xuyên qua cửa kính lùa <code>D2</code> vào bàn ăn.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 5 Smart Lighting & Fan Scenarios -->
+      <div class="scenario-grid">
+        <div class="scenario-card">
+          <h4><span>✨ 1. Kịch Bản "Đón Khách Sang Trọng"</span> <span class="zone-pill zone-foyer">520 Lux</span></h4>
+          <p>Bật <strong>Lộ 1 + Lộ 2 + Lộ 3 (12 Spotlight) + Lộ 6 (Quạt đèn P.Khách) + Lộ 5A + Lộ 6A</strong>. Cả không gian dài <code>12,01m</code> bừng sáng rực rỡ, tôn vân đá Vách Tivi và Bàn đảo.</p>
+        </div>
+        <div class="scenario-card" style="border-top-color: var(--sky);">
+          <h4><span>🍃 2. Kịch Bản "Gió Mát Tự Nhiên"</span> <span class="zone-pill zone-kitchen">265 Lux</span></h4>
+          <p>Những ngày thời tiết mát mẻ (không bật điều hòa), mở Cửa lùa sân vườn <code>D2</code> &amp; Cửa sân sau, chỉ bật <strong>02 Quạt trần kèm đèn (Lộ 6 + Lộ 6A) + LED hắt Lộ 2</strong> — mát thoáng và siêu tiết kiệm điện.</p>
+        </div>
+        <div class="scenario-card" style="border-top-color: var(--purple);">
+          <h4><span>🎬 3. Kịch Bản "Xem Phim / Chill Tối"</span> <span class="zone-pill zone-backyard">65 Lux</span></h4>
+          <p>Tắt toàn bộ Spotlight trần (Lộ 3), chỉ giữ <strong>LED dây hắt trần &amp; khe rèm (Lộ 4+5) + LED Tủ rượu</strong>. Không có bất kỳ điểm sáng nào phản chiếu gây lóa màn hình Tivi 85 inch.</p>
+        </div>
+        <div class="scenario-card" style="border-top-color: var(-- accent);">
+          <h4><span>🍳 4. Kịch Bản "Vào Bếp Nấu Ăn"</span> <span class="zone-pill zone-living">550 Lux</span></h4>
+          <p>Bật <strong>Lộ 12 (05 Spotlight bếp) + Lộ 10 (LED đáy tủ bếp trên) + Lộ 5A (03 Spotlight Đảo bếp) + Lộ 13 (Bếp ướt sân sau)</strong>. Mặt bàn đá sáng rõ từng chi tiết, chuẩn <code>CRI &ge; 92</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: COMPLETE 16-ITEM SPECIFICATION TABLE FOR ALL OF FLOOR 1 -->
+    <section class="block" id="sec-specs">
+      <h2 class="section-title">📋 4. Bảng Thông Số Kỹ Thuật &amp; Quy Cách Đóng Nội Thất – Điện Nước – Điều Hòa Toàn Bộ Tầng 1 (16 Hạng Mục)</h2>
+      <p class="section-sub">
+        Bảng tổng hợp đầy đủ 16 hạng mục từ Tiền Sảnh, Phòng Khách, Phòng Ăn, Bếp Chữ I &amp; Bàn Đảo đến Sân Sau Bếp Ướt để giao việc đồng bộ cho các tổ đội:
+      </p>
+
+      <div class="table-wrap">
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Phân Khu</th>
+              <th>Hạng Mục Nội Thất / Kỹ Thuật</th>
+              <th>Vị Trí Chuẩn Theo Hồ Sơ</th>
+              <th>Kích Thước (D × R × C)</th>
+              <th>Quy Cách Vật Liệu &amp; Lưu Ý Phối Hợp Thi Công</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>01</strong></td>
+              <td><span class="zone-pill zone-foyer">1. Tiền Sảnh</span></td>
+              <td><strong>Cửa Chính D1 &amp; Ô Trần Giật Cấp Sảnh Đón</strong></td>
+              <td>Trục 1'–2, Trục A–B</td>
+              <td>Cửa D1: <code>1.750 × 3.000 mm</code><br>Ô trần: <code>2.090 × 1.125 mm</code></td>
+              <td>Cửa gỗ tự nhiên Đàn hương / Lim Nam Phi (hoặc Nhôm thủy lực) mở về bên phải; ô trần thạch cao giật cấp hắt LED dây 4 cạnh (<code>Lộ 2</code>) + <code>04</code> Spotlight <code>12W 4000K</code> (<code>Lộ 1</code>).</td>
+            </tr>
+            <tr>
+              <td><strong>02</strong></td>
+              <td><span class="zone-pill zone-foyer">1. Tiền Sảnh</span></td>
+              <td><strong>Hệ Tủ Giày Kịch Trần + Ghế Thay Giày LED</strong></td>
+              <td>Tường Nam (Trục A — sát Cửa chính D1)</td>
+              <td><code>2.500 × 550 × 3.400 mm</code></td>
+              <td>MDF lõi xanh chống ẩm phủ Melamine/Laminate vân gỗ &amp; sơn mờ; khoét hốc giữa để túi xách/chìa khóa + <strong>đèn LED thanh cảm biến (đầu chờ <code>+1.6m</code>)</strong> + đệm ngồi thay giày và khe thoáng đáy tủ <code>150mm</code> để giày đi hàng ngày (kèm ổ cắm Robot hút bụi).</td>
+            </tr>
+            <tr>
+              <td><strong>03</strong></td>
+              <td><span class="zone-pill zone-living">2. Phòng Khách</span></td>
+              <td><strong>Vách Tivi Đá Nung Kết + Lam Gỗ Sồi &amp; Kệ Treo</strong></td>
+              <td>Tường Bắc (Trục C, từ Trục 1 đến Trục 2)</td>
+              <td>Vách: <code>3.200 × 3.400 mm</code><br>Kệ treo: <code>3.200 × 400 × 280 mm</code></td>
+              <td><strong>Đã xây tường gạch bịt 2 ô kính nhỏ <code>V2</code> (Bản 3.1)</strong>: Tâm vách ốp Đá Nung Kết (Sintered Stone) vân mây khổ lớn, 2 bên ốp Lam gỗ Sồi sọc dọc kèm 02 khe LED hắt dọc <code>3000K</code>; ổ cắm Tivi &amp; mạng LAN <code>S1</code> đặt ở <code>+0.4m</code> và <code>+1.2m</code>.</td>
+            </tr>
+            <tr>
+              <td><strong>04</strong></td>
+              <td><span class="zone-pill zone-living">2. Phòng Khách</span></td>
+              <td><strong>Bộ Sofa Góc Chữ L + Bàn Trà Đá + Ghế Đơn</strong></td>
+              <td>Trung tâm Phòng Khách (Tựa lưng về Tiền sảnh Trục B)</td>
+              <td>Sofa: <code>2.800 × 1.850 × 820 mm</code><br>Bàn trà: <code>Ø900 / 1.300×700 mm</code></td>
+              <td>Sofa khung gỗ tự nhiên bọc da/nỉ Bouclé màu kem sáng, gối tựa điểm nhấn màu Cam Hermes &amp; Xám ấm; trải thảm dệt <code>2.600 × 3.200 mm</code>. Đặt 01 ổ cắm <code>S1 (+0.4m)</code> sát đầu Sofa để sạc điện thoại.</td>
+            </tr>
+            <tr>
+              <td><strong>05</strong></td>
+              <td><span class="zone-pill zone-living">2. Phòng Khách</span></td>
+              <td><strong>Vách Kính Mặt Tiền V1 &amp; Hốc Rèm Tự Động</strong></td>
+              <td>Tường Tây (Trục 1 — nhìn ra Sân trước)</td>
+              <td>V1: <code>3.200 × 3.000 mm</code><br>Hốc rèm: Rộng <code>215 mm</code></td>
+              <td>Hệ nhôm cầu cách nhiệt/Hệ 100 kính hộp an toàn; trên trần thạch cao chừa <strong>hốc rèm âm trần rộng <code>215 mm</code></strong> lắp rèm 2 lớp (Voan trắng + Vải chống nắng) kèm nguồn chờ động cơ rèm tự động Aqara tại góc Trục 1–B.</td>
+            </tr>
+            <tr>
+              <td><strong>06</strong></td>
+              <td><span class="zone-pill zone-living">2. Phòng Khách</span></td>
+              <td><strong>Hộp Trần Giật Cấp +3.53m • Quạt Đèn Lộ 6 • ĐH 30.000 BTU</strong></td>
+              <td>Trần Phòng Khách (Trục 1–2, Trục B–C)</td>
+              <td>Hộp trần: <code>2.370 × 3.400 mm</code><br>ĐH <code>IN 1.2</code>: <code>30.000 BTU/H</code></td>
+              <td>Lòng hộp trần giật cấp lên <code>C1 +3.530mm</code> (hắt LED 4 cạnh <code>Lộ 4</code> + khung <code>1.825×2.970mm</code> <code>Lộ 5</code>) treo <strong>Quạt trần 5 cánh gỗ kèm đèn LED (<code>Lộ 6</code>)</strong>; viền trần <code>C1 +3.400mm</code> giấu máy lạnh ống gió <code>IN 1.2</code> (khe gió đen <code>150×1.000mm</code>) và <strong><code>12</code> bóng Spotlight <code>12W 4000K</code> (<code>Lộ 3</code>)</strong> ngoài cánh quạt.</td>
+            </tr>
+            <tr>
+              <td><strong>07</strong></td>
+              <td><span class="zone-pill zone-dining">3. Phòng Ăn</span></td>
+              <td><strong>Bàn Ăn Mặt Đá 8 Ghế + Ổ Cắm Âm Sàn S1</strong></td>
+              <td>Trung tâm Trục 2–3 (Giữa Cửa D2 &amp; Cầu thang)</td>
+              <td>Bàn ăn: <code>2.200 × 1.000 × 750 mm</code><br>08 Ghế bọc da/nỉ</td>
+              <td>Bàn ăn mặt đá Ceramic/Cẩm thạch chống ố, chân gỗ/thép sơn tĩnh điện; <strong>ngay dưới gầm bàn đặt 01 Ổ cắm âm sàn <code>S1 (+0.0M)</code></strong> (theo <code>CĐ-03</code>) để ăn lẩu/nướng không vướng dây.</td>
+            </tr>
+            <tr>
+              <td><strong>08</strong></td>
+              <td><span class="zone-pill zone-dining">3. Phòng Ăn</span></td>
+              <td><strong>Cửa Kính Lùa D2 &amp; Tiểu Cảnh Sân Vườn Bên Hông</strong></td>
+              <td>Phía Bắc Phòng Ăn (Trục 2–3)</td>
+              <td>Cửa D2: <code>3.070 × 3.000 mm</code><br>Vườn: <code>3.500 × 1.150 mm</code></td>
+              <td>Cửa nhôm kính lùa mở rộng tối đa ra tiểu cảnh cây xanh bên hông nhà (có đèn hắt cây ngoài trời <code>Lộ 7</code>), kết hợp Quạt trần đèn <code>Lộ 6A</code> và <code>04</code> Spotlight góc <code>Lộ 5A</code>.</td>
+            </tr>
+            <tr>
+              <td><strong>09</strong></td>
+              <td><span class="zone-pill zone-dining">3. Phòng Ăn</span></td>
+              <td><strong>Cầu Thang Bộ Kính Gỗ &amp; Phòng Vệ Sinh WC-01</strong></td>
+              <td>Phía Nam Phòng Ăn (Trục 2–3)</td>
+              <td>WC-01: Cabin kính vát <code>135°</code></td>
+              <td>Cầu thang ốp gỗ/đá tích hợp đèn LED cảm biến từng bậc (<code>Lộ T1</code>); dưới gầm thang và cạnh thang là <code>WC-01</code> (đã chuẩn hóa Cabin tắm kính vát góc <code>135°</code> và đặt Tủ điện tổng Tầng 1 <code>TĐ1 +1.5m</code>).</td>
+            </tr>
+            <tr>
+              <td><strong>10</strong></td>
+              <td><span class="zone-pill zone-kitchen">4. Khu Bếp</span></td>
+              <td><strong>Hệ Tủ Bếp Chữ I + Cánh Giả 2,8m &amp; Hạ Thạch Cao 60cm</strong></td>
+              <td>Tường Bắc Khu Bếp (Trục 3–4)</td>
+              <td>Tủ + Cánh giả: <code>4.950×600×2.800</code><br>Hộp thạch cao: <code>Cao 600 × Sâu 595mm</code></td>
+              <td>Thùng tủ dưới Inox 304 3 lớp KITPRO + Mặt đá Vicostone sâu <code>600mm</code>; tầng trên <code>+2.290..+2.800mm</code> lắp <strong>dải cánh giả sâu <code>600mm</code> (~8tr, gài pát âm <code>Keku</code>)</strong> giấu ống cứng hút mùi <code>PVC Ø150</code> &amp; nguồn LED, khớp phẳng 100% với <strong>hộp thạch cao thẳng <code>60cm</code> (<code>+2.800..+3.400mm</code>)</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>11</strong></td>
+              <td><span class="zone-pill zone-kitchen">4. Khu Bếp</span></td>
+              <td><strong>Cột Tủ Trái (650mm): Lò Nướng &amp; Đợt Kéo Nồi Cơm Blum</strong></td>
+              <td>Đầu trái Tủ bếp (Cạnh Bàn ăn — đã bỏ vách phụ 650mm)</td>
+              <td>Rộng <code>650 × Sâu 600 × Cao 2.330 mm</code></td>
+              <td>Từ <code>0..+890mm</code> lắp Lò nướng âm Bosch phẳng mặt đá; <strong>Hốc mở có đèn LED (<code>+890..+1.490mm</code>) lắp Đợt kệ kéo Ray âm <code>Blum Tandem/Movento</code> có khóa dừng</strong> đặt Nồi cơm điện + Nồi chiên không dầu (kéo ra <code>365mm</code> thoát hơi nước 100%).</td>
+            </tr>
+            <tr>
+              <td><strong>12</strong></td>
+              <td><span class="zone-pill zone-kitchen">4. Khu Bếp</span></td>
+              <td><strong>Chuỗi Bếp Từ • Máy Rửa Bát Bosch • Chậu Konox 1 Hố</strong></td>
+              <td>Khoang giữa Tủ bếp (Dưới cửa sổ lùa <code>S1A 2.250×550mm</code>)</td>
+              <td>Gia vị <code>400</code> • Bếp <code>900</code> • Đệm <code>350</code> • MRB <code>600</code> • Chậu <code>800</code> • Bát <code>850</code></td>
+              <td>Bếp từ đôi + Hút mùi âm tủ <code>1.000 m³/h</code> (ống <code>D150</code>) &rarr; Máy rửa bát Bosch Serie 6 (mở cánh <code>650mm</code>) &rarr; Chậu rửa 1 hố <strong>Konox Tari 8050 (<code>800×500mm</code>)</strong> đặt ngay dưới cửa sổ trượt <code>S1A</code> ngập ánh sáng tự nhiên.</td>
+            </tr>
+            <tr>
+              <td><strong>13</strong></td>
+              <td><span class="zone-pill zone-kitchen">4. Khu Bếp</span></td>
+              <td><strong>Cột Tủ Phải (1.000mm): Tủ Lạnh Panasonic + Hộc Kéo 152mm</strong></td>
+              <td>Đầu phải Tủ bếp (Giáp tường Đông <code>770mm</code> Trục 4)</td>
+              <td>Tủ lạnh: <code>822 × 600 × 1.890 mm</code><br>Hộc đệm: <code>152 × 600 × 1.890 mm</code></td>
+              <td>Sử dụng Tủ lạnh 4 cánh mặt kính đen <strong>Panasonic Harmony+ <code>NR-X561GB-VN</code> (510L, sâu đúng <code>600mm</code>)</strong> phẳng mặt tủ bếp; <strong>bố trí Hộc tủ kéo đa năng <code>152mm</code> sát bức tường <code>770mm</code></strong> giúp cánh phải tủ lạnh mở rộng <code>120°</code> rút khay rau củ không cấn tường!</td>
+            </tr>
+            <tr>
+              <td><strong>14</strong></td>
+              <td><span class="zone-pill zone-kitchen">4. Khu Bếp</span></td>
+              <td><strong>🌟 PA Ưu Tiên (KT-2.02): Bàn Đảo Ngang Trục 3 + Hệ Tủ Phụ Dọc Tường &amp; ĐH 18.000 BTU</strong></td>
+              <td>Đặt vuông góc tại cột Trục 3 &amp; Dọc tường P.Ngủ Ông Bà</td>
+              <td>Đảo ngang: <code>1.400 × 800 × 890 mm</code><br>Tủ phụ: <code>2.800 × 550 × 2.290 mm</code></td>
+              <td>• <strong>Bàn Đảo Ngang Trục 3 (<code>1.400×800mm</code>):</strong> Vươn ngang <code>90°</code> từ cột Trục 3 ra giữa bếp (đầu đảo bo tròn <code>R400mm</code>), bố trí <strong><code>02</code> ghế Bar bên trái đảo</strong> (quay mặt vào bếp); <strong>khe đi qua đầu đảo rộng <code>1.110 mm</code></strong>.<br>• <strong>Hệ Tủ Phụ Dọc Tường (<code>sâu 550mm</code>):</strong> Nối liền chữ L chạy dọc suốt tường P.Ngủ Ông Bà tới sát cửa sân sau, gồm <strong>Tủ Rượu cánh kính trà đèn LED <code>3000K</code> + Hốc Quầy Pha Cafe Espresso</strong>; <strong>khoảng sàn trống trước Chậu rửa &amp; Tủ lạnh rộng mênh mông <code>1.960 mm (~2,0m)</code></strong>!<br>• Trần lắp ĐH ống gió <code>IN 1.1 (18.000 BTU)</code> + <code>03</code> Spotlight Đảo (<code>Lộ 5A</code>) + <code>05</code> Spotlight Bếp (<code>Lộ 12</code>).</td>
+            </tr>
+            <tr>
+              <td><strong>15</strong></td>
+              <td><span class="zone-pill zone-backyard">5. Sân Sau</span></td>
+              <td><strong>Cửa Kính Mở Rộng (1,79m) Kết Nối Bếp Chính &amp; Sân Sau</strong></td>
+              <td>Tường Đông (Trục 4 — Giữa tường <code>770mm</code> &amp; Tủ Cafe)</td>
+              <td>Rộng <code>1.100 – 1.790 × Cao 3.000 mm</code></td>
+              <td>Nhờ chuyển máy giặt sấy ra Sân sau, cửa kính tại Trục 4 mở rộng tới <code>1.790 mm</code> (hoặc cửa 2 cánh mở quay ra ngoài thông thủy <code>1,0m</code>), giúp đứng từ Bếp chính nhìn xuyên ra Sân sau sáng thoáng.</td>
+            </tr>
+            <tr>
+              <td><strong>16</strong></td>
+              <td><span class="zone-pill zone-backyard">5. Sân Sau</span></td>
+              <td><strong>Quầy Bếp Ướt 3,0m • Tháp Giặt Sấy • Bể Lọc Cát &amp; Mái Kính</strong></td>
+              <td>Sân sau Chữ L (Rộng <code>2.000 mm</code> phía sau Trục 4)</td>
+              <td>Bếp ướt: <code>3.000 × 600 × 890 mm</code><br>Tháp giặt sấy: <code>750 × 700 mm</code></td>
+              <td>Bố trí liên hoàn dưới mái kính lấy sáng: Góc Bắc đặt <strong>Bể lọc cát &amp; Bơm tăng áp</strong> (nắp Inox lát gạch âm) &rarr; Dọc tường Đông là <strong>Quầy bếp ướt <code>3,0m</code></strong> (chậu rửa lớn sơ chế cá/thịt, bếp phụ nặng mùi) &rarr; <strong>Tháp Máy giặt + Máy sấy chồng tầng</strong> kín đáo sau vách tường + <code>03</code> đèn tường chống ẩm <code>Lộ 13</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Native Modal Lightbox with Light-Dismiss (modern-web-guidance: html) -->
+  <dialog id="lightbox-modal" closedby="any">
+    <div class="dialog-bar">
+      <span id="lightbox-title" style="font-size:0.86rem; font-weight:700; color:var(--accent-light);">Xem chi tiết bản vẽ / phối cảnh 3D</span>
+      <form method="dialog">
+        <button type="submit" class="dialog-close-btn">✕ Đóng (Esc)</button>
+      </form>
+    </div>
+    <div class="dialog-img-wrap">
+      <img id="lightbox-img" src="" alt="Phóng to bản vẽ / phối cảnh 3D Tầng 1" />
+    </div>
+  </dialog>
+
+  <script>
+    const VIEWS = {
+      rounded_living_to_kitchen: {
+        img: "assets/tang1_pa_tran_bo_cong_xuyen_bep_3d.jpg",
+        caption: "Góc 1A (Trần Bo Cong Kiểu Master + PA Ưu Tiên KT-2.02): Hộp trần P.Khách (+3.530m) bo cong 4 góc R400mm (Lộ 4) + Khung Đèn Ray Nam Châm (Lộ 5) + Quạt trần (Lộ 6), nhìn xuyên sang Phòng Ăn & Bếp chữ I + Bàn Đảo Ngang Trục 3 nối Tủ Phụ Rượu/Cafe dọc tường (Trần phẳng +3.400m)",
+        title: "Phương Án Mới: Trần P.Khách Bo Cong 4 Góc (Kiểu Master) + Khung Ray Nam Châm Lộ 5 & Bếp Đảo Ngang Trục 3 (PA Ưu Tiên KT-2.02)",
+        items: [
+          "<strong>1. Hộp Trần Giật Cấp Bo Cong 4 Góc (<code>R400mm</code>) + Khung Đèn Ray Nam Châm Âm Trần (<code>Lộ 5 — 1.825 × 2.970 mm</code>):</strong> Miệng hộp trần Phòng Khách (<code>C1 +3.530m</code>) được <strong>bo cong tròn mềm mại ở cả 4 góc (<code>R350–R400mm</code>) kèm khe LED dây COB <code>3000K</code> (<code>Lộ 4</code>)</strong> đồng bộ Khu ngủ Master Tầng 2; lùi vào <code>215 mm</code> bên trong lòng trần là <strong>khung chữ nhật Đèn Ray Nam Châm âm trần màu đen (<code>Lộ 5 — 1.825 × 2.970 mm</code>)</strong> bao quanh Quạt trần đèn <code>Lộ 6</code>.",
+          "<strong>2. Chuẩn Hóa Khu Bếp Theo 🌟 PA Ưu Tiên (<code>KT-2.02</code>): Bàn Đảo Ngang Trục 3 (<code>1.400×800mm</code>) + Hệ Tủ Phụ Dọc Tường (<code>Sâu 550mm</code>):</strong> Đúng theo mặt bằng nội thất <code>KT-2.02</code> và hiện trạng nhà: <strong>Bàn đảo đá Calacatta đặt vuông góc tại cột Trục 3 (<code>1.400 × 800 × 890 mm</code>, đầu đảo bo tròn <code>R400mm</code>, 02 ghế Bar đặt bên trái đảo)</strong> nối liền chữ L với <strong>Hệ Tủ Phụ / Tủ Rượu kính LED &amp; Quầy Pha Cafe chạy dọc tường P.Ngủ Ông Bà (<code>sâu 550mm</code>)</strong>. Khe đi qua đầu đảo rộng <strong><code>1.110 mm</code></strong> và khoảng sàn trống trước Chậu rửa &amp; Tủ lạnh rộng mênh mông <strong><code>1.960 mm (~2,0m)</code></strong>!",
+          "<strong>3. Trần Phòng Ăn &amp; Khu Bếp Phẳng Liên Thông 100% (<code>C1 +3.400m</code>):</strong> Toàn bộ trần từ Bàn ăn 8 ghế sang Khu bếp chữ I <code>4,95m</code> và Bàn đảo ngang đều phẳng liền mạch ở cốt <code>+3.400m</code> (không giật cấp khe hắt), kết hợp hộp trán đứng hạ xuống <code>+2.330m</code> che đỉnh tủ bếp trên."
+        ]
+      },
+      rounded_living_closeup: {
+        img: "assets/tang1_pa_tran_bo_cong_master_3d.jpg",
+        caption: "Góc 1B (Cận cảnh Phương Án Trần Bo Cong P.Khách & Tiền Sảnh D1): Soi chi tiết Hộp trần giật cấp bo cong 4 góc R400mm + Khung chữ nhật Đèn Ray Nam Châm âm trần (Lộ 5) + Quạt trần đèn (Lộ 6) + Vách Tivi Đá Nung Kết 3,2m",
+        title: "Cận Cảnh Hộp Trần Bo Cong 4 Góc R400mm & Khung Đèn Ray Nam Châm Lộ 5 Tại Phòng Khách",
+        items: [
+          "<strong>1. Sự Kết Hợp Giữa Đường Cong Mềm Mại (<code>Lộ 4</code>) &amp; Đường Nét Hiện Đại Của Ray Nam Châm (<code>Lộ 5</code>):</strong> Vòng ngoài là khe hắt trần bo cong 4 góc <code>R400mm</code> tỏa ánh sáng vàng ấm <code>3000K</code> mềm mại; bên trong (lùi <code>215 mm</code>) là <strong>khung chữ nhật Ray nam châm âm trần <code>1.825 × 2.970 mm</code> (<code>Lộ 5</code>)</strong> sắc nét với các thanh đèn LED tán quang và đèn rọi nam châm.",
+          "<strong>2. Bật/Tắt Độc Lập Từng Lớp Ánh Sáng Qua Công Tắc Aqara:</strong> Khi tiếp khách, bật cả <strong>Khung ray nam châm <code>Lộ 5</code> + 12 đèn viền <code>Lộ 3</code> + Khe hắt bo cong <code>Lộ 4</code></strong>; khi thư giãn hoặc xem Tivi tối, tắt <code>Lộ 3 &amp; Lộ 5</code>, chỉ giữ <strong>vòng sáng bo cong <code>Lộ 4</code></strong> dịu mắt như khách sạn 5 sao.",
+          "<strong>3. Tường Bắc Phẳng Liền Mạch (Đã Bịt 2 Ô Kính V2) &amp; Trần Bàn Ăn Phẳng Bên Phải:</strong> Đối diện Sofa là Vách Tivi Đá Nung Kết + Lam gỗ Sồi phẳng <code>3.200 mm</code>; bên phải nhìn sang khu Bàn ăn là mặt trần phẳng <code>C1 +3.400m</code> chuẩn thiết kế."
+        ]
+      },
+      living_to_kitchen: {
+        img: "assets/tang1_open_living_to_kitchen_3d.jpg",
+        caption: "Góc 2A (Chuẩn CAD KT-4.06, CĐ-11 & KT-2.02): Từ Phòng Khách (Hộp trần vuông C1 +3.530m + Khung Đèn Ray Nam Châm Lộ 5 1.825×2.970mm) nhìn xuyên sang Phòng Ăn & Bếp chữ I + Bàn Đảo Ngang Trục 3 nối Tủ Phụ (Trần phẳng C1 +3.400m)",
+        title: "Phương Án Chuẩn Bản Vẽ CAD (KT-4.06, CĐ-11 & KT-2.02): Trần Hộp Vuông + Ray Nam Châm Lộ 5 & Bếp Đảo Ngang Trục 3",
+        items: [
+          "<strong>1. Hộp Trần Giật Cấp Vuông (<code>C1 +3.530m</code>) Kèm Khung Đèn Ray Nam Châm <code>Lộ 5</code> Chuẩn <code>KT-4.06</code>:</strong><br>• <strong>Vòng ngoài hộp trần (<code>2.255 × 3.400 mm</code>):</strong> Khe hắt LED dây 4 cạnh <code>3000K</code> (<code>Lộ 4</code>).<br>• <strong>Lùi vào <code>215 mm</code> trong lòng hộp trần (<code>1.825 × 2.970 mm</code>):</strong> Hệ <strong>Khung chữ nhật Đèn Ray Nam Châm âm trần (<code>Lộ 5</code>)</strong> gắn các thanh đèn LED tán quang &amp; cụm đèn rọi tiêu điểm quanh Quạt trần đèn <code>Lộ 6</code>.<br>• <strong>Tại Phòng Ăn &amp; Khu Bếp (Trục 2–4):</strong> <strong>Trần thạch cao phẳng 100% ở cốt <code>C1 +3.400m</code></strong> + hộp trán đứng <code>+2.330m</code> che đỉnh tủ bếp.",
+          "<strong>2. Vách Tivi Đá Nung Kết 3,2m Trên Tường Bắc Phẳng Liền Mạch (Đã Bịt 2 Ô Kính V2):</strong> Nhờ <strong>đã xây gạch bịt kín 02 ô kính nhỏ <code>V2 (0,9×3,0m)</code> giáp nhà hàng xóm (theo Bản 3.1 <code>KT-6.01</code>)</strong>, bức tường Bắc Phòng Khách hoàn toàn phẳng để ốp Đá Nung Kết vân mây kết hợp Lam gỗ Sồi + Kệ Tivi treo tường <code>3.200 mm</code>.",
+          "<strong>3. Khu Bếp Chuẩn 🌟 PA Ưu Tiên (<code>KT-2.02</code> — Bàn Đảo Ngang Trục 3 + Tủ Phụ Dọc Tường):</strong> Phía sau Sofa tại cột Trục 3 là <strong>Bàn đảo ngang (<code>1.400 × 800 mm</code>, đầu bo tròn <code>R400mm</code>, 02 ghế Bar quay mặt vào bếp)</strong> nối liền chữ L với <strong>Hệ Tủ Phụ Rượu kính LED &amp; Quầy Cafe (<code>sâu 550mm</code>)</strong> dọc tường phải; khe qua đầu đảo rộng <code>1.110 mm</code> và sàn trước Chậu rửa rộng <code>1.960 mm</code> mở thẳng qua Cửa kính lùa <code>1.790 mm</code> ra Bếp ướt Sân sau!"
+        ]
+      },
+      kitchen_to_living: {
+        img: "assets/tang1_open_kitchen_to_living_3d.jpg",
+        caption: "Góc 3 (Chuẩn PA Ưu Tiên KT-2.02): Đứng tại khoảng sàn rộng 1.960mm trước Chậu rửa & Tủ Phụ Rượu/Cafe (sâu 550mm) nhìn qua Bàn Đảo Ngang Trục 3 (1.400×800mm, khe đi 1.110mm) & Bàn Ăn 8 ghế về Phòng Khách",
+        title: "Tầm Nhìn Ngược Từ Khu Bếp (PA Ưu Tiên KT-2.02: Đảo Ngang Trục 3 + Tủ Phụ 550mm) Về Phòng Khách",
+        items: [
+          "<strong>1. Khoảng Sàn Mở Rộng Mênh Mông <code>1.960 mm (~2,0m)</code> Giữa Bếp Chính &amp; Hệ Tủ Phụ:</strong> Ở tiền cảnh bên trái là <strong>Hệ Tủ Phụ (<code>sâu 550mm</code>: Tủ Rượu cánh kính trà đèn LED <code>3000K</code> + Hốc Quầy máy pha Cafe Espresso)</strong> chạy dọc tường P.Ngủ Ông Bà; bên phải là <strong>Hệ Tủ Bếp Chữ I (<code>sâu 600mm</code>, Chậu rửa Konox dưới cửa sổ <code>S1A</code> + Máy rửa bát + Bếp từ)</strong> — tạo khoảng sàn thao tác giữa phòng rộng tới <strong><code>1.960 mm</code></strong>!",
+          "<strong>2. Bàn Đảo Ngang Trục 3 (<code>1.400 × 800 × 890 mm</code>) &amp; Khe Đi Qua Đầu Đảo <code>1.110 mm</code>:</strong> Tại cột Trục 3 (ngay hết Tủ phụ bên trái), <strong>Bàn Đảo Ngang</strong> vươn vuông góc <code>90°</code> sang phải với mặt đá Calacatta thác nước bo tròn đầu đảo <code>R400mm</code>, mặt trong bố trí hệ ngăn kéo tủ bếp, mặt ngoài (phía Bàn ăn) đặt <strong>02 ghế Bar</strong>, chừa <strong>khe đi qua đầu đảo rộng <code>1.110 mm</code></strong> cực kỳ hợp lý với hiện trạng nhà.",
+          "<strong>3. Trần Khu Bếp &amp; Phòng Ăn Phẳng 100% (<code>C1 +3.400m</code>) Nhìn Về Hộp Trần Phòng Khách (<code>C1 +3.530m</code>):</strong> Mặt trần thạch cao phẳng mịn từ Khu Bếp qua Bàn Ăn 8 ghế (lắp âm phẳng 02 khe gió điều hòa <code>IN 1.1</code>, Quạt trần đèn <code>Lộ 6A</code> và Spotlight <code>Lộ 12, 5A</code>); phía xa tại Phòng Khách mới giật cấp hộp trần <code>C1 +3.530m</code>."
+        ]
+      },
+      living_ceiling_d1: {
+        img: "assets/tang1_phong_khach_vach_tv_tran_hop_3d.jpg",
+        caption: "Góc 2B (Chuẩn CAD KT-4.06 & CĐ-11): Cận cảnh Phòng Khách với Hộp trần giật cấp vuông C1 +3.530m + Khung chữ nhật Đèn Ray Nam Châm âm trần 1.825×2.970mm (Lộ 5) + Quạt trần đèn Lộ 6 & Tiền sảnh D1",
+        title: "Cận Cảnh Hệ Trần Hộp Vuông Chuẩn KT-4.06 & Khung Đèn Ray Nam Châm Lộ 5 (1.825×2.970mm)",
+        items: [
+          "<strong>1. Khung Chữ Nhật Đèn Ray Nam Châm Âm Trần (<code>Lộ 5 — 1.825 × 2.970 mm</code>):</strong> Nằm lùi <code>215 mm</code> bên trong khe hắt LED <code>Lộ 4</code> của hộp trần <code>+3.530m</code>, hệ ray nam châm âm trần màu đen tạo điểm nhấn kiến trúc hiện đại, tích hợp cả thanh LED tán quang phẳng (Floodlight) và đèn ống rọi nam châm xoay góc.",
+          "<strong>2. Bức Tường Bắc Phẳng Liền Mạch (Đã Xây Bịt 2 Ô Kính V2):</strong> Tường Bắc đã được xây gạch bịt phẳng hoàn toàn để ốp <strong>Vách Đá Nung Kết vân mây đối xứng + Lam gỗ Sồi + 2 khe LED dọc &amp; Kệ Tivi treo <code>3.200 mm</code></strong>.",
+          "<strong>3. Viền Trần <code>C1 +3.400m</code> Ngoài Cánh Quạt:</strong> Bố trí 02 khe gió điều hòa tuyến tính sơn đen (<code>IN 1.2 — 30.000 BTU/H</code>) và 12 bóng Spotlight <code>Lộ 3</code> cách tâm quạt <code>2,0m</code> (tuyệt đối không gây bóng cánh quạt)."
+        ]
+      },
+      dining_courtyard: {
+        img: "assets/tang1_bep_an_tran_phang_chuan_3d.jpg",
+        caption: "Góc 4 (🌟 PA Ưu Tiên KT-2.02): Cận cảnh Phòng Ăn 8 Ghế + Hệ Tủ Bếp Chữ I (4.950×600mm) + Bàn Đảo Ngang Trục 3 (1.400×800mm, 02 ghế Bar) nối chữ L với Hệ Tủ Phụ Rượu/Cafe dọc tường (sâu 550mm) & Cửa lùa 1.790mm ra Bếp ướt Sân sau",
+        title: "🌟 PA Ưu Tiên (KT-2.02): Bàn Đảo Ngang Trục 3 (1.400×800) + Hệ Tủ Phụ Rượu/Cafe Dọc Tường (Sâu 550mm)",
+        items: [
+          "<strong>1. Bàn Đảo Ngang Trục 3 (<code>1.400 × 800 × 890 mm</code>) Nối Chữ L Với Hệ Tủ Phụ Dọc Tường (<code>Sâu 550 mm</code>) Đúng Thiết Kế <code>KT-2.02</code>:</strong> Bàn đảo đặt vuông góc tại cột Trục 3 (đầu đảo bo tròn <code>R400mm</code>, mặt đá Calacatta liền phẳng không khoét chậu, <strong>02 ghế Bar đặt bên trái bàn đảo</strong>) tạo vách ngăn ước lệ tinh tế giữa Bàn ăn 8 ghế và Khu bếp; nối liền chữ L với <strong>Hệ Tủ Phụ Rượu cánh kính trà đèn LED <code>3000K</code> &amp; Hốc Quầy máy pha Cafe Espresso chạy dọc suốt tường P.Ngủ Ông Bà</strong>.",
+          "<strong>2. Lối Đi Thông Thủy Cực Thoáng &amp; Cửa Kính Lùa Mở Rộng <code>1.790 mm</code> Ra Bếp Ướt Sân Sau:</strong> Khe đi qua đầu Bàn đảo ngang rộng <strong><code>1.110 mm</code></strong>; khoảng sàn trống trước Chậu rửa &amp; Tủ lạnh Panasonic rộng mênh mông <strong><code>1.960 mm (~2,0m)</code></strong> đi thẳng qua <strong>Cửa kính lùa rộng <code>1.790 mm</code></strong> (khít giữa tường <code>770mm</code> và hông Tủ phụ <code>550mm</code>) ra <strong>Quầy bếp ướt Inox <code>3,0m</code> &amp; Tháp giặt sấy</strong> ngoài Sân sau!",
+          "<strong>3. Hệ Tủ Bếp Chữ I Phẳng Tuyệt Đối (<code>4.950 × 600 × 890 mm</code>) &amp; Trần Phẳng <code>C1 +3.400m</code>:</strong> Dọc tường Bắc là Cột lò nướng + Khay nồi cơm Blum (<code>650mm</code>) &rarr; Bếp từ &rarr; Cửa sổ ngang <code>S1A</code> trên Chậu rửa Konox &rarr; Tủ lạnh 4 cánh đen Panasonic + Hộc kéo <code>152mm</code> mở 120°; phía trên đóng hộp trán thạch cao đứng từ <code>+3.400m</code> xuống <code>+2.330m</code>."
+        ]
+      },
+      kitchen_left_tower: {
+        img: "assets/kitchen_3d_cot_tu_trai_khay_keo_noi_com.jpg",
+        caption: "Góc 5: Cận cảnh Cột Tủ Trái (650mm) — Lò nướng âm Bosch (+290..+890mm) & Hốc mở LED lắp Đợt kéo Nồi cơm Blum có khóa (+890mm)",
+        title: "Chi Tiết Cột Tủ Trái (650 × 600 mm): Đợt Kéo Nồi Cơm Blum Ngang Mặt Bàn Đá (+890mm)",
+        items: [
+          "<strong>1. Hốc Mở Đèn LED (<code>+890..+1.490 mm</code>) Thẳng Tắp Với Mặt Bàn Đá &amp; Đáy Tủ Trên:</strong> Cạnh dưới của hốc mở nằm đúng cốt <code>+890 mm</code> (bằng mặt đá bàn bếp), cạnh trên nằm đúng cốt <code>+1.490 mm</code> (bằng đáy tủ bếp trên), tạo đường chỉ ngang liền mạch 100%.",
+          "<strong>2. Đợt Kệ Kéo Ray Âm <code>Blum Tandem / Movento</code> Có Khóa Giữ Kệ:</strong> Đặt vừa cả <strong>Nồi cơm điện + Nồi chiên không dầu</strong>; khi nấu kéo trượt ra ngoài <code>365 mm</code> giúp xả 100% hơi nước nóng ra ngoài, không bao giờ làm phồng rộp gỗ tủ bếp trên.",
+          "<strong>3. Lò Nướng Âm Bosch (<code>+290..+890 mm</code>) &amp; Ngăn Kéo Dưới (<code>+90..+290 mm</code>):</strong> Bố trí đúng tầm tay thao tác an toàn, phẳng tuyệt đối với dãy tủ bếp sâu <code>600 mm</code>."
+        ]
+      },
+      kitchen_appliances: {
+        img: "assets/kitchen_3d_tu_lanh_panasonic_khoang_dem_150mm.jpg",
+        caption: "Góc 6: Cận cảnh Tủ lạnh 4 cánh Panasonic NR-X561GB-VN sâu 600mm phẳng mặt tủ + Hộc tủ kéo 152mm giúp mở cánh 120°",
+        title: "Chuẩn Hóa Cột Tủ Phải (1.000 mm): Tủ Lạnh Sâu 600mm + Hộc Đệm 152mm Mở Cánh 120°",
+        items: [
+          "<strong>1. Hộc Tủ Kéo Đa Năng <code>152 mm</code> Sát Tường Gạch <code>770 mm</code>:</strong> Xử lý triệt để điểm chết bản lề tủ lạnh 4 cánh — giúp cánh phải của Tủ lạnh <code>Panasonic NR-X561GB-VN (822×600×1.890mm)</code> mở rộng tới <strong><code>120°</code></strong> để rút toàn bộ ngăn rau củ ra vệ sinh dễ dàng.",
+          "<strong>2. Chiều Sâu <code>600 mm</code> Phẳng Tuyệt Đối:</strong> Thân tủ lạnh sâu đúng <code>600 mm</code> nằm âm phẳng 100% với mặt bàn bếp và hệ tủ, không bị lồi cửa tủ ra hành lang.",
+          "<strong>3. Tận Dụng Khoang Hẹp <code>152 mm</code> Cực Kỳ Hữu Ích:</strong> Bên trong hộc kéo <code>152 mm</code> chia tầng để khay nướng, thớt, giấy bạc, màng bọc thực phẩm hoặc cất gọn thang nhôm gấp &amp; máy hút bụi cầm tay."
+        ]
+      }
+    };
+
+    function switch3D(key) {
+      const data = VIEWS[key];
+      if (!data) return;
+      document.getElementById("main-3d-img").src = data.img;
+      document.getElementById("main-3d-caption").textContent = data.caption;
+      const infoEl = document.getElementById("main-3d-info");
+      infoEl.innerHTML = `
+        <h3>${data.title}</h3>
+        <ul class="check-list">
+          ${data.items.map(it => `<li>${it}</li>`).join("")}
+        </ul>
+      `;
+      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+      const activeBtn = document.getElementById("tab-" + key);
+      if (activeBtn) activeBtn.classList.add("active");
+    }
+
+    function openLightbox(src, titleText) {
+      const dialog = document.getElementById("lightbox-modal");
+      const img = document.getElementById("lightbox-img");
+      const title = document.getElementById("lightbox-title");
+      img.src = src;
+      if (titleText) title.textContent = titleText;
+      dialog.showModal();
+    }
+  </script>
+</body>
+</html>

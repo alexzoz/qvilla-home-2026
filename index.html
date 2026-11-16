@@ -1,0 +1,2715 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang Chủ &amp; Bảng Tổng Hợp Dự Toán Chi Phí — Biệt Thự Q Villa (XHOME)</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-base: #070b12;
+      --bg-surface: #0f172a;
+      --bg-elevated: #1e293b;
+      --bg-glass: rgba(15, 23, 42, 0.88);
+      --border: rgba(148, 163, 184, 0.18);
+      --border-strong: rgba(245, 158, 11, 0.45);
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-light: #fde68a;
+      --emerald: #10b981;
+      --emerald-light: #6ee7b7;
+      --sky: #38bdf8;
+      --sky-light: #bae6fd;
+      --purple: #a855f7;
+      --purple-light: #e9d5ff;
+      --rose: #f43f5e;
+      --rose-light: #fecdd3;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-lg: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.55;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(245, 158, 11, 0.08), transparent 35%),
+        radial-gradient(circle at 88% 15%, rgba(16, 185, 129, 0.08), transparent 35%),
+        radial-gradient(circle at 50% 85%, rgba(56, 189, 248, 0.06), transparent 40%),
+        var(--bg-base);
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 18, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    a.brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    a.brand:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #070b12;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 7px 13px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .brand-title h1 {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-title p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.55);
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      border-color: var(--accent);
+      background: rgba(245, 158, 11, 0.18);
+    }
+
+    /* Hero Banner */
+    .hero {
+      padding: 28px 0 18px;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.82));
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      padding: 26px 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--emerald-light);
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .hero-info h2 {
+      font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
+    .hero-info p {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      max-width: 820px;
+    }
+
+    /* Preset Switcher */
+    .preset-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      background: rgba(7, 11, 18, 0.65);
+      padding: 6px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .preset-btn {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 9px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .preset-btn:hover {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .preset-btn.active {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(56, 189, 248, 0.2));
+      border-color: var(--emerald);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+    }
+
+    /* KPI Summary Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-box {
+      background: rgba(7, 11, 18, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      transition: border-color 0.2s ease;
+    }
+
+    .kpi-box.highlight-emerald {
+      border-color: rgba(16, 185, 129, 0.55);
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.13), rgba(7, 11, 18, 0.75));
+    }
+
+    .kpi-box.highlight-amber {
+      border-color: rgba(245, 158, 11, 0.55);
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.13), rgba(7, 11, 18, 0.75));
+    }
+
+    .kpi-box.highlight-sky {
+      border-color: rgba(56, 189, 248, 0.5);
+      background: linear-gradient(145deg, rgba(56, 189, 248, 0.12), rgba(7, 11, 18, 0.75));
+    }
+
+    .kpi-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .kpi-value {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kpi-sub {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+
+    /* Visual Budget Stacked Bar */
+    .budget-bar-wrap {
+      background: rgba(7, 11, 18, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 18px;
+    }
+
+    .budget-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .budget-bar-track {
+      height: 14px;
+      width: 100%;
+      background: rgba(30, 41, 59, 0.9);
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+      gap: 2px;
+      margin-bottom: 12px;
+    }
+
+    .budget-bar-seg {
+      height: 100%;
+      transition: width 0.35s ease;
+    }
+
+    .budget-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.76rem;
+      color: var(--text-secondary);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    /* Section Headings */
+    section {
+      padding: 26px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-light);
+      background: rgba(245, 158, 11, 0.15);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .section-header h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .section-header p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 780px;
+    }
+
+    /* Portal Cards Grid (7 Project Modules) */
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 440px) {
+      .portal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .portal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .portal-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.75);
+    }
+
+    .portal-thumb {
+      position: relative;
+      height: 195px;
+      background: #05080f;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .portal-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .portal-card:hover .portal-thumb img {
+      transform: scale(1.04);
+    }
+
+    .portal-badge-top {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(7, 11, 18, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .portal-cost-pill {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.95), rgba(5, 150, 105, 0.95));
+      color: #04130d;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+
+    .portal-body {
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 10px;
+    }
+
+    .portal-body h3 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.35;
+    }
+
+    .portal-body h3 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .portal-body h3 a:hover {
+      color: var(--accent-light);
+    }
+
+    .portal-specs {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      flex: 1;
+    }
+
+    .portal-specs li::before {
+      content: "• ";
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .portal-option-select {
+      background: rgba(7, 11, 18, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 8px 10px;
+      margin-top: 4px;
+    }
+
+    .portal-option-select label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .portal-option-select select {
+      width: 100%;
+      background: var(--bg-elevated);
+      color: #fff;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 7px;
+      padding: 6px 8px;
+      font-size: 0.81rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .portal-footer {
+      display: flex;
+      gap: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .btn-open-page {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #070b12;
+      font-weight: 800;
+      font-size: 0.83rem;
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 10px;
+      transition: filter 0.18s ease, transform 0.18s ease;
+    }
+
+    .btn-open-page:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    .btn-jump-table {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 41, 59, 0.8);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 9px 12px;
+      border-radius: 10px;
+      transition: all 0.18s ease;
+    }
+
+    .btn-jump-table:hover {
+      color: #fff;
+      border-color: var(--sky);
+    }
+
+    /* Toolbar for Cost Table */
+    .table-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.65);
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .filter-pill:hover,
+    .filter-pill.active {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .action-btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-tool {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      font-size: 0.79rem;
+      font-weight: 700;
+      padding: 7px 12px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.16s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn-tool:hover {
+      border-color: var(--sky);
+      background: rgba(56, 189, 248, 0.15);
+    }
+
+    .btn-tool.primary {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: var(--emerald);
+      color: var(--emerald-light);
+    }
+
+    /* Responsive Data Table (modern-web-guidance: responsive-table) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(760px, 82vh);
+      container-type: inline-size;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    table.cost-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.84rem;
+      --label-2: "Phân khu";
+      --label-3: "Quy cách kỹ thuật & Hồ sơ";
+      --label-4: "ĐVT";
+      --label-5: "Số lượng";
+      --label-6: "Đơn giá (VNĐ)";
+      --label-7: "Thành tiền (VNĐ)";
+      --label-8: "Ghi chú / Nhà thầu";
+    }
+
+    table.cost-table caption {
+      text-align: left;
+      padding: 14px 18px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      color: var(--accent-light);
+      background: rgba(7, 11, 18, 0.85);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Sticky column headers (desktop) */
+    table.cost-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 3;
+    }
+
+    table.cost-table thead th {
+      background: #090e1a;
+      color: var(--text-secondary);
+      font-weight: 800;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 12px 12px;
+      border-bottom: 2px solid rgba(245, 158, 11, 0.4);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    table.cost-table tbody tr {
+      transition: background 0.15s ease;
+    }
+
+    table.cost-table tbody tr:hover {
+      background: rgba(30, 41, 59, 0.65);
+    }
+
+    table.cost-table tbody tr.row-unchecked {
+      opacity: 0.45;
+    }
+
+    table.cost-table tbody tr.group-row th {
+      background: rgba(30, 41, 59, 0.95);
+      color: var(--accent-light);
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      position: static;
+    }
+
+    /* Sticky row headers (desktop) */
+    table.cost-table tbody th.item-name-cell {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 1;
+      background: #0f172a;
+      color: #fff;
+      font-weight: 700;
+      padding: 11px 12px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid rgba(148, 163, 184, 0.14);
+      min-width: 240px;
+      max-width: 310px;
+      text-align: left;
+    }
+
+    table.cost-table tbody tr:hover th.item-name-cell {
+      background: #17233b;
+    }
+
+    table.cost-table tbody td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: middle;
+    }
+
+    .cat-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .input-inline {
+      background: rgba(7, 11, 18, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      color: #fff;
+      border-radius: 6px;
+      padding: 5px 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .input-inline:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25);
+    }
+
+    .input-qty {
+      width: 72px;
+      text-align: right;
+    }
+
+    .input-price {
+      width: 124px;
+      text-align: right;
+    }
+
+    .input-total {
+      width: 132px;
+      text-align: right;
+      color: var(--emerald-light);
+      font-weight: 800;
+      border-color: rgba(16, 185, 129, 0.35);
+      background: rgba(6, 78, 59, 0.25);
+    }
+
+    .input-inline.is-edited {
+      border-color: var(--emerald);
+      box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.35);
+    }
+
+    .save-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: var(--emerald-light);
+      transition: all 0.2s ease;
+    }
+
+    .save-status-badge.unsaved {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: var(--accent);
+      color: #fde68a;
+    }
+
+    .save-status-badge.flash {
+      background: rgba(16, 185, 129, 0.35);
+      transform: scale(1.03);
+    }
+
+    .preset-btn.saved-custom-btn {
+      border-color: rgba(56, 189, 248, 0.55);
+      color: #bae6fd;
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    .preset-btn.saved-custom-btn.active {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.32), rgba(16, 185, 129, 0.25));
+      border-color: var(--sky);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+    }
+
+    .preset-btn.save-action-btn {
+      background: linear-gradient(135deg, #10b981, #059669);
+      border-color: #34d399;
+      color: #04130d;
+      font-weight: 800;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+    }
+
+    .preset-btn.save-action-btn:hover {
+      filter: brightness(1.08);
+      color: #04130d;
+    }
+
+    .unsaved-floating-bar {
+      position: fixed;
+      bottom: 20px;
+      right: 24px;
+      z-index: 999;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      background: rgba(15, 23, 42, 0.96);
+      backdrop-filter: blur(12px);
+      border: 2px solid var(--accent);
+      border-radius: 14px;
+      padding: 10px 16px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+    }
+
+    .unsaved-floating-bar.visible {
+      display: flex;
+    }
+
+    .input-note {
+      width: 100%;
+      min-width: 150px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .cell-total {
+      font-weight: 800;
+      color: var(--emerald-light);
+      text-align: right;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+      font-size: 0.9rem;
+    }
+
+    table.cost-table tfoot td,
+    table.cost-table tfoot th {
+      background: #090e1a;
+      padding: 14px 12px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #fff;
+      border-top: 2px solid var(--accent);
+    }
+
+    /* Responsive Stacked Layout for narrow containers (modern-web-guidance: responsive-table) */
+    @container (width < 600px) {
+      table.cost-table,
+      table.cost-table thead,
+      table.cost-table tbody,
+      table.cost-table tfoot,
+      table.cost-table tr,
+      table.cost-table th,
+      table.cost-table td {
+        display: block;
+      }
+
+      table.cost-table thead {
+        display: none;
+      }
+
+      table.cost-table tbody tr {
+        margin-block-end: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      table.cost-table tbody th.item-name-cell {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: #1e293b;
+        max-width: none;
+        width: 100%;
+      }
+
+      table.cost-table tbody td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        text-align: right;
+      }
+
+      table.cost-table td:nth-child(2)::before {
+        content: var(--label-2) ": ";
+        font-weight: 700;
+        color: var(--text-muted);
+        text-align: left;
+      }
+      table.cost-table td:nth-child(3)::before {
+        content: var(--label-3) ": ";
+        font-weight: 700;
+        color: var(--text-muted);
+        text-align: left;
+      }
+      table.cost-table td:nth-child(4)::before {
+        content: var(--label-4) ": ";
+        font-weight: 700;
+        color: var(--text-muted);
+        text-align: left;
+      }
+      table.cost-table td:nth-child(5)::before {
+        content: var(--label-5) ": ";
+        font-weight: 700;
+        color: var(--text-muted);
+        text-align: left;
+      }
+      table.cost-table td:nth-child(6)::before {
+        content: var(--label-6) ": ";
+        font-weight: 700;
+        color: var(--text-muted);
+        text-align: left;
+      }
+      table.cost-table td:nth-child(7)::before {
+        content: var(--label-7) ": ";
+        font-weight: 700;
+        color: var(--text-muted);
+        text-align: left;
+      }
+      table.cost-table td:nth-child(8)::before {
+        content: var(--label-8) ": ";
+        font-weight: 700;
+        color: var(--text-muted);
+        text-align: left;
+      }
+    }
+
+    @media print {
+      header, .preset-bar, .table-toolbar, .portal-footer {
+        display: none !important;
+      }
+      .table-wrapper {
+        max-block-size: none !important;
+        overflow: visible !important;
+      }
+      body {
+        background: #fff;
+        color: #000;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- STICKY HEADER (Góc trái trên cùng luôn về Trang chủ index.html) -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" title="Về Trang Chủ — Tổng Hợp Hạng Mục &amp; Dự Toán Chi Phí Q Villa">
+        <span class="brand-badge">🏠 Q VILLA • TRANG CHỦ</span>
+        <div class="brand-title">
+          <h1>Tổng Hợp Dự Toán Hoàn Thiện Kiến Trúc, M&amp;E &amp; Khu Bếp (Chưa Gồm Nội Thất Đồ Rời) — Q Villa</h1>
+          <p>Chủ đầu tư: Ông Phùng Văn Quân • Từ mốc đổ xong mái Tầng 3 đến hoàn thiện vào ở (Bấm góc trái trên cùng ở mọi trang để về đây)</p>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng tất cả hạng mục">
+        <a href="#sec-hub" class="active">🗂️ 1. 13 Hạng Mục Hoàn Thiện</a>
+        <a href="#sec-cost-table" style="border-color:rgba(16,185,129,0.55);color:#6ee7b7;">💰 2. Bảng Dự Toán (52 Mục)</a>
+        <a href="noi-that-toan-nha.html" style="border-color:rgba(16,185,129,0.85);color:#6ee7b7;background:rgba(16,185,129,0.14);">🪑 Nội Thất Toàn Nhà (MDF + Plywood)</a>
+        <a href="phong-khach-bep-tang1.html" style="border-color:rgba(245,158,11,0.65);color:#fde68a;">🛋️ P. Khách &amp; Bếp T1</a>
+        <a href="bep-tang1.html" style="border-color:rgba(236,72,153,0.65);color:#f9a8d4;">🍳 3D Tủ Bếp &amp; Bàn Đảo</a>
+        <a href="san-sau-tang1.html" style="border-color:rgba(16,185,129,0.65);color:#6ee7b7;">🌿 Sân Sau &amp; Lọc Nước 3D</a>
+        <a href="phong-master-tang2.html" style="border-color:rgba(234,88,12,0.55);color:#fdba74;">👑 P. Master T2</a>
+        <a href="op-lat-chia-gach.html" style="border-color:rgba(20,184,166,0.7);color:#5eead4;">📐 Chia Gạch 1m/1m2 &amp; Xương Cá</a>
+        <a href="tran-thach-cao.html" style="border-color:rgba(56,189,248,0.75);color:#bae6fd;background:rgba(56,189,248,0.12);">📐 Trần Thạch Cao 4 Tầng</a>
+        <a href="son-gach-phoi-mau.html" style="border-color:rgba(245,158,11,0.55);color:#fde68a;">🎨 Phối Màu Sơn &amp; Gạch</a>
+        <a href="aqara-smarthome.html">⚡ Công Tắc Aqara</a>
+        <a href="chieu-sang-opple-3d.html">💡 3D Đèn OPPLE</a>
+        <a href="mat-tien.html">🏛️ Mặt Tiền</a>
+        <a href="khoi-xay-mat-tien-t2-t3-3d.html" style="border-color:rgba(56,189,248,0.7);color:#bae6fd;">🧱 3D Khối Xây T2–T3</a>
+        <a href="cua-chinh-d1.html" style="border-color:rgba(16,185,129,0.65);color:#6ee7b7;">🚪 Cửa Chính D1 (PA 1B)</a>
+        <a href="cua-go-lim-d3.html">🚪 Cửa Gỗ D3</a>
+        <a href="phong-lam-viec-tang3.html">💻 P. Làm Việc T3</a>
+        <a href="phong-tho-tang3.html" style="border-color:rgba(229,169,60,0.7);color:#fde68a;">🪷 Phòng Thờ T3 (100%)</a>
+        <a href="giam-sat-wc.html">🚽 Giám Sát WC</a>
+        <a href="tang-tum-3d.html">🧊 3D Tầng Tum</a>
+        <a href="gieng-troi-mai-kinh-3d.html" style="border-color: var(--emerald); color: #6ee7b7;">🌤️ 3D Mái Kính Giếng Trời</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO & REALTIME BUDGET SUMMARY -->
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-top">
+          <div class="hero-info">
+            <span class="hero-eyebrow">✨ PHẠM VI: HOÀN THIỆN KIẾN TRÚC, CÔNG THỢ, ĐIỆN NƯỚC &amp; KHU BẾP (ĐÃ BỎ NỘI THẤT ĐỒ RỜI)</span>
+            <h2>Tổng Hợp 12 Phân Khu Hoàn Thiện &amp; Bảng Dự Toán Chi Phí Chi Tiết (Sau Khi Đổ Mái Tầng 3)</h2>
+            <p>
+              Đã cập nhật đầy đủ: <strong>Cửa nhôm kính DCONS</strong> (Bản 3.1/Bản 2/Bản 1), <strong>Công thợ nề &amp; xây trát còn lại</strong>, <strong>Trần thạch cao 2026</strong>, <strong>Gạch ốp lát – Đá cầu thang – Sàn gỗ xương cá</strong>, <strong>Tủ bếp Inox 3 lớp KITPRO + Đá Vicostone</strong>, <strong>Thiết bị bếp Bosch/GrandX/Konox</strong>, và <strong>đã loại bỏ toàn bộ nội thất bàn tủ rời ở Phòng Làm Việc Tầng 3</strong> (chỉ tính đèn, điện, LAN, điều hòa, rèm).
+            </p>
+          </div>
+          <div class="preset-bar" role="group" aria-label="Chọn kịch bản ngân sách">
+            <button type="button" class="preset-btn saved-custom-btn" id="btn-preset-saved" data-preset="saved" onclick="restoreLastSavedBudget()" title="Quay về đúng bảng giá bạn đã bấm Lưu gần nhất">
+              📌 Bản Đã Lưu Của Tôi
+            </button>
+            <button type="button" class="preset-btn active" data-preset="optimal" onclick="applyPreset('optimal')">
+              ⭐ PA Tối Ưu Khuyên Dùng (Full Bếp)
+            </button>
+            <button type="button" class="preset-btn" data-preset="under2b" onclick="applyPreset('under2b')">
+              🎯 PA Gói Gọn &lt; 2 Tỷ (Lùi Mái Sắt Tum)
+            </button>
+            <button type="button" class="preset-btn" data-preset="nofurniture" onclick="applyPreset('nofurniture')">
+              🏗️ Thuần Hoàn Thiện (Chưa Tính Bếp)
+            </button>
+            <button type="button" class="preset-btn" data-preset="economy" onclick="applyPreset('economy')">
+              🌱 PA Tiết Kiệm Tối Đa
+            </button>
+            <button type="button" class="preset-btn" data-preset="premium" onclick="applyPreset('premium')">
+              💎 PA Nguyên Bản / Báo Giá Gốc
+            </button>
+            <button type="button" class="preset-btn save-action-btn" onclick="manualSaveBudget()" title="Chỉ khi bấm nút này thì bảng giá hiện tại mới được lưu lại cho lần mở sau">
+              💾 Bấm Để Lưu Bảng Giá
+            </button>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-box highlight-emerald">
+            <div class="kpi-label">Tổng Dự Toán Hoàn Thiện Đang Chọn (12 Phân Khu)</div>
+            <div class="kpi-value" id="kpi-grand-total">1.999.090.000 ₫</div>
+            <div class="kpi-sub" id="kpi-grand-sub">Đã chọn 50/50 hạng mục hoàn thiện &amp; khu bếp bên dưới</div>
+          </div>
+          <div class="kpi-box highlight-amber">
+            <div class="kpi-label">Nhóm I: Cửa Nhôm, Cửa Gỗ, Gạch Đá, Trần, Sơn &amp; Mặt Tiền</div>
+            <div class="kpi-value" id="kpi-group-a">1.053.050.000 ₫</div>
+            <div class="kpi-sub">Vật tư &amp; Hạng mục Hoàn thiện Kiến trúc + Ngoại thất + Tum</div>
+          </div>
+          <div class="kpi-box highlight-sky">
+            <div class="kpi-label">Nhóm II: Công Thợ, Xây Trát, Điện Nước, Aqara, WC &amp; Bếp</div>
+            <div class="kpi-value" id="kpi-group-b">946.040.000 ₫</div>
+            <div class="kpi-sub">Công thợ nề + MEP + Aqara + Đèn OPPLE + 4 WC + Tủ bếp &amp; TB Bếp</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">Tiết Kiệm So Với Báo Giá Gốc / PA Nguyên Bản</div>
+            <div class="kpi-value" style="color: #34d399;" id="kpi-savings">-425.250.000 ₫</div>
+            <div class="kpi-sub" id="kpi-savings-sub">So với mức 2.424.340.000 ₫ của PA Nguyên bản chưa tối ưu</div>
+          </div>
+        </div>
+
+        <!-- Visual Stacked Progress Bar -->
+        <div class="budget-bar-wrap">
+          <div class="budget-bar-header">
+            <strong>📊 Tỷ trọng phân bổ ngân sách theo 12 phân khu hoàn thiện:</strong>
+            <span id="budget-mode-label" style="color: var(--accent-light); font-weight: 700;">Đang áp dụng: ⭐ PA Tối Ưu Khuyên Dùng</span>
+          </div>
+          <div class="budget-bar-track" id="budget-bar-track"></div>
+          <div class="budget-legend" id="budget-legend"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: 12 PROJECT MODULES PORTAL -->
+    <section id="sec-hub">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">PHẦN 1 • CỔNG ĐIỀU HƯỚNG 12 PHÂN KHU HOÀN THIỆN KIẾN TRÚC, M&amp;E &amp; BẾP</span>
+          <h2>13 Hạng Mục Hoàn Thiện Toàn Công Trình Q Villa (Chọn Phương Án Trực Tiếp Trên Từng Thẻ)</h2>
+          <p>Mỗi phân khu được tổng hợp trực tiếp từ hồ sơ bản vẽ XHOME và các báo giá thực tế đã thẩm định. Bạn có thể đổi phương án thi công trên từng thẻ hoặc bấm vào bảng chi tiết bên dưới:</p>
+        </div>
+      </div>
+
+      <div class="portal-grid">
+        <!-- Card 1: Cửa Nhôm Kính DCONS (a20d87dc) -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/mb_cua_tang_1_pa3_1.png" alt="Mặt bằng chuẩn hóa hệ cửa nhôm kính DCONS Bản 3.1" loading="lazy" />
+            <span class="portal-badge-top">1. Hệ Cửa Nhôm Kính DCONS</span>
+            <span class="portal-cost-pill" id="card-cost-cat1">351,25 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="#sec-cost-table" onclick="filterTable('cat1')">🪟 Hệ Cửa Nhôm Kính Toàn Nhà DCONS (~120,1 m² • 28 Bộ Cửa)</a></h3>
+            <ul class="portal-specs">
+              <li><strong>Chuẩn hóa Bản 3.1 (a20d87dc):</strong> Trừ cửa xây bịt (<code>V5</code> Tum, <code>1 bộ V3 &amp; 1 bộ S1</code> T1), đổi <code>S1A</code> bếp về cửa sổ lùa, chuẩn hóa <code>D4 &amp; S1B</code>, tách mặt dài <code>D11</code> làm Vách FIX Hệ 55 và 2 cửa ngắn mở gập dồn tường.</li>
+              <li><strong>Tách giá Vách FIX 1,5tr/m²:</strong> Tách phần Vách FIX dưới (cao 1.0m) của <code>S1B, V3, D7A, S2, S3, S4, V4, D11</code> về giá 1,5tr/m² giúp tiết kiệm ~39,7tr so với BG gốc 390,94tr mà vẫn giữ <strong>100% Hệ lùa 100 (2 cánh lớn) + 100% PK Cmech (Mỹ)</strong>.</li>
+              <li><strong>Cửa chính D1 (1750×3000mm):</strong> Đã tách riêng thành <strong>Mục 13 (<a href="cua-chinh-d1.html" style="color:#34d399;text-decoration:underline;">Hồ Sơ Cửa Chính Gỗ Lim D1 — PA 1B</a>)</strong> để theo dõi độc lập.</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat1">Chọn phương án Hệ cửa nhôm kính DCONS (28 bộ):</label>
+              <select id="sel-cat1" onchange="onModuleOptionChange('cat1', this.value)">
+                <option value="opt1" selected>⭐ Bản 3.1 (TH2A): Full Hệ 100 &amp; Cmech + S4/V4 3.0m + Tách Vách FIX 1,5tr (351,25 Tr)</option>
+                <option value="opt2">✨ Bản 3.1 Cơ sở: Full Hệ 100 &amp; Cmech (S4/V4 2.1m, chỉ tách FIX D11: 352,57 Tr)</option>
+                <option value="opt3">🌱 Bản 2 (Tối ưu): Giữ Hệ 100 V1/D6/D4 + Cmech T1–T3, PK Kinlong ở Tum (328,00 Tr)</option>
+                <option value="opt4">🌱 Bản 1 (Tiết kiệm): Giữ Hệ 100 V1 + Hạ Hệ 93 &amp; Kinlong cửa phụ (312,00 Tr)</option>
+                <option value="opt5">💎 Báo Giá Gốc DCONS 136,76 m² Chưa Tách Vách FIX (390,94 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="assets/mb_cua_tang_1_pa3_1.png" target="_blank" class="btn-open-page">📐 Xem Mặt Bằng Cửa 3.1 →</a>
+              <a href="#sec-cost-table" onclick="filterTable('cat1')" class="btn-jump-table">📋 Xem Bảng Giá</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Công Thợ Nề, Xây Trát, Chống Thấm & Điện Nước Trục Chính (dfb3de80) -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/cd08_diennhe_t1_crop.png" alt="Công thợ xây trát, chống thấm và điện nước trục chính" loading="lazy" />
+            <span class="portal-badge-top">2. Công Thợ, Xây Trát &amp; MEP Trục Chính</span>
+            <span class="portal-cost-pill" id="card-cost-cat2">568,00 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="#sec-cost-table" onclick="filterTable('cat2')">👷 Công Thợ Nề Còn Lại, Cát Xi Trát, Chống Thấm &amp; Điện Nước Trục Chính</a></h3>
+            <ul class="portal-specs">
+              <li><strong>Nhân công nề hoàn thiện (dfb3de80):</strong> Tổng công xây/trát trong ngoài/cán nền/ốp lát ~350 m² sàn khoảng 480–580tr, trừ <strong>200tr đã tạm ứng phần thô</strong> → còn <strong>~280–320 Triệu ₫</strong>.</li>
+              <li><strong>Vật tư xây trát &amp; Chống thấm:</strong> Cát + xi măng trát trong ngoài &amp; cán nền 4 tầng (~95tr) + Chống thấm 3 lớp Sikatop Seal 107 &amp; lưới thủy tinh 173 m² + Vỉ thoát nước bồn hoa (~32tr).</li>
+              <li><strong>Điện nước trục chính &amp; Ống đồng ĐH chờ:</strong> 6.529m dây cáp Trần Phú/Cadivi + 4 Tủ điện 36 Aptomat Schneider + Chống sét (59tr) + Công thợ điện nước (45tr) + 4 Bình nóng lạnh &amp; 2 Máy bơm (19tr) + Đi âm toàn bộ ống đồng Điều hòa trước khi đóng trần (18tr).</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat2">Chọn mức dự toán Công thợ, Xây trát &amp; Điện nước trục chính:</label>
+              <select id="sel-cat2" onchange="onModuleOptionChange('cat2', this.value)">
+                <option value="opt1" selected>⭐ Mức Chuẩn Thực Tế (Công nề còn 300tr + Cát xi 95tr + MEP: 568,00 Tr)</option>
+                <option value="opt2">🌱 Mức Tiết Kiệm Khéo Quản Lý (Công nề 280tr + Vật tư tối ưu: 528,00 Tr)</option>
+                <option value="opt3">💎 Mức Dự Phòng Cao (Công nề 350tr + Vật tư/Phụ kiện cao cấp: 645,00 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="#sec-cost-table" onclick="filterTable('cat2')" class="btn-open-page">👷 Xem Bóc Tách Công Thợ &amp; MEP →</a>
+              <a href="#sec-cost-table" onclick="filterTable('cat2')" class="btn-jump-table">📋 Xem Bảng Giá</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Trần Thạch Cao 2026 & Sơn Bả Nội Thất (71ed369a & son-gach-phoi-mau.html) -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/qvilla_tran_giat_cap_t1_02_phong_khach.jpg" alt="Ảnh thực tế trần thạch cao giật cấp Phòng Khách Q-Villa theo thiết kế gốc XHOME" loading="lazy" />
+            <span class="portal-badge-top">3. Trần Thạch Cao &amp; Sơn Nội Thất</span>
+            <span class="portal-cost-pill" id="card-cost-cat3">113,60 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="tran-thach-cao.html">✨ Trần Thạch Cao 4 Tầng (228 m² • 13/13 Ảnh Thực Tế Nhà Q-Villa) &amp; Sơn Bả Nội Thất (780 m²)</a></h3>
+            <ul class="portal-specs">
+              <li><strong>3 Phương án đối chiếu trực quan 1:1 ngay trên phòng thật Q-Villa (228 m² — 44,5tr..50tr):</strong> Đặt song song <strong>PA A</strong> (100% gốc XHOME vuông góc), <strong>PA B</strong> (Tối ưu Bếp 2,8m • Master PA2 • P.Thờ <code>Y=1.960</code> • Phẳng <code>T3-A</code>) và <strong>PA C Mới — Kiểu Bo Cong Mềm <code>R350mm</code></strong> (tham khảo <code>@ducanh_tranthachcao</code>: khe LED uốn cong + nẹp nhựa âm đen <code>12mm</code> bo cong) (<a href="Ho_So_Thi_Cong_Tran_Thach_Cao_4_Tang_QVilla.pdf" target="_blank" style="color:#38bdf8;font-weight:700;">PDF A3 10 Tờ: CAD + Ảnh Nhà Thật</a>).</li>
+              <li><strong>Chi tiết kiến trúc XHOME &amp; phụ kiện uốn cong (14,5tr..18,7tr):</strong> Nẹp tường <code>Shadowlight</code> trắng (~190 md), khe hắt sáng 01/02 + hốc rèm lót gỗ Plywood 18mm, chỉ âm đen <code>P-UT12 (12mm) / Nẹp đục lỗ uốn cong R350</code> &amp; nắp thăm trần chìm.</li>
+              <li><strong>Sơn bả nội thất tách bạch Vật tư &amp; Công bả lăn (780 m² = 54,6tr):</strong> Vật tư sơn phủ (<code>33,6tr</code> = 6 thùng 15L Tường chính <code>White Cotton 30GY 88/014</code> <code>24,5tr</code> + 2 lon 5L Vách nhấn <code>Warm Pewter</code> <code>2,8tr</code> + 3 thùng 18L Trắng trần <code>6,3tr</code>) + Bột bả 22 bao, 6 thùng lót kháng kiềm <code>Z505/K-109</code> &amp; công lăn (<code>21,0tr</code>).</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat3">Chọn gói Trần thạch cao 4 tầng &amp; Sơn bả nội thất:</label>
+              <select id="sel-cat3" onchange="onModuleOptionChange('cat3', this.value)">
+                <option value="opt1" selected>⭐ PA A/B Chuẩn Phối Màu: Vĩnh Tường + Shadowline/P-UT12 + Sơn Dulux/Kova (113,60 Tr)</option>
+                <option value="opt_curve">🌙 PA C — Kiểu Trần Bo Cong R350 (Đức Anh 35: Phào Cong + Nẹp Đen Cong 12mm + Sơn Dulux/Kova: 120,10 Tr)</option>
+                <option value="opt2">🌱 PA Tiết Kiệm: Trần Phẳng Tối Giản Ít Giật Cấp + Sơn Kinh Tế (101,50 Tr)</option>
+                <option value="opt3">💎 PA Cao Cấp: Tấm Siêu Chịu Ẩm Toàn Bộ + Sơn Dulux 5in1 / Kova K-5500 Gold (134,50 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer" style="flex-wrap:wrap;">
+              <a href="tran-thach-cao.html" class="btn-open-page">📐 Hồ Sơ Thi Công Trần 4 Tầng →</a>
+              <a href="son-gach-phoi-mau.html" class="btn-jump-table">🎨 Phối Màu Sơn</a>
+              <a href="#sec-cost-table" onclick="filterTable('cat3')" class="btn-jump-table">📋 Bảng Giá</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Gạch Ốp Lát, Gạch Gỗ Xương Cá & Đá Tự Nhiên Cầu Thang / Bậu Cửa (op-lat-chia-gach.html & son-gach-phoi-mau.html) -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/op_lat_chia_gach_card.png" alt="Sơ đồ chia gạch khổ lớn 1000x1000 / 1200x1200, viên lát định vị và gạch giả gỗ xương cá 150x900 Q Villa" loading="lazy" />
+            <span class="portal-badge-top">4. Chia Gạch 1m/1m2 • Gỗ Xương Cá &amp; Đá</span>
+            <span class="portal-cost-pill" id="card-cost-cat4">274,40 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="op-lat-chia-gach.html">📐 Chia Khổ Gạch 1m / 1m2 Tầng 1 • Gạch Gỗ Xương Cá 150×900 (127 Hộp) &amp; Đá Cầu Thang</a></h3>
+            <ul class="portal-specs">
+              <li><strong>Chia gạch Tầng 1 (55,1 m²) &amp; Hành lang T2–Tum (27,7 m²):</strong> Tầng 1 chốt <strong><code>1000×1000</code></strong> (<strong>62,0 m² = 31 hộp</strong>, định vị <code>X=0, Y=0</code> thông mạch Tiền sảnh, 0% mẩu vụn) hoặc <strong><code>1200×1200</code></strong> (<strong>63,36 m² = 22 hộp</strong>, định vị mép cửa chính D1 <code>X=1.150, Y=0</code>) + Hành lang T2–T3 &amp; Tum lát <code>800×800</code> đồng màu (<strong>30,72 m² = 16 hộp</strong>).</li>
+              <li><strong>Gạch giả gỗ Porcelain 150×900 lát xương cá 45° (56,24 Tr):</strong> Đặt chuẩn <strong>137,16 m² (127 hộp × 1,08m²)</strong> cho Full T1–T3 (Master 22 hộp + 3 PN Trục A–B 43 hộp + 2 PN Trục B–D 34 hộp + P.Làm việc &amp; Thờ T3 28 hộp). Hạ cốt cán nền <code>-15..-17mm</code>, dùng <strong>~54 bao keo C2</strong> trét 2 mặt &amp; <strong>bỏ toàn bộ nẹp T8 lồi</strong>.</li>
+              <li><strong>Gạch 4 WC (125,28 m² = 87 hộp), Sân/Ban công R11 &amp; Đá thang:</strong> Tường 4 WC <strong>ốp dọc <code>600×1200</code></strong> (<strong>100,8 m² = 70 hộp</strong>: 51 hộp 3 WC-01 + 19 hộp WC-02 Master) + Sàn <code>600×600</code> R10/R11 (<strong>24,48 m² = 17 hộp</strong>) = 42,0tr; Sân/Tum/Ban công R11 (112,5 m² = 26,5tr); Đá thang 67 bậc (52tr) &amp; Đá bậu cửa/Tam cấp/Bếp ướt sân sau (40tr).</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat4">Chọn phương án Khổ gạch T1, Gạch giả gỗ xương cá / Sàn gỗ &amp; Đá cầu thang:</label>
+              <select id="sel-cat4" onchange="onModuleOptionChange('cat4', this.value)">
+                <option value="opt1" selected>⭐ PA Chuẩn Chia Gạch: T1 1000×1000 (31 hộp) + Gạch Gỗ Xương Cá 150×900 (127 hộp) + 54 Bao Keo C2 (274,40 Tr)</option>
+                <option value="opt4">📐 PA Gạch 800×800 T1 (48 hộp) + Gạch Giả Gỗ Xương Cá 150×900 (127 hộp) + Keo C2 (268,74 Tr)</option>
+                <option value="opt5">👑 PA Đại Cảnh 1m2×1m2: T1 1200×1200 (22 hộp • Định vị D1) + Gỗ Xương Cá 150×900 (286,86 Tr)</option>
+                <option value="opt_wood">🪵 PA Sàn Gỗ CN: Gạch 800×800 T1 + Sàn Gỗ Công Nghiệp 12mm Xương Cá (130m²) + Đá Thang (271,40 Tr)</option>
+                <option value="opt2">🌱 PA Tiết Kiệm: Gạch 800×800 &amp; Gạch Giả Gỗ Phân Khúc Khá + Đá Kim Sa (244,50 Tr)</option>
+                <option value="opt3">💎 PA Cao Cấp Nhập Khẩu: Gạch Khổ Lớn Nhập Khẩu + Gỗ/Đá Thạch Anh Cao Cấp (352,00 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="op-lat-chia-gach.html" class="btn-open-page">📐 Bản Vẽ Chia Gạch &amp; Định Vị →</a>
+              <a href="op-lat-chia-gach.html?zone=wc01" class="btn-jump-table" style="border-color:rgba(56,189,248,0.55);color:#7dd3fc;">🚿 Chia Gạch 4 WC</a>
+              <a href="son-gach-phoi-mau.html" class="btn-jump-table" style="border-color:rgba(245,158,11,0.55);color:#fde68a;">🎨 Phối Màu</a>
+              <a href="#sec-cost-table" onclick="filterTable('cat4')" class="btn-jump-table">📋 Bảng Giá</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Tủ Bếp Inox 3 Lớp KITPRO & Đá Bàn Bếp Vicostone (0a60e588 & ec85178d) -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/bep_chinh_nhin_ra_bep_uot_san_sau.jpg" alt="Phối cảnh 3D Tủ bếp chữ I sâu 600mm, Bàn đảo ngang Trục 3 + Tủ phụ dọc tường và Bếp ướt Sân sau Q Villa" loading="lazy" />
+            <span class="portal-badge-top">5. 3D Tủ Bếp • Đảo Ngang KT-2.02 &amp; Đá Bếp</span>
+            <span class="portal-cost-pill" id="card-cost-cat5">116,12 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="bep-tang1.html">🍳 Hệ Tủ Bếp Chữ I Sâu 600mm KITPRO • PA Ưu Tiên KT-2.02: Bàn Đảo Ngang Trục 3 + Tủ Phụ • Tủ Panasonic</a></h3>
+            <ul class="portal-specs">
+              <li><strong>PA Ưu tiên (KT-2.02 — Đảo ngang Trục 3 + Tủ phụ):</strong> Bàn đảo ngang <code>1.400×800mm</code> (2 ghế Bar) nối chữ L với <strong>Hệ tủ phụ / Rượu kính LED &amp; Quầy Cafe chạy dọc tường P.Ngủ Ông Bà (<code>sâu 550mm</code>)</strong>; khe qua đầu đảo <code>1.110mm</code> &amp; sàn thoáng <code>1.960mm</code> mở thẳng ra Bếp ướt Sân sau.</li>
+              <li><strong>Cột trái (650×600mm) &amp; Cột phải (1000×600mm):</strong> Cột trái bỏ lò vi sóng làm <strong>Hốc mở đèn LED + Khay kéo Nồi cơm / Nồi chiên (+890..+1490mm)</strong>; Cột phải lắp <strong>Tủ lạnh Panasonic NR-X561GB-VN (lọt 830mm) + Hộc tủ hẹp 152mm</strong> sát tường phải mở cánh 120°.</li>
+              <li><strong>Phụ kiện Blum &amp; Mặt đá Vicostone 600mm:</strong> 05 Ngăn kéo Inox Ray âm Blum + Khóa kệ kéo Blum + Tay nâng HF + Giá bát nâng hạ + Mặt đá <strong>Vicostone Nhóm A chuẩn Sâu 600mm</strong> (11,22tr).</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat5">Chọn cấu hình Tủ bếp Inox cánh kính &amp; Đá bếp:</label>
+              <select id="sel-cat5" onchange="onModuleOptionChange('cat5', this.value)">
+                <option value="opt1" selected>⭐ PA Tối Ưu: Ray Blum Movento (Bỏ Tip-on) + Đá Vicostone 600mm (116,12 Tr)</option>
+                <option value="opt2">✨ PA Giữ 3 Bộ Tip-on Đáy (Nhấn mở bằng chân) + Đá Vicostone 600mm (118,92 Tr)</option>
+                <option value="opt3">💎 Báo Giá Gốc KITPRO Chưa Tối Ưu (Đá 700mm + 5 Tip-on + Kính 3,3m: 124,83 Tr)</option>
+                <option value="opt4">⏸️ Chưa Tính Tủ Bếp (Để sang giai đoạn Nội thất sau: 0 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="bep-tang1.html" class="btn-open-page">🍳 Mở 3D Tủ Bếp &amp; Đảo →</a>
+              <a href="san-sau-tang1.html" class="btn-jump-table" style="border-color:rgba(16,185,129,0.55);color:#6ee7b7;">🌿 3D Sân Sau &amp; M&amp;E</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6: Thiết Bị Bếp Bosch • GrandX • Konox (f322e909) -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/so_do_pha_cat_2_tam_da_bep_konox8050.png" alt="Thiết bị bếp Bosch GrandX Konox và sơ đồ cắt tận dụng đá khoét bếp" loading="lazy" />
+            <span class="portal-badge-top">6. Thiết Bị Bếp Bosch • GrandX • Konox</span>
+            <span class="portal-cost-pill" id="card-cost-cat6">48,80 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="#sec-cost-table" onclick="filterTable('cat6')">🔥 Thiết Bị Bếp: Bếp Từ &amp; Lò Nướng Bosch • Hút Mùi GrandX • Chậu Konox</a></h3>
+            <ul class="portal-specs">
+              <li><strong>Bếp từ 3 vùng nấu Bosch Serie 8 (Tây Ban Nha):</strong> Mã <code>PID675DC1E</code> hoặc <code>PID775DC1E</code> mặt kính Schott Ceran, khoét đá <code>560×490mm</code> vừa khít bàn đá sâu 600mm (~15,5tr).</li>
+              <li><strong>Lò nướng âm tủ Bosch 71L &amp; Hút mùi GrandX:</strong> Lò nướng <code>Bosch HBG5370B0 Serie 6</code> Tây Ban Nha (~17,0tr) + Hút mùi khổ 70cm động cơ BLDC siêu êm 42dB <code>GrandX GX H70F75B / T81G / T88G</code> (~6,8tr).</li>
+              <li><strong>Chậu 1 hố &amp; Vòi rút Konox (~9,5tr):</strong> Chậu chống xước hạt Linen <code>Konox KN7644SU / KN8050 / Tari 7851SR</code> + Vòi rút nóng lạnh. <strong>Đặc biệt:</strong> Tận dụng 2 phôi đá khoét chậu &amp; bếp cắt được <strong>13 tấm kệ đá góc &amp; đợt hốc âm cho cả 4 phòng WC</strong>!</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat6">Chọn bộ Thiết bị bếp (Bếp từ + Lò nướng + Hút mùi + Chậu vòi):</label>
+              <select id="sel-cat6" onchange="onModuleOptionChange('cat6', this.value)">
+                <option value="opt1" selected>⭐ PA Chuẩn Khuyên Dùng: Bếp 3 Vùng Bosch S8 + Lò S6 + GrandX + Konox (48,80 Tr)</option>
+                <option value="opt2">🌱 PA Thực Dụng Tiết Kiệm: Bếp Đôi Bosch PPI82560MS + Lò S6 + GrandX + Konox (42,00 Tr)</option>
+                <option value="opt3">💎 PA Full Bosch Serie 8 Đức (PID775DC1E + Lò HBG635BB1 + GrandX T88G: 56,50 Tr)</option>
+                <option value="opt4">⏸️ Chưa Tính Thiết Bị Bếp (Mua sau khi lắp tủ bếp: 0 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="assets/so_do_pha_cat_2_tam_da_bep_konox8050.png" target="_blank" class="btn-open-page">🪨 Xem Sơ Đồ Pha Cắt Đá Khoét Bếp →</a>
+              <a href="#sec-cost-table" onclick="filterTable('cat6')" class="btn-jump-table">📋 Xem Bảng Giá</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 7: Aqara Smarthome & Điện Nhẹ (aqara-smarthome.html) -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/cd08_diennhe_t1_crop.png" alt="Bản đồ công tắc Aqara và điện nhẹ Wifi PoE" loading="lazy" />
+            <span class="portal-badge-top">7. Điện Thông Minh &amp; Điện Nhẹ</span>
+            <span class="portal-cost-pill" id="card-cost-cat7">126,01 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="aqara-smarthome.html">⚡ Smarthome Aqara × Công Tắc Ổ Cắm Schneider &amp; Wifi 6 PoE</a></h3>
+            <ul class="portal-specs">
+              <li><strong>Đơn chốt Thái Hưng (~94,28 Tr = 89,72Tr Gốc + 4,56Tr Tự thêm):</strong> 01 Hub M3 PoE trần T1 + 02 Hub M2 IR (Tầng 2), <strong>42 công tắc Aqara H1</strong> (09×1N + 22×2N + 07×3N + 04×20A BNL = <code>33,22Tr</code>), 04 đèn sưởi Aqara T1, 04 rèm 2 lớp + 01 rèm cuốn E1, FP1E/P1, Chuông G400 &amp; Khóa D200i.</li>
+              <li><strong>Nhóm Cơ Schneider (~13,5 Tr):</strong> 23 công tắc cơ (09×1N + 14×2N) + 87 ổ cắm + 8 ổ LAN AvatarOn mặt vuông đồng bộ + 150 đế Sino.</li>
+              <li><strong>Nhóm Điện nhẹ (~18,23 Tr):</strong> 03 Wifi 6 PoE gắn trần + Router ER605 + Switch PoE 16 cổng + 03 Cam Hikvision PoE 2K + 04 Quạt hút âm trần Panasonic.</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat7">Chọn cấu hình Smarthome &amp; Điện nhẹ:</label>
+              <select id="sel-cat7" onchange="onModuleOptionChange('cat7', this.value)">
+                <option value="opt1" selected>⭐ Chốt Thái Hưng (89,72Tr Gốc + 4,56Tr T3/T2 = 94,28Tr) + Schneider + Wifi/Cam (126,01 Tr)</option>
+                <option value="opt2">🌱 Chỉ Phần 1 Gốc XHOME (89,72Tr, chưa tính P.Làm Việc T3) + Schneider + Wifi/Cam (121,45 Tr)</option>
+                <option value="opt3">💎 Báo Giá Thái Hưng Gốc 127,1 Tr + Wifi/Quạt/Ổ cắm (155,02 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="aqara-smarthome.html" class="btn-open-page">⚡ Mở Bản Đồ Công Tắc &amp; Báo Giá →</a>
+              <a href="#sec-cost-table" onclick="filterTable('cat7')" class="btn-jump-table">📋 Xem Bảng Giá</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 8: OPPLE 3D Lighting & Quạt Trần Đèn (chieu-sang-opple-3d.html) -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/mo_phong_dialux_va_huong_chinh_goc_den.png" alt="Mô phỏng chiếu sáng 3D OPPLE và độ rọi Dialux" loading="lazy" />
+            <span class="portal-badge-top">8. Chiếu Sáng 3D OPPLE &amp; Quạt Trần</span>
+            <span class="portal-cost-pill" id="card-cost-cat8">46,45 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="chieu-sang-opple-3d.html">💡 Mô Phỏng Chiếu Sáng 3D OPPLE • Vòm Barrisol Ø1.2m • Ray 48V &amp; 02 Quạt Trần Đèn</a></h3>
+            <ul class="portal-specs">
+              <li><strong>Chuẩn GS Lighting trên nền OPPLE (38,85tr T1–T3):</strong> Tầng 1 có <strong>Khung ray nam châm 48V <code>Lộ 5</code> (<code>1.825×2.970mm</code>)</strong> + 12 Spotlight <code>Lộ 3</code> bẻ 15° + 3 bóng 7W dọc Đảo bếp ngang Trục 3; Master T2 có <strong>Vòm Tròn Mặt Trăng Xuyên Sáng Barrisol <code>Ø1.200mm</code> (60W <code>Lộ 18A</code>)</strong> + 2 thanh ray <code>2.05m</code> bàn học PN1/PN3 + 13 bóng IP44 4 WC.</li>
+              <li><strong>02 Bộ Quạt trần 5 cánh gỗ kèm đèn LED 24W đổi màu Remote (5,0tr):</strong> Đặt tại <code>Lộ 6</code> (Tâm P.Khách) &amp; <code>Lộ 6A</code> (Tâm Bàn ăn 8 ghế), cấy ty sắt <code>M10/M12</code> thẳng vào sàn bê tông T2 (0% chém sáng).</li>
+              <li><strong>Đèn Phòng Làm Việc Đôi T3 (3 lộ S1, S2, S3):</strong> PA1 lắp <strong>09 Spotlight chóa sâu D90 <code>SP1..SP9</code></strong> (tọa độ <code>x=500mm</code> bẻ 15° &amp; Tủ sách bẻ 25° = <code>2,60tr</code>) hoặc PA2 nâng cấp Hệ Ray 48V 7m + <strong>03 Driver 48V độc lập</strong> (<code>9,26tr</code>).</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat8">Chọn cấu hình Đèn OPPLE &amp; Quạt trần toàn nhà:</label>
+              <select id="sel-cat8" onchange="onModuleOptionChange('cat8', this.value)">
+                <option value="opt1" selected>⭐ PA 1: OPPLE Chóa Sâu UGR&lt;16 + Vòm Barrisol Ø1.2m + 9 Đèn T3 + 02 Quạt Trần 5 Cánh (46,45 Tr)</option>
+                <option value="opt2">💎 PA 2: Nâng Cấp Hệ Ray Nam Châm 48V Tầng 3 (3 Driver Độc Lập) + 02 Quạt Trần Cao Cấp (55,11 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="chieu-sang-opple-3d.html" class="btn-open-page">💡 Mở Phòng Lab 3D Đèn OPPLE →</a>
+              <a href="#sec-cost-table" onclick="filterTable('cat8')" class="btn-jump-table">📋 Xem Bảng Giá</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 9: Facade Finishing & Exterior Paint (mat-tien.html & son-gach-phoi-mau.html) -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/persp_thucte_chuan_2cua_t3.jpg" alt="Phối cảnh vật liệu mặt tiền Q Villa" loading="lazy" />
+            <span class="portal-badge-top">9. Mặt Tiền &amp; Sơn Ngoại Thất</span>
+            <span class="portal-cost-pill" id="card-cost-cat9">78,80 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="mat-tien.html">🏛️ Hoàn Thiện Mặt Tiền (Đá Tự Nhiên vs. Sơn Hiệu Ứng) &amp; Sơn Ngoại Thất</a></h3>
+            <ul class="portal-specs">
+              <li><strong>Sơn hiệu ứng Khối chữ C T2 nhô 20cm (42 m²) &amp; Hộp vát T3 (28,0tr):</strong> T2 sơn hiệu ứng bê tông ghi đậm <code>#06</code> + chỉ âm 10×10mm chia 5 nhịp 1590mm (<code>17,0tr</code>) + Hộp vát T3 sơn hiệu ứng gỉ sét Corten &amp; gờ ngắt nước <code>GMN-04</code> (<code>11,0tr</code>) — hệ Pukaco/Conpa/Waldo + 2 lớp Clear Coat.</li>
+              <li><strong>Tầng 1 &amp; Trụ G2 (32,5 m² — 21,0tr):</strong> Ốp đá ong xám tự nhiên 100×300 / 200×400mm dày 15–20mm bằng keo C2 chống rêu mốc.</li>
+              <li><strong>Sơn ngoại thất chống thấm (A1, A2 — ~350 m² = 29,8tr):</strong> 04 thùng lót + 05 thùng phủ 15L <code>Dulux Weathershield Powerflexx</code> (Trắng <code>99GY 90/000</code> &amp; Ghi <code>00NN 37/000</code>) + 04 thùng chống thấm <code>Kova CT-11A Plus</code> + công thợ lăn.</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat9">Chọn phương án Mặt tiền &amp; Sơn ngoại thất toàn nhà:</label>
+              <select id="sel-cat9" onchange="onModuleOptionChange('cat9', this.value)">
+                <option value="opt1" selected>⭐ PA 1 (Lai): Đá Ong T1 (21tr) + Sơn Hiệu Ứng T2 &amp; Corten T3 (28tr) + Sơn Ngoại Thất (29,8tr) = 78,80 Tr</option>
+                <option value="opt2">🌱 PA 2 (Tiết kiệm): Sơn Nước Ghi Ấm + Chỉ Âm 10×10mm + Sơn Ngoại Thất (54,30 Tr)</option>
+                <option value="opt3">💎 PA 3 (Full Đá): Đá Á Mỹ T2 + Đá Ong T1 + Lam Gỗ Nhựa G1 + Sơn Ngoại Thất (152,00 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="mat-tien.html" class="btn-open-page">🏛️ Mở Trang So Sánh Mặt Tiền →</a>
+              <a href="khoi-xay-mat-tien-t2-t3-3d.html" class="btn-jump-table" style="border-color:rgba(16,185,129,0.55);color:#6ee7b7;">🧱 3D Khối Xây T2–T3</a>
+              <a href="#sec-cost-table" onclick="filterTable('cat9')" class="btn-jump-table">📋 Xem Bảng Giá</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 10: Cửa Gỗ Lim D3 (cua-go-lim-d3.html) -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/cua_lim_phang_pa5_lam_song_bat_doi_xung.jpg" alt="Hồ sơ 07 mẫu cửa gỗ Lim phẳng hiện đại D3 900x2400mm" loading="lazy" />
+            <span class="portal-badge-top">10. Hồ Sơ 07 Mẫu Cửa Gỗ D3</span>
+            <span class="portal-cost-pill" id="card-cost-cat10">59,50 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="cua-go-lim-d3.html">🚪 07 Mẫu Cửa Gỗ Lim Phẳng Hiện Đại D3 (900×2400mm) — Xưởng Mộc</a></h3>
+            <ul class="portal-specs">
+              <li><strong>Thông số Lỗ Ban chuẩn:</strong> Phủ bì khuôn 900×2400mm (Lỗ xây thô 940×2470mm, trát má 15mm còn 910×2405mm) → Thông thủy <strong>804 × 2352mm</strong> (Cung Tài Đức &amp; Quý Nhân), tổng <strong>07 bộ</strong> thông phòng toàn nhà (theo bảng KT-6.00).</li>
+              <li><strong>07 Mẫu Cánh Phẳng 40mm (PA1 → PA7):</strong> Đẹp nhất là <strong>PA5 (Phẳng 70% + Lam sóng đũa 30%)</strong>, <strong>PA2/PA4 (Nan dọc + 3 Ty M10)</strong>, <strong>PA6 (Shaker 2 ô vuông cạnh)</strong> &amp; <strong>PA7 (Phối kính sóng mờ cho P.Làm Việc T3)</strong>.</li>
+              <li><strong>Phụ kiện Đen mờ tải nặng (75kg):</strong> Khóa phân thể thân từ siêu êm (Imundex/Hafele) + 04 bản lề lá Inox 304 Đen mờ dày 3mm + Chặn cửa từ phẳng âm sàn + Gioăng EPDM.</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat10">Chọn phương án đóng 07 bộ Cửa Gỗ Lim D3:</label>
+              <select id="sel-cat10" onchange="onModuleOptionChange('cat10', this.value)">
+                <option value="opt1" selected>⭐ PA 2 / PA 5 / PA 6: Ghép Nan / Lam Sóng + Phụ Kiện Tiêu Chuẩn (59,50 Tr / 7 bộ)</option>
+                <option value="opt2">💎 PA 5 / PA 7 + Bộ Phụ Kiện Khóa Từ Phân Thể Imundex/Hafele Đen Mờ (73,50 Tr / 7 bộ)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="cua-go-lim-d3.html" class="btn-open-page">🚪 Mở 07 Mẫu &amp; Phụ Kiện Cửa D3 →</a>
+              <a href="#sec-cost-table" onclick="filterTable('cat10')" class="btn-jump-table">📋 Xem Bảng Giá</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 11: Phòng Làm Việc Tầng 3 — ĐÃ BỎ NỘI THẤT (phong-lam-viec-tang3.html) -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/tang3_phong_lam_viec_3d_render.jpg" alt="Mô hình 3D Phòng làm việc đôi Tầng 3" loading="lazy" />
+            <span class="portal-badge-top">11. M&amp;E Phòng Làm Việc T3 (Bỏ Nội Thất)</span>
+            <span class="portal-cost-pill" id="card-cost-cat11">14,75 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="phong-lam-viec-tang3.html">💻 Phòng Làm Việc Tầng 3 (14,5 m²) — Chỉ Tính Điện, LAN, Điều Hòa &amp; Vải Rèm S4</a></h3>
+            <ul class="portal-specs">
+              <li><strong>Đã loại bỏ Nội thất đồ rời &amp; Khử trùng lặp Motor rèm E1:</strong> Bàn đôi (12tr), Tủ sách (25tr), Sofa (6,5tr) đã tách sang giai đoạn nội thất; riêng <strong>Động cơ rèm cuốn Aqara E1 (1,25tr) &amp; Công tắc SW-T3 3 nút (1,05tr)</strong> đã tính trong đơn Thái Hưng ở Mục 7 (không tính trùng!).</li>
+              <li><strong>Chỉ giữ hạng mục M&amp;E &amp; Vải rèm gắn tường (14,75tr):</strong> Điều hòa Inverter <code>12.000 BTU</code> vách Đông kéo nguồn từ <code>TĐ3</code> cách <code>1,8m</code> (<code>11,5tr</code>) + Hạ tầng LAN <code>E1..E4</code> (Tận dụng sợi Cat6 thứ 4 trên <code>CĐ-10</code> + Switch Gigabit 5 cổng + Ống gen Φ32 + USB IR: <code>1,3tr</code>) + Vải rèm cuốn Blackout 100% &amp; ống cuốn cửa sổ S4 (<code>1,95tr</code>).</li>
+              <li><strong>Tùy chọn Vách cửa lùa 4 cánh ngăn Phòng Thờ (2400×2750mm):</strong> Có thể chọn lắp ngay (<code>16,5tr</code>) hoặc để lắp sau cùng đợt nội thất.</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat11">Chọn phạm vi hoàn thiện Phòng Làm Việc Tầng 3:</label>
+              <select id="sel-cat11" onchange="onModuleOptionChange('cat11', this.value)">
+                <option value="opt1" selected>⭐ Chỉ Tính Điều Hòa 12.000 BTU + Điện/LAN E1..E4 + Vải Rèm S4 (Đã trừ trùng Motor E1: 14,75 Tr)</option>
+                <option value="opt2">✨ Tính Thêm Hệ Vách Cửa Lùa Nhôm Slim 4 Cánh Ngăn Phòng Thờ (31,25 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="phong-lam-viec-tang3.html" class="btn-open-page">💻 Mở Hồ Sơ 3D &amp; 2D M&amp;E Tầng 3 →</a>
+              <a href="#sec-cost-table" onclick="filterTable('cat11')" class="btn-jump-table">📋 Xem Bảng Giá</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 12: Giám Sát 04 Nhà Vệ Sinh & Tầng Tum + Cầu Thang/Mái Kính -->
+        <article class="portal-card">
+          <div class="portal-thumb">
+            <img src="assets/wc02_master_3khoang_chuan_kt503_3d.jpg" alt="Mô hình 3D WC-02 Master 3 khoang và Cabin kính Slimdoor" loading="lazy" />
+            <span class="portal-badge-top">12. Thiết Bị 04 WC &amp; Tum / Cầu Thang</span>
+            <span class="portal-cost-pill" id="card-cost-cat12">297,20 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="giam-sat-wc.html">🚽 Thiết Bị 04 Phòng WC • Cầu Thang Kính • Mái Kính &amp; 3D Tầng Tum</a></h3>
+            <ul class="portal-specs">
+              <li><strong>Thiết bị 04 phòng WC (~128,0 Tr — Không tính trùng gạch &amp; cửa sổ nhôm):</strong> 05 bộ Cabin kính Slimdoor cao 2.20m (32tr) + 04 Bồn cầu 1 khối đặt sàn TOTO/Inax (25tr) + Sen cây, Lavabo, Vòi, 8 Phễu thu sàn (28tr) + Bàn đá, Tủ Picomat, Gương LED, Hốc đá &amp; <strong>13 kệ đá tận dụng từ khoét đá bếp</strong> (25tr) + 04 Cửa đi WC Composite DW1/DW2 (18tr).</li>
+              <li><strong>Cầu thang, Lan can, Mái kính Giếng trời &amp; Tầng Tum (~169,2 Tr):</strong> Lan can kính cầu thang 3 tầng + Lan can sắt 5 ban công + Mái kính 03 đỉnh giếng trời (70,5tr) + Tường chữ L 1.55m che 2 bồn nước &amp; Lan can kính Tum + 2 Bồn nước Inox 304 (38,7tr) + Hệ Mái sắt H200 &amp; Trần nhôm B-shaped Tum (60,0tr — có thể lùi lại làm sau).</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat12">Chọn gói Thiết bị 4 WC + Cầu thang/Mái kính &amp; Hệ mái sắt Tầng Tum:</label>
+              <select id="sel-cat12" onchange="onModuleOptionChange('cat12', this.value)">
+                <option value="opt1" selected>⭐ PA Đầy Đủ: TBVS Chuẩn Hóa + Cầu Thang/Mái Kính + Làm Luôn Mái Sắt H200 Tum (297,20 Tr)</option>
+                <option value="opt2">🎯 PA Gói Gọn &lt; 2 Tỷ: Lùi Hệ Mái Sắt H200 &amp; Trần Nhôm Tum (Chỉ Chôn Bản Mã Chờ: 239,70 Tr)</option>
+                <option value="opt3">💎 PA Cao Cấp: Full TBVS TOTO + Full Lan Can Kính + Mái Sắt H200 Cao Cấp (364,20 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="giam-sat-wc.html" class="btn-open-page">🚽 Mở Giám Sát 4 WC →</a>
+              <a href="tang-tum-3d.html" class="btn-jump-table">🧊 Mở 3D Tầng Tum →</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 13: Hồ Sơ Bóc Tách Cửa Chính Gỗ Lim D1 — PA 1B (cua-chinh-d1.html) -->
+        <article class="portal-card" style="border-color: rgba(16, 185, 129, 0.45);">
+          <div class="portal-thumb">
+            <img src="assets/cua_chinh_d1_pa1b_oc_cho_tram.jpg" alt="Hồ sơ bóc tách Cửa chính D1 1750x3000mm PA 1B Kính trái Cánh gỗ Lim phải mở ra ngoài" loading="lazy" />
+            <span class="portal-badge-top" style="background: rgba(6, 78, 59, 0.92); border-color: #34d399; color: #a7f3d0;">13. Hồ Sơ Mộc Cửa Chính D1 (PA 1B)</span>
+            <span class="portal-cost-pill" id="card-cost-cat13">28,00 Triệu ₫</span>
+          </div>
+          <div class="portal-body">
+            <h3><a href="cua-chinh-d1.html">🚪 Cửa Chính Gỗ Lim D1 (1750×3000mm) — PA 1B: Kính Trái + Cánh Phải Mở Ra Ngoài</a></h3>
+            <ul class="portal-specs">
+              <li><strong>Thông số Lỗ Ban Đỏ 2 thước:</strong> Phủ bì khuôn <code>1750×3000mm</code> (giữa 2 mố tường đá <code>350×250mm</code>) = Khuôn trái <code>55</code> + Lọt sáng kính CL 2 lớp 11.52mm <code>310</code> + Đố giữa đón khóa <code>70</code> + <strong>Thông thủy cửa đi <code>1260 × 2925 mm</code> (Thiên Tài / Tiến Bảo &amp; Phúc Lộc)</strong> + Khuôn phải <code>55mm</code>.</li>
+              <li><strong>Cánh gỗ Lim đặc dày 60mm (1280×2930×60mm — Nặng ~180kg):</strong> Ghép 10 nan dọc bản <code>128mm</code> mộng hèm âm dương <code>15mm</code> (soi chỉ dọc <code>3×5mm</code>, không đổ keo chết) + <strong>04 Ty ren thép M12 âm xuyên bụng</strong> + Tùy chọn <strong>04 Bản lề âm chữ thập 3D</strong> hoặc <strong>⭐ Bản lề trục xoay thủy lực Pivot lùi trục <code>160mm</code></strong> (Lối đi thực tế <code>1.070mm</code> Đỏ Lỗ Ban + Hèm đảo chiều kín khít <code>100%</code>).</li>
+              <li><strong>09 Phương án Màu PU &amp; 02 Cỡ Tay nắm chữ H (<code>45×55mm</code>):</strong> Tích hợp trọn bộ <strong>18 ảnh thực tế</strong> (cả 2 trạng thái <strong>🔒 Khi Cửa Đóng Kín <code>0°</code></strong> &amp; <strong>🔓 Khi Cửa Mở Hé <code>30°</code></strong> cho <em>Nâu Óc Chó Trầm Option 3</em>, <em>Nâu Cánh Gián 3D</em>, <em>Nâu Khói 2-Tone</em>, <em>Vàng Mật Ong</em>, <em>Mẫu TikTok</em>) + Bản vẽ mặt đứng đối chiếu <strong>Tay nắm Cỡ Dài <code>2.0–2.1m</code></strong> vs. <strong>Cỡ Vừa <code>1.35m</code></strong>.</li>
+            </ul>
+            <div class="portal-option-select">
+              <label for="sel-cat13">Chọn phương án hoàn thiện &amp; phụ kiện Cửa Chính D1 (PA 1B):</label>
+              <select id="sel-cat13" onchange="onModuleOptionChange('cat13', this.value)">
+                <option value="opt1" selected>⭐ PA 1B Chuẩn (Mẫu 1A/1B Óc Chó Trầm hoặc 2A/2B Cánh Gián 3D + 4 Bản lề âm 3D + Tay chữ H: 28,00 Tr)</option>
+                <option value="opt_pivot">🔄 PA 1B-Pivot (Bản lề trục xoay thủy lực Pivot lùi trục 160mm • Lối đi 1070mm Đỏ Lỗ Ban • Hèm đảo chiều kín khít: 29,00 Tr)</option>
+                <option value="opt2">🌱 PA 1B Tiết Kiệm (Mẫu 4A/4B Sơn PU Giữ Màu Lim Tự Nhiên + 4 Bản lề âm Inox 304: 25,50 Tr)</option>
+                <option value="opt3">💎 PA 1B Cao Cấp (Bản lề âm Đức Simonswerk TECTUS TE 640 3D 924.17.425 + Gỗ chọn vân: 38,00 Tr)</option>
+              </select>
+            </div>
+            <div class="portal-footer">
+              <a href="cua-chinh-d1.html" class="btn-open-page">🚪 Mở Hồ Sơ Cửa Chính D1 (09 Mẫu) →</a>
+              <a href="mo-phong-3d-cua-d1.html" class="btn-jump-table" title="Mở trình mô phỏng 3D đóng/mở tương tác">🧊 Mô Phỏng 3D</a>
+              <a href="#sec-cost-table" onclick="filterTable('cat13')" class="btn-jump-table">📋 Bảng Giá</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE COST ESTIMATION TABLE -->
+    <section id="sec-cost-table">
+      <div class="section-header">
+        <div>
+          <span class="section-tag">PHẦN 2 • BẢNG BÓC TÁCH KHỐI LƯỢNG &amp; DỰ TOÁN HOÀN THIỆN TƯƠNG TÁC (CHƯA GỒM NỘI THẤT ĐỒ RỜI)</span>
+          <h2>Bảng Chi Phí Chi Tiết 59 Đầu Mục Hoàn Thiện &amp; Khu Bếp (Đã Rà Soát Chuẩn Hóa Từ Tất Cả Các Hồ Sơ Con)</h2>
+          <p>Đã khử trùng lặp 100% giữa các hồ sơ (gạch WC, cửa sổ nhôm WC, động cơ rèm cuốn E1 T3, sàn gạch giả gỗ P.Làm việc chỉ tính 1 lần duy nhất) và <strong>giữ nguyên 100% chi phí nhân công bạn đã chỉnh sửa</strong>:</p>
+        </div>
+      </div>
+
+      <div class="table-toolbar">
+        <div class="filter-pills" role="group" aria-label="Lọc theo phân khu">
+          <button type="button" class="filter-pill active" data-filter="all" onclick="filterTable('all')">Tất cả (59 mục)</button>
+          <button type="button" class="filter-pill" data-filter="cat1" onclick="filterTable('cat1')">1. Cửa Nhôm DCONS</button>
+          <button type="button" class="filter-pill" data-filter="cat2" onclick="filterTable('cat2')">2. Công Thợ, Xây Trát &amp; MEP</button>
+          <button type="button" class="filter-pill" data-filter="cat3" onclick="filterTable('cat3')">3. Trần Thạch Cao &amp; Sơn Nội</button>
+          <button type="button" class="filter-pill" data-filter="cat4" onclick="filterTable('cat4')">4. Gạch, Gỗ Xương Cá &amp; Đá Thang</button>
+          <button type="button" class="filter-pill" data-filter="cat5" onclick="filterTable('cat5')">5. Tủ Bếp Inox KITPRO</button>
+          <button type="button" class="filter-pill" data-filter="cat6" onclick="filterTable('cat6')">6. Thiết Bị Bếp Bosch/Konox</button>
+          <button type="button" class="filter-pill" data-filter="cat7" onclick="filterTable('cat7')">7. Aqara &amp; Điện Nhẹ</button>
+          <button type="button" class="filter-pill" data-filter="cat8" onclick="filterTable('cat8')">8. Đèn OPPLE &amp; Quạt Trần</button>
+          <button type="button" class="filter-pill" data-filter="cat9" onclick="filterTable('cat9')">9. Mặt Tiền &amp; Sơn Ngoại</button>
+          <button type="button" class="filter-pill" data-filter="cat10" onclick="filterTable('cat10')">10. Cửa Gỗ Lim D3</button>
+          <button type="button" class="filter-pill" data-filter="cat11" onclick="filterTable('cat11')">11. M&amp;E P. Làm Việc T3</button>
+          <button type="button" class="filter-pill" data-filter="cat12" onclick="filterTable('cat12')">12. 04 Phòng WC &amp; Tum/Mái</button>
+          <button type="button" class="filter-pill" data-filter="cat13" onclick="filterTable('cat13')">13. Cửa Chính Gỗ Lim D1 (PA 1B)</button>
+        </div>
+        <div class="action-btns">
+          <span id="save-status-badge" class="save-status-badge" title="Chỉ lưu khi bạn bấm nút Lưu bảng giá">📌 Đang mở bản đã lưu</span>
+          <button type="button" class="btn-tool primary" onclick="manualSaveBudget()" style="font-size:0.84rem; padding:8px 14px;">💾 Lưu bảng giá</button>
+          <button type="button" class="btn-tool" onclick="restoreLastSavedBudget()" title="Hủy các thay đổi chưa lưu để quay về bản bạn đã bấm Lưu gần nhất">↩️ Quay lại bản đã lưu</button>
+          <button type="button" class="btn-tool" onclick="saveHardcodedHTML()" title="Ghi đè các giá đã sửa vào thẳng file index.html trên máy">📥 Lưu cứng vào file HTML</button>
+          <button type="button" class="btn-tool" onclick="addNewCostRow()">➕ Thêm mục phát sinh</button>
+          <button type="button" class="btn-tool" onclick="exportCSV()">📊 Xuất Excel (CSV)</button>
+          <button type="button" class="btn-tool" onclick="window.print()">🖨️ In / PDF</button>
+          <button type="button" class="btn-tool" onclick="resetDefaultBudget()">🔄 Khôi phục gốc</button>
+        </div>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="cost-table-caption" class="table-wrapper">
+        <table class="cost-table" id="main-cost-table">
+          <caption id="cost-table-caption">
+            Bảng tổng hợp dự toán hoàn thiện kiến trúc, công thợ, điện nước M&amp;E &amp; khu bếp Biệt thự Q Villa (Chưa bao gồm nội thất đồ rời)
+          </caption>
+          <thead>
+            <tr>
+              <th>Hạng mục công việc / Thiết bị</th>
+              <th>Phân khu</th>
+              <th>Quy cách kỹ thuật &amp; Hồ sơ tham chiếu</th>
+              <th>ĐVT</th>
+              <th style="text-align:right;">Số lượng</th>
+              <th style="text-align:right;">Đơn giá (VNĐ)</th>
+              <th style="text-align:right;">Thành tiền (VNĐ)</th>
+              <th>Ghi chú / Nhà thầu</th>
+            </tr>
+          </thead>
+          <tbody id="cost-tbody"></tbody>
+          <tfoot>
+            <tr>
+              <th colspan="6" style="text-align:right;">TỔNG CỘNG CHI PHÍ CÁC HẠNG MỤC ĐANG HIỂN THỊ:</th>
+              <td id="tfoot-total" style="text-align:right; color: var(--accent-light); font-size: 1.08rem;">0 ₫</td>
+              <td id="tfoot-note" style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">Chỉ lưu khi bấm "💾 Lưu bảng giá"</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Unsaved Changes Bar -->
+  <div id="unsaved-floating-bar" class="unsaved-floating-bar" role="status" aria-live="polite">
+    <span style="font-size:0.83rem; font-weight:700; color:#fde68a;">⚠️ Bạn có thay đổi chưa lưu!</span>
+    <button type="button" class="btn-tool primary" onclick="manualSaveBudget()" style="background:#10b981; color:#04130d; font-weight:800; border-color:#34d399;">
+      💾 Bấm Để Lưu Lại
+    </button>
+    <button type="button" class="btn-tool" onclick="restoreLastSavedBudget()">
+      ↩️ Hủy / Về bản đã lưu
+    </button>
+  </div>
+
+  <script>
+    const CATEGORY_META = {
+      cat1:  { name: "1. Hệ Cửa nhôm kính toàn nhà DCONS (~120,1 m² • 28 bộ cửa)", short: "Cửa Nhôm DCONS", link: "assets/mb_cua_tang_1_pa3_1.png", color: "#3b82f6", group: "A" },
+      cat2:  { name: "2. Công thợ nề còn lại, Xây trát, Chống thấm & Điện nước trục chính", short: "Công Thợ & MEP", link: "#sec-cost-table", color: "#eab308", group: "B" },
+      cat3:  { name: "3. Trần thạch cao 4 tầng (228 m² • Mẫu 2026) & Sơn bả nội thất (780 m²)", short: "Trần & Sơn Nội", link: "tran-thach-cao.html", color: "#8b5cf6", group: "A" },
+      cat4:  { name: "4. Gạch ốp lát (T1 1000×1000 • HL/Tum 800×800), Gạch giả gỗ 150×900 & Đá thang", short: "Chia Gạch, Gỗ & Đá", link: "op-lat-chia-gach.html", color: "#14b8a6", group: "A" },
+      cat5:  { name: "5. Hệ Tủ bếp Inox 3 lớp cánh kính KITPRO, Bàn đảo & Đá bàn bếp Vicostone", short: "Tủ Bếp KITPRO", link: "bep-tang1.html", color: "#ec4899", group: "B" },
+      cat6:  { name: "6. Thiết bị bếp: Bếp từ & Lò nướng Bosch • Hút mùi GrandX • Chậu Konox", short: "TB Bếp Bosch/Konox", link: "assets/so_do_pha_cat_2_tam_da_bep_konox8050.png", color: "#f97316", group: "B" },
+      cat7:  { name: "7. Điện thông minh Aqara, Công tắc/Ổ cắm Schneider & Điện nhẹ Wifi PoE", short: "Aqara & Điện Nhẹ", link: "aqara-smarthome.html", color: "#10b981", group: "B" },
+      cat8:  { name: "8. Hệ thống Chiếu sáng 3D OPPLE, Vòm Mặt Trăng Ø1.2m & 02 Quạt trần 5 cánh", short: "Đèn OPPLE & Quạt", link: "chieu-sang-opple-3d.html", color: "#f59e0b", group: "B" },
+      cat9:  { name: "9. Hoàn thiện Mặt tiền (Đá Ong Xám • Sơn Bê Tông • Corten) & Sơn ngoại thất", short: "Mặt Tiền & Sơn Ngoại", link: "mat-tien.html", color: "#38bdf8", group: "A" },
+      cat10: { name: "10. Hồ sơ Mộc 07 bộ Cửa gỗ Lim phẳng D3 (900×2400mm • PK Đen mờ)", short: "Cửa Gỗ Lim D3", link: "cua-go-lim-d3.html", color: "#d97706", group: "A" },
+      cat11: { name: "11. Phòng Làm Việc Tầng 3 (Đã bỏ Nội thất & khử trùng Motor E1 — Chỉ tính ĐH, LAN, Vải rèm)", short: "M&E P. Làm Việc T3", link: "phong-lam-viec-tang3.html", color: "#a855f7", group: "B" },
+      cat12: { name: "12. Thiết bị 04 phòng WC • Cầu thang kính • Mái kính & Hệ mái Tầng Tum", short: "04 WC & Tum/Mái", link: "giam-sat-wc.html", color: "#06b6d4", group: "A" },
+      cat13: { name: "13. Hồ sơ Mộc Cửa chính D1 (1750×3000mm — PA 1B: Kính Trái 310 + Cánh Gỗ Lim 60mm Mở Ra Ngoài)", short: "Cửa Chính Gỗ D1", link: "cua-chinh-d1.html", color: "#10b981", group: "A" }
+    };
+
+    const DEFAULT_ITEMS = [
+      // CAT 1: CỬA NHÔM KÍNH DCONS (a20d87dc)
+      { id: "c1_1", cat: "cat1", enabled: true, name: "Hệ Cửa đi & Cửa sổ lùa Nhôm Xingfa Hệ 100 bản lớn (2 cánh Panorama) + Kính 10.38mm", spec: "V1 (3.2×3m), D2, D6, D4 (T2&T3), S1B, D7, D8, D9, S1A (~59,55 m² cửa lùa toàn nhà)", unit: "Gói", qty: 1, price: 158500000, note: "DCONS Hà Nội — Giữ 100% Hệ lùa 100 cắt góc 45°" },
+      { id: "c1_2", cat: "cat1", enabled: true, name: "Hệ Cửa sổ mở quay / xếp trượt & Vách kính cố định (FIX) Nhôm Xingfa Hệ 55 + Kính 10.38mm", spec: "Tách toàn bộ Vách FIX dưới (S1B, V3, D7A, S2, S3, S4, V4, D11 = 25,05 m²) về đơn giá 1,5tr/m²; S4 & V4 cao 3.0m sát sàn", unit: "Gói", qty: 1, price: 121650000, note: "Đã trừ V5 Tum, 1 bộ V3 T1 & 1 bộ S1 T1 xây bịt" },
+      { id: "c1_3", cat: "cat1", enabled: true, name: "Trọn bộ Phụ kiện CMECH (Mỹ) cao cấp đồng bộ toàn nhà (28 bộ cửa) + Khóa tay cong C260", spec: "Chuyển khóa lùa C260 từ S1B lên D6 Master; bỏ 1 bộ PK thừa ở D4; chuẩn hóa PK cửa sổ lùa S1A & S1B", unit: "Gói", qty: 1, price: 71100000, note: "100% PK Cmech (Hoặc đổi Kinlong ở Tum giảm 13,1tr)" },
+
+      // CAT 2: CÔNG THỢ NỀ, XÂY TRÁT, CHỐNG THẤM & ĐIỆN NƯỚC TRỤC CHÍNH (dfb3de80 — GIỮ NGUYÊN BẢN LƯU CỦA CHỦ NHÀ)
+      { id: "c2_1", cat: "cat2", enabled: true, name: "Thanh toán nốt Nhân công nề hoàn thiện (Xây tum, trát trong ngoài, cán nền, ốp lát 4 tầng)", spec: "Quy mô ~350 m² sàn: Tổng công nề ~500tr, trừ 200tr đã tạm ứng 2 đợt phần thô (Theo dfb3de80)", unit: "Gói", qty: 1, price: 300000000, note: "Đội thợ nề chính (Đóng lưới thép chống nứt cổ trần/cột)" },
+      { id: "c2_2", cat: "cat2", enabled: true, name: "Vật tư Cát đen, Cát vàng & Xi măng xây trát hoàn thiện trong ngoài, cán nền 4 tầng", spec: "Cát trát + Xi măng Xuân Thành/Bỉm Sơn cho phần xây tum, trát tường trong/ngoài và cán nền 4 tầng", unit: "Gói", qty: 1, price: 95000000, note: "Đại lý VLXD (Tính từ sau mốc đổ mái T3)" },
+      { id: "c2_3", cat: "cat2", enabled: true, name: "Chống thấm 3 lớp Sikatop Seal 107 + Lưới thủy tinh (173 m²) & Vỉ thoát nước Bồn hoa", spec: "Chống thấm 4 WC, Ban công, Sân thượng Tum, Mái & 2 Bồn hoa (KT-1.02) + Tấm Drainage Cell & vải địa TS2", unit: "Gói", qty: 1, price: 32000000, note: "Ngâm thử nước xi măng 7 ngày trước khi ốp lát" },
+      { id: "c2_4", cat: "cat2", enabled: true, name: "Dây cáp điện Trần Phú/Cadivi (6.529 m), Ống gen SP, 04 Tủ điện & 36 Aptomat Schneider", spec: "Theo bảng CĐ-29: 540m dây 4.0 + 900m dây 2.5 + 4000m dây 1.5 + 5 RCBO chống giật (Đã trừ 10tr tạm ứng ống HDPE)", unit: "Gói", qty: 1, price: 50000000, note: "Bóc tách chuẩn CĐ-29 (ThiCongDienNuoc.pdf)" },
+      { id: "c2_5", cat: "cat2", enabled: true, name: "Hệ thống Chống sét tiên đạo R=13m + Trụ Inox 2m + 07 Cọc đồng tiếp địa D16 dài 2,4m", spec: "Theo bản vẽ CĐ-28: 27m cáp đồng bện 50mm² + 25m băng đồng 25×3mm + hộp kiểm tra điện trở đất", unit: "Hệ", qty: 1, price: 9000000, note: "Thi công tiếp địa an toàn điện & chống sét" },
+      { id: "c2_6", cat: "cat2", enabled: true, name: "04 Bình nóng lạnh gián tiếp 30L (Ariston/Rossi) + 02 Máy bơm đẩy & Tăng áp biến tần", spec: "04 BNL 30L cho 4 phòng WC (11tr) + 01 Bơm đẩy lên mái & 01 Bơm tăng áp biến tần êm (8tr)", unit: "Gói", qty: 1, price: 19000000, note: "Đã trừ 32,83tr ống nước PPR/uPVC mua ngày 27/08" },
+      { id: "c2_7", cat: "cat2", enabled: true, name: "Đi âm toàn bộ Ống đồng + Bảo ôn + Dây tín hiệu + Ống nước ngưng Điều hòa toàn nhà", spec: "Theo bản vẽ CĐ-31: Đi ngầm 100% trước khi đóng trần thạch cao để lắp máy điều hòa bất kỳ lúc nào", unit: "Hệ", qty: 1, price: 18000000, note: "Bắt buộc thi công trước khi bắn tấm thạch cao" },
+      { id: "c2_8", cat: "cat2", enabled: true, name: "Nhân công thi công Điện - Nước (MEP) trọn gói toàn nhà (~350 m² sàn)", spec: "Đục tường, đi ống gen/ống nước, kéo dây, đấu tủ điện, lắp đèn & thiết bị vệ sinh 4 tầng", unit: "m²", qty: 350, price: 128571, note: "Khoán gọn ~45,0 triệu ₫ (tương đương ~128k/m²)" },
+
+      // CAT 3: TRẦN THẠCH CAO 2026 & SƠN BẢ NỘI THẤT (son-gach-phoi-mau.html & bep-tang1.html)
+      { id: "c3_1", cat: "cat3", enabled: true, name: "Trần thạch cao khung xương chìm Vĩnh Tường 4 tầng (228 m² — Tấm tiêu chuẩn C1 & chịu ẩm C2)", spec: "Mẫu Hiện đại 2026 (71ed369a & bep-tang1.html): Đóng hộp thạch cao thẳng 60cm (+2.800..+3.400mm) trên tủ bếp chữ I, hốc rèm đôi 22–25cm & cấy 2 ty sắt M10/M12 quạt trần", unit: "m²", qty: 228, price: 195175, note: "T1 (~72m²), T2 (~70m²), T3 (~68m²), Tum (~18m²) = 44,50tr" },
+      { id: "c3_2", cat: "cat3", enabled: true, name: "Phụ kiện trần kiến trúc: Nẹp Z Shadowline (~190 md), Khe rèm T-01/T-02, Ron đen P-UT12 & 5 Lỗ thăm", spec: "Theo KT-4.05: Nẹp Z Shadowline chống nứt giao tường + Khe hắt sáng LED + Chỉ âm đen P-UT12 + 5 nắp thăm trần chìm", unit: "Gói", qty: 1, price: 14500000, note: "Đội thạch cao thi công đồng bộ" },
+      { id: "c3_3", cat: "cat3", enabled: true, name: "Vật tư Sơn phủ Nội thất Dulux Ambiance 5in1 / Kova (White Cotton 30GY 88/014 + Warm Pewter + Sơn trần)", spec: "Theo son-gach-phoi-mau.html: Tường chính White Cotton (~500m² • 6 thùng 15L: 24,5tr) + Vách nhấn Warm Pewter (~50m² • 2 lon 5L: 2,8tr) + Trần 99GY 90/000 (228m² • 3 thùng 18L: 6,3tr)", unit: "Gói", qty: 1, price: 33600000, note: "Bóc tách chuẩn bảng vật tư Sơn Nội Thất (33,60tr)" },
+      { id: "c3_4", cat: "cat3", enabled: true, name: "Bột bả Nội thất (~22 bao) + Sơn lót kháng kiềm (06 thùng 18L) + Nhân công bả xả phẳng 2 lớp & lăn sơn (780 m²)", spec: "Theo son-gach-phoi-mau.html: ~22 bao bột bả Dulux/Kova MB-T + 06 thùng 18L sơn lót Dulux Z505/Kova K-109 + Công thợ bả xả nhẵn đèn rọi & lăn 780 m²", unit: "m²", qty: 780, price: 26923, note: "Bột bả + Sơn lót + Công lăn = 21,00tr (Tổng sơn nội thất = 54,60tr)" },
+
+      // CAT 4: GẠCH ỐP LÁT, GẠCH GIẢ GỖ XƯƠNG CÁ 150×900 & ĐÁ CẦU THANG (op-lat-chia-gach.html)
+      { id: "c4_1", cat: "cat4", enabled: true, name: "Gạch Khổ Lớn 1000×1000 Lát Tầng 1 (62 m² = 31 hộp • Định vị X=0, Y=0) + Gạch 800×800 Lát Hành lang T2–T3 & Tum (30,72 m²)", spec: "Theo op-lat-chia-gach.html: T1 lát Porcelain 1000×1000 thông mạch Tiền sảnh (31 hộp) + Hành lang T2–T3 & Sảnh/Kho Tum lát 800×800 đồng màu (16 hộp)", unit: "m²", qty: 92.72, price: 390000, note: "Chuẩn hồ sơ chia gạch 2D (= 36.160.800 ₫ • Công lát ở Mục 2)" },
+      { id: "c4_2", cat: "cat4", enabled: true, name: "Gạch Granite chống trơn R11 lát Sân T1 & Sân thượng Tum 600×600 (88 m²) + 5 Ban công 300×600 (24,5 m²)", spec: "Sân T1 (27,3m²) + Sân thượng Tum (56,5m²) + 5 Ban công/Logia T2–T3 (22,4m²) cả hao hụt = 112,5 m²", unit: "m²", qty: 112.5, price: 235556, note: "Gạch chống trơn R11 ngoài trời (~26,5tr)" },
+      { id: "c4_3", cat: "cat4", enabled: true, name: "Gạch ốp lát 04 Phòng Vệ Sinh: Tường 600×1200 Matt R9 Ốp Dọc kịch trần +2.40m (100,8 m² = 70 hộp) + Sàn 600×600 R10/R11 (24,48 m² = 17 hộp)", spec: "Theo op-lat-chia-gach.html: 3 phòng WC-01 (51 hộp tường + 12 hộp sàn) + 1 phòng WC-02 Master (19 hộp tường + 5 hộp sàn) = 87 hộp (125,28 m²), ron tường trùng ron sàn", unit: "m²", qty: 125.28, price: 335249, note: "87 hộp gạch WC Porcelain (~42,0tr • Đã khử trùng lặp với Mục 12)" },
+      { id: "c4_4", cat: "cat4", enabled: true, name: "Keo dán gạch C2/C2S1 (~54 bao trét 2 mặt) + 500 Ke vít cân bằng 2mm + Keo ron Saveto/Epoxy + ~165 md Nẹp âm chân tường DF-1212", spec: "Theo op-lat-chia-gach.html: Bắt buộc dùng keo C2 + ke vít cân bằng cho gạch 1000×1000, 600×1200 & gạch giả gỗ; đã bỏ toàn bộ nẹp T8 lồi", unit: "Gói", qty: 1, price: 21500000, note: "Vật tư phụ ốp lát chuẩn kỹ thuật khổ lớn & len âm tường" },
+      { id: "c4_5", cat: "cat4", enabled: true, name: "Gạch giả gỗ Porcelain 150×900 mm mài cạnh lát Xương Cá 45° toàn bộ Khu Ngủ, Thay Đồ, P.Làm Việc & P.Thờ T1–T3 (127 hộp = 137,16 m²)", spec: "Theo op-lat-chia-gach.html (Cốt cán nền -15..-17mm): Master 22 hộp + 3 PN Trục A–B 43 hộp + 2 PN Trục B–D 34 hộp + P.Làm việc & Thờ T3 28 hộp = 127 hộp", unit: "m²", qty: 137.16, price: 410000, note: "Bền vĩnh cửu, chống ẩm nồm & mối mọt (= 56.235.600 ₫)" },
+      { id: "c4_6", cat: "cat4", enabled: true, name: "Đá ốp Cầu thang bộ 3 tầng (67 bậc, rộng 0,95m ≈ 45 m² quy đổi mặt bậc + cổ bậc dày 20mm)", spec: "KT-3.01..3.03: T1–T2 (25 bậc), T2–T3 (21 bậc), T3–Tum (21 bậc), mặt bậc đá đen vát 5ly + cổ bậc đá ghi", unit: "m²", qty: 45, price: 1155556, note: "Đã gồm gia công & thợ đá lắp đặt hoàn thiện (~52tr)" },
+      { id: "c4_7", cat: "cat4", enabled: true, name: "Đá Kim sa/Granite dày 20mm lát Bậu cửa sổ, Ngạch cửa, Bàn bếp ướt Sân sau (25,65 m²) + Đá Phú Yên Tam cấp & Bệ đá nổi (15 m²)", spec: "KT-1.04, KT-3.04 & san-sau-tang1.html: Bậu cửa + Mặt bàn đá bếp ướt Sân sau 1.45×0.58m (25tr) + Đá Phú Yên Tam cấp & Bệ đá nổi +8..10cm Sân sau (15tr)", unit: "Gói", qty: 1, price: 40000000, note: "Đội đá thi công đồng bộ với cầu thang & sân ướt" },
+
+      // CAT 5: TỦ BẾP INOX 3 LỚP KITPRO & ĐÁ BÀN BẾP VICOSTONE (bep-tang1.html)
+      { id: "c5_1", cat: "cat5", enabled: true, name: "Hệ Thùng Tủ bếp dưới Full Inox 3 lớp (2,7 md) + Tủ trên (3,305 md) + Cột lò nướng & Hốc tủ lạnh", spec: "Báo giá KITPRO: Cao 890 × Sâu 600mm (đã trừ khoang MRB 605mm), cánh kính cường lực khung nhôm 18×53mm tay nắm âm", unit: "Hệ", qty: 1, price: 69850000, note: "Tủ dưới 3 lớp lõi tổ ong + Tủ trên/Cột 1 lớp đáy 3 lớp" },
+      { id: "c5_2", cat: "cat5", enabled: true, name: "Trọn bộ Phụ kiện Blum & Inox 304: 05 Ngăn kéo Inox Ray âm Blum Movento + Tay nâng HF + Giá bát", spec: "5 Ngăn kéo Movento 760H (14,76tr) + Tay nâng Blum HF + Giá bát nâng hạ + Giá gia vị Space Twin + 18 Bản lề Blum (CK 30%)", unit: "Gói", qty: 1, price: 32850000, note: "Đã bỏ 5 bộ Tip-on (-4,67tr) & áp CK 30% bản lề Blum (-675k)" },
+      { id: "c5_3", cat: "cat5", enabled: true, name: "Mặt bàn đá thạch anh Vicostone Nhóm A chuẩn Sâu 600mm + Đá ốp tường cổ bếp sau bếp từ (0,63 m²)", spec: "Mặt đá Vicostone dài 3,31m × sâu 600mm (11,22tr, giảm 1,82tr so với khổ 700mm) + Đá nung kết Calacatta ốp cổ bếp 1.05×0.6m", unit: "Gói", qty: 1, price: 13420000, note: "Đã trừ cửa sổ S1A (2.250×550mm) khỏi diện tích ốp tường" },
+
+      // CAT 6: THIẾT BỊ BẾP BOSCH • GRANDX • KONOX (f322e909)
+      { id: "c6_1", cat: "cat6", enabled: true, name: "Bếp từ 3 vùng nấu Bosch PID675DC1E / PID775DC1E Serie 8 (Nhập khẩu Tây Ban Nha)", spec: "Mặt kính Schott Ceran (Đức), cảm biến chiên xào PerfectFry, khoét đá 560×490mm vừa khít bàn đá sâu 600mm", unit: "Bộ", qty: 1, price: 15500000, note: "Đi dây nguồn riêng 2×4.0mm² (hoặc 2×6.0mm²) + CB 32A" },
+      { id: "c6_2", cat: "cat6", enabled: true, name: "Lò nướng âm tủ Bosch HBG5370B0 Serie 6 dung tích 71 Lít (Nhập khẩu Tây Ban Nha)", spec: "10 công thức tự động AutoPilot 10, nướng 3D HotAir, tự làm sạch EcoClean Direct (Lọt lòng tủ 590×560×550mm)", unit: "Bộ", qty: 1, price: 17000000, note: "Lắp tại cột tủ lò nướng bên trái (CB riêng 20A)" },
+      { id: "c6_3", cat: "cat6", enabled: true, name: "Máy hút mùi khổ 70cm GrandX động cơ Inverter BLDC siêu êm (GX H70F75B / T81G / T88G)", spec: "Công suất hút 950–1150 m³/h, độ ồn 42dB, cảm biến vẫy tay không chạm, ống thoát khí Φ150mm", unit: "Bộ", qty: 1, price: 6800000, note: "Chọn Âm tủ F75B (5,5tr), Chữ T T81G (6,8tr) hoặc Kính vát" },
+      { id: "c6_4", cat: "cat6", enabled: true, name: "Chậu rửa 1 hố chống xước Konox (KN7644SU Dekor / KN8050 / Tari 7851SR) + Vòi rút nóng lạnh Konox", spec: "Inox 304 dập hạt Linen chống xước + Xi-phông xếp gọn sát hậu (Tận dụng phôi đá khoét chậu & bếp cắt 13 kệ đá cho 4 WC)", unit: "Bộ", qty: 1, price: 9500000, note: "Dặn thợ đá giữ lại 2 tấm phôi khoét đá để cắt 13 kệ WC" },
+
+      // CAT 7: AQARA SMARTHOME & ĐIỆN NHẸ (aqara-smarthome.html)
+      { id: "c7_1", cat: "cat7", enabled: true, name: "Bộ trung tâm Aqara Hub M3 PoE (01 bộ trần T1) + 02 Hub M2 IR 220V (Tầng 2) + 01 Module cổng Aqara T2", spec: "01 Hub M3 PoE trần P.Khách T1 (3,49tr) + 02 Hub M2 bắn điều hòa PN Master & PN Con T2 (1,30tr) + 01 Module T2 cổng (690k)", unit: "Gói", qty: 1, price: 5480000, note: "Thái Hưng Smarthome (Đã cắt 2 Hub M3 thừa, thay bằng 2 Hub M2 220V ở T2)" },
+      { id: "c7_2", cat: "cat7", enabled: true, name: "Công tắc thông minh Aqara H1 Quốc tế Có N (42 cái: 09×1N, 22×2N, 07×3N, 04×20A BNL) + 01 Nút không dây Mini Switch T1", spec: "09 CT 1 nút (5,85tr) + 22 CT 2 nút (16,50tr) + 07 CT 3 nút gồm cả SW-T3 P.Làm việc T3 (7,35tr) + 04 CT 20A BNL (3,52tr) + 01 Nút gầm bàn T3 (320k)", unit: "Gói", qty: 1, price: 33540000, note: "Bóc tách chuẩn từng vị trí 42 CT H1 (33,22tr) + 1 Mini Switch T1 (320k)" },
+      { id: "c7_3", cat: "cat7", enabled: true, name: "04 Đèn sưởi gốm thông minh Aqara Heater T1 + 4 Khung trần + 04 Cảm biến FP1E + 06 P1 + 01 Rò nước + 02 Nhiệt ẩm T1", spec: "4 Đèn sưởi T1 + khung (17,516tr) + 4 Radar FP1E WC (3,8tr) + 6 P1 cầu thang/WC (2,574tr) + 1 rò nước (389k) + 2 Nhiệt ẩm T1 (640k)", unit: "Gói", qty: 1, price: 24919000, note: "Đồng bộ tự bật sưởi ấm WC, đèn cầu thang & điều hòa ban đêm" },
+      { id: "c7_4", cat: "cat7", enabled: true, name: "Rèm tự động Aqara 2 lớp (04 motor + 18m ray) + 01 Động cơ rèm cuốn E1 T3 + Chuông G400 PoE + Khóa Face ID D200i", spec: "Rèm 2 lớp Vải & Voan P.Khách + Master (13,61tr) + Motor rèm cuốn E1 P.Làm việc T3 (1,25tr) + Chuông G400 (3,49tr) + Khóa D200i (11,99tr)", unit: "Gói", qty: 1, price: 30340000, note: "Tổng đơn chốt Thái Hưng (c7_1..c7_4) = 94.279.000 ₫ (Gốc 89,72tr + Tự thêm 4,56tr)" },
+      { id: "c7_5", cat: "cat7", enabled: true, name: "Công tắc cơ Schneider AvatarOn (23 cái: 09×1N, 14×2N) + 87 Ổ cắm đôi 3 chấu (gồm ổ IP55 Sân sau) & 8 ổ LAN + 150 Đế âm Sino + 4 Củ sạc FP1E", spec: "Thay cho 23 công tắc giảm bớt ở 5 phòng ngủ phụ, kho, sân sau (~3,8tr) + 87 ổ cắm đôi & 8 ổ LAN Schneider AvatarOn + 150 đế âm vuông + 4 củ sạc Ugreen 5V-2A (~9,7tr)", unit: "Gói", qty: 1, price: 13500000, note: "Mua tại đại lý Schneider chính hãng (Chiết khấu 35–40% từ giá web)" },
+      { id: "c7_6", cat: "cat7", enabled: true, name: "Hệ Wifi 6 PoE gắn trần (Router ER605 + Switch PoE+ 16P + 3 EAP) + 3 Cam Hikvision PoE 2K & NVR 2TB + 4 Quạt hút WC Panasonic", spec: "Mạng Wifi 6 PoE (7,55tr) + 3 Cam IP PoE 2K & NVR 2TB (5,876tr) + 4 Quạt hút âm trần siêu êm Panasonic FV-24CD9 (4,80tr)", unit: "Hệ", qty: 1, price: 18226000, note: "Tổng Mục 7 = 126.005.000 ₫ (Khớp 100% aqara-smarthome.html)" },
+
+      // CAT 8: ĐÈN CHIẾU SÁNG 3D OPPLE, VÒM MẶT TRĂNG Ø1.2M & 02 QUẠT TRẦN 5 CÁNH (chieu-sang-opple-3d.html)
+      { id: "c8_1", cat: "cat8", enabled: true, name: "Đèn OPPLE Tầng 1 (Khung Ray 48V Lộ 5 • 12 Spotlight Lộ 3 • Đảo Bếp & Chữ T Bếp • 4 Đèn tường IP65 Sân sau) + Master T2 (Vòm Mặt Trăng Barrisol Ø1.2m)", spec: "Theo chieu-sang-opple-3d.html: Khung ray 48V 1.825×2.970mm P.Khách + 3 bóng 7W dọc Đảo bếp + 5 bóng 12W Bếp + Master (Bẻ 25° + Vòm Mặt Trăng Xuyên Sáng Barrisol Ø1.2m 60W Lộ 18A + 4 bóng CRI≥92 Lộ 18B)", unit: "Gói", qty: 1, price: 23500000, note: "Chuẩn ánh sáng 3D OPPLE (Đã gồm Vòm Mặt Trăng Ø1.2m Phòng Thay Đồ)" },
+      { id: "c8_2", cat: "cat8", enabled: true, name: "Đèn OPPLE 03 P.Ngủ Trục A–B + 02 P.Ngủ Trục B–D (Kèm 02 Thanh Ray Nam Châm 2.05m Bàn Học Tây Lộ 12) + P.Thờ + Cầu Thang & 13 Downlight IP44 WC", spec: "Theo chieu-sang-opple-3d.html: 3 PN A–B (5 bóng 7W bẻ 25° + 4 bóng 9W) + 2 PN B–D (Ray 48V 2.05m trên bàn học) + P.Thờ (3 bóng Ban thờ bẻ 28° + Đèn thả) + 13 Downlight IP44 cho 4 WC", unit: "Gói", qty: 1, price: 15350000, note: "Đã gồm 2 thanh ray nam châm bàn học & nẹp nhôm U10×10 đen chờ nội thất" },
+      { id: "c8_3", cat: "cat8", enabled: true, name: "Đèn Chiếu Sáng Phòng Làm Việc Đôi Tầng 3 (3 Lộ S1, S2, S3 CRI ≥ 92 — PA1 Spotlight Chóa Sâu / PA2 Ray 48V + 03 Driver MeanWell)", spec: "PA1: 09 Spotlight chóa sâu D90 SP1..SP9 tọa độ x=500mm bẻ 15° & Tủ sách bẻ 25° + LED C1 (2,6tr) | PA2: Hệ Ray 48V 7m + 03 Driver 48V MeanWell độc lập giấu đỉnh Tủ sách (9,26tr)", unit: "Gói", qty: 1, price: 2600000, note: "Bàn làm việc đạt 530 Lux chống bóng đổ tay" },
+      { id: "c8_4", cat: "cat8", enabled: true, name: "02 Bộ Quạt trần 5 cánh gỗ tích hợp đèn LED 24W đổi 3 màu có Remote (Lộ 6 Tâm Phòng Khách & Lộ 6A Tâm Bàn Ăn 8 ghế Tầng 1)", spec: "Theo chieu-sang-opple-3d.html: Động cơ DC Inverter siêu êm, 5 cánh gỗ, sải cánh 1.32–1.42m, ty treo 20–25cm cấy thẳng vào sàn bê tông (Nằm gọn trong lòng khung ray 1.825×2.970mm không cắt bóng)", unit: "Bộ", qty: 2, price: 2500000, note: "Lộ 6 (Tâm Sofa P.Khách) & Lộ 6A (Tâm Bàn Ăn)" },
+
+      // CAT 9: MẶT TIỀN & SƠN NGOẠI THẤT (mat-tien.html & son-gach-phoi-mau.html)
+      { id: "c9_1", cat: "cat9", enabled: true, name: "Ốp Đá Ong Xám Tự Nhiên Tầng 1 (Mã D2) & Trụ Giữa Cửa Sổ Tầng 2 (Mã G2 — 32,5 m²)", spec: "Đá ong xám tự nhiên 100×300 & 200×400mm dày 15–20mm ốp bằng keo C2 chống bong tróc", unit: "m²", qty: 32.5, price: 646154, note: "Thi công khi còn giàn giáo ngoài (~21,0tr)" },
+      { id: "c9_2", cat: "cat9", enabled: true, name: "Hoàn Thiện Khung Chữ C Tầng 2 & Mặt Bên Nhô 20cm (Mã D1 — 42 m²)", spec: "PA Lai (mat-tien.html): Sơn hiệu ứng bê tông ghi đậm #06 + Nẹp nhựa chỉ âm 10×10mm chia 5 nhịp 1590mm (PA Full Đá Á Mỹ: 78tr)", unit: "m²", qty: 42, price: 404762, note: "Hợp thức hóa khối T2 nhô 20cm (~17,0tr)" },
+      { id: "c9_3", cat: "cat9", enabled: true, name: "Hộp Vát Tầng 3 Sơn Hiệu Ứng Gỉ Sét Corten + Gờ Ngắt Nước Mũi Vát GMN-04 (KT-3.06)", spec: "Bỏ nan dọc che 2 cửa sổ đứng T3, sơn hiệu ứng thép Corten + gắn nẹp ngắt nước GMN-04 ở mũi vát 160mm", unit: "Gói", qty: 1, price: 11000000, note: "Chống vệt nước đen mặt tiền tuyệt đối" },
+      { id: "c9_4", cat: "cat9", enabled: true, name: "Sơn ngoại thất chống thấm cao cấp toàn nhà (Mã A1 ghi đậm & A2 trắng — ~350 m²)", spec: "Theo son-gach-phoi-mau.html: 04 thùng Kova CT-11A Plus (8,8tr) + 04 thùng lót Weathershield (10,4tr) + 04 thùng phủ 15L Trắng Sứ A2 & 01 thùng Xám Đậm A1 + công lăn (~10,6tr)", unit: "m²", qty: 350, price: 85143, note: "Chuẩn bảng bóc tách sơn ngoại thất (~29,80tr)" },
+
+      // CAT 10: CỬA GỖ LIM PHẲNG D3 (cua-go-lim-d3.html)
+      { id: "c10_1", cat: "cat10", enabled: true, name: "07 Bộ Cửa Gỗ Lim Nam Phi Phẳng D3 (900×2400mm) — Khuôn Đơn 60×140 & Cánh Phẳng 40mm", spec: "Theo bảng KT-6.00 (7 bộ D3 thông phòng): Ghép 4 nan dọc 40×145mm hèm âm dương chỉ 2mm + 03 Ty ren M10 âm xuyên bụng", unit: "Bộ", qty: 7, price: 7300000, note: "Đóng tại xưởng mộc (Thông thủy đẹp 804×2352mm = 51,1tr)" },
+      { id: "c10_2", cat: "cat10", enabled: true, name: "07 Bộ Phụ Kiện Đen Mờ Chịu Tải Nặng Cửa Gỗ Lim D3 (Khóa Phân Thể Thân Từ + 4 Bản Lề 3mm + Chặn Cửa + Gioăng EPDM)", spec: "Khóa phân thể Đen mờ (Imundex 737.19.594 + Thân từ siêu êm 747.11.590) + 4 bản lề lá Inox 304 Đen mờ dày 3mm (Hafele 926.98.133 / Imundex 701.12.950) + Chặn cửa nam châm (938.79.005) + 5,8m gioăng EPDM", unit: "Bộ", qty: 7, price: 1200000, note: "Đồng bộ màu Đen mờ hiện đại, đóng mở êm ru (= 8,4tr)" },
+
+      // CAT 11: PHÒNG LÀM VIỆC TẦNG 3 — ĐÃ BỎ NỘI THẤT & KHỬ TRÙNG MOTOR E1 (phong-lam-viec-tang3.html)
+      { id: "c11_1", cat: "cat11", enabled: true, name: "Điều Hòa Treo Tường Inverter 12.000 BTU (AC-T3) Lắp Tại Vách Đông Phòng Làm Việc Tầng 3", spec: "Đặt tại x=3.420, y=1.350mm thổi dọc hành lang giữa phòng; kéo nguồn 2×2.5mm² từ TĐ3 cách 1,8m; thoát nước ngưng 0,6m vào HKT", unit: "Bộ", qty: 1, price: 11500000, note: "Đã bỏ Bàn đôi (12tr), Tủ sách (25tr) & Sofa (6,5tr)" },
+      { id: "c11_2", cat: "cat11", enabled: true, name: "Hạ tầng Điện & Mạng LAN Gầm Bàn (E1..E4: Tận dụng cáp Cat6 thứ 4 trên CĐ-10 + Switch 5P Gigabit + Ống gen Φ32 + USB IR)", spec: "Gom 14 lỗ cắm + 3 cổng LAN Cat6 vào mảng tường đặc 1,36m giữa S4 & V4; luồn sẵn ống Φ32 âm tường lên tivi", unit: "Gói", qty: 1, price: 1300000, note: "Ổ cắm Schneider, CT Aqara SW-T3 & Nút gầm bàn đã tính ở Mục 7" },
+      { id: "c11_3", cat: "cat11", enabled: true, name: "Bộ Vải Rèm Cuốn Blackout 100% Chắn Nắng Tây & Ống Cuốn Nhôm Cho Cửa Sổ S4 (Đã trừ 1,25tr Motor E1 tính ở Mục 7)", spec: "Lắp âm hốc rèm trần thạch cao S=150×H=150mm, thả lọt sau lưng màn hình máy tính (Động cơ Aqara Roller Shade E1 1,25tr đã nằm trong mục c7_4)", unit: "Bộ", qty: 1, price: 1950000, note: "Đã khử trùng lặp 1,25tr Motor rèm cuốn E1 với đơn Thái Hưng Mục 7" },
+      { id: "c11_4", cat: "cat11", enabled: false, name: "[Tùy chọn] Hệ Vách Cửa Lùa 4 Cánh Kính Mờ Sóng Ngăn Phòng Thờ (2.400 × 2.750 mm = 6,6 m²)", spec: "Hệ nhôm Slim ray treo giảm chấn + Kính mờ sóng + Gioăng EPDM giữ lạnh điều hòa (Mặc định tắt để làm cùng đợt Nội thất)", unit: "Bộ", qty: 1, price: 16500000, note: "Tích chọn nếu muốn lắp ngay trong giai đoạn hoàn thiện" },
+
+      // CAT 12: THIẾT BỊ 04 PHÒNG WC, CẦU THANG KÍNH, MÁI KÍNH & TẦNG TUM (giam-sat-wc.html & tang-tum-3d.html)
+      { id: "c12_1", cat: "cat12", enabled: true, name: "05 Bộ Cabin Kính Tắm Đứng Slimdoor Inox 304 Mạ PVD Đen Mờ (Cao chuẩn 2.200mm)", spec: "03 bộ WC-01 (1400×2200) + 02 bộ WC-02 Master (Khoang Cầu & Tắm) kính 10mm/12.38ly, hở đỉnh 20cm thoát hơi", unit: "Bộ", qty: 5, price: 6400000, note: "Bỏ lanh tô mảnh 60×140 trên vách kính" },
+      { id: "c12_2", cat: "cat12", enabled: true, name: "04 Bộ Bồn Cầu 1 Khối Đặt Sàn (01 TOTO MS885DT8 Master + 03 Inax AC-902VN cho WC-01)", spec: "Đã bỏ PA âm tường: Đặt tâm lỗ thoát uPVC Ø110 cách mặt bệ hoàn thiện đúng 305mm", unit: "Gói", qty: 1, price: 25000000, note: "Tiết kiệm chi phí khung âm & dễ bảo trì trọn đời" },
+      { id: "c12_3", cat: "cat12", enabled: true, name: "04 Bộ Sen Cây Tắm Đứng, Chậu Rửa Lavabo, Vòi Nóng Lạnh & 08 Phễu Thu Sàn Ngăn Mùi Inox 304", spec: "01 bộ Master cao cấp + 03 bộ WC-01 (T1, T2, T3) đồng bộ tông màu phụ kiện Cabin kính", unit: "Phòng", qty: 4, price: 7000000, note: "Mua đúng 4 phòng WC thực tế (Bản vẽ N-13 ghi nhầm 7 bộ)" },
+      { id: "c12_4", cat: "cat12", enabled: true, name: "Bàn Đá Lavabo, Tủ Nhựa Picomat, Gương LED, Bệ Đá 1.1m & Gia Công 13 Kệ Đá Tận Dụng Từ Đá Bếp", spec: "Tận dụng 2 phôi đá Vicostone khoét chậu Konox & bếp Bosch (f322e909) cắt 13 tấm kệ góc & đợt hốc âm cho cả 4 WC", unit: "Gói", qty: 1, price: 25000000, note: "Tiết kiệm ~4–5tr tiền mua kệ góc nhờ tận dụng đá khoét bếp" },
+      { id: "c12_5", cat: "cat12", enabled: true, name: "04 Bộ Cửa Đi WC Gỗ Nhựa Composite Chống Nước Tuyệt Đối (DW1: 740×2400 & DW2: 750×2400mm)", spec: "Gồm khuôn bao, nẹp cài 2 mặt, bản lề Inox 304 & khóa cửa WC (Các cửa sổ nhôm S1, S5 đã tính ở Mục 1 DCONS)", unit: "Bộ", qty: 4, price: 4500000, note: "Đã khử trùng lặp cửa sổ nhôm S1/S5 & gạch ốp WC" },
+      { id: "c12_6", cat: "cat12", enabled: true, name: "Lan Can Kính Cầu Thang Bộ 3 Tầng (~19 md) + Lan Can Sắt 5 Ban Công (~16 md) + Mái Kính 03 Đỉnh Giếng Trời", spec: "KT-3.03, 3.06A, 3.09: Cầu thang kính 12ly tay vịn gỗ (28tr) + Lan can sắt đen T2–T3 (17,5tr) + Mái kính 03 giếng trời 11,6m² (25tr)", unit: "Gói", qty: 1, price: 70500000, note: "Mái kính 03 đỉnh giếng trời có nan chớp thông gió bắt buộc làm ngay" },
+      { id: "c12_7", cat: "cat12", enabled: true, name: "Tường Chữ L 1.55m Che 2 Bồn Nước Sân Sau Tum + Lan Can Kính Mặt Tiền/Tum + 02 Bồn Nước Inox 304", spec: "PA 1B (tang-tum-3d.html): Tường gạch che bồn + Lan can sắt 5,9m (9,5tr) + Lan can kính U nhôm Maxpro (21,5tr) + 2 Bồn Inox (7,7tr)", unit: "Gói", qty: 1, price: 38700000, note: "Che kín 100% 2 đáy bồn nước ngang & ống PPR trên Tum" },
+      { id: "c12_8", cat: "cat12", enabled: true, name: "Hệ Khung Thép H200×200 Mái Sân Thượng Tum (KT-3.08) + Trần Nhôm B-Shaped Vân Gỗ & Mái Kính Phụ", spec: "Khung thép H200 sơn tĩnh điện đen + Trần nhôm ngoài trời (~60tr). Có thể lùi sang Giai đoạn 2 (chỉ chôn bản mã chờ 2,5tr)", unit: "Hệ", qty: 1, price: 60000000, note: "Bấm nút 'PA Gói Gọn < 2 Tỷ' ở trên nếu muốn lùi mục này làm sau" },
+
+      // CAT 13: HỒ SƠ MỘC CỬA CHÍNH D1 — PHƯƠNG ÁN 1B (cua-chinh-d1.html)
+      { id: "c1_4", cat: "cat13", enabled: true, name: "01 Bộ Cửa Chính Gỗ Lim Nam Phi D1 (1.750 × 3.000 mm) — PA 1B: Ô Kính Trái 11.52mm + Cánh Phải 1280×2930×60mm Mở Ra Ngoài", spec: "Thông thủy Lỗ Ban 1260×2925mm: Khuôn 68/88×140 + Đố giữa 83×140 + Cánh dày 60mm ghép 10 nan dọc 128mm hèm âm dương + 04 Ty ren thép M12 âm + Kính dán CL 2 lớp 11.52mm", unit: "Bộ", qty: 1, price: 21500000, note: "Sơn PU Màu Nâu Óc Chó Trầm (Mẫu 1A/1B) hoặc Nâu Cánh Gián 3D (Mẫu 2A/2B)" },
+      { id: "c13_2", cat: "cat13", enabled: true, name: "Bộ Phụ Kiện Chịu Tải Nặng Cửa Chính D1: 04 Bản Lề Âm 3D Häfele/TECTUS + Tay Nắm Chữ H Bản To + Chặn Đáy Tự Sập Âm", spec: "04 Bản lề âm 3D tải 120–160kg (Häfele 927.03.093 / TECTUS 924.17.425) + Tay nắm chữ H 45×55mm (Dài 2.05m hoặc Vừa 1.35m) + Chặn đáy tự sập Häfele 950.07.123 (Khóa D200i tính ở mục 7)", unit: "Gói", qty: 1, price: 6500000, note: "Khoét bản lề lệch sát mặt ngoài cánh 4–5mm để mở rộng 108° ra sảnh" }
+    ];
+
+    const STORAGE_KEY = "qvilla_master_budget_v3";
+    const LEGACY_KEY = "qvilla_master_budget_v2";
+    const WIN_NAME_PREFIX = "QVILLA_BUDGET_V3::";
+    const IDB_NAME = "QVillaBudgetDB";
+    const IDB_STORE = "snapshots";
+    const SCHEMA_REV = "2026_11_04_audit_v2";
+    let budgetItems = [];
+    let currentFilter = "all";
+    let currentPresetName = "⭐ PA Tối Ưu Khuyên Dùng (Full Hoàn Thiện + Tủ Bếp & Thiết Bị Bếp)";
+    let hasUnsavedChanges = false;
+    let isApplyingPreset = false;
+
+    function formatVND(num) {
+      return Math.round(num || 0).toLocaleString("vi-VN") + " ₫";
+    }
+
+    function formatNumberPlain(num) {
+      return Math.round(num || 0).toLocaleString("vi-VN");
+    }
+
+    function formatShortMillion(num) {
+      const m = (num || 0) / 1000000;
+      return m.toLocaleString("vi-VN", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " Triệu ₫";
+    }
+
+    // Parse Vietnamese price input (supports "150.000.000", "150000000", "15.5tr", "15,5tr", "500k")
+    function parseSmartPrice(val) {
+      if (val === null || val === undefined) return 0;
+      const str = String(val).trim().toLowerCase();
+      if (!str) return 0;
+      const trMatch = str.match(/^(-?\d+(?:[.,]\d+)?)\s*(?:tr|trieu|triệu|m)$/);
+      if (trMatch) {
+        return Math.round(parseFloat(trMatch[1].replace(",", ".")) * 1000000) || 0;
+      }
+      const kMatch = str.match(/^(-?\d+(?:[.,]\d+)?)\s*(?:k|ng|nghin|nghìn)$/);
+      if (kMatch) {
+        return Math.round(parseFloat(kMatch[1].replace(",", ".")) * 1000) || 0;
+      }
+      const digitsOnly = str.replace(/[^\d-]/g, "");
+      return parseInt(digitsOnly, 10) || 0;
+    }
+
+    function parseSmartQty(val) {
+      if (val === null || val === undefined) return 0;
+      const normalized = String(val).trim().replace(/,/g, ".").replace(/[^\d.-]/g, "");
+      const num = parseFloat(normalized);
+      return isNaN(num) ? 0 : num;
+    }
+
+    function getSelectStates() {
+      const selects = {};
+      Object.keys(CATEGORY_META).forEach(c => {
+        const el = document.getElementById("sel-" + c);
+        if (el) selects[c] = el.value;
+      });
+      return selects;
+    }
+
+    function applySelectStates(selects) {
+      if (!selects || typeof selects !== "object") return;
+      Object.keys(selects).forEach(c => {
+        const el = document.getElementById("sel-" + c);
+        if (el && selects[c]) el.value = selects[c];
+      });
+    }
+
+    function updateSaveBadge(msg, isUnsaved) {
+      const badge = document.getElementById("save-status-badge");
+      const floatBar = document.getElementById("unsaved-floating-bar");
+      const tfNote = document.getElementById("tfoot-note");
+
+      if (badge) {
+        badge.textContent = msg;
+        badge.classList.toggle("unsaved", Boolean(isUnsaved));
+        badge.classList.remove("flash");
+        void badge.offsetWidth;
+        badge.classList.add("flash");
+        setTimeout(() => badge.classList.remove("flash"), 350);
+      }
+      if (floatBar) {
+        floatBar.classList.toggle("visible", Boolean(isUnsaved));
+      }
+      if (tfNote) {
+        tfNote.textContent = msg;
+        tfNote.style.color = isUnsaved ? "#fde68a" : "#34d399";
+      }
+    }
+
+    function markUnsavedChanges(reasonMsg) {
+      hasUnsavedChanges = true;
+      updateSaveBadge(reasonMsg || "⚠️ Có thay đổi chưa lưu — Bấm '💾 Lưu bảng giá' để lưu lại", true);
+    }
+
+    // IndexedDB helper for rock-solid persistence across browser restarts
+    function saveToIndexedDB(serialized) {
+      try {
+        if (!window.indexedDB) return;
+        const req = window.indexedDB.open(IDB_NAME, 1);
+        req.onupgradeneeded = function(e) {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(IDB_STORE)) {
+            db.createObjectStore(IDB_STORE);
+          }
+        };
+        req.onsuccess = function(e) {
+          const db = e.target.result;
+          const tx = db.transaction(IDB_STORE, "readwrite");
+          tx.objectStore(IDB_STORE).put(serialized, "latest");
+        };
+      } catch (err) {}
+    }
+
+    function loadFromIndexedDB(callback) {
+      try {
+        if (!window.indexedDB) return callback(null);
+        const req = window.indexedDB.open(IDB_NAME, 1);
+        req.onupgradeneeded = function(e) {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains(IDB_STORE)) {
+            db.createObjectStore(IDB_STORE);
+          }
+        };
+        req.onsuccess = function(e) {
+          const db = e.target.result;
+          const tx = db.transaction(IDB_STORE, "readonly");
+          const getReq = tx.objectStore(IDB_STORE).get("latest");
+          getReq.onsuccess = function() {
+            callback(getReq.result || null);
+          };
+          getReq.onerror = function() { callback(null); };
+        };
+        req.onerror = function() { callback(null); };
+      } catch (err) {
+        callback(null);
+      }
+    }
+
+    function applyRawSavedPayload(raw) {
+      if (!raw) return false;
+      try {
+        const parsed = JSON.parse(raw);
+        const savedArray = Array.isArray(parsed) ? parsed : (parsed && Array.isArray(parsed.items) ? parsed.items : null);
+        if (savedArray && savedArray.length > 0) {
+          const savedMap = {};
+          savedArray.forEach(item => {
+            if (item && item.id) savedMap[item.id] = item;
+          });
+          const isMigratedRev = Boolean(parsed && !Array.isArray(parsed) && parsed.schemaRev === SCHEMA_REV);
+          const auditedCats = new Set(["cat3", "cat4", "cat7", "cat8", "cat9", "cat10", "cat11", "cat13"]);
+
+          budgetItems = DEFAULT_ITEMS.map(def => {
+            const s = savedMap[def.id];
+            if (!s) return JSON.parse(JSON.stringify(def));
+            // Always preserve 100% of cat2 (phần nhân công) & user edits after schemaRev migration
+            if (!isMigratedRev && auditedCats.has(def.cat)) {
+              return JSON.parse(JSON.stringify(def));
+            }
+            return {
+              ...def,
+              enabled: s.enabled !== undefined ? Boolean(s.enabled) : def.enabled,
+              name: s.name !== undefined ? s.name : def.name,
+              spec: s.spec !== undefined ? s.spec : def.spec,
+              unit: s.unit !== undefined ? s.unit : def.unit,
+              qty: s.qty !== undefined ? Number(s.qty) : def.qty,
+              price: s.price !== undefined ? Number(s.price) : def.price,
+              note: s.note !== undefined ? s.note : def.note,
+              edited: Boolean(s.edited || def.cat === "cat2")
+            };
+          });
+          savedArray.forEach(s => {
+            if (s && s.id && String(s.id).startsWith("custom_")) {
+              budgetItems.push(s);
+            }
+          });
+          if (parsed && !Array.isArray(parsed)) {
+            if (parsed.presetName) currentPresetName = parsed.presetName;
+            if (parsed.selects) {
+              const mergedSelects = { ...parsed.selects };
+              if (!isMigratedRev) {
+                auditedCats.forEach(c => { mergedSelects[c] = "opt1"; });
+              }
+              applySelectStates(mergedSelects);
+            }
+            const savedTime = parsed.savedAt ? ` (${parsed.savedAt})` : "";
+            updateSaveBadge(`📌 Đang mở Bản Đã Lưu Của Tôi${savedTime} • Đã giữ nguyên Nhân công & cập nhật giá rà soát`, false);
+          } else {
+            updateSaveBadge(`📌 Đang mở Bản Đã Lưu Của Tôi • Đã giữ nguyên Nhân công & cập nhật giá rà soát`, false);
+          }
+          hasUnsavedChanges = false;
+          document.querySelectorAll(".preset-btn").forEach(b => {
+            b.classList.toggle("active", b.getAttribute("data-preset") === "saved");
+          });
+          if (!isMigratedRev) {
+            saveBudget(`📌 Đã cập nhật giá rà soát mới (Giữ nguyên 100% chi phí Nhân công bạn đã lưu)`);
+          }
+          return true;
+        }
+      } catch (e) {
+        console.warn("Storage parse fallback:", e);
+      }
+      return false;
+    }
+
+    function loadBudget() {
+      let raw = null;
+      try {
+        raw = localStorage.getItem(STORAGE_KEY) || sessionStorage.getItem(STORAGE_KEY);
+      } catch (e) {}
+      if (!raw && window.name && window.name.startsWith(WIN_NAME_PREFIX)) {
+        raw = window.name.slice(WIN_NAME_PREFIX.length);
+      }
+      if (!raw) {
+        try {
+          raw = localStorage.getItem(LEGACY_KEY);
+        } catch (e) {}
+      }
+
+      if (applyRawSavedPayload(raw)) {
+        return;
+      }
+
+      // Default initial state before IndexedDB check completes
+      budgetItems = JSON.parse(JSON.stringify(DEFAULT_ITEMS));
+      updateSaveBadge("📌 Đang hiển thị PA Mặc định (Chưa có bản lưu riêng)", false);
+
+      // Also check IndexedDB asynchronously in case localStorage was cleared by browser
+      loadFromIndexedDB(function(idbRaw) {
+        if (idbRaw && !hasUnsavedChanges) {
+          if (applyRawSavedPayload(idbRaw)) {
+            try { localStorage.setItem(STORAGE_KEY, idbRaw); } catch (e) {}
+            renderAll();
+          }
+        }
+      });
+    }
+
+    function saveBudget(customMsg) {
+      const nowStr = new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit", second: "2-digit" });
+      const payloadObj = {
+        version: 3,
+        schemaRev: SCHEMA_REV,
+        savedAt: nowStr,
+        presetName: currentPresetName,
+        selects: getSelectStates(),
+        items: budgetItems
+      };
+      const serialized = JSON.stringify(payloadObj);
+      try {
+        localStorage.setItem(STORAGE_KEY, serialized);
+      } catch (e) {
+        console.warn("localStorage save warning:", e);
+      }
+      try {
+        sessionStorage.setItem(STORAGE_KEY, serialized);
+      } catch (e) {}
+      try {
+        window.name = WIN_NAME_PREFIX + serialized;
+      } catch (e) {}
+      saveToIndexedDB(serialized);
+      hasUnsavedChanges = false;
+      document.querySelectorAll(".preset-btn").forEach(b => {
+        if (b.getAttribute("data-preset")) {
+          b.classList.toggle("active", b.getAttribute("data-preset") === "saved");
+        }
+      });
+      updateSaveBadge(customMsg || `💾 Đã lưu bảng giá thành công (${nowStr})`, false);
+    }
+
+    function restoreLastSavedBudget() {
+      let raw = null;
+      try {
+        raw = localStorage.getItem(STORAGE_KEY) || sessionStorage.getItem(STORAGE_KEY);
+      } catch (e) {}
+      if (!raw && window.name && window.name.startsWith(WIN_NAME_PREFIX)) {
+        raw = window.name.slice(WIN_NAME_PREFIX.length);
+      }
+      if (!raw) {
+        try { raw = localStorage.getItem(LEGACY_KEY); } catch (e) {}
+      }
+      if (raw && applyRawSavedPayload(raw)) {
+        renderAll();
+        return;
+      }
+      loadFromIndexedDB(function(idbRaw) {
+        if (idbRaw && applyRawSavedPayload(idbRaw)) {
+          renderAll();
+        } else {
+          alert("Bạn chưa có bản lưu nào trong bộ nhớ. Hãy chỉnh sửa giá và bấm nút '💾 Lưu bảng giá' để lưu lại!");
+        }
+      });
+    }
+
+    function setItemState(id, enabled, qty, price, note) {
+      const it = budgetItems.find(x => x.id === id);
+      if (!it) return;
+      if (enabled !== null && enabled !== undefined) it.enabled = enabled;
+      // If user manually edited this row's price/qty, preserve their edited price/qty when switching presets!
+      if (isApplyingPreset && it.edited) {
+        return;
+      }
+      if (qty !== null && qty !== undefined) it.qty = qty;
+      if (price !== null && price !== undefined) it.price = price;
+      if (note !== null && note !== undefined) it.note = note;
+    }
+
+    // Handle individual module option change from the 13 Portal Cards
+    function onModuleOptionChange(cat, optVal, skipRender) {
+      if (cat === "cat1") {
+        // Hệ Cửa nhôm kính DCONS
+        if (optVal === "opt1") {
+          setItemState("c1_1", true, 1, 158500000, "DCONS Bản 3.1 (TH2A): Giữ 100% Hệ lùa 100 (2 cánh lớn)");
+          setItemState("c1_2", true, 1, 121650000, "S4 & V4 cao 3.0m sát sàn + Tách TẤT CẢ Vách FIX dưới về 1,5tr/m²");
+          setItemState("c1_3", true, 1, 71100000, "100% Phụ kiện CMECH (Mỹ) toàn nhà");
+        } else if (optVal === "opt2") {
+          setItemState("c1_1", true, 1, 158500000, "DCONS Bản 3.1 Cơ sở: Giữ 100% Hệ lùa 100");
+          setItemState("c1_2", true, 1, 122970000, "S4 & V4 cao 2.1m + Chỉ tách Vách FIX ở D11 Tầng Tum");
+          setItemState("c1_3", true, 1, 71100000, "100% Phụ kiện CMECH (Mỹ) toàn nhà");
+        } else if (optVal === "opt3") {
+          setItemState("c1_1", true, 1, 145000000, "DCONS Bản 2: Giữ Hệ 100 cho V1, D6, D4; hạ Hệ 93 các cửa phụ");
+          setItemState("c1_2", true, 1, 125000000, "Đã trừ cửa xây bịt & tách Vách FIX D11");
+          setItemState("c1_3", true, 1, 58000000, "Giữ Cmech T1–T3, đổi PK Kinlong ở Tum & Giếng trời (-13,1tr)");
+        } else if (optVal === "opt4") {
+          setItemState("c1_1", true, 1, 135000000, "DCONS Bản 1: Chỉ giữ Hệ 100 ở V1, hạ Hệ 93 các cửa lùa còn lại");
+          setItemState("c1_2", true, 1, 124600000, "Đã trừ cửa xây bịt & tách Vách FIX D11");
+          setItemState("c1_3", true, 1, 52400000, "Đổi PK Kinlong cho toàn bộ cửa phụ/Tum/Giếng trời (-18,7tr)");
+        } else if (optVal === "opt5") {
+          setItemState("c1_1", true, 1, 168000000, "Báo giá gốc DCONS chưa chuẩn hóa (136,76 m²)");
+          setItemState("c1_2", true, 1, 145840000, "Chưa trừ V5, V3, S1 xây bịt & chưa tách Vách FIX");
+          setItemState("c1_3", true, 1, 77100000, "Báo giá phụ kiện gốc chưa trừ PK thừa D4");
+        }
+      } else if (cat === "cat2") {
+        // Công thợ, xây trát, chống thấm & điện nước trục chính
+        if (optVal === "opt1") {
+          setItemState("c2_1", true, 1, 300000000, "Công thợ nề còn lại (Tổng ~500tr trừ 200tr đã ứng)");
+          setItemState("c2_2", true, 1, 95000000, "Cát + Xi măng trát trong ngoài & cán nền 4 tầng");
+          setItemState("c2_3", true, 1, 32000000, "Chống thấm Sika 107 (173 m²) + Vỉ thoát nước bồn hoa");
+          setItemState("c2_4", true, 1, 50000000, "Dây cáp Trần Phú/Cadivi + 4 Tủ điện 36 Aptomat Schneider");
+          setItemState("c2_8", true, 350, 128571, "Nhân công Điện - Nước trọn gói (~45tr)");
+        } else if (optVal === "opt2") {
+          setItemState("c2_1", true, 1, 280000000, "Công thợ nề mức tối ưu (Tổng 480tr trừ 200tr đã ứng)");
+          setItemState("c2_2", true, 1, 88000000, "Cát + Xi măng kiểm soát sát hao hụt");
+          setItemState("c2_3", true, 1, 28000000, "Chống thấm Sika 107 tiêu chuẩn");
+          setItemState("c2_4", true, 1, 46000000, "Dây cáp điện & Aptomat tiêu chuẩn");
+          setItemState("c2_8", true, 350, 114286, "Nhân công Điện - Nước (~40tr)");
+        } else {
+          setItemState("c2_1", true, 1, 350000000, "Công thợ nề dự phòng cao (Tổng 550tr trừ 200tr đã ứng)");
+          setItemState("c2_2", true, 1, 115000000, "Cát + Xi măng dự phòng dư thoải mái");
+          setItemState("c2_3", true, 1, 40000000, "Chống thấm Sika 107 + Màng khò/Sika đàn hồi cao cấp");
+          setItemState("c2_4", true, 1, 60000000, "Dây cáp Cadivi + Tủ điện & RCBO Schneider cao cấp");
+          setItemState("c2_8", true, 350, 154286, "Nhân công Điện - Nước kỹ thuật cao (~54tr)");
+        }
+      } else if (cat === "cat3") {
+        // Trần thạch cao & Sơn nội thất (son-gach-phoi-mau.html)
+        if (optVal === "opt1") {
+          setItemState("c3_1", true, 228, 195175, "Khung xương Vĩnh Tường + Tấm C1/C2 chuẩn 2026 (~44,5tr)");
+          setItemState("c3_2", true, 1, 14500000, "Nẹp Z Shadowline + Khe rèm LED + Chỉ âm đen P-UT12");
+          setItemState("c3_3", true, 1, 33600000, "Vật tư Sơn phủ Nội thất Dulux Ambiance 5in1 / Kova (White Cotton + Warm Pewter + Trần = 33,6tr)");
+          setItemState("c3_4", true, 780, 26923, "Bột bả (~22 bao) + Sơn lót (6 thùng 18L) + Nhân công bả xả & lăn sơn 780m² (~21,0tr)");
+        } else if (optVal === "opt_curve") {
+          setItemState("c3_1", true, 228, 205263, "PA C Bo Cong R350 (Đức Anh 35): Khung Vĩnh Tường + Tấm Gyproc Siêu Chịu Ẩm uốn cong (~46,8tr)");
+          setItemState("c3_2", true, 1, 18700000, "Nẹp đục lỗ uốn cong R350 + Phào máng hắt + Nẹp nhựa âm đen 12mm bo cong + Nắp thăm R80 (~18,7tr)");
+          setItemState("c3_3", true, 1, 33600000, "Vật tư Sơn phủ Nội thất Dulux Ambiance 5in1 / Kova (White Cotton + Warm Pewter + Trần = 33,6tr)");
+          setItemState("c3_4", true, 780, 26923, "Bột bả (~22 bao) + Sơn lót (6 thùng 18L) + Nhân công bả xả & lăn sơn 780m² (~21,0tr)");
+        } else if (optVal === "opt2") {
+          setItemState("c3_1", true, 228, 184210, "Trần phẳng tối giản ít giật cấp (~42,0tr)");
+          setItemState("c3_2", true, 1, 10000000, "Phụ kiện khe rèm & nắp thăm tiêu chuẩn");
+          setItemState("c3_3", true, 1, 29500000, "Vật tư Sơn phủ Nội thất Maxilite / Kova tiêu chuẩn (~29,5tr)");
+          setItemState("c3_4", true, 780, 25641, "Bột bả + Sơn lót + Nhân công lăn sơn tiêu chuẩn (~20,0tr)");
+        } else {
+          setItemState("c3_1", true, 228, 219298, "100% Tấm thạch cao siêu chịu ẩm Gyproc toàn nhà (~50,0tr)");
+          setItemState("c3_2", true, 1, 18500000, "Full Nẹp Shadowline + Khe rèm nhôm định hình LED");
+          setItemState("c3_3", true, 1, 42000000, "Vật tư Sơn phủ Dulux Ambiance 5in1 Diamond Glow / Kova K-5500 Gold (~42,0tr)");
+          setItemState("c3_4", true, 780, 30769, "Bột bả cao cấp + Sơn lót kháng kiềm + Nhân công bả 3 lớp (~24,0tr)");
+        }
+      } else if (cat === "cat4") {
+        // Gạch ốp lát (op-lat-chia-gach.html: T1 1000×1000 + Gạch giả gỗ 150×900 xương cá 127 hộp)
+        if (optVal === "opt1" || optVal === "opt4") {
+          setItemState("c4_1", true, 92.72, 390000, "T1 Gạch 1000×1000 (62m² = 31 hộp • Định vị X=0,Y=0) + HL/Tum 800×800 (30,72m² = 16 hộp)");
+          setItemState("c4_2", true, 112.5, 235556, "Gạch chống trơn R11 Sân, Tum & Ban công (~26,5tr)");
+          setItemState("c4_3", true, 125.28, 335249, "87 hộp Gạch Porcelain 600×1200 ốp dọc + 600×600 sàn 4 WC (~42,0tr)");
+          setItemState("c4_4", true, 1, 21500000, "~54 bao Keo dán gạch C2 trét 2 mặt + Ke vít cân bằng + Len âm DF-1212 (Bỏ nẹp T8)");
+          setItemState("c4_5", true, 137.16, 410000, "127 hộp Gạch giả gỗ Porcelain 150×900 mài cạnh lát xương cá 45° (= 56.235.600 ₫)");
+          setItemState("c4_6", true, 45, 1155556, "Đá Granite/Nhân tạo cầu thang 67 bậc (~52tr)");
+          setItemState("c4_7", true, 1, 40000000, "Đá bậu cửa & Bàn bếp ướt Sân sau (25tr) + Đá Phú Yên Tam cấp & Bệ nổi (15tr)");
+        } else if (optVal === "opt_wood") {
+          setItemState("c4_1", true, 91, 351648, "Gạch Granite 800×800 nội địa cao cấp (~32tr)");
+          setItemState("c4_2", true, 112.5, 235556, "Gạch chống trơn Sân, Tum & Ban công (~26,5tr)");
+          setItemState("c4_3", true, 125.28, 335249, "87 hộp Gạch Porcelain 600×1200 ốp lát 4 WC (~42tr)");
+          setItemState("c4_4", true, 1, 16500000, "Keo dán gạch C2 + Keo chà ron + Nẹp âm DF-1212");
+          setItemState("c4_5", true, 130, 480000, "Sàn gỗ công nghiệp 12mm lát xương cá (~62,4tr)");
+          setItemState("c4_6", true, 45, 1155556, "Đá Granite/Nhân tạo cầu thang 67 bậc (~52tr)");
+          setItemState("c4_7", true, 1, 40000000, "Đá bậu cửa 25,65m² (25tr) + Đá Phú Yên Tam cấp (15tr)");
+        } else if (optVal === "opt2") {
+          setItemState("c4_1", true, 91, 318681, "Gạch Granite 800×800 phân khúc khá (~29tr)");
+          setItemState("c4_2", true, 112.5, 213333, "Gạch sân & ban công tiêu chuẩn (~24tr)");
+          setItemState("c4_3", true, 125.28, 303321, "Gạch 4 phòng WC tiêu chuẩn (~38tr)");
+          setItemState("c4_4", true, 1, 14500000, "Keo dán gạch & nẹp tiêu chuẩn");
+          setItemState("c4_5", true, 137.16, 408282, "Gạch giả gỗ / Sàn gỗ xương cá tiêu chuẩn (~56tr)");
+          setItemState("c4_6", true, 45, 1044444, "Đá Kim sa/Granite cầu thang (~47tr)");
+          setItemState("c4_7", true, 1, 36000000, "Đá bậu cửa & Tam cấp tiết kiệm");
+        } else if (optVal === "opt5") {
+          setItemState("c4_1", true, 94.08, 485000, "T1 Gạch 1200×1200 (63,36m² = 22 hộp • Định vị mép D1 X=1.150) + HL/Tum 800×800 (30,72m²)");
+          setItemState("c4_2", true, 112.5, 235556, "Gạch chống trơn R11 Sân, Tum & Ban công (~26,5tr)");
+          setItemState("c4_3", true, 125.28, 335249, "87 hộp Gạch Porcelain 600×1200 ốp lát 4 WC (~42tr)");
+          setItemState("c4_4", true, 1, 24500000, "Full Keo dán gạch khổ lớn C2S1 đàn hồi + Ke vít cân bằng + Len âm DF-1212 (Bỏ nẹp T8)");
+          setItemState("c4_5", true, 137.16, 435000, "127 hộp Gạch giả gỗ Porcelain 150×900 cao cấp lát xương cá 45° (Cốt cán nền -16mm)");
+          setItemState("c4_6", true, 45, 1155556, "Đá Granite/Nhân tạo cầu thang 67 bậc (~52tr)");
+          setItemState("c4_7", true, 1, 40000000, "Đá bậu cửa 25,65m² (25tr) + Đá Phú Yên Tam cấp (15tr)");
+        } else {
+          setItemState("c4_1", true, 92.72, 452977, "Gạch khổ lớn cao cấp (~42tr)");
+          setItemState("c4_2", true, 112.5, 297778, "Gạch sân & ban công cao cấp (~33,5tr)");
+          setItemState("c4_3", true, 125.28, 454981, "Gạch 600×1200 nhập khẩu ốp lát 4 WC (~57tr)");
+          setItemState("c4_4", true, 1, 22000000, "Full keo dán gạch C2 + Keo chà mạch Epoxy chống ố");
+          setItemState("c4_5", true, 137.16, 586906, "Gạch giả gỗ / Sàn gỗ xương cá nhập khẩu cao cấp (~80,5tr)");
+          setItemState("c4_6", true, 45, 1555556, "Đá cầu thang gốc thạch anh / Marble cao cấp (~70tr)");
+          setItemState("c4_7", true, 1, 47000000, "Đá bậu cửa & Tam cấp cao cấp");
+        }
+      } else if (cat === "cat5") {
+        // Tủ bếp KITPRO
+        if (optVal === "opt1") {
+          setItemState("c5_1", true, 1, 69850000, "Tủ dưới Inox 3 lớp + Tủ trên/Cột 1 lớp đáy 3 lớp cánh kính");
+          setItemState("c5_2", true, 1, 32850000, "5 Ngăn kéo Blum Movento (Bỏ Tip-on -4,67tr) + CK 30% Bản lề Blum");
+          setItemState("c5_3", true, 1, 13420000, "Đá bàn bếp Vicostone sâu 600mm (11,22tr) + Đá cổ bếp 1.05m (2,2tr)");
+        } else if (optVal === "opt2") {
+          setItemState("c5_1", true, 1, 69850000, "Tủ dưới Inox 3 lớp + Tủ trên/Cột 1 lớp đáy 3 lớp cánh kính");
+          setItemState("c5_2", true, 1, 35650000, "5 Ngăn kéo Blum Movento + Giữ 3 bộ Tip-on tầng đáy nhấn bằng chân");
+          setItemState("c5_3", true, 1, 13420000, "Đá bàn bếp Vicostone sâu 600mm (11,22tr) + Đá cổ bếp 1.05m (2,2tr)");
+        } else if (optVal === "opt3") {
+          setItemState("c5_1", true, 1, 69850000, "Báo giá gốc KITPRO (Thùng tủ Inox cánh kính)");
+          setItemState("c5_2", true, 1, 39620000, "Báo giá gốc: 5 bộ Tip-on + Bản lề Blum chưa chiết khấu");
+          setItemState("c5_3", true, 1, 15360000, "Báo giá gốc: Mặt đá rộng 700mm (13,04tr) + Kính ốp 3,3m (2,31tr)");
+        } else if (optVal === "opt4") {
+          setItemState("c5_1", false, 1, 69850000, "Tạm ẩn để chỉ tính thuần Hoàn thiện Kiến trúc & M&E");
+          setItemState("c5_2", false, 1, 32850000, "Tạm ẩn để chỉ tính thuần Hoàn thiện Kiến trúc & M&E");
+          setItemState("c5_3", false, 1, 13420000, "Tạm ẩn để chỉ tính thuần Hoàn thiện Kiến trúc & M&E");
+        }
+      } else if (cat === "cat6") {
+        // Thiết bị bếp Bosch / GrandX / Konox
+        if (optVal === "opt1") {
+          setItemState("c6_1", true, 1, 15500000, "Bếp từ 3 vùng nấu Bosch PID675DC1E / PID775DC1E Serie 8 (TBN)");
+          setItemState("c6_2", true, 1, 17000000, "Lò nướng âm tủ Bosch HBG5370B0 Serie 6 (TBN)");
+          setItemState("c6_3", true, 1, 6800000, "Máy hút mùi GrandX Inverter BLDC khổ 70cm");
+          setItemState("c6_4", true, 1, 9500000, "Chậu rửa 1 hố chống xước Konox + Vòi rút nóng lạnh Konox");
+        } else if (optVal === "opt2") {
+          setItemState("c6_1", true, 1, 9500000, "Bếp từ đôi 2 vùng nấu Bosch PPI82560MS Serie 8");
+          setItemState("c6_2", true, 1, 16500000, "Lò nướng âm tủ Bosch HBG5370B0 Serie 6");
+          setItemState("c6_3", true, 1, 5800000, "Máy hút mùi âm tủ GrandX GX H70F75B");
+          setItemState("c6_4", true, 1, 10200000, "Chậu rửa 1 hố Konox KN7644SU Dekor + Vòi rút");
+        } else if (optVal === "opt3") {
+          setItemState("c6_1", true, 1, 16500000, "Bếp từ 3 vùng nấu Bosch PID775DC1E Serie 8 rộng 70cm");
+          setItemState("c6_2", true, 1, 23500000, "Lò nướng âm tủ Bosch HBG635BB1 Serie 8 (Nhập khẩu Đức)");
+          setItemState("c6_3", true, 1, 7800000, "Máy hút mùi Kính vát Автоdoor GrandX GX H70T88G");
+          setItemState("c6_4", true, 1, 8700000, "Chậu rửa Konox KN8050 / Tari 7851SR + Vòi rút Konox");
+        } else if (optVal === "opt4") {
+          setItemState("c6_1", false, 1, 15500000, "Tạm ẩn (Mua sau khi lắp tủ bếp)");
+          setItemState("c6_2", false, 1, 17000000, "Tạm ẩn (Mua sau khi lắp tủ bếp)");
+          setItemState("c6_3", false, 1, 6800000, "Tạm ẩn (Mua sau khi lắp tủ bếp)");
+          setItemState("c6_4", false, 1, 9500000, "Tạm ẩn (Mua sau khi lắp tủ bếp)");
+        }
+      } else if (cat === "cat7") {
+        // Aqara Smarthome & Điện nhẹ
+        if (optVal === "opt1") {
+          setItemState("c7_1", true, 1, 5480000, "01 Hub M3 PoE trần T1 + 02 Hub M2 220V (T2) + 01 Module T2 cổng");
+          setItemState("c7_2", true, 1, 33540000, "42 Công tắc Aqara H1 (9×1N, 22×2N, 7×3N, 4×20A BNL = 33,22tr) + 01 Nút Mini Switch T1 (320k)");
+          setItemState("c7_3", true, 1, 24919000, "04 Đèn sưởi T1 + khung + 04 FP1E + 06 P1 + 01 rò nước + 02 Nhiệt ẩm T1");
+          setItemState("c7_4", true, 1, 30340000, "04 Motor rèm 2 lớp (13,61tr) + 01 Rèm cuốn E1 T3 (1,25tr) + G400 (3,49tr) + D200i (11,99tr)");
+          setItemState("c7_5", true, 1, 13500000, "23 Công tắc cơ (9×1N, 14×2N) + 87 Ổ cắm Schneider AvatarOn + 150 đế âm + 4 củ sạc FP1E");
+        } else if (optVal === "opt2") {
+          setItemState("c7_1", true, 1, 4180000, "Phần 1 Gốc XHOME: 01 Hub M3 PoE trần T1 (3,49tr) + 01 Module T2 cổng (690k)");
+          setItemState("c7_2", true, 1, 32170000, "Phần 1 Gốc XHOME: 37 CT đèn H1 (9×1N, 22×2N, 6×3N = 28,65tr) + 04 CT 20A BNL (3,52tr)");
+          setItemState("c7_3", true, 1, 24279000, "Phần 1 Gốc XHOME: 04 Đèn sưởi T1 + khung (17,516tr) + 04 FP1E + 06 P1 + 01 rò nước (6,763tr)");
+          setItemState("c7_4", true, 1, 29090000, "Phần 1 Gốc XHOME: 04 Motor rèm 2 lớp (13,61tr) + G400 (3,49tr) + D200i (11,99tr)");
+          setItemState("c7_5", true, 1, 13500000, "23 Công tắc cơ (9×1N, 14×2N) + 87 Ổ cắm Schneider AvatarOn");
+        } else if (optVal === "opt3") {
+          setItemState("c7_1", true, 1, 11160000, "Báo giá gốc Thái Hưng: 03 Hub M3 (10,47tr) + 01 Module T2 (690k)");
+          setItemState("c7_2", true, 1, 48520000, "Báo giá gốc Thái Hưng: 60 công tắc H1 toàn nhà (45tr) + 4 CT BNL (3,52tr)");
+          setItemState("c7_3", true, 1, 25667000, "Báo giá gốc Thái Hưng: 4 Đèn sưởi T1 + khung + Cảm biến + Phụ kiện");
+          setItemState("c7_4", true, 1, 41750000, "Báo giá gốc Thái Hưng: Rèm + G400 + Cam G350/G5 Pro + Khóa D200i + 2 S100");
+          setItemState("c7_5", true, 1, 9700000, "87 Ổ cắm & 8 hạt mạng LAN Schneider AvatarOn");
+        }
+      } else if (cat === "cat8") {
+        // Đèn OPPLE & Quạt trần đèn
+        if (optVal === "opt1") {
+          setItemState("c8_3", true, 1, 2600000, "PA1: 09 đèn Spotlight chóa sâu D90 (SP1..SP9 tọa độ x=500mm) cho Phòng Làm Việc T3");
+          setItemState("c8_4", true, 2, 2500000, "02 Quạt trần 5 cánh gỗ kèm đèn LED 24W đổi 3 màu DC Inverter (Lộ 6 & Lộ 6A)");
+        } else {
+          setItemState("c8_3", true, 1, 9260000, "PA2: Hệ Ray nam châm 48V chữ L (7m ray + Đèn Grille/Linear + 03 Driver MeanWell độc lập)");
+          setItemState("c8_4", true, 2, 3500000, "02 Quạt trần 5 cánh gỗ tự nhiên kèm đèn LED cao cấp");
+        }
+      } else if (cat === "cat9") {
+        // Mặt tiền & Sơn ngoại thất
+        if (optVal === "opt1") {
+          setItemState("c9_1", true, 32.5, 646154, "Ốp Đá ong xám tự nhiên Tầng 1 & Trụ G2 (~21tr)");
+          setItemState("c9_2", true, 42, 404762, "PA Lai: Sơn hiệu ứng bê tông ghi đậm #06 + Chỉ âm 10×10mm (~17tr)");
+          setItemState("c9_3", true, 1, 11000000, "Hộp vát T3 Sơn gỉ sét Corten + Nẹp GMN-04");
+        } else if (optVal === "opt2") {
+          setItemState("c9_1", true, 32.5, 180000, "Sơn nước ngoại thất màu Xám sáng + Kẻ chỉ âm (~5,85tr)");
+          setItemState("c9_2", true, 42, 182143, "Sơn nước Ghi ấm trung tính + Nẹp chỉ âm 10×10mm (~7,65tr)");
+          setItemState("c9_3", true, 1, 11000000, "Hộp vát T3 Sơn gỉ sét Corten + Nẹp GMN-04");
+        } else {
+          setItemState("c9_1", true, 32.5, 646154, "Ốp Đá ong xám tự nhiên Tầng 1 & Trụ G2 (~21tr)");
+          setItemState("c9_2", true, 42, 1857143, "PA Full Đá: Ốp Đá thiêu kết Á Mỹ 3 mặt cắt mòi 45° (~78tr)");
+          setItemState("c9_3", true, 1, 23200000, "Hệ Lam gỗ nhựa ngoài trời G1 Logia T3 + Hộp vát T3");
+        }
+      } else if (cat === "cat10") {
+        // Cửa gỗ Lim D3 (7 bộ)
+        if (optVal === "opt1") {
+          setItemState("c10_1", true, 7, 7300000, "PA2 Ghép nan dọc 40mm + 3 Ty M10 âm tại xưởng mộc (7 bộ = 51,1tr)");
+          setItemState("c10_2", true, 7, 1200000, "Khóa phân thể thân từ Đen mờ + 4 Bản lề Inox 304 Đen mờ 3mm + Chặn cửa + Gioăng EPDM (8,4tr)");
+        } else {
+          setItemState("c10_1", true, 7, 8800000, "PA1/PA3 Ván gỗ Lim khổ lớn chọn vân + Sơn PU cao cấp (7 bộ = 61,6tr)");
+          setItemState("c10_2", true, 7, 1700000, "Bản lề & Khóa phân thể đồng / Hafele cao cấp (11,9tr)");
+        }
+      } else if (cat === "cat11") {
+        // Phòng Làm Việc Tầng 3 (Đã bỏ nội thất & khử trùng lặp Motor rèm E1 với Mục 7)
+        if (optVal === "opt1") {
+          setItemState("c11_1", true, 1, 11500000, "Điều hòa Inverter 12.000 BTU vách Đông kéo nguồn từ TĐ3 cách 1,8m");
+          setItemState("c11_2", true, 1, 1300000, "Switch 5 cổng Gigabit + Ống gen Φ32 âm tường + USB IR Aqara");
+          setItemState("c11_3", true, 1, 1950000, "Bộ vải rèm cuốn Blackout 100% & ống cuốn S4 (Đã trừ 1,25tr Motor E1 tính ở Mục 7)");
+          setItemState("c11_4", false, 1, 16500000, "Đang tắt: Để làm cùng đợt Nội thất sau");
+        } else {
+          setItemState("c11_1", true, 1, 11500000, "Điều hòa Inverter 12.000 BTU vách Đông kéo nguồn từ TĐ3 cách 1,8m");
+          setItemState("c11_2", true, 1, 1300000, "Switch 5 cổng Gigabit + Ống gen Φ32 âm tường + USB IR Aqara");
+          setItemState("c11_3", true, 1, 1950000, "Bộ vải rèm cuốn Blackout 100% & ống cuốn S4 (Đã trừ 1,25tr Motor E1 tính ở Mục 7)");
+          setItemState("c11_4", true, 1, 16500000, "Đã bật: Lắp ngay Hệ vách cửa lùa 4 cánh kính mờ sóng ngăn P.Thờ");
+        }
+      } else if (cat === "cat12") {
+        // 04 Phòng WC + Cầu thang + Mái kính + Tầng Tum
+        if (optVal === "opt1") {
+          setItemState("c12_1", true, 5, 6400000, "5 bộ Cabin kính Slimdoor Inox 304 mạ PVD đen mờ cao 2.20m");
+          setItemState("c12_2", true, 1, 25000000, "01 TOTO MS885DT8 (Master) + 03 Inax AC-902VN (WC-01)");
+          setItemState("c12_3", true, 4, 7000000, "Sen cây, Lavabo, Vòi & 8 Phễu thu sàn ngăn mùi Inox 304");
+          setItemState("c12_4", true, 1, 25000000, "Bàn đá, Tủ Picomat, Gương LED + 13 kệ đá tận dụng từ đá bếp");
+          setItemState("c12_5", true, 4, 4500000, "04 bộ Cửa đi WC nhựa Composite chống nước DW1/DW2");
+          setItemState("c12_6", true, 1, 70500000, "Lan can kính cầu thang + Lan can sắt ban công + Mái kính 03 giếng trời");
+          setItemState("c12_7", true, 1, 38700000, "Tường chữ L 1.55m che bồn + Lan can kính Tum + 2 Bồn Inox 304");
+          setItemState("c12_8", true, 1, 60000000, "Làm ngay Khung mái sắt H200×200 + Trần nhôm B-Shaped Tum");
+        } else if (optVal === "opt2") {
+          setItemState("c12_1", true, 5, 6400000, "5 bộ Cabin kính Slimdoor Inox 304 mạ PVD đen mờ cao 2.20m");
+          setItemState("c12_2", true, 1, 25000000, "01 TOTO MS885DT8 (Master) + 03 Inax AC-902VN (WC-01)");
+          setItemState("c12_3", true, 4, 7000000, "Sen cây, Lavabo, Vòi & 8 Phễu thu sàn ngăn mùi Inox 304");
+          setItemState("c12_4", true, 1, 25000000, "Bàn đá, Tủ Picomat, Gương LED + 13 kệ đá tận dụng từ đá bếp");
+          setItemState("c12_5", true, 4, 4500000, "04 bộ Cửa đi WC nhựa Composite chống nước DW1/DW2");
+          setItemState("c12_6", true, 1, 70500000, "Lan can kính cầu thang + Lan can sắt ban công + Mái kính 03 giếng trời");
+          setItemState("c12_7", true, 1, 38700000, "Tường chữ L 1.55m che bồn + Lan can kính Tum + 2 Bồn Inox 304");
+          setItemState("c12_8", true, 1, 2500000, "Tạm hoãn Mái sắt H200 sang GĐ2: Chỉ hàn sẵn bản mã thép chờ 250×250mm (2,5tr)");
+        } else if (optVal === "opt3") {
+          setItemState("c12_1", true, 5, 8400000, "5 bộ Cabin kính Slimdoor kính dán an toàn 12.38ly cao cấp");
+          setItemState("c12_2", true, 1, 35000000, "100% Bồn cầu 1 khối TOTO cho cả 4 WC (Master kèm nắp Washlet)");
+          setItemState("c12_3", true, 4, 9500000, "Trọn bộ Sen cây nhiệt độ & Vòi TOTO / Grohe cao cấp");
+          setItemState("c12_4", true, 1, 34000000, "Đá Marble/Nung kết cao cấp + Tủ Picomat sơn 2K");
+          setItemState("c12_5", true, 4, 5500000, "04 bộ Cửa đi WC Composite cao cấp");
+          setItemState("c12_6", true, 1, 85000000, "Cầu thang kính + Ban công + Mái kính 01, 02, 03 đầy đủ");
+          setItemState("c12_7", true, 1, 48700000, "Full Lan can kính cường lực 12.38mm + 2 Bồn nước Inox 304");
+          setItemState("c12_8", true, 1, 78000000, "Hệ mái thép H200 mạ kẽm + Trần nhôm Austrong + Kính Solar Control");
+        }
+      } else if (cat === "cat13") {
+        // Cửa chính Gỗ Lim D1 (PA 1B: 1750x3000mm)
+        if (optVal === "opt1") {
+          setItemState("c1_4", true, 1, 21500000, "PA 1B: Cánh 10 nan gỗ Lim dày 60mm + 4 Ty M12 + Kính CL 11.52mm (Màu Óc Chó Trầm / Cánh Gián 3D)");
+          setItemState("c13_2", true, 1, 6500000, "04 Bản lề âm 3D chịu tải nặng + Tay nắm chữ H (2.05m / 1.35m) + Chặn đáy tự sập Häfele");
+        } else if (optVal === "opt_pivot") {
+          setItemState("c1_4", true, 1, 21500000, "PA 1B-Pivot: Cánh 10 nan gỗ Lim dày 60mm + Hèm chặn đảo chiều tại trục Pivot 160mm (Lối đi 1070mm Đỏ Lỗ Ban)");
+          setItemState("c13_2", true, 1, 7500000, "01 Bộ Bản lề trục xoay thủy lực tải nặng 250kg (Dormakaba BTS 80 / Häfele) + Tay nắm chữ H + Chặn đáy Drop-seal");
+        } else if (optVal === "opt2") {
+          setItemState("c1_4", true, 1, 20000000, "PA 1B: Cánh 10 nan gỗ Lim dày 60mm sơn PU giữ màu tự nhiên (Mẫu 4A/4B)");
+          setItemState("c13_2", true, 1, 5500000, "04 Bản lề âm Inox 304 Häfele 927.03.093 + Tay nắm chữ H + Chặn đáy tự sập");
+        } else if (optVal === "opt3") {
+          setItemState("c1_4", true, 1, 25000000, "PA 1B Cao cấp: Gỗ Lim Lào / Gõ Đỏ chọn vân + Sơn PU Inchem 5 lớp");
+          setItemState("c13_2", true, 1, 13000000, "04 Bản lề âm Đức Simonswerk TECTUS TE 640 3D (924.17.425) + Tay nắm chữ H 2.1m + Chặn đáy Häfele");
+        }
+      }
+
+      if (!skipRender) {
+        currentPresetName = "⚙️ Tùy Chỉnh Theo Lựa Chọn Riêng Của Chủ Nhà (Chưa lưu)";
+        document.querySelectorAll(".preset-btn").forEach(b => b.classList.remove("active"));
+        markUnsavedChanges("⚠️ Bạn vừa đổi gói trong thẻ phân khu (Chưa lưu) — Bấm '💾 Lưu bảng giá' nếu muốn lưu lại");
+        renderAll();
+      }
+    }
+
+    function applyPreset(presetKey) {
+      document.querySelectorAll(".preset-btn").forEach(b => {
+        if (b.getAttribute("data-preset")) {
+          b.classList.toggle("active", b.getAttribute("data-preset") === presetKey);
+        }
+      });
+
+      isApplyingPreset = true;
+
+      budgetItems.forEach(it => {
+        it.enabled = (it.id !== "c11_4");
+      });
+
+      const allCats = ["cat1", "cat2", "cat3", "cat4", "cat5", "cat6", "cat7", "cat8", "cat9", "cat10", "cat11", "cat12", "cat13"];
+
+      if (presetKey === "optimal") {
+        currentPresetName = "⭐ Đang xem thử: PA Tối Ưu Khuyên Dùng (Full Hoàn Thiện + Tủ Bếp & Thiết Bị Bếp)";
+        allCats.forEach(c => {
+          const el = document.getElementById("sel-" + c);
+          if (el) el.value = "opt1";
+        });
+      } else if (presetKey === "under2b") {
+        currentPresetName = "🎯 Đang xem thử: PA Gói Gọn < 2 Tỷ (Có Đủ Tủ Bếp & TB Bếp + Chôn Bản Mã Chờ Mái Sắt Tum)";
+        allCats.forEach(c => {
+          const el = document.getElementById("sel-" + c);
+          if (el) el.value = (c === "cat12") ? "opt2" : "opt1";
+        });
+      } else if (presetKey === "nofurniture") {
+        currentPresetName = "🏗️ Đang xem thử: Thuần Hoàn Thiện Kiến Trúc & M&E (Chưa Tính Tủ Bếp & Thiết Bị Bếp)";
+        allCats.forEach(c => {
+          const el = document.getElementById("sel-" + c);
+          if (!el) return;
+          if (c === "cat5" || c === "cat6") el.value = "opt4";
+          else el.value = "opt1";
+        });
+      } else if (presetKey === "economy") {
+        currentPresetName = "🌱 Đang xem thử: PA Tiết Kiệm Tối Đa (Tối Ưu Cửa Nhôm Bản 1 + Sơn Mặt Tiền + Chờ Mái Sắt Tum)";
+        document.getElementById("sel-cat1").value = "opt4";
+        document.getElementById("sel-cat2").value = "opt2";
+        document.getElementById("sel-cat3").value = "opt2";
+        document.getElementById("sel-cat4").value = "opt2";
+        document.getElementById("sel-cat5").value = "opt1";
+        document.getElementById("sel-cat6").value = "opt2";
+        document.getElementById("sel-cat7").value = "opt2";
+        document.getElementById("sel-cat8").value = "opt1";
+        document.getElementById("sel-cat9").value = "opt2";
+        document.getElementById("sel-cat10").value = "opt1";
+        document.getElementById("sel-cat11").value = "opt1";
+        document.getElementById("sel-cat12").value = "opt2";
+        if (document.getElementById("sel-cat13")) document.getElementById("sel-cat13").value = "opt1";
+      } else if (presetKey === "premium") {
+        currentPresetName = "💎 Đang xem thử: PA Nguyên Bản / Báo Giá Gốc (Chưa Tối Ưu Cửa DCONS, Thái Hưng, KITPRO & Full Đá)";
+        document.getElementById("sel-cat1").value = "opt5";
+        document.getElementById("sel-cat2").value = "opt3";
+        document.getElementById("sel-cat3").value = "opt3";
+        document.getElementById("sel-cat4").value = "opt3";
+        document.getElementById("sel-cat5").value = "opt3";
+        document.getElementById("sel-cat6").value = "opt3";
+        document.getElementById("sel-cat7").value = "opt3";
+        document.getElementById("sel-cat8").value = "opt2";
+        document.getElementById("sel-cat9").value = "opt3";
+        document.getElementById("sel-cat10").value = "opt2";
+        document.getElementById("sel-cat11").value = "opt2";
+        document.getElementById("sel-cat12").value = "opt3";
+        if (document.getElementById("sel-cat13")) document.getElementById("sel-cat13").value = "opt3";
+      }
+
+      allCats.forEach(c => {
+        const sel = document.getElementById("sel-" + c);
+        if (sel) onModuleOptionChange(c, sel.value, true);
+      });
+
+      isApplyingPreset = false;
+
+      // DO NOT auto-save when switching presets! Keep user's saved budget safe in storage.
+      markUnsavedChanges("👁️ Đang xem thử phương án (Các mục bạn tự sửa giá vẫn được giữ nguyên • Chưa lưu đè)");
+      renderAll();
+    }
+
+    function filterTable(catKey) {
+      currentFilter = catKey;
+      document.querySelectorAll(".filter-pill").forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-filter") === catKey);
+      });
+      renderTable();
+    }
+
+    function toggleItemEnabled(id, checked) {
+      const it = budgetItems.find(x => x.id === id);
+      if (it) {
+        it.enabled = checked;
+        it.edited = true;
+        markUnsavedChanges("⚠️ Có thay đổi chưa lưu — Bấm '💾 Lưu bảng giá' để lưu lại");
+        renderAll();
+      }
+    }
+
+    function updateItemField(id, field, val, inputEl) {
+      const it = budgetItems.find(x => x.id === id);
+      if (!it) return;
+
+      if (field === "qty") {
+        it.qty = parseSmartQty(val);
+      } else if (field === "price") {
+        it.price = parseSmartPrice(val);
+      } else if (field === "total") {
+        const newTotal = parseSmartPrice(val);
+        const q = it.qty > 0 ? it.qty : 1;
+        it.price = Math.round(newTotal / q);
+        const priceEl = document.getElementById("input-price-" + id);
+        if (priceEl) {
+          priceEl.value = formatNumberPlain(it.price);
+          priceEl.classList.add("is-edited");
+        }
+      } else {
+        it[field] = val;
+      }
+
+      it.edited = true;
+      if (inputEl) inputEl.classList.add("is-edited");
+      currentPresetName = "✏️ Đã Chỉnh Sửa Trực Tiếp Theo Giá Thực Tế Của Chủ Nhà";
+
+      if (field !== "total") {
+        const rowTotalEl = document.getElementById("row-total-" + id);
+        if (rowTotalEl) {
+          const rTot = (it.enabled ? 1 : 0) * it.qty * it.price;
+          if (rowTotalEl.tagName === "INPUT") {
+            rowTotalEl.value = formatNumberPlain(rTot);
+            rowTotalEl.classList.add("is-edited");
+          } else {
+            rowTotalEl.textContent = formatVND(rTot);
+          }
+        }
+      }
+
+      // Do NOT auto-save! Only mark as unsaved until user clicks Save button.
+      markUnsavedChanges("⚠️ Bạn vừa sửa giá (Chưa lưu) — Bấm nút '💾 Lưu bảng giá' để lưu lại");
+      updateSummaryKPIs();
+    }
+
+    function formatInputOnBlur(id, field, inputEl) {
+      const it = budgetItems.find(x => x.id === id);
+      if (!it || !inputEl) return;
+      if (field === "price") {
+        inputEl.value = formatNumberPlain(it.price);
+      } else if (field === "total") {
+        const rTot = (it.enabled ? 1 : 0) * it.qty * it.price;
+        inputEl.value = formatNumberPlain(rTot);
+      } else if (field === "qty") {
+        inputEl.value = it.qty;
+      }
+    }
+
+    function manualSaveBudget() {
+      currentPresetName = "📌 Bản Đã Lưu Của Tôi (Giá Thực Tế Chủ Nhà)";
+      saveBudget("💾 Đã lưu bảng giá thành công! Lần sau mở lại sẽ giữ nguyên bản này.");
+      renderAll();
+    }
+
+    async function saveHardcodedHTML() {
+      currentPresetName = "📌 Bản Đã Lưu Của Tôi (Giá Thực Tế Chủ Nhà)";
+      saveBudget();
+      const updatedItemsJson = JSON.stringify(budgetItems, null, 6);
+      const htmlSrc = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+      const replacedHtml = htmlSrc.replace(
+        /const DEFAULT_ITEMS = \[[\s\S]*?\];/,
+        "const DEFAULT_ITEMS = " + updatedItemsJson + ";"
+      );
+
+      if (window.showSaveFilePicker) {
+        try {
+          const handle = await window.showSaveFilePicker({
+            suggestedName: "index.html",
+            types: [{ description: "HTML Document", accept: { "text/html": [".html"] } }]
+          });
+          const writable = await handle.createWritable();
+          await writable.write(replacedHtml);
+          await writable.close();
+          updateSaveBadge("✅ Đã ghi đè trực tiếp vào file index.html!", false);
+          return;
+        } catch (err) {
+          if (err && err.name === "AbortError") return;
+        }
+      }
+
+      const blob = new Blob([replacedHtml], { type: "text/html;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "index.html";
+      a.click();
+      URL.revokeObjectURL(url);
+      updateSaveBadge("📥 Đã tải xuống file index.html chứa giá mới!", false);
+    }
+
+    function addNewCostRow() {
+      const name = prompt("Nhập tên hạng mục chi phí phát sinh mới:", "Hạng mục bổ sung mới");
+      if (!name) return;
+      const targetCat = currentFilter === "all" ? "cat2" : currentFilter;
+      const newId = "custom_" + Date.now();
+      budgetItems.push({
+        id: newId,
+        cat: targetCat,
+        enabled: true,
+        name: name.trim(),
+        spec: "Hạng mục chủ nhà tự bổ sung",
+        unit: "Gói",
+        qty: 1,
+        price: 5000000,
+        note: "Nhập đơn giá thực tế",
+        edited: true
+      });
+      markUnsavedChanges("⚠️ Đã thêm mục mới (Chưa lưu) — Bấm '💾 Lưu bảng giá' để lưu lại");
+      renderAll();
+    }
+
+    function resetDefaultBudget() {
+      if (!confirm("Khôi phục toàn bộ bảng dự toán về mặc định gốc (PA Tối Ưu Khuyên Dùng) và xóa bản lưu hiện tại?")) return;
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+      try { localStorage.removeItem(LEGACY_KEY); } catch (e) {}
+      try { sessionStorage.removeItem(STORAGE_KEY); } catch (e) {}
+      try { window.name = ""; } catch (e) {}
+      try {
+        if (window.indexedDB) {
+          const req = window.indexedDB.open(IDB_NAME, 1);
+          req.onsuccess = function(e) {
+            const db = e.target.result;
+            if (db.objectStoreNames.contains(IDB_STORE)) {
+              db.transaction(IDB_STORE, "readwrite").objectStore(IDB_STORE).delete("latest");
+            }
+          };
+        }
+      } catch (e) {}
+      budgetItems = JSON.parse(JSON.stringify(DEFAULT_ITEMS));
+      applyPreset("optimal");
+      hasUnsavedChanges = false;
+      updateSaveBadge("🔄 Đã khôi phục bảng giá gốc mặc định", false);
+    }
+
+    function exportCSV() {
+      const headers = ["Mã", "Phân khu", "Hạng mục công việc", "Quy cách kỹ thuật", "ĐVT", "Số lượng", "Đơn giá (VNĐ)", "Thành tiền (VNĐ)", "Ghi chú"];
+      const rows = [headers.join(",")];
+      budgetItems.forEach(it => {
+        if (!it.enabled) return;
+        const meta = CATEGORY_META[it.cat] || { name: it.cat };
+        const total = Math.round(it.qty * it.price);
+        const cols = [
+          it.id,
+          `"${meta.name.replace(/"/g, '""')}"`,
+          `"${it.name.replace(/"/g, '""')}"`,
+          `"${it.spec.replace(/"/g, '""')}"`,
+          `"${it.unit}"`,
+          it.qty,
+          Math.round(it.price),
+          total,
+          `"${(it.note || "").replace(/"/g, '""')}"`
+        ];
+        rows.push(cols.join(","));
+      });
+      const csvContent = "\uFEFF" + rows.join("\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Du-Toan-Hoan-Thien-Q-Villa.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    function updateSummaryKPIs() {
+      const catTotals = {};
+      Object.keys(CATEGORY_META).forEach(k => { catTotals[k] = 0; });
+      let groupA = 0;
+      let groupB = 0;
+      let enabledCount = 0;
+
+      budgetItems.forEach(it => {
+        if (!it.enabled) return;
+        enabledCount++;
+        const sub = it.qty * it.price;
+        if (catTotals[it.cat] !== undefined) catTotals[it.cat] += sub;
+        const meta = CATEGORY_META[it.cat];
+        if (meta && meta.group === "A") groupA += sub;
+        else groupB += sub;
+      });
+
+      const grandTotal = groupA + groupB;
+      const premiumBaseline = 2424340000;
+      const diff = grandTotal - premiumBaseline;
+
+      document.getElementById("kpi-grand-total").textContent = formatVND(grandTotal);
+      document.getElementById("kpi-grand-sub").textContent = `Đã chọn ${enabledCount}/${budgetItems.length} hạng mục hoàn thiện & khu bếp bên dưới`;
+      document.getElementById("kpi-group-a").textContent = formatVND(groupA);
+      document.getElementById("kpi-group-b").textContent = formatVND(groupB);
+
+      const savEl = document.getElementById("kpi-savings");
+      if (diff <= 0) {
+        savEl.textContent = "-" + formatVND(Math.abs(diff));
+        savEl.style.color = "#34d399";
+      } else {
+        savEl.textContent = "+" + formatVND(diff);
+        savEl.style.color = "#fb7185";
+      }
+
+      document.getElementById("budget-mode-label").textContent = "Đang áp dụng: " + currentPresetName;
+
+      // Update 12 Portal Card cost pills AND group-row subtotals in the table
+      Object.keys(catTotals).forEach(cKey => {
+        const pill = document.getElementById("card-cost-" + cKey);
+        if (pill) pill.textContent = formatShortMillion(catTotals[cKey]);
+        const catSumEl = document.getElementById("cat-sum-" + cKey);
+        if (catSumEl) catSumEl.textContent = "Cộng phân khu: " + formatVND(catTotals[cKey]);
+      });
+
+      // Update visual stacked bar & legend
+      const trackEl = document.getElementById("budget-bar-track");
+      const legendEl = document.getElementById("budget-legend");
+      if (trackEl && legendEl && grandTotal > 0) {
+        trackEl.innerHTML = "";
+        legendEl.innerHTML = "";
+        Object.keys(CATEGORY_META).forEach(cKey => {
+          const meta = CATEGORY_META[cKey];
+          const val = catTotals[cKey] || 0;
+          if (val <= 0) return;
+          const pct = Math.max(0, (val / grandTotal) * 100);
+          const seg = document.createElement("div");
+          seg.className = "budget-bar-seg";
+          seg.style.width = pct.toFixed(2) + "%";
+          seg.style.background = meta.color;
+          seg.title = `${meta.name}: ${formatVND(val)} (${pct.toFixed(1)}%)`;
+          trackEl.appendChild(seg);
+
+          const leg = document.createElement("span");
+          leg.className = "legend-item";
+          leg.innerHTML = `<span class="legend-dot" style="background:${meta.color}"></span><strong>${meta.short}:</strong> ${formatShortMillion(val)} (${pct.toFixed(1)}%)`;
+          legendEl.appendChild(leg);
+        });
+      }
+
+      // Update tfoot total for visible rows
+      let visibleTotal = 0;
+      budgetItems.forEach(it => {
+        if (!it.enabled) return;
+        if (currentFilter === "all" || it.cat === currentFilter) {
+          visibleTotal += it.qty * it.price;
+        }
+      });
+      const tfEl = document.getElementById("tfoot-total");
+      if (tfEl) tfEl.textContent = formatVND(visibleTotal);
+    }
+
+    function renderTable() {
+      const tbody = document.getElementById("cost-tbody");
+      if (!tbody) return;
+      tbody.innerHTML = "";
+
+      const catsToRender = currentFilter === "all"
+        ? Object.keys(CATEGORY_META)
+        : [currentFilter];
+
+      catsToRender.forEach(cKey => {
+        const meta = CATEGORY_META[cKey];
+        const items = budgetItems.filter(x => x.cat === cKey);
+        if (items.length === 0) return;
+
+        const catSum = items.reduce((acc, it) => acc + (it.enabled ? it.qty * it.price : 0), 0);
+
+        const groupTr = document.createElement("tr");
+        groupTr.className = "group-row";
+        groupTr.innerHTML = `
+          <th colspan="8">
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+              <span>📁 ${meta.name} — <a href="${meta.link}" style="color:#38bdf8; text-decoration:underline; font-size:0.8rem;">Xem bản vẽ / trang chi tiết →</a></span>
+              <span id="cat-sum-${cKey}" style="color:#6ee7b7;">Cộng phân khu: ${formatVND(catSum)}</span>
+            </div>
+          </th>
+        `;
+        tbody.appendChild(groupTr);
+
+        items.forEach(it => {
+          const tr = document.createElement("tr");
+          if (!it.enabled) tr.className = "row-unchecked";
+          const rowTotal = (it.enabled ? 1 : 0) * it.qty * it.price;
+          const editedClass = it.edited ? " is-edited" : "";
+
+          tr.innerHTML = `
+            <th scope="row" class="item-name-cell">
+              <label style="display:flex; align-items:flex-start; gap:8px; cursor:pointer;">
+                <input type="checkbox" ${it.enabled ? "checked" : ""} onchange="toggleItemEnabled('${it.id}', this.checked)" style="margin-top:4px; accent-color:#10b981;" />
+                <span>${it.name}</span>
+              </label>
+            </th>
+            <td>
+              <a href="${meta.link}" class="cat-badge" style="background:${meta.color}22; color:${meta.color}; border:1px solid ${meta.color}66;">
+                ${meta.short}
+              </a>
+            </td>
+            <td style="max-width:340px; font-size:0.8rem;">${it.spec}</td>
+            <td style="white-space:nowrap;">${it.unit}</td>
+            <td style="text-align:right;">
+              <input type="text" inputmode="decimal" id="input-qty-${it.id}" class="input-inline input-qty${editedClass}" value="${it.qty}" aria-label="Số lượng ${it.name}" oninput="updateItemField('${it.id}', 'qty', this.value, this)" onblur="formatInputOnBlur('${it.id}', 'qty', this)" />
+            </td>
+            <td style="text-align:right;">
+              <input type="text" inputmode="numeric" id="input-price-${it.id}" class="input-inline input-price${editedClass}" value="${formatNumberPlain(it.price)}" title="Nhập số (VD: 15.000.000 hoặc gõ tắt 15tr, 500k)" aria-label="Đơn giá ${it.name}" oninput="updateItemField('${it.id}', 'price', this.value, this)" onblur="formatInputOnBlur('${it.id}', 'price', this)" />
+            </td>
+            <td class="cell-total" style="text-align:right;">
+              <input type="text" inputmode="numeric" id="row-total-${it.id}" class="input-inline input-total${editedClass}" value="${formatNumberPlain(rowTotal)}" title="Có thể sửa trực tiếp Thành tiền trọn gói của mục này" aria-label="Thành tiền ${it.name}" oninput="updateItemField('${it.id}', 'total', this.value, this)" onblur="formatInputOnBlur('${it.id}', 'total', this)" />
+            </td>
+            <td>
+              <input type="text" class="input-inline input-note${editedClass}" value="${(it.note || "").replace(/"/g, '&quot;')}" aria-label="Ghi chú ${it.name}" oninput="updateItemField('${it.id}', 'note', this.value, this)" />
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      });
+    }
+
+    function renderAll() {
+      renderTable();
+      updateSummaryKPIs();
+    }
+
+    loadBudget();
+    renderAll();
+  </script>
+<script>if(window.__ICLOUD_ASSETS__){document.querySelectorAll('img[src^="assets/"],a[href^="assets/"]').forEach(function(e){var s=e.getAttribute('src');if(s&&window.__ICLOUD_ASSETS__[s])e.src=window.__ICLOUD_ASSETS__[s];var h=e.getAttribute('href');if(h&&window.__ICLOUD_ASSETS__[h])e.href=window.__ICLOUD_ASSETS__[h];});}</script>
+</body>
+</html>

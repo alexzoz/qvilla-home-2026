@@ -1,0 +1,330 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 920" width="1680" height="920">
+  <defs>
+    <pattern id="hatch-conc" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="10" fill="#cbd5e1"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#475569" stroke-width="1.3"/>
+    </pattern>
+    <pattern id="hatch-gyproc-mr" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect width="12" height="12" fill="#ecfdf5"/>
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.5"/>
+    </pattern>
+    <marker id="tick" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <line x1="2" y1="8" x2="8" y2="2" stroke="#dc2626" stroke-width="1.8"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+      .h1 { font-size: 19px; font-weight: 800; fill: #ffffff; }
+      .sub { font-size: 11.6px; font-weight: 600; fill: #cbd5e1; }
+      .card-bg { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; }
+      .card-hdr { fill: #0f172a; }
+      .card-hdr-txt { font-size: 11.4px; font-weight: 800; fill: #ffffff; text-anchor: middle; }
+      .wall { fill: #ffffff; stroke: #334155; stroke-width: 2; }
+      .cove-curve { fill: #fffbeb; stroke: #d97706; stroke-width: 2.3; }
+      .led-curve { fill: none; stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 6,4; }
+      .reveal-black { fill: none; stroke: #0f172a; stroke-width: 2.8; }
+      .track-48v { fill: #0f172a; rx: 2; }
+      .ac-slot { fill: #e0f2fe; stroke: #0284c7; stroke-width: 1.6; }
+      .curtain { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.6; }
+      .spot { fill: #ffffff; stroke: #0284c7; stroke-width: 1.8; }
+      .dim { stroke: #dc2626; stroke-width: 1.3; marker-start: url(#tick); marker-end: url(#tick); }
+      .dim-t { font-size: 10.2px; font-weight: 800; fill: #b91c1c; text-anchor: middle; }
+      .lbl-b { font-size: 10.5px; font-weight: 800; fill: #0f172a; text-anchor: middle; }
+      .lbl-s { font-size: 9.5px; font-weight: 600; fill: #334155; text-anchor: middle; }
+      .tag-pill { fill: #ecfdf5; stroke: #059669; stroke-width: 1.4; }
+      .tag-txt { font-size: 9.8px; font-weight: 800; fill: #065f46; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1680" height="920" fill="#ffffff"/>
+
+  <!-- TOP TITLE BAR -->
+  <rect x="0" y="0" width="1680" height="72" fill="#0f172a"/>
+  <rect x="16" y="14" width="154" height="44" rx="8" fill="#10b981"/>
+  <text x="93" y="32" style="font-size:10.5px;font-weight:900;fill:#022c22;text-anchor:middle;">PHƯƠNG ÁN C • 2026</text>
+  <text x="93" y="48" style="font-size:12.6px;font-weight:900;fill:#064e3b;text-anchor:middle;">KT-PAC.01 • BO CONG</text>
+  <text x="184" y="34" class="h1">PHƯƠNG ÁN C — TRẦN THẠCH CAO BO CONG HIỆN ĐẠI 2026 KHỚP THỰC TẾ NHÀ Q-VILLA</text>
+  <text x="184" y="55" class="sub">Tham khảo chuẩn thi công Đức Anh 35 (@ducanh_tranthachcao): Bo góc R300–R350mm • Phào cong êm sáng • Nẹp ron nhựa âm đen 12mm uốn cong • Tấm Gyproc Siêu Chịu Ẩm</text>
+  <rect x="1484" y="16" width="178" height="40" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.6"/>
+  <text x="1573" y="41" style="font-size:12px;font-weight:800;fill:#6ee7b7;text-anchor:middle;">R350 • NẸP ÂM 12MM</text>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 1: LIVING ROOM & FOYER FLOOR 1 CURVED PLAN                        -->
+  <!-- ======================================================================= -->
+  <g transform="translate(26, 94)">
+    <rect width="528" height="382" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">01. MẶT BẰNG BO CONG TẦNG 1: PHÒNG KHÁCH (R350) &amp; TIỀN SẢNH (R300)</text>
+
+    <!-- Living room outline -->
+    <rect x="28" y="54" width="318" height="248" class="wall"/>
+    <!-- Recessed curtain West -->
+    <rect x="30" y="56" width="18" height="244" class="curtain"/>
+    <text x="39" y="178" transform="rotate(-90 39 178)" style="font-size:8.6px;font-weight:800;fill:#6d28d9;text-anchor:middle;">HỐC RÈM ÂM 215MM NỐI MƯỢT</text>
+
+    <!-- Parallel 12mm curved black reveal line (outer R470) -->
+    <rect x="64" y="76" width="254" height="204" rx="44" class="reveal-black"/>
+    <!-- Curved stepped cove R350 -->
+    <rect x="78" y="90" width="226" height="176" rx="34" class="cove-curve"/>
+    <rect x="85" y="97" width="212" height="162" rx="28" class="led-curve"/>
+
+    <!-- Two parallel linear 48V magnetic tracks + Ceiling fan center -->
+    <rect x="116" y="116" width="150" height="6" class="track-48v"/>
+    <rect x="116" y="234" width="150" height="6" class="track-48v"/>
+    <circle cx="191" cy="176" r="22" fill="#fef3c7" stroke="#b45309" stroke-width="1.8" stroke-dasharray="4,3"/>
+    <circle cx="191" cy="176" r="4.5" fill="#78350f"/>
+    <text x="191" y="147" style="font-size:8.8px;font-weight:800;fill:#78350f;text-anchor:middle;">QUẠT TRẦN L6</text>
+    <text x="191" y="214" class="lbl-b">LÒNG +3.530 (BO R350)</text>
+
+    <!-- Paired double spotlights at 4 corners -->
+    <circle cx="56" cy="70" r="4" class="spot"/><circle cx="67" cy="61" r="4" class="spot"/>
+    <circle cx="326" cy="70" r="4" class="spot"/><circle cx="315" cy="61" r="4" class="spot"/>
+    <circle cx="56" cy="286" r="4" class="spot"/><circle cx="67" cy="295" r="4" class="spot"/>
+    <circle cx="326" cy="286" r="4" class="spot"/><circle cx="315" cy="295" r="4" class="spot"/>
+
+    <!-- AC slot -->
+    <rect x="331" y="106" width="8" height="144" class="ac-slot"/>
+
+    <!-- Foyer Zone right side -->
+    <rect x="356" y="94" width="146" height="170" class="wall"/>
+    <rect x="372" y="114" width="114" height="130" rx="28" class="reveal-black"/>
+    <rect x="383" y="125" width="92" height="108" rx="22" class="cove-curve"/>
+    <rect x="389" y="131" width="80" height="96" rx="17" class="led-curve"/>
+    <text x="429" y="175" style="font-size:9.5px;font-weight:800;fill:#0f172a;text-anchor:middle;">TIỀN SẢNH</text>
+    <text x="429" y="189" style="font-size:8.6px;font-weight:700;fill:#b45309;text-anchor:middle;">Bo R300mm</text>
+    <text x="429" y="202" style="font-size:8.4px;font-weight:700;fill:#0e7490;text-anchor:middle;">+3.400→+3.530</text>
+    <circle cx="366" cy="106" r="3.8" class="spot"/><circle cx="492" cy="106" r="3.8" class="spot"/>
+    <circle cx="366" cy="252" r="3.8" class="spot"/><circle cx="492" cy="252" r="3.8" class="spot"/>
+
+    <!-- Radius callouts -->
+    <line x1="92" y1="98" x2="114" y2="76" stroke="#dc2626" stroke-width="1.4"/>
+    <rect x="108" y="58" width="76" height="16" rx="4" fill="#fee2e2" stroke="#dc2626"/>
+    <text x="146" y="69.5" class="dim-t">R = 350 mm</text>
+
+    <text x="264" y="325" class="lbl-b">Phòng Khách 2.255×3.400mm: Bo tròn 4 góc R350 + Chỉ nhựa âm đen 12mm bo song song</text>
+    <text x="264" y="344" class="lbl-s">2 thanh Ray nam châm 48V âm phẳng đối xứng qua Quạt trần L6 • Đèn đôi chống chói tại 4 góc bo</text>
+    <text x="264" y="363" class="lbl-s" style="fill:#047857;font-weight:700;">Tiền sảnh 2.090×1.125mm bo R300 mềm mại ngay sau cửa gỗ Lim D1 ca-rô</text>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 2: MASTER BEDROOM R350 + WALK-IN CLOSET STADIUM CAPSULE R650      -->
+  <!-- ======================================================================= -->
+  <g transform="translate(576, 94)">
+    <rect width="528" height="382" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">02. TẦNG 2: KHU NGỦ MASTER ("B CONG 35") &amp; THAY ĐỒ CAPSULE R650</text>
+
+    <!-- Master Sleeping left -->
+    <rect x="26" y="54" width="248" height="248" class="wall"/>
+    <rect x="254" y="56" width="18" height="244" class="curtain"/>
+    <rect x="38" y="102" width="8" height="150" class="ac-slot"/>
+    <rect x="241" y="102" width="8" height="150" class="ac-slot"/>
+
+    <!-- Curved 12mm black reveal + R350 cove -->
+    <rect x="54" y="74" width="180" height="208" rx="42" class="reveal-black"/>
+    <rect x="66" y="86" width="156" height="184" rx="34" class="cove-curve"/>
+    <rect x="73" y="93" width="142" height="170" rx="28" class="led-curve"/>
+
+    <text x="144" y="168" class="lbl-b">KHU NGỦ MASTER</text>
+    <text x="144" y="184" style="font-size:9.6px;font-weight:800;fill:#b45309;text-anchor:middle;">2.600×2.150 • Bo R350</text>
+    <text x="144" y="200" style="font-size:9px;font-weight:700;fill:#0e7490;text-anchor:middle;">Phào cong êm sáng +3.130</text>
+
+    <!-- Paired double spots at 4 corners -->
+    <circle cx="52" cy="64" r="3.8" class="spot"/><circle cx="64" cy="64" r="3.8" class="spot"/>
+    <circle cx="224" cy="64" r="3.8" class="spot"/><circle cx="236" cy="64" r="3.8" class="spot"/>
+    <circle cx="52" cy="292" r="3.8" class="spot"/><circle cx="64" cy="292" r="3.8" class="spot"/>
+    <circle cx="224" cy="292" r="3.8" class="spot"/><circle cx="236" cy="292" r="3.8" class="spot"/>
+
+    <!-- Walk-in Closet right: Stadium / Capsule R650 -->
+    <rect x="282" y="54" width="220" height="248" class="wall"/>
+    <rect x="294" y="106" width="8" height="144" class="ac-slot"/>
+    <rect x="482" y="106" width="8" height="144" class="ac-slot"/>
+
+    <!-- Stadium / Capsule outer black reveal + inner capsule dome -->
+    <rect x="322" y="76" width="140" height="204" rx="70" class="reveal-black"/>
+    <rect x="334" y="88" width="116" height="180" rx="58" class="cove-curve"/>
+    <rect x="341" y="95" width="102" height="166" rx="51" class="led-curve"/>
+
+    <text x="392" y="168" class="lbl-b">KHU THAY ĐỒ</text>
+    <text x="392" y="184" style="font-size:9.6px;font-weight:800;fill:#047857;text-anchor:middle;">Vòm Capsule R650</text>
+    <text x="392" y="199" style="font-size:8.8px;font-weight:700;fill:#334155;text-anchor:middle;">2.370×1.300 (+3.130)</text>
+    <text x="392" y="213" style="font-size:8.5px;font-weight:700;fill:#b45309;text-anchor:middle;">0% Tốn Màng Barrisol</text>
+
+    <!-- Rounded-corner access hatch at passage -->
+    <rect x="438" y="58" width="46" height="22" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.6"/>
+    <text x="461" y="72.5" style="font-size:7.6px;font-weight:800;fill:#b91c1c;text-anchor:middle;">THĂM R80</text>
+
+    <text x="264" y="325" class="lbl-b">Chuẩn mẫu Pinned Video Đức Anh 35: Khu Ngủ bo R350mm + Khu Thay Đồ Vòm Viên Thuốc R650mm</text>
+    <text x="264" y="344" class="lbl-s">Vòm Capsule thạch cao sơn trắng mịn ôm đúng dáng bàn đảo dài, không tốn 6–8tr tiền màng căng Barrisol</text>
+    <text x="264" y="363" class="lbl-s" style="fill:#b91c1c;font-weight:700;">Nắp thăm Điều hòa dời sang lối đi phải 850mm &amp; dùng nắp thạch cao viền bo tròn 4 góc R80mm</text>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 3: BEDROOMS PN1/PN2 & STUDY / PN3-PN4 CURVED REVEAL               -->
+  <!-- ======================================================================= -->
+  <g transform="translate(1126, 94)">
+    <rect width="528" height="382" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">03. PN1/PN2 &amp; LÀM VIỆC (GIẬT CẤP CONG R300) vs. PN3/PN4 (PHẲNG CHỈ CONG)</text>
+
+    <!-- Left: PN1 / PN2 / Study stepped R300 -->
+    <rect x="26" y="54" width="228" height="248" class="wall"/>
+    <rect x="50" y="78" width="180" height="200" rx="36" class="reveal-black"/>
+    <rect x="62" y="90" width="156" height="176" rx="28" class="cove-curve"/>
+    <rect x="69" y="97" width="142" height="162" rx="22" class="led-curve"/>
+    <text x="140" y="166" class="lbl-b">PN1 • PN2 • P.LÀM VIỆC</text>
+    <text x="140" y="182" style="font-size:9.3px;font-weight:800;fill:#b45309;text-anchor:middle;">Giật cấp bo R300 (+3.130)</text>
+    <text x="140" y="197" style="font-size:8.8px;font-weight:700;fill:#334155;text-anchor:middle;">+ Chỉ âm đen 12mm bo cong</text>
+    <circle cx="42" cy="68" r="3.6" class="spot"/><circle cx="53" cy="63" r="3.6" class="spot"/>
+    <circle cx="238" cy="68" r="3.6" class="spot"/><circle cx="227" cy="63" r="3.6" class="spot"/>
+    <circle cx="42" cy="288" r="3.6" class="spot"/><circle cx="53" cy="293" r="3.6" class="spot"/>
+    <circle cx="238" cy="288" r="3.6" class="spot"/><circle cx="227" cy="293" r="3.6" class="spot"/>
+
+    <!-- Right: PN3 & PN4 Flat +3.130 with Curved Black Reveal 12mm -->
+    <rect x="274" y="54" width="228" height="248" class="wall"/>
+    <rect x="304" y="84" width="168" height="188" rx="34" class="reveal-black"/>
+    <rect x="326" y="150" width="124" height="54" rx="8" class="tag-pill"/>
+    <text x="388" y="171" class="tag-txt">PN3 &amp; PN4 TẦNG 3</text>
+    <text x="388" y="186" style="font-size:9px;font-weight:800;fill:#0f172a;text-anchor:middle;">Phẳng 100% +3.130mm</text>
+    <text x="388" y="198" style="font-size:8.6px;font-weight:700;fill:#047857;text-anchor:middle;">Nẹp đen 12mm bo R300</text>
+    <circle cx="292" cy="72" r="3.6" class="spot"/><circle cx="484" cy="72" r="3.6" class="spot"/>
+    <circle cx="292" cy="284" r="3.6" class="spot"/><circle cx="484" cy="284" r="3.6" class="spot"/>
+
+    <text x="264" y="325" class="lbl-b">Đồng bộ ngôn ngữ Bo Cong toàn nhà mà vẫn giữ trọn chiều cao +3.130mm cho PN3 &amp; PN4</text>
+    <text x="264" y="344" class="lbl-s">P.Làm việc Tầng 3 bỏ đèn chùm L19, thay bằng 2 thanh LED âm phẳng trong lòng trần bo R300</text>
+    <text x="264" y="363" class="lbl-s" style="fill:#0369a1;font-weight:700;">Lưu ý: Riêng Phòng Thờ Gia Tiên giữ hộp vuông góc trang nghiêm (dịch tâm Y = 1.960mm)</text>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 4: SECTION DETAIL — R350 CURVED COVE & PERFORATED CORNER BEAD     -->
+  <!-- ======================================================================= -->
+  <g transform="translate(26, 498)">
+    <rect width="528" height="394" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">04. MẶT CẮT KỸ THUẬT GÓC BO CONG R350 &amp; PHÀO CONG ÊM SÁNG</text>
+
+    <!-- Concrete slab -->
+    <rect x="36" y="56" width="456" height="26" fill="url(#hatch-conc)" stroke="#475569"/>
+    <text x="264" y="73" style="font-size:9.8px;font-weight:800;fill:#1e293b;text-anchor:middle;">SÀN BTCT + TI TREO REN M6 @800MM + KHUNG VĨNH TƯỜNG TIKA/ALPHA UỐN CONG</text>
+
+    <!-- Upper ceiling +3.130/+3.530 -->
+    <rect x="218" y="132" width="274" height="12" fill="url(#hatch-gyproc-mr)" stroke="#0f172a" stroke-width="1.8"/>
+    <text x="365" y="123" style="font-size:10px;font-weight:800;fill:#065f46;text-anchor:middle;">TẤM GYPROC SIÊU CHỊU ẨM 9MM (+3.130 / +3.530)</text>
+
+    <!-- Coved inner molding (Phào cong chuyển bậc) -->
+    <path d="M 230 144 Q 230 176 262 176 L 230 176 Z" fill="#fde68a" stroke="#d97706" stroke-width="1.6"/>
+    <text x="368" y="168" style="font-size:9.6px;font-weight:800;fill:#b45309;text-anchor:middle;">← Phào cong lõm giúp luồng sáng LED trượt êm</text>
+
+    <!-- Vertical curved riser (khía tấm uốn R350) -->
+    <rect x="218" y="144" width="12" height="90" fill="url(#hatch-gyproc-mr)" stroke="#0f172a" stroke-width="1.8"/>
+
+    <!-- Lower soffit +3.000/+3.400 with 12mm black reveal bead -->
+    <rect x="36" y="234" width="102" height="12" fill="url(#hatch-gyproc-mr)" stroke="#0f172a" stroke-width="1.8"/>
+    <!-- 12mm Black Reveal PVC Bead -->
+    <path d="M 138 246 L 138 232 L 154 232 L 154 246" fill="#0f172a"/>
+    <text x="146" y="224" style="font-size:9.2px;font-weight:800;fill:#0f172a;text-anchor:middle;">Nẹp đen 12mm</text>
+    <rect x="154" y="234" width="144" height="12" fill="url(#hatch-gyproc-mr)" stroke="#0f172a" stroke-width="1.8"/>
+
+    <!-- Cove lip + Flexible Perforated Corner Bead + COB LED -->
+    <rect x="286" y="198" width="12" height="48" fill="url(#hatch-gyproc-mr)" stroke="#0f172a" stroke-width="1.8"/>
+    <circle cx="298" cy="198" r="5.5" fill="#10b981" stroke="#064e3b" stroke-width="1.5"/>
+    <circle cx="273" cy="226" r="6" fill="#f59e0b"/>
+    <path d="M 273 220 Q 285 180 335 152" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,3"/>
+
+    <!-- Dimensions -->
+    <line x1="204" y1="132" x2="204" y2="246" class="dim"/>
+    <text x="182" y="193" class="dim-t">130mm</text>
+    <line x1="146" y1="272" x2="298" y2="272" class="dim"/>
+    <text x="222" y="286" class="dim-t">120mm (Nẹp song song mép cong)</text>
+
+    <text x="264" y="318" class="lbl-b">Bí quyết không gãy góc của Đức Anh 35: Dưỡng gỗ/laser R350 + Nẹp góc nhựa đục lỗ uốn cong</text>
+    <text x="264" y="338" class="lbl-s">1. Cắt dưỡng bán kính "B cong 35" (R350mm), khía lưng tấm Gyproc Siêu Chịu Ẩm uốn mượt quanh góc.</text>
+    <text x="264" y="356" class="lbl-s">2. Ghim chặt thanh Nẹp nhựa đục lỗ uốn cong (màu xanh trên hình) dọc mép mỏ hắt để làm cữ bả phẳng căng.</text>
+    <text x="264" y="374" class="lbl-s" style="fill:#b45309;font-weight:700;">3. Dán dây LED COB không lộ hạt sáng 3000K–3500K chạy liên tục qua góc cong, 0% đứt quãng tối góc.</text>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 5: CURVED ACCESS HATCH & RECESSED CURTAIN POCKET TRANSITION       -->
+  <!-- ======================================================================= -->
+  <g transform="translate(576, 498)">
+    <rect width="528" height="394" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">05. NẮP THĂM BO TRÒN 4 GÓC CHÌM PHẲNG &amp; HỐC RÈM ÂM LIỀN MẠCH</text>
+
+    <!-- Left comparison: Traditional sharp hatch vs Đức Anh 35 curved hatch -->
+    <rect x="34" y="58" width="214" height="222" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+    <text x="141" y="80" class="lbl-b" style="fill:#047857;">NẮP THĂM BO TRÒN 4 GÓC (PA C)</text>
+    <rect x="76" y="102" width="130" height="110" rx="22" fill="#f8fafc" stroke="#0f172a" stroke-width="1.8"/>
+    <rect x="81" y="107" width="120" height="100" rx="18" fill="#ffffff" stroke="#64748b" stroke-width="1" stroke-dasharray="4,3"/>
+    <text x="141" y="154" style="font-size:10px;font-weight:800;fill:#0f172a;text-anchor:middle;">450 × 450 mm</text>
+    <text x="141" y="170" style="font-size:9.2px;font-weight:700;fill:#059669;text-anchor:middle;">Bo góc R80mm • Khe 2mm</text>
+    <text x="141" y="238" class="lbl-s">Chìm phẳng tiệp màu sơn trần,</text>
+    <text x="141" y="254" class="lbl-s">đồng điệu với góc trần bo cong R350</text>
+
+    <!-- Right: Curtain pocket + Linear AC Slot integration -->
+    <rect x="274" y="58" width="220" height="222" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+    <text x="384" y="80" class="lbl-b" style="fill:#6d28d9;">HỐC RÈM &amp; KHE GIÓ AC ĐỒNG PHẲNG</text>
+    <!-- Plywood 18mm backing -->
+    <rect x="412" y="100" width="66" height="12" fill="#fde68a" stroke="#b45309" stroke-width="1.5"/>
+    <text x="445" y="95" style="font-size:8.4px;font-weight:800;fill:#92400e;text-anchor:middle;">Plywood 18mm</text>
+    <rect x="294" y="168" width="118" height="12" fill="url(#hatch-gyproc-mr)" stroke="#0f172a" stroke-width="1.8"/>
+    <rect x="400" y="112" width="12" height="68" fill="url(#hatch-gyproc-mr)" stroke="#0f172a" stroke-width="1.8"/>
+    <!-- Linear AC slot flush -->
+    <rect x="322" y="166" width="48" height="14" fill="#0284c7"/>
+    <text x="346" y="196" style="font-size:8.8px;font-weight:800;fill:#0369a1;text-anchor:middle;">Cửa gió Linear Slot</text>
+    <!-- Curtain lines -->
+    <line x1="432" y1="112" x2="432" y2="250" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5,3"/>
+    <line x1="456" y1="112" x2="456" y2="250" stroke="#7c3aed" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="384" y="266" class="lbl-s">Rộng 215–250mm giấu kín động cơ rèm 2 lớp</text>
+
+    <text x="264" y="318" class="lbl-b">Tinh chỉnh thẩm mỹ cao cấp cho khu vực Phòng Khách, Hành Lang &amp; Phòng Ngủ Master Q-Villa</text>
+    <text x="264" y="338" class="lbl-s">• Thay nắp thăm nhôm vuông lộ viền trắng ở Phòng Master bằng nắp thăm thạch cao viền bo tròn 4 góc.</text>
+    <text x="264" y="356" class="lbl-s">• Toàn bộ cửa gió điều hòa nối ống gió dùng miệng gió khe dài (Linear Slot) sơn trắng tiệp phẳng trần.</text>
+    <text x="264" y="374" class="lbl-s" style="fill:#047857;font-weight:700;">• Nẹp tường chu vi vẫn giữ chuẩn Shadowlight trắng 10mm chống nứt mạch giao tường xây trát.</text>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 6: SUMMARY COST & MATERIAL SPEC FOR OPTION C                      -->
+  <!-- ======================================================================= -->
+  <g transform="translate(1126, 498)">
+    <rect width="528" height="394" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">06. TỔNG HỢP VẬT TƯ &amp; SO SÁNH CHI PHÍ PHƯƠNG ÁN C (BO CONG)</text>
+
+    <rect x="24" y="54" width="480" height="32" rx="6" fill="#064e3b"/>
+    <text x="264" y="75" style="font-size:11.2px;font-weight:800;fill:#ecfdf5;text-anchor:middle;">DỰ TOÁN TRỌN GÓI PHƯƠNG ÁN C TOÀN NHÀ (228 m²): 65,50 TRIỆU ₫ (+6,42 Tr)</text>
+
+    <!-- Rows -->
+    <g transform="translate(24, 98)">
+      <rect width="480" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="14" y="18" style="font-size:9.7px;font-weight:800;fill:#0f172a;">1. Khung Vĩnh Tường TIKA/ALPHA + Tấm Gyproc Siêu Chịu Ẩm (228m²)</text>
+      <text x="14" y="34" style="font-size:9px;font-weight:600;fill:#475569;">Nâng cấp tấm chịu ẩm nhãn xanh cho các dải khía uốn cong R300–R350 &amp; khu ướt</text>
+      <text x="468" y="25" style="font-size:10.5px;font-weight:800;fill:#0f172a;text-anchor:end;">46.800.000 ₫</text>
+    </g>
+
+    <g transform="translate(24, 148)">
+      <rect width="480" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="14" y="18" style="font-size:9.7px;font-weight:800;fill:#0f172a;">2. Gia công uốn cong R300–R650, Nẹp đục lỗ &amp; Phào máng hắt</text>
+      <text x="14" y="34" style="font-size:9px;font-weight:600;fill:#475569;">Khách, Sảnh, Master, Vòm Capsule Thay Đồ, PN1, PN2, P.Làm việc + 09 Hốc rèm</text>
+      <text x="468" y="25" style="font-size:10.5px;font-weight:800;fill:#0f172a;text-anchor:end;">7.450.000 ₫</text>
+    </g>
+
+    <g transform="translate(24, 198)">
+      <rect width="480" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="14" y="18" style="font-size:9.7px;font-weight:800;fill:#0f172a;">3. Nẹp nhựa âm đen 12mm uốn cong + Nẹp tường Shadowlight trắng</text>
+      <text x="14" y="34" style="font-size:9px;font-weight:600;fill:#475569;">~85md chỉ nhựa âm đen 1.2cm chạy viền cong + ~190md nẹp Z-10 trắng giao tường</text>
+      <text x="468" y="25" style="font-size:10.5px;font-weight:800;fill:#0f172a;text-anchor:end;">9.350.000 ₫</text>
+    </g>
+
+    <g transform="translate(24, 248)">
+      <rect width="480" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="14" y="18" style="font-size:9.7px;font-weight:800;fill:#0f172a;">4. Nắp thăm trần bo góc R80 chìm phẳng (Master) &amp; 04 nắp WC</text>
+      <text x="14" y="34" style="font-size:9px;font-weight:600;fill:#475569;">Bắn laser khoét lỗ đèn đôi góc bo, khe gió Linear Slot &amp; xử lý mối nối 3 lớp Gyp-Filler</text>
+      <text x="468" y="25" style="font-size:10.5px;font-weight:800;fill:#0f172a;text-anchor:end;">1.900.000 ₫</text>
+    </g>
+
+    <rect x="24" y="302" width="480" height="74" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="1.5"/>
+    <text x="264" y="323" style="font-size:10px;font-weight:800;fill:#065f46;text-anchor:middle;">💡 ĐÁNH GIÁ KỸ THUẬT &amp; TÀI CHÍNH CHO CHỦ NHÀ Q-VILLA:</text>
+    <text x="264" y="342" style="font-size:9.1px;font-weight:600;fill:#334155;text-anchor:middle;">• Chỉ nhỉnh hơn PA gốc XHOME +6,42 triệu ₫ phần xương/nẹp uốn cong nhưng mềm mại chuẩn 2026.</text>
+    <text x="264" y="360" style="font-size:9.1px;font-weight:600;fill:#334155;text-anchor:middle;">• Lãi ngược 6–8tr ở Khu Thay Đồ vì Vòm Capsule thạch cao R650 đẹp sang mà 0₫ màng Barrisol!</text>
+  </g>
+</svg>

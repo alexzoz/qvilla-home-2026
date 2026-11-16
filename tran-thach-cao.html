@@ -1,0 +1,2610 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hồ Sơ Trần Thạch Cao 4 Tầng: 100% Thiết Kế Gốc XHOME &amp; Đối Chiếu Chọn Phương Án — Q Villa</title>
+  <style>
+    :root {
+      --bg: #0b1017;
+      --surface: #131c26;
+      --surface-2: #1b2735;
+      --surface-3: #243447;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-soft: rgba(245, 158, 11, 0.14);
+      --emerald: #10b981;
+      --emerald-soft: rgba(16, 185, 129, 0.14);
+      --sky: #38bdf8;
+      --sky-soft: rgba(56, 189, 248, 0.14);
+      --rose: #f43f5e;
+      --rose-soft: rgba(244, 63, 94, 0.14);
+      --purple: #a855f7;
+      --border: rgba(255, 255, 255, 0.12);
+      --radius: 14px;
+      --shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--sky);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.86em;
+      color: #fde68a;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Sticky Header */
+    header {
+      background: rgba(19, 28, 38, 0.94);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      backdrop-filter: blur(14px);
+    }
+
+    .header-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 13px 0;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.18s ease, transform 0.18s ease;
+    }
+
+    .brand:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #38bdf8, #0284c7);
+      color: #06131f;
+      font-weight: 900;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-title h1 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.22;
+    }
+
+    .brand-title p {
+      font-size: 0.77rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      flex-wrap: balance;
+    }
+
+    .nav-links a {
+      font-size: 0.77rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      padding: 6px 11px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.03);
+      transition: all 0.18s ease;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      border-color: var(--sky);
+      background: var(--sky-soft);
+    }
+
+    .nav-links a.btn-pdf {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #04130d;
+      border-color: transparent;
+      font-weight: 800;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 26px 0 14px;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(27, 39, 53, 0.96), rgba(19, 28, 38, 0.99));
+      border: 1px solid rgba(56, 189, 248, 0.42);
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--sky-soft);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.32rem, 1.05rem + 1.4vw, 1.9rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.26;
+      margin-bottom: 8px;
+    }
+
+    .hero-desc {
+      color: #cbd5e1;
+      font-size: 0.93rem;
+      max-width: 930px;
+    }
+
+    .workflow-banner {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .wf-step.step-3 {
+      border-color: rgba(16, 185, 129, 0.52);
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.11), rgba(11, 16, 23, 0.72));
+    }
+
+    .wf-step.step-3 h3 {
+      color: #6ee7b7;
+    }
+
+    .wf-step {
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(11, 16, 23, 0.65);
+    }
+
+    .wf-step.step-1 {
+      border-color: rgba(56, 189, 248, 0.55);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.11), rgba(11, 16, 23, 0.72));
+    }
+
+    .wf-step.step-2 {
+      border-color: rgba(245, 158, 11, 0.55);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.11), rgba(11, 16, 23, 0.72));
+    }
+
+    .wf-step h3 {
+      font-size: 0.95rem;
+      font-weight: 900;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+
+    .wf-step p {
+      font-size: 0.84rem;
+      color: #cbd5e1;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 280px;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      transition: transform 0.16s ease, opacity 0.16s ease;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-action:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #0284c7);
+      color: #06131f;
+    }
+
+    .btn-secondary {
+      background: var(--accent-soft);
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      color: #fde68a;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .kpi-box {
+      background: rgba(11, 16, 23, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 13px 15px;
+    }
+
+    .kpi-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .kpi-val {
+      font-size: 1.24rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .kpi-sub {
+      font-size: 0.77rem;
+      color: #94a3b8;
+      margin-top: 3px;
+    }
+
+    /* Section Headings */
+    section.block {
+      margin: 36px 0;
+      scroll-margin-top: 84px;
+    }
+
+    .sec-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sec-badge {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .sec-badge.sky {
+      background: var(--sky-soft);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+    }
+
+    .sec-badge.amber {
+      background: var(--accent-soft);
+      color: #fde68a;
+      border: 1px solid rgba(245, 158, 11, 0.45);
+    }
+
+    .sec-head h2 {
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .sec-head p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-top: 3px;
+      max-width: 980px;
+    }
+
+    /* CAD Floor Cards */
+    .cad-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+    }
+
+    .cad-card {
+      background: var(--surface);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .cad-card-head {
+      background: var(--surface-2);
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cad-code {
+      background: var(--sky);
+      color: #06131f;
+      font-weight: 900;
+      font-size: 0.8rem;
+      padding: 5px 10px;
+      border-radius: 6px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+
+    .cad-title-wrap h3 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: #fff;
+      display: inline;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn-mini {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #e2e8f0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 6px 11px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+    }
+
+    .btn-mini:hover {
+      border-color: var(--sky);
+      background: var(--sky-soft);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .btn-mini.amber {
+      border-color: rgba(245, 158, 11, 0.5);
+      background: var(--accent-soft);
+      color: #fde68a;
+    }
+
+    .cad-canvas {
+      background: #ffffff;
+      padding: 10px;
+      cursor: zoom-in;
+      overflow-x: auto;
+    }
+
+    .cad-canvas img {
+      width: 100%;
+      height: auto;
+      display: block;
+      min-width: 820px;
+    }
+
+    .cad-notes {
+      padding: 16px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+      background: var(--surface);
+    }
+
+    .note-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--sky);
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-size: 0.85rem;
+      color: #dbeafe;
+    }
+
+    .note-item > strong:first-child {
+      color: #bae6fd;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .note-item strong {
+      color: #fde68a;
+    }
+
+    /* Floor Filter Toolbar (flex-wrap: balance) */
+    .floor-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      flex-wrap: balance;
+      gap: 8px;
+      margin: 16px 0 20px;
+      padding: 10px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      align-items: safe center;
+    }
+
+    .filter-btn {
+      appearance: none;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: #cbd5e1;
+      font-size: 0.81rem;
+      font-weight: 800;
+      padding: 8px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--sky);
+      color: #fff;
+    }
+
+    .filter-btn[aria-pressed="true"] {
+      background: linear-gradient(135deg, #38bdf8, #0284c7);
+      border-color: transparent;
+      color: #06131f;
+    }
+
+    /* 100% Q-Villa Real-House Stepped Ceiling Gallery (Subgrid + Direct Regions) */
+    .room-gallery-grid {
+      display: grid;
+      inline-size: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 410px), 1fr));
+      column-gap: 20px;
+      row-gap: 20px;
+    }
+
+    article.room-card {
+      grid-row: span 4;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto; /* Same-cascade fallback */
+      grid-template-rows: subgrid;
+      row-gap: 0;
+      container: roomcard / inline-size;
+      background: var(--surface);
+      border: 1px solid rgba(56, 189, 248, 0.32);
+      border-radius: var(--radius);
+      overflow: clip;
+      box-shadow: var(--shadow);
+    }
+
+    article.room-card.flat-ref-card {
+      border-color: rgba(16, 185, 129, 0.55);
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.07), var(--surface));
+    }
+
+    article.room-card.curve-card {
+      border-color: rgba(16, 185, 129, 0.48);
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.06), var(--surface));
+    }
+
+    .ducanh-spec-grid {
+      display: grid;
+      inline-size: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 12px;
+      margin: 14px 0 22px;
+    }
+
+    .ducanh-spec-item {
+      background: rgba(16, 185, 129, 0.07);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 12px;
+      padding: 13px 15px;
+      font-size: 0.84rem;
+      color: #cbd5e1;
+    }
+
+    .ducanh-spec-item strong {
+      display: block;
+      color: #6ee7b7;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+
+    article.room-card[hidden] {
+      display: none;
+    }
+
+    article.room-card > img {
+      inline-size: 100%;
+      block-size: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+      background: #090d14;
+      border-bottom: 1px solid var(--border);
+      transition: filter 0.2s ease;
+    }
+
+    article.room-card > img:hover {
+      filter: brightness(1.06);
+    }
+
+    article.room-card > header {
+      background: transparent;
+      position: static;
+      backdrop-filter: none;
+      border-bottom: none;
+      padding: 14px 16px 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .room-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: safe center;
+    }
+
+    .room-tag {
+      display: inline-block;
+      font-size: 0.71rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: var(--sky-soft);
+      color: #bae6fd;
+      border: 1px solid rgba(56, 189, 248, 0.45);
+      letter-spacing: 0.02em;
+    }
+
+    .room-tag.emerald {
+      background: var(--emerald-soft);
+      color: #6ee7b7;
+      border-color: rgba(16, 185, 129, 0.45);
+    }
+
+    .room-tag.amber {
+      background: var(--accent-soft);
+      color: #fde68a;
+      border-color: rgba(245, 158, 11, 0.45);
+    }
+
+    article.room-card > header h3 {
+      font-size: clamp(0.96rem, 0.88rem + 0.5cqi, 1.08rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.32;
+    }
+
+    article.room-card > .room-specs {
+      padding: 6px 16px 14px;
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    article.room-card > .room-specs ul {
+      padding-inline-start: 17px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    article.room-card > .room-specs li strong {
+      color: #fde68a;
+    }
+
+    article.room-card > footer {
+      margin-top: 0;
+      padding: 11px 16px 14px;
+      border-top: 1px solid var(--border);
+      background: rgba(11, 16, 23, 0.48);
+      text-align: left;
+      display: flex;
+      flex-wrap: wrap;
+      flex-wrap: balance;
+      gap: 8px;
+      align-items: safe center;
+    }
+
+    /* 1:1 Photo Comparison Pair inside Section 3 */
+    .real-pair-wrap {
+      margin: 6px 20px 14px;
+      padding: 14px 16px;
+      background: rgba(11, 16, 23, 0.72);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 12px;
+    }
+
+    .real-pair-title {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #bae6fd;
+      margin-bottom: 10px;
+    }
+
+    .real-pair-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      gap: 14px;
+    }
+
+    .real-pair-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: clip;
+    }
+
+    .real-pair-item > img {
+      inline-size: 100%;
+      block-size: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      cursor: zoom-in;
+    }
+
+    .real-pair-cap {
+      padding: 9px 12px;
+      font-size: 0.81rem;
+      color: #e2e8f0;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Side-by-Side Floor Comparison Cards */
+    .cmp-floor-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .cmp-floor-card {
+      background: var(--surface);
+      border: 1px solid rgba(245, 158, 11, 0.38);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .cmp-floor-head {
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.16), rgba(27, 39, 53, 0.96));
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cmp-floor-head h3 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fde68a;
+    }
+
+    .cmp-floor-head p {
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      margin-top: 2px;
+    }
+
+    .cmp-dual-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 18px 20px 10px;
+    }
+
+    @media (max-width: 980px) {
+      .cmp-dual-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cmp-col {
+      background: rgba(11, 16, 23, 0.65);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cmp-col.xhome-col {
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    .cmp-col.custom-col {
+      border-color: rgba(16, 185, 129, 0.5);
+    }
+
+    .cmp-col-hdr {
+      padding: 10px 14px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cmp-col.xhome-col .cmp-col-hdr {
+      background: rgba(56, 189, 248, 0.13);
+      color: #bae6fd;
+    }
+
+    .cmp-col.custom-col .cmp-col-hdr {
+      background: rgba(16, 185, 129, 0.14);
+      color: #6ee7b7;
+    }
+
+    .cmp-img-box {
+      background: #ffffff;
+      padding: 8px;
+      cursor: zoom-in;
+      aspect-ratio: 16 / 9.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cmp-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .cmp-col-body {
+      padding: 12px 14px;
+      font-size: 0.84rem;
+      color: #dbeafe;
+    }
+
+    .cmp-col-body ul {
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .cmp-diff-list {
+      padding: 8px 20px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 12px;
+    }
+
+    .diff-box {
+      background: rgba(245, 158, 11, 0.07);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-size: 0.84rem;
+      color: #e2e8f0;
+    }
+
+    .diff-box > strong:first-child {
+      color: #fde68a;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .diff-box strong {
+      color: #bae6fd;
+    }
+
+    /* Modern Responsive Tables (Container Queries + Sticky Headers) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(680px, 82vh);
+      max-block-size: min(680px, 82dvh);
+      container-type: inline-size;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .table-wrapper:focus-visible {
+      outline: 2px solid var(--sky);
+      outline-offset: 2px;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.86rem;
+    }
+
+    table.data-table caption {
+      text-align: left;
+      padding: 14px 18px;
+      font-weight: 800;
+      font-size: 0.97rem;
+      color: #fde68a;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+    }
+
+    table.data-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 1;
+    }
+
+    table.data-table thead th {
+      background: #1e293b;
+      color: #f8fafc;
+      font-weight: 800;
+      text-align: left;
+      padding: 11px 14px;
+      border-bottom: 2px solid rgba(56, 189, 248, 0.45);
+      white-space: nowrap;
+    }
+
+    table.data-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      background: #15202d;
+      color: #fff;
+      font-weight: 800;
+      text-align: left;
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      vertical-align: top;
+      min-width: 185px;
+    }
+
+    table.data-table tbody td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      color: #cbd5e1;
+      vertical-align: top;
+    }
+
+    table.data-table tbody tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    table.data-table tbody tr.total-row th,
+    table.data-table tbody tr.total-row td {
+      background: rgba(16, 185, 129, 0.16);
+      color: #6ee7b7;
+      font-weight: 900;
+      font-size: 0.95rem;
+    }
+
+    @container (width < 600px) {
+      table.data-table,
+      table.data-table thead,
+      table.data-table tbody,
+      table.data-table tr,
+      table.data-table th,
+      table.data-table td {
+        display: block;
+      }
+
+      table.data-table thead {
+        display: none;
+      }
+
+      table.data-table tbody tr {
+        margin-block-end: 1rem;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      table.data-table tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: #1e293b;
+        color: #fde68a;
+        border-right: none;
+      }
+
+      table.cmp-table {
+        --label-2: "Phương Án A (100% XHOME Gốc Vuông)";
+        --label-3: "Phương Án B (Bản Đã Vẽ / Trần Phẳng)";
+        --label-4: "Phương Án C Mới (Kiểu Bo Cong R350)";
+        --label-5: "Gợi Ý Phối Hợp & Khuyến Nghị Chốt";
+      }
+
+      table.boq-table {
+        --label-2: "Quy Cách Vật Tư Vĩnh Tường";
+        --label-3: "ĐVT";
+        --label-4: "Khối Lượng";
+        --label-5: "Đơn Giá (₫)";
+        --label-6: "Thành Tiền (₫)";
+      }
+
+      table.data-table td:nth-child(2)::before {
+        content: var(--label-2) ": ";
+        font-weight: 800;
+        color: #bae6fd;
+      }
+
+      table.data-table td:nth-child(3)::before {
+        content: var(--label-3) ": ";
+        font-weight: 800;
+        color: #bae6fd;
+      }
+
+      table.data-table td:nth-child(4)::before {
+        content: var(--label-4) ": ";
+        font-weight: 800;
+        color: #bae6fd;
+      }
+
+      table.data-table td:nth-child(5)::before {
+        content: var(--label-5) ": ";
+        font-weight: 800;
+        color: #bae6fd;
+      }
+
+      table.data-table td:nth-child(6)::before {
+        content: var(--label-6) ": ";
+        font-weight: 800;
+        color: #bae6fd;
+      }
+    }
+
+    /* Checklist Grid */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .check-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+
+    .check-step {
+      display: inline-block;
+      background: var(--emerald-soft);
+      color: #6ee7b7;
+      border: 1px solid rgba(16, 185, 129, 0.38);
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .check-card h3 {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .check-card ul {
+      padding-left: 18px;
+      font-size: 0.84rem;
+      color: #cbd5e1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    /* Light-Dismiss Modal Dialog */
+    dialog#zoomDialog {
+      margin: auto;
+      width: min(95vw, 1520px);
+      inline-size: min(95dvw, 1520px);
+      max-height: 92vh;
+      max-block-size: 92dvh;
+      background: #0f172a;
+      color: #f8fafc;
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      border-radius: 14px;
+      padding: 0;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+    }
+
+    dialog#zoomDialog::backdrop {
+      background-color: rgba(3, 7, 18, 0.82);
+      backdrop-filter: blur(4px);
+    }
+
+    .dialog-inner {
+      display: flex;
+      flex-direction: column;
+      max-height: 92vh;
+      max-block-size: 92dvh;
+    }
+
+    .dialog-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 18px;
+      background: #1e293b;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dialog-bar h2 {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #bae6fd;
+    }
+
+    .btn-close-dialog {
+      background: #ef4444;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-weight: 800;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+
+    .dialog-media {
+      overflow: auto;
+      padding: 14px;
+      background: #ffffff;
+      text-align: center;
+    }
+
+    .dialog-media img {
+      max-width: 100%;
+      height: auto;
+      display: inline-block;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding: 24px 0 36px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" title="Quay về Trang Chủ Dự Toán Q Villa">
+        <span class="brand-badge">← Trang Chủ</span>
+        <div class="brand-title">
+          <h1>Trần Thạch Cao 4 Tầng — 100% Thiết Kế XHOME &amp; Đối Chiếu Chọn Phương Án</h1>
+          <p>Biệt thự Q Villa (Ông Phùng Văn Quân) • Trình bày 100% nguyên bản XHOME trước → Đối chiếu các tầng đã vẽ sau</p>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng nhanh hồ sơ trần thạch cao">
+        <a href="#sec-qvilla-real-photos">📸 13 Khu Giật Cấp XHOME</a>
+        <a href="#sec-pa-c-bo-cong" style="border-color:rgba(16,185,129,0.55);color:#6ee7b7;background:rgba(16,185,129,0.12);">🌙 PA C Mới: Trần Bo Cong R350</a>
+        <a href="#sec-xhome-100">📐 1. CAD 100% XHOME</a>
+        <a href="#sec-xhome-details">🔧 2. Mặt Cắt KT-4.05</a>
+        <a href="#sec-floor-compare">⚖️ 3. Đối Chiếu A • B • C</a>
+        <a href="#sec-decision-matrix">📋 4. Ma Trận Chốt</a>
+        <a href="#sec-boq">💰 5. Dự Toán</a>
+        <a href="Ho_So_Thi_Cong_Tran_Thach_Cao_4_Tang_QVilla.pdf" target="_blank" class="btn-pdf">⬇️ In PDF A3 (10 Tờ)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-top">
+          <div>
+            <span class="hero-tag">📐 CẬP NHẬT THEO ĐÚNG QUY TRÌNH CHỦ NHÀ DUYỆT • 100% HỒ SƠ GỐC XHOME TRƯỚC</span>
+            <h2 class="hero-title">Hồ Sơ Trần Thạch Cao Nguyên Bản 100% XHOME (KT-4.01 → KT-4.05) &amp; Đối Chiếu Từng Tầng Đã Vẽ</h2>
+            <p class="hero-desc">
+              Toàn bộ phần đầu trang này đã được dựng chuẩn xác theo <strong>100% hồ sơ thiết kế trần thạch cao &amp; chiếu sáng nguyên bản của XHOME</strong> (<code>KT-4.01 → KT-4.05</code> &amp; <code>CĐ-11 → CĐ-14</code>) làm mốc gốc chuẩn. Ngay phía dưới (<a href="#sec-floor-compare">Mục 3 &amp; Mục 4</a>) là phần <strong>đặt song song đối chiếu trực quan từng tầng</strong> với các bản vẽ đã tinh chỉnh trước đó (<em>Bếp/Khách T1, Master PA2 T2, Phòng Thờ &amp; Làm Việc T3, Tầng Tum 2 Mái Kính</em>) để Chủ nhà dễ xem xét và tích chọn phương án ưng ý nhất cho từng phòng.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a href="#sec-pa-c-bo-cong" class="btn-action btn-primary" style="background:linear-gradient(135deg,#10b981,#059669);color:#022c22;">
+              🌙 Xem Ngay PA C Mới: Kiểu Bo Cong R350 (Đức Anh 35) ↓
+            </a>
+            <a href="#sec-qvilla-real-photos" class="btn-action btn-secondary">
+              📸 Xem 13 Khu Giật Cấp Gốc XHOME ↓
+            </a>
+            <a href="Ho_So_Thi_Cong_Tran_Thach_Cao_4_Tang_QVilla.pdf" target="_blank" class="btn-action btn-secondary">
+              📄 Mở Bộ Hồ Sơ In A3 (10 Tờ: Đủ PA A • B • C)
+            </a>
+          </div>
+        </div>
+
+        <div class="workflow-banner">
+          <div class="wf-step step-1">
+            <h3>① PHƯƠNG ÁN A (Gốc XHOME Vuông Góc 90°)</h3>
+            <p>Giữ nguyên 100% cao độ (<code>C1 +3.400/+3.530</code> T1; <code>+3.000/+3.130</code> T2–T3; <code>C2 +2.400</code> 4 WC), kích thước từng ô giật cấp vuông cạnh sắc nét, nẹp <code>P-UT12</code> đen &amp; <code>Shadowlight</code> trắng nguyên bản.</p>
+          </div>
+          <div class="wf-step step-2">
+            <h3>② PHƯƠNG ÁN B (Tối Ưu Nội Thất &amp; Trần Phẳng)</h3>
+            <p>Đồng bộ va chạm thực tế tại các trang <a href="bep-tang1.html">Bếp 2,8m</a>, <a href="phong-master-tang2.html">Master PA2 (dời lỗ thăm ĐH)</a>, <a href="phong-tho-tang3.html">Phòng Thờ Y=1.960</a>, <a href="phong-lam-viec-tang3.html">Làm Việc Phẳng T3-A</a> &amp; <a href="tang-tum-3d.html">2 Mái Kính Tum</a>.</p>
+          </div>
+          <div class="wf-step step-3">
+            <h3>③ PHƯƠNG ÁN C MỚI (Kiểu Bo Cong Hiện Đại 2026)</h3>
+            <p>Tham khảo chuẩn thi công <strong>Đức Anh 35 (<code>@ducanh_tranthachcao</code>)</strong>: Giật cấp <strong>bo cong 4 góc <code>R300–R350mm</code></strong> + phào cong êm sáng + <strong>nẹp nhựa âm đen <code>12mm</code> uốn cong song song</strong> + Vòm Capsule Thay Đồ <code>R650</code> &amp; nắp thăm <code>R80</code>.</p>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-box">
+            <div class="kpi-label">Quy Cách Ký Hiệu Gốc XHOME</div>
+            <div class="kpi-val">C1 &amp; C2 (Tấm 9mm)</div>
+            <div class="kpi-sub">Khung xương chìm + Nẹp tường <code>Shadowlight</code> trắng</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">Cao Độ Trần Gốc 4 Tầng</div>
+            <div class="kpi-val">+3.40m / +3.00m / +2.40m</div>
+            <div class="kpi-sub">Giật cấp +130mm (<code>+3.530</code> / <code>+3.130</code>; P.Thờ <code>+3.150</code>)</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">Chi Tiết Nẹp &amp; Khe Sáng Gốc</div>
+            <div class="kpi-val">P-UT12 (12mm) • U10</div>
+            <div class="kpi-sub">Khe hắt 01 &amp; 02 (bậc 130–150, mỏ 150) • Khe rèm 200–250</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">Tổng Khối Lượng &amp; Ngân Sách</div>
+            <div class="kpi-val">228 m² • 59,08 Triệu ₫</div>
+            <div class="kpi-sub">Khung Vĩnh Tường + Tấm Gyproc + Phụ kiện (chưa gồm Sơn bả)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- NEW SECTION: 100% REAL Q-VILLA STEPPED CEILING GALLERY (ALL 13 ZONES) -->
+    <!-- ===================================================================== -->
+    <section id="sec-qvilla-real-photos" class="block">
+      <div class="sec-head">
+        <div>
+          <span class="sec-badge amber">100% DỰNG KHỚP MẶT BẰNG, CỬA, NỘI THẤT &amp; TRỤC NHÀ Q-VILLA • KHÔNG DÙNG ẢNH MẠNG</span>
+          <h2>📸 Bộ Ảnh Thực Tế 100% Toàn Bộ 13/13 Khu Vực Có Trần Giật Cấp Khớp Đúng Thực Tế Nhà Q-Villa (Tầng 1 → Tầng Tum)</h2>
+          <p>Mỗi bức ảnh dưới đây được dựng trực tiếp theo đúng <strong>kích thước phòng, vị trí cửa chính gỗ Lim <code>D1</code>, giếng trời cây xanh, cửa sổ lam đứng, cầu thang kính, ô thông tầng và nội thất thực tế của Q-Villa</strong> kết hợp chính xác từng milimet cao độ &amp; quy cách trần giật cấp trên hồ sơ <code>KT-4.01 → KT-4.04</code> &amp; <code>CĐ-11 → CĐ-14</code> của XHOME (kèm thẻ số 14 đối chứng ngay kiểu <strong>Trần phẳng chỉ đen <code>P-UT12</code> của PN3/PN4 Tầng 3</strong> trong cùng một căn phòng ngủ).</p>
+        </div>
+      </div>
+
+      <div class="floor-filter-bar" role="toolbar" aria-label="Lọc khu vực trần giật cấp theo tầng">
+        <button type="button" class="filter-btn" data-filter="all" aria-pressed="true">🏠 Tất Cả Toàn Nhà (13 Khu Giật Cấp + 1 Đối Chứng Phẳng)</button>
+        <button type="button" class="filter-btn" data-filter="t1" aria-pressed="false">1️⃣ Tầng 1 (04 Khu: Sảnh • Khách • Bếp • P.Ông Bà)</button>
+        <button type="button" class="filter-btn" data-filter="t2" aria-pressed="false">2️⃣ Tầng 2 (05 Khu: Ngủ Master • Thay Đồ • Hành Lang • PN1 • PN2)</button>
+        <button type="button" class="filter-btn" data-filter="t3" aria-pressed="false">3️⃣ Tầng 3 (03 Khu: P.Thờ • Làm Việc • Hành Lang + Đối Chứng PN3/4)</button>
+        <button type="button" class="filter-btn" data-filter="tum" aria-pressed="false">4️⃣ Tầng Tum (01 Khu: Hành Lang Sảnh Thang)</button>
+      </div>
+
+      <div class="room-gallery-grid" id="qvillaRoomGallery">
+        <article class="room-card" data-floor="t1">
+          <img src="assets/qvilla_tran_giat_cap_t1_01_tien_sanh.jpg" alt="01. Tiền Sảnh Tầng 1 — Hộp Giật Cấp 2.090 × 1.125mm (+3.400 → +3.530mm)" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t1_01_tien_sanh.jpg" data-zoom-title="01. Tiền Sảnh Tầng 1 — Hộp Giật Cấp 2.090 × 1.125mm (+3.400 → +3.530mm) (KT-4.01 & CĐ-11 — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 1 • KHU VỰC 01/13</span>
+              <span class="room-tag amber">KT-4.01 & CĐ-11</span>
+            </div>
+            <h3>01. Tiền Sảnh Tầng 1 — Hộp Giật Cấp 2.090 × 1.125mm (+3.400 → +3.530mm)</h3>
+          </header>
+          <div class="room-specs">
+            <p>Không gian đón khách ngay sau cửa chính gỗ Lim D1 (Trục 1'–2 / A–B, diện tích 3,58m × 2,50m).</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Cửa chính gỗ Lim Nam Phi <code>D1</code> chạm ô vuông ca-rô kèm vách kính hẹp đặc trưng của Q-Villa, thảm đá đen trên nền gạch <code>800×800mm</code>, hệ tủ giày kịch trần tường Nam có hốc đá hắt sáng & ghế ngồi, bên phải mở thông ra Phòng Khách.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Viền xung quanh đóng phẳng <code>C1 +3.400mm</code> chạy nẹp tường <code>Shadowlight</code> trắng kèm <code>04</code> spotlight ở 4 góc (<code>Lộ 1</code>); chính giữa giật cấp vuông 90° lên <code>+3.530mm</code> (Khe hắt 01 cao <code>130mm</code>, LED dây 4000K <code>Lộ 2</code>, không treo đèn chùm).</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t1_01_tien_sanh.jpg" data-zoom-title="01. Tiền Sảnh Tầng 1 — Hộp Giật Cấp 2.090 × 1.125mm (+3.400 → +3.530mm) (KT-4.01 & CĐ-11 — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/cad_xhome_goc_tran_tang1.svg" data-zoom-title="Bản vẽ đối chiếu KT-4.01 & CĐ-11 — 01. Tiền Sảnh Tầng 1 — Hộp Giật Cấp 2.090 × 1.125mm (+3.400 → +3.530mm)">📐 Xem Bản Vẽ KT-4.01 & CĐ-11</button>
+            <a href="cua-chinh-d1.html" class="btn-mini">🚪 Xem Trang Cửa D1</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="t1">
+          <img src="assets/qvilla_tran_giat_cap_t1_02_phong_khach.jpg" alt="02. Phòng Khách Tầng 1 — Hộp 2.255 × 3.400mm (+3.530mm) + Khung Ray Nam Châm 48V" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t1_02_phong_khach.jpg" data-zoom-title="02. Phòng Khách Tầng 1 — Hộp 2.255 × 3.400mm (+3.530mm) + Khung Ray Nam Châm 48V (KT-4.01 & KT-4.06 — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 1 • KHU VỰC 02/13</span>
+              <span class="room-tag amber">KT-4.01 & KT-4.06</span>
+            </div>
+            <h3>02. Phòng Khách Tầng 1 — Hộp 2.255 × 3.400mm (+3.530mm) + Khung Ray Nam Châm 48V</h3>
+          </header>
+          <div class="room-specs">
+            <p>Nhìn từ sau Sofa chữ L hướng Bắc về Vách TV và mở chéo sang phải về Phòng Ăn – Tủ Bếp (Trục 1'–2 / B–C).</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Bên trái (Tây) là hệ cửa kính trượt lớn nhìn ra bồn cây bonsai sân trước Q-Villa kèm hốc rèm âm <code>215mm</code>; chính diện (Bắc) là vách đá Marble trắng vân mây + lam gỗ óc chó 2 bên; bên phải (Đông) liên thông sang bàn ăn & bếp.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Giật cấp chữ nhật vuông góc sắc nét <code>2.255 × 3.400mm</code> (<code>+3.400 → +3.530mm</code>, <code>Lộ 4</code>), lùi <code>215mm</code> lắp âm phẳng <strong>Khung Ray Nam Châm 48V <code>1.825 × 2.970mm</code> (<code>Lộ 5</code>)</strong> + Quạt trần đèn tâm phòng (<code>Lộ 6</code>) + khe gió dài ĐH âm trần <code>IN 1.2</code> trên viền <code>+3.400mm</code>.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t1_02_phong_khach.jpg" data-zoom-title="02. Phòng Khách Tầng 1 — Hộp 2.255 × 3.400mm (+3.530mm) + Khung Ray Nam Châm 48V (KT-4.01 & KT-4.06 — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/cad_xhome_goc_tran_tang1.svg" data-zoom-title="Bản vẽ đối chiếu KT-4.01 & KT-4.06 — 02. Phòng Khách Tầng 1 — Hộp 2.255 × 3.400mm (+3.530mm) + Khung Ray Nam Châm 48V">📐 Xem Bản Vẽ KT-4.01 & KT-4.06</button>
+            <a href="phong-khach-bep-tang1.html" class="btn-mini">🛋️ Xem Trang Khách – Bếp</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="t1">
+          <img src="assets/qvilla_tran_giat_cap_t1_03_bep_an_hop_tran.jpg" alt="03. Khu Bếp & Phòng Ăn Tầng 1 — Trần +3.400mm Hạ Hộp Trán Thẳng Trên Tủ Bếp 4,95m" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t1_03_bep_an_hop_tran.jpg" data-zoom-title="03. Khu Bếp & Phòng Ăn Tầng 1 — Trần +3.400mm Hạ Hộp Trán Thẳng Trên Tủ Bếp 4,95m (KT-4.01 & CĐ-11 — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 1 • KHU VỰC 03/13</span>
+              <span class="room-tag amber">KT-4.01 & CĐ-11</span>
+            </div>
+            <h3>03. Khu Bếp & Phòng Ăn Tầng 1 — Trần +3.400mm Hạ Hộp Trán Thẳng Trên Tủ Bếp 4,95m</h3>
+          </header>
+          <div class="room-specs">
+            <p>Nhìn từ bàn ăn Trục 2 thẳng vào hệ Tủ bếp chữ I dài 4,95m sát tường Bắc & cửa ra Sân sau giặt phơi (Trục 4).</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Đúng bố cục bếp Q-Villa: tủ bếp chữ I màu kem nâu + khung gỗ óc chó, ô cửa sổ kính ngang nhìn ra cây xanh hông Bắc, bàn đảo đá trắng, tủ lạnh 4 cánh bên phải và cửa kính nhìn ra sân sau đặt tháp máy giặt – máy sấy.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Trần Phòng Ăn – Bếp đóng phẳng liên thông ở cốt <code>C1 +3.400mm</code> (khe gió ĐH <code>IN 1.1</code>, quạt trần bàn ăn <code>L6A</code>, đèn rọi đảo bếp), riêng sát tường Bắc <strong>giật hạ hộp trán thạch cao chịu ẩm <code>C2</code> phẳng mịn ôm khít đỉnh tủ bếp</strong> để che kín ống hút mùi <code>Ø150</code>.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t1_03_bep_an_hop_tran.jpg" data-zoom-title="03. Khu Bếp & Phòng Ăn Tầng 1 — Trần +3.400mm Hạ Hộp Trán Thẳng Trên Tủ Bếp 4,95m (KT-4.01 & CĐ-11 — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/cad_xhome_goc_tran_tang1.svg" data-zoom-title="Bản vẽ đối chiếu KT-4.01 & CĐ-11 — 03. Khu Bếp & Phòng Ăn Tầng 1 — Trần +3.400mm Hạ Hộp Trán Thẳng Trên Tủ Bếp 4,95m">📐 Xem Bản Vẽ KT-4.01 & CĐ-11</button>
+            <a href="bep-tang1.html" class="btn-mini">🍳 Xem Trang Tủ Bếp 2,8m</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="t1">
+          <img src="assets/qvilla_tran_giat_cap_t1_04_phong_ngu_ong_ba.jpg" alt="04. Phòng Ngủ Ông Bà Tầng 1 — Giật Cấp Vuông +3.130mm Chạy Chỉ Âm Nẹp U10 Đen" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t1_04_phong_ngu_ong_ba.jpg" data-zoom-title="04. Phòng Ngủ Ông Bà Tầng 1 — Giật Cấp Vuông +3.130mm Chạy Chỉ Âm Nẹp U10 Đen (KT-4.01 & CĐ-11 — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 1 • KHU VỰC 04/13</span>
+              <span class="room-tag amber">KT-4.01 & CĐ-11</span>
+            </div>
+            <h3>04. Phòng Ngủ Ông Bà Tầng 1 — Giật Cấp Vuông +3.130mm Chạy Chỉ Âm Nẹp U10 Đen</h3>
+          </header>
+          <div class="room-specs">
+            <p>Phòng ngủ phía Đông Nam Tầng 1 (Trục 3–4 / A–B, rộng 3,21m × 4,49m, sàn lát gỗ óc chó ấm cúng).</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Đầu giường tựa tường Nam ốp lam gỗ; <strong>bên trái (tường Tây Trục 3) là ô cửa sổ vuông nhìn thẳng vào Giếng trời cây xanh</strong> đặc trưng của Q-Villa; bên phải (tường Đông Trục 4) là cửa kính lớn + hốc rèm <code>200mm</code> mở ra vườn sau.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Đúng chi tiết riêng của <code>KT-4.01</code>: viền <code>C1 +3.000mm</code> gắn <code>06</code> spotlight (<code>L14, L15</code>), giữa phòng <strong>giật cấp cạnh đứng vuông góc lên <code>+3.130mm</code> (không làm mỏ hắt hứng bụi)</strong> và chạy nổi bật khung <strong>Nẹp <code>U10</code> đen <code>1.740 × 1.345mm</code></strong> âm phẳng trong lòng trần trắng.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t1_04_phong_ngu_ong_ba.jpg" data-zoom-title="04. Phòng Ngủ Ông Bà Tầng 1 — Giật Cấp Vuông +3.130mm Chạy Chỉ Âm Nẹp U10 Đen (KT-4.01 & CĐ-11 — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/cad_xhome_goc_tran_tang1.svg" data-zoom-title="Bản vẽ đối chiếu KT-4.01 & CĐ-11 — 04. Phòng Ngủ Ông Bà Tầng 1 — Giật Cấp Vuông +3.130mm Chạy Chỉ Âm Nẹp U10 Đen">📐 Xem Bản Vẽ KT-4.01 & CĐ-11</button>
+            <a href="noi-that-toan-nha.html" class="btn-mini">🛏️ Xem Nội Thất Tầng 1</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="t2">
+          <img src="assets/qvilla_tran_giat_cap_t2_05_master_ngu.jpg" alt="05. Khu Ngủ Phòng Master Tầng 2 — Hộp Giật Cấp Vuông Góc 2.600 × 2.450mm (+3.130mm)" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t2_05_master_ngu.jpg" data-zoom-title="05. Khu Ngủ Phòng Master Tầng 2 — Hộp Giật Cấp Vuông Góc 2.600 × 2.450mm (+3.130mm) (KT-4.02 & CĐ-12 — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 2 • KHU VỰC 05/13</span>
+              <span class="room-tag amber">KT-4.02 & CĐ-12</span>
+            </div>
+            <h3>05. Khu Ngủ Phòng Master Tầng 2 — Hộp Giật Cấp Vuông Góc 2.600 × 2.450mm (+3.130mm)</h3>
+          </header>
+          <div class="room-specs">
+            <p>Nhìn từ phía đầu giường Bắc qua vách gỗ xương cá kệ TV Trục B sang Khu Thay Đồ (Trục 1'–2 / B–C).</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Sàn gỗ sồi xương cá; vách ngăn trung tâm ốp gỗ chevron chừa 2 lối đi thông sang Khu Thay Đồ phía Nam; bên phải (hướng Tây Trục 1') là cửa kính trượt lớn ra ban công mặt tiền Tầng 2 kèm hốc rèm âm rộng <code>250mm</code>.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Chuẩn 100% <code>KT-4.02</code> gốc (vuông góc 90°, không bo cong): viền <code>C1 +3.000mm</code> tích hợp <strong>02 khe gió dài điều hòa âm trần chạy song song hai bên Đông – Tây</strong> + <code>06</code> spotlight viền (<code>L14</code>); lòng hộp <code>2.600 × 2.450mm (+3.130mm)</code> hắt LED 4 cạnh + <strong>2 cặp spotlight đôi tâm trần (<code>L15</code>)</strong>.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t2_05_master_ngu.jpg" data-zoom-title="05. Khu Ngủ Phòng Master Tầng 2 — Hộp Giật Cấp Vuông Góc 2.600 × 2.450mm (+3.130mm) (KT-4.02 & CĐ-12 — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/wc_kt402_tran_t2.png" data-zoom-title="Bản vẽ đối chiếu KT-4.02 & CĐ-12 — 05. Khu Ngủ Phòng Master Tầng 2 — Hộp Giật Cấp Vuông Góc 2.600 × 2.450mm (+3.130mm)">📐 Xem Bản Vẽ KT-4.02 & CĐ-12</button>
+            <a href="phong-master-tang2.html" class="btn-mini">👑 Xem Trang Master T2</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="t2">
+          <img src="assets/qvilla_tran_giat_cap_t2_06_master_thay_do_xhome.jpg" alt="06. Khu Thay Đồ Master Tầng 2 — Hộp Chữ Nhật Gốc XHOME 2.370 × 1.340mm (Không Vòm Tròn)" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t2_06_master_thay_do_xhome.jpg" data-zoom-title="06. Khu Thay Đồ Master Tầng 2 — Hộp Chữ Nhật Gốc XHOME 2.370 × 1.340mm (Không Vòm Tròn) (KT-4.02 GỐC (CHỮ NHẬT) — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 2 • KHU VỰC 06/13</span>
+              <span class="room-tag amber">KT-4.02 GỐC (CHỮ NHẬT)</span>
+            </div>
+            <h3>06. Khu Thay Đồ Master Tầng 2 — Hộp Chữ Nhật Gốc XHOME 2.370 × 1.340mm (Không Vòm Tròn)</h3>
+          </header>
+          <div class="room-specs">
+            <p>Cùng đúng căn phòng Thay Đồ nhà Q-Villa nhìn về cửa kính WC-02 phía Nam khi đóng theo 100% bản gốc KT-4.02.</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Giữa phòng là đảo phụ kiện mặt kính; bên trái hệ tủ trưng bày cánh kính đèn LED; bên phải (Tây) bàn phấn treo + gương tròn dưới cửa sổ rèm gỗ; chính diện (Nam) hệ tủ áo kịch trần sâu <code>700mm</code> & cửa đôi kính sọc vào <code>WC-02</code>.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Thấy rõ thiết kế nguyên bản <code>KT-4.02</code> của XHOME: <strong>không dùng vòm tròn</strong> mà đóng <strong>ô giật cấp chữ nhật vuông vức <code>2.370 × 1.340mm (+3.130mm)</code></strong> hắt LED vàng 4 cạnh (<code>L17</code>), kèm <code>06</code> spotlight viền Bắc – Nam (<code>L18</code>) và 2 khe gió dài điều hòa hai bên.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t2_06_master_thay_do_xhome.jpg" data-zoom-title="06. Khu Thay Đồ Master Tầng 2 — Hộp Chữ Nhật Gốc XHOME 2.370 × 1.340mm (Không Vòm Tròn) (KT-4.02 GỐC (CHỮ NHẬT) — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/wc_kt402_tran_t2.png" data-zoom-title="Bản vẽ đối chiếu KT-4.02 GỐC (CHỮ NHẬT) — 06. Khu Thay Đồ Master Tầng 2 — Hộp Chữ Nhật Gốc XHOME 2.370 × 1.340mm (Không Vòm Tròn)">📐 Xem Bản Vẽ KT-4.02 GỐC (CHỮ NHẬT)</button>
+            <a href="phong-master-tang2.html" class="btn-mini">🔄 Đối Chiếu Với Vòm Ø1.2m</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="t2">
+          <img src="assets/qvilla_tran_giat_cap_t2_07_hanh_lang_thong_tang.jpg" alt="07. Hành Lang Tầng 2 & Khu Thư Giãn — Hộp Giật Cấp Dài 3.570 × 890mm (+3.130mm)" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t2_07_hanh_lang_thong_tang.jpg" data-zoom-title="07. Hành Lang Tầng 2 & Khu Thư Giãn — Hộp Giật Cấp Dài 3.570 × 890mm (+3.130mm) (KT-4.02 & CĐ-12 — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 2 • KHU VỰC 07/13</span>
+              <span class="room-tag amber">KT-4.02 & CĐ-12</span>
+            </div>
+            <h3>07. Hành Lang Tầng 2 & Khu Thư Giãn — Hộp Giật Cấp Dài 3.570 × 890mm (+3.130mm)</h3>
+          </header>
+          <div class="room-specs">
+            <p>Đứng từ cầu thang bộ nhìn dọc Hành lang Tầng 2 sang cửa gỗ PN1 & PN2 (Trục 2–3 / B–C).</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Hành lang lát gạch Granite <code>800×800mm</code> vân đá ghi sáng; bên phải là cầu thang bộ lan can kính tay vịn gỗ sồi; bên trái mở vào <strong>Khu Thư Giãn sàn gỗ xương cá</strong> (2 ghế bành kem, trần phẳng <code>+3.000mm</code> treo đèn thả <code>L27</code>) cạnh lan can kính Ô Thông Tầng thông lên Tầng 3.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Dọc chính giữa trần Hành lang Tầng 2 đóng <strong>ô giật cấp chữ nhật thuôn dài <code>3.570 × 890mm</code> cốt <code>C1 +3.130mm</code></strong>, hắt LED dây 4000K liên tục 4 cạnh kèm <code>03</code> cụm đèn spotlight thẳng hàng dọc tâm hành lang (<code>Lộ HL</code>).</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t2_07_hanh_lang_thong_tang.jpg" data-zoom-title="07. Hành Lang Tầng 2 & Khu Thư Giãn — Hộp Giật Cấp Dài 3.570 × 890mm (+3.130mm) (KT-4.02 & CĐ-12 — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/wc_kt402_tran_t2.png" data-zoom-title="Bản vẽ đối chiếu KT-4.02 & CĐ-12 — 07. Hành Lang Tầng 2 & Khu Thư Giãn — Hộp Giật Cấp Dài 3.570 × 890mm (+3.130mm)">📐 Xem Bản Vẽ KT-4.02 & CĐ-12</button>
+            <a href="noi-that-toan-nha.html" class="btn-mini">🏠 Xem Tổng Thể Nội Thất</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="t2">
+          <img src="assets/qvilla_tran_giat_cap_t2_08_phong_ngu_1.jpg" alt="08. Phòng Ngủ 1 (Đông Bắc Tầng 2) — Hộp Giật Cấp 2.990 × 2.050mm (+3.000 → +3.130mm)" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t2_08_phong_ngu_1.jpg" data-zoom-title="08. Phòng Ngủ 1 (Đông Bắc Tầng 2) — Hộp Giật Cấp 2.990 × 2.050mm (+3.000 → +3.130mm) (KT-4.02 & CĐ-12 — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 2 • KHU VỰC 08/13</span>
+              <span class="room-tag amber">KT-4.02 & CĐ-12</span>
+            </div>
+            <h3>08. Phòng Ngủ 1 (Đông Bắc Tầng 2) — Hộp Giật Cấp 2.990 × 2.050mm (+3.000 → +3.130mm)</h3>
+          </header>
+          <div class="room-specs">
+            <p>Phòng ngủ phía Đông Bắc Tầng 2 (Trục 3–4 / B–D, kích thước 4,95m × 3,36m).</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Đầu giường tựa tường Bắc ốp nan gỗ ấm áp; bên trái (tường Tây giáp Ô thông tầng) có cửa sổ <code>S3</code> và bàn làm việc; bên phải (tường Đông Trục 4) mở cửa kính trượt <code>D8</code> ra ban công cây xanh kèm hốc rèm âm rộng <code>200mm</code>.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Viền xung quanh đóng phẳng <code>C1 +3.000mm</code> gắn <code>06</code> đèn spotlight viền (<code>L10</code>) & khe gió điều hòa; chính giữa trên giường giật cấp <strong>hộp chữ nhật <code>2.990 × 2.050mm (+3.130mm)</code></strong> hắt LED 4 cạnh (<code>L12</code>) và gắn <code>01</code> cặp spotlight đôi tâm trần (<code>L11</code>).</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t2_08_phong_ngu_1.jpg" data-zoom-title="08. Phòng Ngủ 1 (Đông Bắc Tầng 2) — Hộp Giật Cấp 2.990 × 2.050mm (+3.000 → +3.130mm) (KT-4.02 & CĐ-12 — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/wc_kt402_tran_t2.png" data-zoom-title="Bản vẽ đối chiếu KT-4.02 & CĐ-12 — 08. Phòng Ngủ 1 (Đông Bắc Tầng 2) — Hộp Giật Cấp 2.990 × 2.050mm (+3.000 → +3.130mm)">📐 Xem Bản Vẽ KT-4.02 & CĐ-12</button>
+            <a href="chieu-sang-opple-3d.html" class="btn-mini">💡 Xem Chiếu Sáng Phòng Ngủ</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="t2">
+          <img src="assets/qvilla_tran_giat_cap_t2_09_phong_ngu_2.jpg" alt="09. Phòng Ngủ 2 (Đông Nam Tầng 2) — Hộp Dọc 2.040 × 3.140mm Cạnh Giếng Trời" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t2_09_phong_ngu_2.jpg" data-zoom-title="09. Phòng Ngủ 2 (Đông Nam Tầng 2) — Hộp Dọc 2.040 × 3.140mm Cạnh Giếng Trời (KT-4.02 & CĐ-12 — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 2 • KHU VỰC 09/13</span>
+              <span class="room-tag amber">KT-4.02 & CĐ-12</span>
+            </div>
+            <h3>09. Phòng Ngủ 2 (Đông Nam Tầng 2) — Hộp Dọc 2.040 × 3.140mm Cạnh Giếng Trời</h3>
+          </header>
+          <div class="room-specs">
+            <p>Phòng ngủ phía Đông Nam Tầng 2 (Trục 3–4 / A–B, kích thước 3,21m × 4,49m).</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Nhìn về đầu giường tường Nam: <strong>bên phải (tường Tây Trục 3) là mảng kính lớn nhìn thẳng vào Giếng trời cây xanh Đông Nam</strong> đón nắng tự nhiên; bên trái (hướng Đông Trục 4) mở cửa kính trượt ra ban công sau kèm bàn học góc & hốc rèm <code>200mm</code>.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Đóng <strong>ô trần giật cấp chữ nhật chạy dọc chiều dài phòng <code>2.040 × 3.140mm</code> cốt <code>C1 +3.130mm</code></strong> (viền <code>+3.000mm</code>, Khe hắt sáng 02 cao <code>150mm</code>) hắt LED vàng 4 cạnh kèm <code>06</code> spotlight viền (<code>L5, L7</code>) và cặp đèn đôi giữa trần (<code>L6</code>).</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t2_09_phong_ngu_2.jpg" data-zoom-title="09. Phòng Ngủ 2 (Đông Nam Tầng 2) — Hộp Dọc 2.040 × 3.140mm Cạnh Giếng Trời (KT-4.02 & CĐ-12 — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/wc_kt402_tran_t2.png" data-zoom-title="Bản vẽ đối chiếu KT-4.02 & CĐ-12 — 09. Phòng Ngủ 2 (Đông Nam Tầng 2) — Hộp Dọc 2.040 × 3.140mm Cạnh Giếng Trời">📐 Xem Bản Vẽ KT-4.02 & CĐ-12</button>
+            <a href="gieng-troi-mai-kinh-3d.html" class="btn-mini">🌿 Xem Giếng Trời Đông Nam</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="t3">
+          <img src="assets/qvilla_tran_giat_cap_t3_10_phong_tho.jpg" alt="10. Phòng Thờ Gia Tiên Tầng 3 — Hộp Thạch Cao Sơn Trắng +3.000 → +3.150mm (Khe Hắt 02)" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t3_10_phong_tho.jpg" data-zoom-title="10. Phòng Thờ Gia Tiên Tầng 3 — Hộp Thạch Cao Sơn Trắng +3.000 → +3.150mm (Khe Hắt 02) (KT-4.03 & CĐ-13 — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 3 • KHU VỰC 10/13</span>
+              <span class="room-tag amber">KT-4.03 & CĐ-13</span>
+            </div>
+            <h3>10. Phòng Thờ Gia Tiên Tầng 3 — Hộp Thạch Cao Sơn Trắng +3.000 → +3.150mm (Khe Hắt 02)</h3>
+          </header>
+          <div class="room-specs">
+            <p>Toàn cảnh không gian Phòng Thờ Tầng 3 (Trục 1'–2 / B–C) nhìn từ phía cửa Logia Tây vào tường Đông.</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Chính diện tường Đông là Bàn thờ Gia tiên gỗ óc chó/gụ, vách hậu đá Travertine kem & lam gỗ đứng + đôi lục bình gốm; <strong>bên phải (Trục B) là hệ cửa lùa gỗ kính sọc 4 cánh</strong> ngăn Phòng Làm Việc; <strong>bên trái (Tây) là cửa kính lớn + hốc rèm mở ra Logia sân vườn Tầng 3</strong>.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Đúng 100% hồ sơ gốc <code>KT-4.03</code>: <strong>trần thạch cao phẳng sơn trắng mịn hoàn toàn (<code>0%</code> mây cói)</strong>, viền <code>C1 +3.000mm</code> gắn <code>08</code> spotlight ấm (<code>L14</code>), giữa giật cấp sâu <code>150mm</code> lên <code>+3.150mm</code> hắt LED 3000K (<code>L15</code>) & đèn lồng thả trang nhã (<code>L16</code>).</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t3_10_phong_tho.jpg" data-zoom-title="10. Phòng Thờ Gia Tiên Tầng 3 — Hộp Thạch Cao Sơn Trắng +3.000 → +3.150mm (Khe Hắt 02) (KT-4.03 & CĐ-13 — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/cad_xhome_goc_tran_tang3.svg" data-zoom-title="Bản vẽ đối chiếu KT-4.03 & CĐ-13 — 10. Phòng Thờ Gia Tiên Tầng 3 — Hộp Thạch Cao Sơn Trắng +3.000 → +3.150mm (Khe Hắt 02)">📐 Xem Bản Vẽ KT-4.03 & CĐ-13</button>
+            <a href="phong-tho-tang3.html" class="btn-mini">🙏 Xem Trang Phòng Thờ T3</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="t3">
+          <img src="assets/qvilla_tran_giat_cap_t3_11_phong_lam_viec.jpg" alt="11. Phòng Làm Việc Đôi Tầng 3 — Hộp Giật Cấp Vuông Phẳng +3.130mm & Đèn Chùm L19" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t3_11_phong_lam_viec.jpg" data-zoom-title="11. Phòng Làm Việc Đôi Tầng 3 — Hộp Giật Cấp Vuông Phẳng +3.130mm & Đèn Chùm L19 (CĐ-13 GỐC XHOME — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 3 • KHU VỰC 11/13</span>
+              <span class="room-tag amber">CĐ-13 GỐC XHOME</span>
+            </div>
+            <h3>11. Phòng Làm Việc Đôi Tầng 3 — Hộp Giật Cấp Vuông Phẳng +3.130mm & Đèn Chùm L19</h3>
+          </header>
+          <div class="room-specs">
+            <p>Phòng Làm Việc / Sinh Hoạt Tây Nam Tầng 3 (Trục 1'–2 / A–B, 3,58m × 4,49m) khi đóng giật cấp theo CĐ-13 gốc.</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Bên trái (tường Tây) đúng <strong>02 ô cửa sổ nhìn qua hệ lam đứng mặt tiền Tầng 3 Q-Villa</strong> kê 2 bàn làm việc đôi; chính diện (tường Nam) là hệ tủ sách gỗ óc chó kịch trần sâu <code>500mm</code> tích hợp cửa phẳng; bên phải là sofa đọc sách & điều hòa Daikin.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Khác ảnh phào cổ điển cũ, đây là <strong>giật cấp cạnh vuông phẳng hiện đại 100% đúng chuẩn XHOME (<code>+3.000 → +3.130mm</code>, không gờ phào chỉ)</strong>: hắt LED 4 cạnh (<code>Lộ 18</code>), viền <code>09</code> spotlight (<code>Lộ 17</code>) và treo đèn vòng thả hiện đại giữa phòng (<code>Lộ 19</code>).</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t3_11_phong_lam_viec.jpg" data-zoom-title="11. Phòng Làm Việc Đôi Tầng 3 — Hộp Giật Cấp Vuông Phẳng +3.130mm & Đèn Chùm L19 (CĐ-13 GỐC XHOME — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/cd_p14.png" data-zoom-title="Bản vẽ đối chiếu CĐ-13 GỐC XHOME — 11. Phòng Làm Việc Đôi Tầng 3 — Hộp Giật Cấp Vuông Phẳng +3.130mm & Đèn Chùm L19">📐 Xem Bản Vẽ CĐ-13 GỐC XHOME</button>
+            <a href="phong-lam-viec-tang3.html" class="btn-mini">💻 Đối Chiếu Trần Phẳng T3-A</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="t3">
+          <img src="assets/qvilla_tran_giat_cap_t3_12_hanh_lang_t3.jpg" alt="12. Hành Lang Tầng 3 Cạnh Ô Thông Tầng — Hộp Giật Cấp Dài +3.000 → +3.130mm" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t3_12_hanh_lang_t3.jpg" data-zoom-title="12. Hành Lang Tầng 3 Cạnh Ô Thông Tầng — Hộp Giật Cấp Dài +3.000 → +3.130mm (KT-4.03 & CĐ-13 — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG 3 • KHU VỰC 12/13</span>
+              <span class="room-tag amber">KT-4.03 & CĐ-13</span>
+            </div>
+            <h3>12. Hành Lang Tầng 3 Cạnh Ô Thông Tầng — Hộp Giật Cấp Dài +3.000 → +3.130mm</h3>
+          </header>
+          <div class="room-specs">
+            <p>Sảnh hành lang Tầng 3 lát gạch 800×800mm dẫn vào 2 phòng ngủ phía Đông PN3 & PN4 (Trục 2–3 / B).</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Bên trái (hướng Bắc) là <strong>lan can kính cường lực nhìn thông suốt xuống không gian Tầng 2 bên dưới</strong> qua Ô thông tầng ngập ánh sáng tự nhiên; bên phải là cầu thang gỗ kính đi lên Tầng Tum; phía trước là 2 cửa gỗ phẳng vào <code>PN3</code> & <code>PN4</code>.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Trên trần hành lang đóng <strong>ô giật cấp chữ nhật thuôn dài cốt <code>C1 +3.130mm</code></strong> (viền <code>+3.000mm</code>), hắt LED dây 4000K liên tục 4 cạnh kết hợp <code>03</code> đèn spotlight âm trần thẳng hàng dọc lối đi (<code>Lộ HL</code>).</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_t3_12_hanh_lang_t3.jpg" data-zoom-title="12. Hành Lang Tầng 3 Cạnh Ô Thông Tầng — Hộp Giật Cấp Dài +3.000 → +3.130mm (KT-4.03 & CĐ-13 — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/cad_xhome_goc_tran_tang3.svg" data-zoom-title="Bản vẽ đối chiếu KT-4.03 & CĐ-13 — 12. Hành Lang Tầng 3 Cạnh Ô Thông Tầng — Hộp Giật Cấp Dài +3.000 → +3.130mm">📐 Xem Bản Vẽ KT-4.03 & CĐ-13</button>
+            <a href="noi-that-toan-nha.html" class="btn-mini">🏠 Xem Kết Nối Tầng 2–3</a>
+          </footer>
+        </article>
+        <article class="room-card" data-floor="tum">
+          <img src="assets/qvilla_tran_giat_cap_tum_13_hanh_lang_tum.jpg" alt="13. Hành Lang Sảnh Thang Tầng Tum — Hộp Giật Cấp Hắt LED (Lộ 4,5,6) & 04 Spotlight" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_tum_13_hanh_lang_tum.jpg" data-zoom-title="13. Hành Lang Sảnh Thang Tầng Tum — Hộp Giật Cấp Hắt LED (Lộ 4,5,6) & 04 Spotlight (KT-4.04 & CĐ-14 — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag">TẦNG TUM • KHU VỰC 13/13</span>
+              <span class="room-tag amber">KT-4.04 & CĐ-14</span>
+            </div>
+            <h3>13. Hành Lang Sảnh Thang Tầng Tum — Hộp Giật Cấp Hắt LED (Lộ 4,5,6) & 04 Spotlight</h3>
+          </header>
+          <div class="room-specs">
+            <p>Khu vực cuối cùng có trần giật cấp trên hồ sơ XHOME: Hành lang Tầng Tum (13,5 m², Trục 2–3 / B).</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Sàn lát gạch Granite <code>800×800mm</code> màu ghi vân đá + bậc cửa đá đen <code>KT-4.09</code>; bên phải là lồng cầu thang bộ từ Tầng 3 lên & cửa vào Phòng Kho; bên trái và cuối hành lang mở cửa kính lớn ra <strong>Sân BBQ – Gym phía Bắc & Sân thượng trước/sau</strong>.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Theo đúng bản <code>CĐ-14</code> gốc XHOME: dọc trần hành lang Tầng Tum vẫn đóng <strong>ô giật cấp chữ nhật dài hắt LED dây 10W/m 4000K suốt 4 cạnh (<code>Lộ 4,5,6</code>)</strong> kết hợp <code>04</code> đèn spotlight 9W thẳng hàng chính giữa (<code>Lộ HL</code>).</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_giat_cap_tum_13_hanh_lang_tum.jpg" data-zoom-title="13. Hành Lang Sảnh Thang Tầng Tum — Hộp Giật Cấp Hắt LED (Lộ 4,5,6) & 04 Spotlight (KT-4.04 & CĐ-14 — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/cd_p15.png" data-zoom-title="Bản vẽ đối chiếu KT-4.04 & CĐ-14 — 13. Hành Lang Sảnh Thang Tầng Tum — Hộp Giật Cấp Hắt LED (Lộ 4,5,6) & 04 Spotlight">📐 Xem Bản Vẽ KT-4.04 & CĐ-14</button>
+            <a href="tang-tum-3d.html" class="btn-mini">☀️ Xem Trang 3D Tầng Tum</a>
+          </footer>
+        </article>
+        <article class="room-card flat-ref-card" data-floor="t3">
+          <img src="assets/qvilla_tran_phang_t3_14_pn3_pn4_put12.jpg" alt="★ Đối Chứng Thực Tế Ngay Trong Nhà Q-Villa: PN3 & PN4 Tầng 3 Đóng Trần Phẳng + Chỉ Đen P-UT12" width="1376" height="768" data-zoom-src="assets/qvilla_tran_phang_t3_14_pn3_pn4_put12.jpg" data-zoom-title="★ Đối Chứng Thực Tế Ngay Trong Nhà Q-Villa: PN3 & PN4 Tầng 3 Đóng Trần Phẳng + Chỉ Đen P-UT12 (KT-4.03 GỐC (PN3 & PN4) — Thực tế nhà Q-Villa)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag emerald">ĐỐI CHỨNG TRẦN PHẲNG XHOME • TẦNG 3</span>
+              <span class="room-tag amber">KT-4.03 GỐC (PN3 & PN4)</span>
+            </div>
+            <h3>★ Đối Chứng Thực Tế Ngay Trong Nhà Q-Villa: PN3 & PN4 Tầng 3 Đóng Trần Phẳng + Chỉ Đen P-UT12</h3>
+          </header>
+          <div class="room-specs">
+            <p>Cùng 100% góc phòng ngủ hướng Đông như ảnh số 08 (PN1 Tầng 2), nhưng đóng Trần phẳng +3.130mm theo đúng KT-4.03 XHOME!</p>
+            <ul>
+              <li><strong>Khớp thực tế nhà Q-Villa:</strong> Giữ nguyên 100% kiến trúc phòng ngủ Trục 3–4 của Q-Villa (giường tường Bắc, bàn làm việc cửa sổ Tây, cửa kính ban công Đông + hốc rèm âm <code>200mm</code>) để Chủ nhà đặt cạnh <strong>Ảnh số 08</strong> so sánh trực tiếp không lệch một chi tiết nào.</li>
+              <li><strong>Chi tiết trần trên ảnh:</strong> Thiết kế trần phẳng hiện đại nguyên bản của chính XHOME trên <code>KT-4.03</code>: <strong>phẳng tuyệt đối một cốt <code>C1 +3.130mm</code> toàn phòng (bỏ bậc giật cấp & bỏ khe hắt bụi)</strong>, tạo điểm nhấn sắc sảo bằng <strong>đường rãnh âm nhựa đen <code>Genta P-UT12 (12×9mm)</code></strong>!</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_tran_phang_t3_14_pn3_pn4_put12.jpg" data-zoom-title="★ Đối Chứng Thực Tế Ngay Trong Nhà Q-Villa: PN3 & PN4 Tầng 3 Đóng Trần Phẳng + Chỉ Đen P-UT12 (KT-4.03 GỐC (PN3 & PN4) — Thực tế nhà Q-Villa)">🔍 Phóng To Ảnh Thực Tế</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/cad_xhome_goc_tran_tang3.svg" data-zoom-title="Bản vẽ đối chiếu KT-4.03 GỐC (PN3 & PN4) — ★ Đối Chứng Thực Tế Ngay Trong Nhà Q-Villa: PN3 & PN4 Tầng 3 Đóng Trần Phẳng + Chỉ Đen P-UT12">📐 Xem Bản Vẽ KT-4.03 GỐC (PN3 & PN4)</button>
+            <a href="#sec-floor-compare" class="btn-mini">⚖️ Xuống Bảng So Sánh Chọn</a>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- NEW SECTION: OPTION C — MODERN CURVED CEILING (@ducanh_tranthachcao)  -->
+    <!-- ===================================================================== -->
+    <section id="sec-pa-c-bo-cong" class="block">
+      <div class="sec-head">
+        <div>
+          <span class="sec-badge emerald" style="background:rgba(16,185,129,0.16);color:#6ee7b7;border:1px solid rgba(16,185,129,0.45);">PHƯƠNG ÁN C MỚI • KIỂU TRẦN THẠCH CAO BO CONG HIỆN ĐẠI 2026 (THAM KHẢO ĐỨC ANH 35 @ducanh_tranthachcao)</span>
+          <h2>🌙 Phương Án C — Trần Thạch Cao Bo Cong Mềm R350 + Nẹp Nhựa Âm Đen 12mm Bo Cong Khớp 100% Thực Tế Nhà Q-Villa</h2>
+          <p>Dựa trên khảo sát chi tiết <strong>06 mẫu trần bo cong thực tế tiêu biểu năm 2026 của đội thi công Đức Anh 35 (<code>@ducanh_tranthachcao</code>)</strong>, phương án này giữ nguyên 100% kiến trúc, cửa mở và nội thất của nhà Q-Villa nhưng chuyển đổi các góc trần vuông sắc 90° sang <strong>ngôn ngữ bo cong mềm <code>R300–R350mm</code> ("B cong 35") kết hợp đường nẹp ron nhựa âm trần màu đen <code>1.2cm (12mm)</code> uốn cong đồng tâm</strong> — giúp không gian sang trọng, êm mắt và liền mạch luồng sáng LED hơn hẳn trần giật cấp truyền thống.</p>
+        </div>
+      </div>
+
+      <div class="ducanh-spec-grid">
+        <div class="ducanh-spec-item">
+          <strong>① Bán kính bo chuẩn "B cong 35" (R300 – R350mm)</strong>
+          Cắt dưỡng gỗ/laser chuẩn cung <code>R350mm</code> cho Phòng Khách &amp; Phòng Master (<code>R300mm</code> cho Sảnh, PN1, PN2, P.Làm việc; <code>R650mm</code> dạng <em>Viên thuốc / Capsule</em> cho Khu Thay Đồ), giữ form phòng hiện đại gọn gàng mà không rối rắm.
+        </div>
+        <div class="ducanh-spec-item">
+          <strong>② Tấm Gyproc Siêu Chịu Ẩm + Nẹp Nhựa Đục Lỗ Uốn Cong</strong>
+          Bắn tấm <strong>Vĩnh Tường Gyproc Siêu Chịu Ẩm 9mm (nhãn xanh)</strong> khía lưng uốn cong và ghim chặt <strong>thanh nẹp góc nhựa đục lỗ chuyên dụng</strong> dọc mép cong để định hình cung tròn căng mướt, không gãy đa giác và chống nứt bả.
+        </div>
+        <div class="ducanh-spec-item">
+          <strong>③ Khe Hắt LED COB Liền Mạch + Phào Cong Êm Sáng</strong>
+          Dây LED COB <code>3000K–3500K</code> dán chạy xuyên suốt qua 4 góc cong <strong>0% điểm tối gãy góc</strong>; góc trong máng hắt vuốt <strong>phào cong lõm (coved molding)</strong> giúp ánh sáng trượt êm mịn lên lòng trần trên.
+        </div>
+        <div class="ducanh-spec-item">
+          <strong>④ Nẹp Ron Nhựa Âm Đen 1.2cm (12mm) Uốn Cong Đồng Tâm</strong>
+          Chính là hệ chỉ âm đen <code>12mm</code> trên bản vẽ XHOME nhưng dùng <strong>nẹp nhựa dẻo đen uốn cong 4 góc</strong> chạy song song cách mép máng hắt <code>120mm</code> (hoặc chạy trực tiếp trên trần phẳng <code>PN3 &amp; PN4</code> Tầng 3!).
+        </div>
+        <div class="ducanh-spec-item">
+          <strong>⑤ Đèn Spotlight Đôi Góc Bo + Hốc Rèm &amp; Cửa Gió Khe Dài</strong>
+          Bố trí cặp đèn downlight chống chói đối xứng tại 4 góc bo; tích hợp đồng phẳng cửa gió điều hòa <code>Linear Slot</code> và vuốt liền mạch trần vào hốc rèm âm <code>215–250mm</code> lót gỗ Plywood 18mm.
+        </div>
+        <div class="ducanh-spec-item">
+          <strong>⑥ Nắp Thăm Bo Tròn 4 Góc Chìm Phẳng &amp; Dự Toán Hợp Lý</strong>
+          Thay nắp thăm nhôm vuông lộ viền bằng <strong>nắp thăm thạch cao bo góc <code>R80mm</code> chìm phẳng</strong>. Toàn nhà chỉ nhỉnh hơn PA gốc XHOME <strong><code>+6,42 Triệu ₫</code> (tổng <code>65,50 Triệu ₫</code>)</strong> nhưng lại tiết kiệm <code>6–8tr</code> tiền màng căng Barrisol ở Khu Thay Đồ!
+        </div>
+      </div>
+
+      <div class="room-gallery-grid">
+        <article class="room-card curve-card">
+          <img src="assets/qvilla_pa_c_bo_cong_01_phong_khach.jpg" alt="PA C Phòng Khách Q-Villa Tầng 1 — Trần giật cấp bo cong R350mm kết hợp chỉ âm đen 12mm bo cong, 2 ray nam châm 48V và quạt trần" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_01_phong_khach.jpg" data-zoom-title="PHƯƠNG ÁN C (Kiểu Bo Cong Đức Anh 35) — 01. Phòng Khách Q-Villa Tầng 1: Bo Cong R350 + Nẹp Nhựa Âm Đen 12mm Bo Cong + 2 Ray Nam Châm & Quạt Trần">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag emerald">PA C • BO CONG R350 • TẦNG 1</span>
+              <span class="room-tag amber">PHÒNG KHÁCH Q-VILLA</span>
+            </div>
+            <h3>C01. Phòng Khách Tầng 1 — Hộp Giật Cấp Bo Cong R350mm + Chỉ Nhựa Âm Đen 12mm Bo Cong + 2 Thanh Ray 48V</h3>
+          </header>
+          <div class="room-specs">
+            <p>Cùng 100% góc nhìn Phòng Khách Q-Villa (sân bonsai bên trái, vách TV đá/lam gỗ chính diện, bàn ăn bên phải) để đối chiếu trực tiếp với Ảnh 02.</p>
+            <ul>
+              <li><strong>Điểm nâng cấp Bo Cong:</strong> Thay hộp vuông sắc cạnh bằng mâm giật cấp <code>2.255×3.400mm (+3.400 → +3.530mm)</code> <strong>bo tròn mềm 4 góc bán kính <code>R350mm</code></strong>, khe LED vàng ấm 3500K chạy uốn liền mạch không đứt góc.</li>
+              <li><strong>Phối đèn &amp; chỉ âm hiện đại:</strong> Viền ngoài chạy <strong>nẹp ron nhựa âm đen <code>12mm</code> bo cong đồng tâm</strong>; bên trong thay khung ray chữ nhật kín bằng <strong>02 thanh Ray nam châm 48V âm phẳng song song hai bên Quạt trần 5 cánh</strong> + cặp đèn đôi tại 4 góc bo.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_pa_c_bo_cong_01_phong_khach.jpg" data-zoom-title="PHƯƠNG ÁN C — C01. Phòng Khách Q-Villa Tầng 1: Trần Bo Cong R350 + Chỉ Âm Đen 12mm">🔍 Phóng To PA C (Bo Cong)</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/qvilla_tran_giat_cap_t1_02_phong_khach.jpg" data-zoom-title="Đối chiếu PA A Gốc XHOME (Vuông 90°) — Phòng Khách Q-Villa Tầng 1">⚖️ Đọ Với PA A (Vuông XHOME)</button>
+            <button type="button" class="btn-mini" data-zoom-src="assets/cad_pa_c_bo_cong_ducanh_qvilla.svg" data-zoom-title="KT-PAC.01 — Bản Vẽ Kỹ Thuật Trần Bo Cong Hiện Đại 2026 Q-Villa">📐 Xem CAD KT-PAC.01</button>
+          </footer>
+        </article>
+
+        <article class="room-card curve-card">
+          <img src="assets/qvilla_pa_c_bo_cong_02_tien_sanh.jpg" alt="PA C Tiền Sảnh Q-Villa Tầng 1 — Trần giật cấp bo cong R300mm kết hợp chỉ âm đen 12mm bo cong trước cửa gỗ Lim D1" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_02_tien_sanh.jpg" data-zoom-title="PHƯƠNG ÁN C (Kiểu Bo Cong Đức Anh 35) — 02. Tiền Sảnh Q-Villa Tầng 1: Vòm Bo Cong R300 + Chỉ Âm Đen 12mm Bo Cong Đón Cửa Gỗ Lim D1">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag emerald">PA C • BO CONG R300 • TẦNG 1</span>
+              <span class="room-tag amber">TIỀN SẢNH CỬA D1</span>
+            </div>
+            <h3>C02. Tiền Sảnh Tầng 1 — Mâm Đón Sảnh Bo Cong R300mm + Chỉ Nhựa Âm Đen 12mm Đồng Điệu Phòng Khách</h3>
+          </header>
+          <div class="room-specs">
+            <p>Không gian Tiền Sảnh ngay sau cửa chính gỗ Lim D1 chạm ca-rô và hệ tủ giày kịch trần, mở thông sang Phòng Khách bên phải.</p>
+            <ul>
+              <li><strong>Điểm nâng cấp Bo Cong:</strong> Ô trần sảnh <code>2.090×1.125mm (+3.400 → +3.530mm)</code> được vuốt tròn 4 góc <code>R300mm</code> tạo cảm giác mềm mại, sang trọng ngay bước chân đầu tiên vào nhà (tương phản duyên dáng với hệ ô vuông ca-rô của cửa gỗ Lim <code>D1</code>).</li>
+              <li><strong>Liên thông nhịp nhàng:</strong> Viền nẹp ron nhựa âm đen <code>12mm</code> bo cong bao quanh kết hợp cặp đèn đôi góc bo, ăn nhập hoàn toàn với góc trần bo cong nhìn thấy bên Phòng Khách kế bên.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_pa_c_bo_cong_02_tien_sanh.jpg" data-zoom-title="PHƯƠNG ÁN C — C02. Tiền Sảnh Q-Villa Tầng 1: Bo Cong R300 + Chỉ Âm Đen 12mm">🔍 Phóng To PA C (Bo Cong)</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/qvilla_tran_giat_cap_t1_01_tien_sanh.jpg" data-zoom-title="Đối chiếu PA A Gốc XHOME (Vuông 90°) — Tiền Sảnh Q-Villa Tầng 1">⚖️ Đọ Với PA A (Vuông XHOME)</button>
+          </footer>
+        </article>
+
+        <article class="room-card curve-card">
+          <img src="assets/qvilla_pa_c_bo_cong_03_master_ngu.jpg" alt="PA C Khu Ngủ Phòng Master Q-Villa Tầng 2 — Trần giật cấp bo cong B cong 35 (R350mm), phào cong êm sáng, nẹp âm đen 12mm và nắp thăm bo góc R80" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_03_master_ngu.jpg" data-zoom-title="PHƯƠNG ÁN C (Mẫu Đinh Pinned Video Đức Anh 35) — 03. Khu Ngủ Master Tầng 2: Bo Cong R350 + Phào Cong Êm Sáng + Nắp Thăm Bo Tròn R80">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag emerald">PA C • MẪU ĐINH "B CONG 35" • TẦNG 2</span>
+              <span class="room-tag amber">KHU NGỦ MASTER</span>
+            </div>
+            <h3>C03. Khu Ngủ Master Tầng 2 — Chuẩn Mẫu "B Cong R35" + Phào Cong Êm Sáng + Nắp Thăm Trần Bo Góc R80</h3>
+          </header>
+          <div class="room-specs">
+            <p>Ứng dụng đúng mẫu sở trường nhiều lượt xem nhất trên kênh <code>@ducanh_tranthachcao</code> vào chính Phòng Ngủ Master Tầng 2 của Q-Villa.</p>
+            <ul>
+              <li><strong>Phào cong + Góc R350mm:</strong> Lòng trần <code>+3.130mm</code> bo cong 4 góc <code>R350mm</code> kết hợp <strong>phào cong chuyển bậc</strong> giúp dải sáng LED 3000K tán đều mượt như lụa, cực kỳ dịu mắt khi nằm nghỉ trên giường.</li>
+              <li><strong>Nắp thăm bo tròn &amp; Khe gió:</strong> Chạy viền chỉ nhựa âm đen <code>12mm</code> bo cong nằm gọn bên trong 2 khe gió điều hòa <code>Linear Slot</code>; hốc rèm ban công Tây nối mượt và tích hợp <strong>nắp thăm trần bo tròn 4 góc chìm phẳng</strong> bên lối đi phải!</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_pa_c_bo_cong_03_master_ngu.jpg" data-zoom-title="PHƯƠNG ÁN C — C03. Khu Ngủ Master Tầng 2: Bo Cong R350 + Nắp Thăm Bo Tròn R80">🔍 Phóng To PA C (Bo Cong)</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/qvilla_tran_giat_cap_t2_05_master_ngu.jpg" data-zoom-title="Đối chiếu PA A Gốc XHOME (Vuông 90°) — Khu Ngủ Master Tầng 2">⚖️ Đọ Với PA A (Vuông XHOME)</button>
+          </footer>
+        </article>
+
+        <article class="room-card curve-card">
+          <img src="assets/qvilla_pa_c_bo_cong_04_master_thay_do_capsule.jpg" alt="PA C Khu Thay Đồ Master Q-Villa Tầng 2 — Vòm thạch cao hình Viên Thuốc Stadium Capsule bo tròn R650mm kèm chỉ âm đen đồng tâm" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_04_master_thay_do_capsule.jpg" data-zoom-title="PHƯƠNG ÁN C (Giải Pháp Tuyệt Đẹp Không Tốn Màng Barrisol!) — 04. Khu Thay Đồ Master: Vòm Thạch Cao Viên Thuốc (Capsule R650mm) + Chỉ Đen Đồng Tâm">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag emerald">PA C • VÒM CAPSULE R650 • TẦNG 2</span>
+              <span class="room-tag amber">TIẾT KIỆM 6–8TR BARRISOL</span>
+            </div>
+            <h3>C04. Khu Thay Đồ Master Tầng 2 — Vòm Viên Thuốc (Stadium Capsule R650mm) Ôm Trọn Bàn Đảo Phụ Kiện</h3>
+          </header>
+          <div class="room-specs">
+            <p>Lời giải trung hòa hoàn hảo giữa "Hộp chữ nhật cứng của XHOME" và "Vòm tròn Barrisol đắt tiền của PA2" ngay trên bàn đảo phụ kiện Q-Villa!</p>
+            <ul>
+              <li><strong>Dáng Capsule ôm đúng tỷ lệ phòng:</strong> Vì Khu Thay Đồ &amp; bàn đảo có dáng chữ nhật dài (<code>2.370×1.300mm</code>), uốn <strong>Vòm thạch cao dạng Viên Thuốc (hai đầu bán nguyệt <code>R650mm</code>)</strong> khớp tỷ lệ bàn đảo hơn hẳn hình tròn đơn lẻ.</li>
+              <li><strong>Đẹp bền &amp; kinh tế:</strong> 100% làm bằng thạch cao Gyproc sơn trắng mịn + khe LED 3500K + chỉ nhựa âm đen <code>12mm</code> đồng tâm — <strong>không lo côn trùng rơi vào màng căng Barrisol và tiết kiệm ngay 6–8 triệu ₫!</strong></li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_pa_c_bo_cong_04_master_thay_do_capsule.jpg" data-zoom-title="PHƯƠNG ÁN C — C04. Khu Thay Đồ Master: Vòm Capsule Thạch Cao R650mm">🔍 Phóng To PA C (Capsule)</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/qvilla_tran_giat_cap_t2_06_master_thay_do_xhome.jpg" data-zoom-title="Đối chiếu PA A Gốc XHOME (Hộp Chữ Nhật) — Khu Thay Đồ Master">⚖️ Đọ Với PA A (Chữ Nhật)</button>
+            <button type="button" class="btn-mini" data-zoom-src="assets/master_pa2_walkin_en_suite_3d.jpg" data-zoom-title="Đối chiếu PA B (Vòm Tròn Barrisol Ø1.200mm) — Khu Thay Đồ Master">⚖️ Đọ Với PA B (Vòm Barrisol)</button>
+          </footer>
+        </article>
+
+        <article class="room-card curve-card">
+          <img src="assets/qvilla_pa_c_bo_cong_05_phong_ngu_1.jpg" alt="PA C Phòng Ngủ 1 và 2 Tầng 2 Q-Villa — Trần giật cấp bo cong 4 góc R300mm kết hợp chỉ nhựa âm đen 12mm khép kín gọn trong khe gió điều hòa" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_05_phong_ngu_1.jpg" data-zoom-title="PHƯƠNG ÁN C (Mẫu Nut Design × Đức Anh 35) — 05. Phòng Ngủ 1 & 2 Tầng 2: Giật Cấp Bo Cong R300mm + Chỉ Nhựa Âm Đen 12mm">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag emerald">PA C1 • GIẬT CẤP BO R300 • TẦNG 2</span>
+              <span class="room-tag amber">PHÒNG NGỦ 1 &amp; 2</span>
+            </div>
+            <h3>C05. Phòng Ngủ 1 &amp; 2 Tầng 2 — Trần Giật Cấp Bo Cong R300mm + Chỉ Nhựa Âm Đen 12mm Khép Kín Tinh Tế</h3>
+          </header>
+          <div class="room-specs">
+            <p>Cùng góc phòng ngủ hướng Đông (bàn học cửa sổ Tây, vách lam gỗ đầu giường, ban công Đông) theo mẫu bàn giao 2026 Nut Design × Đức Anh 35.</p>
+            <ul>
+              <li><strong>Định vị chuẩn kỹ thuật cơ điện:</strong> Đường nẹp ron nhựa âm đen <code>12mm</code> bo cong 4 góc được thu chuẩn xác nằm <strong>gọn bên trong cả 3 miệng gió điều hòa</strong> (không bao giờ cắt ngang hay đụng vào cửa gió) bao lấy lòng máng hắt LED 3000K bo <code>R300mm</code>.</li>
+              <li><strong>Ánh sáng ấm áp thư giãn:</strong> Rất hợp cho phòng ngủ Tầng 2 cần cảm giác ấm cúng, mềm mại như khách sạn boutique.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_pa_c_bo_cong_05_phong_ngu_1.jpg" data-zoom-title="PHƯƠNG ÁN C1 — C05. Phòng Ngủ 1 & 2 Tầng 2: Giật Cấp Bo Cong R300mm">🔍 Phóng To PA C1 (Giật Cấp Cong)</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/qvilla_tran_giat_cap_t2_08_phong_ngu_1.jpg" data-zoom-title="Đối chiếu PA A Gốc XHOME (Giật Cấp Vuông 90°) — Phòng Ngủ 1">⚖️ Đọ Với PA A (Giật Cấp Vuông)</button>
+          </footer>
+        </article>
+
+        <article class="room-card curve-card">
+          <img src="assets/qvilla_pa_c_bo_cong_06_phong_lam_viec.jpg" alt="PA C Phòng Làm Việc Đôi Tầng 3 Q-Villa — Trần giật cấp bo cong R300mm bỏ đèn chùm L19 thay bằng 2 thanh LED âm phẳng hiện đại" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_06_phong_lam_viec.jpg" data-zoom-title="PHƯƠNG ÁN C — 06. Phòng Làm Việc Đôi Tầng 3: Trần Giật Cấp Bo Cong R300mm + 02 Thanh LED Ray Âm Phẳng (Bỏ Đèn Chùm L19)">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag emerald">PA C • BO CONG + RAY LED • TẦNG 3</span>
+              <span class="room-tag amber">PHÒNG LÀM VIỆC ĐÔI</span>
+            </div>
+            <h3>C06. Phòng Làm Việc Đôi Tầng 3 — Bo Cong R300mm + 02 Thanh LED Âm Phẳng (Bỏ Đèn Chùm L19 Vướng Mắt)</h3>
+          </header>
+          <div class="room-specs">
+            <p>Không gian làm việc đôi mặt tiền Tầng 3 Q-Villa (2 cửa sổ cao lam đứng hướng Tây, hệ tủ sách kịch trần &amp; góc sofa đọc sách).</p>
+            <ul>
+              <li><strong>Hiện đại &amp; đủ độ rọi làm việc:</strong> Bỏ hẳn chiếc đèn chùm vòng <code>L19</code> treo lơ lửng giữa phòng trên <code>CĐ-13</code>, thay bằng <strong>02 dải đèn LED thanh nhôm / Ray nam châm âm phẳng chạy song song</strong> ngay trong lòng trần bo cong <code>R300mm</code>.</li>
+              <li><strong>Vừa mềm mại vừa thoáng cao:</strong> Vừa giữ được hiệu ứng khe hắt LED sang trọng khi ngồi thư giãn đọc sách, vừa đảm bảo ánh sáng làm việc tiêu chuẩn <code>4000K</code> không chói màn hình máy tính.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_pa_c_bo_cong_06_phong_lam_viec.jpg" data-zoom-title="PHƯƠNG ÁN C — C06. Phòng Làm Việc Đôi Tầng 3: Bo Cong R300 + 2 Thanh LED Âm Phẳng">🔍 Phóng To PA C (Bo Cong)</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/qvilla_tran_giat_cap_t3_11_phong_lam_viec.jpg" data-zoom-title="Đối chiếu PA A Gốc CĐ-13 XHOME (Giật Cấp Vuông + Đèn Chùm L19) — Phòng Làm Việc">⚖️ Đọ Với PA A (Gốc CĐ-13)</button>
+          </footer>
+        </article>
+
+        <article class="room-card flat-ref-card">
+          <img src="assets/qvilla_pa_c_bo_cong_07_pn34_phang_nep_cong.jpg" alt="PA C2 Phòng Ngủ 3 và 4 Tầng 3 Q-Villa — Trần phẳng một cốt +3.130mm kết hợp nẹp nhựa âm đen 12mm bo cong 4 góc R300mm" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_07_pn34_phang_nep_cong.jpg" data-zoom-title="PHƯƠNG ÁN C2 (Trần Phẳng + Nẹp Đen Bo Cong R300mm — Chuẩn Mẫu @ducanh_tranthachcao) — 07. Phòng Ngủ 3 & 4 Tầng 3">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag emerald">PA C2 • PHẲNG + CHỈ ĐEN CONG R300</span>
+              <span class="room-tag amber">PN3 &amp; PN4 TẦNG 3 (TIẾT KIỆM &amp; SẠCH)</span>
+            </div>
+            <h3>C07. Giải Pháp Trần Phẳng + Nẹp Nhựa Âm Đen 12mm Bo Cong 4 Góc (Cho PN3/PN4 Hoặc Cả 4 Phòng Ngủ Phụ!)</h3>
+          </header>
+          <div class="room-specs">
+            <p>Biến tấu cực kỳ thông minh từ kênh <code>@ducanh_tranthachcao</code>: <strong>Không cần giật cấp hạ trần</strong> mà vẫn mang trọn vẹn nét mềm mại của trần bo cong!</p>
+            <ul>
+              <li><strong>Giữ nguyên 100% cốt trần cao <code>+3.130mm</code> của <code>KT-4.03</code>:</strong> Không làm máng hắt (0% lo bụi hay côn trùng), chỉ cần thay 4 góc nhọn 90° của đường chỉ đen <code>P-UT12</code> bằng <strong>nẹp ron nhựa âm trần màu đen <code>12mm</code> uốn cong 4 góc <code>R300mm</code></strong>.</li>
+              <li><strong>Chi phí gần như 0 đồng phát sinh:</strong> Rất đáng chọn cho <code>PN3 &amp; PN4</code> Tầng 3 (thậm chí áp dụng luôn cho <code>PN1 &amp; PN2</code> nếu Chủ nhà thích trần phẳng thoáng sạch mà vẫn đồng bộ nét bo cong với Phòng Khách &amp; Master!).</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_pa_c_bo_cong_07_pn34_phang_nep_cong.jpg" data-zoom-title="PHƯƠNG ÁN C2 — C07. Trần Phẳng +3.130mm Chạy Nẹp Nhựa Âm Đen 12mm Bo Cong 4 Góc R300mm">🔍 Phóng To PA C2 (Phẳng Chỉ Cong)</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/qvilla_tran_phang_t3_14_pn3_pn4_put12.jpg" data-zoom-title="Đối chiếu PA A/B (Trần Phẳng + Chỉ Đen P-UT12 Góc Vuông 90°) — PN3 & PN4">⚖️ Đọ Với Phẳng Chỉ Vuông 90°</button>
+          </footer>
+        </article>
+      </div>
+
+      <article class="cad-card" style="margin-top:22px;border-color:rgba(16,185,129,0.5);">
+        <div class="cad-card-head">
+          <div class="cad-title-wrap">
+            <span class="cad-code" style="background:#10b981;color:#022c22;">KT-PAC.01 • BẢN VẼ PHƯƠNG ÁN C</span>
+            <h3>Bản Vẽ Mặt Bằng Bo Cong Điển Hình &amp; Mặt Cắt Kỹ Thuật Góc Bo R350 • Nẹp Đục Lỗ Uốn Cong • Chỉ Âm Đen 12mm • Nắp Thăm R80</h3>
+          </div>
+          <button type="button" class="btn-mini" data-zoom-src="assets/cad_pa_c_bo_cong_ducanh_qvilla.svg" data-zoom-title="KT-PAC.01 — Bản Vẽ Thiết Kế & Mặt Cắt Cấu Tạo Phương Án C (Trần Thạch Cao Bo Cong R350 Q-Villa)">🔍 Phóng To Bản Vẽ KT-PAC.01</button>
+        </div>
+        <div class="cad-canvas" data-zoom-src="assets/cad_pa_c_bo_cong_ducanh_qvilla.svg" data-zoom-title="KT-PAC.01 — Bản Vẽ Thiết Kế & Mặt Cắt Cấu Tạo Phương Án C (Trần Thạch Cao Bo Cong R350 Q-Villa)">
+          <img src="assets/cad_pa_c_bo_cong_ducanh_qvilla.svg" alt="Bản vẽ mặt bằng và chi tiết cấu tạo Phương án C trần thạch cao bo cong hiện đại 2026 Q-Villa KT-PAC.01" width="1680" height="920">
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PART I — SECTION 1: 100% ORIGINAL XHOME CEILING PLANS (4 FLOORS)      -->
+    <!-- ===================================================================== -->
+    <section id="sec-xhome-100" class="block">
+      <div class="sec-head">
+        <div>
+          <span class="sec-badge sky">PHẦN I • HỒ SƠ NỀN 100% NGUYÊN BẢN XHOME</span>
+          <h2>📐 1. Mặt Bằng Trần Thạch Cao 4 Tầng Theo Đúng 100% Thiết Kế Gốc XHOME (KT-4.01 → KT-4.04 &amp; CĐ-11 → CĐ-14)</h2>
+          <p>Mỗi tầng đều đi kèm <strong>Bản vẽ Vector tái lập sắc nét 1:1 theo số đo gốc XHOME</strong> và nút bật xem trực tiếp <strong>Bản quét hồ sơ CAD gốc XHOME</strong> để Chủ nhà kiểm tra nguyên trạng trước khi cân nhắc thay đổi.</p>
+        </div>
+      </div>
+
+      <div class="cad-stack">
+        <!-- XHOME FLOOR 1 -->
+        <article class="cad-card">
+          <div class="cad-card-head">
+            <div class="cad-title-wrap">
+              <span class="cad-code">KT-4.01 / CĐ-11 • GỐC XHOME</span>
+              <h3>Tầng 1 (100% Thiết Kế XHOME): P.Khách Hộp 2.255×3.400 + Ray 48V • Ăn–Bếp +3.400 (Trán Bếp +2.330) • P.Ông Bà Nẹp U10</h3>
+            </div>
+            <div class="btn-row">
+              <button type="button" class="btn-mini" data-zoom-src="assets/cad_xhome_goc_tran_tang1.svg" data-zoom-title="KT-4.01 / CĐ-11 — Mặt Bằng Trần Tầng 1 Theo 100% Thiết Kế Gốc XHOME">🔍 Phóng To Vector Gốc</button>
+              <button type="button" class="btn-mini amber" data-zoom-src="assets/cd_p12.png" data-zoom-title="Bản Quét Hồ Sơ Gốc XHOME: CĐ-11 — Mặt Bằng Chiếu Sáng & Trần Tầng 1">📄 Xem Bản Quét CĐ-11 XHOME</button>
+              <button type="button" class="btn-mini amber" data-zoom-src="assets/so_sanh_cad_2_phuong_an_tang_1.png" data-zoom-title="Trích Lục Trực Tiếp KT-4.06 Gốc XHOME Tầng 1 (Kích Thước Khoét Đèn & Hộp Trần)">📄 Xem Trích Lục KT-4.06 Gốc</button>
+            </div>
+          </div>
+          <div class="cad-canvas" data-zoom-src="assets/cad_xhome_goc_tran_tang1.svg" data-zoom-title="KT-4.01 / CĐ-11 — Mặt Bằng Trần Tầng 1 Theo 100% Thiết Kế Gốc XHOME">
+            <img src="assets/cad_xhome_goc_tran_tang1.svg" alt="Mặt bằng trần thạch cao Tầng 1 theo 100% thiết kế nguyên bản XHOME KT-4.01 và CĐ-11" width="1680" height="920">
+          </div>
+          <div class="cad-notes">
+            <div class="note-item">
+              <strong>1. Phòng Khách &amp; Tiền Sảnh (Gốc KT-4.01 / KT-4.06)</strong>
+              Viền xung quanh đóng <code>C1 +3.400mm</code> (bờ Bắc/Nam <code>600mm</code>, bờ Đông <code>220mm</code>, bờ Tây <code>300mm</code> + khe rèm). Giữa phòng giật cấp hộp chữ nhật <code>2.255 × 3.400mm</code> lên cốt <code>C1 +3.530mm</code> (khe LED <code>Lộ 4</code>), lùi <code>215mm</code> lắp <strong>Khung Ray Nam Châm 48V <code>1.825 × 2.970mm</code> (Lộ 5)</strong>; vách Bắc vẫn mở cửa sổ <code>V2</code> kèm hốc rèm; Tiền sảnh giật cấp <code>2.090 × 1.125mm (+3.530)</code>.
+            </div>
+            <div class="note-item">
+              <strong>2. Phòng Ăn &amp; Khu Bếp (Trán Bếp Hạ Sâu +2.330mm)</strong>
+              Toàn bộ trần Phòng Ăn sang Bếp đóng phẳng liên thông ở cốt <code>C1 +3.400mm</code> (tâm Bàn ăn treo đèn chùm quạt <code>Lộ 6A</code> + <code>04</code> spotlight góc <code>Lộ 5A</code>). Riêng dải tường Bắc trên tủ bếp chữ I: bản gốc XHOME hạ hộp thạch cao sâu xuống cốt <code>+2.330mm</code> (cao <code>1.070mm</code> theo chiều cao tủ tiêu chuẩn cũ) và bố trí <code>03</code> đèn rọi cách <code>200mm</code> theo <strong>bàn đảo đặt dọc</strong>.
+            </div>
+            <div class="note-item">
+              <strong>3. Phòng Ngủ Ông Bà &amp; WC-01 Tầng 1</strong>
+              P. Ngủ Ông Bà (Trục 3–4): Viền <code>C1 +3.000mm</code>, lòng hộp giật cấp <code>C1 +3.130mm</code> có chạy <strong>khung chỉ Nẹp <code>U10</code> đen <code>1.740 × 1.345mm</code></strong> + <code>06</code> spotlight viền (<code>L14</code>) + <code>02</code> đèn đầu giường (<code>L16</code>) + khe rèm cửa ra sân sau. WC-01 đóng trần chịu ẩm <code>C2 +2.400mm</code> (nắp thăm <code>450×450</code>, đèn sưởi 2 bóng, quạt hút, <code>03</code> spotlight).
+            </div>
+          </div>
+        </article>
+
+        <!-- XHOME FLOOR 2 -->
+        <article class="cad-card">
+          <div class="cad-card-head">
+            <div class="cad-title-wrap">
+              <span class="cad-code">KT-4.02 / CĐ-12 • GỐC XHOME</span>
+              <h3>Tầng 2 (100% Thiết Kế XHOME): Khu Thay Đồ Hộp Chữ Nhật 2.370×1.340 • ĐH &amp; Lỗ Thăm Ngay Trục B • PN1 &amp; PN2</h3>
+            </div>
+            <div class="btn-row">
+              <button type="button" class="btn-mini" data-zoom-src="assets/cad_xhome_goc_tran_tang2.svg" data-zoom-title="KT-4.02 / CĐ-12 — Mặt Bằng Trần Tầng 2 Theo 100% Thiết Kế Gốc XHOME">🔍 Phóng To Vector Gốc</button>
+              <button type="button" class="btn-mini amber" data-zoom-src="assets/wc_kt402_tran_t2.png" data-zoom-title="Bản Quét Hồ Sơ Gốc XHOME: KT-4.02 — Mặt Bằng Trần Tầng 2 (Nguyên Bản 100%)">📄 Xem Bản Gốc KT-4.02 XHOME</button>
+              <button type="button" class="btn-mini amber" data-zoom-src="assets/cd_p13.png" data-zoom-title="Bản Quét Hồ Sơ Gốc XHOME: CĐ-12 — Mặt Bằng Chiếu Sáng Tầng 2">📄 Xem Bản Quét CĐ-12 XHOME</button>
+            </div>
+          </div>
+          <div class="cad-canvas" data-zoom-src="assets/cad_xhome_goc_tran_tang2.svg" data-zoom-title="KT-4.02 / CĐ-12 — Mặt Bằng Trần Tầng 2 Theo 100% Thiết Kế Gốc XHOME">
+            <img src="assets/cad_xhome_goc_tran_tang2.svg" alt="Mặt bằng trần thạch cao Tầng 2 theo 100% thiết kế nguyên bản XHOME KT-4.02 và CĐ-12" width="1680" height="920">
+          </div>
+          <div class="cad-notes">
+            <div class="note-item">
+              <strong>1. Khu Ngủ Master &amp; Vị Trí Điều Hòa Trục B Gốc</strong>
+              Viền <code>C1 +3.000mm</code> (hốc rèm Tây rộng <code>250mm</code>), giữa phòng giật cấp hộp chữ nhật <code>2.600 × 2.450mm</code> lên cốt <code>C1 +3.130mm</code> (<code>06</code> đèn viền <code>L14</code> + <code>02</code> đèn đôi giữa <code>L15</code>). Ở bản gốc <code>KT-4.02</code>, ngăn giữa Ngủ và Thay Đồ là vách kính kệ TV <code>450mm</code> nên XHOME đặt <strong>Dàn lạnh <code>IN 2.3</code> và Nắp thăm <code>450×450</code> nằm đè ngay trên Trục B</strong>.
+            </div>
+            <div class="note-item">
+              <strong>2. Khu Thay Đồ Master Gốc: Hộp Chữ Nhật (Không Vòm Tròn!)</strong>
+              Trong <code>KT-4.02</code> &amp; <code>CĐ-12</code> gốc, Khu Thay Đồ <strong>không dùng vòm tròn</strong> mà đóng <strong>ô giật cấp chữ nhật <code>2.370 × 1.340mm</code> cốt <code>C1 +3.130mm</code></strong> hắt LED 4 cạnh (<code>L17</code>) kèm <code>06</code> đèn spotlight viền (<code>L18</code>); chừa bờ Nam <code>700mm</code> trên tủ áo, bờ Tây ép còn <code>100mm</code> nên 2 khe gió ĐH cách tường <code>100mm</code>.
+            </div>
+            <div class="note-item">
+              <strong>3. Hành Lang, Ô Thông Tầng, PN1, PN2 &amp; 02 WC</strong>
+              Hành lang T2 giật cấp hộp dài <code>3.570 × 890mm (+3.130)</code> cạnh Ô thông tầng mở lên T3; PN1 giật cấp <code>2.990 × 2.050mm (+3.130)</code>; PN2 giật cấp <code>2.040 × 3.140mm (+3.130)</code> (mỗi phòng <code>09</code> spotlight + khe rèm Đông <code>200mm</code>). WC-02 Master &amp; WC-01 Chung đóng trần chịu ẩm <code>C2 +2.400mm</code>.
+            </div>
+          </div>
+        </article>
+
+        <!-- XHOME FLOOR 3 -->
+        <article class="cad-card">
+          <div class="cad-card-head">
+            <div class="cad-title-wrap">
+              <span class="cad-code">KT-4.03 / CĐ-13 • GỐC XHOME</span>
+              <h3>Tầng 3 (100% Thiết Kế XHOME): P.Thờ Hộp Trắng Tâm Giữa Y=1.605 • P.Làm Việc Giật Cấp + Đèn Chùm • PN3/PN4 Nẹp P-UT12</h3>
+            </div>
+            <div class="btn-row">
+              <button type="button" class="btn-mini" data-zoom-src="assets/cad_xhome_goc_tran_tang3.svg" data-zoom-title="KT-4.03 / CĐ-13 — Mặt Bằng Trần Tầng 3 Theo 100% Thiết Kế Gốc XHOME">🔍 Phóng To Vector Gốc</button>
+              <button type="button" class="btn-mini amber" data-zoom-src="assets/cd_p14.png" data-zoom-title="Bản Quét Hồ Sơ Gốc XHOME: CĐ-13 — Mặt Bằng Chiếu Sáng & Trần Tầng 3">📄 Xem Bản Quét CĐ-13 XHOME</button>
+            </div>
+          </div>
+          <div class="cad-canvas" data-zoom-src="assets/cad_xhome_goc_tran_tang3.svg" data-zoom-title="KT-4.03 / CĐ-13 — Mặt Bằng Trần Tầng 3 Theo 100% Thiết Kế Gốc XHOME">
+            <img src="assets/cad_xhome_goc_tran_tang3.svg" alt="Mặt bằng trần thạch cao Tầng 3 theo 100% thiết kế nguyên bản XHOME KT-4.03 và CĐ-13" width="1680" height="920">
+          </div>
+          <div class="cad-notes">
+            <div class="note-item">
+              <strong>1. Phòng Thờ Gốc (Trần Thạch Cao Trắng Chia Đều Giữa Phòng)</strong>
+              Đóng viền <code>C1 +3.000mm</code> (<code>08</code> spotlight <code>L14</code> + hốc rèm cửa <code>D9</code>), ở giữa giật cấp <strong>hộp thạch cao phẳng sơn trắng <code>C1 +3.150mm</code></strong> (<code>0%</code> trần cói) đặt cân chính giữa chiều ngang phòng tại <code>Tâm Y = 1.605mm</code>, hắt LED <code>L15</code> và treo đèn thả trang trí <code>L16</code>.
+            </div>
+            <div class="note-item">
+              <strong>2. Phòng Sinh Hoạt / Làm Việc Gốc (Giật Cấp + Đèn Thả L19)</strong>
+              Trên bản vẽ gốc <code>CĐ-13</code>, phòng phía Tây Nam Tầng 3 được vẽ <strong>hộp giật cấp khe LED dây 4 cạnh (<code>Lộ 18</code>)</strong> giống phòng ngủ, chính giữa treo <strong>Đèn chùm thả trang trí (<code>Lộ 19</code>)</strong> và xung quanh bố trí <code>09</code> spotlight (<code>L17, L17*</code>).
+            </div>
+            <div class="note-item">
+              <strong>3. Điểm Sáng Hiện Đại Gốc Của XHOME Ở PN3 &amp; PN4!</strong>
+              Ngay trong hồ sơ gốc <code>KT-4.03</code>, XHOME đã thiết kế cho <strong>02 Phòng ngủ phía Đông (PN3 &amp; PN4)</strong> kiểu <strong>Trần thạch cao phẳng một cốt <code>C1 +3.130mm</code> chạy chỉ âm nhựa đen <code>P-UT12 (12×9mm)</code></strong> không làm khe hắt bụi — rất hiện đại, thoáng cao và tiết kiệm!
+            </div>
+          </div>
+        </article>
+
+        <!-- XHOME FLOOR TUM -->
+        <article class="cad-card">
+          <div class="cad-card-head">
+            <div class="cad-title-wrap">
+              <span class="cad-code">KT-4.04 / CĐ-14 • GỐC XHOME</span>
+              <h3>Tầng Tum (100% Thiết Kế XHOME): Hành Lang Tum Giật Cấp Khe LED • Phòng Kho 03 Đèn • 01 Giếng Trời Nhỏ Góc Đông Nam</h3>
+            </div>
+            <div class="btn-row">
+              <button type="button" class="btn-mini" data-zoom-src="assets/cad_xhome_goc_tran_tang_tum.svg" data-zoom-title="KT-4.04 / CĐ-14 — Mặt Bằng Trần & Chiếu Sáng Tầng Tum Theo 100% Thiết Kế Gốc XHOME">🔍 Phóng To Vector Gốc</button>
+              <button type="button" class="btn-mini amber" data-zoom-src="assets/cd_p15.png" data-zoom-title="Bản Quét Hồ Sơ Gốc XHOME: CĐ-14 — Mặt Bằng Chiếu Sáng & Trần Tầng Tum">📄 Xem Bản Quét CĐ-14 XHOME</button>
+            </div>
+          </div>
+          <div class="cad-canvas" data-zoom-src="assets/cad_xhome_goc_tran_tang_tum.svg" data-zoom-title="KT-4.04 / CĐ-14 — Mặt Bằng Trần & Chiếu Sáng Tầng Tum Theo 100% Thiết Kế Gốc XHOME">
+            <img src="assets/cad_xhome_goc_tran_tang_tum.svg" alt="Mặt bằng trần thạch cao và chiếu sáng Tầng Tum theo 100% thiết kế nguyên bản XHOME KT-4.04 và CĐ-14" width="1680" height="920">
+          </div>
+          <div class="cad-notes">
+            <div class="note-item">
+              <strong>1. Hành Lang Tầng Tum Gốc (Có Ô Giật Cấp Hắt LED)</strong>
+              Theo bản gốc <code>CĐ-14</code>, hành lang Tầng Tum (Trục 2–3 phía Bắc) vẫn đóng <strong>ô trần giật cấp chữ nhật hắt LED dây 10W/m 4000K (<code>Lộ 4,5,6</code>)</strong> kết hợp <code>04</code> đèn spotlight 9W (<code>Lộ HL</code>) + <code>01</code> đèn cửa thang (<code>Lộ 1</code>).
+            </div>
+            <div class="note-item">
+              <strong>2. Phòng Kho, Cầu Thang &amp; Giếng Trời Đơn Gốc</strong>
+              Phòng Kho đóng trần phẳng gắn <code>03</code> đèn spotlight ở 3 góc (<code>Lộ 3</code>), cạnh góc Đông Nam là <code>01</code> ô Giếng trời đơn nhỏ; khu cầu thang bộ đổ mái kín và chờ nguồn cảm biến hiện diện bật tắt đèn thang (<code>TĐ4 +1.5m</code>).
+            </div>
+            <div class="note-item">
+              <strong>3. Hệ Đèn Ống Bơ Nổi Ngoài Sân Thượng</strong>
+              Sân trước phía Tây gắn <code>03</code> đèn ống bơ nổi 12W (<code>Lộ 4</code>); Sân BBQ – Gym phía Bắc gắn <code>08</code> đèn ống bơ 12W chia 2 hàng (<code>Lộ 5</code>); Sân phơi phía Đông gắn <code>04</code> đèn ống bơ 12W (<code>Lộ 6</code>).
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PART I — SECTION 2: XHOME KT-4.05 STRUCTURAL SECTION DETAILS          -->
+    <!-- ===================================================================== -->
+    <section id="sec-xhome-details" class="block">
+      <div class="sec-head">
+        <div>
+          <span class="sec-badge sky">PHẦN I • CHI TIẾT CẤU TẠO KỸ THUẬT GỐC XHOME</span>
+          <h2>🔧 2. Bản Vẽ 06 Mặt Cắt Cấu Tạo Trần Nguyên Bản XHOME (KT-4.05) Giao Thợ Thi Công</h2>
+          <p>Trích xuất đầy đủ các mặt cắt kỹ thuật mà XHOME quy định trên <code>KT-4.02</code>, <code>KT-4.03</code> và <code>KT-4.05</code> cho toàn bộ 13 khu vực bên trên: Khe hắt sáng 01 (<code>+130mm</code>), Khe hắt sáng 02 (<code>+150mm</code>), Khe rèm <code>T-01</code>, Nẹp ron đen <code>P-UT12</code>, Nẹp tường <code>Shadowlight</code> trắng và Ray cửa trượt.</p>
+        </div>
+      </div>
+
+      <article class="cad-card">
+        <div class="cad-card-head">
+          <div class="cad-title-wrap">
+            <span class="cad-code">KT-4.05 • CHI TIẾT GỐC</span>
+            <h3>06 Mặt Cắt Cấu Tạo Chuẩn Hồ Sơ XHOME: Khe Hắt 01/02 • Hốc Rèm • Nẹp P-UT12 Đen • Shadowlight Trắng • Ray Nam Châm</h3>
+          </div>
+          <button type="button" class="btn-mini" data-zoom-src="assets/cad_xhome_goc_chi_tiet_kt405.svg" data-zoom-title="KT-4.05 — 06 Chi Tiết Cấu Tạo Trần Thạch Cao Nguyên Bản XHOME">🔍 Phóng To Chi Tiết KT-4.05</button>
+        </div>
+        <div class="cad-canvas" data-zoom-src="assets/cad_xhome_goc_chi_tiet_kt405.svg" data-zoom-title="KT-4.05 — 06 Chi Tiết Cấu Tạo Trần Thạch Cao Nguyên Bản XHOME">
+          <img src="assets/cad_xhome_goc_chi_tiet_kt405.svg" alt="Bản vẽ 06 chi tiết cấu tạo trần thạch cao nguyên bản XHOME KT-4.05" width="1680" height="920">
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PART II — SECTION 3: FLOOR-BY-FLOOR VISUAL COMPARISON TO CHOOSE LATER -->
+    <!-- ===================================================================== -->
+    <section id="sec-floor-compare" class="block">
+      <div class="sec-head">
+        <div>
+          <span class="sec-badge amber">PHẦN II • ĐỐI CHIẾU VỚI CÁC TẦNG ĐÃ VẼ TRƯỚC ĐÓ ĐỂ CHỦ NHÀ CHỌN SAU</span>
+          <h2>⚖️ 3. Đối Chiếu Song Song Từng Tầng: Bản Gốc 100% XHOME (Trái) vs. Bản Đã Tối Ưu Ở Các Tầng Trước Đó (Phải)</h2>
+          <p>Đặt cạnh nhau từng tầng để Chủ nhà thấy ngay: <strong>giữ nguyên XHOME được điểm gì</strong>, <strong>bản đã vẽ ở các trang nội thất trước đó giải quyết va chạm gì</strong>, và có thể linh hoạt chọn riêng từng phòng trước ngày thợ bắn khung xương.</p>
+        </div>
+      </div>
+
+      <div class="cmp-floor-stack">
+        <!-- COMPARE FLOOR 1 -->
+        <article class="cmp-floor-card">
+          <div class="cmp-floor-head">
+            <div>
+              <h3>🏠 ĐỐI CHIẾU TẦNG 1: Phòng Khách – Phòng Ăn – Tủ Bếp Chữ I</h3>
+              <p>Đối chiếu <code>KT-4.01 / KT-4.06</code> gốc XHOME với trang <a href="phong-khach-bep-tang1.html">Phòng Khách &amp; Bếp Liên Thông Tầng 1</a> và <a href="bep-tang1.html">Tủ Bếp Chữ I Cao 2,8m Cánh Giả</a></p>
+            </div>
+            <div class="btn-row">
+              <a href="phong-khach-bep-tang1.html" class="btn-mini">🔗 Mở Trang Phòng Khách – Bếp T1</a>
+              <a href="bep-tang1.html" class="btn-mini">🔗 Mở Trang Chi Tiết Tủ Bếp 2,8m</a>
+            </div>
+          </div>
+
+          <div class="cmp-dual-grid">
+            <div class="cmp-col xhome-col">
+              <div class="cmp-col-hdr">
+                <span>🅰️ PHƯƠNG ÁN A: 100% GỐC XHOME (KT-4.01 / CĐ-11)</span>
+                <button type="button" class="btn-mini" data-zoom-src="assets/so_sanh_cad_2_phuong_an_tang_1.png" data-zoom-title="Bản Vẽ KT-4.06 Gốc XHOME Tầng 1">🔍 Xem CAD Gốc</button>
+              </div>
+              <div class="cmp-img-box" data-zoom-src="assets/cad_xhome_goc_tran_tang1.svg" data-zoom-title="Phương Án A — Mặt Bằng Trần Tầng 1 Theo 100% Gốc XHOME">
+                <img src="assets/cad_xhome_goc_tran_tang1.svg" alt="Phương án A trần Tầng 1 theo 100% gốc XHOME" width="1680" height="920">
+              </div>
+              <div class="cmp-col-body">
+                <ul>
+                  <li><strong>Hộp P.Khách:</strong> Giật cấp chữ nhật <code>2.255×3.400 (+3.530)</code> + Ray nam châm 48V <code>1.825×2.970</code>; vách Bắc còn cửa sổ <code>V2</code> &amp; hốc rèm.</li>
+                  <li><strong>Trán Tủ Bếp:</strong> Hạ hộp thạch cao sâu xuống cốt <code>+2.330mm</code> (dày <code>1,07m</code> chiếm gần 1/3 chiều cao phòng <code>3,4m</code>).</li>
+                  <li><strong>Đảo Bếp:</strong> Khoét <code>03</code> đèn đôi cách <code>200mm</code> theo bàn đảo đặt dọc gốc.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="cmp-col custom-col">
+              <div class="cmp-col-hdr">
+                <span>🅱️ PHƯƠNG ÁN B: BẢN ĐÃ VẼ TẦNG 1 (KHỚP BẾP 2,8M &amp; VÁCH TV)</span>
+                <button type="button" class="btn-mini" data-zoom-src="assets/bep_chinh_dao_ngang_canh_gia_2m8_san_sau.jpg" data-zoom-title="Phối Cảnh 3D Tủ Bếp 2,8m Cánh Giả + Hộp Thạch Cao Thẳng 60cm (+2.800..+3.400)">🖼️ Xem 3D Bếp 2,8m</button>
+              </div>
+              <div class="cmp-img-box" data-zoom-src="assets/cad_tran_thach_cao_tang1_qvilla.svg" data-zoom-title="Phương Án B — Mặt Bằng Trần Tầng 1 Đã Đồng Bộ Vách TV, Tủ Bếp 2,8m & Đảo Ngang">
+                <img src="assets/cad_tran_thach_cao_tang1_qvilla.svg" alt="Phương án B trần Tầng 1 đã đồng bộ tủ bếp 2.8m và đảo ngang" width="1680" height="920">
+              </div>
+              <div class="cmp-col-body">
+                <ul>
+                  <li><strong>Vách TV &amp; Quạt Trần:</strong> Xây bịt 2 khe kính <code>V2</code> (bỏ hốc rèm Bắc để ốp liền vách đá TV); cấy sẵn 2 ty sắt <code>M12</code> treo Quạt trần 5 cánh <code>L6</code> &amp; <code>L6A</code>.</li>
+                  <li><strong>Hộp Trán Bếp Thẳng 60cm:</strong> Hạ từ <code>+3.400</code> xuống <code>+2.800mm</code> (tấm chịu ẩm <code>C2</code> sâu <code>595mm</code>) khớp khít dải cánh giả <code>+2.800m</code> KITPRO &amp; che kín ống hút mùi <code>Ø150</code>.</li>
+                  <li><strong>Đảo Ngang Trục 3:</strong> Định vị lại cụm đèn rọi theo bàn đảo xoay ngang nối bàn ăn.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="real-pair-wrap">
+            <div class="real-pair-title">👁️ ĐỐI CHIẾU THỰC TẾ 1:1 TẦNG 1 NHÀ Q-VILLA (PA A VUÔNG XHOME vs. PA C BO CONG R350 ĐỨC ANH 35):</div>
+            <div class="real-pair-grid">
+              <div class="real-pair-item">
+                <img src="assets/qvilla_tran_giat_cap_t1_02_phong_khach.jpg" alt="Phòng Khách Tầng 1 Q-Villa PA A giật cấp vuông góc 90 độ chuẩn XHOME" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t1_02_phong_khach.jpg" data-zoom-title="PA A (100% Gốc XHOME): Phòng Khách Giật Cấp Vuông Góc 90° + Khung Ray Nam Châm Chữ Nhật">
+                <div class="real-pair-cap"><strong>🅰️ Phòng Khách PA A (Gốc XHOME):</strong> Giật cấp vuông 90° <code>2.255×3.400</code> + khung ray nam châm chữ nhật sắc cạnh.</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/qvilla_pa_c_bo_cong_01_phong_khach.jpg" alt="Phòng Khách Tầng 1 Q-Villa PA C giật cấp bo cong R350mm kèm chỉ nhựa âm đen 12mm bo cong" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_01_phong_khach.jpg" data-zoom-title="PA C Mới (Kiểu Bo Cong @ducanh_tranthachcao): Phòng Khách Bo Cong R350mm + Chỉ Nhựa Âm Đen 12mm Bo Cong + 2 Thanh Ray 48V">
+                <div class="real-pair-cap"><strong>🌙 Phòng Khách PA C (Bo Cong R350):</strong> Bo tròn 4 góc êm mượt + chỉ nhựa âm đen <code>12mm</code> bo song song + 2 thanh ray 48V.</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/qvilla_tran_giat_cap_t1_01_tien_sanh.jpg" alt="Tiền Sảnh Tầng 1 Q-Villa PA A giật cấp vuông góc XHOME" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t1_01_tien_sanh.jpg" data-zoom-title="PA A (100% Gốc XHOME): Tiền Sảnh Cửa D1 Giật Cấp Vuông Góc 90°">
+                <div class="real-pair-cap"><strong>🅰️ Tiền Sảnh PA A (Gốc XHOME):</strong> Hộp vuông 90° <code>2.090×1.125 (+3.530)</code> trước cửa gỗ Lim <code>D1</code>.</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/qvilla_pa_c_bo_cong_02_tien_sanh.jpg" alt="Tiền Sảnh Tầng 1 Q-Villa PA C giật cấp bo cong R300mm kèm chỉ âm đen 12mm" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_02_tien_sanh.jpg" data-zoom-title="PA C Mới (Kiểu Bo Cong @ducanh_tranthachcao): Tiền Sảnh Cửa D1 Bo Cong R300mm + Chỉ Nhựa Âm Đen 12mm">
+                <div class="real-pair-cap"><strong>🌙 Tiền Sảnh PA C (Bo Cong R300):</strong> Dáng vòm bo góc <code>R300mm</code> + chỉ đen <code>12mm</code> đồng bộ sang Phòng Khách.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmp-diff-list">
+            <div class="diff-box">
+              <strong>💡 Điểm Cần Chốt #1 (Hộp Trán Bếp): +2.330 hay +2.800?</strong>
+              Phụ thuộc 100% vào phương án tủ bếp Chủ nhà chốt ở trang <a href="bep-tang1.html">Bếp Tầng 1</a>: nếu đóng tủ bếp có dải cánh giả cao <code>2,80m</code> thì bắt buộc hạ thạch cao tới <code>+2.800mm</code> (dày <code>60cm</code>); nếu giữ tủ tiêu chuẩn <code>2,29m</code> không cánh giả thì mới hạ xuống <code>+2.330mm</code> như XHOME.
+            </div>
+            <div class="diff-box">
+              <strong>💡 Điểm Cần Chốt #2 (Trần Phòng Khách): Vuông (PA A), Phẳng (PA B) hay Bo Cong R350 (PA C)?</strong>
+              Chủ nhà có đủ <strong>03 cá tính rõ rệt</strong>: <em>PA A</em> (vuông sắc cạnh XHOME), <em>PA B</em> (phẳng tối giản âm Ray 48V không khe hắt), hoặc <em>PA C</em> (<strong>bo cong <code>R350mm</code> + chỉ âm đen <code>12mm</code> uốn cong</strong> kiểu Đức Anh 35 vừa mềm mại vừa sang).
+            </div>
+          </div>
+        </article>
+
+        <!-- COMPARE FLOOR 2 -->
+        <article class="cmp-floor-card">
+          <div class="cmp-floor-head">
+            <div>
+              <h3>🛏️ ĐỐI CHIẾU TẦNG 2: Phòng Ngủ Master – Khu Thay Đồ – WC-02</h3>
+              <p>Đối chiếu bản quét gốc <code>KT-4.02</code> XHOME với phương án <strong>Master PA2</strong> đã vẽ tại trang <a href="phong-master-tang2.html">Phòng Ngủ Master Tầng 2</a> và <a href="giam-sat-wc.html">Giám Sát 4 Phòng WC</a></p>
+            </div>
+            <div class="btn-row">
+              <a href="phong-master-tang2.html" class="btn-mini">🔗 Mở Trang Phòng Master PA2</a>
+              <button type="button" class="btn-mini amber" data-zoom-src="assets/so_sanh_dieu_hoa_mat_trang_pa2.png" data-zoom-title="Bản Vẽ So Sánh Trực Tiếp: Gốc XHOME (Trái) vs. Phương Án PA2 Vòm Mặt Trăng & Dời Lỗ Thăm ĐH (Phải)">🔍 Xem Bản Đối Chiếu Gốc vs. PA2</button>
+            </div>
+          </div>
+
+          <div class="cmp-dual-grid">
+            <div class="cmp-col xhome-col">
+              <div class="cmp-col-hdr">
+                <span>🅰️ PHƯƠNG ÁN A: 100% GỐC XHOME (BẢN QUÉT KT-4.02)</span>
+                <button type="button" class="btn-mini" data-zoom-src="assets/wc_kt402_tran_t2.png" data-zoom-title="Bản Quét KT-4.02 Gốc XHOME — Mặt Bằng Trần Tầng 2">🔍 Phóng To KT-4.02</button>
+              </div>
+              <div class="cmp-img-box" data-zoom-src="assets/wc_kt402_tran_t2.png" data-zoom-title="Bản Quét KT-4.02 Gốc XHOME — Khu Thay Đồ Hộp Chữ Nhật 2.370×1.340 & ĐH Nằm Trục B">
+                <img src="assets/wc_kt402_tran_t2.png" alt="Bản quét KT-4.02 gốc XHOME mặt bằng trần Tầng 2" width="1600" height="1130">
+              </div>
+              <div class="cmp-col-body">
+                <ul>
+                  <li><strong>Khu Thay Đồ Gốc:</strong> Đóng <strong>ô giật cấp chữ nhật <code>2.370 × 1.340mm (+3.130)</code></strong> + <code>06</code> đèn spotlight viền (<strong>hoàn toàn không có hình tròn</strong>).</li>
+                  <li><strong>Khu Ngủ &amp; Trục B:</strong> Hộp ngủ rộng <code>2.600 × 2.450mm</code>; <strong>Dàn lạnh <code>IN 2.3</code> và Lỗ thăm <code>450×450</code> đặt đè lên Trục B</strong>; 2 cặp khe gió lệch nhau <code>170mm</code>.</li>
+                  <li><strong>PN1, PN2 &amp; Hành Lang:</strong> Đều đóng ô giật cấp chữ nhật <code>+3.000 / +3.130mm</code>.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="cmp-col custom-col">
+              <div class="cmp-col-hdr">
+                <span>🅱️ PHƯƠNG ÁN B: BẢN PA2 ĐÃ VẼ (VÁCH ĐẢO + VÒM Ø1.2M)</span>
+                <button type="button" class="btn-mini" data-zoom-src="assets/master_walkin_chuan_kt203_3d.jpg" data-zoom-title="Phối Cảnh Thực Tế Khu Thay Đồ Master Khi Lắp Vòm Mặt Trăng Barrisol Ø1.200mm">🖼️ Xem Ảnh Thực Tế Vòm Ø1.2m</button>
+              </div>
+              <div class="cmp-img-box" data-zoom-src="assets/so_sanh_dieu_hoa_mat_trang_pa2.png" data-zoom-title="Đối Chiếu Chi Tiết Tầng 2: KT-4.02 Gốc XHOME vs. Phương Án PA2 Đã Vẽ">
+                <img src="assets/so_sanh_dieu_hoa_mat_trang_pa2.png" alt="So sánh trần Khu Thay Đồ gốc XHOME và phương án PA2 Vòm Mặt Trăng" width="1600" height="900">
+              </div>
+              <div class="cmp-col-body">
+                <ul>
+                  <li><strong>Khu Thay Đồ PA2:</strong> Đóng trần phẳng <code>+3.000mm</code> khoét <strong>Vòm Mặt Trăng tròn <code>Ø1.200mm</code></strong> căng màng xuyên sáng Barrisol (viền đen <code>P-UT12</code>) làm đèn thay đồ không sấp bóng.</li>
+                  <li><strong>Xử Lý Xung Đột Trục B:</strong> Khi dựng <strong>Vách Tủ Đảo <code>1.740×450</code> kịch trần <code>+3.000</code></strong>, thu hộp ngủ thành <code>2.600×2.150</code> và <strong>dời ĐH + Lỗ thăm sang lối đi phải <code>850mm</code></strong> để không bị đỉnh tủ bịt kín lỗ thăm!</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="real-pair-wrap">
+            <div class="real-pair-title">👁️ ĐỐI CHIẾU THỰC TẾ 1:1 NGAY TRONG NHÀ Q-VILLA (ĐỦ CẢ 3 PHƯƠNG ÁN A • B • C TRONG CÙNG PHÒNG):</div>
+            <div class="real-pair-grid">
+              <div class="real-pair-item">
+                <img src="assets/qvilla_tran_giat_cap_t2_06_master_thay_do_xhome.jpg" alt="Khu Thay Đồ Master Q-Villa đóng hộp giật cấp chữ nhật 2.370x1.340mm chuẩn 100% XHOME KT-4.02" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t2_06_master_thay_do_xhome.jpg" data-zoom-title="PA A (100% Gốc XHOME KT-4.02) — Khu Thay Đồ Master Đóng Hộp Chữ Nhật 2.370×1.340mm (+3.130mm)">
+                <div class="real-pair-cap"><strong>🅰️ Thay Đồ PA A (Gốc XHOME):</strong> Hộp chữ nhật vuông góc <code>2.370×1.340mm (+3.130)</code>.</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/master_pa2_walkin_en_suite_3d.jpg" alt="Khu Thay Đồ Master Q-Villa phương án PA2 Vòm Mặt Trăng tròn Barrisol Ø1.200mm" width="1376" height="768" data-zoom-src="assets/master_pa2_walkin_en_suite_3d.jpg" data-zoom-title="PA B (Phương Án PA2 Đã Vẽ) — Khu Thay Đồ Master Trần Phẳng + Vòm Mặt Trăng Tròn Barrisol Ø1.200mm">
+                <div class="real-pair-cap"><strong>🅱️ Thay Đồ PA B (PA2):</strong> Vòm tròn căng màng xuyên sáng Barrisol <code>Ø1.200mm</code>.</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/qvilla_pa_c_bo_cong_04_master_thay_do_capsule.jpg" alt="Khu Thay Đồ Master Q-Villa phương án C Vòm thạch cao Viên Thuốc Capsule R650mm kèm chỉ âm đen đồng tâm" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_04_master_thay_do_capsule.jpg" data-zoom-title="PA C Mới (Kiểu Bo Cong @ducanh_tranthachcao) — Khu Thay Đồ Master: Vòm Viên Thuốc (Capsule R650mm) Thạch Cao Sơn Mịn + Chỉ Đen 12mm">
+                <div class="real-pair-cap"><strong>🌙 Thay Đồ PA C (Vòm Capsule R650):</strong> Thạch cao uốn vòm Viên Thuốc ôm bàn đảo — sang mềm mà <strong>tiết kiệm 6–8tr màng Barrisol</strong>!</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/qvilla_pa_c_bo_cong_03_master_ngu.jpg" alt="Khu Ngủ Master Q-Villa phương án C bo cong R350mm và nắp thăm bo góc R80" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_03_master_ngu.jpg" data-zoom-title="PA C Mới (Mẫu Đinh B Cong 35 Đức Anh 35) — Khu Ngủ Master Tầng 2 Bo Cong R350mm + Nắp Thăm Bo Tròn R80">
+                <div class="real-pair-cap"><strong>🌙 Khu Ngủ Master PA C ("B cong 35"):</strong> Hắt sáng phào cong <code>R350mm</code> + chỉ đen <code>12mm</code> + nắp thăm bo tròn <code>R80</code>.</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/qvilla_tran_giat_cap_t2_08_phong_ngu_1.jpg" alt="Phòng Ngủ 1 Tầng 2 Q-Villa đóng trần giật cấp chữ nhật 2.990x2.050mm chuẩn XHOME" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t2_08_phong_ngu_1.jpg" data-zoom-title="PA A — Kiểu Giật Cấp Vuông Góc 90° (PN1 Tầng 2 — KT-4.02)">
+                <div class="real-pair-cap"><strong>🅰️ Phòng Ngủ PA A (Giật Cấp Vuông):</strong> Hộp vuông 90° <code>2.990×2.050 (+3.130)</code>.</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/qvilla_pa_c_bo_cong_05_phong_ngu_1.jpg" alt="Phòng Ngủ 1 Tầng 2 Q-Villa PA C1 giật cấp bo cong R300mm kèm chỉ đen 12mm" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_05_phong_ngu_1.jpg" data-zoom-title="PA C1 — Kiểu Giật Cấp Bo Cong R300mm + Chỉ Nhựa Âm Đen 12mm (Chuẩn Nut Design × Đức Anh 35)">
+                <div class="real-pair-cap"><strong>🌙 Phòng Ngủ PA C1 (Giật Cấp Cong R300):</strong> Máng LED uốn cong êm dịu + chỉ đen <code>12mm</code> khép kín.</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/qvilla_tran_phang_t3_14_pn3_pn4_put12.jpg" alt="Phòng Ngủ 3 và 4 Tầng 3 Q-Villa đóng trần phẳng chạy chỉ đen P-UT12 chuẩn XHOME KT-4.03" width="1376" height="768" data-zoom-src="assets/qvilla_tran_phang_t3_14_pn3_pn4_put12.jpg" data-zoom-title="PA B — Kiểu Trần Phẳng +3.130mm Chạy Chỉ Đen P-UT12 Góc Vuông 90° (PN3 & PN4 KT-4.03)">
+                <div class="real-pair-cap"><strong>🅱️ Phòng Ngủ PA B (Phẳng Chỉ Vuông):</strong> Phẳng <code>+3.130mm</code> + chỉ đen <code>P-UT12</code> góc vuông 90°.</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/qvilla_pa_c_bo_cong_07_pn34_phang_nep_cong.jpg" alt="Phòng Ngủ 3 và 4 Tầng 3 Q-Villa PA C2 trần phẳng chạy nẹp nhựa âm đen 12mm bo cong 4 góc R300mm" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_07_pn34_phang_nep_cong.jpg" data-zoom-title="PA C2 — Kiểu Trần Phẳng +3.130mm Chạy Nẹp Nhựa Âm Đen 12mm Bo Cong 4 Góc R300mm (@ducanh_tranthachcao)">
+                <div class="real-pair-cap"><strong>🌙 Phòng Ngủ PA C2 (Phẳng Chỉ Cong R300):</strong> Giữ trọn trần phẳng <code>+3.130mm</code> sạch thoáng mà vẫn có đường bo cong mềm!</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmp-diff-list">
+            <div class="diff-box">
+              <strong>💡 Điểm Cần Chốt #3 (Khu Thay Đồ — Có Thêm Lựa Chọn Vòm Capsule Cực Đẹp!):</strong>
+              Giờ đây Chủ nhà có <strong>04 lựa chọn trực quan ngay trên ảnh thật</strong>: <em>(1) Hộp chữ nhật gốc XHOME</em>; <em>(2) Vòm tròn Barrisol <code>Ø1.200</code> của PA2</em>; <em>(3) <strong>Vòm Viên Thuốc (Capsule <code>R650mm</code>) bằng thạch cao của PA C</strong> (ôm đúng dáng bàn đảo dài mà không tốn tiền màng Barrisol!)</em>; hoặc <em>(4) Trần phẳng tối giản</em>.
+            </div>
+            <div class="diff-box">
+              <strong>⚠️ Lưu Ý Kỹ Thuật Bắt Buộc Dù Chọn Kiểu Trần Nào:</strong>
+              Nếu nội thất giữ <strong>Vách Tủ Đảo kịch trần ở Trục B</strong> (như PA2), bắt buộc <strong>phải dời Lỗ thăm trần <code>450×450</code> của Điều hòa sang lối đi phải <code>850mm</code></strong> (không được giữ ở Trục B như bản gốc XHOME vì nóc tủ sẽ che mất cửa thăm máy!).
+            </div>
+          </div>
+        </article>
+
+        <!-- COMPARE FLOOR 3 -->
+        <article class="cmp-floor-card">
+          <div class="cmp-floor-head">
+            <div>
+              <h3>🙏 ĐỐI CHIẾU TẦNG 3: Phòng Thờ Gia Tiên &amp; Phòng Làm Việc Đôi</h3>
+              <p>Đối chiếu <code>KT-4.03 &amp; CĐ-13</code> gốc XHOME với 2 trang vừa cập nhật: <a href="phong-tho-tang3.html">Phòng Thờ Tầng 3 (Kiểm Tra Trục Y=1.960)</a> và <a href="phong-lam-viec-tang3.html">Phòng Làm Việc Đôi PA T3-A</a></p>
+            </div>
+            <div class="btn-row">
+              <a href="phong-tho-tang3.html" class="btn-mini">🔗 Mở Trang Phòng Thờ T3</a>
+              <a href="phong-lam-viec-tang3.html" class="btn-mini">🔗 Mở Trang Phòng Làm Việc T3</a>
+            </div>
+          </div>
+
+          <div class="cmp-dual-grid">
+            <div class="cmp-col xhome-col">
+              <div class="cmp-col-hdr">
+                <span>🅰️ PHƯƠNG ÁN A: 100% GỐC XHOME (KT-4.03 / CĐ-13)</span>
+                <button type="button" class="btn-mini" data-zoom-src="assets/cd_p14.png" data-zoom-title="Bản Quét CĐ-13 Gốc XHOME Tầng 3">🔍 Xem CĐ-13 Gốc</button>
+              </div>
+              <div class="cmp-img-box" data-zoom-src="assets/cad_xhome_goc_tran_tang3.svg" data-zoom-title="Phương Án A — Mặt Bằng Trần Tầng 3 Theo 100% Gốc XHOME">
+                <img src="assets/cad_xhome_goc_tran_tang3.svg" alt="Phương án A trần Tầng 3 theo 100% gốc XHOME" width="1680" height="920">
+              </div>
+              <div class="cmp-col-body">
+                <ul>
+                  <li><strong>Phòng Thờ Gốc:</strong> Ô trần thạch cao trắng <code>+3.000/+3.150mm</code> đặt <strong>chia đều giữa phòng tại <code>Y = 1.605mm</code></strong> + treo đèn thả <code>L16</code>.</li>
+                  <li><strong>Phòng Làm Việc Gốc:</strong> Đóng <strong>trần giật cấp khe LED 4 cạnh (<code>L18</code>) + treo Đèn chùm thả tâm phòng (<code>L19</code>)</strong>.</li>
+                  <li><strong>PN3 &amp; PN4 Gốc:</strong> Trần phẳng <code>+3.130mm</code> chạy rãnh đen <code>P-UT12 (12mm)</code>.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="cmp-col custom-col">
+              <div class="cmp-col-hdr">
+                <span>🅱️ PHƯƠNG ÁN B: BẢN T3 ĐÃ VẼ (THỜ Y=1.960 + PHẲNG T3-A)</span>
+                <button type="button" class="btn-mini" data-zoom-src="assets/tang3_phong_tho_3d_chot_thach_cao_den_op_tran_y1960.jpg" data-zoom-title="Phối Cảnh 3D Phòng Thờ Tầng 3: Trần Thạch Cao Trắng +3.150 Dịch Tâm Y=1.960mm + Đèn Ốp Trần Mỏng">🖼️ Xem 3D Phòng Thờ Y=1.960</button>
+              </div>
+              <div class="cmp-img-box" data-zoom-src="assets/cad_tran_thach_cao_tang3_qvilla.svg" data-zoom-title="Phương Án B — Mặt Bằng Trần Tầng 3 Đã Đồng Bộ Trục Bàn Thờ Y=1.960, Cửa Lùa Trục B & Trần Phẳng PA T3-A">
+                <img src="assets/cad_tran_thach_cao_tang3_qvilla.svg" alt="Phương án B trần Tầng 3 dịch tâm Phòng Thờ Y=1960 và trần phẳng Phòng Làm Việc PA T3-A" width="1680" height="920">
+              </div>
+              <div class="cmp-col-body">
+                <ul>
+                  <li><strong>Phòng Thờ Chuẩn Trục Bàn Thờ:</strong> Vẫn giữ 100% <strong>trần thạch cao trắng <code>+3.000/+3.150</code></strong> như XHOME, nhưng <strong>dịch khung hộp sang <code>Tâm Y = 1.960mm</code></strong> khớp Bàn thờ <code>KT-2.04</code> &amp; dây chờ tường (chừa <code>720mm</code> Bắc cho Ban Phật làm sau) + lắp Đèn ốp mỏng hoặc Quạt trần cánh gỗ.</li>
+                  <li><strong>Phòng Làm Việc PA T3-A:</strong> Chuyển sang <strong>Trần phẳng 100% cốt <code>+3.130mm</code></strong> kèm Ray nam châm 48V (hoặc chỉ đen <code>P-UT12</code> đồng bộ PN3/PN4!), bỏ đèn chùm <code>L19</code>, dừng sát Tủ sách <code>2.440×500</code> + làm vách trán cách âm <code>13cm</code> trên cửa lùa Trục B.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="real-pair-wrap">
+            <div class="real-pair-title">👁️ ĐỐI CHIẾU THỰC TẾ 1:1 TẦNG 3 NHÀ Q-VILLA (PHÒNG THỜ &amp; PHÒNG LÀM VIỆC):</div>
+            <div class="real-pair-grid">
+              <div class="real-pair-item">
+                <img src="assets/qvilla_tran_giat_cap_t3_10_phong_tho.jpg" alt="Phòng Thờ Tầng 3 Q-Villa theo 100% XHOME KT-4.03 với đèn thả lồng L16" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t3_10_phong_tho.jpg" data-zoom-title="Phòng Thờ Gốc XHOME (KT-4.03 / CĐ-13): Trần Thạch Cao Trắng +3.000/+3.150mm & Đèn Thả Lồng L16">
+                <div class="real-pair-cap"><strong>🅰️ Phòng Thờ Gốc XHOME:</strong> Hộp thạch cao trắng <code>+3.000/+3.150mm</code> + đèn thả lồng <code>L16</code> (cần lưu ý dịch tâm hộp sang <code>Y=1.960</code> cho thẳng bàn thờ).</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/tang3_phong_tho_3d_chot_thach_cao_den_op_tran_y1960.jpg" alt="Phòng Thờ Tầng 3 Q-Villa đã dịch hộp thạch cao sang Y=1.960mm thẳng tâm bàn thờ và gắn đèn ốp trần mỏng" width="1376" height="768" data-zoom-src="assets/tang3_phong_tho_3d_chot_thach_cao_den_op_tran_y1960.jpg" data-zoom-title="Phòng Thờ Bản Đã Tối Ưu: Dịch Tâm Hộp Thạch Cao Trắng Sang Y=1.960mm Khớp Bàn Thờ + Chừa 720mm Trái Cho Ban Phật">
+                <div class="real-pair-cap"><strong>🅱️ Phòng Thờ Dịch Tâm Y=1.960mm:</strong> Hộp trần trắng thẳng tắp tâm Bàn thờ Gia tiên, chừa <code>720mm</code> bên trái dự phòng Ban Phật &amp; gắn đèn ốp trần gọn.</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/qvilla_tran_giat_cap_t3_11_phong_lam_viec.jpg" alt="Phòng Làm Việc Tầng 3 Q-Villa đóng trần giật cấp vuông phẳng và đèn chùm L19 theo CĐ-13 gốc XHOME" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t3_11_phong_lam_viec.jpg" data-zoom-title="PA A (Gốc CĐ-13 XHOME): Phòng Làm Việc Đóng Hộp Giật Cấp Vuông Phẳng + Treo Đèn Chùm Thả L19">
+                <div class="real-pair-cap"><strong>🅰️ P.Làm Việc PA A (Gốc CĐ-13):</strong> Giật cấp vuông <code>+3.000/+3.130mm</code> + đèn thả vòng <code>L19</code> giữa phòng.</div>
+              </div>
+              <div class="real-pair-item">
+                <img src="assets/qvilla_pa_c_bo_cong_06_phong_lam_viec.jpg" alt="Phòng Làm Việc Tầng 3 Q-Villa PA C giật cấp bo cong R300mm kết hợp 2 thanh LED âm phẳng không đèn chùm" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_06_phong_lam_viec.jpg" data-zoom-title="PA C Mới (Kiểu Bo Cong @ducanh_tranthachcao): Phòng Làm Việc Bo Cong R300mm + Chỉ Đen 12mm + 02 Thanh LED Ray Âm Phẳng">
+                <div class="real-pair-cap"><strong>🌙 P.Làm Việc PA C (Bo Cong R300):</strong> Bỏ đèn chùm <code>L19</code>, uốn góc <code>R300mm</code> + chỉ đen <code>12mm</code> + 2 thanh LED âm phẳng hiện đại.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cmp-diff-list">
+            <div class="diff-box">
+              <strong>⚠️ Phát Hiện Quan Trọng Ở Phòng Thờ (0 Đồng Nếu Chỉnh Ngay):</strong>
+              Trong bộ hồ sơ gốc XHOME, bản nội thất <code>KT-2.04</code> đặt Bàn thờ lệch phải tại <code>Y = 1.960mm</code> (và thợ điện đã chôn dây tường theo <code>1.960mm</code>), nhưng bản trần <code>KT-4.08</code> lại vẽ hộp trần ở giữa phòng <code>Y = 1.605mm</code> (lệch <code>35,5cm</code>!). Dặn thợ dịch tâm hộp sang <code>Y = 1.960mm</code> lúc đi xương sẽ thẳng trục tuyệt đối.
+            </div>
+            <div class="diff-box">
+              <strong>💡 Điểm Cần Chốt #4 (Phòng Làm Việc T3): Giật cấp hay Phẳng?</strong>
+              Bản <code>PA T3-A</code> chuyển sang <strong>trần phẳng <code>+3.130mm</code></strong> đồng bộ 100% với chính thiết kế trần phẳng của <code>PN3 &amp; PN4</code> phía sau trên <code>KT-4.03</code> XHOME, giúp phòng làm việc thoáng rộng hơn <code>13cm</code> và không bị vướng đèn chùm thả giữa phòng.
+            </div>
+          </div>
+        </article>
+
+        <!-- COMPARE FLOOR TUM -->
+        <article class="cmp-floor-card">
+          <div class="cmp-floor-head">
+            <div>
+              <h3>☀️ ĐỐI CHIẾU TẦNG TUM: Hành Lang – Phòng Kho – Hệ Mái Kính Giếng Trời</h3>
+              <p>Đối chiếu bản <code>CĐ-14</code> gốc XHOME với phương án <a href="tang-tum-3d.html">Tầng Tum &amp; Phòng Kỹ Thuật Solar</a> và <a href="gieng-troi-mai-kinh-3d.html">02 Mái Kính Giếng Trời</a></p>
+            </div>
+            <div class="btn-row">
+              <a href="tang-tum-3d.html" class="btn-mini">🔗 Mở Trang 3D Tầng Tum</a>
+              <a href="gieng-troi-mai-kinh-3d.html" class="btn-mini">🔗 Mở Trang Mái Kính Giếng Trời</a>
+            </div>
+          </div>
+
+          <div class="cmp-dual-grid">
+            <div class="cmp-col xhome-col">
+              <div class="cmp-col-hdr">
+                <span>🅰️ PHƯƠNG ÁN A: 100% GỐC XHOME (CĐ-14)</span>
+                <button type="button" class="btn-mini" data-zoom-src="assets/cd_p15.png" data-zoom-title="Bản Quét CĐ-14 Gốc XHOME — Tầng Tum">🔍 Xem CĐ-14 Gốc</button>
+              </div>
+              <div class="cmp-img-box" data-zoom-src="assets/cad_xhome_goc_tran_tang_tum.svg" data-zoom-title="Phương Án A — Mặt Bằng Trần & Chiếu Sáng Tầng Tum Gốc XHOME">
+                <img src="assets/cad_xhome_goc_tran_tang_tum.svg" alt="Phương án A trần Tầng Tum theo 100% gốc XHOME CĐ-14" width="1680" height="920">
+              </div>
+              <div class="cmp-col-body">
+                <ul>
+                  <li><strong>Hành Lang Tum:</strong> Đóng hộp trần giật cấp hắt LED dây 4 cạnh (<code>Lộ 4,5,6</code>) + <code>05</code> đèn spotlight.</li>
+                  <li><strong>Phòng Kho &amp; Mái Thang:</strong> Cầu thang đổ mái kín; Phòng Kho gắn <code>03</code> spotlight + chỉ có <code>01</code> ô Giếng trời nhỏ góc Đông Nam.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="cmp-col custom-col">
+              <div class="cmp-col-hdr">
+                <span>🅱️ PHƯƠNG ÁN B: BẢN TẦNG TUM ĐÃ NÂNG CẤP (2 MÁI KÍNH)</span>
+                <button type="button" class="btn-mini" data-zoom-src="assets/ban_ve_chi_tiet_thi_cong_2_mai_kinh_tum_kt309_moi.png" data-zoom-title="Bản Vẽ Chi Tiết Thi Công 02 Ô Mái Kính Tầng Tum KT-3.09 Mới">🔍 Xem Bản Vẽ 2 Mái Kính</button>
+              </div>
+              <div class="cmp-img-box" data-zoom-src="assets/cad_tran_thach_cao_tang_tum_qvilla.svg" data-zoom-title="Phương Án B — Mặt Bằng Trần Tầng Tum Phối Hợp 02 Mái Kính & Phòng Kho Solar Đổ Trần BTCT">
+                <img src="assets/cad_tran_thach_cao_tang_tum_qvilla.svg" alt="Phương án B trần Tầng Tum phối hợp 2 mái kính và phòng kho Solar" width="1680" height="920">
+              </div>
+              <div class="cmp-col-body">
+                <ul>
+                  <li><strong>02 Mái Kính Độc Lập:</strong> Chừa thoáng 100% ô Mái kính Cầu thang (<code>2.150×1.770</code>) và Mái kính Giếng trời (bỏ hẳn mái kính Tầng 1).</li>
+                  <li><strong>Trần BTCT Kho Solar &amp; Hộp TX2:</strong> Ở giữa 2 mái kính đổ kín sàn BTCT <code>+1.85m</code> đỡ bồn nước; hành lang Tum đóng trần phẳng tấm chịu ẩm <code>C2</code> gọn bền + bọc hộp kỹ thuật <code>TX2</code> có nắp thăm.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- PART II — SECTION 4: SUMMARY DECISION MATRIX TABLE                    -->
+    <!-- ===================================================================== -->
+    <section id="sec-decision-matrix" class="block">
+      <div class="sec-head">
+        <div>
+          <span class="sec-badge amber">BẢNG TỔNG HỢP ĐỂ CHỦ NHÀ SO SÁNH CẢ 3 PHƯƠNG ÁN A • B • C &amp; QUYẾT ĐỊNH</span>
+          <h2>📋 4. Ma Trận Tổng Hợp 09 Khu Vực: PA A (100% XHOME Vuông) vs. PA B (Tối Ưu / Phẳng) vs. PA C Mới (Kiểu Bo Cong R350 Đức Anh 35)</h2>
+          <p>Bảng tóm tắt toàn bộ các vị trí trên 4 tầng để Chủ nhà đối chiếu nhanh trên iPad hoặc in ra tờ A3 số 10 tích chọn riêng từng phòng (có thể phối hợp linh hoạt: ví dụ <strong>Khách + Sảnh + Master làm PA C Bo Cong</strong>, <strong>P.Thờ giữ vuông <code>Y=1.960</code></strong>, <strong>PN3/4 làm Phẳng Chỉ Cong <code>PA C2</code></strong>!).</p>
+        </div>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="cmp-table-caption" class="table-wrapper">
+        <table class="data-table cmp-table">
+          <caption id="cmp-table-caption">⚖️ Bảng Đối Chiếu Toàn Diện Trần Thạch Cao 4 Tầng: PA A (Gốc XHOME) • PA B (Tối Ưu Nội Thất / Phẳng) • PA C (Bo Cong R350 @ducanh_tranthachcao)</caption>
+          <thead>
+            <tr>
+              <th>Tầng &amp; Không Gian</th>
+              <th>PA A: 100% Gốc XHOME (Vuông 90°)</th>
+              <th>PA B: Bản Đã Tối Ưu / Trần Phẳng</th>
+              <th>PA C Mới: Kiểu Bo Cong R350 (@ducanh_tranthachcao)</th>
+              <th>Gợi Ý Phối Hợp &amp; Khuyến Nghị Chốt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Tầng 1 • Phòng Khách<br>&amp; Tiền Sảnh</th>
+              <td>Khách giật cấp vuông <code>2.255×3.400 (+3.530)</code> + khung Ray 48V chữ nhật; Sảnh giật cấp vuông <code>2.090×1.125</code>; vách Bắc còn cửa sổ <code>V2</code>.</td>
+              <td>Xây bịt <code>V2</code> liền vách TV; cấy 2 ty <code>M12</code> treo Quạt trần <code>L6</code>; có thể giữ hộp vuông hoặc đóng phẳng <code>+3.500</code> âm Ray 48V (<a href="phong-khach-bep-tang1.html">Xem T1</a>).</td>
+              <td><strong>Bo cong 4 góc <code>R350mm</code> (Khách) &amp; <code>R300mm</code> (Sảnh)</strong> + khe LED COB liền mạch + <strong>nẹp nhựa âm đen <code>12mm</code> bo song song</strong> + 2 thanh Ray 48V hai bên Quạt trần.</td>
+              <td><strong>Rất hợp chọn PA C (Bo cong R350)</strong> kết hợp bịt <code>V2</code> &amp; cấy ty quạt của PA B — tạo điểm nhấn đón khách mềm mại, hiện đại chuẩn 2026!</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 1 • Khu Bếp &amp; Ăn<br>(Trục 2–4 / B–C)</th>
+              <td>Trần phẳng <code>C1 +3.400</code>; sát tường Bắc hạ hộp trán sâu tới <code>+2.330mm</code> (dày <code>1,07m</code>); <code>03</code> đèn <code>L8</code> theo đảo dọc.</td>
+              <td>Hạ <strong>hộp thạch cao thẳng <code>60cm</code> (<code>+2.800..+3.400</code>, tấm chịu ẩm <code>C2</code>)</strong> khớp cánh giả <code>2,80m</code> KITPRO &amp; che ống <code>Ø150</code> (<a href="bep-tang1.html">Xem Bếp</a>).</td>
+              <td>Giữ hộp trán thẳng <code>+2.800mm</code> ôm tủ bếp, có thể chạy thêm <strong>đường chỉ nhựa âm đen <code>12mm</code> bo góc <code>R250mm</code></strong> bao khu bàn ăn đồng điệu Phòng Khách.</td>
+              <td><strong>Bắt buộc hạ trán bếp theo PA B (<code>+2.800mm</code>)</strong> để khớp khít tủ bếp <code>2,8m</code> cánh giả.</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 1 • P. Ngủ Ông Bà<br>(Trục 3–4 / A–B)</th>
+              <td>Viền <code>C1 +3.000</code>, giật cấp cạnh đứng <code>+3.130</code> kèm khung <strong>Nẹp <code>U10</code> đen <code>1.740×1.345</code></strong> góc vuông + <code>08</code> spotlight.</td>
+              <td>Giữ nguyên 100% cao độ và thiết kế của XHOME, lót gỗ Plywood <code>18mm</code> đỉnh hốc rèm vườn sau.</td>
+              <td>Bo tròn nhẹ 4 góc của bậc giật cấp đứng <code>+3.130</code> và uốn cong 4 góc khung chỉ đen <code>12mm</code> (<code>R250mm</code>) không làm khe hắt hứng bụi.</td>
+              <td><strong>Giữ PA A/B hoặc uốn góc chỉ đen PA C</strong> đều sạch (không có mỏ hắt bụi), rất hợp phòng Ông Bà.</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 2 • Khu Ngủ Master<br>&amp; Trục B</th>
+              <td>Hộp vuông <code>2.600×2.450 (+3.130)</code>; <strong>Dàn lạnh <code>IN 2.3</code> &amp; Lỗ thăm <code>450×450</code> nằm đè lên Trục B</strong>.</td>
+              <td>Thu hộp thành <code>2.600×2.150</code> cho <strong>Vách Tủ Đảo kịch trần Trục B</strong>; dời ĐH &amp; Lỗ thăm sang lối đi phải <code>850mm</code> (<a href="phong-master-tang2.html">Xem Master</a>).</td>
+              <td><strong>Mẫu đinh "B cong 35" (<code>R350mm</code>)</strong> + phào cong êm sáng + chỉ nhựa âm đen <code>12mm</code> bo cong + <strong>nắp thăm ĐH bo tròn 4 góc <code>R80mm</code> chìm phẳng</strong> tại lối đi phải!</td>
+              <td><strong>Đẹp nhất khi chọn PA C ("B cong 35")</strong> trên nền kích thước đã dời Lỗ thăm ĐH của PA B!</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 2 • Khu Thay Đồ<br>Master</th>
+              <td>Đóng hộp giật cấp chữ nhật vuông góc <code>2.370×1.340 (+3.130)</code> + <code>06</code> spotlight; khe gió ĐH cách tường <code>100mm</code>.</td>
+              <td>Trần phẳng <code>+3.000</code> khoét <strong>Vòm Mặt Trăng tròn <code>Ø1.200mm</code></strong> căng màng Barrisol xuyên sáng + căn khe gió <code>270mm</code>.</td>
+              <td><strong>Vòm thạch cao hình Viên Thuốc / Stadium Capsule (<code>2.370×1.300</code>, 2 đầu tròn <code>R650mm</code>)</strong> hắt LED 3500K + chỉ đen <code>12mm</code> đồng tâm (<strong>0₫ màng Barrisol</strong>).</td>
+              <td><strong>Rất khuyên chọn PA C (Vòm Capsule R650)</strong>: ôm đúng tỷ lệ bàn đảo dài, sang mềm đồng bộ Khu Ngủ mà tiết kiệm ngay <code>6–8tr</code>!</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 2 • PN1, PN2<br>&amp; 02 WC</th>
+              <td>PN1 hộp vuông <code>2.990×2.050 (+3.130)</code>; PN2 hộp vuông <code>2.040×3.140 (+3.130)</code>; WC-02 nắp thăm bên khoang ướt.</td>
+              <td>Dời nắp thăm WC-02 sang khoang khô Lavabo (<a href="giam-sat-wc.html">Xem WC</a>); PN1/PN2 giữ vuông hoặc chuyển trần phẳng <code>P-UT12</code>.</td>
+              <td><strong>PA C1:</strong> Giật cấp bo cong <code>R300mm</code> + chỉ đen <code>12mm</code> nằm gọn trong 3 khe gió (mẫu Nut Design × Đức Anh 35); hoặc <strong>PA C2:</strong> Phẳng + chỉ đen bo cong.</td>
+              <td><strong>Chọn PA C1 (Giật cấp bo R300)</strong> nếu thích ấm cúng hắt sáng nhẹ, hoặc <strong>PA C2</strong> nếu thích trần cao sạch bụi!</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 3 • Phòng Thờ<br>(Trục 1'–2 / B–C)</th>
+              <td>Hộp thạch cao trắng <code>+3.000/+3.150</code> đặt giữa phòng tại <code>Y = 1.605mm</code> + đèn thả <code>L16</code>.</td>
+              <td>Giữ hộp thạch cao trắng vuông vức trang nghiêm nhưng <strong>dịch tâm hộp sang <code>Y = 1.960mm</code></strong> thẳng tâm Bàn thờ (<a href="phong-tho-tang3.html">Xem P.Thờ</a>).</td>
+              <td><strong>Khuyến nghị giữ góc vuông trang nghiêm của PA B (<code>Y = 1.960mm</code>)</strong> để tôn nét đứng đắn truyền thống của Bàn thờ gỗ Gia tiên (không nên bo cong).</td>
+              <td><strong>Chốt PA B (Vuông vức dịch tâm <code>Y = 1.960mm</code>)</strong> — chuẩn phong thủy và thẳng trục tuyệt đối.</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 3 • P. Làm Việc<br>&amp; PN3, PN4</th>
+              <td>P.Làm việc giật cấp vuông + đèn chùm <code>L19</code>; PN3 &amp; PN4 đóng trần phẳng <code>+3.130</code> chạy chỉ đen <code>P-UT12</code> góc vuông 90°.</td>
+              <td><strong>PA T3-A:</strong> P.Làm việc đóng <strong>trần phẳng 100% <code>+3.130mm</code></strong> âm Ray 48V, bỏ đèn chùm <code>L19</code> (<a href="phong-lam-viec-tang3.html">Xem T3-A</a>).</td>
+              <td><strong>P.Làm việc:</strong> Bo cong <code>R300</code> + 2 thanh LED âm phẳng (bỏ <code>L19</code>). <strong>PN3 &amp; PN4 (PA C2):</strong> Giữ trần phẳng <code>+3.130</code> nhưng <strong>uốn cong 4 góc chỉ đen <code>12mm</code> (<code>R300</code>)</strong>!</td>
+              <td><strong>PN3 &amp; PN4 chọn PA C2 (Phẳng + Chỉ Đen Bo Cong)</strong> vừa cao thoáng vừa ăn nhập 100% với Tầng 1 &amp; Tầng 2!</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng Tum • Hành Lang,<br>Kho &amp; Mái Kính</th>
+              <td>Hành lang Tum giật cấp khe LED + <code>05</code> Spot; Kho <code>03</code> Spot; <code>01</code> Giếng trời nhỏ.</td>
+              <td>Mở <strong>02 Ô Mái Kính lớn</strong>, đổ trần BTCT <code>+1.85m</code> Kho Solar; Hành lang Tum đóng trần phẳng chịu ẩm <code>C2</code> (<a href="tang-tum-3d.html">Xem Tum</a>).</td>
+              <td>Giữ trần phẳng tấm chịu ẩm <code>C2</code> của PA B trên Tầng Tum (khu áp mái nóng ẩm không nên làm máng hắt bo cong).</td>
+              <td><strong>Chốt PA B (Trần phẳng tấm chịu ẩm <code>C2</code>)</strong> bền sạch nhất cho Tầng Tum.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- SECTION 5: BOQ & 6-STEP CONTRACTOR INSPECTION CHECKLIST               -->
+    <!-- ===================================================================== -->
+    <section id="sec-boq" class="block">
+      <div class="sec-head">
+        <div>
+          <span class="sec-badge sky">DỰ TOÁN VẬT TƯ (SO SÁNH PA A/B &amp; PA C BO CONG) &amp; NGHIỆM THU CÔNG TRƯỜNG</span>
+          <h2>💰 5. Bảng Bóc Tách Khối Lượng Vĩnh Tường (PA A/B: 59,08Tr • PA C Bo Cong: 65,50Tr) &amp; Nghiệm Thu</h2>
+          <p>Khớp đồng bộ với bộ chọn phương án Hạng mục 3 tại <a href="index.html">Trang chủ Dự toán Q Villa</a>: gói chuẩn <strong>PA A/B là <code>59.080.000 ₫</code></strong>; nếu chọn <strong>Phương Án C — Kiểu Trần Bo Cong <code>R350mm</code> (Đức Anh 35)</strong> toàn nhà là <strong><code>65.500.000 ₫</code> (chênh <code>+6,42 Triệu ₫</code> cho tấm Gyproc Siêu Chịu Ẩm khía uốn cong, nẹp đục lỗ uốn cong, phào máng hắt, chỉ nhựa âm đen 12mm uốn cong &amp; nắp thăm R80 — nhưng tiết kiệm ngược <code>6–8 Triệu ₫</code> nếu thay màng căng Barrisol Khu Thay Đồ bằng Vòm Capsule thạch cao!)</strong>.</p>
+        </div>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="boq-table-caption" class="table-wrapper">
+        <table class="data-table boq-table">
+          <caption id="boq-table-caption">📦 Bảng Tổng Hợp Khối Lượng &amp; Đơn Giá Thi Công Trần Thạch Cao 4 Tầng (228 m²)</caption>
+          <thead>
+            <tr>
+              <th>Hạng Mục Thi Công</th>
+              <th>Quy Cách Vật Tư Bắt Buộc (Chuẩn XHOME KT-4.02 &amp; Vĩnh Tường)</th>
+              <th>ĐVT</th>
+              <th>Khối Lượng</th>
+              <th>Đơn Giá (₫)</th>
+              <th>Thành Tiền (₫)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">01. Trần khung chìm tiêu chuẩn (C1)</th>
+              <td>Khung xương <strong>Vĩnh Tường TIKA / ALPHA</strong> chính hãng mạ AZ100 (thanh U-gai <code>@406mm</code>, ty treo M6 <code>@800–1000mm</code>, nở đạn thép M6) + Tấm <strong>Gyproc tiêu chuẩn 9mm</strong> (Khách, Sảnh, Ăn/Bếp, 5 Phòng ngủ, P.Thờ, P.Làm việc, Hành lang).</td>
+              <td>m²</td>
+              <td><code>192,0</code></td>
+              <td>190.000</td>
+              <td><strong>36.480.000</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">02. Trần &amp; Hộp tấm chịu ẩm (C2)</th>
+              <td>Khung Vĩnh Tường chống ẩm + Tấm <strong>Gyproc Moisture Resistant 9mm lõi xanh</strong> chuyên dụng khu ướt (04 Phòng WC cốt <code>+2.400mm</code> + Hộp trán Tủ bếp Tầng 1 + Hành lang/Kho Tầng Tum).</td>
+              <td>m²</td>
+              <td><code>36,0</code></td>
+              <td>225.000</td>
+              <td><strong>8.100.000</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">03. Nẹp tường Shadowlight trắng</th>
+              <td>Đúng quy cách <code>C1 &amp; C2</code> trên <code>KT-4.02</code> XHOME: Nẹp <strong>Genta Z-10 / Vĩnh Tường Shadowline màu trắng</strong> tạo rãnh âm <code>10mm</code> toàn bộ chu vi giao tường xây trát 4 tầng chống nứt răng cưa.</td>
+              <td>md</td>
+              <td><code>190,0</code></td>
+              <td>35.000</td>
+              <td><strong>6.650.000</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">04. Khe hắt 01/02 &amp; 09 Hốc rèm</th>
+              <td>Gia công thành giật cấp <code>130–150mm</code>, mỏ hắt <code>150mm</code> gờ chắn <code>50mm</code> + <strong>Lót bản gỗ Plywood chịu ẩm 18mm</strong> trên đỉnh các hốc rèm toàn nhà để bắt chắc chắn ray rèm 2 lớp / động cơ rèm.</td>
+              <td>Gói</td>
+              <td><code>01</code></td>
+              <td>4.600.000</td>
+              <td><strong>4.600.000</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">05. Nẹp ron âm đen P-UT12 &amp; U10</th>
+              <td>Nẹp ron âm trần nhựa đen <strong>Genta P-UT12 (rộng 12mm, sâu 9mm)</strong> &amp; <strong>U10 đen</strong> tại P.Ngủ Ông Bà T1, PN3 &amp; PN4 T3 (và phụ kiện khung nếu làm Vòm Khu Thay Đồ).</td>
+              <td>Gói</td>
+              <td><code>01</code></td>
+              <td>1.750.000</td>
+              <td><strong>1.750.000</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">06. Nắp thăm trần hợp kim nhôm 450</th>
+              <td>Nắp thăm trần <strong>450×450mm</strong> khung nhôm sơn tĩnh điện trắng bản lề âm (<code>04</code> bộ tại 4 Phòng WC + <code>01</code> bộ thăm Điều hòa âm trần Master Tầng 2).</td>
+              <td>Bộ</td>
+              <td><code>05</code></td>
+              <td>300.000</td>
+              <td><strong>1.500.000</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">07. Xử lý mối nối 3 lớp &amp; Khoét lỗ</th>
+              <td>Dán băng giấy đục lỗ Vĩnh Tường + Bột <strong>Gyp-Filler</strong> 3 lớp chống nứt; bắn tia laser khoét chuẩn xác lỗ đèn Spotlight (<a href="Ho_So_Dinh_Vi_Kich_Thuoc_Khoet_Lo_Den_Phi75_QVilla.pdf" target="_blank">Xem Hồ sơ khoét lỗ Ø75</a>), miệng gió ĐH &amp; đèn sưởi WC.</td>
+              <td>Gói</td>
+              <td><code>01</code></td>
+              <td>Đã gồm</td>
+              <td><strong>0 (Trong ĐG)</strong></td>
+            </tr>
+            <tr class="total-row">
+              <th scope="row">TỔNG CỘNG PHẦN TRẦN THẠCH CAO</th>
+              <td colspan="4">Tổng gói Vật tư chính hãng Vĩnh Tường – Gyproc + Nhân công đóng trần, hốc rèm, nẹp Shadowlight/P-UT12 &amp; khoét lỗ 4 tầng (Chưa gồm Sơn bả 54,60 Tr)</td>
+              <td>59.080.000 ₫</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="checklist-grid">
+        <div class="check-card">
+          <span class="check-step">BƯỚC 01 • GHI CHÚ BẮT BUỘC XHOME</span>
+          <h3>Lắp Xong Ray Cửa Trượt Trước Khi Đóng Trần</h3>
+          <ul>
+            <li>Đúng dòng chữ in hoa trên <code>KT-4.02</code> &amp; <code>KT-4.03</code>: <em>"Thi công phần ray cửa trượt trước khi thi công trần thạch cao"</em>.</li>
+            <li>Cơ khí bắt xong hộp thép treo ray cửa lùa (Khu Bếp T1, vách ngăn Trục B T3) trực tiếp vào đáy dầm BTCT (né sườn Nam dầm Trục B T3 có ống cáp LAN!).</li>
+          </ul>
+        </div>
+
+        <div class="check-card">
+          <span class="check-step">BƯỚC 02 • THỬ KÍN NƯỚC &amp; ĐIỀU HÒA</span>
+          <h3>Nghiệm Thu Ống Nước, Máng Xả Ngưng &amp; Hút Mùi</h3>
+          <ul>
+            <li>Xả thử toàn bộ ống thoát <code>D110/D90</code> dưới sàn 4 WC và đổ nước thử máng xả ngưng <code>D27/D34</code> của 03 dàn lạnh âm trần (<code>IN 1.2, IN 1.1, IN 2.3</code>).</li>
+            <li>Đi sẵn ống thoát mùi cứng <code>Ø150</code> sát trần bê tông bếp ra Sân sau trước khi đóng hộp trán tủ bếp.</li>
+          </ul>
+        </div>
+
+        <div class="check-card">
+          <span class="check-step">BƯỚC 03 • CẤY TY ĐỘC LẬP TẢI NẶNG</span>
+          <h3>Khoan Nở Sắt Treo Quạt Trần &amp; Lót Gỗ Hốc Rèm</h3>
+          <ul>
+            <li>Cấy ty sắt <code>M10/M12</code> độc lập vào sàn bê tông tại tâm Phòng Khách (<code>L6</code>), tâm Bàn Ăn (<code>L6A</code>) và tâm Phòng Thờ (<code>L16</code>) — tuyệt đối không treo quạt/đèn nặng vào xương thạch cao.</li>
+            <li>Lót bản gỗ Plywood chịu ẩm <code>18mm</code> trên đỉnh tất cả hốc rèm để bắt vít ray rèm không bị tuột bột thạch cao.</li>
+          </ul>
+        </div>
+
+        <div class="check-card">
+          <span class="check-step">BƯỚC 04 • ĐIỆN, RAY 48V &amp; SMARTHOME</span>
+          <h3>Luồn Ống Gen Chống Cháy &amp; Bắt Khung Ray Âm</h3>
+          <ul>
+            <li>Toàn bộ dây đèn trên trần luồn ống gen, đấu cút <code>Wago</code>; kiểm tra dây mạng <code>Cat6 PoE</code> cho 3 đĩa Wifi trần và dây chờ 220V góc hốc rèm.</li>
+            <li>Thanh nhôm định hình âm của <strong>Ray nam châm 48V</strong> phải bắt cố định vào khung xương đồng thời ngay lúc bắn tấm 9mm.</li>
+          </ul>
+        </div>
+
+        <div class="check-card">
+          <span class="check-step">BƯỚC 05 • CHỐNG NỨT &amp; DƯỠNG BO CONG R350</span>
+          <h3>Cắt Tấm Chữ L / Ghim Nẹp Nhựa Đục Lỗ Uốn Cong</h3>
+          <ul>
+            <li>Nếu làm vuông (PA A/B): <strong>cắt tấm thạch cao nguyên chữ L</strong> tại góc. Nếu làm <strong>Bo Cong R350 (PA C)</strong>: bắt buộc cắt dưỡng chuẩn <code>R350/R300mm</code>, dùng tấm <strong>Gyproc Siêu Chịu Ẩm</strong> khía đều và <strong>ghim nẹp góc nhựa đục lỗ uốn cong</strong> làm cữ bả tròn căng không gãy đa giác!</li>
+            <li>Chạy nẹp tường <code>Shadowlight</code> trắng giáp tường + dán băng giấy đục lỗ Vĩnh Tường bả 3 lớp bột <code>Gyp-Filler</code>.</li>
+          </ul>
+        </div>
+
+        <div class="check-card">
+          <span class="check-step">BƯỚC 06 • BẮN LASER KHOÉT LỖ &amp; SOI ĐÈN</span>
+          <h3>Khoét Lỗ Thẳng Tia Laser &amp; Soi Đèn Pha Xiên</h3>
+          <ul>
+            <li>Dùng máy laser xanh chiếu thẳng hàng toàn bộ các dãy đèn Spotlight trước khi khoét mũi khoét chuyên dụng (sai số <code>≤ 2mm</code>).</li>
+            <li>Trước khi lăn sơn phủ trắng trần, dùng đèn pha cầm tay soi xiên sát mặt trần để kiểm tra độ phẳng mịn không gợn vết bả mối nối.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL ZOOM DIALOG (closedby="any" + Safari fallback) -->
+  <dialog id="zoomDialog" closedby="any" aria-labelledby="zoomDialogTitle">
+    <form method="dialog" class="dialog-inner">
+      <div class="dialog-bar">
+        <h2 id="zoomDialogTitle">Xem Chi Tiết Bản Vẽ Trần Thạch Cao</h2>
+        <button type="submit" class="btn-close-dialog">✕ Đóng (Esc)</button>
+      </div>
+      <div class="dialog-media">
+        <img id="zoomDialogImg" src="assets/cad_xhome_goc_tran_tang1.svg" alt="Phóng to bản vẽ trần thạch cao Q Villa">
+      </div>
+    </form>
+  </dialog>
+
+  <footer>
+    <div class="container">
+      Hồ Sơ Trần Thạch Cao 4 Tầng (100% Thiết Kế Nguyên Bản XHOME &amp; Đối Chiếu Chọn Phương Án) — <strong>Biệt Thự Q Villa</strong> (Ông Phùng Văn Quân) • <a href="index.html">Quay về Trang Chủ Dự Toán Tổng</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const dialog = document.getElementById('zoomDialog');
+      const dialogImg = document.getElementById('zoomDialogImg');
+      const dialogTitle = document.getElementById('zoomDialogTitle');
+
+      if (!dialog || !dialogImg || !dialogTitle) return;
+
+      document.querySelectorAll('[data-zoom-src]').forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          const src = trigger.getAttribute('data-zoom-src');
+          const title = trigger.getAttribute('data-zoom-title') || 'Chi Tiết Bản Vẽ & Hình Ảnh Trần Thạch Cao';
+          dialogImg.src = src;
+          dialogImg.alt = title;
+          dialogTitle.textContent = title;
+          dialog.showModal();
+        });
+      });
+
+      // Fallback for browsers without closedby support (e.g., Safari)
+      if (!('closedBy' in HTMLDialogElement.prototype)) {
+        dialog.addEventListener('click', (event) => {
+          if (event.target !== dialog) return;
+
+          const rect = dialog.getBoundingClientRect();
+          const isDialogContent = (
+            rect.top <= event.clientY &&
+            event.clientY <= rect.top + rect.height &&
+            rect.left <= event.clientX &&
+            event.clientX <= rect.left + rect.width
+          );
+
+          if (isDialogContent) return;
+
+          dialog.close();
+        });
+      }
+
+      // Interactive Floor Filter for the 100% Q-Villa Real-House Ceiling Gallery
+      const filterBtns = document.querySelectorAll('.filter-btn[data-filter]');
+      const roomCards = document.querySelectorAll('#qvillaRoomGallery .room-card');
+      filterBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const targetFloor = btn.getAttribute('data-filter');
+          filterBtns.forEach((b) => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+          roomCards.forEach((card) => {
+            const matches = targetFloor === 'all' || card.getAttribute('data-floor') === targetFloor;
+            card.hidden = !matches;
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,2796 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hồ Sơ Chốt Phòng Thờ Tầng 3 (PA 16 Độc Tôn Tam Cấp Gầm Thoáng + Sập Truyền Thống + Đỉnh Hạc Đồng) — Biệt Thự Q Villa</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-base: #080b11;
+      --bg-surface: #111824;
+      --bg-elevated: #1b2638;
+      --bg-warm: #1a1512;
+      --border: rgba(148, 163, 184, 0.18);
+      --border-gold: rgba(217, 160, 78, 0.48);
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --gold: #e5a93c;
+      --gold-light: #fde68a;
+      --celadon: #34d399;
+      --celadon-soft: rgba(52, 211, 153, 0.15);
+      --sky: #38bdf8;
+      --sky-soft: rgba(56, 189, 248, 0.15);
+      --rose: #f43f5e;
+      --rose-soft: rgba(244, 63, 94, 0.15);
+      --purple: #a855f7;
+      --purple-soft: rgba(168, 85, 247, 0.16);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-lg: 0 22px 48px -15px rgba(0, 0, 0, 0.72);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 15% 6%, rgba(229, 169, 60, 0.11), transparent 36%),
+        radial-gradient(circle at 86% 14%, rgba(52, 211, 153, 0.08), transparent 36%),
+        radial-gradient(circle at 50% 88%, rgba(56, 189, 248, 0.06), transparent 42%),
+        var(--bg-base);
+      min-height: 100vh;
+      padding-bottom: 72px;
+    }
+
+    a {
+      color: var(--sky);
+      text-decoration: none;
+    }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: rgba(255, 255, 255, 0.09);
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-size: 0.85em;
+      color: var(--gold-light);
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(8, 11, 17, 0.93);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    a.brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: inherit;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    a.brand:hover {
+      transform: translateY(-1px);
+      opacity: 0.94;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #e5a93c, #b45309);
+      color: #090b10;
+      font-weight: 800;
+      font-size: 0.77rem;
+      padding: 7px 13px;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(229, 169, 60, 0.32);
+    }
+
+    .brand-title h1 {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.25;
+    }
+
+    .brand-title p {
+      font-size: 0.79rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(27, 38, 56, 0.6);
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      border-color: var(--gold);
+      background: rgba(229, 169, 60, 0.2);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 26px 0 20px;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(17, 24, 36, 0.96), rgba(30, 25, 22, 0.9));
+      border: 1px solid var(--border-gold);
+      border-radius: 20px;
+      padding: 24px 26px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-light);
+      background: rgba(229, 169, 60, 0.15);
+      border: 1px solid rgba(229, 169, 60, 0.4);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .hero-card h2 {
+      font-size: clamp(1.35rem, 2.3vw, 1.82rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.28;
+      margin-bottom: 8px;
+    }
+
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      max-width: 1080px;
+      margin-bottom: 18px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 14px;
+    }
+
+    .kpi-box {
+      background: rgba(8, 11, 17, 0.68);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 15px 17px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-box::before {
+      content: "";
+      position: absolute;
+      inset-block-start: 0;
+      inset-inline-start: 0;
+      inline-size: 4px;
+      block-size: 100%;
+      background: var(--gold);
+    }
+
+    .kpi-box.celadon::before { background: var(--celadon); }
+    .kpi-box.sky::before { background: var(--sky); }
+    .kpi-box.rose::before { background: var(--rose); }
+
+    .kpi-label {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .kpi-val {
+      font-size: 1.32rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kpi-sub {
+      font-size: 0.79rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    /* Sections */
+    section.block {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-hdr {
+      margin-bottom: 18px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold-light);
+      background: rgba(229, 169, 60, 0.14);
+      border: 1px solid rgba(229, 169, 60, 0.35);
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 1.42rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 1040px;
+    }
+
+    /* 3D Render Showcase Grid */
+    .render-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .render-grid.three-up {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 1180px) {
+      .render-grid.three-up {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .render-grid,
+      .render-grid.three-up {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Searchable Mutually Exclusive Panels (modern-web-guidance: search-hidden-content)
+       NOTE: Borders, padding, margins, and backgrounds MUST live on .tier-panel-inner,
+       NEVER on the [hidden="until-found"] element itself, and NEVER set display/visibility on it. */
+    .tier-switcher-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    .tier-panel-inner {
+      background: rgba(21, 29, 41, 0.72);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .tier-spec-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .tier-spec-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .tier-spec-box h4 {
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+
+    .tier-spec-box p {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      line-height: 1.48;
+    }
+
+    .tier-fallback-links {
+      display: none;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+      font-size: 0.8rem;
+    }
+
+    .media-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .media-hdr {
+      padding: 12px 16px;
+      background: var(--bg-elevated);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .media-hdr h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .media-img-wrap {
+      position: relative;
+      background: #06090e;
+      overflow: hidden;
+    }
+
+    .media-img-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: zoom-in;
+      transition: transform 0.28s ease;
+    }
+
+    .media-img-wrap:hover img {
+      transform: scale(1.015);
+    }
+
+    .media-caption {
+      padding: 12px 16px;
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Palette Strip (60-30-10) */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .palette-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .swatch-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.25);
+    }
+
+    .palette-card h4 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .palette-card p {
+      font-size: 0.81rem;
+      color: var(--text-secondary);
+    }
+
+    /* Buttons */
+    .btn {
+      appearance: none;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      transition: all 0.16s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      border-color: var(--gold);
+      color: #fff;
+      background: rgba(229, 169, 60, 0.16);
+    }
+
+    .btn.active {
+      background: linear-gradient(135deg, #e5a93c, #d97706);
+      color: #080b11;
+      border-color: var(--gold);
+      font-weight: 800;
+    }
+
+    .btn.celadon {
+      background: rgba(52, 211, 153, 0.16);
+      border-color: rgba(52, 211, 153, 0.5);
+      color: #6ee7b7;
+    }
+
+    .btn.celadon.active {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #04130d;
+      border-color: #34d399;
+    }
+
+    /* Interactive 2D SVG CAD Workspace */
+    .workspace-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      padding: 12px 15px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .workspace-grid {
+      display: grid;
+      grid-template-columns: 1fr 410px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    @media (max-width: 1120px) {
+      .workspace-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .svg-stage {
+      background: #fcfaf5;
+      padding: 12px;
+      overflow-x: auto;
+      display: flex;
+      justify-content: center;
+    }
+
+    .svg-stage svg {
+      width: 100%;
+      max-width: 960px;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .cad-node {
+      cursor: pointer;
+      transition: filter 0.16s ease, opacity 0.16s ease;
+    }
+
+    .cad-node:hover {
+      filter: drop-shadow(0 0 6px rgba(217, 119, 6, 0.85));
+    }
+
+    .cad-node.selected {
+      filter: drop-shadow(0 0 10px rgba(220, 38, 38, 0.95));
+    }
+
+    .inspector-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 76px;
+    }
+
+    .insp-pill {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(229, 169, 60, 0.18);
+      color: var(--gold-light);
+      border: 1px solid rgba(229, 169, 60, 0.4);
+      margin-bottom: 8px;
+    }
+
+    .inspector-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .spec-kv {
+      margin: 12px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
+      display: grid;
+      gap: 8px;
+      font-size: 0.83rem;
+    }
+
+    .spec-kv-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .spec-kv-row span:first-child {
+      color: var(--text-muted);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .spec-kv-row span:last-child {
+      color: #fff;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .note-box label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .note-box textarea {
+      width: 100%;
+      background: var(--bg-base);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #fff;
+      padding: 9px 11px;
+      font-family: inherit;
+      font-size: 0.84rem;
+      resize: vertical;
+      min-height: 76px;
+    }
+
+    .note-box textarea:focus {
+      outline: 2px solid var(--gold);
+      border-color: transparent;
+    }
+
+    /* 4 Original CAD Crops Grid */
+    .cad-4-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 520px) {
+      .cad-4-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Responsive Data Tables (modern-web-guidance: responsive-table) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(680px, 82vh);
+      container-type: inline-size;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 22px;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.84rem;
+    }
+
+    table.data-table caption {
+      text-align: left;
+      padding: 14px 18px;
+      font-weight: 800;
+      font-size: 0.94rem;
+      color: var(--gold-light);
+      background: rgba(8, 11, 17, 0.88);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Sticky column headers (desktop) */
+    table.data-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 3;
+    }
+
+    table.data-table thead th {
+      background: #0b101b;
+      color: var(--text-secondary);
+      font-weight: 800;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 12px 13px;
+      border-bottom: 2px solid rgba(229, 169, 60, 0.42);
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    /* Sticky row headers (desktop) */
+    table.data-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 1;
+      background: var(--bg-surface);
+      color: #fff;
+      font-weight: 700;
+      padding: 11px 13px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid rgba(148, 163, 184, 0.15);
+      text-align: left;
+      min-width: 210px;
+    }
+
+    table.data-table tbody td {
+      padding: 11px 13px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: top;
+    }
+
+    table.data-table tbody tr:hover td,
+    table.data-table tbody tr:hover th {
+      background: #172234;
+    }
+
+    table.data-table tfoot th,
+    table.data-table tfoot td {
+      background: #0b101b;
+      padding: 13px;
+      font-weight: 800;
+      color: #fff;
+      border-top: 2px solid var(--gold);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .badge.red { background: var(--rose-soft); color: #fda4af; border: 1px solid rgba(244, 63, 94, 0.35); }
+    .badge.gold { background: rgba(229, 169, 60, 0.16); color: var(--gold-light); border: 1px solid rgba(229, 169, 60, 0.35); }
+    .badge.green { background: var(--celadon-soft); color: #6ee7b7; border: 1px solid rgba(52, 211, 153, 0.35); }
+    .badge.sky { background: var(--sky-soft); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.35); }
+    .badge.purple { background: var(--purple-soft); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.35); }
+
+    .price-input {
+      background: rgba(8, 11, 17, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      color: #fff;
+      border-radius: 6px;
+      padding: 5px 8px;
+      width: 122px;
+      text-align: right;
+      font-weight: 700;
+      font-size: 0.82rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    @container (width < 600px) {
+      table.data-table,
+      table.data-table thead,
+      table.data-table tbody,
+      table.data-table tfoot,
+      table.data-table tr,
+      table.data-table th,
+      table.data-table td {
+        display: block;
+      }
+
+      table.data-table thead {
+        /* MANDATORY: Hide column header from layout and screen readers. */
+        display: none;
+      }
+
+      table.data-table tbody tr {
+        margin-block-end: 1.15rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      table.data-table tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: var(--bg-elevated);
+        border-right: none;
+        min-width: 0;
+      }
+
+      table.wood-table {
+        --label-2: "Tọa độ đặt (mm)";
+        --label-3: "Dài × Sâu × Cao (mm)";
+        --label-4: "Cung Đỏ Lỗ Ban 38,8cm";
+        --label-5: "Quy cách Việt Nam Cách Tân";
+        --label-6: "Dự toán (VNĐ)";
+      }
+
+      table.wood-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--text-muted); }
+      table.wood-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--text-muted); }
+      table.wood-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--text-muted); }
+      table.wood-table td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 700; color: var(--text-muted); }
+      table.wood-table td:nth-child(6)::before { content: var(--label-6) ": "; font-weight: 700; color: var(--text-muted); }
+
+      table.me-coord-table {
+        --label-2: "Nhóm / Lộ";
+        --label-3: "Tọa độ chuẩn (X ; Y ; H)";
+        --label-4: "Thiết bị & Thông số chuẩn SLD / CĐ-05";
+        --label-5: "Hướng dẫn lắp đặt tại công trường";
+      }
+
+      table.me-coord-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--text-muted); }
+      table.me-coord-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--text-muted); }
+      table.me-coord-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--text-muted); }
+      table.me-coord-table td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 700; color: var(--text-muted); }
+
+      table.compare-4pa-table {
+        --label-2: "PA 1: Cách Tân 1 Cấp (Hiện Tại)";
+        --label-3: "PA 2: Cách Tân Tam Cấp (Hiện Tại)";
+        --label-4: "PA 3 (Mới): Tủ Truyền Thống + Cuốn Thư";
+        --label-5: "PA 4 (Mới): Cách Tân + Cuốn Thư";
+      }
+
+      table.compare-4pa-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--text-muted); }
+      table.compare-4pa-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--text-muted); }
+      table.compare-4pa-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--text-muted); }
+      table.compare-4pa-table td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 700; color: var(--text-muted); }
+
+      table.tamcap-depth-table {
+        --label-2: "Tổng sâu & Cung Đỏ kép";
+        --label-3: "Chia 3 bậc sâu (Cấp 1 + 2 + 3)";
+        --label-4: "So với tường cửa lùa 900 mm";
+        --label-5: "Đặt được vật phẩm gì & Khuyến nghị Q Villa";
+      }
+
+      table.tamcap-depth-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--text-muted); }
+      table.tamcap-depth-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--text-muted); }
+      table.tamcap-depth-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--text-muted); }
+      table.tamcap-depth-table td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 700; color: var(--text-muted); }
+
+      table.track-compare-table {
+        --label-2: "Nhánh A: Việt Nam Cách Tân (PA 5 / PA 2)";
+        --label-3: "Nhánh B: Gỗ Truyền Thống Tinh Chỉnh (PA 7)";
+      }
+
+      table.track-compare-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--text-muted); }
+      table.track-compare-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--text-muted); }
+
+      table.solo-tamcap-table {
+        --label-2: "Kích thước chuẩn Đỏ Lỗ Ban 38,8 cm";
+        --label-3: "Bài trí & Vật liệu hoàn thiện";
+        --label-4: "Kiểm chứng kỹ thuật & Điện M&E";
+      }
+
+      table.solo-tamcap-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--text-muted); }
+      table.solo-tamcap-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--text-muted); }
+      table.solo-tamcap-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--text-muted); }
+    }
+
+    /* Checklist Grid */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 14px;
+    }
+
+    .check-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      cursor: pointer;
+      transition: border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .check-item:hover {
+      border-color: var(--gold);
+    }
+
+    .check-item.done {
+      border-color: rgba(52, 211, 153, 0.55);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .check-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      accent-color: var(--celadon);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .check-item strong {
+      display: block;
+      color: #fff;
+      font-size: 0.89rem;
+      margin-bottom: 3px;
+    }
+
+    .check-item span {
+      font-size: 0.81rem;
+      color: var(--text-secondary);
+    }
+
+    /* Light-Dismiss Modal Dialog (modern-web-guidance: light-dismiss-a-dialog) */
+    dialog#img-modal {
+      margin: auto;
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      background: var(--bg-surface);
+      color: var(--text-main);
+      padding: 0;
+      max-width: min(96vw, 1520px);
+      max-height: 93vh;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+    }
+
+    dialog#img-modal::backdrop {
+      background-color: rgba(0, 0, 0, 0.82);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-inner {
+      padding: 14px 16px 16px;
+    }
+
+    .modal-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-bar h2 {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: var(--gold-light);
+    }
+
+    .modal-img-stage {
+      overflow: auto;
+      max-height: 82vh;
+      border-radius: 10px;
+      background: #fff;
+      cursor: zoom-in;
+    }
+
+    .modal-img-stage[data-zoom="200"],
+    .modal-img-stage[data-zoom="native"] {
+      cursor: zoom-out;
+    }
+
+    .modal-img-stage img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .modal-img-stage[data-zoom="200"] img {
+      max-width: none;
+      width: 200%;
+    }
+
+    .modal-img-stage[data-zoom="native"] img {
+      max-width: none;
+      width: auto;
+    }
+
+    footer {
+      margin-top: 36px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY HEADER -->
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" title="Về Trang Chủ — Tổng Hợp Hạng Mục &amp; Dự Toán Chi Phí Q Villa">
+        <span class="brand-badge">🏠 Q VILLA • TẦNG 3</span>
+        <div class="brand-title">
+          <h1>Hồ Sơ Chốt Phòng Thờ Tầng 3 — Mẫu Bàn Thờ Triện Vuông Mặt Đồng + Đôi Lộc Bình Bát Tràng 1m67 &amp; 04 Vách Hậu M&amp;E</h1>
+          <p>Dạ Đục Thủng Triện 90° + Mặt Đồng Vuông 140×140 • 3 Cấp Rõ Nét • Sập Chính Tâm • Đôi Lộc Bình Men Rạn Đắp Nổi 1m67 • 100% Ổ Cắm Dùng Tốt</p>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng hồ sơ Phòng Thờ">
+        <a href="index.html" style="border-color:rgba(229,169,60,0.55);color:#fde68a;">🏠 Trang Chủ</a>
+        <a href="#sec-arch-axis-check" class="active" style="border-color:rgba(244,63,94,0.92);color:#fecdd3;">📐 0. Kiểm Tra Trục Lệch Tâm (Ban Phật &amp; Cửa D9)</a>
+        <a href="#sec-pa16-battrang-backdrops" style="border-color:rgba(245,158,11,0.92);color:#fef08a;">🏺 1. Mẫu Triện Vuông + Đôi Lộc Bình &amp; 4 Vách Hậu</a>
+        <a href="#sec-pa16-solo-tamcap" style="border-color:rgba(16,185,129,0.85);color:#a7f3d0;">👑 2. PA 16 Gốc (Trơn)</a>
+        <a href="#sec-pa16-carved-styles" style="border-color:rgba(250,204,21,0.65);color:#fde68a;">🪵 3. Đối Chiếu 5 Kiểu Mộc</a>
+        <a href="#sec-sliding-door-check" style="border-color:rgba(56,189,248,0.85);color:#bae6fd;">🚪 4. Cửa Lùa Trục B &amp; Trần</a>
+        <a href="#sec-interactive-2d">📐 5. Bản Vẽ 2D 1:1 &amp; Tọa Độ</a>
+        <a href="#sec-cad-crosscheck">📄 6. Hồ Sơ Gốc</a>
+        <a href="#sec-specs-tables">📋 7. Lỗ Ban, BOQ &amp; M&amp;E</a>
+        <a href="#sec-checklist">✅ 8. Nghiệm Thu</a>
+        <a href="noi-that-toan-nha.html" style="border-color:rgba(52,211,153,0.6);color:#6ee7b7;">🪑 Nội Thất Toàn Nhà</a>
+        <a href="phong-lam-viec-tang3.html" style="border-color:rgba(56,189,248,0.6);color:#bae6fd;">💻 P. Làm Việc T3</a>
+        <a href="chieu-sang-opple-3d.html">💡 Đèn 3D</a>
+        <a href="aqara-smarthome.html">⚡ Công Tắc Aqara</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO DASHBOARD -->
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">🏺 BẢN CHỐT HOA VĂN &amp; ĐÔI LỘC BÌNH ĐẠI BÁT TRÀNG • DẠ ĐỤC THỦNG TRIỆN VUÔNG 90° + MẶT ĐỒNG VUÔNG 140×140 • LỘC BÌNH MEN RẠN ĐẮP NỔI 1M67 (THÊM ĐỨC)</span>
+        <h2>Phòng Thờ Tầng 3 Q Villa — Ban Tam Cấp Dạ Triện Vuông Mặt Đồng (<code>1.070 → 1.200 → 1.350 mm</code>), Đôi Lộc Bình Đại Gốm Sứ Bát Tràng Men Rạn Đắp Nổi <code>1.670 mm</code> &amp; 04 Vách Hậu Không Tranh Khớp <code>100%</code> Đèn – Ổ Cắm</h2>
+        <p class="hero-desc">
+          Phát triển trực tiếp từ <strong>mẫu họa tiết dạ bàn gia chủ ưng ý nhất</strong> (dạ đục thủng <code>04 + 04</code> ô xoắn <strong>Triện Hồi Văn vuông góc <code>90°</code> lọt sáng</strong> + <strong>Mặt Đồng Vàng Cổ Xước Mờ Hình Vuông <code>140×140 mm</code></strong> dập nổi chữ Thọ + 4 chân đứng vát <strong>gót hài</strong> gầm thoáng <code>820 mm</code>), kết hợp <strong>Đôi Lộc Bình Đại Gốm Sứ Bát Tràng Men Rạn Ngà Cổ Đắp Nổi Kênh Bong (cỡ <code>1m50</code> + kỷ gỗ tròn thấp <code>17 cm</code> = tổng cao <code>1.670 mm</code> cung <code>THÊM ĐỨC</code>, miệng loe phễu để trống tụ lộc, đặt tại tâm <code>Y = 310</code> &amp; <code>Y = 2.900 mm</code>)</strong> và <strong>04 phương án trang trí vách hậu <code>2.450 mm</code> (<code>0%</code> tranh vẽ, <code>0%</code> hoành phi câu đối)</strong> khớp chuẩn từng milimet với <code>03</code> đèn rọi trần <code>Φ75</code>, dây chờ <code>+2.050 mm</code> và <code>05/05</code> ổ cắm <code>S1</code> + công tắc <code>Aqara H1</code>.
+        </p>
+
+        <div class="kpi-grid">
+          <div class="kpi-box celadon">
+            <div class="kpi-label">Họa Tiết Dạ Bàn Gia Chủ Chốt ⭐</div>
+            <div class="kpi-val">Triện 90° + Đồng Vuông</div>
+            <div class="kpi-sub"><code>4+4</code> ô triện vuông góc đục thủng lọt sáng + Mặt đồng vuông <code>140×140</code> + Chân gót hài • Rõ 3 cấp <code>1.070 / 1.200 / 1.350</code></div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">Đôi Lộc Bình Đại Bát Tràng (1m67)</div>
+            <div class="kpi-val">THÊM ĐỨC • Kỷ Tròn 17cm</div>
+            <div class="kpi-sub">Men rạn ngà đắp nổi Liên Hoa Phú Quý • Bụng <code>Ø446</code> vừa khoang <code>620</code> • Eo cổ tại <code>+1.2m</code> thắt <code>Ø184</code> lộ thoáng <code>S1 #1</code>!</div>
+          </div>
+          <div class="kpi-box sky">
+            <div class="kpi-label">Vách Hậu 2.450 mm (TÀI VƯỢNG)</div>
+            <div class="kpi-val">04 Kiểu • 0% Tranh Vẽ</div>
+            <div class="kpi-sub"><code>BT1</code> Mây đan mắt cáo • <code>BT2</code> Nẹp đồng &amp; Đèn tường • <code>BT3</code> Viền triện &amp; Đĩa sáng • <code>BT4</code> Đá Travertine PCCC</div>
+          </div>
+          <div class="kpi-box rose">
+            <div class="kpi-label">Đèn +2.05m • 05 Ổ S1 • Công Tắc</div>
+            <div class="kpi-val">100% Khớp • 0% Bị Đè</div>
+            <div class="kpi-sub"><code>S1 #1 (+1.2m)</code> đúng tầm eo thắt cổ bình <code>Ø184</code> lộ thiên • <code>S1 #2 (Y=950)</code> nắp nam châm <code>160×160</code> • Giấu nguồn <code>+2.05m</code></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURAL ASYMMETRIC AXIS AUDIT: KT-2.04 + FUTURE BAN PHAT + LOGIA DOOR D9 + KT-4.08 CEILING SYNC -->
+    <section class="block" id="sec-arch-axis-check" style="border-color: rgba(244, 63, 94, 0.78); background: linear-gradient(180deg, rgba(159, 18, 57, 0.16), rgba(15, 21, 32, 0.98)); border-radius: 20px; padding: 28px 24px; margin-bottom: 18px;">
+      <div class="section-hdr">
+        <span class="section-tag" style="background:rgba(244,63,94,0.22);border-color:rgba(251,113,133,0.88);color:#fecdd3;">KIỂM TRA LẠI TRỤC KIẾN TRÚC GỐC (KT-2.04 • KT-4.08 • CỬA D9 • BAN THỜ PHẬT LÀM SAU) • PHÁT HIỆN QUAN TRỌNG TRƯỚC KHI BẮN TẤM TRẦN</span>
+        <h2 class="section-title">Tại Sao Thiết Kế Kiến Trúc Gốc KHÔNG Chia Đều Ở Giữa (<code>Tâm Y = 1.605 mm</code>) Mà Dịch Lệch Sang Phải Theo Ban Thờ Phật (Làm Sau) &amp; Cửa Kính <code>D9</code> Nhìn Ra <code>Logia 02</code>?</h2>
+        <p class="section-sub">
+          Đo bóc trực tiếp vector gốc <code>1:1</code> trên <strong><code>KT-2.04</code> (Mặt bằng nội thất)</strong>, <strong><code>KT-4.08</code> (Trần thạch cao)</strong>, <strong><code>KT-ĐV-03</code> (Khoét lỗ đèn)</strong> và đối chiếu pixel trên <strong>02 ảnh tường gạch thực tế tại công trường</strong> cho thấy: khi giữ quy hoạch <strong>Ban Thờ Phật ở tường Bắc (làm sau)</strong> và <strong>cửa lùa <code>D9</code> nhìn ra <code>Logia 02</code></strong>, tổ hợp Ban Gia Tiên <strong>bắt buộc lệch sang phải</strong> (<code>Tâm Y = 1.960 mm</code> theo <code>KT-2.04</code> &amp; dây điện tường, hoặc <code>Tâm Y = 1.800 mm</code> theo tâm cửa <code>D9</code>). Đặc biệt, phát hiện kịp thời <strong>bản vẽ Trần <code>KT-4.08</code> đang vẽ ô trần thạch cao giật cấp <code>C1 (+3.150 mm)</code> &amp; tâm thiết bị <code>L16</code> ở <code>Y = 1.605 mm</code> (lệch <code>35,5 cm</code> so với Nội thất &amp; dây điện tường!)</strong> — xử lý ngay lúc trần chưa bắn tấm tốn <strong>0 đồng</strong>!
+        </p>
+      </div>
+
+      <div class="palette-grid" style="margin-bottom:20px;">
+        <div class="palette-card" style="border-color:rgba(52,211,153,0.72);">
+          <div class="swatch-box" style="background:linear-gradient(145deg,#047857,#34d399);display:grid;place-items:center;font-weight:900;color:#022c22;font-size:0.72rem;">Y = 1.960</div>
+          <div>
+            <h4 style="color:#6ee7b7;">① Tâm Nội Thất <code>KT-2.04</code> &amp; Dây Chờ <code>+2.05m</code> Đã Chôn: <code>Y = 1.960 mm</code> (<code>+355 mm</code>)</h4>
+            <p>Để chừa trống <code>Y = 0 → 709 mm</code> đầu Bắc cho chiều sâu <strong>Ban Thờ Phật làm sau</strong> (đã chôn sẵn 2 ổ <code>S1</code> &amp; 1 dây đèn trên tường Bắc), <code>KT-2.04</code> đặt Ban Gia Tiên ở <code>Y = 1.209 → 2.710</code> (<strong>tâm <code>Y = 1.960 mm</code></strong>). Ảnh tường gạch xác nhận thợ điện <strong>đã chôn rãnh dây <code>+2.05m</code> đúng tại <code>Y ≈ 1.960 mm</code></strong>!</p>
+          </div>
+        </div>
+        <div class="palette-card" style="border-color:rgba(56,189,248,0.72);">
+          <div class="swatch-box" style="background:linear-gradient(145deg,#0369a1,#38bdf8);display:grid;place-items:center;font-weight:900;color:#082f49;font-size:0.72rem;">Y = 1.800</div>
+          <div>
+            <h4 style="color:#bae6fd;">② Tâm Cửa Kính <code>D9</code> Nhìn Ra <code>Logia 02</code>: <code>Y = 1.800 mm</code> (<code>+195 mm</code>)</h4>
+            <p>Tường Tây dài <code>3.210 mm</code> gồm: <strong>tường đặc + cột BTCT dài <code>650 mm</code></strong> đầu Bắc (che kín hông Ban Phật) + <strong>cửa kính <code>D9 = 2.300 mm</code> (<code>Y = 650 → 2.950</code>, tâm <code>1.800 mm</code>)</strong> + <strong>trụ Nam <code>260 mm</code></strong>. Nếu chia đều ở <code>1.605</code>, Lộc Bình Tả bị khuất sau tường <code>650 mm</code> và vướng lối vào Ban Phật!</p>
+          </div>
+        </div>
+        <div class="palette-card" style="border-color:rgba(244,63,94,0.78);">
+          <div class="swatch-box" style="background:linear-gradient(145deg,#be123c,#fb7185);display:grid;place-items:center;font-weight:900;color:#fff1f2;font-size:0.72rem;">LỆCH 35,5CM</div>
+          <div>
+            <h4 style="color:#fecdd3;">③ Cảnh Báo Kịp Thời Trước Khi Đóng Trần: <code>KT-4.08</code> Đang Lệch Ở <code>Y = 1.605 mm</code>!</h4>
+            <p>Trong bộ CAD gốc, bản Trần <code>KT-4.08</code> vẽ ô trần thạch cao giật cấp <code>C1 (+3.150)</code> &amp; tâm thiết bị <code>L16</code> ở giữa phòng <code>Y = 1.605</code>, bóng rọi giữa ở <code>Y = 1.520</code> (lệch <code>35,5–44 cm</code> so với bàn thờ!). Dặn đội trần dịch khung xương sang <strong><code>Y = 1.960 mm</code> (PA Kiến Trúc 1 ⭐)</strong> hoặc <strong><code>Y = 1.800 mm</code> (PA Kiến Trúc 2)</strong> trước khi bắn tấm là khớp tuyệt đối!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="render-grid" style="margin-bottom:20px;">
+        <article class="media-card" style="border-color:rgba(250,204,21,0.92);">
+          <div class="media-hdr">
+            <h3>👑 Lựa Chọn A (Đèn Ốp Trần Mỏng Sát Trần): Trần Thạch Cao Trắng Giật Cấp <code>C1 (+3.000 / +3.150 mm)</code> + Đèn Ốp Trần Mỏng Viền Gỗ Đồng (<code>Tâm Y = 1.960 mm</code>)</h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_chot_thach_cao_den_op_tran_y1960.jpg', 'Lựa Chọn A — Trần thạch cao phẳng sơn trắng giật cấp C1 (+3.000 / +3.150 mm) + Đèn ốp trần mỏng sát trần viền gỗ óc chó lồng đồng (0% đèn lồng thả): Bên trái chừa khoảng thở 720 mm sạch thoáng dự phòng lắp Ban Thờ Phật sau này; vách hậu phẳng đá Travertine kem ngà mờ lồng 2 nẹp chỉ đồng mảnh + 2 cánh lam gỗ hắt LED 3000K; Ban Tam Cấp 1.530 mm dạ Triện Vuông Mặt Đồng + Đôi Lộc Bình Bát Tràng men rạn đắp nổi 1.550 mm + Sập chân quỳ 1.530×980 mm đồng trục tại Y = 1.960 mm')">🔍 Phóng to 3D</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_chot_thach_cao_den_op_tran_y1960.jpg" download="QVilla_Chot_Tran_Thach_Cao_Den_Op_Tran_Lech_Tam_Y1960.jpg">⬇️ Tải ảnh 3D</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_chot_thach_cao_den_op_tran_y1960.jpg"
+              alt="Phối cảnh 3D góc rộng Lựa chọn A Phòng Thờ Tầng 3 Q Villa: Trần thạch cao trắng phẳng giật cấp khe LED 3000K gắn đèn ốp trần mỏng vuông bo góc viền gỗ đồng, vách phẳng đá Travertine kem ngà lồng 2 chỉ đồng mảnh và 2 cánh lam gỗ hắt sáng, bàn thờ tam cấp 1.530 mm dạ triện vuông mặt đồng, đôi Lộc Bình Bát Tràng men rạn đắp nổi 1.550 mm và sập chân quỳ tại trục Y = 1.960 mm, chừa khoảng thở 720 mm bên trái cho Ban Thờ Phật làm sau"
+              width="1376"
+              height="768"
+              fetchpriority="high"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Tối giản, thanh thoát &amp; <code>0%</code> cản tầm nhìn:</strong> Giữ chuẩn <code>100%</code> <strong>trần thạch cao phẳng sơn trắng giật cấp <code>C1 (+3.000 / +3.150 mm)</code></strong> theo bản vẽ <code>KT-4.08</code>, gắn <strong>Đèn ốp trần mỏng sát trần (<code>dày 55–70 mm</code>, viền gỗ óc chó lồng chỉ đồng)</strong> — toàn bộ khoảng không trên Sập thoáng cao <code>3,09 m</code>, không có lồng đèn buông thõng và không tạt gió vào tàn hương.
+          </p>
+        </article>
+
+        <article class="media-card" style="border-color:rgba(52,211,153,0.88);">
+          <div class="media-hdr">
+            <h3>🌿 Lựa Chọn B (Quạt Trần Cánh Gỗ Kèm Đèn <code>3000K</code>): Trần Thạch Cao Trắng Giật Cấp <code>C1 (+3.000 / +3.150 mm)</code> + Quạt Trần Cánh Gỗ Tự Nhiên (<code>Tâm Y = 1.960 mm</code>)</h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_chot_thach_cao_quat_tran_den_y1960.jpg', 'Lựa Chọn B — Trần thạch cao phẳng sơn trắng giật cấp C1 (+3.000 / +3.150 mm) + Quạt trần 5 cánh gỗ óc chó kèm đèn LED 3000K tại tâm Y = 1.960 mm: Giải pháp đối lưu gió mát cực kỳ thực dụng vì Phòng Thờ Q Villa không lắp điều hòa (theo CĐ-17), đón gió tự nhiên từ Logia 02; bên trái chừa khoảng thở 720 mm cho Ban Phật làm sau, vách hậu phẳng lồng chỉ đồng + Ban Tam Cấp 1.530 mm + Đôi Lộc Bình Bát Tràng 1.550 mm + Sập chân quỳ')">🔍 Phóng to 3D</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_chot_thach_cao_quat_tran_den_y1960.jpg" download="QVilla_Chot_Tran_Thach_Cao_Quat_Tran_Den_Lech_Tam_Y1960.jpg">⬇️ Tải ảnh 3D</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_chot_thach_cao_quat_tran_den_y1960.jpg"
+              alt="Phối cảnh 3D góc rộng Lựa chọn B Phòng Thờ Tầng 3 Q Villa: Trần thạch cao trắng phẳng giật cấp khe LED 3000K lắp quạt trần 5 cánh gỗ óc chó kèm đèn LED ấm tại tâm Y = 1.960 mm, chừa 720 mm bên trái cho Ban Thờ Phật làm sau, bàn thờ tam cấp 1.530 mm dạ triện vuông mặt đồng, đôi Lộc Bình Bát Tràng men rạn đắp nổi và sập chân quỳ"
+              width="1376"
+              height="768"
+              fetchpriority="high"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Giải pháp công năng tối ưu cho phòng không lắp điều hòa (<code>CĐ-17</code>):</strong> Vì Phòng Thờ đón gió tự nhiên từ <code>Logia 02</code> (máy lạnh nằm bên Phòng Làm Việc), lắp <strong>Quạt trần động cơ DC cánh gỗ óc chó kèm đèn LED <code>3000K</code></strong> tại tâm <code>L16</code> giúp ngồi đàm đạo/hạ lễ trên Sập mùa hè cực mát (lúc đang đốt nhang chỉ bật đèn quạt, đợi hương tàn mới bật gió nhẹ cấp 1–2; lưu ý treo ty sắt <code>M8/M10</code> thẳng vào sàn BTCT).
+          </p>
+        </article>
+      </div>
+
+      <article class="media-card" style="border-color:rgba(52,211,153,0.85);">
+        <div class="media-hdr">
+          <h3>📐 Bản Vẽ Kiểm Tra Trục Kiến Trúc Vector 1:1 (4800 × 3120 px • Retina 144 DPI): Đối Chiếu Mặt Bằng 03 Trục Lệch Nhau &amp; 02 Phương Án Lệch Tâm Chuẩn Lỗ Ban 38,8 cm</h3>
+          <div class="btn-group">
+            <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_kiem_tra_truc_kien_truc_100.png', 'Bản vẽ kiểm tra trục kiến trúc Phòng Thờ Tầng 3 Q Villa (4800×3120 px, Retina 144 DPI): Mặt bằng vector 3.910×3.210 mm chỉ rõ 03 trục tâm lệch nhau (Trần cũ 1.605 • Cửa D9 1.800 • Nội thất KT-2.04 & Dây điện tường 1.960) cùng đối chiếu mặt đứng PA Kiến Trúc 1 ⭐ (Tâm Y = 1.960 mm, Ban 1.530 TÀI + Vách 1.950 ĐINH + Đôi Lộc Bình 1m55 TÀI ĐỨC lộ thiên cả 5/5 ổ cắm S1) và PA Kiến Trúc 2 (Tâm Y = 1.800 mm chính tâm cửa D9, Ban 1.750 QUAN)')">🔍 Phóng to bản vẽ 144 DPI</button>
+            <a class="btn celadon" href="assets/tang3_phong_tho_kiem_tra_truc_kien_truc_100.png" download="QVilla_Kiem_Tra_Truc_Kien_Truc_Lech_Tam_Ban_Phat_Cua_Logia_144DPI.png">⬇️ Tải bản vẽ PNG</a>
+          </div>
+        </div>
+        <div class="media-img-wrap" style="background:#ffffff;padding:8px;">
+          <img
+            src="assets/tang3_phong_tho_kiem_tra_truc_kien_truc_100.png"
+            alt="Bản vẽ kỹ thuật Retina 144 DPI kiểm tra trục kiến trúc Phòng Thờ Tầng 3 Q Villa theo Ban Thờ Phật làm sau và Cửa D9 ra Logia 02"
+            width="2400"
+            height="1560"
+            loading="eager"
+            onclick="openModal(this.src, this.alt)"
+          />
+        </div>
+        <p class="media-caption">
+          <strong>Khuyên chọn số 1 — Phương Án Kiến Trúc 1 ⭐ (<code>Tâm Y = 1.960 mm</code> theo đúng <code>KT-2.04</code> &amp; dây chờ <code>+2.05m</code> đã chôn):</strong> Chừa trống hoàn toàn <code>Y = 0 → 720 mm</code> cho Ban Phật làm sau; dùng <strong>Ban Gia Tiên Tam Cấp <code>1.530 × 1.070 mm</code> (<code>TÀI – Lục Hợp</code>)</strong> + <strong>Vách hậu <code>1.950 mm</code> (<code>ĐINH – Cập Đệ</code>: <code>Y = 985 → 2.935</code>)</strong> + <strong>Đôi Lộc Bình Bát Tràng <code>1.550 mm</code> (<code>TÀI – Tài Đức</code>: bình <code>1m40</code> + kỷ <code>15 cm</code>, <code>Ø420 mm</code> tại <code>Y = 930</code> &amp; <code>2.975</code>)</strong> + <strong>Sập chân quỳ <code>1.530 × 980 × C470 mm</code></strong> (cách Ban Phật <code>505–585 mm</code>). Đặc biệt ở tọa độ này, <strong>cả ổ <code>S1 #2 (Y=950)</code> lẫn <code>S1 #1 (Y=3.010)</code> đều nằm ngoài vách <code>1.950 mm</code> ngay tầm eo cổ thắt nhỏ của 2 Lộc Bình — lộ thiên toàn bộ <code>5/5</code> ổ cắm không cần mở cửa thăm!</strong>
+        </p>
+      </article>
+    </section>
+
+    <!-- NEW FLAGSHIP SECTION: CHOSEN GREEK-KEY + SQUARE BRASS MOTIF + 4 M&E-ENGINEERED BACKDROPS + 2 GRAND BAT TRANG LOC BINH -->
+    <section class="block" id="sec-pa16-battrang-backdrops" style="border-color: rgba(245, 158, 11, 0.78); background: linear-gradient(180deg, rgba(180, 83, 9, 0.14), rgba(15, 21, 32, 0.98)); border-radius: 20px; padding: 28px 24px; margin-bottom: 18px;">
+      <div class="section-hdr">
+        <span class="section-tag" style="background:rgba(245,158,11,0.24);border-color:rgba(250,204,21,0.85);color:#fef08a;">PHẦN 1 (MỚI CHỐT THEO MẪU LỘC BÌNH ĐẠI BÁT TRÀNG) • DẠ TRIỆN VUÔNG MẶT ĐỒNG + ĐÔI LỘC BÌNH MEN RẠN ĐẮP NỔI 1M67 &amp; 04 VÁCH HẬU M&amp;E</span>
+        <h2 class="section-title">04 Phương Án Vách Hậu Không Tranh Đi Cùng Mẫu Dạ Bàn Triện Vuông Mặt Đồng &amp; Đôi Lộc Bình Đại Gốm Sứ Bát Tràng Men Rạn Đắp Nổi <code>1.670 mm</code> (<code>THÊM ĐỨC</code>)</h2>
+        <p class="section-sub">
+          Cả <strong>04 phương án (<code>PA 16-BT1</code> → <code>PA 16-BT4</code>)</strong> đều đã cập nhật đồng bộ sang <strong>trần thạch cao phẳng sơn trắng giật cấp <code>C1 (+3.000 / +3.150 mm)</code> chuẩn thiết kế gốc</strong>, phối hợp trực quan cả hai lựa chọn thiết bị tâm trần <code>L16</code>: <strong>Đèn ốp trần mỏng sát trần (<code>BT1</code>, <code>BT3</code>)</strong> và <strong>Quạt trần cánh gỗ tự nhiên kèm đèn LED ấm <code>3000K</code> (<code>BT2</code>, <code>BT4</code>)</strong>, đi cùng <strong>Ban Tam Cấp đục thủng Triện Vuông <code>90°</code> + Mặt Đồng Vuông <code>140×140 mm</code></strong>, <strong>Đôi Lộc Bình Đại gốm sứ Bát Tràng men rạn đắp nổi <code>1.670 mm</code> (<code>THÊM ĐỨC</code>)</strong> và <strong>Sập chân quỳ</strong>.
+        </p>
+      </div>
+
+      <!-- 3 ENGINEERING HIGHLIGHTS FOR LIGHTS, SWITCHES, OUTLETS & GRAND LOC BINH -->
+      <div class="palette-grid" style="margin-bottom:22px;">
+        <div class="palette-card" style="border-color:rgba(52,211,153,0.65);">
+          <div class="swatch-box" style="background:linear-gradient(145deg,#059669,#34d399);display:grid;place-items:center;font-weight:900;color:#022c22;font-size:0.73rem;">EO Ø184MM</div>
+          <div>
+            <h4 style="color:#6ee7b7;">① Ăn Khớp Hình Học Tuyệt Hảo Giữa Eo Cổ Lộc Bình &amp; Ổ Cắm <code>S1 #1 (+1.2m)</code></h4>
+            <p>Bụng Lộc Bình phình to nhất <code>Ø446 mm</code> nằm thấp ở cốt <code>+650 → +900 mm</code>; còn đúng tại cao độ <strong><code>+1.200 mm</code> của ổ <code>S1 #1 (Y = 3.010)</code></strong> chính là <strong>eo cổ thắt nhỏ chỉ <code>Ø184 mm</code></strong> (cách tường hậu <code>238 mm</code>, nằm ngoài vách <code>2.450 mm</code> tới <code>180 mm</code>) — <strong>thò tay cắm rút thoải mái <code>100%</code> không bao giờ vướng bụng bình!</strong></p>
+          </div>
+        </div>
+        <div class="palette-card" style="border-color:rgba(250,204,21,0.65);">
+          <div class="swatch-box" style="background:linear-gradient(145deg,#b45309,#facc15);display:grid;place-items:center;font-weight:900;color:#1c1917;font-size:0.73rem;">+2.050 MM</div>
+          <div>
+            <h4 style="color:#fde68a;">② Không Lộ Dây &amp; Đèn Tường <code>BT2</code> Cao Hơn Miệng Lộc Bình <code>+1.67m</code></h4>
+            <p>Đầu dây chờ <strong><code>+2.050 mm</code></strong> giữa tường <code>Trục 2</code> giấu kín nguồn <code>Driver 24V</code> cho <strong>LED hắt <code>2700K</code></strong>, <strong>Đĩa sáng âm (<code>BT3</code>)</strong> và <strong>Đôi đèn tường đồng (<code>BT2</code> treo ở <code>+2.05m</code> vọt hẳn lên trên vành miệng <code>+1.67m</code> của Lộc Bình)</strong> — bật từ <strong><code>Aqara H1 CT (14,15,16)</code></strong> ngoài cửa!</p>
+          </div>
+        </div>
+        <div class="palette-card" style="border-color:rgba(56,189,248,0.65);">
+          <div class="swatch-box" style="background:linear-gradient(145deg,#0284c7,#38bdf8);display:grid;place-items:center;font-weight:900;color:#082f49;font-size:0.73rem;">1M67 ĐỎ</div>
+          <div>
+            <h4 style="color:#bae6fd;">③ Chọn Đúng Cỡ Lộc Bình <code>1m50 + Kỷ 17cm = 1.670 mm</code> (Tránh Cỡ <code>1m8–2m0</code>)</h4>
+            <p>Hai khoang biên rộng <code>620 mm</code>: chọn cỡ <strong><code>1m50 + kỷ gỗ 17cm = 1.670 mm</code> (<code>THÊM ĐỨC</code>, bụng <code>Ø446 mm</code> hở thoáng <code>87 mm</code> mỗi bên)</strong> là bề thế chuẩn tỷ lệ nhất và đón trọn <code>02</code> đèn rọi trần <strong><code>Y = 425</code> &amp; <code>Y = 2.815 mm</code></strong> (không mua cỡ <code>1m8–2m0</code> bụng <code>Ø560 mm</code> sẽ chật khoang).</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 NEW RAZOR-SHARP 1ST-HOP 3D RENDERS WITH GRAND FLOOR-STANDING BAT TRANG LOC BINH: PA 16-BT1, BT2, BT3, BT4 -->
+      <div class="render-grid" style="margin-bottom:22px;">
+        <article class="media-card" style="border-color:rgba(250,204,21,0.88);">
+          <div class="media-hdr">
+            <h3>① PA 16-BT1 (Trần Thạch Cao Trắng + Đèn Ốp Trần Mỏng): Vách Pano Mây Đan Mắt Cáo Tự Nhiên + Đôi Lộc Bình Đại Bát Tràng Men Rạn Đắp Nổi 1m67</h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_pa16_bt1_vach_may_binh_bat_trang.jpg', 'PA 16-BT1 (Trần Thạch Cao Trắng + Đèn Ốp Trần Mỏng): Trần thạch cao phẳng sơn trắng giật cấp C1 (+3.000 / +3.150 mm) gắn đèn ốp trần mỏng viền gỗ óc chó; Ban thờ Tam Cấp đục thủng Triện Vuông 90° + Mặt Đồng Vuông chữ Thọ rõ 3 cấp; vách hậu chia 3 pano mây đan mắt cáo tự nhiên kết hợp hai cánh lam gỗ hắt LED 2700K; hai bên đặt Đôi Lộc Bình Đại gốm sứ Bát Tràng men rạn ngà cổ đắp nổi kênh bong Liên Hoa Phú Quý cao 1.670 mm')">🔍 Phóng to</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_pa16_bt1_vach_may_binh_bat_trang.jpg" download="QVilla_PA16_BT1_Tran_Thach_Cao_Den_Op_Tran_Vach_May_Dan.jpg">⬇️ Tải ảnh</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_pa16_bt1_vach_may_binh_bat_trang.jpg"
+              alt="Phối cảnh 3D PA 16-BT1 chuẩn trần thạch cao trắng phẳng giật cấp và đèn ốp trần mỏng viền gỗ: Bàn thờ tam cấp đục thủng triện vuông 90 độ gắn mặt đồng vuông chính tâm, vách hậu 3 pano mây đan mắt cáo tự nhiên viền lam gỗ hắt sáng ấm, hai bên đặt đôi Lộc Bình đại gốm Bát Tràng men rạn ngà cổ đắp nổi hoa sen trên đế kỷ gỗ tròn thấp, phía trước là Sập chân quỳ"
+              fetchpriority="high"
+              width="1376"
+              height="768"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Ấm áp chất mộc thủ công dưới nền trần thạch cao trắng thanh thoát:</strong> Trần giữ <code>100%</code> <strong>thạch cao phẳng sơn trắng giật cấp <code>C1 (+3.150 mm)</code> + Đèn ốp trần mỏng sát trần</strong>; lòng vách hậu căng <strong>mây đan mắt cáo tự nhiên chia 3 ô</strong> ăn sắc với màu <strong>men rạn ngà cổ &amp; hoa sen đắp nổi</strong> trên <strong>Đôi Lộc Bình Đại <code>1.670 mm</code> (<code>THÊM ĐỨC</code>)</strong>, đồng thời giúp ổ <code>S1 #2</code> và nguồn LED tản nhiệt tốt.
+          </p>
+        </article>
+
+        <article class="media-card" style="border-color:rgba(56,189,248,0.75);">
+          <div class="media-hdr">
+            <h3>② PA 16-BT2 (Trần Thạch Cao Trắng + Quạt Trần Cánh Gỗ Kèm Đèn): Vách Lồng Chỉ Đồng Xước &amp; Đôi Đèn Tường Đồng + Đôi Lộc Bình 1m67</h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_pa16_bt2_nep_dong_den_tuong_bat_trang.jpg', 'PA 16-BT2 (Trần Thạch Cao Trắng + Quạt Trần Cánh Gỗ Kèm Đèn): Trần thạch cao phẳng sơn trắng giật cấp C1 (+3.150 mm) lắp quạt trần 5 cánh gỗ óc chó kèm đèn LED ấm 3000K; đầu dây chờ +2.05m sau vách nuôi khe LED 2700K và Đôi đèn tường đồng chao lụa treo cao ở +2.05m phía trên vành miệng +1.67m của Đôi Lộc Bình Đại Bát Tràng men rạn đắp nổi; lòng vách chia 3 nhịp bằng 2 nẹp chỉ đồng xước ăn nhập Mặt Đồng Vuông trên dạ bàn thờ')">🔍 Phóng to</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_pa16_bt2_nep_dong_den_tuong_bat_trang.jpg" download="QVilla_PA16_BT2_Tran_Thach_Cao_Quat_Tran_Den_Nep_Dong.jpg">⬇️ Tải ảnh</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_pa16_bt2_nep_dong_den_tuong_bat_trang.jpg"
+              alt="Phối cảnh 3D PA 16-BT2 chuẩn trần thạch cao trắng và quạt trần cánh gỗ kèm đèn: Bàn thờ tam cấp dạ triện vuông mặt đồng vuông, vách hậu lồng 2 nẹp chỉ đồng xước dọc kết hợp đôi đèn tường đồng chao lụa gắn cao ở +2.05m phía trên miệng đôi Lộc Bình đại gốm Bát Tràng men rạn đắp nổi"
+              width="1376"
+              height="768"
+              loading="lazy"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Kết hợp ăn ý giữa Quạt trần cánh gỗ kèm đèn &amp; Đôi đèn tường đồng <code>+2.05m</code>:</strong> Trên nền trần thạch cao trắng giật cấp là <strong>quạt trần 5 cánh gỗ óc chó kèm đèn <code>3000K</code></strong>; dưới tường đầu dây chờ <code>+2.050 mm</code> nuôi <strong>khe LED <code>2700K</code></strong> và <strong>Đôi đèn tường đồng chao lụa</strong> treo cao trên miệng <strong>Đôi Lộc Bình Bát Tràng</strong>, bật/tắt gọn từ <code>Aqara CT (14,15,16)</code> ngoài cửa.
+          </p>
+        </article>
+
+        <article class="media-card" style="border-color:rgba(168,85,247,0.72);">
+          <div class="media-hdr">
+            <h3>③ PA 16-BT3 (Trần Thạch Cao Trắng + Đèn Ốp Trần Mỏng): Vách Viền Gỗ Đục Triện 90° Đồng Bộ Dạ Bàn &amp; Đĩa Phẳng Hắt Sáng + Đôi Lộc Bình 1m67</h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_pa16_bt3_vien_trien_vong_sang_bat_trang.jpg', 'PA 16-BT3 (Trần Thạch Cao Trắng + Đèn Ốp Trần Mỏng): Trần thạch cao phẳng sơn trắng giật cấp C1 (+3.150 mm) gắn đèn ốp trần mỏng viền gỗ óc chó; đường viền trong của vách hậu đục Triện Hồi Văn 90° đồng bộ 100% với dạ bàn thờ chân thẳng gót hài gắn Mặt Đồng Vuông chữ Thọ; chính tâm treo nổi Đĩa vữa khoáng tròn PHẲNG TRƠN (0% tranh vẽ, 0% chữ viết) tỏa quầng sáng 2700K sau Đỉnh đồng; hai bên đặt Đôi Lộc Bình Đại gốm sứ Bát Tràng men rạn ngà đắp nổi Liên Hoa cao 1.670 mm')">🔍 Phóng to</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_pa16_bt3_vien_trien_vong_sang_bat_trang.jpg" download="QVilla_PA16_BT3_Tran_Thach_Cao_Den_Op_Tran_Vien_Trien.jpg">⬇️ Tải ảnh</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_pa16_bt3_vien_trien_vong_sang_bat_trang.jpg"
+              alt="Phối cảnh 3D PA 16-BT3 chuẩn trần thạch cao trắng và đèn ốp trần mỏng: Bàn thờ tam cấp chân thẳng gót hài đục dạ triện vuông mặt đồng vuông chữ Thọ, vách hậu chạy viền gỗ đục triện vuông đồng bộ và đĩa tròn kiến trúc phẳng trơn hắt quầng sáng ấm sau Đỉnh đồng, hai bên đặt đôi Lộc Bình đại gốm Bát Tràng men rạn đắp nổi"
+              width="1376"
+              height="768"
+              loading="lazy"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Đồng bộ <code>100%</code> ngôn ngữ Triện Hồi Văn <code>90°</code> dưới trần thạch cao trắng + đèn ốp trần mỏng:</strong> Đường diềm trong của vách hậu lặp lại chính xác <strong>họa tiết Triện Vuông + Mặt Đồng Vuông của dạ bàn thờ</strong>; tâm dây chờ <code>+2.050 mm</code> đặt <strong>đĩa tròn phẳng trơn không tranh</strong> hắt vầng sáng <code>2700K</code> tụ khí, đối xứng uy nghi cùng <strong>Đôi Lộc Bình Đại Bát Tràng</strong>.
+          </p>
+        </article>
+
+        <article class="media-card" style="border-color:rgba(52,211,153,0.75);">
+          <div class="media-hdr">
+            <h3>④ PA 16-BT4 ⭐ (Trần Thạch Cao Trắng + Quạt Trần Lá Gỗ Kèm Đèn): Vách Đá Tự Nhiên Travertine Kem Mờ Lồng Chỉ Đồng + Đôi Lộc Bình 1m67</h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_pa16_bt4_da_travertine_binh_bat_trang.jpg', 'PA 16-BT4 ⭐ (Trần Thạch Cao Trắng + Quạt Trần Cánh Lá Gỗ Kèm Đèn • Chuẩn PCCC & Chống Bám Khói Vĩnh Cửu): Trần thạch cao phẳng sơn trắng giật cấp C1 (+3.150 mm) lắp quạt trần 3 cánh gỗ điêu khắc kèm đèn LED ấm 3000K; lòng vách hậu ốp đá tự nhiên Travertine kem ấm mài mờ (honed) chia mạch ngang lồng chỉ đồng mảnh — vật liệu không cháy cấp A1 bảo vệ tuyệt đối vùng ổ cắm ngầm S1 #2 & nguồn LED +2.05m; hai bên đặt Đôi Lộc Bình Đại gốm sứ Bát Tràng men rạn ngà cổ đắp nổi 1.670 mm')">🔍 Phóng to</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_pa16_bt4_da_travertine_binh_bat_trang.jpg" download="QVilla_PA16_BT4_Tran_Thach_Cao_Quat_Tran_Den_Da_Travertine.jpg">⬇️ Tải ảnh</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_pa16_bt4_da_travertine_binh_bat_trang.jpg"
+              alt="Phối cảnh 3D PA 16-BT4 chuẩn trần thạch cao trắng và quạt trần cánh gỗ điêu khắc kèm đèn: Bàn thờ tam cấp dạ triện vuông mặt đồng vuông, vách hậu ốp đá tự nhiên Travertine kem ấm mài mờ xẻ rãnh chỉ đồng ngang kết hợp hai cánh lam gỗ hắt sáng, hai bên đặt đôi Lộc Bình đại gốm Bát Tràng men rạn ngà đắp nổi"
+              width="1376"
+              height="768"
+              loading="lazy"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Giải pháp bền vững 30 năm &amp; thoáng mát chuẩn thiết kế gốc:</strong> Phối hợp <strong>trần thạch cao trắng + quạt trần 3 cánh gỗ điêu khắc kèm đèn <code>3000K</code></strong> với <strong>vách đá tự nhiên Travertine kem mài mờ lồng chỉ đồng ngang</strong> — vừa <strong>chống ố khói nhang <code>100%</code></strong>, đạt <strong>chống cháy PCCC cấp A1</strong> trước ổ <code>S1 #2</code>, vừa làm nền sang trọng tôn vân đắp nổi của <strong>Đôi Lộc Bình Đại Bát Tràng</strong>.
+          </p>
+        </article>
+      </div>
+
+      <!-- NEW 5K 144 DPI CARPENTRY + M&E + GRAND BAT TRANG LOC BINH MASTER BLUEPRINT -->
+      <article class="media-card" style="border-color:rgba(245,158,11,0.82);">
+        <div class="media-hdr">
+          <h3>📐 Bản Vẽ Kỹ Thuật Chốt Họa Tiết Triện Vuông Mặt Đồng + Đôi Lộc Bình Bát Tràng 1m67 &amp; 04 Vách Hậu M&amp;E (4800×3040 px • Retina 144 DPI)</h3>
+          <div class="btn-group">
+            <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_pa16_hoa_tiet_trien_dong_vach_hau_binh_bat_trang_100.png', 'Bản vẽ kỹ thuật Retina 144 DPI (4800×3040 px): (1) Mặt đứng tổng thể tường Trục 2 rộng 3.210 mm phối hợp 03 đèn rọi Φ75, dây chờ +2.05m, Đôi Lộc Bình Đại Bát Tràng 1.670 mm (THÊM ĐỨC) có eo cổ thắt Ø184 mm đúng tầm +1.2m lộ thiên hoàn toàn ổ cắm S1 #1 (Y=3.010), nắp thăm S1 #2 160×160; (2) Bản vẽ phóng đại quy cách đục dạ Triện Vuông 90° + Mặt Đồng Vuông 140×140; (3) Sơ đồ 04 vách hậu BT1–BT4 & bảng khóa M&E')">🔍 Phóng to 5K (144 DPI)</button>
+            <a class="btn celadon" href="assets/tang3_phong_tho_pa16_hoa_tiet_trien_dong_vach_hau_binh_bat_trang_100.png" download="QVilla_PA16_Chot_Hoa_Tiet_Trien_Dong_Doi_Loc_Binh_Bat_Trang_1m67_100.png">⬇️ Tải Bản Vẽ 5K (PNG)</a>
+          </div>
+        </div>
+        <div class="media-img-wrap" style="background:#fff;">
+          <img
+            src="assets/tang3_phong_tho_pa16_hoa_tiet_trien_dong_vach_hau_binh_bat_trang_100.png"
+            alt="Bản vẽ kỹ thuật Retina 144 DPI (4800x3040 px) chi tiết mẫu dạ bàn thờ đục thủng triện vuông 90 độ gắn mặt đồng vuông 140x140mm, phối hợp Đôi Lộc Bình Đại gốm sứ Bát Tràng men rạn đắp nổi 1.670mm trên kỷ gỗ tròn thấp và 04 phương án vách hậu khớp 03 đèn rọi trần, dây chờ +2.05m, ổ cắm S1 #1 lộ thiên tại eo cổ bình và S1 #2 cửa thăm nam châm"
+            width="4800"
+            height="3040"
+            loading="lazy"
+            onclick="openModal(this.src, this.alt)"
+          />
+        </div>
+        <p class="media-caption">
+          <strong>Ba lưu ý vàng khi đặt hàng &amp; thi công thực tế:</strong> (1) Đặt thợ gốm Bát Tràng đúng cỡ <strong>Lộc Bình <code>1m50</code> + kỷ gỗ tròn <code>17 cm</code> = tổng cao <code>1.670 mm</code> (cung Đỏ <code>THÊM ĐỨC</code>, bụng <code>Ø446 mm</code>)</strong> — vừa khít khoang <code>620 mm</code> mà phần <strong>eo cổ ở cao độ <code>+1.200 mm</code> thắt nhỏ chỉ <code>Ø184 mm</code></strong> để lộ thoáng <code>100%</code> ổ cắm <code>S1 #1 (Y = 3.010)</code>; (2) Dặn xưởng mộc đục dạ bàn đúng <strong>góc vuông <code>90°</code> (<code>4 + 4</code> ô xoắn triện lọt sáng + tấm đồng HÌNH VUÔNG <code>140×140 mm</code> hạ gờ đáy <code>15 mm</code>)</strong>; (3) Miệng loe phễu của Đôi Lộc Bình <strong>để trống <code>100%</code> tụ tài khí</strong> (không cắm hoa cành vào lòng Lộc Bình).
+        </p>
+      </article>
+    </section>
+
+    <!-- SECTION 1 (PA 16 BASELINE — MODERN MINIMALIST SMOOTH ALTAR): SOLO OPEN-UNDERNEATH TAM CẤP + CENTERED TRADITIONAL SẬP -->
+    <section class="block" id="sec-pa16-solo-tamcap">
+      <div class="section-hdr">
+        <span class="section-tag" style="background:rgba(16,185,129,0.18);border-color:rgba(16,185,129,0.65);color:#a7f3d0;">PHẦN 1 • KIỂU 0 (PA 16 GỐC — PHƯƠNG ÁN TRƠN HIỆN ĐẠI TỐI GIẢN)</span>
+        <h2 class="section-title">PA 16 Gốc (Trơn Hiện Đại): Ban Tam Cấp Phẳng Tối Giản Rõ 3 Tầng <code>1.070 → 1.200 → 1.350 mm</code> &amp; Sập Chân Quỳ Chính Tâm</h2>
+        <p class="section-sub">
+          Phiên bản nền tảng <strong>Trơn Hiện Đại</strong> của bố cục đối xứng <strong><em>“Tiền Sập – Hậu Án”</em></strong>: giữ nguyên kiến trúc vách hậu hai biên lam gỗ hắt sáng <code>2700K</code> không tranh, gầm bàn thoáng <code>820 mm</code> không tủ cơm, dạ yếm và cổ bậc làm <strong>phẳng trơn tối giản khoe vân gỗ tự nhiên</strong>, nổi bật rõ <strong>03 tầng bậc chạy suốt <code>1.970 mm</code></strong> phía sau chiếc <strong>Sập gỗ chân quỳ chính tâm (<code>1.760 × 980 × C470 mm</code>)</strong>.
+        </p>
+      </div>
+
+      <!-- 3 KEY HIGHLIGHTS -->
+      <div class="palette-grid" style="margin-bottom:20px;">
+        <div class="palette-card" style="border-color:rgba(52,211,153,0.55);">
+          <div class="swatch-box" style="background:linear-gradient(145deg,#059669,#34d399);display:grid;place-items:center;font-weight:900;color:#022c22;font-size:0.74rem;">+130/+150</div>
+          <div>
+            <h4 style="color:#6ee7b7;">① Nâng Chênh Bậc Lên <code>+130</code> &amp; <code>+150 mm</code> (Bỏ Tai Cuốn)</h4>
+            <p>Thay vì giật <code>10 cm</code> dễ bị nuốt theo phối cảnh, đóng <strong>Cấp 1 cao <code>1.070</code> (<code>HƯNG</code>) → Cấp 2 cao <code>1.200</code> (<code>ĐINH</code>, <code>+130 mm</code>) → Cấp 3 cao <code>1.350 mm</code> (<code>NGHĨA</code>, <code>+150 mm</code>)</strong>, mép bàn phẳng thẳng không làm tai cuốn chắn tầm nhìn.</p>
+          </div>
+        </div>
+        <div class="palette-card" style="border-color:rgba(250,204,21,0.55);">
+          <div class="swatch-box" style="background:linear-gradient(145deg,#b45309,#facc15);display:grid;place-items:center;font-weight:900;color:#1c1917;font-size:0.74rem;">500-280-290</div>
+          <div>
+            <h4 style="color:#fde68a;">② Phân Tầng Đồ Đồng Đúng Ngôi Thứ (Không Đặt Lẫn)</h4>
+            <p>Chia sâu <code>1.070 mm</code> thành <strong><code>500 + 280 + 290 mm</code></strong>: <strong>Cấp 1 (<code>500</code>) để trống <code>100%</code></strong> (đứng lễ ở khe <code>810 mm</code> với tay cắm hương chỉ <code>62 cm</code>); <strong>Cấp 2 (<code>280</code>) chỉ đặt <code>03</code> Bát hương đồng</strong>; <strong>Cấp 3 (<code>290</code>) chỉ đặt <code>01</code> Đỉnh + <code>02</code> Hạc đồng cỡ <code>50–55</code></strong>.</p>
+          </div>
+        </div>
+        <div class="palette-card" style="border-color:rgba(56,189,248,0.55);">
+          <div class="swatch-box" style="background:linear-gradient(145deg,#0284c7,#38bdf8);display:grid;place-items:center;font-weight:900;color:#082f49;font-size:0.74rem;">ĐỐI XỨNG</div>
+          <div>
+            <h4 style="color:#bae6fd;">③ Thế “Tiền Sập – Hậu Án” &amp; Ánh Sáng Rọi Tách Khối</h4>
+            <p>Sập chân quỳ <strong><code>1.760 × 980 × C470 mm</code></strong> đặt chính tâm trước bàn thờ (chừa <code>810 mm</code> đứng lễ phía trước, <code>830 mm</code> sau lưng, <code>725 mm</code> đều hai bên); <code>03</code> đèn Spotlight <code>24D 3000K</code> tại <code>X = 3.265</code> rọi chéo <code>25°</code> tạo mảng sáng–tối tách nét từng mặt bậc gỗ.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 ULTRA-SHARP 1ST-HOP 3D RENDERS OF PA 16 MODERN PLAIN -->
+      <div class="render-grid" style="margin-bottom:20px;">
+        <article class="media-card" style="border-color:rgba(16,185,129,0.75);">
+          <div class="media-hdr">
+            <h3>① PA 16 Gốc (Trơn Hiện Đại • Góc Chính Diện Logia D9): Tam Cấp Phẳng Suốt Ngang Rõ 3 Tầng &amp; Sập Chính Tâm</h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_pa16_sap_chinh_tam_3cap_ro.jpg', 'PA 16 Gốc — Trơn Hiện Đại (Góc chính diện tầm mắt đứng từ Logia D9): Bàn thờ Tam Cấp dáng phẳng tối giản khoe vân gỗ tự nhiên, nổi rõ cả 03 tầng bậc suốt ngang 1.070 → 1.200 (+130) → 1.350 mm (+150); phía trước là Sập gỗ truyền thống chân quỳ 1.760×980×C470 mm chính tâm')">🔍 Phóng to</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_pa16_sap_chinh_tam_3cap_ro.jpg" download="QVilla_PA16_Goc_Tron_Hien_Dai_Chinh_Dien.jpg">⬇️ Tải ảnh</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_pa16_sap_chinh_tam_3cap_ro.jpg"
+              alt="Phối cảnh 3D chính diện từ cửa Logia D9 của PA 16 Gốc Trơn Hiện Đại: Cấp 1 trống thoáng cao 1070mm, Cấp 2 cao 1200mm đặt 3 Bát hương đồng, Cấp 3 cao 1350mm đặt Đỉnh đồng và đôi Hạc đồng cưỡi rùa, phía trước là Sập gỗ truyền thống chân quỳ 4 chân đặt chính tâm"
+              fetchpriority="high"
+              width="1376"
+              height="768"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Kiểu 0 — Trơn Hiện Đại Tối Giản:</strong> Toàn bộ chân vuông <code>100×100 mm</code>, dạ yếm và cổ 3 bậc làm phẳng trơn không chạm trổ để tôn đường nét kiến trúc đương đại, vân gỗ Óc Chó / Sồi tự nhiên và ánh đồng trầm mặc của Bộ Đỉnh Hạc đồng.
+          </p>
+        </article>
+
+        <article class="media-card" style="border-color:rgba(52,211,153,0.6);">
+          <div class="media-hdr">
+            <h3>② PA 16 Gốc (Trơn Hiện Đại • Góc Chéo 35° 3/4): Nhìn Rõ Hông Bậc Thang 3 Cấp <code>500 + 280 + 290</code> &amp; Khe Đứng Lễ <code>810 mm</code></h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_pa16_goc_34_sap_chinh_tam_3cap_ro.jpg', 'PA 16 Gốc — Trơn Hiện Đại (Góc chéo 35° 3/4): Thể hiện trực quan mặt cắt bậc thang 3 tầng (sâu 500 + 280 + 290 = 1.070 mm, cao 1.070 / 1.200 / 1.350 mm), gầm thoáng cao 820 mm và khoảng đứng thắp hương rộng 810 mm giữa Sập chân quỳ và Ban Tam Cấp')">🔍 Phóng to</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_pa16_goc_34_sap_chinh_tam_3cap_ro.jpg" download="QVilla_PA16_Goc_Tron_Hien_Dai_Goc_34.jpg">⬇️ Tải ảnh</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_pa16_goc_34_sap_chinh_tam_3cap_ro.jpg"
+              alt="Phối cảnh 3D góc chéo 35 độ phòng thờ Q Villa cho thấy rõ mặt bên giật bậc thang 3 tầng của Ban Tam Cấp (500 + 280 + 290 = 1070mm), gầm bàn thoáng 820mm và khoảng lối đứng thắp hương 810mm phía sau Sập gỗ truyền thống chân quỳ chính tâm"
+              width="1376"
+              height="768"
+              loading="lazy"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Kiểm chứng tỷ lệ không gian thực <code>1:1</code>:</strong> Góc nhìn <code>3/4</code> cho thấy rõ kết cấu <strong>bậc thang 3 tầng liền khối</strong>, 4 chân gầm thoáng <code>820 mm</code> thanh thoát và <strong>khoảng đứng hành lễ rộng <code>810 mm</code> (<code>ĐINH</code>)</strong> giữa chiếc Sập chân quỳ và mặt tiền bàn thờ — gia chủ đứng khấn vái, thắp nhang lên Cấp 2 cực kỳ vừa tầm tay (<code>~62 cm</code>).
+          </p>
+        </article>
+      </div>
+
+      <!-- 5K 144 DPI RETINA 1:1 MASTER BLUEPRINT FOR PA 16 + SẬP TRUYỀN THỐNG + ĐỈNH HẠC ĐỒNG -->
+      <article class="media-card" style="margin-bottom:20px;border-color:rgba(16,185,129,0.72);">
+        <div class="media-hdr">
+          <h3>📐 Bản Vẽ Chốt Đóng Mộc 1:1 (4800×3080 px • Retina 144 DPI Siêu Nét): Mặt Đứng + Mặt Cắt Dọc Tia Nhìn 3 Cấp (500+280+290) &amp; Mặt Bằng Tiền Sập – Hậu Án</h3>
+          <div class="btn-group">
+            <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_pa16_sap_truyen_thong_dinh_hac_dong_100.png', 'Bản vẽ kỹ thuật chốt đóng mộc tỷ lệ 1:1 (4800×3080 px • Retina 144 DPI nền giấy CAD trắng): Mặt đứng chính diện PA 16 rõ 3 cấp (1.070 / 1.200 / 1.350 mm), sơ đồ mặt bằng 3 bậc 500+280+290 = 1.070 mm, Mặt cắt dọc tia nhìn tầm mắt 1,60 m + góc đèn rọi 25°, và Mặt bằng khóa tọa độ Sập chính tâm 830 + 980 + 810 + 1.070 = 3.690 mm')">🔍 Phóng to 5K (144 DPI)</button>
+            <a class="btn celadon" href="assets/tang3_phong_tho_pa16_sap_truyen_thong_dinh_hac_dong_100.png" download="QVilla_PA16_Chot_Tam_Cap_1070_1200_1350_Va_Sap_Chinh_Tam_100.png">⬇️ Tải Bản Vẽ 5K (PNG)</a>
+          </div>
+        </div>
+        <div class="media-img-wrap" style="background:#fff;">
+          <img
+            src="assets/tang3_phong_tho_pa16_sap_truyen_thong_dinh_hac_dong_100.png"
+            alt="Bản vẽ kỹ thuật Retina 144 DPI tỷ lệ 1:1 (4800x3080 px) mặt đứng PA 16 rõ 3 tầng bậc 1070-1200-1350mm, mặt cắt dọc tia nhìn 1.60m và mặt bằng chốt Sập truyền thống chính tâm Tiền Sập Hậu Án"
+            width="4800"
+            height="3080"
+            loading="lazy"
+            onclick="openModal(this.src, this.alt)"
+          />
+        </div>
+        <p class="media-caption">
+          <strong>Bí quyết để thợ mộc đóng lên nhìn rõ nét từng cấp ngoài thực tế (áp dụng chung cho cả 05 kiểu bàn thờ):</strong> (1) Đóng đúng cao độ <strong><code>1.070 – 1.200 – 1.350 mm</code></strong> (chênh <code>+13 cm</code> và <code>+15 cm</code>); (2) Mép trước mỗi mặt bậc <strong>soi gờ chỉ bo <code>28 mm</code> hơi đua nhẹ <code>10 mm</code> tạo đường bóng đổ sắc cạnh</strong> dưới ánh đèn Spotlight <code>3000K</code>, tuyệt đối <strong>không làm tai cuốn cong vểnh</strong> che khuất bậc trong; (3) Chọn <strong>Bộ Đỉnh Hạc Đồng cỡ <code>50</code> hoặc <code>55</code></strong> (đế <code>Ø18–20 cm</code>) vừa vặn chính giữa bậc Cấp 3 sâu <code>290 mm</code>.
+        </p>
+      </article>
+
+      <!-- CONCISE RITUAL & FURNITURE PLACEMENT TABLE -->
+      <div tabindex="0" role="region" aria-labelledby="solo-tamcap-caption" class="table-wrapper">
+        <table class="data-table solo-tamcap-table">
+          <caption id="solo-tamcap-caption">
+            Bảng Khóa Kích Thước Đóng Mộc 3 Cấp Rõ Nét &amp; Thế “Tiền Sập – Hậu Án” (100% Cung Đỏ Lỗ Ban 38,8 cm — Giữ Nguyên Cho Mọi Kiểu Chạm Khắc)
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Hạng mục / Tầng bậc</th>
+              <th scope="col">Kích thước chuẩn Đỏ Lỗ Ban 38,8 cm</th>
+              <th scope="col">Bài trí &amp; Chi tiết tách nét 3 cấp</th>
+              <th scope="col">Kiểm chứng công thái học &amp; Điện M&amp;E</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><strong>Cấp 3 (Bậc trên cùng)</strong></th>
+              <td>• Cao <strong><code>1.350 mm</code> (<code>NGHĨA – Đại Cát</code>, <code>+150 mm</code>)</strong><br>• Sâu bậc <strong><code>290 mm</code> (<code>HƯNG – Hưng Vượng</code>)</strong><br>• Dài suốt <strong><code>1.970 mm</code> (<code>ĐINH</code>)</strong></td>
+              <td>• <strong>Chỉ đặt Bộ Tam Sự Đồng cỡ <code>50–55</code>:</strong> <code>01</code> Đỉnh đồng nắp Nghê chính tâm (đế <code>Ø18–20 cm</code> cách mép trước/sau đều <code>4,5–5,5 cm</code>) + <code>02</code> Hạc đồng cưỡi rùa chầu hướng mỏ vào tâm.<br>• Không treo tranh, không ảnh thờ, không ngai bài vị.</td>
+              <td>Lòng hậu Cấp 3 khoét rỗng sâu <code>75 mm</code> ôm gọn đế ổ <code>S1 #2 (+1.2m)</code> + làm <strong>cửa thăm nam châm <code>160×160 mm</code></strong> tại <code>Y = 950 mm</code> đóng mở trong 1 giây.</td>
+            </tr>
+            <tr>
+              <th scope="row"><strong>Cấp 2 (Bậc giữa)</strong></th>
+              <td>• Cao <strong><code>1.200 mm</code> (<code>ĐINH – Đăng Khoa</code>, <code>+130 mm</code>)</strong><br>• Sâu bậc <strong><code>280 mm</code> (<code>HƯNG – Quý Tử</code>)</strong><br>• Dài suốt <strong><code>1.970 mm</code> (<code>ĐINH</code>)</strong></td>
+              <td>• <strong>Chỉ đặt <code>03</code> Bát hương đồng sẫm</strong> (giữa Thần Linh <code>Ø20–22 cm</code>, hai bên <code>Ø18 cm</code> — hoặc <code>01</code> Bát lớn tùy lệ nhà) kê đế gỗ ngay ngắn chính trục.<br>• Cao hơn Cấp 1 đúng <code>13 cm</code> nên nhìn từ cửa <code>D9</code> nổi trọn cả đế bát hương, không bao giờ bị khuất!</td>
+              <td>Đứng tại khe hành lễ <code>810 mm</code> trước bàn thờ, khoảng vươn tay tới tâm Bát hương trên Cấp 2 chỉ <strong><code>~62 cm</code></strong> (nhờ Cấp 1 thu chuẩn <code>500 mm</code>) → Cắm hương cực kỳ nhẹ nhàng, không phải rướn người.</td>
+            </tr>
+            <tr>
+              <th scope="row"><strong>Cấp 1 (Mặt bàn ngoài)</strong></th>
+              <td>• Cao <strong><code>1.070 mm</code> (<code>HƯNG – Quý Tử</code>)</strong><br>• Sâu bậc <strong><code>500 mm</code> (<code>VƯỢNG – Thiên Đức</code>)</strong><br>• Tổng sâu 3 bậc: <code>500 + 280 + 290 =</code> <strong><code>1.070 mm</code> (<code>HƯNG</code>)</strong></td>
+              <td>• <strong>Ngày thường để trống <code>100%</code></strong> (không đặt Hạc hay bát hương xuống đây), mép bàn phẳng thẳng <strong>không làm tai cuốn</strong>.<br>• Ngày Giỗ / Tết đặt trực tiếp <strong>mâm cỗ tròn <code>Ø450 mm</code></strong> (cổ bàn đóng mộng liền khối không cần mâm kéo âm).</td>
+              <td>Gầm bàn thoáng sạch cao <strong><code>820 mm</code> (<code>NGHĨA</code>)</strong>, bỏ <code>100%</code> tủ cơm hộp kín; <code>03</code> đèn Spotlight <code>SLD-DSP02 24D</code> tại <code>X = 3.265</code> rọi chéo <code>25°</code> tạo bóng đổ tách rõ 3 mặt bậc.</td>
+            </tr>
+            <tr>
+              <th scope="row"><strong>Sập Gỗ Truyền Thống Chân Quỳ</strong></th>
+              <td>• <strong>Chốt Chính Tâm ⭐ (“Tiền Sập – Hậu Án”):</strong> <code>1.760 (QUAN) × 980 (PHÚ QUÝ) × C470 mm (VƯỢNG/HƯNG)</code></td>
+              <td>• Sập truyền thống Bắc Bộ 4 chân quỳ đục dạ triện / dạ cá thanh lịch, mặt sập khung tranh lá ván liền tấm phẳng mịn, gỗ Sồi/Gụ/Óc Chó phun PU mờ <code>10–15%</code> đồng màu <code>100%</code> với Ban Tam Cấp.</td>
+              <td>• <strong>Chuỗi kích thước dọc <code>3.690 mm</code>:</strong> <code>830 mm</code> (lối đi sau lưng tại cửa <code>D9</code>) + <code>980 mm</code> (Sập) + <code>810 mm</code> (<code>ĐINH</code>, khoảng đứng lễ) + <code>1.070 mm</code> (Tam Cấp) = <code>3.690 mm</code>; hai bên <code>725 = 725 mm</code>. Cả <code>4</code> ổ <code>S1 #1, #3, #4, #5</code> lộ thiên hoàn toàn!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 4 CARVED ALTAR VARIATIONS BASED ON PA 16 (2 MODERN VIETNAMESE "VIỆT NAM CÁCH TÂN" + 2 TRADITIONAL NORTHERN VIETNAMESE "TRUYỀN THỐNG") -->
+    <section class="block" id="sec-pa16-carved-styles" style="border-color: rgba(250, 204, 21, 0.65); background: linear-gradient(180deg, rgba(180, 83, 9, 0.11), rgba(15, 21, 32, 0.98)); border-radius: 20px; padding: 28px 24px; margin-top: 18px;">
+      <div class="section-hdr">
+        <span class="section-tag" style="background:rgba(245,158,11,0.22);border-color:rgba(250,204,21,0.75);color:#fef08a;">PHẦN 2 (MỚI BỔ SUNG) • 04 KIỂU TRANG TRÍ CHẠM KHẮC BÀN THỜ DỰA TRÊN PA 16: VIỆT NAM CÁCH TÂN &amp; TRUYỀN THỐNG BẮC BỘ</span>
+        <h2 class="section-title">Từ <code>PA 16</code> Trơn Hiện Đại Mở Rộng Thêm <code>02</code> Mẫu Việt Nam Cách Tân (<code>CT1</code>, <code>CT2</code>) &amp; <code>02</code> Mẫu Truyền Thống Bắc Bộ (<code>TT1</code>, <code>TT2</code>)</h2>
+        <p class="section-sub">
+          Giữ nguyên <code>100%</code> không gian và tỷ lệ vàng đã chốt của <strong><code>PA 16</code></strong> (<em>“Tiền Sập – Hậu Án”</em>, <code>0%</code> Ban Phật, <code>0%</code> bàn trà, <code>0%</code> tranh tường / hoành phi câu đối, <code>0%</code> tủ cơm, <strong>3 cấp chạy suốt <code>1.070 → 1.200 → 1.350 mm</code></strong> bài trí Bộ Đỉnh Hạc đồng + 03 Bát hương đồng), dưới đây là <strong>04 phương án trang trí chạm mộc trực tiếp trên chiếc Ban Tam Cấp &amp; Sập ngồi</strong> — cùng lên tông <strong>Gỗ Nâu Trầm Sơn PU Mờ <code>10–15%</code></strong> để gia đình dễ dàng đặt cạnh bản <code>PA 16 Trơn</code> đối chiếu và chọn đúng thần thái ưng ý nhất.
+        </p>
+      </div>
+
+      <!-- SUBGROUP A: 2 MODERN VIETNAMESE ("VIỆT NAM CÁCH TÂN") -->
+      <div style="margin-bottom:10px;">
+        <span class="insp-pill" style="background:rgba(16,185,129,0.20);border-color:rgba(52,211,153,0.65);color:#a7f3d0;">NHÓM A • PHONG CÁCH VIỆT NAM CÁCH TÂN (TINH TẾ, THOÁNG NHẸ, ĂN NHẬP BIỆT THỰ HIỆN ĐẠI)</span>
+      </div>
+      <div class="render-grid" style="margin-bottom:24px;">
+        <article class="media-card" style="border-color:rgba(250,204,21,0.78);">
+          <div class="media-hdr">
+            <h3>① PA 16-CT1 ⭐ (Việt Nam Cách Tân 1 — Khuyên Chọn): Dạ Đục Thủng Chữ Vạn / Triện Hồi Văn &amp; Mặt Đồng Chữ Thọ Xước Mờ</h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_pa16_ct1_trien_van_mat_dong.jpg', 'PA 16-CT1 (Việt Nam Cách Tân 1 — Dạ Thủng Chữ Vạn & Mặt Đồng Chữ Thọ): Giữ trọn 3 cấp chạy suốt rõ nét (1.070 → 1.200 → 1.350 mm), dạ yếm đục thủng hoa văn chữ Vạn / triện kỷ hà thanh thoát gắn Mặt đồng tròn/vuông chữ Thọ xước mờ chính tâm, ăn nhập hoàn hảo với Bộ Đỉnh Hạc đồng và dạ triện của chiếc Sập chân quỳ phía trước')">🔍 Phóng to</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_pa16_ct1_trien_van_mat_dong.jpg" download="QVilla_PA16_CT1_Viet_Nam_Cach_Tan_Trien_Van_Mat_Dong.jpg">⬇️ Tải ảnh</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_pa16_ct1_trien_van_mat_dong.jpg"
+              alt="Phối cảnh 3D PA 16-CT1 phong cách Việt Nam Cách Tân: Ban Tam Cấp 3 tầng chạy suốt với dạ yếm đục thủng hoa văn chữ Vạn chéo và mặt đồng chữ Thọ chính tâm, phía trước là Sập chân quỳ dạ triện chính tâm"
+              width="1376"
+              height="768"
+              loading="lazy"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Điểm cân bằng vàng giữa Hiện Đại &amp; Truyền Thống:</strong> Phần dạ yếm đục thủng <strong>hoa văn Chữ Vạn / Triện kỷ hà</strong> kết hợp <strong>Mặt đồng chạm chữ Thọ xước mờ chính tâm</strong> giúp chiếc bàn thờ <code>1,97 m</code> có hồn Á Đông sang trọng mà vẫn cực kỳ thoáng nhẹ, liên kết trực tiếp với sắc đồng của <strong>Đỉnh Hạc</strong>, hệ <strong>lam gỗ đứng</strong> và đường triện trên chiếc <strong>Sập chân quỳ</strong>.
+          </p>
+        </article>
+
+        <article class="media-card" style="border-color:rgba(52,211,153,0.70);">
+          <div class="media-hdr">
+            <h3>② PA 16-CT2 (Việt Nam Cách Tân 2 — Mềm Mại Indochine): Dạ Cánh Cung Chạm Nổi Đóa Sen Thanh Khiết &amp; Cổ Bậc Pano Chỉ Nổi</h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_pa16_ct2_cham_sen_cach_tan.jpg', 'PA 16-CT2 (Việt Nam Cách Tân 2 — Chạm Sen Thanh Khiết & Pano Chỉ Nổi): Dạ bàn lượn cánh cung mềm mại chạm nổi nông Đóa Sen Nở & dây lá thanh tao, 4 chân bo tròn gót mây, cổ bậc Cấp 2 & Cấp 3 đóng khung pano chỉ nổi sắc nét, đồng bộ hoa sen nhỏ trên dạ Sập chân quỳ chính tâm')">🔍 Phóng to</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_pa16_ct2_cham_sen_cach_tan.jpg" download="QVilla_PA16_CT2_Viet_Nam_Cach_Tan_Cham_Sen_Canh_Cung.jpg">⬇️ Tải ảnh</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_pa16_ct2_cham_sen_cach_tan.jpg"
+              alt="Phối cảnh 3D PA 16-CT2 phong cách Việt Nam Cách Tân chạm sen: Ban Tam Cấp 3 tầng chạy suốt với dạ yếm lượn cánh cung chạm nổi đóa hoa sen thanh khiết, chân gót mây và Sập chân quỳ đồng bộ chạm sen chính tâm"
+              width="1376"
+              height="768"
+              loading="lazy"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Dành cho gia chủ yêu nét mềm mại, tĩnh tại:</strong> Thay nét thẳng kỷ hà bằng <strong>đường dạ lượn cánh cung êm ái</strong>, chính tâm chạm nổi nông <strong>Đóa Sen Nở &amp; mây cuốn thanh mảnh</strong> (dễ lau bụi, không rườm rà), chân bàn bo gót mây và cổ <code>Cấp 2 – Cấp 3</code> đóng khung pano chỉ nổi đồng bộ tinh tế với hoa sen chạm trên yếm <strong>Sập chân quỳ</strong>.
+          </p>
+        </article>
+      </div>
+
+      <!-- SUBGROUP B: 2 TRADITIONAL NORTHERN VIETNAMESE ("TRUYỀN THỐNG BẮC BỘ") -->
+      <div style="margin-bottom:10px;">
+        <span class="insp-pill" style="background:rgba(245,158,11,0.22);border-color:rgba(251,191,36,0.68);color:#fde68a;">NHÓM B • PHONG CÁCH TRUYỀN THỐNG BẮC BỘ (LÊN TÔNG GỖ NÂU GỤ TRẦM SƠN MỜ SANG TRỌNG — 0% SƠN ĐỎ BÓNG, 0% THẾP VÀNG)</span>
+      </div>
+      <div class="render-grid" style="margin-bottom:22px;">
+        <article class="media-card" style="border-color:rgba(248,113,113,0.65);">
+          <div class="media-hdr">
+            <h3>③ PA 16-TT1 (Truyền Thống 1 — Lối Án Gian Cổ Truyền): Án Gian Tam Cấp “Ô Sa Liên Hoa” Chân Đứng Kết Hợp Diềm Gỗ Đỉnh Vách</h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_pa16_tt1_an_gian_o_sa.jpg', 'PA 16-TT1 (Truyền Thống Bắc Bộ 1 — Án Gian Tam Cấp Ô Sa Liên Hoa): Chuẩn dáng Án Gian cổ truyền Bắc Bộ với chân đứng soi chỉ kép, dạ tiền đục thủng dây lá hoa sen kênh bong tinh xảo, cổ bậc chia ô pano Ô Sa rõ 3 cấp, kết hợp diềm gỗ chạm 5 ô trên đỉnh vách (0% chữ Hán, 0% hoành phi câu đối) cùng tông nâu gụ trầm sơn mờ')">🔍 Phóng to</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_pa16_tt1_an_gian_o_sa.jpg" download="QVilla_PA16_TT1_Truyen_Thong_An_Gian_O_Sa_Lien_Hoa.jpg">⬇️ Tải ảnh</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_pa16_tt1_an_gian_o_sa.jpg"
+              alt="Phối cảnh 3D PA 16-TT1 phong cách Truyền Thống Bắc Bộ: Án Gian Tam Cấp gầm thoáng đục thủng hoa sen dây lá truyền thống, cổ bậc chia ô pano Ô Sa, phía trên đỉnh vách có diềm gỗ chạm 5 ô cổ kính không chữ, phía trước là Sập chân quỳ"
+              width="1376"
+              height="768"
+              loading="lazy"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Đậm chất nghề mộc cổ truyền Sơn Đồng / La Xuyên nhưng sang trọng hóa cho biệt thự:</strong> Giữ dáng <strong>Án Gian chân đứng <code>120×120 mm</code></strong>, dạ tiền đục thủng <strong>dây lá Liên Hoa</strong> mềm mại và cổ bậc chia ô pano <em>Ô Sa</em> (có thể lắp thêm hoặc bỏ thanh <strong>diềm gỗ 5 ô trên đỉnh vách</strong> tùy thích — hoàn toàn không dùng chữ Hán hay hoành phi câu đối).
+          </p>
+        </article>
+
+        <article class="media-card" style="border-color:rgba(251,146,60,0.78);">
+          <div class="media-hdr">
+            <h3>④ PA 16-TT2 ⭐ (Truyền Thống 2 — Đồng Bộ 100% Với Sập Ngồi): Sập Thờ Tam Cấp “Chân Quỳ Dạ Cá Chạm Mai Điểu”</h3>
+            <div class="btn-group">
+              <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_3d_pa16_tt2_sap_tho_chan_quy.jpg', 'PA 16-TT2 (Truyền Thống Bắc Bộ 2 — Sập Thờ Tam Cấp Chân Quỳ Dạ Cá Chạm Mai Điểu): Bàn thờ đóng 4 chân quỳ uốn cong + yếm Dạ Cá chạm tích Mai Điểu thanh tao (không chạm rồng phượng dữ dằn), đồng bộ tuyệt đối 100% ngôn ngữ chân quỳ dạ cá với chiếc Sập ngồi đặt chính tâm phía trước, trên mặt bàn nổi rõ 3 tầng bậc suốt ngang')">🔍 Phóng to</button>
+              <a class="btn celadon" href="assets/tang3_phong_tho_3d_pa16_tt2_sap_tho_chan_quy.jpg" download="QVilla_PA16_TT2_Truyen_Thong_Sap_Tho_Chan_Quy_Da_Ca_Mai_Dieu.jpg">⬇️ Tải ảnh</a>
+            </div>
+          </div>
+          <div class="media-img-wrap">
+            <img
+              src="assets/tang3_phong_tho_3d_pa16_tt2_sap_tho_chan_quy.jpg"
+              alt="Phối cảnh 3D PA 16-TT2 phong cách Truyền Thống đồng bộ Chân Quỳ: Sập Thờ Tam Cấp 4 chân quỳ dạ cá chạm hoa mai chim điểu thanh nhã đồng bộ 100% với chiếc Sập gỗ chân quỳ dạ cá đặt chính tâm phía trước, nền vách trơn hắt sáng ấm"
+              width="1376"
+              height="768"
+              loading="lazy"
+              onclick="openModal(this.src, this.alt)"
+            />
+          </div>
+          <p class="media-caption">
+            <strong>Phương án Truyền Thống ăn ý nhất khi đã đặt Sập Chân Quỳ ở phía trước:</strong> Thay vì chân thẳng, chiếc Ban Tam Cấp cũng được đóng dáng <strong>4 Chân Quỳ + Yếm Dạ Cá chạm tích <em>“Mai Điểu – Xuân Phúc”</em></strong> (tiết chế thanh nhã, không đục rồng dữ), tạo thành cặp đôi <strong><em>“Tiền Sập Chân Quỳ – Hậu Sập Thờ Tam Cấp”</em></strong> đồng bộ <code>100%</code> đường cong từ trước ra sau!
+          </p>
+        </article>
+      </div>
+
+      <!-- 5K 144 DPI SIDE-BY-SIDE ELEVATION COMPARISON SHEET OF ALL 5 STYLES -->
+      <article class="media-card" style="border-color:rgba(250,204,21,0.75);">
+        <div class="media-hdr">
+          <h3>📐 Bản Vẽ So Sánh Mặt Đứng Đóng Mộc 05 Kiểu (4800×2880 px • Retina 144 DPI): Đặt Cạnh Nhau Tỷ Lệ 1:1 Để Gia Đình &amp; Thợ Mộc Dễ Chọn</h3>
+          <div class="btn-group">
+            <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_pa16_so_sanh_5_kieu_ban_tho_100.png', 'Bản vẽ đối chiếu trực quan 05 kiểu mặt đứng Ban Tam Cấp PA 16 tỷ lệ 1:1 (4800×2880 px • Retina 144 DPI): Kiểu 0 Trơn Hiện Đại, PA 16-CT1 Triện Vạn Mặt Đồng, PA 16-CT2 Chạm Sen Cánh Cung, PA 16-TT1 Án Gian Ô Sa và PA 16-TT2 Sập Thờ Chân Quỳ Dạ Cá kèm bảng so sánh độ dễ lau bụi & chi phí công mộc')">🔍 Phóng to 5K (144 DPI)</button>
+            <a class="btn celadon" href="assets/tang3_phong_tho_pa16_so_sanh_5_kieu_ban_tho_100.png" download="QVilla_PA16_So_Sanh_5_Kieu_Ban_Tho_Tam_Cap_100.png">⬇️ Tải Bản So Sánh 5K (PNG)</a>
+          </div>
+        </div>
+        <div class="media-img-wrap" style="background:#fff;">
+          <img
+            src="assets/tang3_phong_tho_pa16_so_sanh_5_kieu_ban_tho_100.png"
+            alt="Bản vẽ kỹ thuật Retina 144 DPI (4800x2880 px) đặt cạnh nhau 05 mặt đứng chạm khắc Ban Tam Cấp PA 16 từ Trơn Hiện Đại, Việt Nam Cách Tân CT1-CT2 đến Truyền Thống TT1-TT2 kèm bảng so sánh công mộc và độ dễ lau bụi"
+            width="4800"
+            height="2880"
+            loading="lazy"
+            onclick="openModal(this.src, this.alt)"
+          />
+        </div>
+        <p class="media-caption">
+          <strong>Lưu ý quyết định độ sang khi đóng mẫu Truyền Thống (<code>TT1</code>, <code>TT2</code>) hoặc Cách Tân (<code>CT1</code>, <code>CT2</code>):</strong> Dù chọn kiểu chạm nào, gia đình hãy yêu cầu xưởng mộc giữ đúng <strong>tông Nâu Hạt Dẻ Trầm / Nâu Gụ Giả Cổ phun sơn PU mờ <code>10–15%</code> giữ tom gỗ</strong> (tuyệt đối tránh sơn cánh gián đỏ cam bóng gương) — nhờ đó bàn thờ truyền thống vẫn hòa quyện <code>100%</code> với hệ cửa lùa kính sọc mờ, sàn sồi xương cá và <strong>trần thạch cao phẳng sơn trắng giật cấp khe LED ấm + đèn ốp trần / quạt trần cánh gỗ</strong> của Q Villa.
+        </p>
+      </article>
+    </section>
+
+    <!-- SECTION 3: SLIDING PARTITION DOOR (TRỤC B) & CEILING M&E CLASH CHECK -->
+    <section class="block" id="sec-sliding-door-check" style="border-color: rgba(56, 189, 248, 0.55); background: linear-gradient(180deg, rgba(14, 165, 233, 0.08), rgba(15, 23, 36, 0.97)); border-radius: 20px; padding: 28px 24px; margin-top: 18px;">
+      <div class="section-hdr">
+        <span class="section-tag" style="background:rgba(56,189,248,0.18);border-color:rgba(56,189,248,0.65);color:#bae6fd;">PHẦN 3 • HỒ SƠ CẤU TẠO HỆ CỬA LÙA TRỤC B &amp; RÀ SOÁT 100% HỆ THỐNG TRÊN TRẦN THẠCH CAO</span>
+        <h2 class="section-title">Cửa Ngăn Cách Phòng Thờ &amp; Phòng Làm Việc Làm Như Nào? Có Vướng Hệ Thống Gì Trên Trần Thạch Cao Không?</h2>
+        <p class="section-desc">
+          Đối chiếu chéo <strong>10 bản vẽ kỹ thuật gốc</strong> (<code>KT-2.04</code>, <code>KT-2.15</code>, <code>KC-38</code>, <code>KC-58</code>, <code>KT-4.08</code>, <code>KT-ĐV-03</code>, <code>CĐ-05/10/13/17</code>, <code>N-04/05</code>) cùng <strong>Ảnh chụp thực tế công trường số 1</strong> tại <code>Trục B</code> (ngăn giữa <strong>Phòng Thờ 12,1 m²</strong> và <strong>Phòng Làm Việc Đôi 14,5 m²</strong>): kết quả khẳng định <strong><code>0%</code> vướng ống điều hòa, ống nước hay lỗ đèn <code>Φ75mm</code></strong>, đồng thời chỉ rõ <strong><code>02</code> điểm kỹ thuật sống còn</strong> (xử lý <strong>độ lệch cốt trần <code>130 mm</code></strong> giữa hai phòng và <strong>vùng cấm khoan trúng ống điện/LAN</strong>) cùng giải pháp <strong>treo khung thép hộp trực tiếp vào Dầm BTCT <code>Trục B</code> + sàn gỗ xương cá liền mạch không ray nổi</strong>.
+        </p>
+      </div>
+
+      <div class="kpi-grid" style="margin-bottom:20px;">
+        <div class="kpi-box celadon">
+          <div class="kpi-label">Kiểm Tra Điều Hòa, Nước &amp; Đèn Φ75</div>
+          <div class="kpi-val">0% Vướng (An Toàn)</div>
+          <div class="kpi-sub">0m ống đồng/ống gió băng qua Trục B • Không có ống thoát mưa treo trần • Đèn Φ75 cách vách 395–550 mm</div>
+        </div>
+        <div class="kpi-box" style="border-color:rgba(251,191,36,0.45);">
+          <div class="kpi-label">Phát Hiện Quan Trọng Số 1 (KT-4.08)</div>
+          <div class="kpi-val">Lệch Trần 130 mm!</div>
+          <div class="kpi-sub">P. Thờ đóng +3.000 mm vs P. Làm Việc đóng phẳng +3.130 mm → Bắt buộc dựng Vách trán 140 mm chắn giữa 2 cốt</div>
+        </div>
+        <div class="kpi-box sky">
+          <div class="kpi-label">Kết Cấu Treo Tải Cửa 140–180 kg</div>
+          <div class="kpi-val">Dầm Thép 50×100 mm</div>
+          <div class="kpi-sub">Bắn nở đạn sắt M10 (@600mm) thẳng lên đáy Dầm BTCT Trục B (220×450) — Tuyệt đối không treo vào thạch cao</div>
+        </div>
+        <div class="kpi-box rose">
+          <div class="kpi-label">Cảnh Báo Khoan Lắp (CĐ-10 &amp; Ảnh 1)</div>
+          <div class="kpi-val">Né 02 Tuyến Ống Điện</div>
+          <div class="kpi-sub">Ống LAN PVC D20 đi sát nách Nam dầm Trục B &amp; 02 ống gen công tắc đứng ngay góc bẻ sang Trục 2</div>
+        </div>
+      </div>
+
+      <div class="spec-grid-2" style="margin-bottom:20px;">
+        <article class="table-card" style="padding:18px 20px;border-color:rgba(229,169,60,0.48);">
+          <span class="insp-pill">CẤU TẠO KỸ THUẬT CHUẨN 1:1 (Ô CHỜ THÔNG THỦY 2.400 MM)</span>
+          <h3 style="color:#fff;font-size:1.05rem;margin-bottom:8px;">1. Thi Công Bộ Cửa Lùa Ngăn 2 Phòng Như Thế Nào Chuẩn Nhất?</h3>
+          <ul style="padding-left:18px;color:var(--text-secondary);font-size:0.86rem;display:grid;gap:7px;">
+            <li><strong>Kích thước chiều ngang dọc <code>Trục B</code> (<code>3.690 mm</code>):</strong> Đố gạch đầu Tây <code>390 mm</code> (che gọn cạnh Bàn làm việc 1 sâu <code>600 mm</code>) + <strong>Ô cửa lùa thông thủy giữa <code>2.400 mm</code></strong> (hiện để trống kịch dầm bê tông, chưa xây lanh tô theo <code>KC-58</code>) + Tường gạch cánh gà đầu Đông <code>900 mm</code> (che kín đáo hông Ban Gia Tiên Tam Cấp <code>PA 16</code>).</li>
+            <li><strong>Chiều cao chuẩn Lỗ Ban <code>52,2 cm</code>:</strong> Làm cao phủ bì khung <strong><code>2.680 mm</code></strong> → cao thông thủy lọt sáng <strong><code>2.550 mm</code></strong> (rơi chính cung <strong>QUÝ NHÂN — Đỏ Rực</strong>); phần Vách trán phía trên cao <code>320 mm</code> (bên Phòng Thờ <code>+3.000</code>) và <code>450 mm</code> (bên Phòng Làm Việc <code>+3.130</code>).</li>
+            <li><strong>Khung thép gia cường &amp; Vách trán cách âm:</strong> Hàn dầm thép hộp mạ kẽm <code>50×100×2.0 mm</code> treo bằng chân thép <code>40×40</code> + bản mã nở sắt <code>M10</code> thẳng vào <strong>Dầm bê tông <code>Trục B</code></strong> trước khi đóng trần; bọc thạch cao 2 lớp dày hoàn thiện <code>140 mm</code> (bằng mặt tường gạch), nhồi bông khoáng <code>Rockwool 50kg/m³</code> bên trong.</li>
+            <li><strong>Ray treo giảm chấn &amp; Sàn <code>0 mm</code> ray nổi:</strong> Dùng ray treo trên <strong>Hafele Slido D-Line11 / Hettich (tải <code>80–120 kg/cánh</code>, giảm chấn 2 chiều êm tuyệt đối)</strong> kết hợp <strong>Chốt dẫn hướng âm đáy cánh (Zero-Threshold)</strong> — lát sàn gỗ Sồi xương cá <code>+7.850</code> chạy liền mạch qua cửa, không gờ vấp chân, Robot hút bụi tự qua lại 2 phòng!</li>
+            <li><strong>Kính &amp; Gioăng giữ lạnh điều hòa <code>12.000 BTU</code>:</strong> Khung gỗ Óc Chó / Lim dày <code>40 mm</code> lồng <strong>Kính sọc mờ cường lực <code>8–10 mm</code></strong> (lấy sáng tự nhiên từ Logia sang Bàn làm việc nhưng nhìn qua chỉ thấy bóng mờ trang nghiêm); các đố đứng soi mộng ngoàm chữ Z kèm phớt lông nỉ + gioăng <code>EPDM</code> + chổi lông đáy giữ kín <code>&gt;92%</code> hơi lạnh điều hòa và chặn mùi khói nhang.</li>
+          </ul>
+        </article>
+
+        <article class="table-card" style="padding:18px 20px;border-color:rgba(56,189,248,0.48);">
+          <span class="insp-pill" style="background:rgba(56,189,248,0.18);border-color:rgba(56,189,248,0.45);color:#bae6fd;">SO SÁNH 02 CƠ CẤU TRƯỢT &amp; LƯU Ý KHOAN ĐIỆN</span>
+          <h3 style="color:#fff;font-size:1.05rem;margin-bottom:8px;">2. Chọn Cơ Cấu Mở Nào &amp; Né Hệ Thống Gì Khi Khoan?</h3>
+          <ul style="padding-left:18px;color:var(--text-secondary);font-size:0.86rem;display:grid;gap:7px;">
+            <li><strong>Cơ cấu A (Khuyên dùng số 1 — Chuẩn CAD <code>KT-2.04</code> &amp; 3D): Hệ <code>4 Cánh Đối Xứng 2 Ray Âm Tường</code></strong> — <code>02</code> cánh biên cố định + <code>02</code> cánh giữa trượt mở sang 2 bên (<code>620 mm/cánh</code>, lối đi thông thủy giữa rộng <code>1.150 mm</code>). Hộp ray đôi dày <code>120 mm</code> nằm <strong>gọn lỏn 100% trong bề dày tường <code>140 mm</code></strong> (hai mặt tường phẳng tắp, kín điều hòa và cách âm tốt nhất).</li>
+            <li><strong>Cơ cấu B (Mở liên thông tối đa): Hệ <code>3 Cánh Lùa Liên Động (Telescopic Syncro)</code></strong> — <code>03</code> cánh rộng <code>830 mm</code> chạy cáp đồng bộ, kéo 1 cánh thu gọn toàn bộ 3 cánh nép vào mặt Nam của đoạn tường gạch cánh gà <code>900 mm</code> bên Đông, mở rộng thông thoáng tới <code>1.600 – 2.350 mm</code> dịp lễ Tết đông người.</li>
+            <li><strong>⚠️ Lưu ý khoan số 1 (Trên trần — Bản vẽ <code>CĐ-10</code>):</strong> Sát mép Nam của trần <code>Trục B</code> có tuyến ống <code>PVC D20</code> luồn cáp mạng <code>LAN Cat6</code> đi từ bộ <code>WIFI gắn sát trần</code> ngoài Hành lang sang 2 ổ mạng bàn làm việc tường Tây → Chỉ khoan nở sắt vào <strong>chính tim bụng Dầm bê tông <code>Trục B</code></strong> và đặt sẵn 1 đoạn ống lồng <code>Φ32 mm</code> xuyên qua vách trán sát đáy sàn cho ống LAN đi qua.</li>
+            <li><strong>⚠️ Lưu ý khoan số 2 (Trên tường phải — Ảnh thực tế số 1):</strong> Ngay góc tường cánh gà <code>900 mm</code> bẻ vuông sang <code>Trục 2</code> (cách mép cửa lùa chỉ <code>~110 mm</code> về phía Phòng Làm Việc) có rãnh vữa đứng chứa <strong>02 ống gen công tắc <code>(14,15,16)</code> chạy thẳng lên trần</strong> → Khi bắt vít khuôn đứng bên phải, chỉ khoan thẳng vào tim má tường <code>140 mm</code> (sâu <code>55 mm</code>), tuyệt đối không khoan xiên về phía mặt Nam!</li>
+          </ul>
+        </article>
+      </div>
+
+      <article class="media-card" style="border-color: rgba(56, 189, 248, 0.55);">
+        <div class="media-hdr">
+          <div>
+            <strong>📐 Bản Vẽ Kỹ Thuật Tỷ Lệ Chuẩn 1:1 (5800×3360 px): Mặt Cắt Đứng A-A Qua Trần 2 Phòng + Mặt Bằng Trục B &amp; Bảng Clash Check 6 Hệ Thống</strong>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+            <span class="badge sky">5K Blueprint • Tỷ Lệ 1:1 (mm)</span>
+            <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_chi_tiet_cua_lua_truc_b_100.png', 'Bản vẽ kỹ thuật tỷ lệ 1:1 (5800×3360 px) Hệ Cửa Lùa Trục B & Kiểm tra va chạm trần thạch cao: Mặt cắt đứng A-A (trái) chỉ rõ cách treo dầm thép 50×100 vào Dầm BTCT Trục B, xử lý độ lệch trần 130mm (+3.000 vs +3.130) và sàn phẳng 0mm ray nổi; Mặt bằng & Bảng Clash Check (phải) chỉ rõ vùng cấm khoan ống điện và quy trình phối hợp 4 bước')">🔍 Phóng to 5K</button>
+            <a class="btn celadon" href="assets/tang3_phong_tho_chi_tiet_cua_lua_truc_b_100.png" download="QVilla_Chi_Tiet_Cua_Lua_Truc_B_Va_Kiem_Tra_Tran_100.png">⬇️ Tải Bản Vẽ 5K (PNG)</a>
+          </div>
+        </div>
+        <div class="media-img-wrap" style="background:#fff;">
+          <img
+            src="assets/tang3_phong_tho_chi_tiet_cua_lua_truc_b_100.png"
+            alt="Bản vẽ kỹ thuật tỷ lệ 1:1 (5800x3360 px) mặt cắt đứng và mặt bằng chi tiết hệ cửa lùa ngăn Phòng Thờ và Phòng Làm Việc tại Trục B kèm kiểm tra va chạm hệ thống trần thạch cao"
+            width="5800"
+            height="3360"
+            loading="lazy"
+            onclick="openModal(this.src, this.alt)"
+          />
+        </div>
+        <p class="media-caption">
+          <strong>Quy trình bàn giao 3 đội thợ tại công trường (không phải đục sửa trần thạch cao):</strong> <strong>Bước 1:</strong> Đội Cơ khí hàn khung thép hộp <code>50×100×2.0 mm</code> ở cốt <code>+2.680 mm</code> neo nở đạn sắt <code>M10</code> vào đáy Dầm BTCT <code>Trục B</code> trước khi đóng tấm trần → <strong>Bước 2:</strong> Đội Điện luồn gọn ống <code>LAN PVC D20</code> qua ống lồng chờ &amp; nhét bông khoáng <code>Rockwool 50kg/m³</code> → <strong>Bước 3:</strong> Đội Thạch cao ốp vách trán dày <code>140 mm</code> đón cốt <code>+3.000 mm</code> (Phòng Thờ) và <code>+3.130 mm</code> (Phòng Làm Việc) → <strong>Bước 4:</strong> Lát sàn gỗ xương cá <code>+7.850</code> liền mạch (không ray nổi) và treo 4 cánh kính sọc mờ giảm chấn.
+        </p>
+      </article>
+    </section>
+
+    <!-- SECTION 2: INTERACTIVE 2D MILLIMETER SVG -->
+    <section class="block" id="sec-interactive-2d">
+      <div class="section-hdr">
+        <span class="section-tag">PHẦN 4 • BẢN VẼ KỸ THUẬT 2D TƯƠNG TÁC TỶ LỆ CHUẨN 100% (1:1 THEO MILLIMETER)</span>
+        <h2 class="section-title">Mặt Bằng Tương Tác PA 16 Chốt: Ban Tam Cấp Đỉnh Hạc Đồng, Sập Truyền Thống, 08 Lỗ Đèn Φ75 &amp; 05 Ổ Cắm S1</h2>
+        <p class="section-desc">
+          Bấm vào <strong>Ban Tam Cấp <code>PA 16</code>, Sập truyền thống, lỗ đèn <code>Φ75</code>, ổ cắm <code>S1</code> hay công tắc</strong> trên bản vẽ bên dưới để tra cứu ngay tọa độ <code>(X ; Y ; Cao độ)</code> chính xác từng milimét và lưu ghi chú dặn thợ. Bấm nút chuyển <strong>Cách 1 / Cách 2</strong> trên thanh công cụ để xem trực tiếp 02 vị trí kê Sập truyền thống ngay trên mặt bằng <code>1:1</code>!
+        </p>
+      </div>
+
+      <div class="workspace-bar">
+        <div class="btn-group" role="group" aria-label="Bật tắt lớp kỹ thuật 2D">
+          <span style="font-size:0.75rem;font-weight:800;color:var(--text-muted);">LỚP HIỂN THỊ:</span>
+          <button type="button" class="btn active" id="layer-btn-ALL" onclick="setCadLayer('ALL')">🔍 Tất Cả Lớp (100%)</button>
+          <button type="button" class="btn" id="layer-btn-FURN" onclick="setCadLayer('FURN')">🪑 Nội Thất PA 16 &amp; Sập</button>
+          <button type="button" class="btn" id="layer-btn-LIGHT" onclick="setCadLayer('LIGHT')">💡 08 Lỗ Đèn Φ75 &amp; Trần +3.150</button>
+          <button type="button" class="btn" id="layer-btn-POWER" onclick="setCadLayer('POWER')">⚡ Đường Điện CĐ-05 &amp; Công Tắc</button>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn active" id="btn-svg-sap" onclick="toggleSvgSapMode()">
+            ⭐ Đang hiển thị 2D: Sập Chính Tâm 1.760×980 (“Tiền Sập • Hậu Án”)
+          </button>
+          <button type="button" class="btn celadon active" id="btn-swap-bulb" onclick="toggleBulbSwap()">
+            ✨ Đang bật: Đổi chéo bóng [6] sang (3.265 ; 2.815)
+          </button>
+        </div>
+      </div>
+
+      <div class="workspace-grid">
+        <!-- Left: 100% Scale Interactive SVG (1 mm = 0.145 SVG units; X=0 at svgX=255, Y=0 at svgY=105) -->
+        <div class="media-card">
+          <div class="media-hdr">
+            <h3>📐 Sơ Đồ Tương Tác Tỷ Lệ 1:1 (Thông Thủy Trần 3.690 × 3.210 mm + Logia 02 Rộng 1.200 mm)</h3>
+            <span style="font-size:0.77rem;color:var(--gold-light);font-weight:700;">👆 Click vào thiết bị / lỗ đèn để tra cứu tọa độ</span>
+          </div>
+          <div class="svg-stage">
+            <svg id="worship-svg" viewBox="0 0 900 685" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mặt bằng kỹ thuật tương tác tỷ lệ 1:1 Phòng Thờ Tầng 3 Q Villa">
+              <defs>
+                <pattern id="pat-grid" width="29" height="29" patternUnits="userSpaceOnUse">
+                  <path d="M 29 0 L 0 0 0 29" fill="none" stroke="#ece6da" stroke-width="0.8"/>
+                </pattern>
+                <marker id="arr-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#059669"/>
+                </marker>
+                <marker id="arr-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+                  <path d="M 0 1 L 10 5 L 0 9 z" fill="#d97706"/>
+                </marker>
+              </defs>
+
+              <rect x="0" y="0" width="900" height="685" fill="url(#pat-grid)"/>
+
+              <!-- Scale Formula: px(X) = 255 + X * 0.145 ; py(Y) = 105 + Y * 0.145 -->
+              <!-- Room X: 0..3690 => 255..790.05 (w=535.05) ; Room Y: 0..3210 => 105..570.45 (h=465.45) -->
+
+              <!-- Logia 02 (-1450..-250 => x=44.75..218.75, y=73..590) -->
+              <rect x="45" y="73" width="174" height="518" fill="#e6efe2" stroke="#64748b" stroke-width="1.6"/>
+              <rect x="58" y="272" width="76" height="130" rx="6" fill="#cfe2c8" stroke="#3f6212" stroke-width="1.2"/>
+              <circle cx="96" cy="330" r="29" fill="#65a30d" fill-opacity="0.45"/>
+              <text x="96" y="388" text-anchor="middle" font-size="10.5" font-weight="bold" fill="#1e3a1e">LOGIA 02</text>
+              <text x="96" y="401" text-anchor="middle" font-size="9.5" fill="#365314">(Hướng Bắc)</text>
+
+              <!-- Main Worship Room Floor -->
+              <rect x="236" y="105" width="554" height="465.5" fill="#f9f3e6"/>
+              <!-- Office below -->
+              <rect x="255" y="591" width="405" height="75" fill="#f1f5f9"/>
+              <text x="458" y="646" text-anchor="middle" font-size="11" font-weight="bold" fill="#475569">PHÒNG LÀM VIỆC ĐÔI TẦNG 3 (+7.850)</text>
+              <!-- Ô Thông Tầng right -->
+              <rect x="822" y="308" width="68" height="262" fill="#e8f1f8" stroke="#64748b" stroke-width="1.1"/>
+              <text x="856" y="432" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e40af">THÔNG</text>
+              <text x="856" y="445" text-anchor="middle" font-size="10" font-weight="bold" fill="#1e40af">TẦNG</text>
+
+              <!-- White Gypsum Ceiling Coffer C1 +3.150 (X=715..2975 => 358.7..686.4 ; Y=715..2530 => 208.7..471.8) -->
+              <g id="svg-layer-coffer">
+                <rect x="358.7" y="208.7" width="327.7" height="263.1" fill="#fffdf7" stroke="#d97706" stroke-width="2" stroke-dasharray="6,3" class="cad-node" onclick="selectCadItem('L15')"/>
+                <rect x="373.2" y="223.2" width="298.7" height="234.1" fill="#ffffff" fill-opacity="0.92" stroke="#94a3b8" stroke-width="1.2" pointer-events="none"/>
+                <text x="522.5" y="242" text-anchor="middle" font-size="10" font-weight="bold" fill="#78350f" pointer-events="none">Ô trần thạch cao C1 +3.150 (2.260×1.815) • Khe LED L15 3000K</text>
+              </g>
+
+              <!-- Golden Cross-Axis -->
+              <line x1="522.5" y1="105" x2="522.5" y2="570.5" stroke="#b45309" stroke-width="1" stroke-dasharray="4,4" opacity="0.55"/>
+              <line x1="219" y1="339.9" x2="790" y2="339.9" stroke="#b45309" stroke-width="1" stroke-dasharray="4,4" opacity="0.55"/>
+
+              <!-- Brick Walls & RC Columns -->
+              <!-- Top Wall Trục C+575 (Y=-220..0 => y=73..105) -->
+              <rect x="218.8" y="73" width="440.8" height="32" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.6"/>
+              <!-- Bricked-up S5 (X=2790..3690 => x=659.6..790.1) -->
+              <rect x="659.6" y="73" width="130.5" height="32" fill="#fecdd3" stroke="#9f1239" stroke-width="1.6" class="cad-node" onclick="selectCadItem('S5_WALL')"/>
+              <text x="724.8" y="92" text-anchor="middle" font-size="8.8" font-weight="bold" fill="#881337" pointer-events="none">Ô S5 ĐÃ XÂY BỊT</text>
+
+              <!-- Right Wall Trục 2 (X=3690..3910 => x=790.1..822) -->
+              <rect x="790.1" y="73" width="31.9" height="518" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.6"/>
+              <!-- RC Columns (Right RC col 220x250 is 100% FLUSH inside 220mm wall -> width=31.9, NO corner protrusion!) -->
+              <rect x="218.8" y="138" width="36.2" height="36.2" fill="#334155" stroke="#0f172a" stroke-width="1.5"/>
+              <rect x="790.1" y="138" width="31.9" height="36.2" fill="#334155" stroke="#0f172a" stroke-width="1.5"/>
+              <rect x="218.8" y="105" width="36.2" height="33" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.5"/>
+              <rect x="218.8" y="174.2" width="36.2" height="29.4" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.5"/>
+              <rect x="218.8" y="537.1" width="36.2" height="54" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.5"/>
+
+              <!-- Door D9 (Y=680..2980 => y=203.6..537.1) -->
+              <g class="cad-node" onclick="selectCadItem('DOOR_D9')">
+                <rect x="218.8" y="203.6" width="17" height="333.5" fill="#bae6fd" stroke="#0369a1" stroke-width="1.8"/>
+                <rect x="235.8" y="203.6" width="19.2" height="333.5" fill="#ede4d3" stroke="#92400e" stroke-width="1" stroke-dasharray="4,2"/>
+                <text x="208" y="372" text-anchor="end" font-size="9.5" font-weight="bold" fill="#0369a1">Cửa D9 (2,3m)</text>
+              </g>
+
+              <!-- Bottom Partition & 4-Leaf Sliding Door VACH-LUA (X=390..2790 => x=311.6..659.6) + Corridor Vertical Wall -->
+              <rect x="255" y="570.5" width="56.6" height="20.3" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.5"/>
+              <rect x="659.6" y="570.5" width="130.5" height="20.3" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.5"/>
+              <rect x="659.6" y="590.8" width="20.3" height="75" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.5"/>
+              <g class="cad-node" onclick="selectCadItem('VACH_LUA')">
+                <rect x="311.6" y="570.5" width="348" height="20.3" fill="#dbeafe" stroke="#78350f" stroke-width="1.8"/>
+                <line x1="315" y1="577" x2="656" y2="577" stroke="#78350f" stroke-width="3" stroke-dasharray="82,5"/>
+                <text x="475" y="606" text-anchor="middle" font-size="9.8" font-weight="bold" fill="#78350f">Hệ cửa lùa 4 cánh kính mờ sóng (2.400 × 2.750 mm)</text>
+              </g>
+
+              <!-- LAYER: FURNITURE (FINALIZED PA 16 SOLO TAM CẤP 1070-1200-1350 + SẬP GỖ TRUYỀN THỐNG CHÍNH TÂM + ĐỈNH HẠC ĐỒNG) -->
+              <g id="svg-layer-furn">
+                <!-- TÙY CHỌN PHỤ: SẬP TRUYỀN THỐNG KÊ DỌC TƯỜNG TRÁI (X=520..2490 => x=330.4, w=285.7; Y=0..980 => y=105, h=142.1) -->
+                <g id="svg-sap-left" style="display:none;">
+                  <g class="cad-node" onclick="selectCadItem('SAP_TUONG_TRAI')">
+                    <rect x="330.4" y="105" width="285.7" height="142.1" rx="4" fill="#5c3820" stroke="#271306" stroke-width="2.2"/>
+                    <rect x="342.4" y="116" width="261.7" height="120.1" rx="2" fill="none" stroke="#d97706" stroke-width="1.1" stroke-opacity="0.75"/>
+                    <!-- 4 Chân quỳ góc Sập -->
+                    <rect x="333.4" y="108" width="11" height="11" rx="2" fill="#271306"/>
+                    <rect x="602.1" y="108" width="11" height="11" rx="2" fill="#271306"/>
+                    <rect x="333.4" y="233.1" width="11" height="11" rx="2" fill="#271306"/>
+                    <rect x="602.1" y="233.1" width="11" height="11" rx="2" fill="#271306"/>
+                    <text x="473.2" y="169" text-anchor="middle" font-size="10" font-weight="bold" fill="#fff">SẬP GỖ TRUYỀN THỐNG CHÂN QUỲ (DỌC TƯỜNG TRÁI)</text>
+                    <text x="473.2" y="184" text-anchor="middle" font-size="8.8" fill="#fde68a">1.970 (ĐINH) × 980 (PHÚ QUÝ) × Cao 480 mm (VƯỢNG)</text>
+                    <text x="473.2" y="198" text-anchor="middle" font-size="8.2" fill="#a7f3d0">Cách cửa D9 520mm • Ổ S1#3, #4 cao hơn mặt sập 72cm</text>
+                  </g>
+                  <!-- Chiếu cói phẳng hành lễ trước Ban Tam Cấp -->
+                  <rect x="460.9" y="261.6" width="129.1" height="181.3" rx="5" fill="#e5d5b5" fill-opacity="0.72" stroke="#a16207" stroke-width="1.2"/>
+                  <text x="525.5" y="431" text-anchor="middle" font-size="8.8" fill="#713f12">Chiếu cói hành lễ (1.250×890)</text>
+                </g>
+
+                <!-- BẢN CHỐT MẶC ĐỊNH ⭐: SẬP TRUYỀN THỐNG ĐẶT CHÍNH TÂM TRƯỚC BÀN THỜ (X=830..1810 => x=375.4, w=142.1; Y=725..2485 => y=210.1, h=255.2) -->
+                <g id="svg-sap-center" class="cad-node" onclick="selectCadItem('SAP_CHINH_TAM')">
+                  <!-- Vùng đứng lễ 810 mm giữa Sập và Ban Tam Cấp (X=1810..2620 => x=517.5, w=117.4) -->
+                  <rect x="517.5" y="210.1" width="117.4" height="255.2" rx="4" fill="#ecfdf5" fill-opacity="0.52" stroke="#059669" stroke-width="1.1" stroke-dasharray="4,3"/>
+                  <text x="576.2" y="232" text-anchor="middle" font-size="8.2" font-weight="bold" fill="#065f46">Đứng lễ 810 mm</text>
+                  <text x="576.2" y="454" text-anchor="middle" font-size="7.8" fill="#047857">(Với tay cắm nhang 62cm)</text>
+
+                  <rect x="375.4" y="210.1" width="142.1" height="255.2" rx="4" fill="#5c3820" stroke="#271306" stroke-width="2.2"/>
+                  <rect x="387.4" y="222.1" width="118.1" height="231.2" rx="2" fill="none" stroke="#d97706" stroke-width="1.1" stroke-opacity="0.8"/>
+                  <rect x="378.4" y="213.1" width="11" height="11" rx="2" fill="#271306"/>
+                  <rect x="503.5" y="213.1" width="11" height="11" rx="2" fill="#271306"/>
+                  <rect x="378.4" y="451.3" width="11" height="11" rx="2" fill="#271306"/>
+                  <rect x="503.5" y="451.3" width="11" height="11" rx="2" fill="#271306"/>
+                  <text x="446.4" y="324" text-anchor="middle" font-size="9.6" font-weight="bold" fill="#fff">SẬP CHÍNH TÂM ⭐</text>
+                  <text x="446.4" y="338" text-anchor="middle" font-size="8.8" font-weight="bold" fill="#fde68a">(TIỀN SẬP • HẬU ÁN)</text>
+                  <text x="446.4" y="353" text-anchor="middle" font-size="8.4" fill="#a7f3d0">1.760 × 980 × C470</text>
+                  <text x="446.4" y="367" text-anchor="middle" font-size="7.9" fill="#e2e8f0">Sau 830 • Hai bên 725</text>
+                </g>
+
+                <!-- PA 16 ĐỘC TÔN BAN TAM CẤP GẦM THOÁNG 500 + 280 + 290 = 1.070 mm (X=2620..3690 => x=634.9..790.1 ; Y=620..2590 => y=194.9..480.6) -->
+                <g id="svg-ban-3cap" class="cad-node" onclick="selectCadItem('BAN_GIA_TIEN_3CAP')">
+                  <!-- Cấp 1 (Ngoài cùng: X=2620..3120 => x=634.9, w=72.5, Cao 1.070 — Trống thoáng 100%, 0% tai cuốn, 0% tủ cơm) -->
+                  <rect x="634.9" y="194.9" width="72.5" height="285.7" rx="3" fill="#6b4226" stroke="#271306" stroke-width="1.9"/>
+                  <!-- Cấp 2 (Giữa: X=3120..3400 => x=707.4, w=40.6, Cao 1.200 [+130] — Chỉ đặt 03 Bát hương đồng) -->
+                  <rect x="707.4" y="194.9" width="40.6" height="285.7" fill="#54331d" stroke="#271306" stroke-width="1.8"/>
+                  <!-- Cấp 3 (Sát vách: X=3400..3690 => x=748.0, w=42.1, Cao 1.350 [+150] — Chỉ đặt Đỉnh đồng + 2 Hạc đồng) -->
+                  <rect x="748.0" y="194.9" width="42.1" height="285.7" fill="#3d2312" stroke="#271306" stroke-width="1.8"/>
+
+                  <!-- Vách hậu 2.450 mm (TÀI VƯỢNG: Y=380..2830 => y=160.1, h=355.3): lùi 380mm để lộ S1 #1 (Y=3010 => y=541.5) -->
+                  <rect x="783.5" y="160.1" width="6.6" height="34.8" fill="#78350f"/>
+                  <rect x="785.0" y="194.9" width="5.1" height="285.7" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+                  <rect x="783.5" y="480.6" width="6.6" height="34.8" fill="#78350f"/>
+
+                  <!-- Cấp 3 (+1.350, sâu 290 => cx=769.0): 01 Đỉnh đồng nắp Nghê (Y=1605 => 337.7) + 02 Hạc đồng cưỡi rùa (Y=1125 => 268.1 & Y=2085 => 407.3) -->
+                  <circle cx="769.0" cy="337.7" r="12" fill="#d97706" stroke="#fffbeb" stroke-width="1.4"/>
+                  <circle cx="769.0" cy="337.7" r="5" fill="#78350f"/>
+                  <circle cx="769.0" cy="268.1" r="8.5" fill="#f59e0b" stroke="#271306" stroke-width="1.3"/>
+                  <circle cx="769.0" cy="407.3" r="8.5" fill="#f59e0b" stroke="#271306" stroke-width="1.3"/>
+
+                  <!-- Cấp 2 (+1.200, sâu 280 => cx=727.7): 03 Bát hương đồng ngay ngắn chính trục -->
+                  <circle cx="727.7" cy="337.7" r="9.8" fill="#fbbf24" stroke="#451a03" stroke-width="1.3"/>
+                  <circle cx="727.7" cy="304.0" r="7.6" fill="#fbbf24" stroke="#451a03" stroke-width="1.1"/>
+                  <circle cx="727.7" cy="371.4" r="7.6" fill="#fbbf24" stroke="#451a03" stroke-width="1.1"/>
+
+                  <text x="671.2" y="226" text-anchor="middle" font-size="8.3" font-weight="bold" fill="#fde68a">CẤP 1 (+1.070)</text>
+                  <text x="671.2" y="238" text-anchor="middle" font-size="7.8" fill="#fff">Triện 90°+Đồng Vuông</text>
+                  <text x="671.2" y="438" text-anchor="middle" font-size="8.0" font-weight="bold" fill="#a7f3d0">C2: +1.200 (280)</text>
+                  <text x="671.2" y="450" text-anchor="middle" font-size="7.8" fill="#fde68a">C3: +1.350 (290)</text>
+                </g>
+
+                <!-- ĐÔI LỘC BÌNH ĐẠI GỐM SỨ BÁT TRÀNG MEN RẠN ĐẮP NỔI 1.670 MM + KỶ GỖ TRÒN 17CM (Tâm Y=310 => cy=150.0 & Tâm Y=2900 => cy=525.5 ; Tâm X=3360 => cx=742.2 ; Bụng Ø446=>r=32.3, Miệng Ø332=>r=24.1, Eo cổ +1.2m Ø184=>r=13.3 lộ S1#1) -->
+                <g id="svg-binh-bat-trang" class="cad-node" onclick="selectCadItem('BINH_BAT_TRANG')">
+                  <!-- Lộc Bình Tả (Y=310 => cy=150.0) -->
+                  <circle cx="742.2" cy="150.0" r="32.3" fill="#f8f3e3" stroke="#1e3a8a" stroke-width="1.9"/>
+                  <circle cx="742.2" cy="150.0" r="24.1" fill="#efe7d1" stroke="#b45309" stroke-width="1.3" stroke-dasharray="3,2"/>
+                  <circle cx="742.2" cy="150.0" r="13.3" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/>
+                  <text x="742.2" y="114.2" text-anchor="middle" font-size="7.9" font-weight="bold" fill="#1e3a8a">Lộc Bình 1m67 Tả</text>
+
+                  <!-- Lộc Bình Hữu (Y=2900 => cy=525.5) -->
+                  <circle cx="742.2" cy="525.5" r="32.3" fill="#f8f3e3" stroke="#1e3a8a" stroke-width="1.9"/>
+                  <circle cx="742.2" cy="525.5" r="24.1" fill="#efe7d1" stroke="#b45309" stroke-width="1.3" stroke-dasharray="3,2"/>
+                  <circle cx="742.2" cy="525.5" r="13.3" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.4"/>
+                  <text x="742.2" y="566.8" text-anchor="middle" font-size="7.9" font-weight="bold" fill="#1e3a8a">Lộc Bình 1m67 Hữu</text>
+                </g>
+
+                <!-- North Sightline Arrow -->
+                <line x1="634" y1="337.7" x2="178" y2="337.7" stroke="#059669" stroke-width="2.6" stroke-dasharray="7,4" marker-end="url(#arr-emerald)"/>
+                <rect x="264" y="492" width="276" height="21" rx="4" fill="#ecfdf5" stroke="#059669" stroke-width="1.1"/>
+                <text x="402" y="506" text-anchor="middle" font-size="8.9" font-weight="bold" fill="#065f46">CHUỖI DỌC: 830 + 980 (SẬP) + 810 + 1.070 (3 CẤP) = 3.690</text>
+              </g>
+
+              <!-- LAYER: POWER CONDUITS, 5 S1 OUTLETS & SWITCHES (CĐ-05 / CĐ-13) -->
+              <g id="svg-layer-power">
+                <polyline points="670,660 670,578 796,578 796,98 248,98 248,582 230,582 230,660" fill="none" stroke="#dc2626" stroke-width="2" stroke-dasharray="7,3" opacity="0.82"/>
+                <!-- S1 #4 (300, 0 => 298.5, 105) -->
+                <g class="cad-node" onclick="selectCadItem('S1_4')">
+                  <circle cx="298.5" cy="111" r="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+                  <text x="298.5" y="131" text-anchor="middle" font-size="8.6" font-weight="bold" fill="#b91c1c">S1#4 (+1.2m)</text>
+                </g>
+                <!-- S1 #3 (2390, 0 => 601.5, 105) -->
+                <g class="cad-node" onclick="selectCadItem('S1_3')">
+                  <circle cx="601.5" cy="111" r="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+                  <rect x="558" y="121" width="82" height="14" rx="3" fill="#fff1f2" stroke="#dc2626" stroke-width="0.9"/>
+                  <text x="599" y="131" text-anchor="middle" font-size="8.2" font-weight="bold" fill="#b91c1c">S1#3 (+1.2m Lộ)</text>
+                </g>
+                <!-- S1 #2 (3690, 950 => 790, 242.8) -->
+                <g class="cad-node" onclick="selectCadItem('S1_2')">
+                  <circle cx="784" cy="242.8" r="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+                  <text x="826" y="246" text-anchor="start" font-size="8.8" font-weight="bold" fill="#b91c1c">S1#2 (Nắp 160)</text>
+                </g>
+                <!-- S1 #1 (3690, 3010 => 790, 541.5) -->
+                <g class="cad-node" onclick="selectCadItem('S1_1')">
+                  <circle cx="784" cy="541.5" r="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+                  <text x="826" y="598" text-anchor="start" font-size="8.8" font-weight="bold" fill="#b91c1c">S1#1 (+1.2m Lộ)</text>
+                </g>
+                <!-- S1 #5 (0, 3080 => 255, 551.6) -->
+                <g class="cad-node" onclick="selectCadItem('S1_5')">
+                  <circle cx="261" cy="551.6" r="8" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+                  <text x="273" y="564" text-anchor="start" font-size="8.8" font-weight="bold" fill="#b91c1c">S1#5 (+0.4m)</text>
+                </g>
+                <!-- Curtain wire + Switches -->
+                <g class="cad-node" onclick="selectCadItem('REM_D9')">
+                  <circle cx="242" cy="531" r="6.5" fill="#0284c7" stroke="#fff" stroke-width="1.3"/>
+                  <text x="212" y="528" text-anchor="end" font-size="8.5" font-weight="bold" fill="#0369a1">Dây Rèm 220V</text>
+                </g>
+                <g class="cad-node" onclick="selectCadItem('SW_MAIN')">
+                  <rect x="650.6" y="609.6" width="9" height="12.5" rx="1.8" fill="#0284c7" stroke="#fff" stroke-width="1"/>
+                  <rect x="674.1" y="565.5" width="12.5" height="5" rx="1.5" fill="#059669"/>
+                  <text x="646" y="619" text-anchor="end" font-size="8.6" font-weight="bold" fill="#0369a1">CT (14,15,16) 86×86 (0 dời!)</text>
+                </g>
+                <g class="cad-node" onclick="selectCadItem('SW_26')">
+                  <rect x="247" y="547.5" width="8" height="12.5" rx="1.8" fill="#0284c7" stroke="#fff" stroke-width="1"/>
+                  <text x="212" y="555" text-anchor="end" font-size="8.5" font-weight="bold" fill="#0369a1">CT (26) 86×86</text>
+                </g>
+              </g>
+
+              <!-- LAYER: 8 Φ75 CEILING HOLES + L16 + L26 BALCONY LIGHTS -->
+              <g id="svg-layer-light">
+                <!-- X = {425->316.6, 1845->522.5, 3265->728.4}, Y = {425->166.6, 1520->325.4, 2815->513.2} -->
+                <!-- Hole 1: (425, 425) -->
+                <g class="cad-node" onclick="selectCadItem('HOLE_425_425')">
+                  <circle id="hole-tl-ring" cx="316.6" cy="166.6" r="11" fill="#6d28d9" stroke="#fff" stroke-width="1.6"/>
+                  <text id="hole-tl-txt" x="316.6" y="170.5" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">5t*</text>
+                </g>
+                <!-- Hole 2: (1845, 425) -> [5t/6] illuminates Sập truyền thống (Cách 1) -->
+                <g class="cad-node" onclick="selectCadItem('HOLE_1845_425')">
+                  <circle cx="522.5" cy="166.6" r="11" fill="#6d28d9" stroke="#fff" stroke-width="1.6"/>
+                  <text x="522.5" y="170.5" text-anchor="middle" font-size="9.2" font-weight="bold" fill="#fff">5t</text>
+                </g>
+                <!-- Hole 3: (3265, 425) -> [6] aimed RIGHT -->
+                <g class="cad-node" onclick="selectCadItem('HOLE_3265_425')">
+                  <line id="beam-tr" x1="739" y1="166.6" x2="778" y2="166.6" stroke="#d97706" stroke-width="2.2" marker-end="url(#arr-amber)"/>
+                  <circle cx="728.4" cy="166.6" r="11" fill="#d97706" stroke="#fff" stroke-width="1.6"/>
+                  <text x="728.4" y="170.5" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">6</text>
+                </g>
+                <!-- Hole 4: (425, 1520) -> [5t] -->
+                <g class="cad-node" onclick="selectCadItem('HOLE_425_1520')">
+                  <circle cx="316.6" cy="325.4" r="11" fill="#6d28d9" stroke="#fff" stroke-width="1.6"/>
+                  <text x="316.6" y="329.3" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">5t</text>
+                </g>
+                <!-- Hole 5: (3265, 1520) -> [6] aimed RIGHT at PA 16 Đỉnh đồng center -->
+                <g class="cad-node" onclick="selectCadItem('HOLE_3265_1520')">
+                  <line x1="739" y1="325.4" x2="778" y2="325.4" stroke="#d97706" stroke-width="2.2" marker-end="url(#arr-amber)"/>
+                  <circle cx="728.4" cy="325.4" r="11" fill="#d97706" stroke="#fff" stroke-width="1.6"/>
+                  <text x="728.4" y="329.3" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">6</text>
+                </g>
+                <!-- Hole 6: (425, 2815) -> [5t] -->
+                <g class="cad-node" onclick="selectCadItem('HOLE_425_2815')">
+                  <circle cx="316.6" cy="513.2" r="11" fill="#6d28d9" stroke="#fff" stroke-width="1.6"/>
+                  <text x="316.6" y="517" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">5t</text>
+                </g>
+                <!-- Hole 7: (1845, 2815) -> [5t] -->
+                <g class="cad-node" onclick="selectCadItem('HOLE_1845_2815')">
+                  <circle cx="522.5" cy="513.2" r="11" fill="#6d28d9" stroke="#fff" stroke-width="1.6"/>
+                  <text x="522.5" y="517" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">5t</text>
+                </g>
+                <!-- Hole 8: (3265, 2815) -> [6*] swapped or [5t] -->
+                <g class="cad-node" onclick="selectCadItem('HOLE_3265_2815')">
+                  <line id="beam-br" x1="739" y1="513.2" x2="778" y2="513.2" stroke="#d97706" stroke-width="2.2" marker-end="url(#arr-amber)"/>
+                  <circle id="hole-br-ring" cx="728.4" cy="513.2" r="11" fill="#d97706" stroke="#fff" stroke-width="1.6"/>
+                  <text id="hole-br-txt" x="728.4" y="517" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#fff">6*</text>
+                </g>
+
+                <!-- Central Pendant L16 (1845, 1620 => 522.5, 339.9) -->
+                <g class="cad-node" onclick="selectCadItem('L16')">
+                  <circle cx="522.5" cy="339.9" r="16" fill="#fde68a" stroke="#92400e" stroke-width="2"/>
+                  <text x="522.5" y="343.8" text-anchor="middle" font-size="10" font-weight="bold" fill="#78350f">L16</text>
+                </g>
+
+                <!-- 3 Balcony OB002 Lights L26 -->
+                <g class="cad-node" onclick="selectCadItem('L26')">
+                  <rect x="139" y="136" width="18" height="18" rx="4" fill="#2563eb" stroke="#fff" stroke-width="1.4"/>
+                  <text x="148" y="148.5" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">9</text>
+                  <rect x="139" y="311" width="18" height="18" rx="4" fill="#2563eb" stroke="#fff" stroke-width="1.4"/>
+                  <text x="148" y="323.5" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">9</text>
+                  <rect x="139" y="486" width="18" height="18" rx="4" fill="#2563eb" stroke="#fff" stroke-width="1.4"/>
+                  <text x="148" y="498.5" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">9</text>
+                </g>
+              </g>
+
+              <!-- Dimension Chains Top & Right -->
+              <g font-size="10" font-weight="bold" fill="#1e3a8a">
+                <line x1="255" y1="48" x2="790" y2="48" stroke="#1e3a8a" stroke-width="1.2"/>
+                <text x="286" y="43" text-anchor="middle" fill="#c2410c">425</text>
+                <text x="419" y="43" text-anchor="middle" fill="#c2410c">1.420</text>
+                <text x="625" y="43" text-anchor="middle" fill="#c2410c">1.420</text>
+                <text x="759" y="43" text-anchor="middle" fill="#c2410c">425</text>
+                <text x="522.5" y="24" text-anchor="middle" font-size="11">TỔNG NGANG TRẦN = 3.690 mm (Tâm X = 1.845 mm)</text>
+
+                <text x="850" y="140" text-anchor="middle" fill="#c2410c">425</text>
+                <text x="850" y="246" text-anchor="middle" fill="#c2410c">1.095</text>
+                <text x="850" y="420" text-anchor="middle" fill="#c2410c">1.295</text>
+                <text x="850" y="544" text-anchor="middle" fill="#c2410c">395</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Right: Inspector Side Panel -->
+        <aside class="inspector-card" aria-label="Chi tiết tọa độ kỹ thuật hạng mục đang chọn">
+          <span class="insp-pill" id="insp-badge">👑 PA 16 CHỐT — ĐỘC TÔN BAN TAM CẤP GẦM THOÁNG</span>
+          <h3 id="insp-title">PA 16: Ban Tam Cấp Gầm Thoáng 1,97m + Bộ Đỉnh Đồng, Hạc Đồng &amp; Bát Hương</h3>
+          <p style="font-size:0.84rem;color:var(--text-secondary);" id="insp-desc">
+            Đặt chính tâm tường <code>Trục 2</code> (<code>620 – 1.970 – 620 mm</code>) nhìn thẳng qua cửa kính <code>D9</code> ra cây xanh <code>Logia 02</code>. Gầm bàn thoáng sạch cao <code>820 mm</code> (<code>0%</code> tủ cơm), nền vách sơn kem phẳng <code>0%</code> tranh vẽ, trên mặt bàn chỉ bài trí tôn nghiêm <strong>01 Đỉnh đồng + 02 Hạc đồng cưỡi rùa (cỡ 50–55) + 03 Bát hương đồng</strong>.
+          </p>
+
+          <div class="spec-kv">
+            <div class="spec-kv-row">
+              <span>Tọa độ định vị</span>
+              <span id="insp-coord"><code>Tâm Y = 1.605 mm (Y: 620 → 2.590 • Vách: 430 → 2.780)</code></span>
+            </div>
+            <div class="spec-kv-row">
+              <span>Kích thước / Thiết bị</span>
+              <span id="insp-size">1.970 × Sâu 880 (hoặc 1.070) × Cao 1.070 / 1.170 / 1.270 mm</span>
+            </div>
+            <div class="spec-kv-row">
+              <span>Lỗ Ban / Thông số</span>
+              <span id="insp-loban">1.970 &amp; 1.170: ĐINH • 1.070: HƯNG • 1.270 &amp; 880: VƯỢNG</span>
+            </div>
+            <div class="spec-kv-row">
+              <span>Khớp Điện &amp; Đèn</span>
+              <span id="insp-me">Rọi bởi 3 lỗ Φ75 X=3.265 • Cửa thăm nam châm 160×160 tại S1#2</span>
+            </div>
+          </div>
+
+          <div class="note-box">
+            <label for="contractor-note">📝 Ghi chú riêng cho Thợ Mộc / Thợ Điện (Tự động lưu trên máy):</label>
+            <textarea id="contractor-note" placeholder="Nhập ghi chú thi công cho hạng mục này..." oninput="saveCurrentItemNote(this.value)"></textarea>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION 3: 4 AUTHORITATIVE PROJECT CAD/M&E CROPS -->
+    <section class="block" id="sec-cad-crosscheck">
+      <div class="section-hdr">
+        <span class="section-tag">PHẦN 5 • ĐỐI CHIẾU TRỰC TIẾP 04 BẢN VẼ GỐC ĐÃ THI CÔNG CỦA DỰ ÁN Q VILLA</span>
+        <h2 class="section-title">Chứng Minh Độ Khớp 100% Với Hồ Sơ Khoét Lỗ Đèn Φ75 (KT-ĐV-03), Ánh Sáng SLD &amp; Điện (CĐ-05 / CĐ-13)</h2>
+        <p class="section-sub">
+          Bấm vào từng bản vẽ gốc bên dưới để kiểm tra chéo kích thước thực tế ngoài công trường — đảm bảo đội Mộc đóng vách thờ không khoan trúng đường ống gen điện âm tường.
+        </p>
+      </div>
+
+      <div class="cad-4-grid">
+        <article class="media-card">
+          <div class="media-hdr">
+            <h3>📄 1. Bản Vẽ Khoét Lỗ Đèn Φ75mm Gốc (KT-ĐV-03 — Trang 3/5)</h3>
+            <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_ktdv03_lo_den.png', 'KT-ĐV-03: Định vị kích thước khoét 08 lỗ đèn Φ75mm Phòng Thờ (425 - 1420 - 1420 - 425 × 425 - 1095 - 1295 - 395)')">🔍 Soi nét</button>
+          </div>
+          <div class="media-img-wrap" style="background:#fff;">
+            <img src="assets/tang3_phong_tho_ktdv03_lo_den.png" alt="Bản vẽ định vị khoét lỗ đèn Φ75mm Phòng Thờ KT-ĐV-03" loading="lazy" width="2287" height="1550" onclick="openModal(this.src, this.alt)" />
+          </div>
+          <p class="media-caption">Chuỗi kích thước bắn laser của Đội Trần Thạch Cao: ngang <code>425 – 1420 – 1420 – 425</code>, dọc <code>425 – 1095 – 1295 – 395</code>; ngoài Logia 02 là 3 vị trí ống bơ nổi <code>500 – 1205 – 1205 – 500</code>.</p>
+        </article>
+
+        <article class="media-card">
+          <div class="media-hdr">
+            <h3>📄 2. Thiết Kế Ánh Sáng &amp; Góc Chiếu SLD (3000K • Rọi Thờ 24D)</h3>
+            <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_sld_beam.png', 'Thiết kế ánh sáng SLD Tầng 3: Lộ L14* (mã [6] SLD-DSP02 24D), Lộ L14 (mã [5t] SLD-DSP10 50D), Khe hắt L15 & Đèn thả L16')">🔍 Soi nét</button>
+          </div>
+          <div class="media-img-wrap" style="background:#fff;">
+            <img src="assets/tang3_phong_tho_sld_beam.png" alt="Bản vẽ thiết kế ánh sáng SLD Phòng Thờ Tầng 3" loading="lazy" width="2097" height="1415" onclick="openModal(this.src, this.alt)" />
+          </div>
+          <p class="media-caption">Phân tách rõ lộ rọi thờ <code>L14*</code> (<code>SLD-DSP02 7W 24D</code> chỉnh góc <code>25°</code>) và lộ nền <code>L14</code> (<code>SLD-DSP10 10W 50D</code>) ánh sáng vàng ấm trang nghiêm <code>3000K CRI&gt;90</code>.</p>
+        </article>
+
+        <article class="media-card">
+          <div class="media-hdr">
+            <h3>📄 3. Bản Vẽ Cấp Điện Ổ Cắm &amp; Dây Chờ Rèm (CĐ-05 — Trang 4/7)</h3>
+            <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_cd05_dien.png', 'Bản vẽ cấp điện CĐ-05: 04 ổ cắm S1 (+1.2m), 01 ổ cắm S1 (+0.4m) và đầu chờ rèm tự động tại cửa D9')">🔍 Soi nét</button>
+          </div>
+          <div class="media-img-wrap" style="background:#fff;">
+            <img src="assets/tang3_phong_tho_cd05_dien.png" alt="Bản vẽ cấp điện ổ cắm CĐ-05 Phòng Thờ Tầng 3" loading="lazy" width="1323" height="1044" onclick="openModal(this.src, this.alt)" />
+          </div>
+          <p class="media-caption">Cảnh báo thợ Mộc khi khoan tắc-kê treo vách: Đường ống gen <code>S1</code> đi ngang ở cao độ <code>+1.200 mm</code> quanh tường phải (<code>950</code> &amp; <code>200</code>) và tường trên (<code>400</code> &amp; <code>550</code>).</p>
+        </article>
+
+        <article class="media-card">
+          <div class="media-hdr">
+            <h3>📄 4. Bản Vẽ Lộ Công Tắc Đèn Phòng Thờ &amp; Ban Công (CĐ-13)</h3>
+            <button type="button" class="btn" onclick="openModal('assets/tang3_phong_tho_cd13_cong_tac.png', 'Bản vẽ chiếu sáng CĐ-13: Công tắc (14, 15, 16) tại đầu vách lùa phải và Công tắc (26) tại cửa D9')">🔍 Soi nét</button>
+          </div>
+          <div class="media-img-wrap" style="background:#fff;">
+            <img src="assets/tang3_phong_tho_cd13_cong_tac.png" alt="Bản vẽ công tắc chiếu sáng CĐ-13 Phòng Thờ Tầng 3" loading="lazy" width="1123" height="971" onclick="openModal(this.src, this.alt)" />
+          </div>
+          <p class="media-caption">Cụm công tắc <code>(14, 15, 16)</code> (<code>1 đế âm 86×86 mm</code>) trên <code>CĐ-13</code> nằm ở vách dọc <strong>ngoài cửa lùa</strong> sát cửa <code>O1</code> (<strong>0% phải đục dời!</strong>); công tắc <code>(26)</code> (<code>86×86 mm</code>) lọt khít chính tâm trụ <code>230 mm</code> (<code>72+86+72</code>) cạnh cửa <code>D9</code>.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CARPENTRY LỖ BAN TABLE (WITH INTERACTIVE BOQ) & M&E COORDINATE TABLE -->
+    <section class="block" id="sec-specs-tables">
+      <div class="section-hdr">
+        <span class="section-tag">PHẦN 6 • BẢNG QUY CÁCH ĐÓNG ĐỒ MỘC (LỖ BAN 38,8 CM), ĐỒ ĐỒNG &amp; BẢNG TỌA ĐỘ M&amp;E CHI TIẾT</span>
+        <h2 class="section-title">Bảng Giao Xưởng Mộc PA 16 Chốt (Có Thể Chỉnh Đơn Giá Thực Tế) &amp; Bảng Tọa Độ Đèn – Điện</h2>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="wood-table-caption" class="table-wrapper">
+        <table class="data-table wood-table">
+          <caption id="wood-table-caption">
+            Bảng 4.1 — Quy cách đóng đồ nội thất &amp; Bộ Đỉnh Hạc Đồng bản chốt PA 16 chuẩn Thước Lỗ Ban 38,8 cm (0% Ban Phật • 0% Bàn Trà • 0% Tranh)
+          </caption>
+          <thead>
+            <tr>
+              <th>Hạng mục nội thất &amp; Đồ thờ</th>
+              <th>Tọa độ đặt (mm)</th>
+              <th>Dài × Sâu × Cao (mm)</th>
+              <th>Cung Đỏ Lỗ Ban 38,8 cm</th>
+              <th>Quy cách chế tác &amp; Vật liệu hoàn thiện</th>
+              <th style="text-align:right;">Dự toán (VNĐ)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1. Ban Thờ Gia Tiên Tam Cấp Gầm Thoáng PA 16 (1,97m)<br><span style="font-size:0.77rem;font-weight:600;color:var(--gold-light);">(Giật Bậc Rõ 3 Tầng +130/+150mm — 0% Tai Cuốn, 0% Tủ Cơm)</span></th>
+              <td>Tường Phải <code>Trục 2</code><br>Chính tâm <code>Y = 1.605</code><br><code>X = 2.620 → 3.690</code><br><code>Y = 620 → 2.590</code></td>
+              <td>• <strong>Bản chốt chuẩn hóa:</strong> <code>1.970 × 1.070</code> (<code>500+280+290</code>) × Cao <strong><code>1.070 / 1.200 / 1.350</code></strong></td>
+              <td><span class="badge red">1.970 &amp; 1.200: ĐINH</span><br><span class="badge red">1.070, 280 &amp; 290: HƯNG</span><br><span class="badge red">500: VƯỢNG • 1.350: NGHĨA</span></td>
+              <td>100% Gỗ Tần bì / Sồi Mỹ hoặc Óc Chó loại 1AA sấy lò <code>10–12%</code>, chân <code>100×100</code> bo góc <code>R12</code> gầm thoáng <code>820 mm (NGHĨA)</code>, mép trước phẳng thẳng (không tai cuốn che bậc trong), giật 3 cấp tách bạch <code>1.070 → 1.200 (+130) → 1.350 mm (+150)</code>; khoét rỗng hậu Cấp 3 sâu <code>75 mm</code> ôm ổ <code>S1 #2</code> + cửa thăm nam châm <code>160×160 mm</code>.</td>
+              <td style="text-align:right;"><input type="number" class="price-input" value="19500000" step="500000" aria-label="Giá Ban thờ Gia tiên Tam Cấp PA 16" oninput="recalcWorshipBOQ()" /></td>
+            </tr>
+            <tr>
+              <th scope="row">2. Vách Hậu PA 16 Hai Cánh Lam Gỗ Không Tranh (2,35m)</th>
+              <td>Tường Phải <code>Trục 2</code><br>Chính tâm <code>Y = 1.605</code><br><code>Y = 430 → 2.780</code></td>
+              <td>Phủ bì: <code>2.350 × 3.000</code><br>(2 biên lam <code>190 mm</code> + Lòng phẳng <code>1.970 mm</code>)</td>
+              <td><span class="badge red">2.350: ĐINH (Tài Vượng)</span><br><span class="badge red">1.970: ĐINH (Đăng Khoa)</span></td>
+              <td>Hai dải lam gỗ sẫm rộng <code>190 mm</code> hai biên tích hợp khe hắt LED <code>COB 24V 2700K</code> hắt ngược vào lòng tường sơn kem cát khoáng phẳng mịn (<strong><code>0%</code> tranh lụa, <code>0%</code> vòng nguyệt, <code>0%</code> cuốn thư hoành phi</strong>). Giấu gọn bộ nguồn Driver <code>24V</code> đấu từ dây chờ <code>+2.05m</code>.</td>
+              <td style="text-align:right;"><input type="number" class="price-input" value="9500000" step="500000" aria-label="Giá Vách hậu PA 16 hai cánh lam gỗ không tranh" oninput="recalcWorshipBOQ()" /></td>
+            </tr>
+            <tr>
+              <th scope="row">3. Sập Gỗ Truyền Thống Chân Quỳ Chính Tâm ⭐<br><span style="font-size:0.77rem;font-weight:600;color:var(--sky);">(Bản Chốt “Tiền Sập • Hậu Án” Trước Bàn Thờ)</span></th>
+              <td>• <strong>Chốt Chính Tâm ⭐:</strong> <code>X = 830→1.810</code>, <code>Y = 725→2.485</code><br>• <em>Phụ (Tường trái):</em> <code>X = 520→2.490</code>, <code>Y = 0→980</code></td>
+              <td>• <strong>Chốt Chính Tâm ⭐:</strong> <code>1.760 × 980 × C470</code><br>• <em>Phụ:</em> <code>1.970 × 980 × C480</code></td>
+              <td><span class="badge red">1.760: QUAN • 1.970: ĐINH</span><br><span class="badge red">980: PHÚ QUÝ (Tài Lộc)</span><br><span class="badge red">470: VƯỢNG / HƯNG</span></td>
+              <td>Sập gỗ truyền thống Bắc Bộ 4 chân quỳ đục dạ triện thanh nhã (không đục rồng phượng rối mắt), mặt sập khung tranh lá ván dày dặn phẳng mịn, gỗ Sồi/Gụ/Óc Chó phun PU mờ <code>10–15%</code> tiệp màu <code>100%</code> với Ban Tam Cấp; chừa chuẩn <code>810 mm (ĐINH)</code> đứng lễ phía trước và <code>830 mm</code> lối đi sau lưng.</td>
+              <td style="text-align:right;"><input type="number" class="price-input" value="22000000" step="500000" aria-label="Giá Sập gỗ truyền thống chân quỳ" oninput="recalcWorshipBOQ()" /></td>
+            </tr>
+            <tr>
+              <th scope="row">4. Bộ Đỉnh Đồng + Đôi Hạc Đồng Cưỡi Rùa + 03 Bát Hương Đồng</th>
+              <td>Cấp 3 (<code>+1.350</code>, sâu <code>290</code>) &amp; Cấp 2 (<code>+1.200</code>, sâu <code>280</code>) chính trục <code>Y = 1.605</code></td>
+              <td><strong>Bộ cỡ 50–55:</strong><br>Đỉnh cao <code>500–550</code> (đế <code>Ø180–200</code>)<br>Hạc cao <code>520–580</code><br>Bát hương <code>Ø200 &amp; Ø180</code></td>
+              <td><span class="badge gold">Vừa khít Cấp 3 sâu 290 mm &amp; Cấp 2 sâu 280 mm</span></td>
+              <td>Đồng đỏ cạo nổi hoặc đồng cát tút hun nâu giả cổ thủ công (Ý Yên / Đại Bái), sắc trầm ấm ăn nhập gỗ nâu sẫm: <code>01</code> Đỉnh đồng nắp Nghê + <code>02</code> Hạc đồng cưỡi rùa đặt riêng trên Cấp 3 (<code>+1.350</code>); <code>03</code> Bát hương đồng kèm đế gỗ đặt riêng trên Cấp 2 (<code>+1.200</code>).</td>
+              <td style="text-align:right;"><input type="number" class="price-input" value="14500000" step="500000" aria-label="Giá Bộ Đỉnh đồng, đôi Hạc đồng và Bát hương đồng" oninput="recalcWorshipBOQ()" /></td>
+            </tr>
+            <tr>
+              <th scope="row">4b. Đôi Lộc Bình Đại Gốm Sứ Bát Tràng Men Rạn Đắp Nổi 1m67 + Đôi Đế Kỷ Gỗ Tròn (2 Bên)</th>
+              <td>Hai khoang biên <code>620 mm</code><br>Tâm <code>Y = 310</code> &amp; <code>Y = 2.900</code><br>Tâm <code>X = 3.360</code></td>
+              <td>Bình <code>1m50</code> + Kỷ gỗ <code>170</code><br>= Tổng cao <strong><code>1.670</code></strong><br>Bụng <code>Ø446</code> • Eo cổ <code>Ø184</code> • Miệng <code>Ø332</code></td>
+              <td><span class="badge red">1.670: THÊM ĐỨC (Đại Cát)</span><br><span class="badge green">Eo +1.2m Ø184 lộ S1 #1</span></td>
+              <td>Đôi Lộc Bình Đại gốm sứ Bát Tràng thủ công men rạn ngà cổ đắp nổi kênh bong tích <em>Liên Hoa Phú Quý – Tùng Hạc</em> phối chàm lam &amp; vàng hoàng thổ (miệng loe phễu để trống tụ lộc, đặt trên đôi kỷ gỗ tròn chạm thấp <code>17 cm</code> tiệp màu Ban Tam Cấp &amp; Sập). <em>(Hoặc tùy chọn cỡ <code>1.550 mm</code> cung <code>TÀI ĐỨC</code>).</em></td>
+              <td style="text-align:right;"><input type="number" class="price-input" value="16500000" step="500000" aria-label="Giá Đôi Lộc Bình Đại gốm sứ Bát Tràng 1m67 và đôi đế kỷ gỗ tròn" oninput="recalcWorshipBOQ()" /></td>
+            </tr>
+            <tr>
+              <th scope="row">5. Đèn Ốp Trần Mỏng / Quạt Trần Đèn Cánh Gỗ L16 &amp; Mành Gỗ Cửa D9</th>
+              <td>Tâm trần thạch cao <code>C1 (+3.150)</code> + Cửa kính <code>Logia D9</code></td>
+              <td>Đèn ốp trần: <code>Ø520 × C60</code><br><em>(hoặc Quạt trần đèn <code>Ø1.320</code>)</em><br>Mành gỗ: <code>2.300 × 3.000</code></td>
+              <td><span class="badge gold">Chuẩn trần thạch cao gốc KT-4.08</span></td>
+              <td>Lắp <strong>Đèn ốp trần mỏng sát trần</strong> viền gỗ óc chó / đồng (hoặc <strong>Quạt trần động cơ DC cánh gỗ tự nhiên kèm đèn LED ấm <code>3000K</code></strong>) tại đầu chờ <code>L16</code> trên trần thạch cao trắng phẳng <code>C1 (+3.150)</code> + Mành sáo gỗ bản <code>50mm</code> tại cửa kính <code>Logia D9</code>.</td>
+              <td style="text-align:right;"><input type="number" class="price-input" value="7500000" step="500000" aria-label="Giá Đèn ốp trần hoặc quạt trần cánh gỗ kèm đèn và mành gỗ D9" oninput="recalcWorshipBOQ()" /></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th colspan="5" style="text-align:right;">TỔNG DỰ TOÁN GÓI PHÒNG THỜ PA 16 CHỐT (MỘC TRIỆN ĐỒNG + VÁCH HẬU + SẬP + ĐỈNH HẠC + ĐÔI LỘC BÌNH BÁT TRÀNG 1M67):</th>
+              <td id="worship-boq-total" style="text-align:right;color:var(--celadon);font-size:1.05rem;">89.500.000 ₫</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="me-table-caption" class="table-wrapper">
+        <table class="data-table me-coord-table">
+          <caption id="me-table-caption">
+            Bảng 4.2 — Tổng hợp tọa độ 100% Lỗ khoét đèn Φ75mm (KT-ĐV-03 / SLD) &amp; 05 Ổ cắm – 02 Công tắc (CĐ-05 / CĐ-13) cho bản chốt PA 16
+          </caption>
+          <thead>
+            <tr>
+              <th>Mã thiết bị / Lỗ khoét</th>
+              <th>Nhóm / Lộ</th>
+              <th>Tọa độ chuẩn (X ; Y ; Cao độ)</th>
+              <th>Thiết bị &amp; Thông số chuẩn SLD / CĐ-05</th>
+              <th>Hướng dẫn lắp đặt thực tế (0% đục dời, 100% ổ cắm dùng tốt)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">03 Lỗ Φ75 Dọc Tường Phải</th>
+              <td><span class="badge gold">L14* • Mã [6]</span></td>
+              <td><code>X = 3.265</code> • <code>Y = {425 ; 1.520 ; 2.815*}</code></td>
+              <td>03 Spotlight <code>SLD-DSP02</code> (<code>Φ75 / 7W / 3000K / 24D</code>, CRI&gt;90)</td>
+              <td>Đổi chéo bóng <code>[6]</code> từ lỗ <code>(425; 425)</code> sang <code>(3.265; 2.815)</code> (0 khoét lại trần) và xoay <code>25°</code> sang phải tôn ánh đồng ấm của <strong>Bộ Đỉnh Hạc Đồng</strong> &amp; hai biên lam gỗ <code>PA 16</code>.</td>
+            </tr>
+            <tr>
+              <th scope="row">05 Lỗ Φ75 Vùng Sập &amp; Nền Phòng</th>
+              <td><span class="badge purple">L14 • Mã [5t]</span></td>
+              <td><code>(425;425)*</code>, <code>(1.845;425)</code>, <code>(425;1.520)</code>, <code>(425;2.815)</code>, <code>(1.845;2.815)</code></td>
+              <td>05 Downlight <code>SLD-DSP10</code> (<code>Φ75 / 10W / 3000K / 50D</code>)</td>
+              <td>Do đã bỏ Ban Phật tường Bắc, lỗ <code>(1.845; 425)</code> lắp bóng tán quang <code>[5t] 50D</code> (hoặc giữ <code>[6]</code> chỉnh thẳng xuống) chiếu sáng dịu êm vùng <strong>Sập gỗ truyền thống</strong> mà không gây chói mắt khi ngồi.</td>
+            </tr>
+            <tr>
+              <th scope="row">Khe Hắt Trần Thạch Cao L15 &amp; Đèn Ốp Trần / Quạt Trần Đèn L16</th>
+              <td><span class="badge gold">L15 &amp; L16</span></td>
+              <td>Ô thạch cao <code>C1 (+3.150)</code><br>Tâm <code>L16</code> dịch theo trục bàn thờ (<code>Y = 1.960</code> hoặc <code>1.605</code>)</td>
+              <td>LED dán <code>COB 24V 10W/m 3000K</code> + Đèn ốp trần mỏng <code>3000K</code> (hoặc Quạt trần DC cánh gỗ kèm đèn)</td>
+              <td>Đặt nguồn đũa <code>24V</code> nằm trên gờ khe hắt trần thạch cao <code>C1 (+3.150)</code> dễ rút bảo trì; lắp <strong>Đèn ốp trần mỏng sát trần (<code>55–70 mm</code>)</strong> hoặc <strong>Quạt trần cánh gỗ kèm đèn LED <code>3000K</code></strong> (gia cố ty sắt <code>M8/M10</code> lên sàn BTCT nếu lắp quạt trần) — <strong><code>0%</code> đèn lồng thả cản tầm nhìn</strong>.</td>
+            </tr>
+            <tr>
+              <th scope="row">03 Đèn Ban Công Logia 02</th>
+              <td><span class="badge sky">L26 • Nổi [9]</span></td>
+              <td><code>X = -725</code> (Cách tường <code>475</code>)<br>Bước <code>500 – 1.205 – 1.205 – 500</code></td>
+              <td>03 Ống bơ nổi <code>SLD-OB002 Pro</code> (<code>D71×H100 / 10W / 3000K</code>)</td>
+              <td>Lắp nổi đáy trần ngoài <code>Logia 02</code> (không khoét lỗ), bật bằng công tắc <code>CT (26)</code> ngay cạnh cửa kính <code>D9</code>.</td>
+            </tr>
+            <tr>
+              <th scope="row">Ổ Cắm S1 #2 Sau Hậu Cấp 3</th>
+              <td><span class="badge red">CĐ-05 • Lộ S1</span></td>
+              <td><code>S1 #2: (3.690 ; 950 ; +1.200)</code></td>
+              <td>Ổ cắm đôi âm tường Sino + Cửa thăm nam châm <code>160×160 mm</code></td>
+              <td>Khoét rỗng lòng hậu Cấp 3 sâu <code>75 mm</code> + mở <strong>nắp gỗ hít nam châm <code>160×160 mm</code></strong> ngay đúng tọa độ <code>Y = 950 mm</code> để cắm đèn thờ / lư trầm điện an toàn <code>100%</code> không đè bẹp phích cắm.</td>
+            </tr>
+            <tr>
+              <th scope="row">04 Ổ Cắm Lộ Thiên S1 #1, #3, #4, #5</th>
+              <td><span class="badge green">CĐ-05 • 100% Lộ Thiên</span></td>
+              <td><code>S1 #1: (3.690;3.010;+1.2m)</code> • <code>S1 #3: (2.390;0;+1.2m)</code> • <code>S1 #4: (300;0;+1.2m)</code> • <code>S1 #5: (0;3.080;+0.4m)</code></td>
+              <td>04 Ổ cắm mặt vuông đồng bộ + Dây chờ <code>220V</code> hốc rèm <code>D9</code></td>
+              <td><strong>Không bị đè bất kỳ ổ nào!</strong> <code>S1 #3</code> và <code>S1 #4</code> (<code>+1.200 mm</code>) nằm cao hơn mặt Sập truyền thống (<code>+480 mm</code>) tới <strong><code>72 cm</code></strong> nên cắm quạt/sạc/ấm nước trực tiếp cực tiện; <code>S1 #1</code> &amp; <code>S1 #5</code> trống thoáng hoàn toàn hai góc phòng.</td>
+            </tr>
+            <tr>
+              <th scope="row">02 Ô Công Tắc 86×86 mm (CĐ-13)</th>
+              <td><span class="badge sky">CĐ-13 • Aqara H1</span></td>
+              <td><code>CT (14,15,16): (2.790 ; 3.523 ; +1.25m)</code><br><code>CT (26): (0 ; 3.095 ; +1.25m)</code></td>
+              <td>01 mặt <code>Aqara H1 3 nút</code> (<code>86×86 mm</code>) + 01 mặt <code>Aqara H1 1 nút</code> (<code>86×86 mm</code>)</td>
+              <td><strong>KHÔNG PHẢI DỜI!</strong> <code>CT (14,15,16)</code> giữ nguyên ở vách dọc ngoài cửa lùa; đầu dây chờ <code>+2.05m</code> giữa tường <code>Trục 2</code> cấp điện cho khe LED vách <code>PA 16</code> bật/tắt bằng công tắc (hoặc gộp cùng lộ <code>L14*</code>).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 5: CONTRACTOR ACCEPTANCE CHECKLIST -->
+    <section class="block" id="sec-checklist">
+      <div class="section-hdr">
+        <span class="section-tag">PHẦN 7 • CHECKLIST GIÁM SÁT &amp; NGHIỆM THU TẠI CÔNG TRƯỜNG</span>
+        <h2 class="section-title">06 Hạng Mục Kiểm Tra Thực Tế Cho Bản Chốt PA 16 + Sập Truyền Thống + Đỉnh Hạc Đồng</h2>
+      </div>
+
+      <div class="checklist-grid" id="checklist-container">
+        <label class="check-item">
+          <input type="checkbox" data-chk="c1" onchange="toggleChecklist(this)" />
+          <div>
+            <strong>1. Kiểm tra xây bịt kín &amp; chống thấm tường ô S5 cũ (Trục C+575)</strong>
+            <span>Đảm bảo mảng tường Bắc 3.690mm (nơi đặt Sập gỗ truyền thống Cách 1) đã trát phẳng mịn, sơn kem cát hoàn thiện không treo tranh và chống thấm mặt ngoài kỹ lưỡng.</span>
+          </div>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" data-chk="c2" onchange="toggleChecklist(this)" />
+          <div>
+            <strong>2. Duyệt đúng Bộ Đỉnh Hạc Đồng cỡ 50 hoặc 55 (Tránh mua nhầm cỡ 65–70)</strong>
+            <span>Kiểm tra đường kính chân đế Đỉnh đồng Ø18–20 cm lọt thỏm chính giữa bậc Cấp 3 (sâu 230–280 mm), màu đồng hun nâu giả cổ / đồng đỏ cạo nổi trầm mặc.</span>
+          </div>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" data-chk="c3" onchange="toggleChecklist(this)" />
+          <div>
+            <strong>3. Phun sơn PU mờ Open-Pore 10–15% đồng màu 100% giữa Ban Tam Cấp &amp; Sập Chân Quỳ</strong>
+            <span>Yêu cầu xưởng mộc phun cùng một mã màu Nâu Hạt Dẻ Trầm / Óc Chó mờ cho cả Ban Tam Cấp PA 16, 2 biên lam vách và chiếc Sập truyền thống (khử bóng gương và ánh đỏ cam).</span>
+          </div>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" data-chk="c4" onchange="toggleChecklist(this)" />
+          <div>
+            <strong>4. Khoét rỗng hậu Cấp 3 sâu 75mm &amp; Cửa thăm nam châm 160×160 tại ổ S1 #2 (Y=950)</strong>
+            <span>Đảm bảo cả 05/05 ổ cắm S1 dùng tốt 100% (4 ổ S1 #1, #3, #4, #5 lộ thiên và ổ S1 #2 có nắp thăm nam châm đóng mở 1 giây); đánh dấu tuyến ống ngang +1.2m khi khoan lam biên.</span>
+          </div>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" data-chk="c5" onchange="toggleChecklist(this)" />
+          <div>
+            <strong>5. Đổi nhiệt độ màu đèn về 3000K / 2700K (CRI ≥ 90) &amp; Nguồn L15 đặt trên gờ hắt</strong>
+            <span>Đổi chéo bóng rọi 24D [6] sang lỗ (3.265; 2.815) để 3 đèn rọi đều Bộ Đỉnh Hạc Đồng; đặt nguồn đũa 24V nằm trên gờ hắt trần +3.150 dễ bảo trì.</span>
+          </div>
+        </label>
+        <label class="check-item">
+          <input type="checkbox" data-chk="c6" onchange="toggleChecklist(this)" />
+          <div>
+            <strong>6. Gia cố dầm thép hộp 40×80 cửa lùa 4 cánh Trục B (Ray đôi 90–100mm không ray sàn)</strong>
+            <span>Treo ti M10 lên sàn bê tông trước khi đóng trần, lắp gioăng lông ngăn khói hương sang Phòng Làm Việc; khi thắp nhang hé nhẹ cửa D9 thoát khói ra Logia 02.</span>
+          </div>
+        </label>
+      </div>
+    </section>
+
+    <footer>
+      Hồ sơ Chốt Thiết kế Kỹ thuật Phòng Thờ Tầng 3 (PA 16 Độc Tôn Tam Cấp Gầm Thoáng + Sập Truyền Thống + Đỉnh Hạc Đồng) — Biệt Thự Q Villa • Tỷ lệ chuẩn 100% (1:1).
+    </footer>
+  </main>
+
+  <!-- Light-Dismiss Modal Dialog with 1:1 5K Zoom Controls (modern-web-guidance: light-dismiss-a-dialog) -->
+  <dialog id="img-modal" closedby="any" aria-labelledby="modal-title">
+    <div class="modal-inner">
+      <div class="modal-bar">
+        <h2 id="modal-title">Xem chi tiết bản vẽ &amp; phối cảnh</h2>
+        <div class="btn-group">
+          <button type="button" class="btn active" id="btn-zoom-fit" onclick="setModalZoom('fit')">🔍 Vừa khung</button>
+          <button type="button" class="btn" id="btn-zoom-200" onclick="setModalZoom('200')">🔎 Phóng 200%</button>
+          <button type="button" class="btn" id="btn-zoom-native" onclick="setModalZoom('native')">🔬 Gốc 1:1 (5K)</button>
+          <form method="dialog" style="display:inline;">
+            <button type="submit" class="btn">✕ Đóng (Esc)</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal-img-stage" id="modal-stage" data-zoom="fit" onclick="cycleModalZoom()" title="Bấm vào ảnh để phóng to 200% / Gốc 1:1 (5K)">
+        <img id="modal-img" src="assets/tang3_phong_tho_3d_pa16_sap_chinh_tam_3cap_ro.jpg" alt="Hình ảnh phóng to" />
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const CAD_ITEMS = {
+      BAN_GIA_TIEN_3CAP: {
+        badge: "👑 PA 16 CHỐT — BAN TAM CẤP RÕ 3 TẦNG (1.070 → 1.200 → 1.350 MM)",
+        title: "PA 16: Ban Tam Cấp Gầm Thoáng 1.970 × 1.070 mm (500 + 280 + 290) + Bộ Đỉnh Hạc Đồng",
+        desc: "Đặt chính tâm tường Trục 2 (620 – 1.970 – 620 = 3.210 mm) nhìn thẳng ra Logia D9. Nâng bước chênh bậc lên +130 mm & +150 mm (1.070 → 1.200 → 1.350 mm), mép bàn phẳng không tai cuốn để nhìn từ cửa thấy rõ cả 3 tầng: Cấp 1 (sâu 500) để trống 100%, Cấp 2 (sâu 280) đặt 03 Bát hương đồng, Cấp 3 (sâu 290) đặt 01 Đỉnh đồng + 02 Hạc đồng cưỡi rùa cỡ 50–55.",
+        coord: "X = 2.620 → 3.690 mm ; Y = 620 → 2.590 mm (Tâm Y = 1.605)",
+        size: "Dài 1.970 × Sâu 1.070 (500 + 280 + 290) × Cao 1.070 / 1.200 / 1.350 mm",
+        loban: "1.970 & 1.200: ĐINH • 1.070, 280 & 290: HƯNG • 500: VƯỢNG • 1.350: NGHĨA",
+        me: "Rọi tách bóng 3 bậc bởi 3 lỗ Φ75 X=3.265 • Cửa thăm nam châm 160×160 tại S1 #2 (Y=950)"
+      },
+      SAP_TUONG_TRAI: {
+        badge: "🪑 SẬP TRUYỀN THỐNG — TÙY CHỌN PHỤ (DỌC TƯỜNG TRÁI)",
+        title: "Sập Gỗ Truyền Thống Chân Quỳ Kê Dọc Tường Trái (1.970 × 980 × C480 mm)",
+        desc: "Phương án kê thay thế dọc bức tường Bắc Trục C+575 (cách cửa kính Logia D9 520 mm) nếu gia đình muốn để trống toàn bộ trục giữa.",
+        coord: "X = 520 → 2.490 mm ; Y = 0 → 980 mm ; Cao 480 mm",
+        size: "Dài 1.970 × Sâu 980 × Cao 480 mm (Chân quỳ dạ triện đồng màu)",
+        loban: "1.970: ĐINH (Đăng Khoa) • 980: PHÚ QUÝ (Tài Lộc) • 480: VƯỢNG",
+        me: "2 ổ S1 #3 & S1 #4 (+1.200 mm) cao hơn mặt Sập 72 cm — cắm trực tiếp 100% không bị che!"
+      },
+      BINH_BAT_TRANG: {
+        badge: "🏺 ĐÔI LỘC BÌNH ĐẠI BÁT TRÀNG MEN RẠN ĐẮP NỔI 1.670 MM (THÊM ĐỨC)",
+        title: "Đôi Lộc Bình Đại Gốm Sứ Bát Tràng 1m67 + Đế Kỷ Gỗ Tròn Thấp Đối Xứng Hai Bên (Y = 310 & Y = 2.900 mm)",
+        desc: "Đặt chính tâm hai khoang biên 620 mm (tâm X = 3.360 mm, hở đều 87 mm hai bên bụng bình). Thân Lộc Bình cỡ 1m50 men rạn ngà cổ đắp nổi kênh bong Liên Hoa Phú Quý đặt trên đế kỷ gỗ tròn 17 cm = tổng cao 1.670 mm (cung Đỏ THÊM ĐỨC), miệng loe phễu để trống tụ lộc. Đặc biệt ở cốt +1.200 mm chính là eo cổ thắt nhỏ Ø184 mm nên ổ cắm S1 #1 (Y=3.010, +1.2m) lộ thoáng 100%!",
+        coord: "Tâm Y = 310 mm (Tả) & Y = 2.900 mm (Hữu) ; Tâm X = 3.360 mm",
+        size: "Lộc Bình 1m50 + Kỷ gỗ tròn Ø380×C170 = Cao 1.670 mm (Bụng Ø446 • Eo +1.2m Ø184 • Miệng Ø332)",
+        loban: "1.670 mm: THÊM ĐỨC (Đại Cát, 38,8 cm) • Tùy chọn 1.550 mm: TÀI ĐỨC",
+        me: "Rọi thẳng từ 2 bóng Spotlight [6] Y=425 & [6*] Y=2.815 • Eo cổ +1.2m cách S1 #1 tới 238mm"
+      },
+      SAP_CHINH_TAM: {
+        badge: "⭐ BẢN CHỐT CHÍNH THỨC — SẬP CHÍNH TÂM (TIỀN SẬP • HẬU ÁN)",
+        title: "Sập Gỗ Truyền Thống Chân Quỳ Chính Tâm Trước Bàn Thờ (1.760 × 980 × C470 mm)",
+        desc: "Phương án đối xứng gương 100% gia chủ ưng ý nhất ('Tiền Sập – Hậu Án'): đặt Sập chính tâm trục Y = 1.605 mm ngay trước Ban Tam Cấp 1.070 mm — chừa chuẩn 810 mm (ĐINH) đứng thắp hương phía trước, 830 mm lối đi sau lưng tại cửa D9 và 725 mm đều tăm tắp hai bên!",
+        coord: "X = 830 → 1.810 mm ; Y = 725 → 2.485 mm ; Cao 470 mm",
+        size: "Dài 1.760 × Sâu 980 × Cao 470 mm (Chuỗi dọc: 830 + 980 + 810 + 1.070 = 3.690 mm)",
+        loban: "1.760: QUAN (Thuận Khoa) • 980: PHÚ QUÝ • 470: VƯỢNG (38,8) / HƯNG (42,9)",
+        me: "Tường trái trống 100% nên cả 4 ổ S1 #1, #3, #4, #5 đều lộ thiên không vướng đồ gỗ!"
+      },
+      HOLE_1845_425: {
+        badge: "💡 LỖ ĐÈN Φ75 — VÙNG TRÊN SẬP [5t]",
+        title: "Downlight Chiếu Sáng Dịu Êm Vùng Sập Gỗ Truyền Thống",
+        desc: "Nằm chính giữa chiều ngang trần (X = 1.845 mm), cách tường Bắc 425 mm — ngay phía trên chiếc Sập gỗ truyền thống (Cách 1). Do đã bỏ Ban Phật, nên lắp bóng tán quang 50D (SLD-DSP10 3000K) để ngồi trên Sập êm mắt không bị chói.",
+        coord: "X = 1.845 mm ; Y = 425 mm ; Cốt trần +3.000",
+        size: "Khoét lỗ Φ75 mm • Đèn 10W • Góc tỏa 50D • 3000K CRI > 90",
+        loban: "Giữ nguyên 100% lỗ khoét KT-ĐV-03 (0 vá trần)",
+        me: "Đấu chung lộ L14 (Đèn nền Phòng Thờ)"
+      },
+      HOLE_3265_1520: {
+        badge: "💡 LỖ ĐÈN Φ75 — LỘ L14* [6]",
+        title: "Spotlight Rọi Tâm Đỉnh Đồng & Bát Hương PA 16 (SLD-DSP02 24D)",
+        desc: "Cách tường phải 425 mm (X = 3.265) và sát tâm Ban Tam Cấp PA 16 (Y = 1.520 vs tâm 1.605, chỉ lệch 8,5 cm). Bẻ chóa 25° tôn ánh đồng ấm của Đỉnh đồng nắp Nghê và nền tường kem phẳng tắp.",
+        coord: "X = 3.265 mm ; Y = 1.520 mm ; Cốt trần +3.000",
+        size: "Khoét lỗ Φ75 mm • Đèn 7W • Góc 24D chỉnh góc 25°",
+        loban: "Ánh sáng 3000K ấm áp tôn màu đồng hun & gỗ nâu trầm",
+        me: "Giữ nguyên 100% vị trí lỗ khoét trên bản vẽ KT-ĐV-03"
+      },
+      HOLE_3265_425: {
+        badge: "💡 LỖ ĐÈN Φ75 — LỘ L14* [6]",
+        title: "Spotlight Rọi Cánh Lam Gỗ Trái PA 16 (SLD-DSP02 24D)",
+        desc: "Xoay chóa 25° hướng sang tường phải (Trục 2) để rọi sáng dải lam gỗ sẫm biên trái và Hạc đồng bên Tả trên Ban Tam Cấp PA 16.",
+        coord: "X = 3.265 mm ; Y = 425 mm ; Cốt trần +3.000",
+        size: "Khoét lỗ Φ75 mm • Đèn 7W • Góc chiếu 24D",
+        loban: "3000K CRI > 90 chống chói",
+        me: "Thuộc lộ L14* (Rọi thờ)"
+      },
+      HOLE_3265_2815: {
+        badge: "✨ LỖ ĐÈN Φ75 HOÁN ĐỔI BÓNG [6*]",
+        title: "Lỗ Φ75 Góc Dưới Phải — Đổi Bóng [6] Từ (425 ; 425) Sang",
+        desc: "Trên SLD cũ lỗ này gắn bóng nền [5t]. Vì cùng cỡ khoét Φ75mm, chỉ cần lắp bóng rọi [6] (SLD-DSP02 24D) vào đây và xoay 25° sang phải để 2 biên lam gỗ & đôi Hạc đồng sáng đối xứng hoàn hảo!",
+        coord: "X = 3.265 mm ; Y = 2.815 mm (Cách vách dưới 395 mm)",
+        size: "Khoét lỗ Φ75 mm (0 đục sửa thạch cao)",
+        loban: "Chuyển dây trên trần về lộ L14* (Rọi thờ)",
+        me: "Cặp đối xứng với lỗ (3.265 ; 425) dọc tường Trục 2"
+      },
+      HOLE_425_425: {
+        badge: "💡 LỖ ĐÈN Φ75 GÓC TRÊN TRÁI [5t*]",
+        title: "Downlight Nền Đầu Sập Góc Trái (Nhận Bóng [5t] Đổi Chéo)",
+        desc: "Nằm phía đầu Sập truyền thống gần cửa kính D9, lắp bóng Downlight nền [5t] (SLD-DSP10 10W góc 50D) để ánh sáng nền lan tỏa dịu đều.",
+        coord: "X = 425 mm ; Y = 425 mm ; Cốt trần +3.000",
+        size: "Khoét lỗ Φ75 mm • Đèn 10W • Góc 50D cố định",
+        loban: "3000K Vàng ấm đồng bộ",
+        me: "Đấu về lộ L14 (Đèn nền Phòng Thờ)"
+      },
+      HOLE_425_1520: {
+        badge: "💡 LỖ ĐÈN Φ75 — LỘ L14 [5t]",
+        title: "Downlight Nền Trước Cửa Kính D9 (SLD-DSP10 50D)",
+        desc: "Chiếu sáng tán quang vùng lối đi dọc cửa lùa ban công D9.",
+        coord: "X = 425 mm ; Y = 1.520 mm ; Cốt trần +3.000",
+        size: "Khoét lỗ Φ75 mm • 10W • 3000K • 50D",
+        loban: "Giữ nguyên theo KT-ĐV-03 & SLD",
+        me: "Thuộc lộ L14 (Đèn nền)"
+      },
+      HOLE_425_2815: {
+        badge: "💡 LỖ ĐÈN Φ75 — LỘ L14 [5t]",
+        title: "Downlight Nền Góc Cửa Lùa Phía Logia D9 (SLD-DSP10 50D)",
+        desc: "Tỏa ánh sáng ấm 3000K góc 50° dịu mắt cho khoảng sàn thoáng góc dưới trái (đã bỏ bàn trà để không gian rộng rãi).",
+        coord: "X = 425 mm ; Y = 2.815 mm ; Cốt trần +3.000",
+        size: "Khoét lỗ Φ75 mm • 10W • 3000K • 50D",
+        loban: "Giữ nguyên theo KT-ĐV-03 & SLD",
+        me: "Thuộc lộ L14 (Đèn nền)"
+      },
+      HOLE_1845_2815: {
+        badge: "💡 LỖ ĐÈN Φ75 — LỘ L14 [5t]",
+        title: "Downlight Nền Trung Tâm Cửa Vào (SLD-DSP10 50D)",
+        desc: "Nằm trên trục giữa X = 1.845 mm ngay trước hệ cửa lùa 4 cánh kính mờ sóng.",
+        coord: "X = 1.845 mm ; Y = 2.815 mm (Cách cửa lùa 395 mm)",
+        size: "Khoét lỗ Φ75 mm • 10W • 3000K • 50D",
+        loban: "Giữ nguyên theo KT-ĐV-03 & SLD",
+        me: "Thuộc lộ L14 (Đèn nền)"
+      },
+      L15: {
+        badge: "✨ TRẦN THẠCH CAO GIẬT CẤP C1 (+3.150) & KHE HẮT L15",
+        title: "Ô Trần Thạch Cao Phẳng Sơn Trắng Giật Cấp C1 (+3.000 → +3.150 mm) + Khe LED 3000K",
+        desc: "Theo đúng hồ sơ gốc KT-4.08: toàn bộ trần Phòng Thờ là trần thạch cao phẳng bả matit sơn trắng mịn (0% trần cói), giật cấp từ cốt viền +3.000 mm lên +3.150 mm tích hợp khe hắt LED dây 3000K dịu ấm. Lưu ý chỉnh tâm ô giật cấp sang Y = 1.960 mm nếu làm theo PA Kiến Trúc 1 (dự phòng Ban Phật làm sau).",
+        coord: "Cốt trần viền C1: +3.000 mm • Ô giật cấp C1: +3.150 mm",
+        size: "Ô hốc 2.260×1.815 mm • ~8,2m dây LED COB 24V 10W/m 3000K",
+        loban: "Trần trắng tinh khiết giúp phòng thờ 12,1 m² cao thoáng & chống bám bụi",
+        me: "Đặt 01 nguồn đũa Fade-in 24V 200W nằm trên gờ khe hắt dễ bảo trì"
+      },
+      L16: {
+        badge: "💡 ĐÈN ỐP TRẦN MỎNG / QUẠT TRẦN CÁNH GỖ KÈM ĐÈN (LỘ L16)",
+        title: "Tùy Chọn Đèn Ốp Trần Mỏng Sát Trần Hoặc Quạt Trần Cánh Gỗ Kèm Đèn 3000K",
+        desc: "Thay thế hoàn toàn đèn lồng thả dây bằng 02 lựa chọn chuẩn thiết kế gốc: (A) Đèn ốp trần mỏng sát trần (Ø520×C60 mm, viền gỗ óc chó/đồng, tán quang ấm 3000K) giúp không gian phẳng thoáng tuyệt đối; hoặc (B) Quạt trần động cơ DC cánh gỗ tự nhiên kèm đèn LED 3000K giúp đối lưu gió mát mùa hè (vì Phòng Thờ không lắp điều hòa).",
+        coord: "Tâm ô trần thạch cao C1 (+3.150 mm)",
+        size: "Đèn ốp trần Ø520×60 mm HOẶC Quạt trần đèn cánh gỗ Ø1.220–1.320 mm",
+        loban: "0% đèn lồng thả dây • Thoáng trọn tầm nhìn vào Bộ Đỉnh Hạc Đồng",
+        me: "Đấu vào lộ công tắc L16 (CĐ-13); nếu chọn Quạt trần đèn thì bắn ty M8/M10 thẳng lên sàn BTCT"
+      },
+      L26: {
+        badge: "🌿 LỘ L26 — 03 ĐÈN BAN CÔNG LOGIA 02",
+        title: "03 Đèn Ống Bơ Nổi SLD-OB002 Pro Ngoài Logia 02",
+        desc: "Chiếu sáng ban công và cây bonsai phía Bắc, tạo lớp cảnh đêm tĩnh tại khi nhìn từ Ban Tam Cấp PA 16 và Sập truyền thống ra Hướng Bắc.",
+        coord: "Cách tường cửa D9 475 mm • Bước dọc: 500 – 1.205 – 1.205 – 500",
+        size: "Ống bơ nổi D71×H100 • 10W • 3000K • Góc 36D (Không khoét lỗ)",
+        loban: "Vỏ đen/trắng chống ẩm ban công",
+        me: "Điều khiển bởi công tắc đơn CT (26) ngay cạnh cửa D9"
+      },
+      S1_2: {
+        badge: "⚡ Ổ CẮM CĐ-05 — S1 #2 (CÓ NẮP THĂM NAM CHÂM 160×160)",
+        title: "Ổ Cắm S1 #2 Tường Phải (Y = 950 mm, +1.200 mm)",
+        desc: "Nằm sau bậc Cấp 3 của Ban Tam Cấp PA 16 (Y = 620→2.590). Xưởng mộc khoét rỗng lòng hậu Cấp 3 sâu 75 mm và làm cửa thăm gỗ hít nam châm 160×160 mm ngay tại Y = 950 mm — cắm/rút phích điện trong 1 giây, không bị đè bẹp!",
+        coord: "X = 3.690 mm ; Y = 950 mm ; Cao độ +1.200 mm",
+        size: "Ổ cắm đôi âm tường Lộ S1 + Hốc rỗng hậu sâu 75 mm",
+        loban: "An toàn PCCC tuyệt đối, không lộ 1 cm dây điện nào",
+        me: "Thợ mộc lưu ý tránh khoan tắc-kê vào tuyến ống ngang +1.2m"
+      },
+      S1_3: {
+        badge: "⚡ Ổ CẮM CĐ-05 — S1 #3 (100% LỘ THIÊN TRÊN SẬP)",
+        title: "Ổ Cắm S1 #3 Tường Bắc (X = 2.390 mm, +1.200 mm)",
+        desc: "Do đã bỏ Ban Phật và vách tranh tường Bắc, ổ S1 #3 lộ thiên hoàn toàn trên mặt tường phẳng và nằm cao hơn mặt Sập truyền thống (+480 mm) tới 72 cm — sử dụng trực tiếp 100% cực kỳ tiện lợi!",
+        coord: "X = 2.390 mm ; Y = 0 mm ; Cao độ +1.200 mm",
+        size: "Ổ cắm đôi âm tường Lộ S1 đồng bộ mặt vuông",
+        loban: "0% bị che khuất • Cắm quạt / sạc / đèn đọc sách trên Sập",
+        me: "Giữ nguyên 100% vị trí trên bản vẽ CĐ-05"
+      },
+      S1_1: {
+        badge: "⚡ Ổ CẮM CĐ-05 — S1 #1 (100% LỘ THIÊN BÊN PHẢI BÀN THỜ)",
+        title: "Ổ Cắm S1 #1 Trong Khoảng Đệm 620 mm Bên Phải PA 16",
+        desc: "Nằm tại Y = 3.010 mm (cách vách cửa lùa 200 mm), lọt gọn trong khoảng tường thoáng 620 mm bên phải Ban Tam Cấp PA 16 (kết thúc ở Y = 2.590; vách lam kết thúc ở Y = 2.780) nên lộ thiên 100% dễ cắm máy hút bụi, quạt hoặc lư trầm điện.",
+        coord: "X = 3.690 mm ; Y = 3.010 mm ; Cao độ +1.200 mm",
+        size: "Ổ cắm mặt vuông đồng bộ Aqara",
+        loban: "Cách mép vách lam PA 16 đúng 230 mm thông thoáng",
+        me: "Điểm đầu tuyến ống gen S1 vào Phòng Thờ"
+      },
+      S1_4: {
+        badge: "⚡ Ổ CẮM CĐ-05 — S1 #4 (100% LỘ THIÊN ĐẦU SẬP TRÁI)",
+        title: "Ổ Cắm S1 #4 Góc Trái Tường Bắc (X = 300 mm, +1.200 mm)",
+        desc: "Nằm trong khoảng lùi 520 mm giữa cửa kính D9 và đầu Sập truyền thống (X = 520 mm), cao độ +1.200 mm lộ thiên 100% không vướng bất kỳ đồ gỗ nào.",
+        coord: "X = 300 mm ; Y = 0 mm ; Cao độ +1.200 mm",
+        size: "Ổ cắm âm tường Lộ S1",
+        loban: "Cách mép ngoài tường trái 550 mm theo CĐ-05",
+        me: "Nằm trên tuyến vòng S1 sang trụ cửa D9"
+      },
+      S1_5: {
+        badge: "⚡ Ổ CẮM THẤP +0.4M — TRỤ CỬA D9 (100% LỘ THIÊN)",
+        title: "Ổ Cắm Thấp S1 #5 (+400 mm) Cạnh Cửa Lùa D9",
+        desc: "Do đã bỏ bàn trà góc phòng, ổ cắm thấp +0.4m trên trụ tường sát cửa D9 hoàn toàn trống thoáng 100% — cắm quạt đứng, robot/máy hút bụi hoặc ấm đun nước khi cần.",
+        coord: "X = 0 mm ; Y = 3.080 mm ; Cao độ +400 mm",
+        size: "Ổ cắm đôi 3 chấu chịu tải 16A",
+        loban: "Thẳng trục đứng dưới công tắc CT (26)",
+        me: "Chung lộ S1 theo bản vẽ CĐ-05"
+      },
+      REM_D9: {
+        badge: "🪟 ĐẦU DÂY CHỜ RÈM TỰ ĐỘNG 220V",
+        title: "Nguồn Động Cơ Mành Sáo Gỗ Cửa Lùa D9",
+        desc: "Đã đi sẵn dây chờ trong khe rèm âm trần góc dưới cửa D9 (CĐ-05). Lắp Mành sáo gỗ bản 50 mm màu nâu trầm đồng màu với Ban Tam Cấp PA 16 và Sập truyền thống.",
+        coord: "Hốc rèm X = -130→0 mm ; Y = 2.940 mm ; Trần +3.000",
+        size: "Cửa nhôm kính lùa D9 rộng 2.300 × cao 3.000 mm",
+        loban: "Đồng bộ kịch bản đóng/mở qua Aqara",
+        me: "Không dùng rèm vải dày dễ ám mùi nhang"
+      },
+      DOOR_D9: {
+        badge: "🧭 CỬA ĐI LÙA D9 MỞ RA HƯỚNG BẮC",
+        title: "Cửa Nhôm Kính Lùa D9 (2.300 × 3.000 mm) Ra Logia 02",
+        desc: "Đón ánh sáng tự nhiên Hướng Bắc mát dịu quanh năm cho Ban Tam Cấp PA 16 (dài 1.970 mm) nhìn thẳng ra, đồng thời là cửa thoát khói hương tự nhiên nhanh nhất.",
+        coord: "Trục 1' • Y = 680 → 2.980 mm (Tâm cửa Y = 1.830 mm)",
+        size: "Nhôm Xingfa Hệ 100 bản lớn + Kính an toàn 10.38mm",
+        loban: "Rộng 2.300 mm bao trọn tầm nhìn Ban Tam Cấp 1.970 mm",
+        me: "Có gờ hạ cốt chống tràn mưa ra Logia (+7.800)"
+      },
+      VACH_LUA: {
+        badge: "🚪 VÁCH CỬA LÙA 4 CÁNH KÍNH MỜ SÓNG (RAY ĐÔI 90–100MM)",
+        title: "Hệ Cửa Lùa Treo Trên Không Ray Sàn (2.400 × 2.750 mm)",
+        desc: "Ngăn ước lệ với Phòng Làm Việc Đôi 14,5 m² phía bên cạnh. Ray nhôm đôi rộng 90–100 mm bắt âm vào dầm thép hộp 40×80 treo ti M10 lên sàn bê tông, sàn dưới phẳng 100% không vấp chân.",
+        coord: "Trục B (Y = 3.210) • X = 390 → 2.790 mm (4 cánh × 600 mm)",
+        size: "Rộng 2.400 × Cao 2.750 mm • Hốc rèm/ray tổng rộng 110–120 mm",
+        loban: "0% vướng cục lạnh ĐH âm trần hay lỗ đèn Φ75 (cách xa 395 mm)",
+        me: "Dán gioăng lông ngăn khói hương sang Phòng Làm Việc"
+      },
+      SW_MAIN: {
+        badge: "🎛️ CÔNG TẮC AQARA H1 (86×86 MM) — 0% PHẢI DỜI!",
+        title: "Công Tắc (14, 15, 16) Đúng Vị Trí Bản Vẽ CĐ-13",
+        desc: "Cụm CT (14,15,16) đặt ở vách dọc NGOÀI cửa lùa (phía P. Làm Việc, sát cửa O1 từ hành lang bước vào bấm bật sáng ngay). Đèn hắt vách PA 16 đấu vào dây chờ +2.05m bật bằng công tắc (hoặc gộp cùng lộ rọi thờ L14*) rất gọn gàng.",
+        coord: "CĐ-13: X = 2.790 ; Y = 3.480→3.566 ; +1.250 mm",
+        size: "01 Đế âm Sino 80×80×50 • Mặt vuông Aqara H1 86 × 86 mm",
+        loban: "Nút 1 = L14* (Rọi thờ + Vách PA 16) • Nút 2 = L14 (Nền) • Nút 3 = L15+L16",
+        me: "Khớp 100% gói công tắc Aqara — 0% đục dời!"
+      },
+      SW_26: {
+        badge: "🎛️ CÔNG TẮC ĐƠN (26) 86×86 MM — LỌT KHÍT TRỤ 230MM",
+        title: "Công Tắc Bật 03 Đèn Ống Bơ Nổi Ban Công Logia 02",
+        desc: "Trụ tường dưới cửa lùa D9 rộng đúng 230 mm (Y = 2.980 → 3.210 mm). Chôn 1 đế âm mặt vuông Aqara H1 (86 × 86 mm) chính tâm tại Y = 3.095 mm, hai bên mép tường dư đều 72 + 86 + 72 = 230 mm.",
+        coord: "X = 0 mm ; Y = 3.052 → 3.138 mm (Tâm Y = 3.095) ; Cao độ +1.250 mm",
+        size: "01 Đế âm Sino • Mặt vuông Aqara H1 1 nút (86 × 86 mm)",
+        loban: "Cách mép khung nhôm D9 đúng 72 mm • Cách vách dưới 72 mm",
+        me: "Điều khiển lộ L26 (3 bóng OB002 Pro ngoài ban công)"
+      },
+      S5_WALL: {
+        badge: "🧱 MẢNG TƯỜNG ĐÃ XÂY BỊT Ô S5 CŨ",
+        title: "Ô Cửa Sổ Góc S5 (900 × 3.000 mm) Đã Xây Gạch Đặc Bịt Kín",
+        desc: "Theo hồ sơ cửa điều chỉnh KT-6.03, ô kính S5 cũ đã được xây gạch đặc 220 mm kín 100%, giúp toàn bộ tường Bắc 3.690 mm phẳng liền mạch để kê Sập gỗ truyền thống Cách 1 vững chãi và ngăn gió lùa tạt ngang bát hương.",
+        coord: "Tường trên Y = -220→0 • X = 2.790 → 3.690 mm (Rộng 900 mm)",
+        size: "Tường gạch đặc dày 220 mm sơn kem cát phẳng mịn",
+        loban: "Chống nắng chói & gió lùa trực diện bát hương PA 16",
+        me: "Kiểm tra chống thấm mặt ngoài trước khi kê Sập gỗ"
+      }
+    };
+
+    const NOTES_KEY = "qvilla_phong_tho_notes_v1";
+    const CHK_KEY = "qvilla_phong_tho_checklist_v1";
+    let currentItemId = "BAN_GIA_TIEN_3CAP";
+    let isBulbSwapped = true;
+    let currentSapMode = "CENTER";
+
+    function syncSvgSapGeometry(mode) {
+      currentSapMode = mode;
+      const gLeft = document.getElementById("svg-sap-left");
+      const gCenter = document.getElementById("svg-sap-center");
+      const btnSvg = document.getElementById("btn-svg-sap");
+      if (mode === "CENTER") {
+        if (gCenter) gCenter.style.display = "inline";
+        if (gLeft) gLeft.style.display = "none";
+        if (btnSvg) {
+          btnSvg.classList.add("active");
+          btnSvg.textContent = "⭐ Đang hiển thị 2D: Sập Chính Tâm 1.760×980 (“Tiền Sập • Hậu Án”)";
+        }
+        selectCadItem("SAP_CHINH_TAM");
+      } else {
+        if (gLeft) gLeft.style.display = "inline";
+        if (gCenter) gCenter.style.display = "none";
+        if (btnSvg) {
+          btnSvg.classList.remove("active");
+          btnSvg.textContent = "🪑 Đang hiển thị 2D: Sập Dọc Tường Trái (1.970×980 • Tùy chọn phụ)";
+        }
+        selectCadItem("SAP_TUONG_TRAI");
+      }
+    }
+
+    function toggleSvgSapMode() {
+      syncSvgSapGeometry(currentSapMode === "CENTER" ? "LEFT" : "CENTER");
+    }
+
+    function getSavedNotes() {
+      try {
+        return JSON.parse(localStorage.getItem(NOTES_KEY) || "{}");
+      } catch {
+        return {};
+      }
+    }
+
+    function selectCadItem(id) {
+      const item = CAD_ITEMS[id];
+      if (!item) return;
+      currentItemId = id;
+      document.getElementById("insp-badge").textContent = item.badge;
+      document.getElementById("insp-title").textContent = item.title;
+      document.getElementById("insp-desc").textContent = item.desc;
+      document.getElementById("insp-coord").innerHTML = "<code>" + item.coord + "</code>";
+      document.getElementById("insp-size").textContent = item.size;
+      document.getElementById("insp-loban").textContent = item.loban;
+      document.getElementById("insp-me").textContent = item.me;
+
+      const notes = getSavedNotes();
+      document.getElementById("contractor-note").value = notes[id] || "";
+    }
+
+    function saveCurrentItemNote(val) {
+      const notes = getSavedNotes();
+      notes[currentItemId] = val;
+      try {
+        localStorage.setItem(NOTES_KEY, JSON.stringify(notes));
+      } catch {}
+    }
+
+    function setCadLayer(mode) {
+      ["ALL", "FURN", "LIGHT", "POWER"].forEach((k) => {
+        const b = document.getElementById("layer-btn-" + k);
+        if (b) b.classList.toggle("active", k === mode);
+      });
+      const furn = document.getElementById("svg-layer-furn");
+      const light = document.getElementById("svg-layer-light");
+      const coffer = document.getElementById("svg-layer-coffer");
+      const power = document.getElementById("svg-layer-power");
+
+      furn.style.opacity = (mode === "ALL" || mode === "FURN") ? "1" : "0.18";
+      light.style.opacity = (mode === "ALL" || mode === "LIGHT") ? "1" : "0.15";
+      coffer.style.opacity = (mode === "ALL" || mode === "LIGHT") ? "1" : "0.25";
+      power.style.opacity = (mode === "ALL" || mode === "POWER") ? "1" : "0.15";
+    }
+
+    function toggleBulbSwap() {
+      isBulbSwapped = !isBulbSwapped;
+      const btn = document.getElementById("btn-swap-bulb");
+      const tlRing = document.getElementById("hole-tl-ring");
+      const tlTxt = document.getElementById("hole-tl-txt");
+      const brRing = document.getElementById("hole-br-ring");
+      const brTxt = document.getElementById("hole-br-txt");
+      const beamBr = document.getElementById("beam-br");
+
+      if (isBulbSwapped) {
+        btn.classList.add("active");
+        btn.textContent = "✨ Đang bật: Đổi chéo bóng [6] sang (3.265 ; 2.815)";
+        tlRing.setAttribute("fill", "#6d28d9");
+        tlTxt.textContent = "5t*";
+        brRing.setAttribute("fill", "#d97706");
+        brTxt.textContent = "6*";
+        beamBr.style.display = "inline";
+      } else {
+        btn.classList.remove("active");
+        btn.textContent = "📄 Đang xem: Vị trí bóng SLD gốc chưa đổi chéo";
+        tlRing.setAttribute("fill", "#d97706");
+        tlTxt.textContent = "6";
+        brRing.setAttribute("fill", "#6d28d9");
+        brTxt.textContent = "5t";
+        beamBr.style.display = "none";
+      }
+    }
+
+    function recalcWorshipBOQ() {
+      const inputs = document.querySelectorAll(".wood-table .price-input");
+      let sum = 0;
+      inputs.forEach((inp) => {
+        sum += Number(inp.value) || 0;
+      });
+      document.getElementById("worship-boq-total").textContent =
+        Math.round(sum).toLocaleString("vi-VN") + " ₫";
+    }
+
+    function toggleChecklist(chk) {
+      const label = chk.closest(".check-item");
+      if (label) label.classList.toggle("done", chk.checked);
+      const state = {};
+      document.querySelectorAll("#checklist-container input[type='checkbox']").forEach((el) => {
+        state[el.dataset.chk] = el.checked;
+      });
+      try {
+        localStorage.setItem(CHK_KEY, JSON.stringify(state));
+      } catch {}
+    }
+
+    function restoreChecklist() {
+      try {
+        const state = JSON.parse(localStorage.getItem(CHK_KEY) || "{}");
+        document.querySelectorAll("#checklist-container input[type='checkbox']").forEach((el) => {
+          if (state[el.dataset.chk]) {
+            el.checked = true;
+            const label = el.closest(".check-item");
+            if (label) label.classList.add("done");
+          }
+        });
+      } catch {}
+    }
+
+    // Modal Lightbox with 100% / 200% / Native 5K Zoom (modern-web-guidance: light-dismiss-a-dialog)
+    const dialog = document.getElementById("img-modal");
+    const modalStage = document.getElementById("modal-stage");
+    function setModalZoom(mode) {
+      if (!modalStage) return;
+      modalStage.dataset.zoom = mode;
+      document.getElementById("btn-zoom-fit").classList.toggle("active", mode === "fit");
+      document.getElementById("btn-zoom-200").classList.toggle("active", mode === "200");
+      document.getElementById("btn-zoom-native").classList.toggle("active", mode === "native");
+    }
+    function cycleModalZoom() {
+      const cur = modalStage ? modalStage.dataset.zoom : "fit";
+      setModalZoom(cur === "fit" ? "200" : cur === "200" ? "native" : "fit");
+    }
+    function openModal(src, title) {
+      document.getElementById("modal-img").src = src;
+      document.getElementById("modal-title").textContent = title || "Xem bản vẽ phóng to";
+      setModalZoom("fit");
+      dialog.showModal();
+    }
+
+    // Fallback for browsers without closedby support (Safari)
+    if (!("closedBy" in HTMLDialogElement.prototype)) {
+      dialog.addEventListener("click", (event) => {
+        if (event.target !== dialog) return;
+        const rect = dialog.getBoundingClientRect();
+        const isDialogContent = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (isDialogContent) return;
+        dialog.close();
+      });
+    }
+
+    selectCadItem("BAN_GIA_TIEN_3CAP");
+    restoreChecklist();
+  </script>
+</body>
+</html>
