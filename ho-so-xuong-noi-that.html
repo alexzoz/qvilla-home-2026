@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hồ Sơ Kỹ Thuật Đặt Đóng Nội Thất Giao Xưởng (100% Đồng Bộ Đa Góc Nhìn &amp; Bản Vẽ Chia Khoang 2D) — Q Villa</title>
+  <title>Hồ Sơ Kỹ Thuật Đặt Đóng Nội Thất Giao Xưởng (Tầng 1 &amp; Tầng 2 Hoàn Chỉnh 100% • 15 Góc 3D × 3 Tone • 11 Bản Vẽ 2D) — Q Villa</title>
   <style>
     :root {
       color-scheme: dark;
@@ -1051,6 +1051,27 @@
       border-radius: 8px;
     }
 
+    /* Floor Chapter Wrapper: keep zero padding/border/background on [hidden="until-found"] container itself (modern-web-guidance: search-hidden-content) */
+    .floor-chapter {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .floor-divider-banner {
+      margin-top: 34px;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.18), rgba(56, 189, 248, 0.14));
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     /* Print Stylesheet for Workshop Booklet */
     @media print {
       header.site-header { position: static; background: #fff; color: #000; border-bottom: 2px solid #000; }
@@ -1070,35 +1091,37 @@
     <div class="container">
       <div class="header-row-top">
         <a href="index.html" class="brand" title="Quay về Trang Chủ &amp; Tổng Dự Toán Q Villa">
-          <span class="brand-badge">🔧 HỒ SƠ GIAO XƯỞNG • Q VILLA</span>
+          <span class="brand-badge">🔧 HỒ SƠ GIAO XƯỞNG • T1 &amp; T2</span>
           <div class="brand-title">
             <h1>Hồ Sơ Kỹ Thuật Đặt Đóng Nội Thất Xưởng — Đồng Bộ Đa Góc Nhìn 360° &amp; Bản Vẽ Chia Khoang 2D</h1>
-            <p>Khớp 100% Kiến trúc XHOME + Tọa độ Ổ điện CĐ-03 + Trần PA C + Chia gạch KT-4.06 • 0% Lam sóng • 0% Vải nỉ xù</p>
+            <p>Đã hoàn chỉnh Tầng 1 &amp; Tầng 2 (15 Góc × 3 Tone = 45 Ảnh 1:1 + 11 Bản Vẽ 2D CĐ-03/CĐ-04) • 0% Lam dọc • 0% Vải nỉ xù</p>
           </div>
         </a>
         <nav class="nav-links" aria-label="Điều hướng hồ sơ Q Villa">
           <a href="index.html">💰 Tổng Dự Toán</a>
           <a href="noi-that-toan-nha.html">🛋️ Nội Thất Toàn Nhà</a>
-          <a href="ho-so-xuong-noi-that.html" class="active">🔧 Hồ Sơ Xưởng (Tầng 1)</a>
+          <a href="ho-so-xuong-noi-that.html" class="active">🔧 Hồ Sơ Xưởng (T1 &amp; T2)</a>
           <a href="phong-khach-bep-tang1.html">🏠 Khách &amp; Bếp T1</a>
-          <a href="bep-tang1.html">🍳 Bếp Inox Kính Be</a>
-          <a href="cua-chinh-d1.html">🚪 Cửa D1 (PA 1B)</a>
-          <a href="cua-go-lim-d3.html">🚪 Cửa Lim D3</a>
+          <a href="phong-master-tang2.html">👑 Master T2 (Trần &amp; ĐH)</a>
+          <a href="phong-lam-viec-tang3.html">💻 P. Làm Việc T3</a>
           <a href="phong-tho-tang3.html">🪷 Phòng Thờ (Riêng)</a>
-          <button type="button" class="btn-print" onclick="window.print()">🖨️ In / Lưu PDF A3</button>
+          <button type="button" class="btn-print" onclick="switchFloor('all', false); setTimeout(() => window.print(), 120);">🖨️ In Trọn Bộ PDF A3</button>
         </nav>
       </div>
 
       <div class="header-row-controls">
-        <div class="floor-pills" aria-label="Tiến độ chuẩn hóa theo tầng">
-          <button type="button" class="floor-pill active-floor" onclick="document.getElementById('sec-studio').scrollIntoView({behavior:'smooth'})">
-            ✅ TẦNG 1: HOÀN CHỈNH 100% (4 Khu • 7 Góc 3D • 5 Bản Vẽ 2D)
+        <div class="floor-pills" role="group" aria-label="Chọn tầng hồ sơ kỹ thuật xưởng">
+          <button type="button" class="floor-pill" id="btn-floor-f1" aria-expanded="false" aria-controls="chapter-floor-1" onclick="switchFloor('f1')">
+            ✅ TẦNG 1: HOÀN CHỈNH (7 Góc • 5 BV 2D)
           </button>
-          <button type="button" class="floor-pill queued-floor" onclick="openRoadmapModal('Tầng 2')">
-            ⏳ TẦNG 2: Tiếp Theo (Master PA2 4 Vách • Sảnh • PN1 &amp; PN2)
+          <button type="button" class="floor-pill active-floor" id="btn-floor-f2" aria-expanded="true" aria-controls="chapter-floor-2" onclick="switchFloor('f2')">
+            ✅ TẦNG 2: HOÀN CHỈNH (8 Góc • 6 BV 2D)
+          </button>
+          <button type="button" class="floor-pill" id="btn-floor-all" aria-expanded="false" onclick="switchFloor('all')">
+            📚 XEM GỘP T1 + T2 (15 Góc • 11 BV)
           </button>
           <button type="button" class="floor-pill queued-floor" onclick="openRoadmapModal('Tầng 3')">
-            ⏳ TẦNG 3: Bước 3 (P.Làm Việc Đôi • PN3 &amp; PN4 • Trừ P.Thờ)
+            ⏳ TẦNG 3: Tiếp Theo (P.Làm Việc • PN3 &amp; PN4)
           </button>
         </div>
 
@@ -1125,6 +1148,7 @@
   </header>
 
   <main class="container">
+    <div id="chapter-floor-1" class="floor-chapter" hidden="until-found">
     <!-- HERO -->
     <section class="hero">
       <div class="hero-card">
@@ -2108,6 +2132,965 @@
       </div>
     </section>
 
+    </div>
+
+    <!-- ========================================================================================= -->
+    <!-- CHAPTER FLOOR 2: MASTER OPEN-SUITE PA2 • MEZZANINE LOUNGE • BEDROOM 1 • BEDROOM 2         -->
+    <!-- ========================================================================================= -->
+    <div id="chapter-floor-2" class="floor-chapter">
+      <section class="hero" id="hero-f2">
+        <div class="hero-card" style="border-color: rgba(56, 189, 248, 0.52);">
+          <span class="eyebrow" style="background: rgba(56, 189, 248, 0.16); border-color: rgba(56, 189, 248, 0.48); color: #bae6fd;">
+            📐 CHƯƠNG 2 HOÀN CHỈNH 100%: TOÀN BỘ TẦNG 2 (MASTER OPEN-SUITE PA2 • SẢNH THƯ GIÃN • PHÒNG NGỦ 1 • PHÒNG NGỦ 2)
+          </span>
+          <h2>Hồ Sơ Chuẩn Hóa Giao Xưởng Nội Thất Tầng 2 — Chuẩn 100% Bản Vẽ Tường Xây KT-2.08, Trần KT-4.02 PA2 &amp; Ổ Điện CĐ-04</h2>
+          <p>
+            Toàn bộ <strong>04 khu vực nội thất Tầng 2</strong> đã được hiệu chuẩn 100% theo mặt bằng kiến trúc thực tế (khắc phục triệt để các lỗi cũ: xoay đúng <strong>Giường King Master tựa Tường Bắc <code>3.910mm</code> nhìn về Vách Tủ Đảo 2 Mặt Trục B <code>1.740×450mm</code></strong>; trả lại đúng <strong>Cửa chính <code>O1</code>, Trạm Robot <code>S1 +0.25m</code> &amp; Hệ bọc cột Gương soi toàn thân <code>960×220mm</code></strong> ở tường Đông Khu Thay Đồ; bổ sung <strong>Vách Tủ Áo &amp; Hốc Tivi <code>3.550mm</code> của PN1 trúng tâm ổ <code>1.900mm</code></strong> và <strong>Hệ 3 Module <code>2.900mm</code> của PN2</strong>), đồng bộ đủ <strong>8 góc 3D × 3 Tone = 24 ảnh <code>1:1</code></strong> và <strong>06 Bản vẽ mặt đứng chia khoang tủ 2D (<code>BV-T2.01 &rarr; BV-T2.06</code>)</strong>.
+          </p>
+
+          <div class="kpi-grid">
+            <div class="kpi-box">
+              <div class="kpi-label">1. Độ Phủ Góc Nhìn 360° Tầng 2</div>
+              <div class="kpi-val">08 Góc × 3 Tone = 24 Ảnh 1:1</div>
+              <div class="kpi-sub">Đủ cặp góc thuận ↔ nghịch <code>180°</code> cho Master Ngủ, Master Thay Đồ, Sảnh thông tầng, PN1 &amp; PN2</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-label">2. Bản Vẽ Đóng Tủ Giao Thợ Mộc</div>
+              <div class="kpi-val">06 Bản Vẽ Mặt Đứng 2D (mm)</div>
+              <div class="kpi-sub">Đủ <code>6,11m</code> dài Tủ áo Master + Đảo phụ kiện + Hệ tủ Tivi/Bàn học PN1 (<code>3,55m</code>) &amp; PN2 (<code>2,90m</code>)</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-label">3. Chuẩn Chống Ẩm &amp; Chống Bụi</div>
+              <div class="kpi-val">Hậu Tủ #1–#2 Plywood 9mm</div>
+              <div class="kpi-sub">Giáp tường ướt <code>WC-02</code> bắt buộc hậu &amp; đáy <code>Plywood chịu nước</code> • <code>0%</code> Lam dọc • <code>0%</code> Nỉ bọc giường</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-label">4. Tổng Đặt Xưởng Tầng 2 (08 Mục)</div>
+              <div class="kpi-val" id="kpi-t2-total-val">210,50 Tr (Tone 3: 201,00 Tr)</div>
+              <div class="kpi-sub" id="kpi-t2-total-sub">Tone 3 (<code>0% Kính Tủ &amp; Đảo</code>) thay toàn bộ bằng Gỗ Nâu Đen &amp; Đá mờ, giảm ngay <code>-9,50tr</code> riêng Tầng 2!</div>
+            </div>
+          </div>
+
+          <div class="quick-jumps">
+            <a href="#sec-t2-studio">🎯 1. Sơ Đồ 8 Camera Tầng 2 &amp; Studio 3D Đồng Nhất</a>
+            <a href="#sec-t2-walkthrough">🔄 2. Xem Đủ 4 Khu Tầng 2 Theo Cặp Góc Thuận ↔ Nghịch</a>
+            <a href="#sec-t2-shop-drawings">📐 3. Bộ 06 Bản Vẽ Chia Khoang Tủ 2D &amp; Khoét Ổ Điện (BV-T2.01..06)</a>
+            <a href="#sec-t2-boq-table">📋 4. Bảng Mã Ván An Cường 3 Tone &amp; Đặt Hàng Xưởng Tầng 2</a>
+            <button type="button" class="action-btn amber" style="padding:7px 13px;" onclick="switchFloor('f1')">⬅️ Chuyển Xem Hồ Sơ Tầng 1 (BV-T1.01..05)</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION T2.1: INTERACTIVE CAMERA MAP & SYNCHRONIZED 3D STUDIO -->
+      <section class="block" id="sec-t2-studio">
+        <h2 class="section-title">
+          🎯 1. Sơ Đồ Định Vị 8 Góc Camera Tầng 2 &amp; Studio Đối Chiếu 3D Không Điểm Mù
+          <span class="badge-pill badge-sky">Click trực tiếp vào từng Camera T2-V01 &rarr; T2-V08 trên mặt bằng</span>
+        </h2>
+        <p class="section-sub">
+          Mặt bằng Tầng 2 tuân thủ 100% bản vẽ xây tường <code>KT-2.08</code>, lát sàn xương cá <code>KT-4.07</code>, trần – đèn – điều hòa <code>KT-4.02 PA2</code> và tọa độ ổ điện <code>CĐ-04</code>. Bấm đổi qua lại giữa <strong>3 Tone màu</strong> hoặc bật <strong>⚖️ Đọ Cả 3 Tone</strong> ở thanh trên cùng để so sánh trực tiếp trên cùng một góc đứng:
+        </p>
+
+        <div class="studio-top-map">
+          <div class="map-header">
+            <h3>🗺️ Mặt Bằng Định Vị Nội Thất, Ổ Điện CĐ-04 &amp; 08 Hướng Nhìn Camera Đồng Bộ (Tầng 2: Master 36,2m² • Sảnh • PN1 16,2m² • PN2 13,5m²)</h3>
+            <span style="font-size:0.78rem;color:var(--text-muted);">⬆️ Phía trên là <strong>Hướng Bắc</strong> • Bên trái là <strong>Hướng Tây (Logia 01 &amp; Mặt tiền)</strong> • Bên phải là <strong>Hướng Đông (Ban công sau D8 &amp; D4)</strong></span>
+          </div>
+          <div class="map-svg-wrap">
+            <svg viewBox="0 0 1220 535" role="img" aria-label="Sơ đồ mặt bằng Tầng 2 Q Villa với 8 vị trí camera T2-V01 đến T2-V08">
+              <defs>
+                <pattern id="grid1m_t2" width="70" height="70" patternUnits="userSpaceOnUse">
+                  <path d="M 70 0 L 0 0 0 70" fill="none" stroke="rgba(148,163,184,0.08)" stroke-width="1" />
+                </pattern>
+              </defs>
+              <rect x="0" y="0" width="1220" height="535" rx="10" fill="#070d18" />
+              <rect x="30" y="36" width="1160" height="468" fill="url(#grid1m_t2)" />
+
+              <!-- Axis Lines -->
+              <g stroke="rgba(56,189,248,0.28)" stroke-dasharray="5,5" stroke-width="1">
+                <line x1="95" y1="26" x2="95" y2="510" />
+                <line x1="385" y1="26" x2="385" y2="510" />
+                <line x1="685" y1="26" x2="685" y2="510" />
+                <line x1="1065" y1="26" x2="1065" y2="510" />
+                <line x1="40" y1="68" x2="1180" y2="68" />
+                <line x1="40" y1="255" x2="1180" y2="255" />
+                <line x1="40" y1="425" x2="1180" y2="425" />
+                <line x1="40" y1="495" x2="1180" y2="495" />
+              </g>
+              <g fill="#7dd3fc" font-size="11" font-weight="800" text-anchor="middle">
+                <circle cx="95" cy="16" r="10" fill="#0f172a" stroke="#38bdf8" /><text x="95" y="20">1'</text>
+                <circle cx="385" cy="16" r="10" fill="#0f172a" stroke="#38bdf8" /><text x="385" y="20">2</text>
+                <circle cx="685" cy="16" r="10" fill="#0f172a" stroke="#38bdf8" /><text x="685" y="20">3</text>
+                <circle cx="1065" cy="16" r="10" fill="#0f172a" stroke="#38bdf8" /><text x="1065" y="20">4</text>
+                <text x="580" y="20" fill="#94a3b8" font-size="10">BẮC (NORTH — Trục C/D) — Đầu giường King Master 3.910mm • Lỗ thông tầng Bàn ăn • Đầu giường PN1 4.950mm</text>
+                <text x="580" y="524" fill="#94a3b8" font-size="10">NAM (SOUTH — Trục A) — Phòng tắm Master WC-02 • Cầu thang • WC-03 • Giếng trời • Đầu giường PN2 3.210mm</text>
+              </g>
+
+              <!-- Logia 01 Front West Balcony -->
+              <rect x="42" y="68" width="53" height="187" fill="rgba(16,185,129,0.14)" stroke="#10b981" stroke-dasharray="4,3" />
+              <text x="68" y="162" fill="#6ee7b7" font-size="9.5" font-weight="700" transform="rotate(-90 68 162)" text-anchor="middle">🌿 LOGIA 01 MẶT TIỀN</text>
+
+              <!-- MASTER SLEEP ZONE (North of Axis B + East Alcove 1.070mm) -->
+              <path d="M 95 68 H 465 V 255 H 385 V 255 H 95 Z" fill="rgba(245,158,11,0.07)" stroke="#64748b" stroke-width="3" />
+              <!-- Sliding door Logia 01 -->
+              <line x1="95" y1="92" x2="95" y2="232" stroke="#38bdf8" stroke-width="5" />
+              <!-- NE Fixed Glass Window 750mm into Lounge -->
+              <line x1="465" y1="74" x2="465" y2="122" stroke="#38bdf8" stroke-width="5" />
+              <!-- King Bed on North Wall (3.910mm) -->
+              <rect x="100" y="70" width="280" height="8" fill="#78350f" stroke="#f59e0b" />
+              <rect x="172" y="78" width="136" height="112" rx="6" fill="rgba(245,158,11,0.25)" stroke="#fbbf24" stroke-width="1.6" />
+              <text x="240" y="130" fill="#fff" font-size="9.2" font-weight="800" text-anchor="middle">GIƯỜNG KING R60</text>
+              <text x="240" y="143" fill="#fde68a" font-size="8.2" text-anchor="middle">2.000×2.200 [BV-T2.01]</text>
+              <rect x="188" y="191" width="104" height="18" rx="4" fill="#78350f" stroke="#fbbf24" />
+              <!-- Nightstands -->
+              <rect x="132" y="80" width="34" height="22" rx="3" fill="#78350f" stroke="#f59e0b" />
+              <rect x="314" y="80" width="34" height="22" rx="3" fill="#78350f" stroke="#f59e0b" />
+              <!-- Wardrobe #3 in East Alcove (2.010 x 600) -->
+              <rect x="424" y="125" width="39" height="126" rx="3" fill="#78350f" stroke="#f59e0b" stroke-width="1.5" />
+              <text x="444" y="188" fill="#fde68a" font-size="8.5" font-weight="800" transform="rotate(-90 444 188)" text-anchor="middle">TỦ ÁO #3 (2.010×600)</text>
+
+              <!-- AXIS-B FREESTANDING PARTITION (1.740 x 450) + TWO 850mm WALKWAYS -->
+              <rect x="168" y="241" width="144" height="28" rx="8" fill="#9a3412" stroke="#fb923c" stroke-width="2" />
+              <text x="240" y="259" fill="#fff" font-size="8.6" font-weight="900" text-anchor="middle">VÁCH TỦ ĐẢO 2 MẶT 1.740×450 [BV-02]</text>
+              <text x="131" y="259" fill="#6ee7b7" font-size="8" font-weight="800" text-anchor="middle">Lối 850</text>
+              <text x="349" y="259" fill="#6ee7b7" font-size="8" font-weight="800" text-anchor="middle">Lối 850</text>
+
+              <!-- MASTER WALK-IN CLOSET (South of Axis B: 3.440 x 2.700) -->
+              <rect x="95" y="255" width="290" height="170" fill="rgba(234,88,12,0.07)" stroke="#64748b" stroke-width="3" />
+              <!-- West Window O2 + Vanity 1.330mm + Corner Cabinet 440mm -->
+              <line x1="95" y1="285" x2="95" y2="365" stroke="#38bdf8" stroke-width="5" />
+              <rect x="97" y="286" width="30" height="82" rx="5" fill="#78350f" stroke="#f59e0b" />
+              <text x="112" y="327" fill="#fde68a" font-size="7.8" font-weight="800" transform="rotate(-90 112 327)" text-anchor="middle">BÀN O2 1.330</text>
+              <rect x="97" y="370" width="24" height="26" rx="2" fill="#78350f" stroke="#f59e0b" />
+              <!-- East Door O1 (900mm) + Robot + Column Mirror (960x220) -->
+              <line x1="385" y1="286" x2="385" y2="342" stroke="#d97706" stroke-width="5" />
+              <text x="399" y="315" fill="#fde68a" font-size="8.5" font-weight="800">O1</text>
+              <rect x="369" y="345" width="15" height="52" rx="2" fill="#0284c7" stroke="#bae6fd" />
+              <text x="377" y="371" fill="#fff" font-size="7.2" font-weight="800" transform="rotate(-90 377 371)" text-anchor="middle">GƯƠNG 960</text>
+              <!-- Center Island (1.150 x 550) -->
+              <rect x="192" y="314" width="96" height="42" rx="6" fill="rgba(234,88,12,0.32)" stroke="#fdba74" stroke-width="1.6" />
+              <text x="240" y="334" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle">BÀN ĐẢO 1.150×550</text>
+              <text x="240" y="346" fill="#fed7aa" font-size="7.5" text-anchor="middle">⚡ Ống âm sàn Ø20</text>
+              <!-- South Wall: Wardrobe #1 (1.180) + WC-02 Door (1.080) + Wardrobe #2 (1.180) -->
+              <rect x="97" y="398" width="96" height="25" rx="2" fill="#78350f" stroke="#f59e0b" stroke-width="1.5" />
+              <text x="145" y="414" fill="#fde68a" font-size="8.2" font-weight="800" text-anchor="middle">TỦ #1 (1.180) [BV-03]</text>
+              <line x1="195" y1="425" x2="285" y2="425" stroke="#38bdf8" stroke-width="5" />
+              <text x="240" y="417" fill="#bae6fd" font-size="8" font-weight="800" text-anchor="middle">Cửa sọc WC-02 (1.080)</text>
+              <rect x="287" y="398" width="96" height="25" rx="2" fill="#78350f" stroke="#f59e0b" stroke-width="1.5" />
+              <text x="335" y="414" fill="#fde68a" font-size="8.2" font-weight="800" text-anchor="middle">TỦ #2 (1.180) [BV-03]</text>
+
+              <!-- WC-02 MASTER BATHROOM -->
+              <rect x="95" y="425" width="290" height="70" fill="rgba(16,185,129,0.08)" stroke="#64748b" stroke-width="2.5" />
+              <text x="240" y="464" fill="#6ee7b7" font-size="9.5" font-weight="800" text-anchor="middle">🚿 PHÒNG TẮM MASTER WC-02 (Bồn tắm trái • Lavabo đôi giữa • Tắm đứng phải)</text>
+
+              <!-- VOID, MEZZANINE LOUNGE, HALLWAY, STAIRS, WC-03, SKYLIGHT -->
+              <!-- Void over T1 Dining -->
+              <rect x="465" y="68" width="220" height="92" fill="rgba(15,23,42,0.95)" stroke="#38bdf8" stroke-dasharray="5,4" />
+              <text x="575" y="112" fill="#7dd3fc" font-size="9.5" font-weight="800" text-anchor="middle">✨ THÔNG TẦNG BÀN ĂN T1</text>
+              <text x="575" y="126" fill="#94a3b8" font-size="8.2" text-anchor="middle">(Lan can kính cường lực)</text>
+              <!-- Mezzanine Reading Lounge (1.800 x 2.010) -->
+              <rect x="465" y="160" width="135" height="95" fill="rgba(16,185,129,0.1)" stroke="#34d399" stroke-width="1.5" />
+              <circle cx="532" cy="204" r="14" fill="rgba(245,158,11,0.28)" stroke="#fbbf24" />
+              <rect x="488" y="192" width="24" height="24" rx="5" fill="#78350f" stroke="#fbbf24" />
+              <rect x="552" y="192" width="24" height="24" rx="5" fill="#78350f" stroke="#fbbf24" />
+              <text x="532" y="242" fill="#6ee7b7" font-size="8.5" font-weight="800" text-anchor="middle">SẢNH THƯ GIÃN (2 Ghế da)</text>
+              <!-- Corridor -->
+              <rect x="385" y="255" width="300" height="75" fill="rgba(148,163,184,0.08)" stroke="#64748b" />
+              <text x="535" y="286" fill="#cbd5e1" font-size="9" font-weight="700" text-anchor="middle">HÀNH LANG TẦNG 2 (Gạch mờ 800×800)</text>
+              <!-- Stairs + WC-03 + Skylight -->
+              <rect x="385" y="330" width="135" height="165" fill="rgba(30,41,59,0.75)" stroke="#64748b" />
+              <text x="452" y="415" fill="#cbd5e1" font-size="9.2" font-weight="700" text-anchor="middle">CẦU THANG BỘ</text>
+              <rect x="520" y="330" width="95" height="165" fill="rgba(30,41,59,0.75)" stroke="#64748b" />
+              <text x="567" y="415" fill="#94a3b8" font-size="9.2" font-weight="700" text-anchor="middle">WC-03</text>
+              <rect x="615" y="415" width="70" height="80" fill="rgba(16,185,129,0.18)" stroke="#10b981" />
+              <text x="650" y="454" fill="#6ee7b7" font-size="8.5" font-weight="800" text-anchor="middle">🌿 GIẾNG</text>
+              <text x="650" y="466" fill="#6ee7b7" font-size="8.5" font-weight="800" text-anchor="middle">TRỜI</text>
+
+              <!-- BEDROOM 1 (PN1 — Axis B-D: 4.950 x 3.300 = 16.2 m2) -->
+              <rect x="685" y="68" width="380" height="187" fill="rgba(56,189,248,0.07)" stroke="#94a3b8" stroke-width="3" />
+              <!-- West Window S3 + 2.050mm Cantilevered Desk -->
+              <line x1="685" y1="88" x2="685" y2="178" stroke="#38bdf8" stroke-width="5" />
+              <rect x="687" y="82" width="28" height="112" rx="4" fill="#78350f" stroke="#f59e0b" />
+              <text x="701" y="138" fill="#fde68a" font-size="8" font-weight="800" transform="rotate(-90 701 138)" text-anchor="middle">BÀN CỬA SỔ 2.050</text>
+              <!-- Door D3 at SW corner of PN1 -->
+              <line x1="685" y1="205" x2="685" y2="246" stroke="#d97706" stroke-width="5" />
+              <!-- East Balcony D8 -->
+              <line x1="1065" y1="90" x2="1065" y2="230" stroke="#38bdf8" stroke-width="5" />
+              <rect x="1065" y="68" width="72" height="187" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-dasharray="4,3" />
+              <text x="1101" y="162" fill="#6ee7b7" font-size="9" font-weight="700" transform="rotate(90 1101 162)" text-anchor="middle">BAN CÔNG ĐÔNG D8</text>
+              <!-- PN1 North Bed 1.800 x 2.000 -->
+              <rect x="815" y="74" width="128" height="102" rx="6" fill="rgba(56,189,248,0.24)" stroke="#7dd3fc" stroke-width="1.6" />
+              <text x="879" y="122" fill="#fff" font-size="9" font-weight="800" text-anchor="middle">GIƯỜNG PN1 R60</text>
+              <text x="879" y="135" fill="#bae6fd" font-size="8" text-anchor="middle">1.800×2.000</text>
+              <!-- PN1 South 3.550mm Wardrobe + TV Niche Wall -->
+              <rect x="745" y="227" width="316" height="26" rx="3" fill="#0c4a6e" stroke="#38bdf8" stroke-width="1.6" />
+              <text x="903" y="244" fill="#e0f2fe" font-size="8.6" font-weight="800" text-anchor="middle">HỆ TỦ ÁO + TIVI 55" (3.550×600 • Tâm 1.900) [BV-T2.05]</text>
+
+              <!-- BEDROOM 2 (PN2 — Axis A-B: 3.210 x 4.490 = 13.5 m2) -->
+              <rect x="685" y="255" width="380" height="240" fill="rgba(244,63,94,0.07)" stroke="#94a3b8" stroke-width="3" />
+              <!-- Door D3 at NW alcove of PN2 -->
+              <line x1="685" y1="268" x2="685" y2="308" stroke="#d97706" stroke-width="5" />
+              <!-- Skylight Window on West Wall -->
+              <line x1="685" y1="422" x2="685" y2="480" stroke="#38bdf8" stroke-width="5" />
+              <!-- East Balcony D4 -->
+              <line x1="1065" y1="295" x2="1065" y2="465" stroke="#38bdf8" stroke-width="5" />
+              <rect x="1065" y="255" width="72" height="240" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-dasharray="4,3" />
+              <text x="1101" y="375" fill="#6ee7b7" font-size="9" font-weight="700" transform="rotate(90 1101 375)" text-anchor="middle">BAN CÔNG ĐÔNG D4</text>
+              <!-- PN2 North 3-Module Wall (2.900mm) -->
+              <rect x="735" y="257" width="325" height="26" rx="3" fill="#881337" stroke="#fb7185" stroke-width="1.6" />
+              <text x="897" y="274" fill="#ffe4e6" font-size="8.6" font-weight="800" text-anchor="middle">TỦ ÁO 950 + TIVI 50" 1.150 + BÀN HỌC 800 [BV-T2.06]</text>
+              <!-- PN2 South Bed (1.800 x 2.000) -->
+              <rect x="690" y="483" width="370" height="10" fill="#881337" stroke="#fb7185" />
+              <rect x="810" y="378" width="132" height="105" rx="6" fill="rgba(244,63,94,0.26)" stroke="#fda4af" stroke-width="1.6" />
+              <text x="876" y="428" fill="#fff" font-size="9" font-weight="800" text-anchor="middle">GIƯỜNG PN2 R60</text>
+              <text x="876" y="441" fill="#fda4af" font-size="8" text-anchor="middle">1.800×2.000 [BV-T2.06]</text>
+
+              <!-- 8 INTERACTIVE CAMERA PINS FOR FLOOR 2 -->
+              <!-- T2-V01: Master Sleep looking South from Bed to Axis-B Art Wall -->
+              <g class="cam-pin active-pin" id="pin-t2v01" onclick="selectT2View('t2v01')">
+                <polygon class="pin-cone" points="240,108 110,248 390,248" fill="rgba(56,189,248,0.16)" stroke="#38bdf8" stroke-width="1.2" />
+                <circle class="pin-circle" cx="240" cy="108" r="14" fill="#0284c7" stroke="#bae6fd" stroke-width="1.8" />
+                <text x="240" y="112" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">V01</text>
+              </g>
+
+              <!-- T2-V02: Master Sleep Reverse 180 looking North to King Bed & Wardrobe #3 -->
+              <g class="cam-pin" id="pin-t2v02" onclick="selectT2View('t2v02')">
+                <polygon class="pin-cone" points="240,232 102,76 452,125" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" stroke-width="1.2" />
+                <circle class="pin-circle" cx="240" cy="232" r="14" fill="#0284c7" stroke="#bae6fd" stroke-width="1.8" />
+                <text x="240" y="236" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">V02</text>
+              </g>
+
+              <!-- T2-V03: Master WIC looking North across Island to 4-bay Wardrobe -->
+              <g class="cam-pin" id="pin-t2v03" onclick="selectT2View('t2v03')">
+                <polygon class="pin-cone" points="240,392 104,266 380,266" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" stroke-width="1.2" />
+                <circle class="pin-circle" cx="240" cy="392" r="14" fill="#0284c7" stroke="#bae6fd" stroke-width="1.8" />
+                <text x="240" y="396" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">V03</text>
+              </g>
+
+              <!-- T2-V04: Master WIC Reverse 180 looking South to Wardrobes #1, #2 & WC-02 -->
+              <g class="cam-pin" id="pin-t2v04" onclick="selectT2View('t2v04')">
+                <polygon class="pin-cone" points="240,276 104,418 380,418" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" stroke-width="1.2" />
+                <circle class="pin-circle" cx="240" cy="276" r="14" fill="#0284c7" stroke="#bae6fd" stroke-width="1.8" />
+                <text x="240" y="280" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">V04</text>
+              </g>
+
+              <!-- T2-V05: Mezzanine Lounge & Hallway -->
+              <g class="cam-pin" id="pin-t2v05" onclick="selectT2View('t2v05')">
+                <polygon class="pin-cone" points="655,286 472,165 472,365" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" stroke-width="1.2" />
+                <circle class="pin-circle" cx="655" cy="286" r="14" fill="#0284c7" stroke="#bae6fd" stroke-width="1.8" />
+                <text x="655" y="290" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">V05</text>
+              </g>
+
+              <!-- T2-V06: PN1 looking North at Bed & 2.050mm Window Desk -->
+              <g class="cam-pin" id="pin-t2v06" onclick="selectT2View('t2v06')">
+                <polygon class="pin-cone" points="879,218 695,78 1055,78" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" stroke-width="1.2" />
+                <circle class="pin-circle" cx="879" cy="218" r="14" fill="#0284c7" stroke="#bae6fd" stroke-width="1.8" />
+                <text x="879" y="222" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">V06</text>
+              </g>
+
+              <!-- T2-V07: PN1 Reverse 180 looking South at 3.550mm Wardrobe & TV Niche -->
+              <g class="cam-pin" id="pin-t2v07" onclick="selectT2View('t2v07')">
+                <polygon class="pin-cone" points="879,98 695,245 1055,245" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" stroke-width="1.2" />
+                <circle class="pin-circle" cx="879" cy="98" r="14" fill="#0284c7" stroke="#bae6fd" stroke-width="1.8" />
+                <text x="879" y="102" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">V07</text>
+              </g>
+
+              <!-- T2-V08: PN2 looking South at 3.210mm Headboard Wall -->
+              <g class="cam-pin" id="pin-t2v08" onclick="selectT2View('t2v08')">
+                <polygon class="pin-cone" points="876,302 695,480 1055,480" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" stroke-width="1.2" />
+                <circle class="pin-circle" cx="876" cy="302" r="14" fill="#0284c7" stroke="#bae6fd" stroke-width="1.8" />
+                <text x="876" y="306" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">V08</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Single-Row Scrollable Tablist for Floor 2 (8 Camera Angles) -->
+        <div class="tabs-scroller" role="tablist" aria-label="Chọn 8 góc nhìn chuẩn hóa Tầng 2">
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v01" aria-selected="true" onclick="selectT2View('t2v01')">T2-V01 • Master Ngủ: Nhìn Nam (Vách Tranh &amp; 2 Lối 850)</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v02" aria-selected="false" onclick="selectT2View('t2v02')">T2-V02 • Master Ngủ (Ngược 180°): Đầu Giường Bắc &amp; Tủ #3</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v03" aria-selected="false" onclick="selectT2View('t2v03')">T2-V03 • Master Thay Đồ: Nhìn Bắc (Tủ Đảo 4 Khoang &amp; Cửa O1)</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v04" aria-selected="false" onclick="selectT2View('t2v04')">T2-V04 • Master Thay Đồ (Ngược 180°): Tủ #1–#2 &amp; WC-02</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v05" aria-selected="false" onclick="selectT2View('t2v05')">T2-V05 • Sảnh Thư Giãn Thông Tầng &amp; Hành Lang T2</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v06" aria-selected="false" onclick="selectT2View('t2v06')">T2-V06 • Phòng Ngủ 1: Nhìn Bắc (Giường &amp; Bàn 2,05m)</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v07" aria-selected="false" onclick="selectT2View('t2v07')">T2-V07 • Phòng Ngủ 1 (Ngược 180°): Hệ Tủ + Tivi 3,55m</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v08" aria-selected="false" onclick="selectT2View('t2v08')">T2-V08 • Phòng Ngủ 2: Nhìn Nam (Giường R60 &amp; Giếng Trời)</button>
+        </div>
+
+        <!-- Synchronized 3D Stage & Spec Panel for Floor 2 -->
+        <div class="studio-grid" id="t2-studio-tabpanel" role="tabpanel" aria-labelledby="tab-t2v01">
+          <div class="stage-imgs" id="t2-studio-stage-imgs">
+            <div class="img-card" id="t2-card-img-primary">
+              <img id="t2-studio-img-primary" src="assets/t2_v01_master_sleep_south_smokedwood.jpg" alt="Phối cảnh chuẩn hóa 1:1 Tầng 2 Q Villa" width="1376" height="768" fetchpriority="high" onclick="openLightbox(this.src, document.getElementById('t2-studio-cap-primary').textContent)" />
+              <div class="img-bar">
+                <span id="t2-studio-cap-primary">Đang tải phối cảnh Tầng 2...</span>
+                <span>🔍 Click vào ảnh để phóng to toàn màn hình</span>
+              </div>
+            </div>
+
+            <div class="img-card" id="t2-card-img-secondary" hidden>
+              <img id="t2-studio-img-secondary" src="assets/t2_v01_master_sleep_south_italian.jpg" alt="Phối cảnh đối chiếu Italian Quiet Luxury Tầng 2" width="1376" height="768" loading="lazy" onclick="openLightbox(this.src, document.getElementById('t2-studio-cap-secondary').textContent)" />
+              <div class="img-bar">
+                <span id="t2-studio-cap-secondary">👑 Tone 2: Italian Modern Quiet Luxury</span>
+                <span>🔍 Click để phóng to</span>
+              </div>
+            </div>
+
+            <div class="img-card" id="t2-card-img-tertiary" hidden>
+              <img id="t2-studio-img-tertiary" src="assets/t2_v01_master_sleep_south_smokedwood.jpg" alt="Phối cảnh đối chiếu Boutique Smoked Wood 0% Kính Tủ Tầng 2" width="1376" height="768" loading="lazy" onclick="openLightbox(this.src, document.getElementById('t2-studio-cap-tertiary').textContent)" />
+              <div class="img-bar">
+                <span id="t2-studio-cap-tertiary">💎 Tone 3: Boutique Smoked Wood (0% Kính Tủ)</span>
+                <span>🔍 Click để phóng to</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="spec-panel" id="t2-studio-spec-panel"></div>
+        </div>
+      </section>
+
+      <!-- SECTION T2.2: ALL 4 ZONES OF FLOOR 2 WALKTHROUGH -->
+      <section class="block heavy-deferred" id="sec-t2-walkthrough">
+        <h2 class="section-title">
+          🔄 2. Trình Duyệt Đủ 4 Khu Vực Tầng 2 Theo Cặp Góc Thuận ↔ Nghịch Đồng Bộ 100%
+          <span class="badge-pill badge-amber">Đối chiếu trực diện 2 đầu từng phòng cho vợ chồng &amp; xưởng mộc</span>
+        </h2>
+        <p class="section-sub">
+          Mỗi cặp ảnh dưới đây khóa chặt hướng la bàn <code>180°</code> — bấm đổi <strong>Tone 1 • Tone 2 • Tone 3 (0% Kính Tủ)</strong> hoặc bật <strong>⚖️ Đọ Cả 3 Tone</strong> trên thanh công cụ để toàn bộ 8 góc Tầng 2 cập nhật tức thì:
+        </p>
+
+        <div id="t2-walkthrough-container"></div>
+      </section>
+
+      <!-- SECTION T2.3: 6 VECTOR 2D CARPENTER SHOP DRAWINGS FOR FLOOR 2 (BV-T2.01 -> BV-T2.06) -->
+      <section class="block heavy-deferred" id="sec-t2-shop-drawings">
+        <h2 class="section-title">
+          📐 3. Bộ 06 Bản Vẽ Kỹ Thuật Mặt Đứng Chia Khoang Tủ 2D &amp; Định Vị Khoét Ổ Điện Tầng 2 (BV-T2.01 &rarr; BV-T2.06)
+          <span class="badge-pill badge-emerald">Đơn vị chuẩn: Milimet (mm) • Bám sát KT-2.08, KT-4.02 PA2 &amp; CĐ-04</span>
+        </h2>
+        <p class="section-sub">
+          Thợ mộc sử dụng trực tiếp 06 bản vẽ chia khoang này để pha ván, gia công cốt <code>Plywood 18mm / 9mm chịu nước</code> tại khu vực giáp phòng tắm <code>WC-02</code> và khoét sẵn lỗ ổ điện âm tường <code>CĐ-04</code>:
+        </p>
+
+        <!-- ==================== BV-T2.01: MASTER SLEEP NORTH WALL + BED + ALCOVE WARDROBE #3 ==================== -->
+        <article class="blueprint-card" id="bv-t2-01">
+          <div class="blueprint-head">
+            <div>
+              <h3>BV-T2.01 • Master Khu Ngủ: Vách Đầu Giường Bắc (3.910 × 2.650 mm) + Giường King R60 (2.000 × 2.200) &amp; Tủ Áo Âm Hốc Đông #3 (2.010 × 600 × 2.650 mm)</h3>
+              <p>Vị trí: Tường Bắc Trục C &amp; Hốc Tường Đông đua 1.070mm (Trục 2) • Tương ứng phối cảnh <strong>T2-V01 &amp; T2-V02</strong> • Tổng dự toán cụm Khu Ngủ: <strong>49.500.000 ₫</strong></p>
+            </div>
+            <span class="badge-pill badge-sky">Khung Giường &amp; Đáy Tủ: Plywood 18mm • Vách &amp; Cánh: MDF 17mm</span>
+          </div>
+
+          <div class="svg-scroll">
+            <svg viewBox="0 0 1140 435" role="img" aria-label="Bản vẽ BV-T2.01 Vách Bắc đầu giường King Master và Tủ áo âm hốc Đông số 3">
+              <rect x="0" y="0" width="1140" height="435" fill="#040811" />
+              <!-- Left: North Wall 3.910mm -->
+              <text x="330" y="26" fill="#38bdf8" font-size="11.5" font-weight="800" text-anchor="middle">MẶT ĐỨNG VÁCH ĐẦU GIƯỜNG TƯỜNG BẮC (3.910 × 2.650 mm — NHÌN HƯỚNG BẮC T2-V02)</text>
+              <line x1="55" y1="46" x2="605" y2="46" stroke="#38bdf8" stroke-width="1.5" />
+              <text x="330" y="41" fill="#bae6fd" font-size="10.5" font-weight="800" text-anchor="middle">TỔNG RỘNG TƯỜNG BẮC = 3.910 mm (705 Biên Tây + 2.500 Giữa Travertine + 705 Biên Đông)</text>
+
+              <!-- Flanking Panels & Center Wood-Travertine Slab -->
+              <rect x="55" y="65" width="100" height="315" fill="rgba(215,202,184,0.18)" stroke="#94a3b8" stroke-width="1.5" />
+              <rect x="155" y="65" width="350" height="315" fill="rgba(245,158,11,0.18)" stroke="#fde047" stroke-width="2.2" />
+              <rect x="505" y="65" width="100" height="315" fill="rgba(215,202,184,0.18)" stroke="#94a3b8" stroke-width="1.5" />
+              <!-- Lower wainscoting wood band -->
+              <rect x="55" y="255" width="100" height="125" fill="#4a3020" stroke="#f59e0b" />
+              <rect x="505" y="255" width="100" height="125" fill="#4a3020" stroke="#f59e0b" />
+
+              <text x="330" y="138" fill="#fde68a" font-size="10.5" font-weight="800" text-anchor="middle">MẢNG GIỮA LAMINATE TRAVERTINE MỜ (2.500 × 2.650)</text>
+              <text x="330" y="155" fill="#cbd5e1" font-size="9" text-anchor="middle">2 khe hắt LED dọc 24V 3000K âm cạnh • 0% Lam dọc • 0% Nỉ bọc tường!</text>
+
+              <!-- King Bed R60 (2.000 x 2.200) -->
+              <rect x="190" y="252" width="280" height="68" rx="10" fill="#4a3020" stroke="#fbbf24" stroke-width="2" />
+              <text x="330" y="282" fill="#fff" font-size="9.5" font-weight="800" text-anchor="middle">TỰA GỖ NGHIÊNG CÔNG THÁI HỌC (0% VẢI NỈ XÙ)</text>
+              <rect x="196" y="314" width="268" height="24" rx="6" fill="#f8fafc" stroke="#cbd5e1" />
+              <rect x="184" y="334" width="292" height="32" rx="10" fill="#5c3a21" stroke="#fbbf24" stroke-width="2" />
+              <rect x="206" y="366" width="248" height="14" fill="#090d16" />
+              <line x1="210" y1="369" x2="450" y2="369" stroke="#fde047" stroke-width="3" />
+              <text x="330" y="354" fill="#fde68a" font-size="9" font-weight="800" text-anchor="middle">GIƯỜNG KING PLYWOOD 18mm BO R60 (Lọt đệm 2.000 × 2.200)</text>
+
+              <!-- Floating Nightstands & CĐ-04 Sockets -->
+              <rect x="92" y="318" width="82" height="22" rx="6" fill="#5c3a21" stroke="#fbbf24" />
+              <circle cx="132" cy="300" r="5.5" fill="#f43f5e" />
+              <text x="122" y="288" fill="#fda4af" font-size="8.2" font-weight="800" text-anchor="middle">S1 +700 + CT 14,15,16</text>
+              <text x="122" y="354" fill="#94a3b8" font-size="8" text-anchor="middle">Cách Tây 500mm</text>
+
+              <rect x="486" y="318" width="82" height="22" rx="6" fill="#5c3a21" stroke="#fbbf24" />
+              <circle cx="526" cy="300" r="5.5" fill="#f43f5e" />
+              <text x="536" y="288" fill="#fda4af" font-size="8.2" font-weight="800" text-anchor="middle">S1 +700 + CT Đôi</text>
+              <text x="536" y="354" fill="#94a3b8" font-size="8" text-anchor="middle">Cách Trục 2: 800mm</text>
+
+              <!-- Right: Alcove Wardrobe #3 (2.010 x 600 x 2.650) + NE Window 750mm -->
+              <text x="875" y="26" fill="#10b981" font-size="11.5" font-weight="800" text-anchor="middle">HỐC TƯỜNG ĐÔNG (ĐUA 1.070mm): KÍNH 750 + TỦ #3 (2.010×600×2.650)</text>
+              <line x1="655" y1="46" x2="1095" y2="46" stroke="#10b981" stroke-width="1.5" />
+              <text x="875" y="41" fill="#6ee7b7" font-size="10" font-weight="800" text-anchor="middle">Vách kính O2: 750mm | Hệ Tủ Áo #3: 2.010mm = 4 cánh × 502,5mm (Cao kịch trần 2.650)</text>
+
+              <!-- NE Fixed Glass Window 750 x 2.400 -->
+              <rect x="655" y="88" width="115" height="292" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" stroke-width="2" />
+              <text x="712" y="226" fill="#bae6fd" font-size="9.2" font-weight="800" text-anchor="middle">KÍNH CỐ ĐỊNH</text>
+              <text x="712" y="241" fill="#cbd5e1" font-size="8.5" text-anchor="middle">750 × 2.400</text>
+              <text x="712" y="256" fill="#6ee7b7" font-size="8" text-anchor="middle">(Nhìn ra Sảnh xanh)</text>
+
+              <!-- Wardrobe #3: 4 bays x 502.5 = 2.010mm -->
+              <rect x="778" y="65" width="317" height="315" fill="#0b1526" stroke="#f59e0b" stroke-width="2" />
+              <!-- Top luggage 500mm -->
+              <rect x="778" y="65" width="79" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="857" y="65" width="79" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="936" y="65" width="79" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="1015" y="65" width="80" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <text x="936" y="100" fill="#fde68a" font-size="8.8" font-weight="700" text-anchor="middle">4 KHOANG VALI ĐỈNH TỦ (Cao 500mm • Cánh phẳng mở nhấn)</text>
+
+              <!-- Main hanging 2.150mm -->
+              <rect x="778" y="127" width="79" height="241" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <rect x="857" y="127" width="158" height="241" fill="rgba(245,158,11,0.16)" stroke="#fbbf24" stroke-width="1.6" />
+              <rect x="1015" y="127" width="80" height="241" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <text x="936" y="218" fill="#fff" font-size="9.2" font-weight="800" text-anchor="middle">2 CÁNH GIỮA (1.005mm)</text>
+              <text x="936" y="234" fill="#fde68a" font-size="8.2" text-anchor="middle">• Tone 1 &amp; 2: Cánh kính màu LED</text>
+              <text x="936" y="248" fill="#6ee7b7" font-size="8.2" font-weight="800" text-anchor="middle">• Tone 3: 100% Gỗ Đặc LK 4512 A</text>
+              <text x="936" y="262" fill="#6ee7b7" font-size="8" text-anchor="middle">(0% Kính Tủ — Kín đáo tuyệt đối!)</text>
+
+              <!-- Hidden Socket S1 +1.2m for Driver -->
+              <circle cx="1055" cy="235" r="6" fill="#f43f5e" />
+              <text x="1055" y="252" fill="#fda4af" font-size="7.8" font-weight="800" text-anchor="middle">S1 +1.200</text>
+              <text x="1055" y="263" fill="#fda4af" font-size="7.5" text-anchor="middle">(Cấp nguồn LED)</text>
+
+              <!-- Plinth -->
+              <rect x="778" y="368" width="317" height="12" fill="#451a03" stroke="#f59e0b" />
+              <text x="936" y="402" fill="#7dd3fc" font-size="9" font-weight="700" text-anchor="middle">⚠️ Trước mặt Tủ #3 còn trống 470mm • Khoét 02 đèn Lộ 15 cách tường gạch 780mm!</text>
+            </svg>
+          </div>
+
+          <div class="bp-notes">
+            <div class="bp-note-item"><strong>⚡ Khớp 100% Ổ Điện CĐ-04:</strong> Hai cụm đầu giường <code>S1 (+700mm)</code> cách nhau <code>2.140mm</code> lọt chuẩn hai mép Giường King <code>2.000mm</code>; ổ <code>S1 (+1.200mm)</code> có sẵn trên tường Đông <code>2.010mm</code> dùng cắm trực tiếp bộ nguồn <code>Driver 24V</code> cho Tủ #3!</div>
+            <div class="bp-note-item"><strong>💎 Đối Chiếu Tone 3 (0% Kính Tủ):</strong> Ở <code>Tone 3 Boutique Smoked Wood</code>, toàn bộ 4 cánh của Tủ #3 đều đóng bằng ván phẳng vân Gỗ Nâu Đen Khói <code>LK 4512 A</code> sọc thẳng liền mạch, tuyệt đối không lắp cánh kính lộ quần áo vào khu ngủ.</div>
+            <div class="bp-note-item"><strong>🪵 Kết Cấu Giường King Chống Kêu:</strong> Bệ gỗ <code>Plywood 18mm</code> bo 4 góc <code>R60mm</code> + khung <code>07</code> thanh thép hộp mạ kẽm <code>40×40×1.4mm</code> lót cao su EVA + ghế đôn đuôi giường <code>1.500×420mm</code> bọc da bò Microfiber trơn.</div>
+          </div>
+        </article>
+
+        <!-- ==================== BV-T2.02: AXIS-B DOUBLE-SIDED PARTITION (1.740x450) & CENTER ISLAND (1.150x550) ==================== -->
+        <article class="blueprint-card" id="bv-t2-02">
+          <div class="blueprint-head">
+            <div>
+              <h3>BV-T2.02 • Ranh Giới Trục B: Vách Tủ Đảo Độc Lập 2 Mặt (1.740 × 450 × 2.650 mm) &amp; Bàn Đảo Phụ Kiện Trung Tâm (1.150 × 550 × 850 mm)</h3>
+              <p>Vị trí: Chính tâm Trục B (chừa 2 lối đi mở <code>850 + 1.740 + 850 = 3.440 mm</code>) &amp; Tâm Khu Thay Đồ • Tương ứng <strong>T2-V01, T2-V03 &amp; T2-V04</strong></p>
+            </div>
+            <span class="badge-pill badge-amber">Tone 3 Bàn Đảo Mặt Đá Đặc (0% Kính) Giảm Ngay -1,50 Tr!</span>
+          </div>
+
+          <div class="svg-scroll">
+            <svg viewBox="0 0 1140 440" role="img" aria-label="Bản vẽ BV-T2.02 Vách tủ đảo độc lập 2 mặt Trục B và Bàn đảo phụ kiện trung tâm">
+              <rect x="0" y="0" width="1140" height="440" fill="#040811" />
+
+              <!-- Panel 1: North Face (Art Wall) -->
+              <text x="195" y="26" fill="#38bdf8" font-size="10.8" font-weight="800" text-anchor="middle">1. MẶT TRƯỚC BẮC (VÁCH TRANH — V01)</text>
+              <line x1="45" y1="45" x2="345" y2="45" stroke="#38bdf8" stroke-width="1.5" />
+              <text x="195" y="40" fill="#bae6fd" font-size="9.5" font-weight="800" text-anchor="middle">170 Bo R120 + 1.400 Phẳng + 170 Bo R120 = 1.740</text>
+
+              <rect x="45" y="62" width="30" height="318" rx="10" fill="#4a3020" stroke="#f59e0b" />
+              <rect x="75" y="62" width="240" height="318" fill="rgba(245,158,11,0.18)" stroke="#fde047" stroke-width="2" />
+              <rect x="315" y="62" width="30" height="318" rx="10" fill="#4a3020" stroke="#f59e0b" />
+              <!-- Artwork 1.200 x 900 -->
+              <rect x="105" y="108" width="180" height="145" fill="#1e293b" stroke="#f8fafc" stroke-width="2" />
+              <text x="195" y="178" fill="#fff" font-size="9.5" font-weight="800" text-anchor="middle">TRANH NGHỆ THUẬT</text>
+              <text x="195" y="194" fill="#fde68a" font-size="8.5" text-anchor="middle">1.200 × 900 mm (0% Treo TV!)</text>
+              <!-- Floating Console -->
+              <rect x="92" y="292" width="206" height="22" rx="7" fill="#5c3a21" stroke="#fbbf24" stroke-width="1.6" />
+              <text x="195" y="307" fill="#fde68a" font-size="8.2" font-weight="800" text-anchor="middle">Kệ Console bo R60 (1.300×240)</text>
+              <text x="195" y="402" fill="#6ee7b7" font-size="8.5" font-weight="700" text-anchor="middle">⚡ Dây LED hắt dọc thả từ trần (Lộ 14)</text>
+
+              <!-- Panel 2: South Face (4-Bay Wardrobe 1.740 x 450) -->
+              <text x="555" y="26" fill="#f59e0b" font-size="10.8" font-weight="800" text-anchor="middle">2. MẶT SAU NAM (TỦ ÁO &amp; TÚI 4 KHOANG — V03)</text>
+              <line x1="395" y1="45" x2="715" y2="45" stroke="#f59e0b" stroke-width="1.5" />
+              <text x="555" y="40" fill="#fde68a" font-size="9.5" font-weight="800" text-anchor="middle">4 Khoang × 435 mm = 1.740 × Sâu 450 × Cao 2.650</text>
+
+              <rect x="395" y="62" width="320" height="318" rx="8" fill="#0b1526" stroke="#f59e0b" stroke-width="2" />
+              <!-- 4 bays -->
+              <rect x="395" y="62" width="80" height="306" fill="rgba(215,202,184,0.18)" stroke="#94a3b8" />
+              <rect x="475" y="62" width="80" height="306" fill="rgba(245,158,11,0.16)" stroke="#fbbf24" />
+              <rect x="555" y="62" width="80" height="306" fill="rgba(245,158,11,0.16)" stroke="#fbbf24" />
+              <rect x="635" y="62" width="80" height="306" fill="rgba(215,202,184,0.18)" stroke="#94a3b8" />
+              <rect x="395" y="368" width="320" height="12" fill="#451a03" stroke="#f59e0b" />
+
+              <text x="435" y="205" fill="#e2e8f0" font-size="8.2" font-weight="700" text-anchor="middle">Đồ gấp</text>
+              <text x="435" y="218" fill="#94a3b8" font-size="7.8" text-anchor="middle">(Cánh đặc)</text>
+              <text x="675" y="205" fill="#e2e8f0" font-size="8.2" font-weight="700" text-anchor="middle">Đồ gấp</text>
+              <text x="675" y="218" fill="#94a3b8" font-size="7.8" text-anchor="middle">(Cánh đặc)</text>
+
+              <text x="555" y="185" fill="#fff" font-size="9" font-weight="800" text-anchor="middle">2 KHOANG TÚI XÁCH GIỮA</text>
+              <text x="555" y="201" fill="#fde68a" font-size="8" text-anchor="middle">• Tone 1 &amp; 2: Cánh kính LED</text>
+              <text x="555" y="216" fill="#6ee7b7" font-size="8.2" font-weight="800" text-anchor="middle">• Tone 3: 4 Cánh Gỗ Đặc 100%</text>
+              <text x="555" y="230" fill="#6ee7b7" font-size="7.8" text-anchor="middle">(0% Kính — Liền vân sang trọng)</text>
+              <text x="555" y="402" fill="#fda4af" font-size="8.5" font-weight="700" text-anchor="middle">⚡ Cấp nguồn Lộ 19 từ nóc trần + 02 đèn rọi Lộ 18 (cách 350)</text>
+
+              <!-- Panel 3: Center Accessory Island (1.150 x 550 x 850) -->
+              <text x="945" y="26" fill="#10b981" font-size="10.8" font-weight="800" text-anchor="middle">3. BÀN ĐẢO PHỤ KIỆN GIỮA PHÒNG (1.150 × 550 × 850)</text>
+              <rect x="765" y="55" width="350" height="325" rx="10" fill="#0b1322" stroke="rgba(16,185,129,0.45)" />
+
+              <!-- Island Elevation inside box -->
+              <line x1="815" y1="95" x2="1065" y2="95" stroke="#10b981" stroke-width="1.4" />
+              <text x="940" y="88" fill="#6ee7b7" font-size="9.5" font-weight="800" text-anchor="middle">Dài 1.150 × Sâu 550 × Cao 850 mm</text>
+
+              <!-- Top Slab (Glass in T1/T2 vs Solid Travertine in T3) -->
+              <rect x="815" y="110" width="250" height="24" rx="4" fill="rgba(56,189,248,0.22)" stroke="#7dd3fc" stroke-width="2" />
+              <text x="940" y="126" fill="#fff" font-size="8.5" font-weight="800" text-anchor="middle">T1/T2: Kính 10mm LED | Tone 3: Mặt Vân Đá Đặc (0% Kính!)</text>
+
+              <!-- 6 Drawers (2 cols x 3 rows) -->
+              <rect x="815" y="134" width="125" height="36" fill="#4a3020" stroke="#fbbf24" />
+              <rect x="940" y="134" width="125" height="36" fill="#4a3020" stroke="#fbbf24" />
+              <rect x="815" y="170" width="125" height="38" fill="#4a3020" stroke="#fbbf24" />
+              <rect x="940" y="170" width="125" height="38" fill="#4a3020" stroke="#fbbf24" />
+              <rect x="815" y="208" width="125" height="42" fill="rgba(215,202,184,0.24)" stroke="#94a3b8" />
+              <rect x="940" y="208" width="125" height="42" fill="rgba(215,202,184,0.24)" stroke="#94a3b8" />
+              <!-- Travertine Plinth -->
+              <rect x="827" y="250" width="226" height="24" rx="4" fill="rgba(245,158,11,0.25)" stroke="#fde047" />
+              <circle cx="940" cy="262" r="5" fill="#f43f5e" />
+              <text x="940" y="294" fill="#fda4af" font-size="8.4" font-weight="800" text-anchor="middle">⚡ Ống gen Ø20 âm sàn (Cách Tây 1.400 • Cách WC 1.050)</text>
+              <text x="940" y="316" fill="#cbd5e1" font-size="8.4" text-anchor="middle">• Khung bắt vít xuống sàn bằng Plywood 18mm chống xê dịch.</text>
+              <text x="940" y="334" fill="#fde68a" font-size="8.4" font-weight="700" text-anchor="middle">• Tone 1 &amp; 2 (Mặt kính soi đồng hồ LED): 13.000.000 ₫</text>
+              <text x="940" y="352" fill="#6ee7b7" font-size="8.4" font-weight="800" text-anchor="middle">• Tone 3 (Mặt phẳng Silver Travertine 0% kính): 11.500.000 ₫</text>
+            </svg>
+          </div>
+        </article>
+
+        <!-- ==================== BV-T2.03: MASTER WIC SOUTH WALL (#1 + WC-02 + #2 = 3.440mm) ==================== -->
+        <article class="blueprint-card" id="bv-t2-03">
+          <div class="blueprint-head">
+            <div>
+              <h3>BV-T2.03 • Master Khu Thay Đồ (Vách Nam 3.440 × 2.650 mm): Cặp Tủ Áo #1 – #2 (1.180 × 600 × 2) &amp; Hệ Cửa Kính Sọc Mờ Vào WC-02 (1.080 mm)</h3>
+              <p>Vị trí: Tường Nam giáp trực tiếp Phòng tắm <code>WC-02</code> • Tương ứng phối cảnh <strong>T2-V04</strong> • Dự toán: <strong>32,00 Tr (Tone 1 &amp; 2) | 26,50 Tr (Tone 3 0% Kính Tủ)</strong></p>
+            </div>
+            <span class="badge-pill badge-rose">⚠️ BẮT BUỘC: Hậu Tủ Plywood 9mm + Đáy Plywood 18mm Chịu Nước!</span>
+          </div>
+
+          <div class="svg-scroll">
+            <svg viewBox="0 0 1140 420" role="img" aria-label="Bản vẽ BV-T2.03 Vách Nam Khu Thay Đồ Tủ số 1, Cửa WC-02 và Tủ số 2">
+              <rect x="0" y="0" width="1140" height="420" fill="#040811" />
+
+              <line x1="70" y1="38" x2="670" y2="38" stroke="#38bdf8" stroke-width="1.5" />
+              <text x="370" y="30" fill="#bae6fd" font-size="10.8" font-weight="800" text-anchor="middle">TỔNG RỘNG TƯỜNG NAM = 3.440 mm = Tủ #1 (1.180) + Cửa WC-02 (1.080) + Tủ #2 (1.180)</text>
+
+              <!-- Wardrobe #1 (Left = East in V04 view: 1.180 x 600 x 2.650) -->
+              <rect x="70" y="58" width="206" height="320" fill="#0b1526" stroke="#f59e0b" stroke-width="2" />
+              <rect x="70" y="58" width="103" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="173" y="58" width="103" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="70" y="120" width="103" height="246" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <rect x="173" y="120" width="103" height="246" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <rect x="70" y="366" width="206" height="12" fill="#451a03" stroke="#f59e0b" />
+              <text x="173" y="218" fill="#fde68a" font-size="9.5" font-weight="800" text-anchor="middle">TỦ ÁO #2 (ĐÔNG)</text>
+              <text x="173" y="234" fill="#cbd5e1" font-size="8.5" text-anchor="middle">1.180 × 600 × 2.650</text>
+              <text x="173" y="250" fill="#6ee7b7" font-size="8" text-anchor="middle">(Giáp tường Sen tắm WC-02)</text>
+              <circle cx="95" cy="180" r="5.5" fill="#f43f5e" />
+              <text x="126" y="172" fill="#fda4af" font-size="7.8" font-weight="800">Chờ LED +1.600</text>
+
+              <!-- Center Fluted/Smoked Glass Double Door into WC-02 (1.080 x 2.650) -->
+              <rect x="276" y="58" width="188" height="320" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="2.2" />
+              <line x1="370" y1="58" x2="370" y2="378" stroke="#38bdf8" stroke-width="2" />
+              <rect x="359" y="210" width="7" height="36" rx="2" fill="#0f172a" stroke="#bae6fd" />
+              <rect x="374" y="210" width="7" height="36" rx="2" fill="#0f172a" stroke="#bae6fd" />
+              <text x="370" y="155" fill="#bae6fd" font-size="9.5" font-weight="800" text-anchor="middle">CỬA ĐÔI NHÔM SLIM</text>
+              <text x="370" y="171" fill="#fff" font-size="8.8" font-weight="700" text-anchor="middle">KÍNH SỌC MỜ VÀO WC-02</text>
+              <text x="370" y="186" fill="#7dd3fc" font-size="8.2" text-anchor="middle">(1.080 × 2.650 — Phẳng mặt tủ)</text>
+
+              <!-- Wardrobe #2 (Right = West in V04 view: 1.180 x 600 x 2.650) -->
+              <rect x="464" y="58" width="206" height="320" fill="#0b1526" stroke="#f59e0b" stroke-width="2" />
+              <rect x="464" y="58" width="103" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="567" y="58" width="103" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="464" y="120" width="103" height="246" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <rect x="567" y="120" width="103" height="246" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <rect x="464" y="366" width="206" height="12" fill="#451a03" stroke="#f59e0b" />
+              <text x="567" y="218" fill="#fde68a" font-size="9.5" font-weight="800" text-anchor="middle">TỦ ÁO #1 (TÂY)</text>
+              <text x="567" y="234" fill="#cbd5e1" font-size="8.5" text-anchor="middle">1.180 × 600 × 2.650</text>
+              <text x="567" y="250" fill="#6ee7b7" font-size="8" text-anchor="middle">(Giáp tường Bồn tắm WC-02)</text>
+              <circle cx="645" cy="180" r="5.5" fill="#f43f5e" />
+              <text x="612" y="172" fill="#fda4af" font-size="7.8" font-weight="800" text-anchor="end">Chờ LED +1.600</text>
+
+              <!-- Waterproofing Specification Box -->
+              <rect x="705" y="52" width="405" height="328" rx="10" fill="#0b1322" stroke="rgba(244,63,94,0.5)" />
+              <g fill="#cbd5e1" font-size="9.6">
+                <text x="725" y="82" fill="#fda4af" font-weight="800">⚠️ QUY ĐỊNH CHỐNG ẨM BẮT BUỘC CHO TỦ #1 &amp; TỦ #2:</text>
+                <text x="725" y="108">1. <tspan fill="#fff" font-weight="700">Lưng Tủ Áp Sát Tường Ướt Phòng Tắm WC-02:</tspan></text>
+                <text x="738" y="125">Phía sau Tủ #1 là Bồn tắm nằm, phía sau Tủ #2 là Sen tắm đứng.</text>
+                <text x="738" y="142">Tuyệt đối CẤM dùng hậu MDF mỏng 6mm thông thường!</text>
+
+                <text x="725" y="170">2. <tspan fill="#6ee7b7" font-weight="700">Cấu Tạo 3 Lớp Kháng Ẩm Chuẩn Giao Xưởng:</tspan></text>
+                <text x="738" y="187">• Tường gạch sau lưng tủ lăn 2 lớp sơn chống thấm Kova CT-11A.</text>
+                <text x="738" y="204">• Tấm hậu tủ bắt buộc dùng <tspan fill="#fde68a" font-weight="700">Plywood 9mm chịu nước</tspan> phủ Melamine 2 mặt,</text>
+                <text x="746" y="221">kê hở tường 10mm thoáng khí.</text>
+                <text x="738" y="238">• Chân đế &amp; đợt ngang chịu lực dùng <tspan fill="#fde68a" font-weight="700">Plywood 18mm chịu nước</tspan>.</text>
+
+                <text x="725" y="268">3. <tspan fill="#fff" font-weight="700">Cánh Tủ Phẳng 100% (Bỏ Cánh Gỗ Ghép Xương Cá Bám Bụi):</tspan></text>
+                <text x="738" y="285">• Tone 1: Cánh <tspan fill="#fde68a">MS 334 SMM</tspan> | Tone 2: Cánh <tspan fill="#fde68a">MS 104 SH</tspan> (32,0tr).</text>
+                <text x="738" y="302">• <tspan fill="#6ee7b7" font-weight="700">Tone 3 (0% Kính Tủ):</tspan> Toàn bộ 4 cánh suốt bằng <tspan fill="#fff">Gỗ Nâu Đen</tspan></text>
+                <text x="746" y="319"><tspan fill="#fff">LK 4512 A</tspan> ghép vân thẳng (giảm còn <tspan fill="#6ee7b7" font-weight="800">26,50tr</tspan>, tiết kiệm -5,5tr!).</text>
+                <text x="738" y="340">• Riêng Cửa lùa/mở vào <tspan fill="#bae6fd">WC-02 (1.080mm)</tspan> là cửa kiến trúc ngăn ướt</text>
+                <text x="746" y="357">nên cả 3 Tone đều giữ chuẩn Nhôm Slim kính sọc mờ kín đáo.</text>
+              </g>
+            </svg>
+          </div>
+        </article>
+
+        <!-- ==================== BV-T2.04: MASTER WIC WEST VANITY O2 & EAST COLUMN MIRROR + DOOR O1 ==================== -->
+        <article class="blueprint-card" id="bv-t2-04">
+          <div class="blueprint-head">
+            <div>
+              <h3>BV-T2.04 • Master Khu Thay Đồ (Vách Tây &amp; Vách Đông): Bàn Phấn/LV Treo O2 (1.330×500) + Kệ Hốc (440×380) &amp; Vách Bọc Cột Gương Soi (960×220) + Cửa O1</h3>
+              <p>Vị trí: Tường Tây Cửa sổ O2 &amp; Tường Đông Cửa chính O1 • Tương ứng phối cảnh <strong>T2-V03 &amp; T2-V04</strong> • Dự toán trọn gói: <strong>23.000.000 ₫</strong></p>
+            </div>
+            <span class="badge-pill badge-emerald">Đã Hiệu Chuẩn Cột Lồi 11cm &amp; Trạm Sạc Robot S1 +250mm!</span>
+          </div>
+
+          <div class="svg-scroll">
+            <svg viewBox="0 0 1140 420" role="img" aria-label="Bản vẽ BV-T2.04 Vách Tây bàn phấn cửa sổ O2 và Vách Đông bọc cột gương soi cửa O1">
+              <rect x="0" y="0" width="1140" height="420" fill="#040811" />
+
+              <!-- Left: West Wall (Window O2 + Vanity 1.330 + Recessed Shelf 440) -->
+              <text x="300" y="26" fill="#38bdf8" font-size="11" font-weight="800" text-anchor="middle">1. MẶT ĐỨNG VÁCH TÂY: BÀN TREO CỬA SỔ O2 (1.330×500) + KỆ HỐC (440×380)</text>
+              <line x1="65" y1="45" x2="535" y2="45" stroke="#38bdf8" stroke-width="1.5" />
+              <text x="300" y="40" fill="#bae6fd" font-size="9.5" font-weight="800" text-anchor="middle">Bàn treo R60 dưới Cửa sổ O2 (1.330 mm) + Đoạn tường đặc 610mm đặt Tủ âm (440×380×2.650)</text>
+
+              <!-- Window O2 + Wooden Blinds -->
+              <rect x="85" y="75" width="265" height="175" fill="rgba(56,189,248,0.12)" stroke="#38bdf8" stroke-width="2" />
+              <text x="217" y="132" fill="#bae6fd" font-size="9.2" font-weight="800" text-anchor="middle">CỬA SỔ O2 (1.250 mm) — RÈM SÁO GỖ</text>
+              <!-- Round LED Mirror -->
+              <circle cx="217" cy="202" r="42" fill="#0f172a" stroke="#fde047" stroke-width="3" />
+              <text x="217" y="206" fill="#fde68a" font-size="8.2" font-weight="800" text-anchor="middle">Gương Ø650</text>
+              <!-- Smooth R60 Cantilevered Vanity (0% vertical fluting!) -->
+              <rect x="75" y="255" width="285" height="34" rx="10" fill="#5c3a21" stroke="#fbbf24" stroke-width="2" />
+              <text x="217" y="276" fill="#fff" font-size="8.8" font-weight="800" text-anchor="middle">BÀN TREO PLYWOOD 18mm PHẲNG BO R60 (0% SỌC LAM!)</text>
+              <!-- Leather Pouf -->
+              <rect x="187" y="314" width="60" height="62" rx="14" fill="#b45309" stroke="#fde68a" />
+              <text x="217" y="349" fill="#fff" font-size="8" font-weight="800" text-anchor="middle">Đôn da</text>
+              <!-- Sockets CĐ-04 -->
+              <circle cx="325" cy="240" r="5.5" fill="#f43f5e" />
+              <circle cx="325" cy="335" r="5.5" fill="#f43f5e" />
+              <text x="315" y="232" fill="#fda4af" font-size="7.8" font-weight="800" text-anchor="end">S1 +1.200 + Chờ LED Gương</text>
+              <text x="315" y="352" fill="#fda4af" font-size="7.8" font-weight="800" text-anchor="end">S1 +400 + LAN (Cách Trục B 850)</text>
+
+              <!-- Recessed Bag Cabinet 440 x 380 x 2.650 -->
+              <rect x="385" y="62" width="135" height="316" fill="#0b1526" stroke="#f59e0b" stroke-width="2" />
+              <line x1="385" y1="125" x2="520" y2="125" stroke="#94a3b8" />
+              <line x1="385" y1="188" x2="520" y2="188" stroke="#94a3b8" />
+              <line x1="385" y1="251" x2="520" y2="251" stroke="#94a3b8" />
+              <line x1="385" y1="314" x2="520" y2="314" stroke="#94a3b8" />
+              <text x="452" y="160" fill="#fde68a" font-size="8.8" font-weight="800" text-anchor="middle">TỦ HỐC TÂY</text>
+              <text x="452" y="175" fill="#cbd5e1" font-size="8" text-anchor="middle">440 × 380 × 2.650</text>
+              <text x="452" y="218" fill="#6ee7b7" font-size="7.8" font-weight="700" text-anchor="middle">Tone 3: Cánh Gỗ Đặc</text>
+              <text x="452" y="231" fill="#6ee7b7" font-size="7.8" text-anchor="middle">(0% Kính Tủ)</text>
+
+              <!-- Right: East Wall (490mm Brick + Robot S1 +250 + Door O1 900 + Column Mirror 960x220) -->
+              <text x="855" y="26" fill="#10b981" font-size="11" font-weight="800" text-anchor="middle">2. MẶT ĐỨNG VÁCH ĐÔNG THẬT (KT-2.08): TRẠM ROBOT + CỬA O1 + GƯƠNG 960×220</text>
+              <line x1="615" y1="45" x2="1095" y2="45" stroke="#10b981" stroke-width="1.5" />
+              <text x="855" y="40" fill="#6ee7b7" font-size="9.5" font-weight="800" text-anchor="middle">Tường 490 (Robot + CT) + Cửa chính O1 (900×2.400) + Vách Bọc Cột BTCT &amp; Gương LED (960×220)</text>
+
+              <!-- 490mm Wall with Aqara Switches & Robot Dock -->
+              <rect x="615" y="62" width="110" height="316" fill="rgba(148,163,184,0.1)" stroke="#64748b" />
+              <rect x="642" y="215" width="48" height="18" rx="3" fill="#1e293b" stroke="#38bdf8" />
+              <text x="666" y="208" fill="#bae6fd" font-size="7.8" font-weight="800" text-anchor="middle">CT 17,18,19 + 14,15</text>
+              <rect x="635" y="328" width="66" height="50" rx="6" fill="#f8fafc" stroke="#38bdf8" stroke-width="1.8" />
+              <circle cx="668" cy="316" r="5.5" fill="#f43f5e" />
+              <text x="668" y="306" fill="#fda4af" font-size="8" font-weight="800" text-anchor="middle">S1 +250 (Robot)</text>
+              <text x="668" y="357" fill="#0f172a" font-size="8" font-weight="900" text-anchor="middle">ROBOT DOCK</text>
+
+              <!-- Door O1 (900 x 2.400) -->
+              <rect x="725" y="88" width="175" height="290" fill="#3f2718" stroke="#d97706" stroke-width="2.2" />
+              <text x="812" y="222" fill="#fde68a" font-size="9.8" font-weight="800" text-anchor="middle">CỬA GỖ LIM O1</text>
+              <text x="812" y="238" fill="#cbd5e1" font-size="8.5" text-anchor="middle">900 × 2.400 mm</text>
+              <text x="812" y="253" fill="#94a3b8" font-size="7.8" text-anchor="middle">(10 nan dọc phẳng)</text>
+
+              <!-- Slim Column Cladding + Full-Height LED Dressing Mirror (960 x 220 x 2.650) -->
+              <rect x="900" y="62" width="195" height="316" fill="rgba(245,158,11,0.18)" stroke="#fbbf24" stroke-width="2" />
+              <rect x="935" y="78" width="142" height="284" rx="6" fill="rgba(186,230,253,0.22)" stroke="#fde047" stroke-width="2.2" />
+              <text x="1006" y="206" fill="#fff" font-size="9.5" font-weight="800" text-anchor="middle">GƯƠNG SOI TOÀN THÂN</text>
+              <text x="1006" y="222" fill="#fde68a" font-size="8.5" text-anchor="middle">Bọc phẳng cột BTCT lồi 11cm</text>
+              <text x="1006" y="238" fill="#6ee7b7" font-size="8.2" font-weight="700" text-anchor="middle">(960 × Sâu 220 × Cao 2.650)</text>
+              <circle cx="920" cy="235" r="5.5" fill="#f43f5e" />
+              <text x="995" y="398" fill="#fda4af" font-size="8.5" font-weight="700" text-anchor="middle">⚡ Có sẵn đầu dây "CHỜ LED GƯƠNG +1.200mm" — Không làm tủ sâu 600 gây cấn cửa O1!</text>
+            </svg>
+          </div>
+        </article>
+
+        <!-- ==================== BV-T2.05: BEDROOM 1 (PN1 — AXIS B-D: SOUTH WALL 3.550mm + WEST DESK 2.050mm) ==================== -->
+        <article class="blueprint-card" id="bv-t2-05">
+          <div class="blueprint-head">
+            <div>
+              <h3>BV-T2.05 • Phòng Ngủ 1 (Trục B–D: 4.950 × 3.300 × 2.650 mm): Hệ Tủ Áo + Hốc Tivi 55" Vách Nam (3.550×600) &amp; Bàn Cửa Sổ Tây (2.050×550)</h3>
+              <p>Vị trí: Tường Nam (cạnh Cửa D3) &amp; Tường Tây Cửa sổ S3 • Tương ứng <strong>T2-V06 &amp; T2-V07</strong> • Dự toán trọn phòng PN1: <strong>49,00 Tr (Tone 1 &amp; 2) | 46,50 Tr (Tone 3 0% Kính)</strong></p>
+            </div>
+            <span class="badge-pill badge-sky">Trúng Khít Tâm Ổ Tivi CĐ-04 (Cách Đông 1.900 mm)!</span>
+          </div>
+
+          <div class="svg-scroll">
+            <svg viewBox="0 0 1140 430" role="img" aria-label="Bản vẽ BV-T2.05 Vách Nam Tủ áo Tivi 3.550mm và Bàn học 2.050mm Phòng Ngủ 1">
+              <rect x="0" y="0" width="1140" height="430" fill="#040811" />
+
+              <!-- Left: South Wall 3.550mm + Door D3 (Looking South T2-V07: Left = East Balcony, Right = West Door D3) -->
+              <text x="385" y="26" fill="#38bdf8" font-size="11" font-weight="800" text-anchor="middle">MẶT ĐỨNG VÁCH NAM PHÒNG NGỦ 1 (NHÌN HƯỚNG NAM T2-V07: TRÁI ĐÔNG • PHẢI CỬA D3)</text>
+              <line x1="55" y1="45" x2="587" y2="45" stroke="#38bdf8" stroke-width="1.5" />
+              <text x="321" y="40" fill="#bae6fd" font-size="9.8" font-weight="800" text-anchor="middle">HỆ TỦ LIỀN MẠCH = 3.550 mm = M1 Tủ Áo (1.250) + M2 Tivi 55" (1.300) + M3 Tủ Phụ (1.000)</text>
+
+              <!-- M1: 3-Door Wardrobe (1.250 x 600 x 2.650) -->
+              <rect x="55" y="62" width="187" height="318" fill="#0b1526" stroke="#f59e0b" stroke-width="2" />
+              <rect x="55" y="62" width="62" height="60" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="117" y="62" width="62" height="60" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="179" y="62" width="63" height="60" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="55" y="122" width="62" height="246" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <rect x="117" y="122" width="62" height="246" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <rect x="179" y="122" width="63" height="246" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <text x="148" y="232" fill="#fde68a" font-size="9.2" font-weight="800" text-anchor="middle">M1: TỦ ÁO 3 CÁNH</text>
+              <text x="148" y="247" fill="#cbd5e1" font-size="8.2" text-anchor="middle">1.250 × 600 × 2.650</text>
+
+              <!-- M2: 55" TV Niche + 4 Drawers (1.300 x 550 x 2.650) — Center at 1.250 + 650 = 1.900mm from East! -->
+              <rect x="242" y="62" width="195" height="318" fill="#0b1526" stroke="#f59e0b" stroke-width="2" />
+              <rect x="242" y="62" width="97" height="60" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="339" y="62" width="98" height="60" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="242" y="122" width="195" height="162" fill="rgba(245,158,11,0.18)" stroke="#fde047" stroke-width="1.8" />
+              <rect x="268" y="148" width="143" height="86" rx="3" fill="#090d16" stroke="#64748b" stroke-width="2" />
+              <text x="339" y="192" fill="#fff" font-size="9.5" font-weight="800" text-anchor="middle">TIVI 55 INCH</text>
+              <circle cx="339" cy="212" r="5.5" fill="#f43f5e" />
+              <text x="339" y="226" fill="#fda4af" font-size="7.8" font-weight="800" text-anchor="middle">Tâm S2 +1.200 (Cách Đông 1.900!)</text>
+              <!-- 4 Lower Drawers -->
+              <rect x="242" y="284" width="97" height="42" fill="#4a3020" stroke="#fbbf24" />
+              <rect x="339" y="284" width="98" height="42" fill="#4a3020" stroke="#fbbf24" />
+              <rect x="242" y="326" width="97" height="42" fill="#4a3020" stroke="#fbbf24" />
+              <rect x="339" y="326" width="98" height="42" fill="#4a3020" stroke="#fbbf24" />
+
+              <!-- M3: Wardrobe + Display Column (1.000 x 600 x 2.650) -->
+              <rect x="437" y="62" width="150" height="318" fill="#0b1526" stroke="#f59e0b" stroke-width="2" />
+              <rect x="437" y="62" width="82" height="60" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="519" y="62" width="68" height="60" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="437" y="122" width="82" height="246" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <rect x="519" y="122" width="68" height="246" fill="rgba(245,158,11,0.16)" stroke="#fbbf24" />
+              <text x="512" y="218" fill="#fde68a" font-size="8.6" font-weight="800" text-anchor="middle">M3 (1.000)</text>
+              <text x="512" y="233" fill="#cbd5e1" font-size="7.6" text-anchor="middle">550 Đặc + 450 Kính</text>
+              <text x="512" y="248" fill="#6ee7b7" font-size="7.8" font-weight="800" text-anchor="middle">Tone 3: 2 Cánh Đặc</text>
+              <text x="512" y="261" fill="#6ee7b7" font-size="7.5" text-anchor="middle">(-2,5tr • 0% Kính)</text>
+
+              <!-- Plinth -->
+              <rect x="55" y="368" width="532" height="12" fill="#451a03" stroke="#f59e0b" />
+
+              <!-- Door D3 at SW corner -->
+              <rect x="635" y="90" width="90" height="290" fill="#3f2718" stroke="#d97706" stroke-width="2" />
+              <text x="680" y="235" fill="#fde68a" font-size="8.8" font-weight="800" text-anchor="middle">CỬA D3 (900)</text>
+
+              <!-- Right Spec Box: West Cantilevered Desk 2.050mm & North Bed -->
+              <rect x="750" y="52" width="360" height="330" rx="10" fill="#0b1322" stroke="rgba(56,189,248,0.45)" />
+              <g fill="#cbd5e1" font-size="9.4">
+                <text x="768" y="80" fill="#7dd3fc" font-weight="800">CẤU TẠO BÀN CỬA SỔ TÂY 2.050mm &amp; GIƯỜNG PN1:</text>
+                <text x="768" y="106">1. <tspan fill="#fff" font-weight="700">Mặt Bàn Học Dài 2.050 × 550 mm Không Chân Giữa:</tspan></text>
+                <text x="780" y="123">• Bắt buộc chập đôi <tspan fill="#fde68a" font-weight="700">02 tấm Plywood 18mm = dày 36mm</tspan></text>
+                <text x="788" y="140">kết hợp <tspan fill="#6ee7b7" font-weight="700">03 ke thép chữ T âm tường</tspan> để vượt nhịp 2,05m</text>
+                <text x="788" y="157">không võng 1mm (tích hợp 3 ngăn kéo mỏng vát J-pull).</text>
+                <text x="780" y="176">• <tspan fill="#fda4af" font-weight="700">Ổ điện CĐ-04:</tspan> Khớp cụm <tspan fill="#fff">S2 +400 &amp; +900 + LAN</tspan> cách</text>
+                <text x="788" y="193">tường Bắc đúng <tspan fill="#fde68a">300mm</tspan> + Nắp luồn dây nhôm xước.</text>
+
+                <text x="768" y="222">2. <tspan fill="#fff" font-weight="700">Lý Do Chia Tủ Nam 1.250 + 1.300 + 1.000 = 3.550mm:</tspan></text>
+                <text x="780" y="239">• Trên bản vẽ điện <tspan fill="#bae6fd">CĐ-04</tspan>, tâm ổ Tivi của PN1 đặt cách</text>
+                <text x="788" y="256">tường Đông đúng <tspan fill="#fde68a" font-weight="800">1.900 mm</tspan>.</text>
+                <text x="780" y="273">• Khi chia M1 = <tspan fill="#fff">1.250mm</tspan> và M2 = <tspan fill="#fff">1.300mm</tspan>, tâm Hốc Tivi</text>
+                <text x="788" y="290">rơi đúng <tspan fill="#6ee7b7" font-weight="800">1.250 + 650 = 1.900 mm</tspan> — trúng hồng tâm ổ điện</text>
+                <text x="788" y="307">và thẳng trục nhìn từ Giường Bắc (cách Đông 800 + 1.100)!</text>
+
+                <text x="768" y="336">3. <tspan fill="#6ee7b7" font-weight="700">Áp Dụng Y Hệt Cho Phòng Ngủ 3 (Tầng 3 Trục B–D):</tspan></text>
+                <text x="780" y="353">Chỉ khác cao độ trần phẳng chỉ đen <tspan fill="#fde68a">P-UT12 (+2.750mm)</tspan>.</text>
+              </g>
+            </svg>
+          </div>
+        </article>
+
+        <!-- ==================== BV-T2.06: BEDROOM 2 (PN2 — AXIS A-B: NORTH 3-MODULE 2.900mm & SOUTH HEADBOARD 3.210mm) ==================== -->
+        <article class="blueprint-card" id="bv-t2-06" style="margin-bottom:0;">
+          <div class="blueprint-head">
+            <div>
+              <h3>BV-T2.06 • Phòng Ngủ 2 (Trục A–B: 3.210 × 4.490 × 2.650 mm): Vách Bắc 3 Module (950 + 1.150 + 800 = 2.900 mm) &amp; Vách Nam Đầu Giường (3.210 mm)</h3>
+              <p>Vị trí: Đồng trục dọc với P.Ngủ Ông Bà Tầng 1 (Trần bo cong PA C hạ cốt <code>2.650 mm</code>) • Tương ứng <strong>T2-V08</strong> • Dự toán trọn phòng PN2: <strong>35.500.000 ₫ (Cả 3 Tone)</strong></p>
+            </div>
+            <span class="badge-pill badge-emerald">0% Cánh Kính Ở Cả 3 Tone • Khớp Ổ Tivi 1.550 &amp; Ổ Bàn 250!</span>
+          </div>
+
+          <div class="svg-scroll">
+            <svg viewBox="0 0 1140 420" role="img" aria-label="Bản vẽ BV-T2.06 Phòng Ngủ 2 Vách Bắc 3 Module 2.900mm và Vách Nam đầu giường 3.210mm">
+              <rect x="0" y="0" width="1140" height="420" fill="#040811" />
+
+              <!-- Left: North Wall 3-Module 2.900 x 2.650 -->
+              <text x="345" y="26" fill="#38bdf8" font-size="11" font-weight="800" text-anchor="middle">1. VÁCH BẮC PN2 (2.900 × 2.650 mm — NHÌN HƯỚNG BẮC: TRÁI HỐC CỬA D3 • PHẢI BAN CÔNG D4)</text>
+              <line x1="95" y1="45" x2="595" y2="45" stroke="#38bdf8" stroke-width="1.5" />
+              <text x="345" y="40" fill="#bae6fd" font-size="9.6" font-weight="800" text-anchor="middle">Tủ Áo M1 (950×600) + Hốc Tivi 50" M2 (1.150×500) + Bàn Học M3 (800×500) = 2.900 × Cao 2.650</text>
+
+              <!-- Top Storage 550mm + Main 2.100mm = 2.650mm -->
+              <rect x="95" y="62" width="164" height="316" fill="#0b1526" stroke="#f59e0b" stroke-width="2" />
+              <rect x="95" y="62" width="82" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="177" y="62" width="82" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="95" y="124" width="82" height="242" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <rect x="177" y="124" width="82" height="242" fill="rgba(215,202,184,0.16)" stroke="#94a3b8" />
+              <text x="177" y="232" fill="#fde68a" font-size="9" font-weight="800" text-anchor="middle">M1: TỦ ÁO (950)</text>
+              <text x="177" y="247" fill="#cbd5e1" font-size="8" text-anchor="middle">2 cánh đặc suốt</text>
+
+              <!-- M2: TV 50" + 4 Drawers (1.150) -->
+              <rect x="259" y="62" width="198" height="316" fill="#0b1526" stroke="#f59e0b" stroke-width="2" />
+              <rect x="259" y="62" width="99" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="358" y="62" width="99" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="259" y="124" width="198" height="158" fill="rgba(245,158,11,0.18)" stroke="#fde047" />
+              <rect x="288" y="150" width="140" height="82" rx="3" fill="#090d16" stroke="#64748b" stroke-width="2" />
+              <text x="358" y="192" fill="#fff" font-size="9.2" font-weight="800" text-anchor="middle">TIVI 50 INCH</text>
+              <circle cx="358" cy="212" r="5" fill="#f43f5e" />
+              <text x="358" y="226" fill="#fda4af" font-size="7.8" font-weight="800" text-anchor="middle">S2 +1.200 (Cách Đông 1.550)</text>
+              <rect x="259" y="282" width="99" height="42" fill="#4a3020" stroke="#fbbf24" />
+              <rect x="358" y="282" width="99" height="42" fill="#4a3020" stroke="#fbbf24" />
+              <rect x="259" y="324" width="99" height="42" fill="#4a3020" stroke="#fbbf24" />
+              <rect x="358" y="324" width="99" height="42" fill="#4a3020" stroke="#fbbf24" />
+
+              <!-- M3: Study Desk & Bookshelf (800) -->
+              <rect x="457" y="62" width="138" height="316" fill="#0b1526" stroke="#f59e0b" stroke-width="2" />
+              <rect x="457" y="62" width="69" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <rect x="526" y="62" width="69" height="62" fill="rgba(215,202,184,0.22)" stroke="#94a3b8" />
+              <line x1="457" y1="176" x2="595" y2="176" stroke="#fbbf24" stroke-width="2" />
+              <line x1="457" y1="226" x2="595" y2="226" stroke="#fbbf24" stroke-width="2" />
+              <rect x="457" y="282" width="138" height="24" fill="#5c3a21" stroke="#fbbf24" stroke-width="2" />
+              <text x="526" y="298" fill="#fff" font-size="8.2" font-weight="800" text-anchor="middle">Bàn 800 (Plywood 36mm)</text>
+              <circle cx="552" cy="264" r="5" fill="#f43f5e" />
+              <text x="526" y="253" fill="#fda4af" font-size="7.6" font-weight="800" text-anchor="middle">S2 +900 (Cách Đông 250)</text>
+
+              <rect x="95" y="366" width="500" height="12" fill="#451a03" stroke="#f59e0b" />
+
+              <!-- Right: South Headboard Wall 3.210 x 2.650 (T2-V08) -->
+              <text x="875" y="26" fill="#10b981" font-size="11" font-weight="800" text-anchor="middle">2. VÁCH NAM ĐẦU GIƯỜNG PN2 (3.210 × 2.650 — T2-V08)</text>
+              <line x1="650" y1="45" x2="1100" y2="45" stroke="#10b981" stroke-width="1.5" />
+              <text x="875" y="40" fill="#6ee7b7" font-size="9.5" font-weight="800" text-anchor="middle">655 Biên Đông + 1.900 Mảng Giữa Travertine LED + 655 Biên Tây = 3.210 mm</text>
+
+              <rect x="650" y="62" width="92" height="316" fill="rgba(215,202,184,0.18)" stroke="#94a3b8" />
+              <rect x="742" y="62" width="266" height="316" fill="rgba(245,158,11,0.18)" stroke="#fde047" stroke-width="2" />
+              <rect x="1008" y="62" width="92" height="316" fill="rgba(215,202,184,0.18)" stroke="#94a3b8" />
+              <rect x="650" y="255" width="92" height="123" fill="#4a3020" stroke="#f59e0b" />
+              <rect x="1008" y="255" width="92" height="123" fill="#4a3020" stroke="#f59e0b" />
+
+              <rect x="752" y="262" width="246" height="62" rx="10" fill="#4a3020" stroke="#fbbf24" stroke-width="2" />
+              <rect x="758" y="318" width="234" height="22" rx="5" fill="#f8fafc" stroke="#cbd5e1" />
+              <rect x="748" y="336" width="254" height="28" rx="9" fill="#5c3a21" stroke="#fbbf24" stroke-width="2" />
+              <rect x="768" y="364" width="214" height="14" fill="#090d16" />
+              <line x1="772" y1="367" x2="978" y2="367" stroke="#fde047" stroke-width="3" />
+              <text x="875" y="354" fill="#fde68a" font-size="8.8" font-weight="800" text-anchor="middle">GIƯỜNG GỖ R60 (1.800×2.000 • Không trải thảm)</text>
+
+              <rect x="665" y="318" width="68" height="20" rx="5" fill="#5c3a21" stroke="#fbbf24" />
+              <rect x="1017" y="318" width="68" height="20" rx="5" fill="#5c3a21" stroke="#fbbf24" />
+              <circle cx="699" cy="302" r="5" fill="#f43f5e" />
+              <circle cx="1051" cy="302" r="5" fill="#f43f5e" />
+              <text x="875" y="400" fill="#bae6fd" font-size="8.6" font-weight="700" text-anchor="middle">✅ Đồng bộ thiết kế 100% với P.Ông Bà T1 (chỉ hạ chiều cao tủ kịch trần từ 3.000 xuống 2.650mm theo trần T2)</text>
+            </svg>
+          </div>
+        </article>
+      </section>
+
+      <!-- SECTION T2.4: 3-TONE SWATCH CODES & WORKSHOP ORDER TABLE FOR FLOOR 2 -->
+      <section class="block heavy-deferred" id="sec-t2-boq-table">
+        <h2 class="section-title">
+          📋 4. Bảng Bóc Tách Đặt Hàng Xưởng Tầng 2 &amp; Mã Ván Đối Chiếu Thực Tế Cả 3 Tone (08 Hạng Mục)
+        </h2>
+        <p class="section-sub">
+          Khớp 100% đơn giá với Bảng Tổng Hợp Nội Thất Toàn Nhà (<a href="noi-that-toan-nha.html" style="color:var(--sky-light);">noi-that-toan-nha.html</a>). Khi chọn <strong>💎 Tone 3 (Boutique Smoked Wood — 0% Kính Ở Tủ)</strong>, toàn bộ cánh kính khung nhôm tại Master &amp; PN1 và mặt kính Bàn đảo được chuyển sang cánh gỗ phẳng đặc &amp; mặt vân đá đặc, <strong>giảm ngay <code>-9.500.000 ₫</code> riêng tại Tầng 2</strong>:
+        </p>
+
+        <div tabindex="0" role="region" aria-labelledby="t2-workshop-caption" class="table-wrapper">
+          <table class="workshop-table">
+            <caption id="t2-workshop-caption">
+              Danh mục 08 hạng mục nội thất giao xưởng sản xuất tại Tầng 2 Q Villa (Tone 1 &amp; 2 = 210,50 Tr • 💎 Tone 3 Cánh Gỗ Đặc 0% Kính Tủ = 201,00 Tr)
+            </caption>
+            <thead>
+              <tr>
+                <th>Hạng Mục Đặt Xưởng (Tầng 2)</th>
+                <th>Phân Khu / Vách</th>
+                <th>Kích Thước (D × R × C mm)</th>
+                <th>Kết Cấu Cốt Gỗ &amp; Chống Ẩm</th>
+                <th>Mã Vật Liệu Đối Chiếu (Tone 1 • Tone 2 • Tone 3 0% Kính)</th>
+                <th>Tọa Độ Ổ Điện &amp; Bản Vẽ</th>
+                <th>Dự Toán Xưởng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">01. Hệ Giường Master King R60 + Vách Đầu Giường Bắc + 2 Táp &amp; Đôn Da</th>
+                <td>5A. Master Khu Ngủ<br>(Tường Bắc Trục C)</td>
+                <td>Vách: <code>3.910 × 2.650</code><br>Giường King: <code>2.000 × 2.200</code></td>
+                <td>• Bệ &amp; tựa giường: <code>100% Plywood 18mm</code> bo <code>R60</code> + 7 thang thép kẽm <code>40×40</code>.<br>• Đôn gỗ bọc da Microfiber trơn.</td>
+                <td>• <strong>☕ Tone 1:</strong> Gỗ Mocha <code>LK 4487 A</code> + Vách <code>LK 2145 ST &amp; MS 334</code>.<br>• <strong>👑 Tone 2:</strong> Gỗ Nâu Đen + Vách <code>LK 2148 ST &amp; MS 104</code>.<br>• <strong>💎 Tone 3:</strong> Biên full Gỗ Nâu Đen <code>LK 4512 A</code> + Giữa <code>LK 2148 ST</code>.</td>
+                <td>• 2 cụm <code>S1 +700</code> (cách Tây 500, cách nhau 2.140).<br>• Xem <a href="#bv-t2-01" style="color:var(--sky-light);">BV-T2.01</a></td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">26.500.000 ₫</td>
+              </tr>
+              <tr>
+                <th scope="row">02. Tủ Áo Âm Hốc Đông #3 + Vách Tủ Đảo 2 Mặt Trục B</th>
+                <td>5A. Master Khu Ngủ<br>(Hốc Đông &amp; Trục B)</td>
+                <td>Tủ #3: <code>2.010 × 600 × 2.650</code><br>Vách Đảo: <code>1.740 × 450 × 2.650</code></td>
+                <td>• Khung bắt trần/sàn &amp; hồi uốn <code>R120</code>: <code>Plywood 18mm</code>.<br>• <strong>Tone 3:</strong> 100% cánh gỗ phẳng đặc (0% cánh kính).</td>
+                <td>• <strong>☕ Tone 1:</strong> Cánh <code>MS 334</code> + Hồi <code>LK 2145 ST</code> + Kính Trà LED.<br>• <strong>👑 Tone 2:</strong> Cánh <code>MS 104</code> + Hồi Nâu Đen + Kính Khói LED.<br>• <strong>💎 Tone 3:</strong> <code>100%</code> Cánh Gỗ Nâu Đen <code>LK 4512 A</code> (0% Kính Tủ).</td>
+                <td>• Tủ #3 dùng ổ <code>S1 +1.200</code> sau lưng; Vách B thả dây <code>Lộ 14 &amp; 19</code>.<br>• Xem <a href="#bv-t2-01" style="color:var(--sky-light);">BV-T2.01/02</a></td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">23.000.000 ₫</td>
+              </tr>
+              <tr>
+                <th scope="row">03. Bàn Đảo Phụ Kiện Trung Tâm (Dưới Vòm Trần Khu Thay Đồ)</th>
+                <td>5B. Master Thay Đồ<br>(Chính tâm phòng)</td>
+                <td><code>1.150 × 550 × 850</code><br>(6 ngăn kéo chia ô nhung)</td>
+                <td>• Đế bắt vít sàn: <code>Plywood 18mm</code>.<br>• Tone 1 &amp; 2 mặt kính cường lực <code>10mm</code>; <strong>Tone 3 mặt gỗ phủ Laminate vân đá đặc (0% kính!)</strong>.</td>
+                <td>• <strong>☕ Tone 1:</strong> Kính trong LED + Bệ <code>LK 2145 ST</code> + Thân Mocha (13,0tr).<br>• <strong>👑 Tone 2:</strong> Kính trong LED + Bệ <code>LK 2148 ST</code> + Thân Nâu Đen (13,0tr).<br>• <strong>💎 Tone 3 (0% Kính):</strong> Mặt đá <code>LK 2148 ST</code> + Thân <code>LK 4512 A</code> (<strong>11,5tr</strong>).</td>
+                <td>• Ống gen <code>Ø20</code> âm sàn (cách Tây 1.400, cách Nam 1.050).<br>• Xem <a href="#bv-t2-02" style="color:var(--sky-light);">BV-T2.02</a></td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">13,00 Tr<br><span style="color:#fde68a;font-size:0.78rem;">(Tone 3: 11,50 Tr)</span></td>
+              </tr>
+              <tr>
+                <th scope="row">04. Cặp Tủ Áo #1 – #2 Giáp Tường Ướt + Cửa Đôi Kính Sọc WC-02</th>
+                <td>5B. Master Thay Đồ<br>(Tường Nam 3.440mm)</td>
+                <td>Tủ #1 &amp; #2: <code>1.180×600×2.650 ×2</code><br>Cửa WC-02: <code>1.080 × 2.650</code></td>
+                <td>• <strong>BẮT BUỘC:</strong> Hậu <code>Plywood 9mm</code> + Đáy &amp; Đợt <code>Plywood 18mm</code> chịu nước!<br>• Cửa <code>WC-02</code> giữ nhôm Slim kính sọc mờ.</td>
+                <td>• <strong>☕ Tone 1:</strong> Cánh <code>MS 334 SMM</code> phối kính LED (32,0tr).<br>• <strong>👑 Tone 2:</strong> Cánh <code>MS 104 SH</code> phối kính LED (32,0tr).<br>• <strong>💎 Tone 3 (0% Kính Tủ):</strong> Cánh đặc <code>LK 4512 A</code> 100% (<strong>26,5tr</strong>).</td>
+                <td>• 2 đầu chờ <code>LED +1.600</code> ở 2 góc Nam.<br>• Xem <a href="#bv-t2-03" style="color:var(--sky-light);">BV-T2.03</a></td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">32,00 Tr<br><span style="color:#fde68a;font-size:0.78rem;">(Tone 3: 26,50 Tr)</span></td>
+              </tr>
+              <tr>
+                <th scope="row">05. Bàn Phấn/LV Treo O2 + Tủ Hốc 440 + Bọc Cột Gương Soi 960</th>
+                <td>5B. Master Thay Đồ<br>(Vách Tây &amp; Vách Đông)</td>
+                <td>Bàn O2: <code>1.330 × 500 × 180</code><br>Hốc: <code>440×380</code> • Gương: <code>960×220</code></td>
+                <td>• Bàn treo <code>Plywood 18mm</code> bo <code>R60</code> phẳng mịn (0% sọc lam!) + khung thép âm.<br>• Đôn tròn bọc da trơn.</td>
+                <td>• <strong>☕ Tone 1:</strong> Bàn Mocha + Đôn Camel + Bọc cột <code>LK 2145 ST</code>.<br>• <strong>👑 Tone 2:</strong> Bàn Nâu Đen + Đôn Saddle-Tan.<br>• <strong>💎 Tone 3:</strong> Bàn &amp; Cánh tủ hốc 440 đều Gỗ đặc <code>LK 4512 A</code> (0% kính).</td>
+                <td>• Ổ bàn <code>S1 +400/+1.200</code> cách Trục B 850; Trạm Robot <code>S1 +250</code> sát O1.<br>• Xem <a href="#bv-t2-04" style="color:var(--sky-light);">BV-T2.04</a></td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">23.000.000 ₫</td>
+              </tr>
+              <tr>
+                <th scope="row">06. Bộ 02 Ghế Armchair Khung Gỗ Da Trơn + Bàn Trà Sảnh Thư Giãn</th>
+                <td>6. Sảnh Thư Giãn T2<br>(Cạnh thông tầng 1,8×2,01m)</td>
+                <td>02 Ghế: <code>720 × 760 × 760</code><br>Bàn trà: <code>900 × 550 / Ø650</code></td>
+                <td>• Khung gỗ Tần bì/Sồi sấy mộng kín.<br>• Đệm mút K43 bọc da Microfiber trơn + Bàn mặt vân Travertine.</td>
+                <td>• <strong>☕ Tone 1:</strong> Khung Mocha + Da Kem Latte/Camel.<br>• <strong>👑 Tone 2:</strong> Khung Nâu Đen + Da Taupe &amp; Saddle-Tan.<br>• <strong>💎 Tone 3:</strong> Khung Nâu Đen + Cặp đệm da Cognac-Caramel.</td>
+                <td>• Đặt cạnh lan can kính thông tầng (ổ <code>S1 +400</code> cách mép 450mm).<br>• Xem <strong>T2-V05</strong></td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">8.500.000 ₫</td>
+              </tr>
+              <tr>
+                <th scope="row">07. Trọn Bộ Phòng Ngủ 1 (Trục B–D: Giường R60 + Hệ Tủ TV 3,55m + Bàn 2,05m)</th>
+                <td>7. Phòng Ngủ 1<br>(16,2 m² — Trục B–D)</td>
+                <td>Giường: <code>1.800×2.000</code><br>Tủ Nam: <code>3.550×600</code> • Bàn: <code>2.050</code></td>
+                <td>• Giường <code>Plywood 18mm</code> bo <code>R60</code>.<br>• Bàn cửa sổ chập đôi <code>Plywood 36mm</code> + 3 ke thép chữ T âm tường.</td>
+                <td>• <strong>☕ Tone 1:</strong> Cánh <code>MS 334</code> + 1 khoang kính Trà LED (49,0tr).<br>• <strong>👑 Tone 2:</strong> Cánh <code>MS 104</code> + 1 khoang kính Khói LED (49,0tr).<br>• <strong>💎 Tone 3 (0% Kính Tủ):</strong> Full 5 cánh Gỗ đặc <code>LK 4512 A</code> (<strong>46,5tr</strong>).</td>
+                <td>• Tâm TV <code>S2 +1.200</code> cách Đông <code>1.900</code>; Bàn <code>S2 +900</code> cách Bắc <code>300</code>.<br>• Xem <a href="#bv-t2-05" style="color:var(--sky-light);">BV-T2.05</a></td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">49,00 Tr<br><span style="color:#fde68a;font-size:0.78rem;">(Tone 3: 46,50 Tr)</span></td>
+              </tr>
+              <tr>
+                <th scope="row">08. Trọn Bộ Phòng Ngủ 2 (Trục A–B: Giường R60 + Hệ Tủ 3 Module Bắc 2,9m)</th>
+                <td>8. Phòng Ngủ 2<br>(13,5 m² — Trục A–B)</td>
+                <td>Vách Nam: <code>3.210 × 2.650</code><br>Tủ Bắc: <code>950+1.150+800 = 2.900</code></td>
+                <td>• Giường <code>Plywood 18mm</code> bo <code>R60</code> + LED gầm.<br>• Bàn học <code>800mm</code> cốt <code>Plywood 36mm</code>; <code>0%</code> cánh kính ở cả 3 Tone.</td>
+                <td>• <strong>☕ Tone 1:</strong> Cánh <code>MS 334 SMM</code> + Giường Mocha + Hốc <code>LK 2145 ST</code>.<br>• <strong>👑 Tone 2:</strong> Cánh <code>MS 104 SH</code> + Giường Nâu Đen + Hốc <code>LK 2148 ST</code>.<br>• <strong>💎 Tone 3:</strong> Cánh &amp; Giường vân Gỗ Nâu Đen <code>LK 4512 A</code> + Đỉnh <code>MS 104</code>.</td>
+                <td>• Ổ Tivi <code>+1.200</code> cách Đông <code>1.550</code>; Ổ Bàn <code>+900</code> cách Đông <code>250</code>.<br>• Xem <a href="#bv-t2-06" style="color:var(--sky-light);">BV-T2.06</a></td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">35.500.000 ₫</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="6" style="text-align:right;">TỔNG ĐẶT XƯỞNG TẦNG 2 (Tone 1 &amp; 2 = 210,50 Tr • 💎 Tone 3 Cánh Gỗ Đặc 0% Kính Tủ &amp; Đảo = 201,00 Tr):</th>
+                <td id="tfoot-t2-total" style="white-space:nowrap;font-size:1.05rem;">201.000.000 ₫ (Đã trừ -9,5tr kính)</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+    </div>
+
     <!-- SECTION 5: 8 MANDATORY WORKSHOP CONTRACT & QC RULES -->
     <section class="block heavy-deferred" id="sec-contract-rules">
       <h2 class="section-title">🛡️ 5. 08 Điều Khoản Kỹ Thuật Bắt Buộc Ghi Vào Hợp Đồng Với Xưởng Nội Thất</h2>
@@ -2174,14 +3157,13 @@
     </div>
     <div style="padding:20px 24px;max-width:640px;font-size:0.9rem;color:var(--text-secondary);">
       <p style="margin-bottom:12px;">
-        Đúng theo lộ trình cuốn chiếu bạn đã chọn, hiện tại <strong>Tầng 1 đã được chuẩn hóa 100%</strong> (đủ 7 góc nhìn 360° × 2 tone màu + 5 bản vẽ mặt đứng chia khoang tủ 2D &amp; tọa độ ổ điện giao thợ).
+        Hiện tại <strong>Tầng 1 (7 góc × 3 tone + 5 bản vẽ 2D)</strong> và <strong>Tầng 2 (8 góc × 3 tone + 6 bản vẽ 2D)</strong> đã hoàn chỉnh đồng bộ 100% (tổng cộng <strong>45 phối cảnh 1:1</strong> &amp; <strong>11 bản vẽ đóng tủ giao xưởng</strong>)!
       </p>
       <p style="margin-bottom:12px;">
-        Ngay sau khi hai vợ chồng xem duyệt xong Tầng 1 (hoặc nếu cần tinh chỉnh bất kỳ ngăn tủ nào ở Tầng 1), chúng ta sẽ tiếp tục bổ sung ngay vào hồ sơ này:
+        Ngay sau khi hai vợ chồng duyệt xong Tầng 2, chúng ta sẽ chốt mảnh ghép cuối cùng:
       </p>
       <ul style="padding-left:18px;display:flex;flex-direction:column;gap:8px;color:#f8fafc;">
-        <li><strong>Bước 2 — TẦNG 2:</strong> Đủ 4 vách <code>Master Open-Suite PA2</code> + <code>Sảnh thư giãn giếng trời</code> + đủ 2 chiều vách Giường &amp; vách Tủ áo/Tivi/Bàn học của <code>Phòng Ngủ 1 (Trục B–D)</code> &amp; <code>Phòng Ngủ 2 (Trục A–B)</code> kèm trọn bộ bản vẽ chia khoang tủ 2D.</li>
-        <li><strong>Bước 3 — TẦNG 3:</strong> Đủ 2 chiều <code>Phòng Làm Việc Đôi PA T3-A</code> (cửa sổ Tây, Tủ sách + Hộp KT phẳng &amp; Vách kính sóng lùa 4 cánh ngăn P.Thờ) + <code>Phòng Ngủ 3 &amp; 4</code> (trần phẳng chỉ đen <code>P-UT12</code>). <em>(Riêng Phòng Thờ giữ nguyên tại <a href="phong-tho-tang3.html" style="color:var(--accent-light);">phong-tho-tang3.html</a>).</em></li>
+        <li><strong>Bước 3 (Cuối cùng) — TẦNG 3:</strong> Đủ 2 chiều <code>Phòng Làm Việc Đôi PA T3-A</code> (02 cửa sổ mặt tiền lam chắn nắng + 2 bàn <code>1,6m</code> dày <code>36mm</code>, Vách Nam Tủ sách <code>2,44m</code> + Ốp phẳng Hộp KT <code>980mm</code>, Vách Bắc Cửa lùa 4 cánh kính sóng không ray sàn ngăn P.Thờ, Vách Đông Sofa đọc sách dưới ĐH treo) + <code>Phòng Ngủ 3 &amp; 4</code> chuẩn trần phẳng chỉ đen <code>P-UT12 (+2.750m)</code>. <em>(Riêng Phòng Thờ giữ độc lập tại <a href="phong-tho-tang3.html" style="color:var(--accent-light);">phong-tho-tang3.html</a>).</em></li>
       </ul>
     </div>
   </dialog>
@@ -2415,16 +3397,16 @@
         </div>
       `;
 
-      // Sync Tabs & SVG Map Pins
-      document.querySelectorAll(".cam-tab").forEach(btn => {
+      // Sync Floor 1 Tabs & SVG Map Pins only
+      document.querySelectorAll("#chapter-floor-1 .cam-tab").forEach(btn => {
         const active = btn.id === "tab-" + currentViewKey;
         btn.setAttribute("aria-selected", active ? "true" : "false");
-        if (active) {
+        if (active && currentFloorMode !== "f2") {
           btn.scrollIntoView({ block: "nearest", inline: "nearest" });
         }
       });
 
-      document.querySelectorAll(".cam-pin").forEach(pin => {
+      document.querySelectorAll("#chapter-floor-1 .cam-pin").forEach(pin => {
         pin.classList.toggle("active-pin", pin.id === "pin-" + currentViewKey);
       });
     }
@@ -2494,10 +3476,375 @@
       }).join("");
     }
 
+    const T2_VIEWS = {
+      t2v01: {
+        code: "T2-V01",
+        zone: "Khu 5A • Master Khu Ngủ (Nhìn Hướng Nam)",
+        direction: "Nhìn hướng Nam (Từ đầu giường King nhìn thẳng về Vách Tranh Trục B & 2 Lối đi 850mm)",
+        title: "T2-V01 • Master Khu Ngủ Nhìn Nam: Vách Đảo Trục B (1.740×450) Treo Tranh, 2 Lối Đi Mở 850mm, Tủ #3 Trái & Logia 01 Phải",
+        imgWarm: "assets/t2_v01_master_sleep_south_warmbeige.jpg",
+        imgItal: "assets/t2_v01_master_sleep_south_italian.jpg",
+        imgSmoked: "assets/t2_v01_master_sleep_south_smokedwood.jpg",
+        bpId: "bv-t2-02",
+        bpLabel: "📐 Xem Bản Vẽ Vách Tủ Đảo 2 Mặt BV-T2.02",
+        oppositeKey: "t2v02",
+        oppositeLabel: "🔄 Quay 180° Xem Vách Đầu Giường Bắc & Tủ Âm Hốc #3 (T2-V02)",
+        bullets: [
+          "<strong>Chuẩn hóa 100% hướng giường theo KT-2.08 &amp; CĐ-04:</strong> Giường King tựa đúng <strong>Tường Bắc <code>3.910 mm</code></strong> nhìn về hướng Nam — bên phải là <strong>Cửa lùa <code>Logia 01 (2.560 mm)</code></strong>, bên trái là <strong>Hệ Tủ Áo #3 (<code>2.010×600mm</code>)</strong> nằm gọn trong hốc tường Đông.",
+          "<strong>Vách Tủ Đảo Độc Lập 2 Mặt (<code>1.740 × 450 × 2.650 mm</code> • 0% Lam dọc • 0% Xương cá):</strong> Uốn bo mềm 2 đầu <code>R120</code> có khe LED hắt dọc, mặt trước ốp phẳng <code>Laminate vân đá Travertine</code> treo Tranh nghệ thuật <code>1.200×900mm</code> che kín 100% tầm nhìn vào WC-02, chừa <strong>02 lối đi mở đối xứng rộng <code>850 mm</code></strong> hai bên.",
+          "<strong>Riêng ở <code>💎 Tone 3 (0% Kính Tủ)</code>:</strong> Toàn bộ cánh Tủ #3 bên trái và cả hệ tủ phía xa qua 2 lối đi đều là <strong>cánh gỗ Nâu Đen Khói <code>LK 4512 A</code> đặc khít 100%</strong>, không lộ quần áo!"
+        ]
+      },
+      t2v02: {
+        code: "T2-V02",
+        zone: "Khu 5A • Master Khu Ngủ (Góc Ngược 180°)",
+        direction: "Nhìn hướng Bắc (Đứng trước Vách Đảo Trục B nhìn về Giường King, Logia Trái & Hốc Đông Phải)",
+        title: "T2-V02 • Master Khu Ngủ Góc Ngược 180°: Vách Đầu Giường Bắc 3.910mm, Giường King Bo R60, Kính 750mm & Tủ Áo #3",
+        imgWarm: "assets/t2_v02_master_sleep_north_warmbeige.jpg",
+        imgItal: "assets/t2_v02_master_sleep_north_italian.jpg",
+        imgSmoked: "assets/t2_v02_master_sleep_north_smokedwood.jpg",
+        bpId: "bv-t2-01",
+        bpLabel: "📐 Xem Bản Vẽ Vách Bắc & Tủ #3 BV-T2.01",
+        oppositeKey: "t2v01",
+        oppositeLabel: "🔄 Quay 180° Nhìn Về Vách Tranh Trục B & Khu Thay Đồ (T2-V01)",
+        bullets: [
+          "<strong>Đảo la bàn 180° chính xác tuyệt đối so với <code>T2-V01</code>:</strong> Bên trái là cửa kính lùa <code>Logia 01</code> ngập nắng; bên phải là hốc tường Đông đua <code>1.070mm</code> gồm <strong>ô kính cố định <code>750×2.400mm</code> nhìn ra mảng xanh Sảnh thư giãn</strong> và <strong>Hệ Tủ Áo #3 (<code>2.010×600×2.650mm</code>)</strong>.",
+          "<strong>Giường King <code>2.000 × 2.200 mm</code> 100% bệ gỗ <code>Plywood 18mm</code> bo góc <code>R60</code> (0% nỉ bọc giường!):</strong> Đi kèm ghế đôn đuôi giường bọc da bò Microfiber trơn và 2 táp treo khớp đúng 2 cụm <code>S1 +700mm</code> cách nhau <code>2.140 mm</code>.",
+          "<strong>So sánh 3 Tone rõ nét trên Tủ #3 bên phải:</strong> <code>Tone 1 &amp; 2</code> dùng 2 cánh giữa kính màu LED; <strong><code>Tone 3</code> đóng phẳng 4 cánh gỗ đặc <code>LK 4512 A</code> liền thớ vân sang trọng (0% kính)</strong>."
+        ]
+      },
+      t2v03: {
+        code: "T2-V03",
+        zone: "Khu 5B • Master Khu Thay Đồ (Nhìn Hướng Bắc)",
+        direction: "Nhìn hướng Bắc (Từ cửa WC-02 nhìn qua Bàn Đảo về Mặt Sau Tủ Đảo 4 Khoang 1.740×450)",
+        title: "T2-V03 • Master Thay Đồ Nhìn Bắc: Bàn Đảo Trung Tâm, Tủ Đảo 4 Khoang Trục B, Bàn O2 Trái & Cửa O1 + Gương Phải",
+        imgWarm: "assets/t2_v03_master_wic_north_warmbeige.jpg",
+        imgItal: "assets/t2_v03_master_wic_north_italian.jpg",
+        imgSmoked: "assets/t2_v03_master_wic_north_smokedwood.jpg",
+        bpId: "bv-t2-02",
+        bpLabel: "📐 Xem Bản Vẽ Tủ Đảo 4 Khoang & Bàn Đảo BV-T2.02",
+        oppositeKey: "t2v04",
+        oppositeLabel: "🔄 Quay 180° Xem Vách Nam Tủ #1–#2 & Cửa Sọc WC-02 (T2-V04)",
+        bullets: [
+          "<strong>Góc nhìn quyết định để thợ mộc đóng mặt sau Vách Trục B (<code>1.740 × 450 × 2.650 mm</code>):</strong> Chia 4 khoang sâu <code>450 mm</code> vừa khít để sơ mi gấp, đồ len &amp; túi xách, cấp điện <code>Lộ 19</code> thả thẳng từ nóc trần xuống và có <code>02</code> bóng Spotlight <code>Lộ 18</code> rọi sáng mặt tủ.",
+          "<strong>Chuẩn hóa 100% tường Đông bên phải theo <code>KT-2.08</code>:</strong> Có đúng <strong>Cửa gỗ Lim <code>O1 (900×2.400mm)</code></strong>, công tắc Aqara, <strong>Trạm sạc Robot hút bụi tại ổ <code>S1 +250mm</code></strong> và <strong>Hệ bọc cột Gương soi toàn thân hắt LED (<code>960×220mm</code>)</strong>.",
+          "<strong>Bàn Đảo Trung Tâm (<code>1.150 × 550 × 850 mm</code>):</strong> Ở <code>Tone 3</code>, mặt bàn đảo thay kính trong suốt bằng <strong>mặt phẳng gỗ phủ Laminate vân đá Silver Travertine <code>LK 2148 ST</code> đặc khít (0% kính, giảm <code>-1,5tr</code>, không lo bám vân tay hay xước mặt kính)</strong>!"
+        ]
+      },
+      t2v04: {
+        code: "T2-V04",
+        zone: "Khu 5B • Master Khu Thay Đồ (Góc Ngược 180°)",
+        direction: "Nhìn hướng Nam (Từ giữa Trục B nhìn qua Bàn Đảo về Tủ #2, Cửa sọc WC-02 & Tủ #1)",
+        title: "T2-V04 • Master Thay Đồ Nhìn Nam: Cửa O1 & Gương Soi Trái + Cặp Tủ #1–#2 Kẹp Cửa Sọc WC-02 + Bàn Treo O2 Phải",
+        imgWarm: "assets/t2_v04_master_wic_south_warmbeige.jpg",
+        imgItal: "assets/t2_v04_master_wic_south_italian.jpg",
+        imgSmoked: "assets/t2_v04_master_wic_south_smokedwood.jpg",
+        bpId: "bv-t2-03",
+        bpLabel: "📐 Xem Bản Vẽ Tủ #1–#2 Chống Ẩm & Vách O1/O2 BV-T2.03/04",
+        oppositeKey: "t2v03",
+        oppositeLabel: "🔄 Quay 180° Nhìn Về Tủ Đảo 4 Khoang & Khu Ngủ (T2-V03)",
+        bullets: [
+          "<strong>Đã sửa triệt để lỗi tường Đông bên trái của ảnh cũ:</strong> Xóa bỏ hoàn toàn dãy tủ kính sâu 600mm vẽ lấp mất cửa ra vào, trả lại đúng <strong>Cửa chính <code>O1</code> 10 nan gỗ Lim + Vách bọc cột <code>960×220mm</code> gắn Gương soi toàn thân hắt LED</strong>.",
+          "<strong>Chính diện Tường Nam (<code>3.440 mm</code>):</strong> Đối xứng <strong>Tủ #2 (trái <code>1.180mm</code>) + Cửa đôi kính sọc mờ vào <code>WC-02</code> (giữa <code>1.080mm</code>) + Tủ #1 (phải <code>1.180mm</code>)</strong>. Lưng cả 2 tủ bắt buộc đóng <strong>hậu <code>Plywood 9mm</code> + đáy <code>Plywood 18mm</code> chịu nước</strong>!",
+          "<strong>Bên phải (Tường Tây):</strong> Cửa sổ <code>O2</code> rèm gỗ + <strong>Bàn phấn/làm việc treo <code>1.330×500mm</code> cạnh phẳng mịn bo <code>R60</code> (0% sọc lam!)</strong> + Gương tròn LED &amp; Đôn da trơn."
+        ]
+      },
+      t2v05: {
+        code: "T2-V05",
+        zone: "Khu 6 • Sảnh Thư Giãn & Hành Lang Thông Tầng T2",
+        direction: "Nhìn dọc Hành lang Tầng 2 (Thấy Sảnh đọc sách thông tầng bên trái & Cầu thang lên T3 bên phải)",
+        title: "T2-V05 • Sảnh Thư Giãn Thông Tầng (1.800×2.010mm): 02 Ghế Armchair Khung Gỗ Da Trơn, Sàn Xương Cá & Hành Lang Gạch 800×800",
+        imgWarm: "assets/t2_v05_lounge_hall_warmbeige.jpg",
+        imgItal: "assets/t2_v05_lounge_hall_italian.jpg",
+        imgSmoked: "assets/t2_v05_lounge_hall_smokedwood.jpg",
+        bpId: "sec-t2-boq-table",
+        bpLabel: "📋 Xem Quy Cách Bộ Ghế Sảnh T2 (Mục 06 — 8,50 Tr)",
+        oppositeKey: "t2v02",
+        oppositeLabel: "🪟 Xem Góc Nhìn Xuyên Qua Vách Kính 750mm Vào Master (T2-V02)",
+        bullets: [
+          "<strong>Đúng 100% phân tách vật liệu lát sàn <code>KT-4.07</code>:</strong> Khu vực Sảnh thư giãn bên trái lát <strong>gạch vân gỗ xương cá <code>150×900 mm</code></strong> ấm cúng; trục Hành lang chính lát <strong>gạch mờ xám sáng <code>800×800 mm</code></strong> chống xước bền bỉ.",
+          "<strong>Bộ 02 Ghế Armchair khung gỗ sấy + Đệm da Microfiber trơn (0% vải Bouclé) &amp; Bàn trà vân đá Travertine (<code>8.500.000 ₫</code>):</strong> Ngồi đọc sách uống trà cạnh lan can kính thông tầng nhìn xuống Phòng ăn Tầng 1 và chậu cây xanh rọi qua ô kính <code>750mm</code> vào đầu giường Master.",
+          "<strong>Bên phải:</strong> Hệ Cầu thang bộ mặt bậc gỗ hắt LED cảm biến bước chân ban đêm lên Tầng 3."
+        ]
+      },
+      t2v06: {
+        code: "T2-V06",
+        zone: "Khu 7 • Phòng Ngủ 1 (16,2 m² — Trục B–D)",
+        direction: "Nhìn hướng Bắc (Từ Tủ áo Nam nhìn về Giường Bắc • Trái Bàn cửa sổ 2,05m • Phải Ban công D8)",
+        title: "T2-V06 • Phòng Ngủ 1 Nhìn Bắc: Giường Bệ Gỗ R60 (1.800×2.000), Bàn Học Cửa Sổ Tây 2.050mm & Ban Công Đông D8",
+        imgWarm: "assets/t2_v06_pn1_north_warmbeige.jpg",
+        imgItal: "assets/t2_v06_pn1_north_italian.jpg",
+        imgSmoked: "assets/t2_v06_pn1_north_smokedwood.jpg",
+        bpId: "bv-t2-05",
+        bpLabel: "📐 Xem Bản Vẽ Bàn 2.050mm & Tủ Nam BV-T2.05",
+        oppositeKey: "t2v07",
+        oppositeLabel: "🔄 Quay 180° Xem Vách Nam Hệ Tủ Áo + Hốc Tivi 3.550mm (T2-V07)",
+        bullets: [
+          "<strong>Chuẩn hóa mẫu phòng ngủ con lớn Trục B–D (<code>4.950 × 3.300 mm</code>):</strong> Tường Bắc kê Giường bệ gỗ <code>Plywood 18mm</code> bo tròn <code>R60</code> (<code>1.800×2.000mm</code>) trên nền vách phẳng vân Travertine (<code>0%</code> lam dọc, <code>0%</code> nỉ xù).",
+          "<strong>Bên trái (Tường Tây Cửa sổ <code>S3</code>):</strong> Hệ bàn học/làm việc treo dài <code>2.050 × 550 mm</code> chập đôi <code>Plywood 36mm</code> + 3 ngăn kéo mỏng, khớp cụm ổ <code>S2 +400 &amp; +900</code> cách tường Bắc <code>300 mm</code>.",
+          "<strong>Bên phải (Tường Đông):</strong> Cửa kính lùa lớn mở ra <strong>Ban công Đông <code>D8</code></strong> xanh mát dưới trần bo cong <code>PA C</code>."
+        ]
+      },
+      t2v07: {
+        code: "T2-V07",
+        zone: "Khu 7 • Phòng Ngủ 1 (Góc Ngược 180° Vách Nam)",
+        direction: "Nhìn hướng Nam (Từ đầu giường nhìn về Hệ Tủ Áo + Tivi 3.550mm • Trái Đông • Phải Cửa D3)",
+        title: "T2-V07 • Phòng Ngủ 1 Góc Ngược Vách Nam: Hệ Tủ Kịch Trần 3.550mm (M1 Tủ 1.250 + M2 Tivi 55\" 1.300 + M3 Tủ 1.000) & Cửa D3",
+        imgWarm: "assets/t2_v07_pn1_south_warmbeige.jpg",
+        imgItal: "assets/t2_v07_pn1_south_italian.jpg",
+        imgSmoked: "assets/t2_v07_pn1_south_smokedwood.jpg",
+        bpId: "bv-t2-05",
+        bpLabel: "📐 Xem Bản Vẽ Chia Khoang Vách Nam 3.550mm BV-T2.05",
+        oppositeKey: "t2v06",
+        oppositeLabel: "🔄 Quay 180° Nhìn Về Đầu Giường Bắc & Bàn Cửa Sổ 2,05m (T2-V06)",
+        bullets: [
+          "<strong>Góc nhìn mới mở khóa 100% Vách Nam <code>3.550 × 600 × 2.650 mm</code> cho thợ mộc:</strong> Đảo hướng la bàn <code>180°</code> chuẩn xác so với <code>T2-V06</code> — bên trái là cửa lùa Ban công Đông <code>D8</code>, bên phải là <strong>Cửa gỗ Lim <code>D3 (900×2.400mm)</code></strong> và đuôi bàn học Tây!",
+          "<strong>Tâm Hốc Tivi 55 inch rơi đúng <code>1.250 + 650 = 1.900 mm</code> từ tường Đông:</strong> Khớp tuyệt đối <code>100%</code> với tọa độ ổ điện Tivi trên bản vẽ <code>CĐ-04</code> mà không phải đục dời 1cm dây điện nào!",
+          "<strong>So sánh <code>💎 Tone 3 (0% Kính Tủ)</code>:</strong> Khoang phải <code>M3 (1.000mm)</code> chuyển từ cánh kính trưng bày LED sang <strong>2 cánh gỗ Nâu Đen Khói <code>LK 4512 A</code> đặc khít 100%</strong>, tiết kiệm ngay <code>-2,50tr</code> riêng phòng này!"
+        ]
+      },
+      t2v08: {
+        code: "T2-V08",
+        zone: "Khu 8 • Phòng Ngủ 2 (13,5 m² — Trục A–B)",
+        direction: "Nhìn hướng Nam (Từ Hệ tủ Bắc nhìn vào Vách đầu giường 3.210mm • Trái Ban công D4 • Phải Giếng trời)",
+        title: "T2-V08 • Phòng Ngủ 2 Nhìn Nam: Vách Đặc 3.210mm, Giường Gỗ R60 • Trái Ban Công Đông D4 • Phải Cửa Sổ Giếng Trời Tây",
+        imgWarm: "assets/t2_v08_pn2_south_warmbeige.jpg",
+        imgItal: "assets/t2_v08_pn2_south_italian.jpg",
+        imgSmoked: "assets/t2_v08_pn2_south_smokedwood.jpg",
+        bpId: "bv-t2-06",
+        bpLabel: "📐 Xem Bản Vẽ Cả 2 Vách Bắc (2.900) & Nam (3.210) BV-T2.06",
+        oppositeKey: "t2v06",
+        oppositeLabel: "🔄 Đối Chiếu Sang Phòng Ngủ 1 Cạnh Bên (T2-V06)",
+        bullets: [
+          "<strong>Đồng trục dọc 100% với P.Ngủ Ông Bà Tầng 1 (<code>3.210 × 4.490 mm</code>):</strong> Bên trái là cửa kính lùa <code>3.030mm</code> ra <strong>Ban công Đông <code>D4</code></strong>, bên phải là cửa sổ lớn nhìn vào vườn cây <strong>Giếng trời Tây</strong>, phía trên là <strong>Trần bo cong <code>PA C</code> chỉ đen <code>12mm</code></strong>.",
+          "<strong>Đã chuẩn hóa Vách Bắc sau lưng camera thành Hệ 3 Module liền mạch <code>2.900 × 2.650 mm</code> (<code>BV-T2.06</code>):</strong> Gồm <code>Tủ áo 950 + Hốc Tivi 50\" 1.150 + Bàn học 800</code> (thay cho kiểu kê bàn rời lắt nhắt cũ) để ăn khớp 100% với ổ Tivi <code>1.550mm</code> &amp; ổ Bàn <code>250mm</code> của bản vẽ <code>CĐ-04</code>!",
+          "<strong>Cả 3 Tone đều dùng <code>100%</code> cánh gỗ/Melamine phẳng đặc (0% kính tủ)</strong> với đơn giá giữ nguyên <code>35.500.000 ₫</code> trọn phòng."
+        ]
+      }
+    };
+
+    const T2_ZONE_GROUPS = [
+      {
+        heading: "Khu 5A • Master Khu Ngủ (Đủ 2 Chiều Đảo 180°: T2-V01 Nhìn Nam Vách Tranh Trục B ↔ T2-V02 Nhìn Bắc Đầu Giường King & Tủ #3)",
+        badge: "Bản vẽ xưởng: BV-T2.01 & BV-T2.02 • 49,50 Tr ₫",
+        views: ["t2v01", "t2v02"]
+      },
+      {
+        heading: "Khu 5B • Master Khu Thay Đồ Walk-In Closet (Đủ 2 Chiều Đảo 180°: T2-V03 Tủ Đảo 4 Khoang ↔ T2-V04 Tủ #1–#2, WC-02, O1 & O2)",
+        badge: "BV-T2.02, BV-T2.03 & BV-T2.04 • 68,00 Tr (Tone 3: 61,00 Tr)",
+        views: ["t2v03", "t2v04"]
+      },
+      {
+        heading: "Khu 6 • Sảnh Thư Giãn Đọc Sách Thông Tầng & Hành Lang Cầu Thang Tầng 2 (1.800 × 2.010 mm)",
+        badge: "Mục 06 Bảng T2 • 8,50 Tr ₫",
+        views: ["t2v05"]
+      },
+      {
+        heading: "Khu 7 • Phòng Ngủ 1 Trục B–D (16,2 m² — Đủ 2 Chiều Đảo 180°: T2-V06 Giường & Bàn 2,05m ↔ T2-V07 Hệ Tủ + Tivi 3,55m)",
+        badge: "Bản vẽ xưởng: BV-T2.05 • 49,00 Tr (Tone 3: 46,50 Tr)",
+        views: ["t2v06", "t2v07"]
+      },
+      {
+        heading: "Khu 8 • Phòng Ngủ 2 Trục A–B (13,5 m² — T2-V08 Vách Nam Đầu Giường 3,21m + Chuẩn Hóa Vách Bắc 3 Module 2,90m)",
+        badge: "Bản vẽ xưởng: BV-T2.06 • 35,50 Tr ₫",
+        views: ["t2v08"]
+      }
+    ];
+
+    let currentT2ViewKey = "t2v01";
+    let currentFloorMode = "f2"; // Default active floor = Tầng 2 as requested!
+
+    function renderT2Studio() {
+      const v = T2_VIEWS[currentT2ViewKey];
+      if (!v) return;
+
+      const studioGrid = document.getElementById("t2-studio-tabpanel");
+      const stageImgs = document.getElementById("t2-studio-stage-imgs");
+      const cardSec = document.getElementById("t2-card-img-secondary");
+      const cardTer = document.getElementById("t2-card-img-tertiary");
+      const imgPri = document.getElementById("t2-studio-img-primary");
+      const imgSec = document.getElementById("t2-studio-img-secondary");
+      const imgTer = document.getElementById("t2-studio-img-tertiary");
+      const capPri = document.getElementById("t2-studio-cap-primary");
+      const capSec = document.getElementById("t2-studio-cap-secondary");
+      const capTer = document.getElementById("t2-studio-cap-tertiary");
+      const panel = document.getElementById("t2-studio-spec-panel");
+      if (!studioGrid || !panel) return;
+
+      studioGrid.setAttribute("aria-labelledby", "tab-" + currentT2ViewKey);
+
+      if (currentPaletteMode === "split") {
+        studioGrid.classList.add("split-mode");
+        stageImgs.classList.remove("split-two");
+        stageImgs.classList.add("split-three");
+        cardSec.hidden = false;
+        cardTer.hidden = false;
+
+        imgPri.src = v.imgWarm;
+        imgPri.alt = `${v.title} — Warm Beige & Cashmere-Latte`;
+        capPri.textContent = `☕ Tone 1 (Warm Beige) — ${v.code}: ${v.zone}`;
+
+        imgSec.src = v.imgItal;
+        imgSec.alt = `${v.title} — Italian Modern Quiet Luxury`;
+        capSec.textContent = `👑 Tone 2 (Italian Luxury) — ${v.code}: ${v.zone}`;
+
+        imgTer.src = v.imgSmoked;
+        imgTer.alt = `${v.title} — Boutique Smoked Wood (0% Kính Tủ)`;
+        capTer.textContent = `💎 Tone 3 (Smoked Wood • 0% Kính Tủ) — ${v.code}: ${v.zone}`;
+      } else {
+        studioGrid.classList.remove("split-mode");
+        stageImgs.classList.remove("split-two", "split-three");
+        cardSec.hidden = true;
+        cardTer.hidden = true;
+
+        const meta = getToneMeta(currentPaletteMode);
+        imgPri.src = v[meta.key];
+        imgPri.alt = `${v.title} — ${meta.full}`;
+        capPri.textContent = `${meta.full} — ${v.code}: ${v.title}`;
+      }
+
+      panel.innerHTML = `
+        <div class="spec-meta-row">
+          <span class="badge-pill badge-amber">${v.code} • ${v.zone}</span>
+          <span class="badge-pill badge-sky">🧭 ${v.direction}</span>
+        </div>
+        <h3>${v.title}</h3>
+        <ul class="check-list">
+          ${v.bullets.map(b => `<li>${b}</li>`).join("")}
+        </ul>
+        <div class="panel-actions">
+          <a href="#${v.bpId}" class="action-btn">${v.bpLabel} &darr;</a>
+          <button type="button" class="action-btn amber" onclick="selectT2View('${v.oppositeKey}')">${v.oppositeLabel}</button>
+        </div>
+      `;
+
+      document.querySelectorAll("#chapter-floor-2 .cam-tab").forEach(btn => {
+        const active = btn.id === "tab-" + currentT2ViewKey;
+        btn.setAttribute("aria-selected", active ? "true" : "false");
+        if (active && currentFloorMode !== "f1") {
+          btn.scrollIntoView({ block: "nearest", inline: "nearest" });
+        }
+      });
+
+      document.querySelectorAll("#chapter-floor-2 .cam-pin").forEach(pin => {
+        pin.classList.toggle("active-pin", pin.id === "pin-" + currentT2ViewKey);
+      });
+    }
+
+    function renderT2Walkthrough() {
+      const container = document.getElementById("t2-walkthrough-container");
+      if (!container) return;
+
+      container.innerHTML = T2_ZONE_GROUPS.map(zg => {
+        const cardsHtml = zg.views.map(vk => {
+          const v = T2_VIEWS[vk];
+          let imgsHtml = "";
+          if (currentPaletteMode === "split") {
+            imgsHtml = `
+              <div class="walk-imgs split-three">
+                <div class="walk-thumb-wrap" onclick="openLightbox('${v.imgWarm}', '☕ Tone 1 Warm Beige — ${v.code}: ${v.zone}')">
+                  <img src="${v.imgWarm}" alt="${v.title} Warm Beige" loading="lazy" width="1376" height="768" />
+                  <span class="thumb-tag">☕ Tone 1 • ${v.code}</span>
+                </div>
+                <div class="walk-thumb-wrap" onclick="openLightbox('${v.imgItal}', '👑 Tone 2 Italian Luxury — ${v.code}: ${v.zone}')">
+                  <img src="${v.imgItal}" alt="${v.title} Italian Luxury" loading="lazy" width="1376" height="768" />
+                  <span class="thumb-tag">👑 Tone 2 • ${v.code}</span>
+                </div>
+                <div class="walk-thumb-wrap" onclick="openLightbox('${v.imgSmoked}', '💎 Tone 3 Smoked Wood (0% Kính Tủ) — ${v.code}: ${v.zone}')">
+                  <img src="${v.imgSmoked}" alt="${v.title} Smoked Wood 0% Glass" loading="lazy" width="1376" height="768" />
+                  <span class="thumb-tag">💎 Tone 3 (0% Kính) • ${v.code}</span>
+                </div>
+              </div>
+            `;
+          } else {
+            const meta = getToneMeta(currentPaletteMode);
+            const src = v[meta.key];
+            imgsHtml = `
+              <div class="walk-imgs">
+                <div class="walk-thumb-wrap" onclick="openLightbox('${src}', '${meta.full} — ${v.code}: ${v.zone}')">
+                  <img src="${src}" alt="${v.title}" loading="lazy" width="1376" height="768" />
+                  <span class="thumb-tag">${v.code} • ${meta.tag}</span>
+                </div>
+              </div>
+            `;
+          }
+
+          return `
+            <article class="walk-card">
+              ${imgsHtml}
+              <div class="walk-body">
+                <h4>${v.title}</h4>
+                <p>🧭 <strong>Hướng camera:</strong> ${v.direction}</p>
+                <div style="margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:8px;">
+                  <a href="#${v.bpId}" class="action-btn" style="padding:5px 10px;font-size:0.76rem;">${v.bpLabel}</a>
+                  <button type="button" class="action-btn amber" style="padding:5px 10px;font-size:0.76rem;" onclick="selectT2View('${vk}');document.getElementById('sec-t2-studio').scrollIntoView({behavior:'smooth'});">🎯 Mở Trong Studio T2</button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join("");
+
+        return `
+          <div class="zone-group">
+            <div class="zone-header">
+              <h3>${zg.heading}</h3>
+              <span class="badge-pill badge-emerald">${zg.badge}</span>
+            </div>
+            <div class="walk-grid">${cardsHtml}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
     function selectView(key) {
       if (!T1_VIEWS[key]) return;
       currentViewKey = key;
       renderStudio();
+    }
+
+    function selectT2View(key) {
+      if (!T2_VIEWS[key]) return;
+      currentT2ViewKey = key;
+      renderT2Studio();
+    }
+
+    // Switch between Floor 1 ('f1'), Floor 2 ('f2'), or Both Floors ('all') using accessible hidden="until-found"
+    function switchFloor(mode, shouldScroll = true) {
+      currentFloorMode = mode;
+      const ch1 = document.getElementById("chapter-floor-1");
+      const ch2 = document.getElementById("chapter-floor-2");
+      const b1 = document.getElementById("btn-floor-f1");
+      const b2 = document.getElementById("btn-floor-f2");
+      const bAll = document.getElementById("btn-floor-all");
+
+      const showF1 = (mode === "f1" || mode === "all");
+      const showF2 = (mode === "f2" || mode === "all");
+
+      if (ch1) {
+        if (showF1) ch1.removeAttribute("hidden");
+        else ch1.setAttribute("hidden", "until-found");
+      }
+      if (ch2) {
+        if (showF2) ch2.removeAttribute("hidden");
+        else ch2.setAttribute("hidden", "until-found");
+      }
+
+      if (b1) {
+        b1.classList.toggle("active-floor", mode === "f1");
+        b1.setAttribute("aria-expanded", showF1 ? "true" : "false");
+      }
+      if (b2) {
+        b2.classList.toggle("active-floor", mode === "f2");
+        b2.setAttribute("aria-expanded", showF2 ? "true" : "false");
+      }
+      if (bAll) {
+        bAll.classList.toggle("active-floor", mode === "all");
+        bAll.setAttribute("aria-expanded", mode === "all" ? "true" : "false");
+      }
+
+      if (shouldScroll) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     }
 
     function setPaletteMode(mode) {
@@ -2506,12 +3853,18 @@
         const btn = document.getElementById("btn-mode-" + m);
         if (btn) btn.setAttribute("aria-pressed", m === mode ? "true" : "false");
       });
-      const tfootEl = document.getElementById("tfoot-t1-total");
-      if (tfootEl) {
-        tfootEl.textContent = mode === "smokedwood" ? "198.200.000 ₫ (Đã trừ -4,5tr cánh kính)" : "202.700.000 ₫";
+      const tfootT1 = document.getElementById("tfoot-t1-total");
+      if (tfootT1) {
+        tfootT1.textContent = mode === "smokedwood" ? "198.200.000 ₫ (Đã trừ -4,5tr cánh kính)" : "202.700.000 ₫";
+      }
+      const tfootT2 = document.getElementById("tfoot-t2-total");
+      if (tfootT2) {
+        tfootT2.textContent = mode === "smokedwood" ? "201.000.000 ₫ (Đã trừ -9,5tr kính tủ & đảo)" : "210.500.000 ₫";
       }
       renderStudio();
       renderWalkthrough();
+      renderT2Studio();
+      renderT2Walkthrough();
     }
 
     function openLightbox(src, titleText) {
@@ -2525,9 +3878,34 @@
 
     function openRoadmapModal(floorName) {
       const dialog = document.getElementById("floor-roadmap-modal");
-      document.getElementById("roadmap-title").textContent = `⏳ ${floorName} — Đang Chờ Duyệt Xong Tầng 1 Để Triển Khai Tiếp`;
+      document.getElementById("roadmap-title").textContent = `⏳ ${floorName} — Bước Cuối Cùng Sau Khi Duyệt Xong Tầng 2`;
       dialog.showModal();
     }
+
+    // Mandatory synchronization for hidden="until-found" find-in-page & fragment deep links (modern-web-guidance: search-hidden-content)
+    document.querySelectorAll(".floor-chapter").forEach(chapter => {
+      chapter.addEventListener("beforematch", () => {
+        if (chapter.id === "chapter-floor-1") switchFloor("f1", false);
+        else if (chapter.id === "chapter-floor-2") switchFloor("f2", false);
+      });
+    });
+
+    // Fallback for browsers without onbeforematch (e.g. Safari) + URL fragment routing (#bv-t1-*, #bv-t2-*)
+    function syncFloorFromHash() {
+      const h = (window.location.hash || "").toLowerCase();
+      if (!h) return;
+      if (h.includes("bv-t1") || h === "#sec-studio" || h === "#sec-walkthrough" || h === "#sec-shop-drawings" || h === "#sec-boq-table") {
+        switchFloor("f1", false);
+        const target = document.querySelector(h);
+        if (target) setTimeout(() => target.scrollIntoView({ behavior: "smooth" }), 50);
+      } else if (h.includes("bv-t2") || h.includes("sec-t2") || h === "#hero-f2") {
+        switchFloor("f2", false);
+        const target = document.querySelector(h);
+        if (target) setTimeout(() => target.scrollIntoView({ behavior: "smooth" }), 50);
+      }
+    }
+    window.addEventListener("hashchange", syncFloorFromHash);
+    window.addEventListener("beforeprint", () => switchFloor("all", false));
 
     // Mandatory Safari Fallback for <dialog closedby="any"> (modern-web-guidance: light-dismiss-a-dialog)
     if (!("closedBy" in HTMLDialogElement.prototype)) {
@@ -2563,19 +3941,33 @@
       });
     }
 
-    // Keyboard arrow navigation for horizontal tablist
-    document.querySelectorAll(".cam-tab").forEach((tab, idx, arr) => {
-      tab.addEventListener("keydown", e => {
-        if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-          e.preventDefault();
-          const nextIdx = e.key === "ArrowRight" ? (idx + 1) % arr.length : (idx - 1 + arr.length) % arr.length;
-          arr[nextIdx].focus();
-          arr[nextIdx].click();
-        }
+    // Keyboard arrow navigation scoped per horizontal tablist
+    document.querySelectorAll(".tabs-scroller").forEach(tablist => {
+      const tabs = Array.from(tablist.querySelectorAll(".cam-tab"));
+      tabs.forEach((tab, idx) => {
+        tab.addEventListener("keydown", e => {
+          if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+            e.preventDefault();
+            const nextIdx = e.key === "ArrowRight" ? (idx + 1) % tabs.length : (idx - 1 + tabs.length) % tabs.length;
+            tabs[nextIdx].focus();
+            tabs[nextIdx].click();
+          }
+        });
       });
     });
 
     setPaletteMode("smokedwood");
+    if (window.location.hash) {
+      syncFloorFromHash();
+    } else if (!("onbeforematch" in HTMLElement.prototype)) {
+      // Mandatory Safari fallback for hidden="until-found" (modern-web-guidance: search-hidden-content):
+      // Expand hidden chapters by default on unsupported browsers so Find-in-Page & deep anchors remain 100% reachable,
+      // while keeping Chapter 2 (Tầng 2) first in view via scroll/order or letting the user toggle single-floor view.
+      document.querySelectorAll('[hidden="until-found"]').forEach(el => el.removeAttribute("hidden"));
+      document.getElementById("btn-floor-f1")?.setAttribute("aria-expanded", "true");
+      document.getElementById("btn-floor-f2")?.setAttribute("aria-expanded", "true");
+      document.getElementById("hero-f2")?.scrollIntoView({ behavior: "instant" });
+    }
   </script>
 </body>
 </html>
