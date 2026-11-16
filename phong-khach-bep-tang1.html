@@ -644,6 +644,7 @@
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <button type="button" class="tab-btn active" id="tone-switch-warmbeige" onclick="setT1Tone('warmbeige')" style="padding:7px 14px;border-radius:999px;">☕ Tone 1: Warm Beige &amp; Cashmere-Latte</button>
           <button type="button" class="tab-btn" id="tone-switch-italian" onclick="setT1Tone('italian')" style="padding:7px 14px;border-radius:999px;">👑 Tone 2: Italian Modern Quiet Luxury</button>
+          <button type="button" class="tab-btn" id="tone-switch-smokedwood" onclick="setT1Tone('smokedwood')" style="padding:7px 14px;border-radius:999px;">💎 Tone 3: Boutique Smoked Wood (0% Kính Tủ)</button>
         </div>
       </div>
       <p class="section-sub">
@@ -1054,6 +1055,7 @@
       v02_living_north: {
         imgWarm: "assets/t1_v02_living_north_warmbeige.jpg",
         imgItal: "assets/t1_v02_living_north_italian.jpg",
+        imgSmoked: "assets/t1_v02_living_north_smokedwood.jpg",
         caption: "V02 • Phòng Khách nhìn Bắc: Vách Tivi phẳng 3,2m (0% lam dọc), Sofa Poliform da trơn, Khung Ray nam châm 4 cạnh + Quạt trần Lộ 6 & Lộ 6A",
         title: "V02 • Phòng Khách Nhìn Bắc: Vách Tivi Phẳng 3.200mm, Khung Ray Nam Châm 4 Cạnh & Liên Thông Phòng Ăn",
         items: [
@@ -1065,6 +1067,7 @@
       v03_living_reverse: {
         imgWarm: "assets/t1_v03_living_reverse_warmbeige.jpg",
         imgItal: "assets/t1_v03_living_reverse_italian.jpg",
+        imgSmoked: "assets/t1_v03_living_reverse_smokedwood.jpg",
         caption: "V03 • Phòng Khách góc ngược 180° (nhìn Nam-Tây): Mặt trước Sofa Bệ Gỗ Poliform, Tiền sảnh Cửa D1 PA 1B, Tủ giày 2,5m & Cầu thang bộ",
         title: "V03 • Phòng Khách Góc Ngược: Mặt Trước Sofa Bệ Gỗ Poliform, Tiền Sảnh D1 & Cầu Thang Bộ",
         items: [
@@ -1076,6 +1079,7 @@
       v01_foyer: {
         imgWarm: "assets/t1_v01_foyer_warmbeige.jpg",
         imgItal: "assets/t1_v01_foyer_italian.jpg",
+        imgSmoked: "assets/t1_v01_foyer_smokedwood.jpg",
         caption: "V01 • Tiền Sảnh nhìn Tây: Cửa chính Gỗ Lim D1 (PA 1B: 10 nan dọc phẳng + 1 ô kính 310mm) & Hệ Tủ giày kịch trần 2.500×550×3.400mm",
         title: "V01 • Tiền Sảnh Đón: Cửa Chính D1 (PA 1B) & Hệ Tủ Giày Kịch Trần 2.500mm",
         items: [
@@ -1087,6 +1091,7 @@
       v04_dining_kitchen: {
         imgWarm: "assets/t1_v04_dining_kitchen_warmbeige.jpg",
         imgItal: "assets/t1_v04_dining_kitchen_italian.jpg",
+        imgSmoked: "assets/t1_v04_dining_kitchen_smokedwood.jpg",
         caption: "V04 • Phòng Ăn 8 ghế (lộ ổ âm sàn S1) + Bếp chữ I cánh kính màu Be cố định + Đảo ngang Trục 3 bo R400 & Hệ Tủ phụ Rượu/Cafe 2.800mm",
         title: "V04 • Phòng Ăn 8 Ghế + Bếp Kính Be + Đảo Bo R400 & Hệ Tủ Phụ Rượu/Cafe 2.800mm",
         items: [
@@ -1098,6 +1103,7 @@
       v05_kitchen_reverse: {
         imgWarm: "assets/t1_v05_kitchen_reverse_warmbeige.jpg",
         imgItal: "assets/t1_v05_kitchen_reverse_italian.jpg",
+        imgSmoked: "assets/t1_v05_kitchen_reverse_smokedwood.jpg",
         caption: "V05 • Khu Bếp góc ngược 180° (nhìn Tây): Mặt trong 3 ngăn kéo Bàn Đảo bo R400, Tủ phụ Rượu/Cafe 2,8m & tầm nhìn xuyên suốt 12,01m về Phòng Khách",
         title: "V05 • Khu Bếp Góc Ngược: Mặt Trong Bàn Đảo (3 Ngăn Kéo) & Tầm Nhìn Xuyên Suốt 12,01m",
         items: [
@@ -1132,6 +1138,7 @@
       currentT1Tone = tone;
       document.getElementById("tone-switch-warmbeige").classList.toggle("active", tone === "warmbeige");
       document.getElementById("tone-switch-italian").classList.toggle("active", tone === "italian");
+      document.getElementById("tone-switch-smokedwood").classList.toggle("active", tone === "smokedwood");
       switch3D(currentT1Key);
     }
 
@@ -1139,9 +1146,20 @@
       const data = VIEWS[key];
       if (!data) return;
       currentT1Key = key;
-      const isWarm = currentT1Tone === "warmbeige";
-      const resolvedSrc = data.img ? data.img : (isWarm ? data.imgWarm : data.imgItal);
-      const tonePrefix = data.img ? "" : (isWarm ? "☕ Tone 1 (Warm Beige & Cashmere-Latte) — " : "👑 Tone 2 (Italian Modern Quiet Luxury) — ");
+      let resolvedSrc = data.img;
+      let tonePrefix = "";
+      if (!data.img) {
+        if (currentT1Tone === "warmbeige") {
+          resolvedSrc = data.imgWarm;
+          tonePrefix = "☕ Tone 1 (Warm Beige & Cashmere-Latte) — ";
+        } else if (currentT1Tone === "italian") {
+          resolvedSrc = data.imgItal;
+          tonePrefix = "👑 Tone 2 (Italian Modern Quiet Luxury) — ";
+        } else {
+          resolvedSrc = data.imgSmoked;
+          tonePrefix = "💎 Tone 3 (Boutique Smoked Wood • 0% Kính Tủ) — ";
+        }
+      }
       document.getElementById("main-3d-img").src = resolvedSrc;
       document.getElementById("main-3d-caption").textContent = tonePrefix + data.caption;
       const infoEl = document.getElementById("main-3d-info");

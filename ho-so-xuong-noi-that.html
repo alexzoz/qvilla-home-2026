@@ -543,6 +543,14 @@
       grid-template-columns: 1fr 1fr;
     }
 
+    .stage-imgs.split-three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 1120px) {
+      .stage-imgs.split-three { grid-template-columns: 1fr; }
+    }
+
     @media (max-width: 860px) {
       .stage-imgs.split-two { grid-template-columns: 1fr; }
     }
@@ -721,6 +729,14 @@
 
     .walk-imgs.split-two {
       grid-template-columns: 1fr 1fr;
+    }
+
+    .walk-imgs.split-three {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 960px) {
+      .walk-imgs.split-three { grid-template-columns: 1fr; }
     }
 
     .walk-thumb-wrap {
@@ -1086,18 +1102,22 @@
           </button>
         </div>
 
-        <div class="tone-bar" role="group" aria-label="Chuyển đổi song song 2 tone màu vật liệu">
+        <div class="tone-bar" role="group" aria-label="Chuyển đổi song song 3 tone màu vật liệu">
           <span class="tone-bar-label">🎨 Đổi Tone Vật Liệu:</span>
           <button type="button" class="tone-btn" id="btn-mode-warmbeige" aria-pressed="true" onclick="setPaletteMode('warmbeige')">
             <span class="swatch-dot" style="background:linear-gradient(135deg,#d7cab8,#5f402b);"></span>
-            ☕ Tone 1: Warm Beige &amp; Cashmere-Latte
+            ☕ Tone 1: Warm Beige
           </button>
           <button type="button" class="tone-btn" id="btn-mode-italian" aria-pressed="false" onclick="setPaletteMode('italian')">
             <span class="swatch-dot" style="background:linear-gradient(135deg,#cfc8bc,#281f1a);"></span>
-            👑 Tone 2: Italian Modern Quiet Luxury
+            👑 Tone 2: Italian Quiet Luxury
+          </button>
+          <button type="button" class="tone-btn" id="btn-mode-smokedwood" aria-pressed="false" onclick="setPaletteMode('smokedwood')">
+            <span class="swatch-dot" style="background:linear-gradient(135deg,#433227,#b55e2c);"></span>
+            💎 Tone 3: Boutique Smoked Wood (0% Kính Tủ)
           </button>
           <button type="button" class="tone-btn" id="btn-mode-split" aria-pressed="false" onclick="setPaletteMode('split')">
-            ⚖️ Đọ Song Song 2 Tone (A/B)
+            ⚖️ Đọ Cả 3 Tone (1 • 2 • 3)
           </button>
         </div>
       </div>
@@ -1117,23 +1137,23 @@
         <div class="kpi-grid">
           <div class="kpi-box">
             <div class="kpi-label">1. Độ Phủ Góc Nhìn 360° Tầng 1</div>
-            <div class="kpi-val">07 Góc × 2 Tone = 14 Ảnh 1:1</div>
-            <div class="kpi-sub">Đủ cả vách chính &amp; <strong>góc nhìn ngược 180°</strong> (Mặt trước Sofa Poliform, Mặt trong Đảo bếp &amp; Vách Bắc Tủ áo/Tivi P.Ông Bà)</div>
+            <div class="kpi-val">07 Góc × 3 Tone = 21 Ảnh 1:1</div>
+            <div class="kpi-sub">Đủ vách chính &amp; <strong>góc ngược 180°</strong> • Đã thêm <strong>💎 Tone 3 Boutique Smoked Wood (0% Kính Tủ)</strong></div>
           </div>
           <div class="kpi-box">
             <div class="kpi-label">2. Bản Vẽ Đóng Tủ Giao Thợ Mộc</div>
             <div class="kpi-val">05 Bản Vẽ Mặt Đứng 2D (mm)</div>
-            <div class="kpi-sub">Tủ giày <code>2,5m</code> • Vách TV <code>3,2m</code> &amp; Sofa Poliform • Đảo <code>R400</code> &amp; Tủ Rượu/Cafe <code>2,8m</code> • 2 Vách P.Ông Bà</div>
+            <div class="kpi-sub">Tủ giày <code>2,5m</code> • Vách TV <code>3,2m</code> &amp; Sofa Poliform • Đảo <code>R400</code> &amp; Tủ Phụ <code>2,8m</code> • 2 Vách P.Ông Bà</div>
           </div>
           <div class="kpi-box">
             <div class="kpi-label">3. Chuẩn Vật Liệu Đã Khóa Cứng</div>
             <div class="kpi-val">0% Lam Dọc • 0% Vải Nỉ Xù</div>
-            <div class="kpi-sub">Khung/bệ <code>Plywood 18mm</code> bo <code>R60</code> • Cánh <code>MDF 17mm</code> phẳng lỳ • <code>100%</code> đệm da trơn Microfiber • Bếp chính Inox kính Be</div>
+            <div class="kpi-sub">Khung/bệ <code>Plywood 18mm</code> bo <code>R60</code> • Cánh <code>MDF 17mm</code> phẳng lỳ • Riêng <strong>Tone 3: 100% Cánh Gỗ Đặc (0% Kính Tủ)</strong></div>
           </div>
           <div class="kpi-box">
-            <div class="kpi-label">4. Tổng Khối Lượng Đặt Xưởng Tầng 1</div>
-            <div class="kpi-val">202.700.000 ₫ (08 Hạng Mục)</div>
-            <div class="kpi-sub">Đã trừ Tủ bếp chính Inox cánh kính màu Be (<code>116,12tr</code> nằm tại dự toán xây dựng hoàn thiện)</div>
+            <div class="kpi-label">4. Tổng Đặt Xưởng Tầng 1 (08 Mục)</div>
+            <div class="kpi-val" id="kpi-t1-total-val">202,70 Tr (Tone 3: 198,20 Tr)</div>
+            <div class="kpi-sub" id="kpi-t1-total-sub">Tone 3 bỏ cánh kính khung nhôm Tủ phụ giảm ngay <code>-4,50tr</code> &amp; kín đáo không lộ đồ!</div>
           </div>
         </div>
 
@@ -1380,6 +1400,14 @@
             <img id="studio-img-secondary" src="assets/t1_v01_foyer_italian.jpg" alt="Góc V01 Tiền Sảnh Tầng 1 — Tone Italian Modern Quiet Luxury" fetchpriority="low" loading="lazy" width="1376" height="768" onclick="openLightbox(this.src, document.getElementById('studio-cap-secondary').textContent)" />
             <div class="img-bar">
               <span id="studio-cap-secondary">👑 Tone 2 (Italian Modern Quiet Luxury) — V01: Tiền Sảnh Cửa D1 PA 1B &amp; Tủ Giày 2.500mm</span>
+              <span>🔍 Bấm phóng to 8K</span>
+            </div>
+          </div>
+
+          <div class="img-card" id="card-img-tertiary" hidden>
+            <img id="studio-img-tertiary" src="assets/t1_v01_foyer_smokedwood.jpg" alt="Góc V01 Tiền Sảnh Tầng 1 — Tone Boutique Smoked Wood Luxury (0% Kính Tủ)" fetchpriority="low" loading="lazy" width="1376" height="768" onclick="openLightbox(this.src, document.getElementById('studio-cap-tertiary').textContent)" />
+            <div class="img-bar">
+              <span id="studio-cap-tertiary">💎 Tone 3 (Boutique Smoked Wood • 0% Kính Tủ) — V01: Tiền Sảnh Cửa D1 PA 1B &amp; Tủ Giày 2.500mm</span>
               <span>🔍 Bấm phóng to 8K</span>
             </div>
           </div>
@@ -1691,9 +1719,9 @@
               <line x1="82" y1="225" x2="251" y2="225" /><line x1="82" y1="272" x2="251" y2="272" />
               <line x1="82" y1="319" x2="251" y2="319" /><line x1="82" y1="366" x2="251" y2="366" />
             </g>
-            <text x="166" y="264" fill="#fde68a" font-size="9.5" font-weight="800" text-anchor="middle">TỦ RƯỢU 2 CÁNH KÍNH</text>
-            <text x="166" y="279" fill="#fef3c7" font-size="8.5" text-anchor="middle">Khung nhôm Slim 20×45</text>
-            <text x="166" y="293" fill="#fef3c7" font-size="8.5" text-anchor="middle">+ 2 LED đứng 3000K</text>
+            <text x="166" y="260" fill="#fde68a" font-size="9.2" font-weight="800" text-anchor="middle">KHOANG 900mm:</text>
+            <text x="166" y="275" fill="#fef3c7" font-size="8.4" text-anchor="middle">• Tone 1&amp;2: Cánh kính LED</text>
+            <text x="166" y="289" fill="#6ee7b7" font-size="8.4" font-weight="800" text-anchor="middle">• Tone 3: Cánh gỗ đặc 0% kính!</text>
 
             <!-- Center Bay (1000mm: x=255..455) — Coffee & Water Niche -->
             <!-- Upper Doors +1490..+2290 (y=177..260) -->
@@ -1974,16 +2002,16 @@
     <!-- SECTION 4: DUAL-TONE SWATCH CODES & WORKSHOP ORDER TABLE FOR FLOOR 1 -->
     <section class="block heavy-deferred" id="sec-boq-table">
       <h2 class="section-title">
-        📋 4. Bảng Bóc Tách Đặt Hàng Xưởng Tầng 1 &amp; Mã Ván Đối Chiếu Thực Tế Cả 2 Tone (An Cường • Đá Nung Kết • Da Microfiber)
+        📋 4. Bảng Bóc Tách Đặt Hàng Xưởng Tầng 1 &amp; Mã Ván Đối Chiếu Thực Tế Cả 3 Tone (An Cường • Đá Nung Kết • Da Microfiber)
       </h2>
       <p class="section-sub">
-        Mang trực tiếp bảng này ra xưởng nội thất để yêu cầu xưởng lấy <strong>tấm mẫu thực tế khổ A4 của cả 2 Tone</strong> đặt cạnh mẫu sơn tường <code>Jotun 1001 Egghvit</code> và mẫu kính bếp màu Be trước khi ký lệnh pha ván:
+        Mang trực tiếp bảng này ra xưởng nội thất để yêu cầu xưởng lấy <strong>tấm mẫu thực tế khổ A4 của cả 3 Tone (<code>☕ Warm Beige</code> • <code>👑 Italian Quiet Luxury</code> • <code>💎 Boutique Smoked Wood 0% Kính Tủ</code>)</strong> đặt cạnh mẫu sơn tường <code>Jotun 1001 Egghvit</code> và mẫu kính bếp màu Be trước khi ký lệnh pha ván:
       </p>
 
       <div tabindex="0" role="region" aria-labelledby="t1-workshop-caption" class="table-wrapper">
         <table class="workshop-table">
           <caption id="t1-workshop-caption">
-            Danh mục 08 hạng mục nội thất giao xưởng sản xuất tại Tầng 1 Q Villa (Khớp 100% dự toán tổng nhà — Đã tách riêng Tủ bếp chính Inox cánh kính Be)
+            Danh mục 08 hạng mục nội thất giao xưởng sản xuất tại Tầng 1 Q Villa (Tone 1 &amp; 2 = 202,70 Tr • Tone 3 Cánh Gỗ Đặc 0% Kính Tủ = 198,20 Tr)
           </caption>
           <thead>
             <tr>
@@ -1991,7 +2019,7 @@
               <th>Phân Khu / Vách</th>
               <th>Kích Thước (D × R × C mm)</th>
               <th>Kết Cấu Cốt Gỗ &amp; Đá Bắt Buộc</th>
-              <th>Mã Vật Liệu Đối Chiếu (Tone 1 vs Tone 2)</th>
+              <th>Mã Vật Liệu Đối Chiếu (Tone 1 • Tone 2 • Tone 3 0% Kính)</th>
               <th>Tọa Độ Ổ Điện &amp; Bản Vẽ</th>
               <th>Dự Toán Xưởng</th>
             </tr>
@@ -2001,8 +2029,8 @@
               <th scope="row">01. Hệ Tủ Giày Kịch Trần + Ghế Thay Giày &amp; Khoang Robot</th>
               <td>1. Tiền Sảnh<br>(Tường Nam Trục A)</td>
               <td><code>2.500 × 550 × 3.400</code><br>(8,50 m²)</td>
-              <td>• Đáy &amp; bệ ngồi: <code>Plywood 18mm</code> chịu nước.<br>• Cánh cao phẳng: <code>MDF lõi xanh 17mm</code> vát J-pull.</td>
-              <td>• <strong>☕ Tone 1:</strong> Cánh <code>MS 334 SMM</code> + Gỗ <code>LK 4487 A</code> + Hốc <code>LK 2145 ST</code> + Da Camel.<br>• <strong>👑 Tone 2:</strong> Cánh <code>MS 104 SH</code> + Gỗ <code>LK 4512 A</code> + Hốc <code>LK 2148 ST</code> + Da Saddle.</td>
+              <td>• Đáy &amp; bệ ngồi: <code>Plywood 18mm</code> chịu nước.<br>• Cánh cao phẳng: <code>MDF lõi xanh 17mm</code> vát J-pull (0% kính tủ).</td>
+              <td>• <strong>☕ Tone 1:</strong> Cánh <code>MS 334 SMM</code> + Gỗ <code>LK 4487 A</code> + Hốc <code>LK 2145 ST</code>.<br>• <strong>👑 Tone 2:</strong> Cánh <code>MS 104 SH</code> + Gỗ <code>LK 4512 A</code> + Hốc <code>LK 2148 ST</code>.<br>• <strong>💎 Tone 3:</strong> Cánh vân Gỗ Nâu Đen Khói <code>LK 4512 A</code> + Đỉnh <code>MS 104</code> + Da Cognac.</td>
               <td>• <code>S1 +400</code> (cách Đông 250) cho Robot.<br>• LED chờ <code>+1.600</code>.<br>• Xem <a href="#bv-t1-01" style="color:var(--sky-light);">BV-T1.01</a></td>
               <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">27.200.000 ₫</td>
             </tr>
@@ -2011,7 +2039,7 @@
               <td>2. Phòng Khách<br>(Tường Bắc phẳng — đã bịt V2)</td>
               <td>Vách: <code>3.200 × 3.400</code><br>Kệ: <code>3.200 × 400 × 260</code></td>
               <td>• Kệ treo &amp; khung đỡ TV 85": <code>Plywood 18mm</code> bo <code>R60</code>.<br>• Vách ốp phẳng: <code>MDF 17mm</code> (0% lam dọc!).</td>
-              <td>• <strong>☕ Tone 1:</strong> Biên gỗ <code>LK 4487 A</code> + Giữa <code>LK 2145 ST</code> + Hộp TV <code>MS 334 SMM</code>.<br>• <strong>👑 Tone 2:</strong> Biên gỗ <code>LK 4512 A</code> + Giữa <code>LK 2148 ST</code> + Hộp TV <code>MS 104 SH</code>.</td>
+              <td>• <strong>☕ Tone 1:</strong> Biên gỗ <code>LK 4487 A</code> + Giữa <code>LK 2145 ST</code> + Hộp TV <code>MS 334</code>.<br>• <strong>👑 Tone 2:</strong> Biên gỗ <code>LK 4512 A</code> + Giữa <code>LK 2148 ST</code> + Hộp TV <code>MS 104</code>.<br>• <strong>💎 Tone 3:</strong> Biên &amp; Hộp TV đều vân Gỗ Nâu Đen <code>LK 4512 A</code> + Giữa <code>LK 2148 ST</code>.</td>
               <td>• Tâm <code>S1 +1.200 &amp; +400</code> + ống gen <code>Ø60</code>.<br>• 2 ổ biên <code>S1 +400</code>.<br>• Xem <a href="#bv-t1-02" style="color:var(--sky-light);">BV-T1.02</a></td>
               <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">26.500.000 ₫</td>
             </tr>
@@ -2020,7 +2048,7 @@
               <td>2. Phòng Khách<br>(Trung tâm phía Nam)</td>
               <td>Sofa: <code>2.800 × 1.850 × 780</code><br>Bàn trà: <code>Ø850 &amp; Ø650</code></td>
               <td>• Bệ gỗ <code>Plywood 18mm</code> chập cạnh <code>36mm</code> bo <code>R60</code> + khay tay liền.<br>• Mút K43 Nhật bọc <code>100%</code> da trơn Microfiber.</td>
-              <td>• <strong>☕ Tone 1:</strong> Bệ gỗ Mocha + Da trơn Kem Cashmere-Latte + Gối da Caramel.<br>• <strong>👑 Tone 2:</strong> Bệ gỗ Nâu Đen Khói + Da trơn Greige-Taupe + Gối Saddle-Tan.</td>
+              <td>• <strong>☕ Tone 1:</strong> Bệ gỗ Mocha + Da Kem Cashmere-Latte + Gối Caramel.<br>• <strong>👑 Tone 2:</strong> Bệ gỗ Nâu Đen + Da Greige-Taupe + Gối Saddle-Tan.<br>• <strong>💎 Tone 3:</strong> Bệ gỗ Nâu Đen Khói + Da Cashmere-Taupe &amp; Gối da Cognac trầm.</td>
               <td>• Khay gỗ trái đặt cạnh ổ <code>S1 +400</code> (cách Tây 750mm).<br>• Xem <a href="#bv-t1-02" style="color:var(--sky-light);">BV-T1.02</a></td>
               <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">38.000.000 ₫</td>
             </tr>
@@ -2029,7 +2057,7 @@
               <td>3. Phòng Ăn<br>(Giữa Cửa D2 &amp; Cầu thang)</td>
               <td>Bàn: <code>2.200 × 1.000 × 750</code><br>+ <code>08</code> Ghế ăn gỗ bọc da</td>
               <td>• Mặt bàn bắt buộc <code>Đá Nung Kết 20mm</code> chống ố/chống xước.<br>• Khung chân Tần bì/Sồi sấy + đệm da trơn dễ lau dầu mỡ.</td>
-              <td>• <strong>☕ Tone 1:</strong> Đá Kem Travertine mờ + Khung gỗ Mocha + Da Cashmere.<br>• <strong>👑 Tone 2:</strong> Đá Xám Greige/Pietra mờ + Khung Nâu Đen + Da Saddle-Tan.</td>
+              <td>• <strong>☕ Tone 1:</strong> Đá Kem Travertine mờ + Khung gỗ Mocha + Da Cashmere.<br>• <strong>👑 Tone 2 &amp; 💎 Tone 3:</strong> Đá Xám Greige/Pietra mờ + Khung Nâu Đen + Da Cognac/Saddle.</td>
               <td>• Đặt đúng tâm ổ cắm âm sàn <code>S1 (+0.0m)</code> &amp; Quạt trần <code>Lộ 6A</code>.</td>
               <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">22.000.000 ₫</td>
             </tr>
@@ -2038,25 +2066,25 @@
               <td>3. Khu Bếp<br>(Vuông góc cột Trục 3)</td>
               <td><code>1.400 × 800 × 890</code><br>(Khe đi qua đầu đảo: <code>1.110</code>)</td>
               <td>• Mặt trên: <code>Đá Nung Kết 20mm</code>.<br>• Toàn bộ thùng &amp; đầu uốn <code>R400</code>: <code>100% Plywood 18mm</code> chịu nước + 3 ngăn kéo Blum.</td>
-              <td>• <strong>☕ Tone 1:</strong> Mặt đá Kem + Thân uốn <code>LK 2145 ST</code> + Cánh trong <code>MS 334</code>.<br>• <strong>👑 Tone 2:</strong> Mặt &amp; đầu cong đá/Laminate <code>Pietra Grey</code> + Cánh trong <code>MS 104</code>.</td>
+              <td>• <strong>☕ Tone 1:</strong> Mặt đá Kem + Thân uốn <code>LK 2145 ST</code> + Cánh trong <code>MS 334</code>.<br>• <strong>👑 Tone 2:</strong> Mặt &amp; đầu cong <code>Pietra Grey</code> + Cánh trong <code>MS 104</code>.<br>• <strong>💎 Tone 3:</strong> Mặt đá tối + 3 ngăn kéo mặt trong vân Gỗ Nâu Đen <code>LK 4512 A</code>.</td>
               <td>• Nối góc chữ L vào Tủ phụ.<br>• Thụt hậu <code>280mm</code> cho 2 ghế Bar.<br>• Xem <a href="#bv-t1-03" style="color:var(--sky-light);">BV-T1.03</a></td>
               <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">19.500.000 ₫</td>
             </tr>
             <tr>
-              <th scope="row">06. Hệ Tủ Phụ Rượu Cánh Kính &amp; Hốc Cafe + Dải Cánh Giả Bếp</th>
+              <th scope="row">06. Hệ Tủ Phụ Dọc Tường &amp; Hốc Cafe + Dải Cánh Giả Bếp</th>
               <td>3. Khu Bếp<br>(Dọc tường Nam P.Ông Bà)</td>
               <td>Tủ phụ: <code>2.800 × 550 × 2.800</code><br>Cánh giả bếp: <code>4.950 × 510</code></td>
-              <td>• Mặt bàn hốc Cafe (<code>1.000×550</code>): <code>Đá Nung Kết 20mm</code>.<br>• Thùng hốc nước: <code>Plywood 18mm</code>; Cánh kính cường lực nhôm Slim LED.</td>
-              <td>• <strong>☕ Tone 1:</strong> Kính Trà Đồng (Amber Bronze) + Cánh <code>MS 334 SMM</code>.<br>• <strong>👑 Tone 2:</strong> Kính Khói Xám Đồng (Smoked Grey) + Cánh <code>MS 104 SH</code>.</td>
+              <td>• Mặt bàn hốc Cafe (<code>1.000×550</code>): <code>Đá Nung Kết 20mm</code>.<br>• <strong>Tone 3 bỏ 100% cánh kính</strong>, đóng toàn bộ cánh phẳng <code>MDF 17mm</code> kín đáo!</td>
+              <td>• <strong>☕ Tone 1:</strong> Cánh kính Trà Đồng LED + <code>MS 334 SMM</code> (33,5tr).<br>• <strong>👑 Tone 2:</strong> Cánh kính Khói Xám LED + <code>MS 104 SH</code> (33,5tr).<br>• <strong>💎 Tone 3 (0% Kính Tủ):</strong> <code>100%</code> Cánh Gỗ Nâu Đen <code>LK 4512 A</code> không lộ đồ (<strong>29,0tr</strong>).</td>
               <td>• Hốc Cafe khoét ổ đôi <code>S2 +1.200</code> &amp; ổ gầm <code>S2 +400</code>.<br>• Xem <a href="#bv-t1-03" style="color:var(--sky-light);">BV-T1.03</a></td>
-              <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">33.500.000 ₫</td>
+              <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">33,50 Tr<br><span style="color:#fde68a;font-size:0.78rem;">(Tone 3: 29,00 Tr)</span></td>
             </tr>
             <tr>
               <th scope="row">07. P.Ngủ Ông Bà (Vách Nam): Vách Phẳng + Giường R60 + 2 Táp</th>
               <td>4. P.Ngủ Ông Bà<br>(Tường Nam 3.210mm)</td>
               <td>Vách: <code>3.210 × 3.000</code><br>Giường lọt đệm: <code>1.800 × 2.000</code></td>
               <td>• Giường <code>100% Plywood 18mm</code> bo <code>R60</code> + 7 thang thép kẽm <code>40×40</code> + LED gầm PIR.<br>• Vách phẳng <code>MDF 17mm</code> (0% nỉ).</td>
-              <td>• <strong>☕ Tone 1:</strong> Giường Mocha <code>LK 4487 A</code> + Vách <code>LK 2145 ST &amp; MS 334</code>.<br>• <strong>👑 Tone 2:</strong> Giường Nâu Đen <code>LK 4512 A</code> + Vách <code>LK 2148 ST &amp; MS 104</code>.</td>
+              <td>• <strong>☕ Tone 1:</strong> Giường Mocha <code>LK 4487 A</code> + Vách <code>LK 2145 ST &amp; MS 334</code>.<br>• <strong>👑 Tone 2:</strong> Giường Nâu Đen + Vách <code>LK 2148 ST &amp; MS 104</code>.<br>• <strong>💎 Tone 3:</strong> Giường &amp; 2 vách biên full Gỗ Nâu Đen <code>LK 4512 A</code> + Giữa <code>LK 2148 ST</code>.</td>
               <td>• 2 ổ <code>S1 +700</code> (cách Đông 400 &amp; cách Tây 350).<br>• Xem <a href="#bv-t1-05" style="color:var(--sky-light);">BV-T1.05</a></td>
               <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">16.500.000 ₫</td>
             </tr>
@@ -2064,16 +2092,16 @@
               <th scope="row">08. P.Ngủ Ông Bà (Vách Bắc): Tủ Áo 950 + Tivi 1.150 + Bàn 800</th>
               <td>4. P.Ngủ Ông Bà<br>(Tường Bắc cạnh Cửa D3)</td>
               <td><code>2.900 × 600/500 × 3.000</code><br>(3 Module liền mạch + Ghế)</td>
-              <td>• Đáy tủ, ngăn kéo &amp; mặt bàn <code>36mm</code>: <code>Plywood 18mm</code>.<br>• 6 cánh trên + 2 cánh áo phẳng: <code>MDF lõi xanh 17mm</code>.</td>
-              <td>• <strong>☕ Tone 1:</strong> Cánh <code>MS 334 SMM</code> + Bàn/khung Mocha + Ghế da Camel.<br>• <strong>👑 Tone 2:</strong> Cánh <code>MS 104 SH</code> + Bàn/khung Nâu Đen + Ghế da Saddle.</td>
+              <td>• Đáy tủ, ngăn kéo &amp; mặt bàn <code>36mm</code>: <code>Plywood 18mm</code>.<br>• 6 cánh trên + 2 cánh áo phẳng: <code>MDF lõi xanh 17mm</code> (0% kính).</td>
+              <td>• <strong>☕ Tone 1:</strong> Cánh <code>MS 334 SMM</code> + Bàn Mocha + Ghế Camel.<br>• <strong>👑 Tone 2:</strong> Cánh <code>MS 104 SH</code> + Bàn Nâu Đen + Ghế Saddle.<br>• <strong>💎 Tone 3:</strong> Cánh áo &amp; ngăn kéo vân Gỗ Nâu Đen <code>LK 4512 A</code> + Đỉnh <code>MS 104</code>.</td>
               <td>• Ổ Tivi <code>+1.200</code> cách Đông <code>1.550</code>; Ổ Bàn <code>+900</code> cách Đông <code>250</code>.<br>• Xem <a href="#bv-t1-04" style="color:var(--sky-light);">BV-T1.04</a></td>
               <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">19.500.000 ₫</td>
             </tr>
           </tbody>
           <tfoot>
             <tr>
-              <th colspan="6" style="text-align:right;">TỔNG CỘNG KHỐI LƯỢNG ĐẶT XƯỞNG NỘI THẤT TẦNG 1 (08 HẠNG MỤC TRỌN GÓI):</th>
-              <td style="white-space:nowrap;font-size:1.05rem;">202.700.000 ₫</td>
+              <th colspan="6" style="text-align:right;">TỔNG ĐẶT XƯỞNG TẦNG 1 (Tone 1 &amp; 2 Có Kính Rượu = 202,70 Tr • 💎 Tone 3 Cánh Gỗ Đặc 0% Kính Tủ = 198,20 Tr):</th>
+              <td id="tfoot-t1-total" style="white-space:nowrap;font-size:1.05rem;">202.700.000 ₫</td>
             </tr>
           </tfoot>
         </table>
@@ -2167,6 +2195,7 @@
         title: "V01 • Tiền Sảnh Đón: Cửa Chính D1 (PA 1B: 10 Nan Dọc + Kính Phải 310) & Hệ Tủ Giày Kịch Trần 2.500mm",
         imgWarm: "assets/t1_v01_foyer_warmbeige.jpg",
         imgItal: "assets/t1_v01_foyer_italian.jpg",
+        imgSmoked: "assets/t1_v01_foyer_smokedwood.jpg",
         bpId: "bv-t1-01",
         bpLabel: "📐 Xem Bản Vẽ Chia Khoang Tủ Giày BV-T1.01",
         oppositeKey: "v03",
@@ -2184,6 +2213,7 @@
         title: "V02 • Phòng Khách Nhìn Bắc: Vách Tivi Phẳng 3.200mm, Khung Ray Nam Châm 4 Cạnh & Liên Thông Phòng Ăn",
         imgWarm: "assets/t1_v02_living_north_warmbeige.jpg",
         imgItal: "assets/t1_v02_living_north_italian.jpg",
+        imgSmoked: "assets/t1_v02_living_north_smokedwood.jpg",
         bpId: "bv-t1-02",
         bpLabel: "📐 Xem Bản Vẽ Vách Tivi & Sofa Poliform BV-T1.02",
         oppositeKey: "v03",
@@ -2201,6 +2231,7 @@
         title: "V03 • Phòng Khách Góc Ngược: Toàn Cảnh Mặt Trước Sofa Bệ Gỗ Poliform, Tiền Sảnh D1 & Cầu Thang Bộ",
         imgWarm: "assets/t1_v03_living_reverse_warmbeige.jpg",
         imgItal: "assets/t1_v03_living_reverse_italian.jpg",
+        imgSmoked: "assets/t1_v03_living_reverse_smokedwood.jpg",
         bpId: "bv-t1-02",
         bpLabel: "📐 Xem Bản Vẽ Khung Bệ Gỗ Sofa Poliform BV-T1.02",
         oppositeKey: "v02",
@@ -2218,6 +2249,7 @@
         title: "V04 • Phòng Ăn 8 Ghế + Bếp Chữ I Cánh Kính Be + Đảo Bo R400 & Hệ Tủ Phụ Rượu/Cafe 2.800mm",
         imgWarm: "assets/t1_v04_dining_kitchen_warmbeige.jpg",
         imgItal: "assets/t1_v04_dining_kitchen_italian.jpg",
+        imgSmoked: "assets/t1_v04_dining_kitchen_smokedwood.jpg",
         bpId: "bv-t1-03",
         bpLabel: "📐 Xem Bản Vẽ Tủ Phụ Rượu/Cafe & Đảo BV-T1.03",
         oppositeKey: "v05",
@@ -2235,6 +2267,7 @@
         title: "V05 • Khu Bếp Góc Ngược: Mặt Trong 3 Ngăn Kéo Bàn Đảo, Tủ Phụ 2,8m & Tầm Nhìn Xuyên Suốt 12,01m",
         imgWarm: "assets/t1_v05_kitchen_reverse_warmbeige.jpg",
         imgItal: "assets/t1_v05_kitchen_reverse_italian.jpg",
+        imgSmoked: "assets/t1_v05_kitchen_reverse_smokedwood.jpg",
         bpId: "bv-t1-03",
         bpLabel: "📐 Xem Bản Vẽ Mặt Trong Bàn Đảo BV-T1.03",
         oppositeKey: "v04",
@@ -2252,6 +2285,7 @@
         title: "V06 • P.Ngủ Ông Bà Nhìn Nam: Vách Đặc 3.210mm, Giường Gỗ R60 • Trái Cửa Vườn Đông • Phải Giếng Trời Tây",
         imgWarm: "assets/t1_v06_grandparents_south_warmbeige.jpg",
         imgItal: "assets/t1_v06_grandparents_south_italian.jpg",
+        imgSmoked: "assets/t1_v06_grandparents_south_smokedwood.jpg",
         bpId: "bv-t1-05",
         bpLabel: "📐 Xem Bản Vẽ Vách Nam & Giường Ông Bà BV-T1.05",
         oppositeKey: "v07",
@@ -2269,6 +2303,7 @@
         title: "V07 • P.Ngủ Ông Bà Góc Ngược Vách Bắc: Cửa Lim D3 + Tủ Áo 950 + Hốc Tivi 50\" (1.150) + Bàn Đọc Sách 800",
         imgWarm: "assets/t1_v07_grandparents_north_warmbeige.jpg",
         imgItal: "assets/t1_v07_grandparents_north_italian.jpg",
+        imgSmoked: "assets/t1_v07_grandparents_north_smokedwood.jpg",
         bpId: "bv-t1-04",
         bpLabel: "📐 Xem Bản Vẽ Chia Khoang Vách Bắc BV-T1.04",
         oppositeKey: "v06",
@@ -2305,7 +2340,17 @@
     ];
 
     let currentViewKey = "v01";
-    let currentPaletteMode = "warmbeige"; // 'warmbeige' | 'italian' | 'split'
+    let currentPaletteMode = "smokedwood"; // Default to newly requested Tone 3 so user sees it immediately!
+
+    function getToneMeta(mode) {
+      if (mode === "warmbeige") {
+        return { key: "imgWarm", tag: "☕ Tone 1: Warm Beige", full: "☕ Tone 1 (Warm Beige & Cashmere-Latte)" };
+      }
+      if (mode === "italian") {
+        return { key: "imgItal", tag: "👑 Tone 2: Italian Luxury", full: "👑 Tone 2 (Italian Modern Quiet Luxury)" };
+      }
+      return { key: "imgSmoked", tag: "💎 Tone 3: Smoked Wood (0% Kính Tủ)", full: "💎 Tone 3 (Boutique Smoked Wood • Cánh Gỗ Đặc 0% Kính Tủ)" };
+    }
 
     function renderStudio() {
       const v = T1_VIEWS[currentViewKey];
@@ -2314,35 +2359,45 @@
       const studioGrid = document.getElementById("studio-tabpanel");
       const stageImgs = document.getElementById("studio-stage-imgs");
       const cardSec = document.getElementById("card-img-secondary");
+      const cardTer = document.getElementById("card-img-tertiary");
       const imgPri = document.getElementById("studio-img-primary");
       const imgSec = document.getElementById("studio-img-secondary");
+      const imgTer = document.getElementById("studio-img-tertiary");
       const capPri = document.getElementById("studio-cap-primary");
       const capSec = document.getElementById("studio-cap-secondary");
+      const capTer = document.getElementById("studio-cap-tertiary");
       const panel = document.getElementById("studio-spec-panel");
 
       studioGrid.setAttribute("aria-labelledby", "tab-" + currentViewKey);
 
       if (currentPaletteMode === "split") {
         studioGrid.classList.add("split-mode");
-        stageImgs.classList.add("split-two");
+        stageImgs.classList.remove("split-two");
+        stageImgs.classList.add("split-three");
         cardSec.hidden = false;
+        cardTer.hidden = false;
 
         imgPri.src = v.imgWarm;
         imgPri.alt = `${v.title} — Warm Beige & Cashmere-Latte`;
-        capPri.textContent = `☕ Tone 1 (Warm Beige & Cashmere-Latte) — ${v.code}: ${v.zone}`;
+        capPri.textContent = `☕ Tone 1 (Warm Beige) — ${v.code}: ${v.zone}`;
 
         imgSec.src = v.imgItal;
         imgSec.alt = `${v.title} — Italian Modern Quiet Luxury`;
-        capSec.textContent = `👑 Tone 2 (Italian Modern Quiet Luxury) — ${v.code}: ${v.zone}`;
+        capSec.textContent = `👑 Tone 2 (Italian Luxury) — ${v.code}: ${v.zone}`;
+
+        imgTer.src = v.imgSmoked;
+        imgTer.alt = `${v.title} — Boutique Smoked Wood (0% Kính Tủ)`;
+        capTer.textContent = `💎 Tone 3 (Smoked Wood • 0% Kính Tủ) — ${v.code}: ${v.zone}`;
       } else {
         studioGrid.classList.remove("split-mode");
-        stageImgs.classList.remove("split-two");
+        stageImgs.classList.remove("split-two", "split-three");
         cardSec.hidden = true;
+        cardTer.hidden = true;
 
-        const isWarm = currentPaletteMode === "warmbeige";
-        imgPri.src = isWarm ? v.imgWarm : v.imgItal;
-        imgPri.alt = `${v.title} — ${isWarm ? "Warm Beige" : "Italian Quiet Luxury"}`;
-        capPri.textContent = `${isWarm ? "☕ Tone 1 (Warm Beige & Cashmere-Latte)" : "👑 Tone 2 (Italian Modern Quiet Luxury)"} — ${v.code}: ${v.title}`;
+        const meta = getToneMeta(currentPaletteMode);
+        imgPri.src = v[meta.key];
+        imgPri.alt = `${v.title} — ${meta.full}`;
+        capPri.textContent = `${meta.full} — ${v.code}: ${v.title}`;
       }
 
       panel.innerHTML = `
@@ -2384,7 +2439,7 @@
           let imgsHtml = "";
           if (currentPaletteMode === "split") {
             imgsHtml = `
-              <div class="walk-imgs split-two">
+              <div class="walk-imgs split-three">
                 <div class="walk-thumb-wrap" onclick="openLightbox('${v.imgWarm}', '☕ Tone 1 Warm Beige — ${v.code}: ${v.zone}')">
                   <img src="${v.imgWarm}" alt="${v.title} Warm Beige" loading="lazy" width="1376" height="768" />
                   <span class="thumb-tag">☕ Tone 1 • ${v.code}</span>
@@ -2393,17 +2448,20 @@
                   <img src="${v.imgItal}" alt="${v.title} Italian Luxury" loading="lazy" width="1376" height="768" />
                   <span class="thumb-tag">👑 Tone 2 • ${v.code}</span>
                 </div>
+                <div class="walk-thumb-wrap" onclick="openLightbox('${v.imgSmoked}', '💎 Tone 3 Smoked Wood (0% Kính Tủ) — ${v.code}: ${v.zone}')">
+                  <img src="${v.imgSmoked}" alt="${v.title} Smoked Wood 0% Glass" loading="lazy" width="1376" height="768" />
+                  <span class="thumb-tag">💎 Tone 3 (0% Kính) • ${v.code}</span>
+                </div>
               </div>
             `;
           } else {
-            const isWarm = currentPaletteMode === "warmbeige";
-            const src = isWarm ? v.imgWarm : v.imgItal;
-            const toneTag = isWarm ? "☕ Warm Beige" : "👑 Italian Luxury";
+            const meta = getToneMeta(currentPaletteMode);
+            const src = v[meta.key];
             imgsHtml = `
               <div class="walk-imgs">
-                <div class="walk-thumb-wrap" onclick="openLightbox('${src}', '${toneTag} — ${v.code}: ${v.zone}')">
+                <div class="walk-thumb-wrap" onclick="openLightbox('${src}', '${meta.full} — ${v.code}: ${v.zone}')">
                   <img src="${src}" alt="${v.title}" loading="lazy" width="1376" height="768" />
-                  <span class="thumb-tag">${v.code} • ${toneTag}</span>
+                  <span class="thumb-tag">${v.code} • ${meta.tag}</span>
                 </div>
               </div>
             `;
@@ -2444,10 +2502,14 @@
 
     function setPaletteMode(mode) {
       currentPaletteMode = mode;
-      ["warmbeige", "italian", "split"].forEach(m => {
+      ["warmbeige", "italian", "smokedwood", "split"].forEach(m => {
         const btn = document.getElementById("btn-mode-" + m);
         if (btn) btn.setAttribute("aria-pressed", m === mode ? "true" : "false");
       });
+      const tfootEl = document.getElementById("tfoot-t1-total");
+      if (tfootEl) {
+        tfootEl.textContent = mode === "smokedwood" ? "198.200.000 ₫ (Đã trừ -4,5tr cánh kính)" : "202.700.000 ₫";
+      }
       renderStudio();
       renderWalkthrough();
     }
@@ -2513,8 +2575,7 @@
       });
     });
 
-    renderStudio();
-    renderWalkthrough();
+    setPaletteMode("smokedwood");
   </script>
 </body>
 </html>
