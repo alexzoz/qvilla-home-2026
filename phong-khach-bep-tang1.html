@@ -572,6 +572,8 @@
       </a>
       <nav class="nav-links" aria-label="Điều hướng dự án">
         <a href="index.html">💰 Bảng Dự Toán</a>
+        <a href="ho-so-xuong-noi-that.html" style="border-color:rgba(16,185,129,0.8);color:#6ee7b7;background:rgba(16,185,129,0.16);">🔧 Hồ Sơ Giao Xưởng T1</a>
+        <a href="noi-that-toan-nha.html">🪑 Nội Thất Toàn Nhà</a>
         <a href="phong-khach-bep-tang1.html" class="active">🛋️ P. Khách &amp; Bếp T1</a>
         <a href="bep-tang1.html" style="border-color:rgba(236,72,153,0.55);color:#f9a8d4;">🍳 Mô Hình 3D Tủ Bếp</a>
         <a href="san-sau-tang1.html" style="border-color:rgba(16,185,129,0.55);color:#6ee7b7;">🌿 Sân Sau &amp; Lọc Nước 3D</a>
@@ -606,9 +608,9 @@
             <div class="kpi-sub">Tiền sảnh (<code>6,3m²</code>) + P.Khách (<code>16,6m²</code>) + P.Ăn 8 ghế (<code>18,5m²</code>) + Bếp &amp; Đảo (<code>16,2m²</code>) + Bếp ướt Sân sau</div>
           </div>
           <div class="kpi-box">
-            <div class="kpi-label">2. Vách Tivi Đá 3,2m &amp; Sofa Chữ L</div>
-            <div class="kpi-val">Tường Bắc Phẳng Liền Mạch</div>
-            <div class="kpi-sub">Đã <strong>xây bịt 2 ô kính nhỏ <code>V2</code> (Bản 3.1)</strong> tạo Vách Tivi Đá Nung Kết + Lam gỗ Sồi phẳng <code>3.200mm</code> đối diện Sofa <code>2,8×1,85m</code></div>
+            <div class="kpi-label">2. Vách Tivi Phẳng 3,2m (0% Lam Sóng) &amp; Sofa Poliform</div>
+            <div class="kpi-val">Tường Bắc Phẳng + Bệ Gỗ R60</div>
+            <div class="kpi-sub">Đã <strong>xây bịt 2 ô kính nhỏ <code>V2</code></strong> ốp Vách Gỗ vân Travertine <code>3.200mm</code> (0% lam dọc) đối diện <strong>Sofa Bệ Gỗ Poliform da trơn</strong> <code>2,8×1,85m</code></div>
           </div>
           <div class="kpi-box">
             <div class="kpi-label">3. Bếp Chữ I (4,95m) • Đảo Ngang Trục 3 + Tủ Phụ (KT-2.02)</div>
@@ -623,7 +625,8 @@
         </div>
 
         <div class="quick-bar">
-          <a href="#sec-3d" class="quick-link">✨ 1. Xem 6 Góc Phối Cảnh 3D Hợp Nhất</a>
+          <a href="ho-so-xuong-noi-that.html" class="quick-link" style="border-color:rgba(16,185,129,0.75);background:rgba(16,185,129,0.2);color:#ecfdf5;">🔧 Mở Hồ Sơ Kỹ Thuật Giao Xưởng Tầng 1 (Đủ 7 Góc 3D + 5 Bản Vẽ Chia Khoang 2D) &rarr;</a>
+          <a href="#sec-3d" class="quick-link">✨ 1. Xem 7 Góc Phối Cảnh 3D Đồng Bộ (2 Tone)</a>
           <a href="#sec-2d" class="quick-link">📐 2. Bản Vẽ Kỹ Thuật 2D &amp; Mặt Cắt Dọc Trần – Đèn – Điều Hòa</a>
           <a href="#sec-lighting" class="quick-link">💡 3. Bảng Phân Lộ Công Tắc Aqara &amp; 5 Kịch Bản Ánh Sáng</a>
           <a href="#sec-specs" class="quick-link">📋 4. Bảng Quy Cách 16 Hạng Mục Nội Thất &amp; M&amp;E Tầng 1</a>
@@ -636,61 +639,64 @@
 
     <!-- SECTION 1: INTERACTIVE 3D VIEWS OF THE UNIFIED GROUND FLOOR -->
     <section class="block" id="sec-3d">
-      <h2 class="section-title">✨ 1. Phối Cảnh 3D Tổng Thể Không Gian Mở Tầng 1: So Sánh Trần Hộp Bo Cong Kiểu Master vs. Trần Hộp Vuông Chuẩn CAD (Kèm Khung Ray Nam Châm Lộ 5)</h2>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px;">
+        <h2 class="section-title" style="margin-bottom:0;">✨ 1. Phối Cảnh 3D Đồng Bộ 100% Thực Tế Nhà Thật Tầng 1 (Đủ Cả Góc Thuận ↔ Góc Ngược • 0% Lam Dọc • 0% Nỉ Xù)</h2>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button type="button" class="tab-btn active" id="tone-switch-warmbeige" onclick="setT1Tone('warmbeige')" style="padding:7px 14px;border-radius:999px;">☕ Tone 1: Warm Beige &amp; Cashmere-Latte</button>
+          <button type="button" class="tab-btn" id="tone-switch-italian" onclick="setT1Tone('italian')" style="padding:7px 14px;border-radius:999px;">👑 Tone 2: Italian Modern Quiet Luxury</button>
+        </div>
+      </div>
       <p class="section-sub">
-        <strong>Đã tích hợp đầy đủ <code>Khung Đèn Ray Nam Châm Âm Trần (Lộ 5 — 1.825 × 2.970 mm)</code> lùi <code>215 mm</code> trong lòng hộp trần Phòng Khách (<code>+3.530m</code>):</strong> Bấm chọn các tab bên dưới để so sánh trực tiếp giữa <strong>Phương án Trần Hộp Bo Cong 4 Góc (<code>R400mm</code> giống Khu ngủ Master Tầng 2)</strong> và <strong>Phương án Trần Hộp Vuông gốc (<code>KT-4.06</code>)</strong>, kết hợp mặt trần <strong>Phòng Ăn &amp; Khu Bếp phẳng liên thông 100% (<code>C1 +3.400m</code>)</strong>:
+        <strong>Đã chuẩn hóa khớp 100% với <a href="ho-so-xuong-noi-that.html" style="color:var(--emerald-light);">Hồ Sơ Giao Xưởng Tầng 1</a>:</strong> Cửa chính <code>D1 PA 1B</code> (10 nan dọc + 1 kính phải <code>310mm</code>), Hộp trần bo cong <code>PA C</code> + <strong>Khung chữ nhật Ray nam châm 4 cạnh khép kín (<code>1.825×2.970mm</code>)</strong> + 02 Quạt trần <code>Lộ 6 &amp; 6A</code>, <strong>Sofa Bệ Gỗ Poliform da trơn</strong>, và cố định <strong>Tủ bếp chính cánh kính màu Be ấm</strong>:
       </p>
 
       <div class="tab-bar" role="tablist" aria-label="Các góc phối cảnh 3D Tầng 1">
-        <button type="button" class="tab-btn active" onclick="switch3D('rounded_living_to_kitchen')" id="tab-rounded_living_to_kitchen">
-          ✨ Góc 1A (Mới — Trần Bo Cong Kiểu Master): P.Khách Trần Bo Cong R400 + Ray Nam Châm Lộ 5 &rarr; Bếp Đảo Ngang Trục 3 (KT-2.02)
+        <button type="button" class="tab-btn active" onclick="switch3D('v02_living_north')" id="tab-v02_living_north">
+          📺 V02 • Phòng Khách Nhìn Bắc: Vách Tivi Phẳng 3,2m + Ray Nam Châm 4 Cạnh &amp; Liên Thông Phòng Ăn
         </button>
-        <button type="button" class="tab-btn" onclick="switch3D('rounded_living_closeup')" id="tab-rounded_living_closeup">
-          👑 Góc 1B (Mới — Cận Cảnh Trần Bo Cong P.Khách): Hộp Trần Bo Cong 4 Góc + Khung Ray Nam Châm Lộ 5 + Vách Tivi 3,2m
+        <button type="button" class="tab-btn" onclick="switch3D('v03_living_reverse')" id="tab-v03_living_reverse">
+          🛋️ V03 • Phòng Khách Góc Ngược (180°): Mặt Trước Sofa Bệ Gỗ Poliform + Tiền Sảnh D1 &amp; Cầu Thang
         </button>
-        <button type="button" class="tab-btn" onclick="switch3D('living_to_kitchen')" id="tab-living_to_kitchen">
-          📐 Góc 2A (Chuẩn CAD KT-4.06 &amp; KT-2.02): P.Khách Trần Hộp Vuông + Ray Nam Châm Lộ 5 &rarr; Bếp Đảo Ngang Trục 3 + Tủ Phụ
+        <button type="button" class="tab-btn" onclick="switch3D('v01_foyer')" id="tab-v01_foyer">
+          🚪 V01 • Tiền Sảnh Đón: Cửa Chính Gỗ Lim D1 (PA 1B: 10 Nan Dọc + Kính 310) &amp; Tủ Giày 2,5m
         </button>
-        <button type="button" class="tab-btn" onclick="switch3D('living_ceiling_d1')" id="tab-living_ceiling_d1">
-          💨 Góc 2B (Chuẩn CAD KT-4.06): Cận Cảnh Trần Hộp Vuông P.Khách + Khung Ray Nam Châm Lộ 5 + Tiền Sảnh D1
+        <button type="button" class="tab-btn" onclick="switch3D('v04_dining_kitchen')" id="tab-v04_dining_kitchen">
+          🍽️ V04 • Phòng Ăn 8 Ghế (Ổ Âm Sàn S1) + Bếp Kính Be + Đảo Bo R400 &amp; Tủ Phụ Rượu/Cafe 2,8m
         </button>
-        <button type="button" class="tab-btn" onclick="switch3D('kitchen_to_living')" id="tab-kitchen_to_living">
-          🍳 Góc 3 (Chuẩn KT-2.02): Nhìn Ngược Từ Bếp (Sàn Rộng 1,96m • Đảo Ngang Trục 3 + Tủ Phụ 550mm) Qua Bàn Ăn Về P.Khách
-        </button>
-        <button type="button" class="tab-btn" onclick="switch3D('dining_courtyard')" id="tab-dining_courtyard">
-          🌟 Góc 4 (PA Ưu Tiên KT-2.02): Phòng Ăn 8 Ghế + Bếp Chữ I + Bàn Đảo Ngang Trục 3 (2 Ghế Bar) Nối Tủ Phụ 550mm &amp; Cửa Lùa Sân Sau
+        <button type="button" class="tab-btn" onclick="switch3D('v05_kitchen_reverse')" id="tab-v05_kitchen_reverse">
+          🍷 V05 • Khu Bếp Góc Ngược (180°): Mặt Trong 3 Ngăn Kéo Bàn Đảo + Tủ Phụ 2,8m &rarr; Phòng Khách
         </button>
         <button type="button" class="tab-btn" onclick="switch3D('kitchen_left_tower')" id="tab-kitchen_left_tower">
-          🍚 Góc 5: Cận Cảnh Cột Tủ Trái (650mm) — Lò Nướng Bosch &amp; Đợt Kéo Nồi Cơm Blum (+890mm)
+          🍚 Góc 6: Cận Cảnh Cột Tủ Trái (650mm) — Lò Nướng Bosch &amp; Đợt Kéo Nồi Cơm Blum (+890mm)
         </button>
         <button type="button" class="tab-btn" onclick="switch3D('kitchen_appliances')" id="tab-kitchen_appliances">
-          🧊 Góc 6: Cận Cảnh Cột Tủ Phải (1.000mm) — Tủ Lạnh Panasonic Sâu 600mm &amp; Hộc Kéo 152mm Mở 120°
+          🧊 Góc 7: Cận Cảnh Cột Tủ Phải (1.000mm) — Tủ Lạnh Panasonic Sâu 600mm &amp; Hộc Kéo 152mm Mở 120°
         </button>
       </div>
 
       <div class="viewer-grid">
         <div class="img-frame">
-          <img id="main-3d-img" src="assets/tang1_pa_tran_bo_cong_xuyen_bep_3d.jpg" alt="Phối cảnh 3D Tầng 1 Phương án Trần Giật Cấp Bo Cong 4 Góc kiểu Master kèm Khung Đèn Ray Nam Châm Lộ 5" onclick="openLightbox(this.src, document.getElementById('main-3d-caption').textContent)" />
+          <img id="main-3d-img" src="assets/t1_v02_living_north_warmbeige.jpg" alt="Phối cảnh 3D Tầng 1 Chuẩn Hóa Xưởng: Phòng Khách Vách Tivi 3,2m, Sofa Bệ Gỗ Poliform & Liên Thông Phòng Ăn" onclick="openLightbox(this.src, document.getElementById('main-3d-caption').textContent)" />
           <div class="img-caption">
-            <span id="main-3d-caption">Góc 1A (Phương Án Trần Bo Cong Kiểu Master Tầng 2): Hộp trần P.Khách (+3.530m) bo cong 4 góc R400mm hắt LED ấm 3000K (Lộ 4) + Khung chữ nhật Đèn Ray Nam Châm âm trần 1.825×2.970mm (Lộ 5) + Quạt trần đèn (Lộ 6), nhìn xuyên sang Phòng Ăn &amp; Bếp chữ I trần phẳng 100% (+3.400m)</span>
+            <span id="main-3d-caption">☕ Tone 1 (Warm Beige &amp; Cashmere-Latte) — V02: Phòng Khách nhìn Bắc Vách Tivi phẳng 3,2m (0% lam dọc), Sofa Poliform da trơn, Khung Ray nam châm 4 cạnh + Quạt trần Lộ 6 &amp; Lộ 6A</span>
             <span>🔍 Bấm vào ảnh để phóng to 8K</span>
           </div>
         </div>
 
         <div class="info-panel" id="main-3d-info">
-          <h3>Phương Án Mới: Trần P.Khách Bo Cong 4 Góc (Kiểu Master) + Khung Ray Nam Châm Lộ 5 &amp; Bếp Đảo Ngang Trục 3 (PA Ưu Tiên KT-2.02)</h3>
+          <h3>V02 • Phòng Khách Nhìn Bắc: Vách Tivi Phẳng 3.200mm, Khung Ray Nam Châm 4 Cạnh &amp; Liên Thông Phòng Ăn</h3>
           <ul class="check-list">
             <li>
-              <strong>1. Hộp Trần Giật Cấp Bo Cong 4 Góc (<code>R400mm</code>) + Khung Đèn Ray Nam Châm Âm Trần (<code>Lộ 5 — 1.825 × 2.970 mm</code>):</strong>
-              Miệng hộp trần Phòng Khách (<code>C1 +3.530m</code>) được <strong>bo cong tròn mềm mại ở cả 4 góc (<code>R350–R400mm</code>) kèm khe LED dây COB <code>3000K</code> (<code>Lộ 4</code>)</strong> đồng bộ Khu ngủ Master Tầng 2; lùi vào <code>215 mm</code> bên trong lòng trần là <strong>khung chữ nhật Đèn Ray Nam Châm âm trần màu đen (<code>Lộ 5 — 1.825 × 2.970 mm</code>)</strong> bao quanh Quạt trần đèn <code>Lộ 6</code>.
+              <strong>1. Vách Tivi Tường Bắc Phẳng <code>3.200 × 3.400 mm</code> (0% Lam Sóng Dọc):</strong>
+              Hai biên ốp ván gỗ phẳng khổ rộng <code>600mm</code>, mảng giữa <code>2.000mm</code> phủ <code>Laminate vân đá Travertine mờ</code> gắn bảng bo góc <code>R80</code> đỡ Tivi <code>85 inch</code> + kệ treo <code>Plywood 18mm</code> bo tròn <code>R60</code>.
             </li>
             <li>
-              <strong>2. Chuẩn Hóa Khu Bếp Theo 🌟 PA Ưu Tiên (<code>KT-2.02</code>): Bàn Đảo Ngang Trục 3 (<code>1.400×800mm</code>) + Hệ Tủ Phụ Dọc Tường (<code>Sâu 550mm</code>):</strong>
-              Đúng theo mặt bằng nội thất <code>KT-2.02</code> và hiện trạng nhà: <strong>Bàn đảo đá Calacatta đặt vuông góc tại cột Trục 3 (<code>1.400 × 800 × 890 mm</code>, đầu đảo bo tròn <code>R400mm</code>, 02 ghế Bar đặt bên trái đảo)</strong> nối liền chữ L với <strong>Hệ Tủ Phụ / Tủ Rượu kính LED &amp; Quầy Pha Cafe chạy dọc tường P.Ngủ Ông Bà (<code>sâu 550mm</code>)</strong>. Khe đi qua đầu đảo rộng <strong><code>1.110 mm</code></strong> và khoảng sàn trống trước Chậu rửa &amp; Tủ lạnh rộng mênh mông <strong><code>1.960 mm (~2,0m)</code></strong>!
+              <strong>2. Sofa Bệ Gỗ Kiểu Ý Poliform Mondrian (<code>2.800 × 1.850 mm</code>) &amp; Sàn Gạch Mờ <code>1000×1000</code>:</strong>
+              Khung bệ gỗ bo góc <code>R60</code> liền khay tay gỗ bên trái + <code>100%</code> đệm bọc <strong>da trơn Microfiber</strong> chống bám bẩn.
             </li>
             <li>
-              <strong>3. Trần Phòng Ăn &amp; Khu Bếp Phẳng Liên Thông 100% (<code>C1 +3.400m</code>):</strong>
-              Toàn bộ trần từ Bàn ăn 8 ghế sang Khu bếp chữ I <code>4,95m</code> và Bàn đảo ngang đều phẳng liền mạch ở cốt <code>+3.400m</code> (không giật cấp khe hắt), kết hợp hộp trán đứng hạ xuống <code>+2.330m</code> che đỉnh tủ bếp trên.
+              <strong>3. Đồng Bộ 100% Trần Đèn &amp; Khu Ăn – Bếp Phía Phải:</strong>
+              Lòng trần <code>PA C</code> lắp <strong>khung chữ nhật Ray nam châm 4 cạnh khép kín</strong> + Quạt <code>Lộ 6</code>; bên phải thấy đúng cửa <code>D2</code>, Bàn ăn 8 ghế dưới Quạt <code>Lộ 6A</code> và Tủ bếp cánh kính màu Be!
             </li>
           </ul>
         </div>
@@ -896,34 +902,34 @@
             <tr>
               <td><strong>01</strong></td>
               <td><span class="zone-pill zone-foyer">1. Tiền Sảnh</span></td>
-              <td><strong>Cửa Chính D1 &amp; Ô Trần Giật Cấp Sảnh Đón</strong></td>
+              <td><strong>Cửa Chính D1 (PA 1B) &amp; Ô Trần Bo Cong Sảnh Đón</strong></td>
               <td>Trục 1'–2, Trục A–B</td>
               <td>Cửa D1: <code>1.750 × 3.000 mm</code><br>Ô trần: <code>2.090 × 1.125 mm</code></td>
-              <td>Cửa gỗ tự nhiên Đàn hương / Lim Nam Phi (hoặc Nhôm thủy lực) mở về bên phải; ô trần thạch cao giật cấp hắt LED dây 4 cạnh (<code>Lộ 2</code>) + <code>04</code> Spotlight <code>12W 4000K</code> (<code>Lộ 1</code>).</td>
+              <td><strong>Chuẩn PA 1B (<a href="cua-chinh-d1.html" style="color:var(--sky-light);">cua-chinh-d1.html</a>):</strong> Cánh gỗ Lim đặc 10 nan dọc phẳng rộng <code>1.280mm</code> + 01 ô kính cố định <code>310mm</code>; ô trần thạch cao bo cong <code>R300mm</code> + chỉ âm đen <code>12mm</code> + hắt LED <code>Lộ 2</code>.</td>
             </tr>
             <tr>
               <td><strong>02</strong></td>
               <td><span class="zone-pill zone-foyer">1. Tiền Sảnh</span></td>
-              <td><strong>Hệ Tủ Giày Kịch Trần + Ghế Thay Giày LED</strong></td>
+              <td><strong>Hệ Tủ Giày Kịch Trần + Ghế Thay Giày + Khoang Robot</strong></td>
               <td>Tường Nam (Trục A — sát Cửa chính D1)</td>
               <td><code>2.500 × 550 × 3.400 mm</code></td>
-              <td>MDF lõi xanh chống ẩm phủ Melamine/Laminate vân gỗ &amp; sơn mờ; khoét hốc giữa để túi xách/chìa khóa + <strong>đèn LED thanh cảm biến (đầu chờ <code>+1.6m</code>)</strong> + đệm ngồi thay giày và khe thoáng đáy tủ <code>150mm</code> để giày đi hàng ngày (kèm ổ cắm Robot hút bụi).</td>
+              <td>Đáy &amp; bệ ngồi <code>Plywood 18mm</code> chịu nước; cánh cao phẳng <code>MDF lõi xanh 17mm</code> vát J-pull; hốc <code>Laminate vân đá Travertine</code> + <strong>LED cảm biến (<code>+1.6m</code>)</strong> + ghế da trơn <code>800mm</code> + khoang gầm <code>180mm</code> đặt Robot hút bụi (ổ <code>S1 +0.4m</code>). Xem <a href="ho-so-xuong-noi-that.html#bv-t1-01" style="color:var(--sky-light);">BV-T1.01</a>.</td>
             </tr>
             <tr>
               <td><strong>03</strong></td>
               <td><span class="zone-pill zone-living">2. Phòng Khách</span></td>
-              <td><strong>Vách Tivi Đá Nung Kết + Lam Gỗ Sồi &amp; Kệ Treo</strong></td>
+              <td><strong>Vách Tivi Phẳng Wood-Travertine (0% Lam Sóng) &amp; Kệ Treo R60</strong></td>
               <td>Tường Bắc (Trục C, từ Trục 1 đến Trục 2)</td>
-              <td>Vách: <code>3.200 × 3.400 mm</code><br>Kệ treo: <code>3.200 × 400 × 280 mm</code></td>
-              <td><strong>Đã xây tường gạch bịt 2 ô kính nhỏ <code>V2</code> (Bản 3.1)</strong>: Tâm vách ốp Đá Nung Kết (Sintered Stone) vân mây khổ lớn, 2 bên ốp Lam gỗ Sồi sọc dọc kèm 02 khe LED hắt dọc <code>3000K</code>; ổ cắm Tivi &amp; mạng LAN <code>S1</code> đặt ở <code>+0.4m</code> và <code>+1.2m</code>.</td>
+              <td>Vách: <code>3.200 × 3.400 mm</code><br>Kệ treo: <code>3.200 × 400 × 260 mm</code></td>
+              <td><strong>Đã xây tường gạch bịt 2 ô kính nhỏ <code>V2</code> (0% lam dọc bám bụi!):</strong> Hai biên ốp ván gỗ phẳng <code>600mm</code>, giữa ốp <code>Laminate vân đá Travertine mờ</code> + bảng đỡ Tivi 85" bo <code>R80</code> hắt LED <code>2800K</code>; kệ treo <code>Plywood 18mm</code> bo <code>R60</code> khớp ổ <code>S1 +0.4m &amp; +1.2m</code>. Xem <a href="ho-so-xuong-noi-that.html#bv-t1-02" style="color:var(--sky-light);">BV-T1.02</a>.</td>
             </tr>
             <tr>
               <td><strong>04</strong></td>
               <td><span class="zone-pill zone-living">2. Phòng Khách</span></td>
-              <td><strong>Bộ Sofa Góc Chữ L + Bàn Trà Đá + Ghế Đơn</strong></td>
+              <td><strong>Bộ Sofa Bệ Gỗ Kiểu Ý Poliform Mondrian + Bàn Trà Đôi</strong></td>
               <td>Trung tâm Phòng Khách (Tựa lưng về Tiền sảnh Trục B)</td>
-              <td>Sofa: <code>2.800 × 1.850 × 820 mm</code><br>Bàn trà: <code>Ø900 / 1.300×700 mm</code></td>
-              <td>Sofa khung gỗ tự nhiên bọc da/nỉ Bouclé màu kem sáng, gối tựa điểm nhấn màu Cam Hermes &amp; Xám ấm; trải thảm dệt <code>2.600 × 3.200 mm</code>. Đặt 01 ổ cắm <code>S1 (+0.4m)</code> sát đầu Sofa để sạc điện thoại.</td>
+              <td>Sofa: <code>2.800 × 1.850 × 780 mm</code><br>Bàn trà: <code>Ø850 &amp; Ø650 mm</code></td>
+              <td><strong>Đã chốt Sofa Bệ Gỗ Poliform (0% vải nỉ xù!):</strong> Khung bệ <code>Plywood 18mm</code> bo tròn <code>R60</code> liền khay táp gỗ bên trái (sát ổ <code>S1 +0.4m</code> cách Tây <code>750mm</code>), toàn bộ đệm mút K43 bọc <strong>da trơn Microfiber</strong> tháo rời lau sạch 100%. Xem <a href="ho-so-xuong-noi-that.html#bv-t1-02" style="color:var(--sky-light);">BV-T1.02</a>.</td>
             </tr>
             <tr>
               <td><strong>05</strong></td>
@@ -1041,70 +1047,68 @@
   </dialog>
 
   <script>
+    let currentT1Tone = "warmbeige";
+    let currentT1Key = "v02_living_north";
+
     const VIEWS = {
-      rounded_living_to_kitchen: {
-        img: "assets/tang1_pa_tran_bo_cong_xuyen_bep_3d.jpg",
-        caption: "Góc 1A (Trần Bo Cong Kiểu Master + PA Ưu Tiên KT-2.02): Hộp trần P.Khách (+3.530m) bo cong 4 góc R400mm (Lộ 4) + Khung Đèn Ray Nam Châm (Lộ 5) + Quạt trần (Lộ 6), nhìn xuyên sang Phòng Ăn & Bếp chữ I + Bàn Đảo Ngang Trục 3 nối Tủ Phụ Rượu/Cafe dọc tường (Trần phẳng +3.400m)",
-        title: "Phương Án Mới: Trần P.Khách Bo Cong 4 Góc (Kiểu Master) + Khung Ray Nam Châm Lộ 5 & Bếp Đảo Ngang Trục 3 (PA Ưu Tiên KT-2.02)",
+      v02_living_north: {
+        imgWarm: "assets/t1_v02_living_north_warmbeige.jpg",
+        imgItal: "assets/t1_v02_living_north_italian.jpg",
+        caption: "V02 • Phòng Khách nhìn Bắc: Vách Tivi phẳng 3,2m (0% lam dọc), Sofa Poliform da trơn, Khung Ray nam châm 4 cạnh + Quạt trần Lộ 6 & Lộ 6A",
+        title: "V02 • Phòng Khách Nhìn Bắc: Vách Tivi Phẳng 3.200mm, Khung Ray Nam Châm 4 Cạnh & Liên Thông Phòng Ăn",
         items: [
-          "<strong>1. Hộp Trần Giật Cấp Bo Cong 4 Góc (<code>R400mm</code>) + Khung Đèn Ray Nam Châm Âm Trần (<code>Lộ 5 — 1.825 × 2.970 mm</code>):</strong> Miệng hộp trần Phòng Khách (<code>C1 +3.530m</code>) được <strong>bo cong tròn mềm mại ở cả 4 góc (<code>R350–R400mm</code>) kèm khe LED dây COB <code>3000K</code> (<code>Lộ 4</code>)</strong> đồng bộ Khu ngủ Master Tầng 2; lùi vào <code>215 mm</code> bên trong lòng trần là <strong>khung chữ nhật Đèn Ray Nam Châm âm trần màu đen (<code>Lộ 5 — 1.825 × 2.970 mm</code>)</strong> bao quanh Quạt trần đèn <code>Lộ 6</code>.",
-          "<strong>2. Chuẩn Hóa Khu Bếp Theo 🌟 PA Ưu Tiên (<code>KT-2.02</code>): Bàn Đảo Ngang Trục 3 (<code>1.400×800mm</code>) + Hệ Tủ Phụ Dọc Tường (<code>Sâu 550mm</code>):</strong> Đúng theo mặt bằng nội thất <code>KT-2.02</code> và hiện trạng nhà: <strong>Bàn đảo đá Calacatta đặt vuông góc tại cột Trục 3 (<code>1.400 × 800 × 890 mm</code>, đầu đảo bo tròn <code>R400mm</code>, 02 ghế Bar đặt bên trái đảo)</strong> nối liền chữ L với <strong>Hệ Tủ Phụ / Tủ Rượu kính LED &amp; Quầy Pha Cafe chạy dọc tường P.Ngủ Ông Bà (<code>sâu 550mm</code>)</strong>. Khe đi qua đầu đảo rộng <strong><code>1.110 mm</code></strong> và khoảng sàn trống trước Chậu rửa &amp; Tủ lạnh rộng mênh mông <strong><code>1.960 mm (~2,0m)</code></strong>!",
-          "<strong>3. Trần Phòng Ăn &amp; Khu Bếp Phẳng Liên Thông 100% (<code>C1 +3.400m</code>):</strong> Toàn bộ trần từ Bàn ăn 8 ghế sang Khu bếp chữ I <code>4,95m</code> và Bàn đảo ngang đều phẳng liền mạch ở cốt <code>+3.400m</code> (không giật cấp khe hắt), kết hợp hộp trán đứng hạ xuống <code>+2.330m</code> che đỉnh tủ bếp trên."
+          "<strong>1. Vách Tivi Tường Bắc Phẳng <code>3.200 × 3.400 mm</code> (0% Lam Sóng Dọc):</strong> Hai biên ốp ván gỗ phẳng khổ rộng <code>600mm</code>, mảng giữa <code>2.000mm</code> phủ <code>Laminate vân đá Travertine mờ</code> gắn bảng bo góc <code>R80</code> đỡ Tivi <code>85 inch</code> + kệ treo <code>Plywood 18mm</code> bo tròn <code>R60</code>.",
+          "<strong>2. Sofa Bệ Gỗ Kiểu Ý Poliform Mondrian (<code>2.800 × 1.850 mm</code>) &amp; Sàn Gạch Mờ <code>1000×1000</code>:</strong> Khung bệ gỗ bo góc <code>R60</code> liền khay tay gỗ bên trái + <code>100%</code> đệm bọc <strong>da trơn Microfiber</strong> chống bám bẩn.",
+          "<strong>3. Đồng Bộ 100% Trần Đèn &amp; Khu Ăn – Bếp Phía Phải:</strong> Lòng trần <code>PA C</code> lắp <strong>khung chữ nhật Ray nam châm 4 cạnh khép kín</strong> + Quạt <code>Lộ 6</code>; bên phải thấy đúng cửa <code>D2</code>, Bàn ăn 8 ghế dưới Quạt <code>Lộ 6A</code> và Tủ bếp cánh kính màu Be!"
         ]
       },
-      rounded_living_closeup: {
-        img: "assets/tang1_pa_tran_bo_cong_master_3d.jpg",
-        caption: "Góc 1B (Cận cảnh Phương Án Trần Bo Cong P.Khách & Tiền Sảnh D1): Soi chi tiết Hộp trần giật cấp bo cong 4 góc R400mm + Khung chữ nhật Đèn Ray Nam Châm âm trần (Lộ 5) + Quạt trần đèn (Lộ 6) + Vách Tivi Đá Nung Kết 3,2m",
-        title: "Cận Cảnh Hộp Trần Bo Cong 4 Góc R400mm & Khung Đèn Ray Nam Châm Lộ 5 Tại Phòng Khách",
+      v03_living_reverse: {
+        imgWarm: "assets/t1_v03_living_reverse_warmbeige.jpg",
+        imgItal: "assets/t1_v03_living_reverse_italian.jpg",
+        caption: "V03 • Phòng Khách góc ngược 180° (nhìn Nam-Tây): Mặt trước Sofa Bệ Gỗ Poliform, Tiền sảnh Cửa D1 PA 1B, Tủ giày 2,5m & Cầu thang bộ",
+        title: "V03 • Phòng Khách Góc Ngược: Mặt Trước Sofa Bệ Gỗ Poliform, Tiền Sảnh D1 & Cầu Thang Bộ",
         items: [
-          "<strong>1. Sự Kết Hợp Giữa Đường Cong Mềm Mại (<code>Lộ 4</code>) &amp; Đường Nét Hiện Đại Của Ray Nam Châm (<code>Lộ 5</code>):</strong> Vòng ngoài là khe hắt trần bo cong 4 góc <code>R400mm</code> tỏa ánh sáng vàng ấm <code>3000K</code> mềm mại; bên trong (lùi <code>215 mm</code>) là <strong>khung chữ nhật Ray nam châm âm trần <code>1.825 × 2.970 mm</code> (<code>Lộ 5</code>)</strong> sắc nét với các thanh đèn LED tán quang và đèn rọi nam châm.",
-          "<strong>2. Bật/Tắt Độc Lập Từng Lớp Ánh Sáng Qua Công Tắc Aqara:</strong> Khi tiếp khách, bật cả <strong>Khung ray nam châm <code>Lộ 5</code> + 12 đèn viền <code>Lộ 3</code> + Khe hắt bo cong <code>Lộ 4</code></strong>; khi thư giãn hoặc xem Tivi tối, tắt <code>Lộ 3 &amp; Lộ 5</code>, chỉ giữ <strong>vòng sáng bo cong <code>Lộ 4</code></strong> dịu mắt như khách sạn 5 sao.",
-          "<strong>3. Tường Bắc Phẳng Liền Mạch (Đã Bịt 2 Ô Kính V2) &amp; Trần Bàn Ăn Phẳng Bên Phải:</strong> Đối diện Sofa là Vách Tivi Đá Nung Kết + Lam gỗ Sồi phẳng <code>3.200 mm</code>; bên phải nhìn sang khu Bàn ăn là mặt trần phẳng <code>C1 +3.400m</code> chuẩn thiết kế."
+          "<strong>1. Toàn Cảnh Mặt Trước Sofa Bệ Gỗ Poliform (<code>2.800 × 1.850 mm</code>):</strong> Bệ gỗ <code>Plywood 18mm</code> bo góc <code>R60</code> liền khay tay bên phải sát vách kính Bonsai <code>V1</code>, đệm bọc da trơn Microfiber dễ vệ sinh.",
+          "<strong>2. Phía Sau Sofa Là Tiền Sảnh Đón Chuẩn 1:1:</strong> Thấy trực diện mặt đứng <code>Tủ giày kịch trần 2.500mm</code> (hốc Travertine LED, ghế da thay giày &amp; Robot hút bụi) cùng <code>Cửa chính D1 PA 1B</code>.",
+          "<strong>3. Bên Trái:</strong> Cầu thang bộ bậc gỗ hắt LED cảm biến + lan can kính cường lực không trụ lên Tầng 2."
         ]
       },
-      living_to_kitchen: {
-        img: "assets/tang1_open_living_to_kitchen_3d.jpg",
-        caption: "Góc 2A (Chuẩn CAD KT-4.06, CĐ-11 & KT-2.02): Từ Phòng Khách (Hộp trần vuông C1 +3.530m + Khung Đèn Ray Nam Châm Lộ 5 1.825×2.970mm) nhìn xuyên sang Phòng Ăn & Bếp chữ I + Bàn Đảo Ngang Trục 3 nối Tủ Phụ (Trần phẳng C1 +3.400m)",
-        title: "Phương Án Chuẩn Bản Vẽ CAD (KT-4.06, CĐ-11 & KT-2.02): Trần Hộp Vuông + Ray Nam Châm Lộ 5 & Bếp Đảo Ngang Trục 3",
+      v01_foyer: {
+        imgWarm: "assets/t1_v01_foyer_warmbeige.jpg",
+        imgItal: "assets/t1_v01_foyer_italian.jpg",
+        caption: "V01 • Tiền Sảnh nhìn Tây: Cửa chính Gỗ Lim D1 (PA 1B: 10 nan dọc phẳng + 1 ô kính 310mm) & Hệ Tủ giày kịch trần 2.500×550×3.400mm",
+        title: "V01 • Tiền Sảnh Đón: Cửa Chính D1 (PA 1B) & Hệ Tủ Giày Kịch Trần 2.500mm",
         items: [
-          "<strong>1. Hộp Trần Giật Cấp Vuông (<code>C1 +3.530m</code>) Kèm Khung Đèn Ray Nam Châm <code>Lộ 5</code> Chuẩn <code>KT-4.06</code>:</strong><br>• <strong>Vòng ngoài hộp trần (<code>2.255 × 3.400 mm</code>):</strong> Khe hắt LED dây 4 cạnh <code>3000K</code> (<code>Lộ 4</code>).<br>• <strong>Lùi vào <code>215 mm</code> trong lòng hộp trần (<code>1.825 × 2.970 mm</code>):</strong> Hệ <strong>Khung chữ nhật Đèn Ray Nam Châm âm trần (<code>Lộ 5</code>)</strong> gắn các thanh đèn LED tán quang &amp; cụm đèn rọi tiêu điểm quanh Quạt trần đèn <code>Lộ 6</code>.<br>• <strong>Tại Phòng Ăn &amp; Khu Bếp (Trục 2–4):</strong> <strong>Trần thạch cao phẳng 100% ở cốt <code>C1 +3.400m</code></strong> + hộp trán đứng <code>+2.330m</code> che đỉnh tủ bếp.",
-          "<strong>2. Vách Tivi Đá Nung Kết 3,2m Trên Tường Bắc Phẳng Liền Mạch (Đã Bịt 2 Ô Kính V2):</strong> Nhờ <strong>đã xây gạch bịt kín 02 ô kính nhỏ <code>V2 (0,9×3,0m)</code> giáp nhà hàng xóm (theo Bản 3.1 <code>KT-6.01</code>)</strong>, bức tường Bắc Phòng Khách hoàn toàn phẳng để ốp Đá Nung Kết vân mây kết hợp Lam gỗ Sồi + Kệ Tivi treo tường <code>3.200 mm</code>.",
-          "<strong>3. Khu Bếp Chuẩn 🌟 PA Ưu Tiên (<code>KT-2.02</code> — Bàn Đảo Ngang Trục 3 + Tủ Phụ Dọc Tường):</strong> Phía sau Sofa tại cột Trục 3 là <strong>Bàn đảo ngang (<code>1.400 × 800 mm</code>, đầu bo tròn <code>R400mm</code>, 02 ghế Bar quay mặt vào bếp)</strong> nối liền chữ L với <strong>Hệ Tủ Phụ Rượu kính LED &amp; Quầy Cafe (<code>sâu 550mm</code>)</strong> dọc tường phải; khe qua đầu đảo rộng <code>1.110 mm</code> và sàn trước Chậu rửa rộng <code>1.960 mm</code> mở thẳng qua Cửa kính lùa <code>1.790 mm</code> ra Bếp ướt Sân sau!"
+          "<strong>1. Cửa Chính <code>D1 (1.750 × 3.000 mm — Chuẩn PA 1B)</code>:</strong> Nhìn từ trong nhà ra ngoài, bên trái là cánh gỗ Lim ghép 10 nan dọc phẳng rộng <code>1.280mm</code> + tay nắm dài; bên phải là 01 ô kính cố định <code>310mm</code>.",
+          "<strong>2. Tủ Giày Tường Nam (<code>2.500 × 550 × 3.400 mm</code> — <a href='ho-so-xuong-noi-that.html#bv-t1-01' style='color:#bae6fd;'>BV-T1.01</a>):</strong> Ghế thay giày <code>800mm</code> + hốc <code>Laminate Travertine LED</code> + khoang gầm <code>180mm</code> cho Robot hút bụi.",
+          "<strong>3. Sàn Gạch Mờ <code>1000×1000mm</code> Xuyên Suốt Sang Phòng Khách Bên Phải.</strong>"
         ]
       },
-      kitchen_to_living: {
-        img: "assets/tang1_open_kitchen_to_living_3d.jpg",
-        caption: "Góc 3 (Chuẩn PA Ưu Tiên KT-2.02): Đứng tại khoảng sàn rộng 1.960mm trước Chậu rửa & Tủ Phụ Rượu/Cafe (sâu 550mm) nhìn qua Bàn Đảo Ngang Trục 3 (1.400×800mm, khe đi 1.110mm) & Bàn Ăn 8 ghế về Phòng Khách",
-        title: "Tầm Nhìn Ngược Từ Khu Bếp (PA Ưu Tiên KT-2.02: Đảo Ngang Trục 3 + Tủ Phụ 550mm) Về Phòng Khách",
+      v04_dining_kitchen: {
+        imgWarm: "assets/t1_v04_dining_kitchen_warmbeige.jpg",
+        imgItal: "assets/t1_v04_dining_kitchen_italian.jpg",
+        caption: "V04 • Phòng Ăn 8 ghế (lộ ổ âm sàn S1) + Bếp chữ I cánh kính màu Be cố định + Đảo ngang Trục 3 bo R400 & Hệ Tủ phụ Rượu/Cafe 2.800mm",
+        title: "V04 • Phòng Ăn 8 Ghế + Bếp Kính Be + Đảo Bo R400 & Hệ Tủ Phụ Rượu/Cafe 2.800mm",
         items: [
-          "<strong>1. Khoảng Sàn Mở Rộng Mênh Mông <code>1.960 mm (~2,0m)</code> Giữa Bếp Chính &amp; Hệ Tủ Phụ:</strong> Ở tiền cảnh bên trái là <strong>Hệ Tủ Phụ (<code>sâu 550mm</code>: Tủ Rượu cánh kính trà đèn LED <code>3000K</code> + Hốc Quầy máy pha Cafe Espresso)</strong> chạy dọc tường P.Ngủ Ông Bà; bên phải là <strong>Hệ Tủ Bếp Chữ I (<code>sâu 600mm</code>, Chậu rửa Konox dưới cửa sổ <code>S1A</code> + Máy rửa bát + Bếp từ)</strong> — tạo khoảng sàn thao tác giữa phòng rộng tới <strong><code>1.960 mm</code></strong>!",
-          "<strong>2. Bàn Đảo Ngang Trục 3 (<code>1.400 × 800 × 890 mm</code>) &amp; Khe Đi Qua Đầu Đảo <code>1.110 mm</code>:</strong> Tại cột Trục 3 (ngay hết Tủ phụ bên trái), <strong>Bàn Đảo Ngang</strong> vươn vuông góc <code>90°</code> sang phải với mặt đá Calacatta thác nước bo tròn đầu đảo <code>R400mm</code>, mặt trong bố trí hệ ngăn kéo tủ bếp, mặt ngoài (phía Bàn ăn) đặt <strong>02 ghế Bar</strong>, chừa <strong>khe đi qua đầu đảo rộng <code>1.110 mm</code></strong> cực kỳ hợp lý với hiện trạng nhà.",
-          "<strong>3. Trần Khu Bếp &amp; Phòng Ăn Phẳng 100% (<code>C1 +3.400m</code>) Nhìn Về Hộp Trần Phòng Khách (<code>C1 +3.530m</code>):</strong> Mặt trần thạch cao phẳng mịn từ Khu Bếp qua Bàn Ăn 8 ghế (lắp âm phẳng 02 khe gió điều hòa <code>IN 1.1</code>, Quạt trần đèn <code>Lộ 6A</code> và Spotlight <code>Lộ 12, 5A</code>); phía xa tại Phòng Khách mới giật cấp hộp trần <code>C1 +3.530m</code>."
+          "<strong>1. Cố Định 100% Tủ Bếp Chính <code>4.950mm</code> Cánh Kính Cường Lực Màu Be Ấm:</strong> Kèm hộp trán thạch cao <code>60cm</code> phẳng kịch trần <code>+3.400m</code>, cửa sổ ngang <code>S1A</code> và cửa lùa <code>1.790mm</code> ra Sân sau giặt sấy.",
+          "<strong>2. Bàn Ăn Đá Nung Kết 8 Ghế Da Trơn (<code>2.200×1.000mm</code>):</strong> Không trải thảm vướng víu, lộ rõ nắp <strong>ổ cắm âm sàn đồng xước <code>S1 (+0.0m)</code></strong> ngay dưới gầm bàn dưới Quạt trần <code>Lộ 6A</code>.",
+          "<strong>3. Đảo Bo <code>R400</code> (<code>1.400×800mm</code>) Nối Chữ L Tủ Phụ <code>2.800×550mm</code> (<a href='ho-so-xuong-noi-that.html#bv-t1-03' style='color:#bae6fd;'>BV-T1.03</a>):</strong> Kính rượu LED hai đầu + Hốc pha Cafe Espresso mặt Đá Nung Kết ở giữa."
         ]
       },
-      living_ceiling_d1: {
-        img: "assets/tang1_phong_khach_vach_tv_tran_hop_3d.jpg",
-        caption: "Góc 2B (Chuẩn CAD KT-4.06 & CĐ-11): Cận cảnh Phòng Khách với Hộp trần giật cấp vuông C1 +3.530m + Khung chữ nhật Đèn Ray Nam Châm âm trần 1.825×2.970mm (Lộ 5) + Quạt trần đèn Lộ 6 & Tiền sảnh D1",
-        title: "Cận Cảnh Hệ Trần Hộp Vuông Chuẩn KT-4.06 & Khung Đèn Ray Nam Châm Lộ 5 (1.825×2.970mm)",
+      v05_kitchen_reverse: {
+        imgWarm: "assets/t1_v05_kitchen_reverse_warmbeige.jpg",
+        imgItal: "assets/t1_v05_kitchen_reverse_italian.jpg",
+        caption: "V05 • Khu Bếp góc ngược 180° (nhìn Tây): Mặt trong 3 ngăn kéo Bàn Đảo bo R400, Tủ phụ Rượu/Cafe 2,8m & tầm nhìn xuyên suốt 12,01m về Phòng Khách",
+        title: "V05 • Khu Bếp Góc Ngược: Mặt Trong Bàn Đảo (3 Ngăn Kéo) & Tầm Nhìn Xuyên Suốt 12,01m",
         items: [
-          "<strong>1. Khung Chữ Nhật Đèn Ray Nam Châm Âm Trần (<code>Lộ 5 — 1.825 × 2.970 mm</code>):</strong> Nằm lùi <code>215 mm</code> bên trong khe hắt LED <code>Lộ 4</code> của hộp trần <code>+3.530m</code>, hệ ray nam châm âm trần màu đen tạo điểm nhấn kiến trúc hiện đại, tích hợp cả thanh LED tán quang phẳng (Floodlight) và đèn ống rọi nam châm xoay góc.",
-          "<strong>2. Bức Tường Bắc Phẳng Liền Mạch (Đã Xây Bịt 2 Ô Kính V2):</strong> Tường Bắc đã được xây gạch bịt phẳng hoàn toàn để ốp <strong>Vách Đá Nung Kết vân mây đối xứng + Lam gỗ Sồi + 2 khe LED dọc &amp; Kệ Tivi treo <code>3.200 mm</code></strong>.",
-          "<strong>3. Viền Trần <code>C1 +3.400m</code> Ngoài Cánh Quạt:</strong> Bố trí 02 khe gió điều hòa tuyến tính sơn đen (<code>IN 1.2 — 30.000 BTU/H</code>) và 12 bóng Spotlight <code>Lộ 3</code> cách tâm quạt <code>2,0m</code> (tuyệt đối không gây bóng cánh quạt)."
-        ]
-      },
-      dining_courtyard: {
-        img: "assets/tang1_bep_an_tran_phang_chuan_3d.jpg",
-        caption: "Góc 4 (🌟 PA Ưu Tiên KT-2.02): Cận cảnh Phòng Ăn 8 Ghế + Hệ Tủ Bếp Chữ I (4.950×600mm) + Bàn Đảo Ngang Trục 3 (1.400×800mm, 02 ghế Bar) nối chữ L với Hệ Tủ Phụ Rượu/Cafe dọc tường (sâu 550mm) & Cửa lùa 1.790mm ra Bếp ướt Sân sau",
-        title: "🌟 PA Ưu Tiên (KT-2.02): Bàn Đảo Ngang Trục 3 (1.400×800) + Hệ Tủ Phụ Rượu/Cafe Dọc Tường (Sâu 550mm)",
-        items: [
-          "<strong>1. Bàn Đảo Ngang Trục 3 (<code>1.400 × 800 × 890 mm</code>) Nối Chữ L Với Hệ Tủ Phụ Dọc Tường (<code>Sâu 550 mm</code>) Đúng Thiết Kế <code>KT-2.02</code>:</strong> Bàn đảo đặt vuông góc tại cột Trục 3 (đầu đảo bo tròn <code>R400mm</code>, mặt đá Calacatta liền phẳng không khoét chậu, <strong>02 ghế Bar đặt bên trái bàn đảo</strong>) tạo vách ngăn ước lệ tinh tế giữa Bàn ăn 8 ghế và Khu bếp; nối liền chữ L với <strong>Hệ Tủ Phụ Rượu cánh kính trà đèn LED <code>3000K</code> &amp; Hốc Quầy máy pha Cafe Espresso chạy dọc suốt tường P.Ngủ Ông Bà</strong>.",
-          "<strong>2. Lối Đi Thông Thủy Cực Thoáng &amp; Cửa Kính Lùa Mở Rộng <code>1.790 mm</code> Ra Bếp Ướt Sân Sau:</strong> Khe đi qua đầu Bàn đảo ngang rộng <strong><code>1.110 mm</code></strong>; khoảng sàn trống trước Chậu rửa &amp; Tủ lạnh Panasonic rộng mênh mông <strong><code>1.960 mm (~2,0m)</code></strong> đi thẳng qua <strong>Cửa kính lùa rộng <code>1.790 mm</code></strong> (khít giữa tường <code>770mm</code> và hông Tủ phụ <code>550mm</code>) ra <strong>Quầy bếp ướt Inox <code>3,0m</code> &amp; Tháp giặt sấy</strong> ngoài Sân sau!",
-          "<strong>3. Hệ Tủ Bếp Chữ I Phẳng Tuyệt Đối (<code>4.950 × 600 × 890 mm</code>) &amp; Trần Phẳng <code>C1 +3.400m</code>:</strong> Dọc tường Bắc là Cột lò nướng + Khay nồi cơm Blum (<code>650mm</code>) &rarr; Bếp từ &rarr; Cửa sổ ngang <code>S1A</code> trên Chậu rửa Konox &rarr; Tủ lạnh 4 cánh đen Panasonic + Hộc kéo <code>152mm</code> mở 120°; phía trên đóng hộp trán thạch cao đứng từ <code>+3.400m</code> xuống <code>+2.330m</code>."
+          "<strong>1. Mặt Trong Bàn Đảo Quay Về Bếp (<code>1.400 × 800 × 890 mm</code>):</strong> Thấy rõ cánh mở <code>400mm</code> + <code>03</code> ngăn kéo rộng <code>600mm</code> vát J-pull âm + đầu bo tròn <code>R400mm</code> và khe đi <code>1.110mm</code> bên phải.",
+          "<strong>2. Khoảng Sàn Đứng Nấu Rộng <code>1.960mm</code> Giữa Tủ Phụ <code>550mm</code> (Trái) &amp; Bếp Chính <code>600mm</code> (Phải).</strong>",
+          "<strong>3. Xuyên Suốt Qua Bàn Ăn &amp; Cầu Thang Về Sofa Poliform &amp; Vách Tivi Phẳng (0% Lam Sóng).</strong>"
         ]
       },
       kitchen_left_tower: {
         img: "assets/kitchen_3d_cot_tu_trai_khay_keo_noi_com.jpg",
-        caption: "Góc 5: Cận cảnh Cột Tủ Trái (650mm) — Lò nướng âm Bosch (+290..+890mm) & Hốc mở LED lắp Đợt kéo Nồi cơm Blum có khóa (+890mm)",
+        caption: "Góc 6: Cận cảnh Cột Tủ Trái (650mm) — Lò nướng âm Bosch (+290..+890mm) & Hốc mở LED lắp Đợt kéo Nồi cơm Blum có khóa (+890mm)",
         title: "Chi Tiết Cột Tủ Trái (650 × 600 mm): Đợt Kéo Nồi Cơm Blum Ngang Mặt Bàn Đá (+890mm)",
         items: [
           "<strong>1. Hốc Mở Đèn LED (<code>+890..+1.490 mm</code>) Thẳng Tắp Với Mặt Bàn Đá &amp; Đáy Tủ Trên:</strong> Cạnh dưới của hốc mở nằm đúng cốt <code>+890 mm</code> (bằng mặt đá bàn bếp), cạnh trên nằm đúng cốt <code>+1.490 mm</code> (bằng đáy tủ bếp trên), tạo đường chỉ ngang liền mạch 100%.",
@@ -1114,7 +1118,7 @@
       },
       kitchen_appliances: {
         img: "assets/kitchen_3d_tu_lanh_panasonic_khoang_dem_150mm.jpg",
-        caption: "Góc 6: Cận cảnh Tủ lạnh 4 cánh Panasonic NR-X561GB-VN sâu 600mm phẳng mặt tủ + Hộc tủ kéo 152mm giúp mở cánh 120°",
+        caption: "Góc 7: Cận cảnh Tủ lạnh 4 cánh Panasonic NR-X561GB-VN sâu 600mm phẳng mặt tủ + Hộc tủ kéo 152mm giúp mở cánh 120°",
         title: "Chuẩn Hóa Cột Tủ Phải (1.000 mm): Tủ Lạnh Sâu 600mm + Hộc Đệm 152mm Mở Cánh 120°",
         items: [
           "<strong>1. Hộc Tủ Kéo Đa Năng <code>152 mm</code> Sát Tường Gạch <code>770 mm</code>:</strong> Xử lý triệt để điểm chết bản lề tủ lạnh 4 cánh — giúp cánh phải của Tủ lạnh <code>Panasonic NR-X561GB-VN (822×600×1.890mm)</code> mở rộng tới <strong><code>120°</code></strong> để rút toàn bộ ngăn rau củ ra vệ sinh dễ dàng.",
@@ -1124,11 +1128,22 @@
       }
     };
 
+    function setT1Tone(tone) {
+      currentT1Tone = tone;
+      document.getElementById("tone-switch-warmbeige").classList.toggle("active", tone === "warmbeige");
+      document.getElementById("tone-switch-italian").classList.toggle("active", tone === "italian");
+      switch3D(currentT1Key);
+    }
+
     function switch3D(key) {
       const data = VIEWS[key];
       if (!data) return;
-      document.getElementById("main-3d-img").src = data.img;
-      document.getElementById("main-3d-caption").textContent = data.caption;
+      currentT1Key = key;
+      const isWarm = currentT1Tone === "warmbeige";
+      const resolvedSrc = data.img ? data.img : (isWarm ? data.imgWarm : data.imgItal);
+      const tonePrefix = data.img ? "" : (isWarm ? "☕ Tone 1 (Warm Beige & Cashmere-Latte) — " : "👑 Tone 2 (Italian Modern Quiet Luxury) — ");
+      document.getElementById("main-3d-img").src = resolvedSrc;
+      document.getElementById("main-3d-caption").textContent = tonePrefix + data.caption;
       const infoEl = document.getElementById("main-3d-info");
       infoEl.innerHTML = `
         <h3>${data.title}</h3>
@@ -1136,7 +1151,7 @@
           ${data.items.map(it => `<li>${it}</li>`).join("")}
         </ul>
       `;
-      document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+      document.querySelectorAll("#sec-3d .tab-bar .tab-btn").forEach(btn => btn.classList.remove("active"));
       const activeBtn = document.getElementById("tab-" + key);
       if (activeBtn) activeBtn.classList.add("active");
     }
