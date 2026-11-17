@@ -642,10 +642,10 @@
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px;">
         <h2 class="section-title" style="margin-bottom:0;">✨ 1. Phối Cảnh 3D Đồng Bộ 100% Thực Tế Nhà Thật Tầng 1 (Gu 349Design × Vân Gỗ &amp; Travertine Mới Chốt • Đủ 5 Góc V01 &rarr; V05)</h2>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <button type="button" class="tab-btn active" id="tone-switch-studio349" onclick="setT1Tone('studio349')" style="padding:7px 14px;border-radius:999px;border-color:#f59e0b;">🌟 Gu 349Design × Vân Gỗ &amp; Travertine (Mới Chốt)</button>
-          <button type="button" class="tab-btn" id="tone-switch-warmbeige" onclick="setT1Tone('warmbeige')" style="padding:7px 14px;border-radius:999px;">☕ Tone 1: Warm Beige</button>
-          <button type="button" class="tab-btn" id="tone-switch-italian" onclick="setT1Tone('italian')" style="padding:7px 14px;border-radius:999px;">👑 Tone 2: Italian Luxury</button>
-          <button type="button" class="tab-btn" id="tone-switch-smokedwood" onclick="setT1Tone('smokedwood')" style="padding:7px 14px;border-radius:999px;">💎 Tone 3: Smoked Wood</button>
+          <button type="button" class="tab-btn active" id="tone-switch-studio349" onclick="setT1Tone('studio349')" style="padding:7px 14px;border-radius:999px;border-color:#f59e0b;">🌟 Gu 349 × Vân Gỗ &amp; Travertine (Mới Chốt)</button>
+          <button type="button" class="tab-btn" id="tone-switch-bt04" onclick="setT1Tone('bt04')" style="padding:7px 14px;border-radius:999px;border-color:#94a3b8;">🏙️ Hiện Đại BT-04: Sồi Khói Ghi Mocha (Khớp Đá T2)</button>
+          <button type="button" class="tab-btn" id="tone-switch-bt05" onclick="setT1Tone('bt05')" style="padding:7px 14px;border-radius:999px;border-color:#fb923c;">☀️ Hiện Đại BT-05: Gỗ Caramel × Ghi Bazan (Khớp Lam T3)</button>
+          <button type="button" class="tab-btn" id="tone-switch-boutique" onclick="setT1Tone('boutique')" style="padding:7px 14px;border-radius:999px;border-color:#c084fc;">🥃 Boutique Trầm BT-01..03 (VCT 23 / Karma Nuka)</button>
         </div>
       </div>
       <p class="section-sub">
@@ -1056,22 +1056,19 @@
     const VIEWS = {
       v02_living_north: {
         img349: "assets/wow_t1_v02_living_north.jpg",
-        imgWarm: "assets/t1_v02_living_north_warmbeige.jpg",
-        imgItal: "assets/t1_v02_living_north_italian.jpg",
-        imgSmoked: "assets/t1_v02_living_north_smokedwood.jpg",
-        caption: "V02 • Phòng Khách nhìn Bắc: Vách Tivi đá Travertine 3,2m & hốc gốm gỗ Óc chó bo cong, bên phải khớp đúng Cửa vườn Bắc D2 + Bàn ăn dưới trần phẳng +3.40m & Quạt Lộ 6 / 6A",
+        imgBt04: "assets/boutique_bt04_greigemocha_t1_v02.jpg",
+        imgBt05: "assets/boutique_bt05_caramelbasalt_t1_v02.jpg",
+        imgBoutique: "assets/boutique_bt01_eucalyptus_t1_v02.jpg",
+        caption: "V02 • Phòng Khách nhìn Bắc: Vách Tivi đá Travertine 3,2m & hốc gốm gỗ bo cong, bên phải khớp đúng Cửa vườn Bắc D2 + Bàn ăn dưới trần phẳng +3.40m & Quạt Lộ 6 / 6A",
         title: "V02 • Phòng Khách Nhìn Bắc: Vách Tivi Đá Travertine 3.200mm & Liên Thông Đúng Cửa Vườn Bắc D2",
         items: [
-          "<strong>1. Vách Tivi Tường Bắc <code>Roman Travertine</code> &amp; Gỗ Óc Chó Bo Cong (<code>3.200 × 3.400 mm</code>):</strong> Mảng đá <code>Travertine</code> liền mạch kết hợp cột bo tròn gỗ Óc chó <code>Karma Grain</code> có hốc trưng bày gốm hắt LED <code>2700K</code> + kệ treo bo <code>R60</code>.",
-          "<strong>2. Sofa Bệ Gỗ Óc Chó Bo <code>R60</code> Đệm Kem Sáng (<code>2.800 × 1.850 mm</code>):</strong> Khung bệ gỗ tự nhiên liền khay tay bên trái (tiết kiệm chi phí bọc da khung) trên nền gạch mờ <code>1000×1000</code>.",
-          "<strong>3. Chuẩn Xác 100% Khu Ăn – Bếp Phía Phải:</strong> Ngay cạnh Vách Tivi là <strong>Cửa kính lùa vườn Bắc <code>D2 (3.070mm)</code></strong> sau lưng Bàn ăn 8 ghế dưới <strong>trần phẳng <code>+3.40m</code> &amp; Quạt <code>Lộ 6A</code></strong>; phía xa mới tới Tủ bếp kính màu Be &amp; cửa sổ <code>S1A</code>!"
+          "<strong>1. Vách Tivi Tường Bắc <code>Roman Travertine</code> &amp; Gỗ Bo Cong (<code>3.200 × 3.400 mm</code>):</strong> Mảng đá <code>Travertine</code> liền mạch kết hợp cột bo tròn gỗ có hốc trưng bày gốm hắt LED <code>2700K</code> + kệ treo bo <code>R60</code>.",
+          "<strong>2. Sofa Bệ Gỗ Bo <code>R60</code> Đệm Kem Sáng (<code>2.800 × 1.850 mm</code>):</strong> Khung bệ gỗ liền khay tay bên trái (tiết kiệm chi phí bọc da khung) trên nền gạch mờ <code>1000×1000</code>.",
+          "<strong>3. Đối chiếu thêm các mã gỗ Boutique Trầm mới trên V02:</strong> <button type='button' class='tab-btn' style='padding:3px 9px;font-size:0.75rem;' onclick=\"openLightbox('assets/boutique_bt02_amberburl_t1_v02.jpg','BT-02: Óc Chó Vân Nu Hổ Phách Karma Nuka + LK 4560 A')\">🔥 Xem BT-02 (Karma Nuka)</button> <button type='button' class='tab-btn' style='padding:3px 9px;font-size:0.75rem;' onclick=\"openLightbox('assets/boutique_bt03_roastedteak_t1_v02.jpg','BT-03: Giá Tếch Rang Trầm Bandung Teak LK 4604 A / KES 22614')\">🍂 Xem BT-03 (Roasted Teak)</button>"
         ]
       },
       v03_living_reverse: {
         img349: "assets/wow_t1_v03_living_reverse.jpg",
-        imgWarm: "assets/t1_v03_living_reverse_warmbeige.jpg",
-        imgItal: "assets/t1_v03_living_reverse_italian.jpg",
-        imgSmoked: "assets/t1_v03_living_reverse_smokedwood.jpg",
         caption: "V03 • Phòng Khách góc ngược 180° (nhìn Nam-Tây): Mặt trước Sofa bệ gỗ Óc chó, phía sau khớp 1:1 Tiền sảnh vòm Travertine D1 & bên trái là Cầu thang bộ lên T2",
         title: "V03 • Phòng Khách Góc Ngược: Mặt Trước Sofa Bệ Gỗ Óc Chó, Tiền Sảnh V01 & Cầu Thang Bộ",
         items: [
@@ -1082,9 +1079,6 @@
       },
       v01_foyer: {
         img349: "assets/wow_t1_foyer_d1.jpg",
-        imgWarm: "assets/t1_v01_foyer_warmbeige.jpg",
-        imgItal: "assets/t1_v01_foyer_italian.jpg",
-        imgSmoked: "assets/t1_v01_foyer_smokedwood.jpg",
         caption: "V01 (Đã Chốt ✅) • Tiền Sảnh nhìn Tây: Vòm thay giày gỗ Óc chó & đá Travertine + Gương hạt đậu phát sáng + Tủ giày 2,5m (0% kính) & Cửa chính D1 PA 1B",
         title: "V01 • Tiền Sảnh Đón (Đã Chốt ✅): Vòm Thay Giày Điêu Khắc & Cửa Chính D1 PA 1B",
         items: [
@@ -1095,9 +1089,6 @@
       },
       v04_dining_kitchen: {
         img349: "assets/wow_t1_v04_dining_kitchen.jpg",
-        imgWarm: "assets/t1_v04_dining_kitchen_warmbeige.jpg",
-        imgItal: "assets/t1_v04_dining_kitchen_italian.jpg",
-        imgSmoked: "assets/t1_v04_dining_kitchen_smokedwood.jpg",
         caption: "V04 • Phòng Ăn nhìn Đông chuẩn 100% công năng: Bếp kính Be tường trái + Đảo bán đảo ngang Trục 3 bo R400 + Vòm Cafe 0% kính tường phải & Cửa lùa 1,79m ra Sân sau chính diện",
         title: "V04 • Phòng Ăn 8 Ghế + Bếp Kính Be Tường Bắc + Đảo Ngang R400 & Cửa Sân Sau Chính Diện",
         items: [
@@ -1108,9 +1099,6 @@
       },
       v05_kitchen_reverse: {
         img349: "assets/wow_t1_v05_kitchen_reverse.jpg",
-        imgWarm: "assets/t1_v05_kitchen_reverse_warmbeige.jpg",
-        imgItal: "assets/t1_v05_kitchen_reverse_italian.jpg",
-        imgSmoked: "assets/t1_v05_kitchen_reverse_smokedwood.jpg",
         caption: "V05 • Khu Bếp góc ngược 180° (nhìn Tây): Mặt trong Bàn Đảo bo R400 (1 cánh mở + 3 ngăn kéo 100% vân gỗ Óc chó), Vòm Cafe trái, Bếp kính Be phải & xuyên suốt 12,01m",
         title: "V05 • Khu Bếp Góc Ngược: Mặt Trong Bàn Đảo 3 Ngăn Kéo Vân Gỗ & Tầm Nhìn Xuyên Suốt 12,01m",
         items: [
@@ -1143,11 +1131,13 @@
 
     function setT1Tone(tone) {
       currentT1Tone = tone;
-      const el349 = document.getElementById("tone-switch-studio349");
-      if (el349) el349.classList.toggle("active", tone === "studio349");
-      document.getElementById("tone-switch-warmbeige").classList.toggle("active", tone === "warmbeige");
-      document.getElementById("tone-switch-italian").classList.toggle("active", tone === "italian");
-      document.getElementById("tone-switch-smokedwood").classList.toggle("active", tone === "smokedwood");
+      ["studio349", "bt04", "bt05", "boutique"].forEach(t => {
+        const el = document.getElementById("tone-switch-" + t);
+        if (el) el.classList.toggle("active", tone === t);
+      });
+      if (tone !== "studio349" && currentT1Key !== "v02_living_north") {
+        currentT1Key = "v02_living_north";
+      }
       switch3D(currentT1Key);
     }
 
@@ -1158,18 +1148,18 @@
       let resolvedSrc = data.img;
       let tonePrefix = "";
       if (!data.img) {
-        if (currentT1Tone === "studio349") {
-          resolvedSrc = data.img349 || data.imgWarm;
-          tonePrefix = "🌟 Gu 349Design × Vân Gỗ & Travertine — ";
-        } else if (currentT1Tone === "warmbeige") {
-          resolvedSrc = data.imgWarm;
-          tonePrefix = "☕ Tone 1 (Warm Beige & Cashmere-Latte) — ";
-        } else if (currentT1Tone === "italian") {
-          resolvedSrc = data.imgItal;
-          tonePrefix = "👑 Tone 2 (Italian Modern Quiet Luxury) — ";
+        if (currentT1Tone === "bt04") {
+          resolvedSrc = data.imgBt04 || data.img349;
+          tonePrefix = data.imgBt04 ? "🏙️ Hiện Đại BT-04 (Sồi Khói Ghi Mocha LK 10902 I / Karma Raw — Khớp Đá Ghi T2) — " : "🌟 Gu 349 × Vân Gỗ & Travertine — ";
+        } else if (currentT1Tone === "bt05") {
+          resolvedSrc = data.imgBt05 || data.img349;
+          tonePrefix = data.imgBt05 ? "☀️ Hiện Đại BT-05 (Gỗ Caramel Sọc Thẳng × Cánh Ghi Bazan — Khớp Lam Gỗ T3) — " : "🌟 Gu 349 × Vân Gỗ & Travertine — ";
+        } else if (currentT1Tone === "boutique") {
+          resolvedSrc = data.imgBoutique || data.img349;
+          tonePrefix = data.imgBoutique ? "🥃 Boutique Trầm BT-01 (Bạch Đàn Khói Ánh Đồng VCT 23) — " : "🌟 Gu 349 × Vân Gỗ & Travertine — ";
         } else {
-          resolvedSrc = data.imgSmoked;
-          tonePrefix = "💎 Tone 3 (Boutique Smoked Wood • 0% Kính Tủ) — ";
+          resolvedSrc = data.img349;
+          tonePrefix = "🌟 Gu 349Design × Vân Gỗ & Travertine — ";
         }
       }
       document.getElementById("main-3d-img").src = resolvedSrc;
