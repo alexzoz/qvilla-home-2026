@@ -16,7 +16,7 @@
     
         <!-- Workspace Navigation Bar -->
     <div class="flex flex-wrap items-center justify-between gap-2 pb-2 mb-2 border-b border-[var(--border)] no-print">
-      <div class="flex flex-wrap items-center gap-2">
+      <nav data-qvilla-nav class="flex flex-wrap items-center gap-2" aria-label="Điều hướng">
         <a href="index.html" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-amber-500/20 text-amber-500 border border-amber-500/40 hover:bg-amber-500/30 transition-all">
           🏠 Về Trang Chủ &amp; Bảng Dự Toán (index.html)
         </a>
@@ -26,7 +26,7 @@
         <a href="cua-go-lim-d3.html" class="px-2.5 py-1 text-xs font-semibold rounded-lg border border-[var(--border)] hover:bg-[var(--accent)] transition-all">
           🚪 Hồ Sơ Cửa Phòng D3
         </a>
-      </div>
+      </nav>
     </div>
     <!-- Header Banner: Chốt 1 Bộ Kích Thước Chuẩn Lỗ Ban Đỏ + Nút In Hồ Sơ Gửi Thợ -->
     <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-[var(--border)]">
@@ -1331,5 +1331,6 @@
     setZoom(1.75);
     selectMode(2);
   </script>
+  <script src="assets/qvilla-nav.js" defer></script>
 </body>
 </html>

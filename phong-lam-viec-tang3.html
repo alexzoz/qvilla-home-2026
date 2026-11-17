@@ -1182,17 +1182,19 @@
         </aside>
       </div>
 
-      <!-- Photorealistic 3D Interior Render Showcase -->
-      <div class="blueprint-box" style="margin-top:20px;">
+      <!-- Photorealistic 3D Interior Render Showcase (Synced with mau-modern-luxury-349.html) -->
+      <div class="blueprint-box" style="margin-top:20px; border-color: rgba(245, 158, 11, 0.55);">
         <div class="blueprint-hdr">
-          <h3>✨ Phối Cảnh 3D Thực Tế Vật Liệu &amp; Ánh Sáng Phòng Làm Việc Tầng 3 (Nhìn Từ Vách Cửa Lùa Kính Mờ Phòng Thờ Vào Trong)</h3>
-          <div style="display:flex;gap:8px;">
-            <button class="btn" onclick="openLightbox('assets/tang3_phong_lam_viec_3d_render.jpg')">🔍 Phóng To Phối Cảnh 3D</button>
-            <a class="btn primary" href="assets/tang3_phong_lam_viec_3d_render.jpg" download="Phoi_Canh_3D_Phong_Lam_Viec_Tang3_PA_T3A.jpg">⬇️ Tải Ảnh 3D Thực Tế</a>
+          <h3>✨ Phối Cảnh 3D Thực Tế Phòng Làm Việc Đôi Vợ Chồng Tầng 3 — Gu 349 Studio Design × Laminate Travertine (0% Kính Ở Tủ • Hộp KT 980mm Bo Tròn Điêu Khắc)</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button class="btn active" onclick="document.getElementById('study3d-main-render').src='assets/wow_t3_double_study_349.jpg'">🌟 Bản Mới 349 × Travertine (0% Kính Tủ)</button>
+            <button class="btn" onclick="document.getElementById('study3d-main-render').src='assets/tang3_phong_lam_viec_3d_render.jpg'">📐 Bản Kỹ Thuật Đối Chiếu Cũ</button>
+            <button class="btn" onclick="openLightbox(document.getElementById('study3d-main-render').src)">🔍 Phóng To 4K</button>
+            <a class="btn primary" href="assets/wow_t3_double_study_349.jpg" download="Phoi_Canh_3D_Phong_Lam_Viec_Tang3_349_Travertine.jpg">⬇️ Tải Ảnh 3D Mới</a>
           </div>
         </div>
         <div class="blueprint-img-wrap" style="background:#0f172a;padding:10px;">
-          <img src="assets/tang3_phong_lam_viec_3d_render.jpg" alt="Phối cảnh 3D thực tế vật liệu Phòng Làm Việc Tầng 3" onclick="openLightbox(this.src)">
+          <img id="study3d-main-render" src="assets/wow_t3_double_study_349.jpg" alt="Phối cảnh 3D Phòng Làm Việc Đôi Tầng 3 Gu 349Design × Laminate Travertine 0% kính ở tủ" onclick="openLightbox(this.src)">
         </div>
       </div>
     </div>
@@ -3553,5 +3555,6 @@
       animate3D();
     })();
   </script>
+  <script src="assets/qvilla-nav.js" defer></script>
 </body>
 </html>

@@ -607,58 +607,58 @@
       </p>
 
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 16px;margin-bottom:14px;border-radius:12px;background:rgba(15,23,42,0.88);border:1px solid rgba(245,158,11,0.45);">
-        <span style="font-size:0.82rem;font-weight:800;color:#fde68a;">🎨 ĐỔI TONE VẬT LIỆU PHÒNG MASTER (KHÓA HÌNH HỌC PIXEL 1:1):</span>
+        <span style="font-size:0.82rem;font-weight:800;color:#fde68a;">🎨 ĐỔI TONE VẬT LIỆU PHÒNG MASTER (ĐÃ ĐỒNG BỘ GU 349 × VÂN GỖ &amp; VÒNG XUYÊN SÁNG MỚI CHỐT):</span>
         <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <button type="button" class="tab-btn active" id="tone-master-studio349" onclick="setMasterTone('studio349')" style="padding:7px 13px;font-size:0.8rem;border-color:#f59e0b;">🌟 Gu 349 × 100% Vân Gỗ &amp; Vòng Xuyên Sáng (Mới Chốt)</button>
           <button type="button" class="tab-btn" id="tone-master-warmbeige" onclick="setMasterTone('warmbeige')" style="padding:7px 13px;font-size:0.8rem;">☕ Tone 1: Warm Beige</button>
           <button type="button" class="tab-btn" id="tone-master-italian" onclick="setMasterTone('italian')" style="padding:7px 13px;font-size:0.8rem;">👑 Tone 2: Italian Quiet Luxury</button>
-          <button type="button" class="tab-btn active" id="tone-master-smokedwood" onclick="setMasterTone('smokedwood')" style="padding:7px 13px;font-size:0.8rem;">💎 Tone 3: Boutique Smoked Wood (0% Kính Tủ)</button>
+          <button type="button" class="tab-btn" id="tone-master-smokedwood" onclick="setMasterTone('smokedwood')" style="padding:7px 13px;font-size:0.8rem;">💎 Tone 3: Smoked Wood</button>
         </div>
       </div>
 
       <div class="tab-bar">
-        <button class="tab-btn active" onclick="switch3D('pa2_bed')" id="tab-pa2_bed">
-          🖼️ Góc 1 (T2-V01): Khu Ngủ Nhìn Nam — Vách Tranh Trục B &amp; 2 Lối Đi Mở 850mm
-        </button>
-        <button class="tab-btn" onclick="switch3D('bedroom')" id="tab-bedroom">
-          🌿 Góc 2 (T2-V02 • Ngược 180°): Đầu Giường Bắc 3,91m + Kính 750mm &amp; Tủ Hốc Đông #3
+        <button class="tab-btn active" onclick="switch3D('bedroom')" id="tab-bedroom">
+          👑 Góc 1 (T2-V02 • Mới Chốt): Giường Cánh Chim 100% Vân Gỗ (0% Da) + Ô Kính 750mm Tường Đông &amp; Tủ #3
         </button>
         <button class="tab-btn" onclick="switch3D('pa2_walkin')" id="tab-pa2_walkin">
-          👗 Góc 3 (T2-V03): Khu Thay Đồ Nhìn Bắc — Đảo Giữa, Tủ Đảo 4 Khoang, Bàn O2 &amp; Cửa O1
+          🌕 Góc 2 (T2-V03 • Mới Chốt): Vòng Chiếu Xuyên Sáng Ø1,2m + Đảo Mặt Kính Vân Gỗ Nhìn Ra Khu Ngủ
         </button>
         <button class="tab-btn" onclick="switch3D('wic_south')" id="tab-wic_south">
-          🪞 Góc 4 (T2-V04 • Ngược 180°): Khu Thay Đồ Nhìn Nam — Cửa O1, Gương Soi, Tủ #1–#2 &amp; WC-02
+          🪞 Góc 3 (T2-V04 • Ngược 180°): 6 Ngăn Kéo 100% Vân Gỗ + Vòng Xuyên Sáng Ø1,2m Nhìn Về Tủ #1–#2 &amp; WC-02
+        </button>
+        <button class="tab-btn" onclick="switch3D('pa2_bed')" id="tab-pa2_bed">
+          🏛️ Góc 4 (T2-V01): Mặt Trước Vách Ngăn Trục B (PA C Bình Phong Treo / PA A / PA B)
         </button>
         <button class="tab-btn" onclick="switch3D('wc02')" id="tab-wc02">
           🚿 Góc 5: Bên Trong Phòng Tắm WC-02 (3 Khoang Chuẩn KT-5.03)
         </button>
         <button class="tab-btn" onclick="switch3D('pa2_ceiling')" id="tab-pa2_ceiling">
-          🌕 Góc 6: Phối Cảnh Chuyên Đề Trần – Đèn Mặt Trăng Ø1.200 &amp; 06 Bóng Lộ 18
+          💡 Góc 6: Phối Cảnh Chuyên Đề Trần – Đèn Mặt Trăng Ø1.200 &amp; 06 Bóng Lộ 18
         </button>
       </div>
 
       <div class="viewer-grid">
         <div class="img-frame">
-          <img id="main-3d-img" src="assets/t2_v01_master_sleep_south_smokedwood.jpg" alt="Phối cảnh 3D chuẩn xưởng 1:1 Phòng Master Tầng 2" onclick="openLightbox(this.src)" />
+          <img id="main-3d-img" src="assets/wow_master_bed_allwood.jpg?v=2" alt="Phối cảnh 3D Phòng Master Tầng 2 Gu 349Design × 100% Vân Gỗ & Travertine" onclick="openLightbox(this.src)" />
           <div class="img-caption">
-            <span id="main-3d-caption">[PA2 Đã Chốt] Góc 1 (Nhìn từ Giường Ngủ thẳng về phía trước): Vách Gỗ Xương Cá &amp; Đá Kem treo Tranh Nghệ Thuật che kín Khu Thay Đồ • Hai bên Trái &amp; Phải là 2 lối đi mở 850mm</span>
+            <span id="main-3d-caption">[🌟 Gu 349 × 100% Vân Gỗ] T2-V02: Giường &amp; Đầu giường cánh chim 100% vân gỗ ghép đối xứng (0% bọc da) + Đúng vách kính cố định 750mm trên Tường Đông bên phải (KT-2.08) &amp; Tủ #3 (0% kính)</span>
             <span>🔍 Bấm vào ảnh để phóng to</span>
           </div>
         </div>
 
         <div class="info-panel" id="main-3d-info">
-          <h3>Vì Sao Phương Án 2 (Vách Tủ Đảo 2 Mặt Tại Trục B) Tối Ưu Cả Thẩm Mỹ Lẫn Công Năng?</h3>
+          <h3>T2-V02 • Giường Cánh Chim 100% Vân Gỗ Đẹp &amp; Chuẩn Hóa Ô Kính 750mm Tường Đông (KT-2.08)</h3>
           <ul class="check-list">
             <li>
-              <strong>1. Che kín 100% tầm nhìn thẳng từ Giường Ngủ (Không cần dùng vách kính):</strong>
-              Khi nằm trên giường nhìn thẳng về phía trước, toàn bộ Khu Thay Đồ, Bàn Đảo và Cửa <code>WC-02</code> được che kín bởi <strong>Vách Gỗ Sồi Xương Cá bo cong 2 cạnh viền đá Travertine kem có khe LED hắt dọc <code>3000K</code></strong>, chính giữa treo <strong>Tranh Nghệ Thuật Khổ Lớn (<code>1.200 × 900 mm</code>) + kệ console treo mỏng</strong>.
+              <strong>1. Khoe trọn mặt vân gỗ ghép đối xứng (<code>0% bọc da</code> — Tiết kiệm chi phí &amp; bền vĩnh cửu):</strong>
+              Toàn bộ vách đầu giường uốn cánh chim, thành giường bay <code>R60</code> và ghế băng đuôi giường dùng <strong>100% vân gỗ Nu/Óc chó (<code>Karma Nuka + Karma Grain</code>) điểm chỉ đồng mảnh</strong> kết hợp 2 táp đá <code>Travertine</code>.
             </li>
             <li>
-              <strong>2. Hai bên Trái &amp; Phải đi lại mở thông hoàn toàn (<code>850 mm</code> mỗi bên):</strong>
-              Chiều rộng lòng phòng tại Trục B là <code>3.440 mm</code> = <strong><code>850 mm</code> (Lối đi mở bên Trái) + <code>1.740 mm</code> (Vách Tủ Đảo Giữa) + <code>850 mm</code> (Lối đi mở bên Phải)</strong>. Không vướng cánh cửa, không ray sàn, thông gió điều hòa 100%.
+              <strong>2. Chuẩn 100% vị trí ô cửa theo <code>KT-2.08</code>:</strong>
+              Bức tường Bắc đầu giường xây đặc liền mạch tới kịch góc phải; <strong>vách kính cố định <code>O2 (750mm)</code> nằm vuông góc trên Tường Đông bên tay phải</strong> (cùng mặt phẳng lưng <code>Tủ áo #3 sâu 600mm</code>, hắt nắng chéo vào ngách)!
             </li>
             <li>
-              <strong>3. Đã hiệu chỉnh chuẩn Hộp Trần Khu Ngủ (<code>2.600 × 2.150 mm</code>) &amp; 02 Đèn Rọi Tranh (<code>Lộ 15</code>):</strong>
-              Hộp trần giật cấp Khu Ngủ được thu về <code>2.150 mm</code> để chừa đúng <strong>dải trần phẳng rộng <code>400 mm</code> trước mặt Vách Tranh</strong>, tại đó khoét <strong>02 bóng Spotlight <code>Lộ 15</code> (cách vách <code>300 mm</code>, bẻ góc <code>18°</code>)</strong> chiếu sáng bức tranh.
+              <strong>3. Đối chiếu đủ các phương án vách ngăn tại <a href="mau-modern-luxury-349.html#sec-master-wow" style="color:#fde68a;">Tổng Duyệt 349 × Travertine</a>.</strong>
             </li>
           </ul>
         </div>
@@ -953,65 +953,70 @@
     </div>
   </div>
 
+  <script src="assets/qvilla-nav.js" defer></script>
   <script>
-    let currentMasterTone = "smokedwood";
-    let currentMasterView = "pa2_bed";
+    let currentMasterTone = "studio349";
+    let currentMasterView = "bedroom";
 
     const VIEWS = {
       pa2_bed: {
         imgs: {
+          studio349: "assets/master_vach_optC.jpg",
           warmbeige: "assets/t2_v01_master_sleep_south_warmbeige.jpg",
           italian: "assets/t2_v01_master_sleep_south_italian.jpg",
           smokedwood: "assets/t2_v01_master_sleep_south_smokedwood.jpg"
         },
-        caption: "T2-V01 (Nhìn hướng Nam từ Giường Bắc): Vách Đảo Trục B (1.740×450) ốp phẳng vân Travertine treo Tranh che kín WC-02 • Trái Tủ #3 • Phải Logia 01 • 2 lối đi mở 850mm",
-        title: "T2-V01 • Khu Ngủ Nhìn Nam: Vách Tủ Đảo 2 Mặt Trục B & 2 Lối Đi Mở 850mm (Chuẩn BV-T2.02)",
+        caption: "T2-V01 (Nhìn hướng Nam từ Giường Bắc): Vách Bình Phong Đá Travertine Treo Lơ Lửng 349Design (0% kính) che kín WC-02 • Hai bên đi lại mở 850mm",
+        title: "T2-V01 • Mặt Trước Vách Ngăn Trục B Nhìn Từ Giường Ngủ (PA C / PA B / PA A)",
         items: [
-          "<strong>1. Che kín 100% tầm nhìn thẳng từ Giường Ngủ (0% Lam dọc • 0% Xương cá bám bụi):</strong> Toàn bộ Khu Thay Đồ, Bàn Đảo và Cửa <code>WC-02</code> được che kín bởi khối Vách Đảo uốn bo mềm 2 đầu <code>R120</code> ốp phẳng <code>Laminate vân đá Travertine</code> có khe LED hắt dọc <code>3000K</code> + Tranh nghệ thuật <code>1.200×900mm</code>.",
+          "<strong>1. Ngôn ngữ điêu khắc 349 Studio Design (<code>0% cánh kính</code>):</strong> Vách bình phong đá <code>Travertine</code> bo tròn kết hợp gỗ Óc chó treo lơ lửng có khe sáng chảy qua đỉnh trần và bệ sàn, che kín 100% tầm nhìn vào <code>WC-02</code>.",
           "<strong>2. Hai bên Trái &amp; Phải đi lại mở thông hoàn toàn (<code>850 + 1.740 + 850 = 3.440 mm</code>):</strong> Không vướng cánh cửa, không ray sàn, thông gió điều hòa 100%.",
-          "<strong>3. Đối chiếu <code>💎 Tone 3 (0% Kính Tủ)</code>:</strong> Toàn bộ cánh Tủ #3 bên trái và cả hệ tủ phía sau qua 2 lối đi đều đóng phẳng bằng <strong>Gỗ Nâu Đen Khói <code>LK 4512 A</code> đặc khít</strong>, không lộ quần áo!"
+          "<strong>3. Xem thêm 2 biến thể mặt trước:</strong> <button type='button' class='lb-btn' onclick=\"openLightbox('assets/master_vach_optA.jpg')\">⭐ Xem PA A (Đảo Lửng 1,35m)</button> <button type='button' class='lb-btn' onclick=\"openLightbox('assets/master_vach_optB.jpg')\">✨ Xem PA B (Cổng Vòm Kính Sọc)</button>"
         ]
       },
       bedroom: {
         imgs: {
+          studio349: "assets/wow_master_bed_allwood.jpg?v=2",
           warmbeige: "assets/t2_v02_master_sleep_north_warmbeige.jpg",
           italian: "assets/t2_v02_master_sleep_north_italian.jpg",
           smokedwood: "assets/t2_v02_master_sleep_north_smokedwood.jpg"
         },
-        caption: "T2-V02 (Góc ngược 180° nhìn hướng Bắc): Vách đầu giường Bắc 3.910mm + Giường King bệ gỗ R60 + Logia 01 bên trái + Kính 750mm & Tủ #3 (2.010mm) bên phải",
-        title: "T2-V02 • Khu Ngủ Góc Ngược 180°: Đầu Giường Bắc 3,91m & Hệ Tủ Âm Hốc Đông #3 (Chuẩn BV-T2.01)",
+        caption: "T2-V02: Giường & Đầu giường cánh chim 100% vân gỗ ghép đối xứng (0% bọc da) + Vách kính cố định 750mm nằm đúng trên Tường Đông bên phải (KT-2.08) & Tủ #3 (0% kính)",
+        title: "T2-V02 • Giường Cánh Chim 100% Vân Gỗ Đẹp & Chuẩn Hóa Ô Kính 750mm Tường Đông (KT-2.08)",
         items: [
-          "<strong>1. Đảo la bàn 180° chuẩn xác tuyệt đối:</strong> Bên trái là cửa lùa <code>Logia 01 (2.560mm)</code>; bên phải là hốc tường Đông đua <code>1.070mm</code> gồm ô kính cố định <code>750×2.400mm</code> nhìn ra cây xanh Sảnh T2 và <strong>Hệ Tủ Áo #3 (<code>2.010×600×2.650mm</code>)</strong>.",
-          "<strong>2. Giường King <code>2.000×2.200mm</code> bệ gỗ <code>Plywood 18mm</code> bo tròn <code>R60</code> (0% nỉ bọc giường!):</strong> Kèm đôn đuôi giường bọc da bò trơn và 2 táp treo khớp đúng 2 cụm <code>S1 +700mm</code> cách nhau <code>2.140mm</code>.",
-          "<strong>3. Mở <a href='ho-so-xuong-noi-that.html#bv-t2-01' style='color:#6ee7b7;'>Bản vẽ chia khoang BV-T2.01</a></strong> để xem chi tiết khoét đèn <code>Lộ 15</code> cách tường gạch <code>780mm</code> và ổ <code>S1 +1.200mm</code> sau lưng Tủ #3."
+          "<strong>1. Chuyển toàn bộ sang <code>100% Vân Gỗ Đẹp (0% Bọc Da)</code>:</strong> Vách đầu giường uốn cánh chim, thành giường bay <code>R60</code> &amp; ghế băng đuôi giường ghép vân gỗ Nu/Óc chó đối xứng (<code>Karma Nuka + Karma Grain</code>) điểm chỉ đồng mảnh, tối ưu chi phí hơn hẳn bọc da uốn cong.",
+          "<strong>2. Chuẩn 100% kiến trúc <code>KT-2.08</code>:</strong> Toàn bộ bức tường Bắc đầu giường xây đặc liền mạch tới kịch góc phải; <strong>vách kính cố định <code>O2 (750mm)</code> nằm vuông góc trên Tường Đông bên tay phải</strong> (cùng mặt phẳng lưng <code>Tủ áo #3 sâu 600mm</code>)!",
+          "<strong>3. Hệ <code>Tủ Áo #3 (2.010×600mm, 0% cánh kính)</code>:</strong> Bo tròn khung gỗ Óc chó kết hợp cánh phẳng Kem Cashmere và 1 hốc đá <code>Travertine</code> trưng bày bình điêu khắc."
         ]
       },
       pa2_walkin: {
         imgs: {
+          studio349: "assets/wow_master_wic_moon_north.jpg",
           warmbeige: "assets/t2_v03_master_wic_north_warmbeige.jpg",
           italian: "assets/t2_v03_master_wic_north_italian.jpg",
           smokedwood: "assets/t2_v03_master_wic_north_smokedwood.jpg"
         },
-        caption: "T2-V03 (Khu Thay Đồ nhìn hướng Bắc): Bàn Đảo trung tâm + Mặt sau Vách Trục B làm Tủ 4 khoang (1.740×450) + Bàn O2 trái + Cửa O1, Robot & Gương phải",
-        title: "T2-V03 • Khu Thay Đồ Nhìn Bắc: Mặt Sau Tủ Đảo 4 Khoang & Bàn Đảo Trung Tâm (Chuẩn BV-T2.02)",
+        caption: "T2-V03 (Khu Thay Đồ nhìn Bắc): Vòng chiếu xuyên sáng Ø1.200mm thẳng dọi tâm Bàn Đảo Mặt Kính + Thân đảo 100% vân gỗ Óc chó (0% bọc da), nhìn xuyên 2 lối đi 850mm sang Khu Ngủ",
+        title: "T2-V03 • Khu Thay Đồ Nhìn Bắc: Vòng Chiếu Xuyên Sáng Ø1,2m Thẳng Tâm Bàn Đảo Mặt Kính Vân Gỗ",
         items: [
-          "<strong>1. Tăng thêm <code>+1,74m</code> dài Tủ Áo &amp; Túi Xách nhờ mặt sau Vách Trục B:</strong> Chia 4 khoang sâu <code>450mm</code> (<code>Tone 1 &amp; 2</code> có 2 cánh kính LED giữa; <strong><code>Tone 3</code> đóng 4 cánh gỗ Nâu Đen đặc khít 0% kính</strong>).",
-          "<strong>2. Bàn Đảo Trung Tâm (<code>1.150×550×850mm</code>):</strong> Ở <code>Tone 3</code>, mặt bàn đảo thay kính trong suốt bằng <strong>mặt phẳng vân đá Silver Travertine <code>LK 2148 ST</code> đặc khít (0% kính, giảm <code>-1,5tr</code>)</strong>!",
-          "<strong>3. Thấy rõ bên phải là Cửa chính <code>O1</code>, Trạm sạc Robot hút bụi <code>S1 +250mm</code> và Gương soi toàn thân <code>960×220mm</code>.</strong>"
+          "<strong>1. Đồng trục tâm 100% theo <code>KT-4.02</code>:</strong> Vòng chiếu xuyên sáng Barrisol <code>Ø1.200mm</code> âm phẳng trên trần (kèm <code>06</code> bóng <code>Lộ 18</code>, không vướng đèn thả) rọi thẳng đứng xuống mặt kính cường lực siêu trong <code>10mm</code> soi khay đồng hồ, nhẫn &amp; kính mắt.",
+          "<strong>2. Thân Bàn Đảo <code>100% Vân Gỗ Đẹp (0% Bọc Da)</code>:</strong> Ghép vân gỗ Óc chó ngang liền mạch bo tròn <code>R80</code> trên chân đế đá <code>Travertine</code> hắt LED gầm.",
+          "<strong>3. Mặt sau Vách Ngăn Trục B (<code>0% cánh kính tủ đứng</code>):</strong> 4 cánh phẳng Kem Cashmere + 1 hốc đá <code>Travertine</code> mở hắt sáng trưng bày túi xách &amp; nước hoa."
         ]
       },
       wic_south: {
         imgs: {
+          studio349: "assets/wow_master_wic_moon_south.jpg",
           warmbeige: "assets/t2_v04_master_wic_south_warmbeige.jpg",
           italian: "assets/t2_v04_master_wic_south_italian.jpg",
           smokedwood: "assets/t2_v04_master_wic_south_smokedwood.jpg"
         },
-        caption: "T2-V04 (Góc ngược 180° nhìn hướng Nam): Trái Cửa O1 & Gương soi 960mm • Chính diện Tủ #2 + Cửa sọc WC-02 + Tủ #1 • Phải Bàn phấn treo cửa sổ O2",
-        title: "T2-V04 • Khu Thay Đồ Góc Ngược 180°: Chuẩn Hóa Tường Đông O1 & Cặp Tủ Chống Ẩm #1–#2 (BV-T2.03/04)",
+        caption: "T2-V04 (Góc ngược 180° nhìn Nam): 6 ngăn kéo 100% vân gỗ Óc chó đối xứng dưới Vòng xuyên sáng Ø1,2m • Trái Cửa O1 & Gương vòm • Phải Cửa sổ O2 & Bàn phấn • Chính diện Tủ #1–#2 & WC-02",
+        title: "T2-V04 • Góc Ngược 180°: 6 Ngăn Kéo 100% Vân Gỗ Đẹp & Cặp Tủ Chống Ẩm #1–#2 Ôm Cửa WC-02",
         items: [
-          "<strong>1. Chuẩn 100% Tường Đông bên trái theo <code>KT-2.08</code>:</strong> Cửa gỗ Lim <code>O1 (900×2.400mm)</code> + công tắc Aqara + hệ bọc cột <code>960×220mm</code> gắn Gương soi toàn thân hắt LED (không làm tủ sâu 600 gây cấn cửa!).",
-          "<strong>2. Cặp Tủ Áo #1 &amp; #2 (<code>1.180×600×2.650mm × 2</code>) giáp tường ướt <code>WC-02</code>:</strong> Bắt buộc đóng <strong>hậu <code>Plywood 9mm</code> + đáy <code>Plywood 18mm</code> chịu nước</strong> (<code>Tone 3</code> cánh gỗ đặc giảm <code>-5,5tr</code>!).",
-          "<strong>3. Bên phải (Tường Tây):</strong> Bàn treo cửa sổ <code>O2 (1.330×500mm)</code> cạnh gỗ phẳng mịn bo <code>R60</code> (<code>0%</code> sọc lam!) + Gương tròn LED &amp; Đôn da trơn."
+          "<strong>1. Cân đối chi phí &amp; sang trọng vượt thời gian:</strong> Toàn bộ 6 ngăn kéo mặt trước bàn đảo mặt kính dùng <strong>100% vân gỗ Óc chó đối xứng (0% bọc da)</strong>.",
+          "<strong>2. Cặp Tủ Áo #1 &amp; #2 (<code>1.180×600mm × 2</code>, <code>0% kính</code>):</strong> Đóng hậu <code>Plywood 9mm</code> + đáy <code>Plywood 18mm</code> chịu nước giáp tường ướt <code>WC-02</code>, bo tròn cột đá <code>Travertine</code> hắt sáng dọc hai bên cửa kính sọc đồng.",
+          "<strong>3. Trái là Cửa gỗ <code>O1</code> &amp; Gương vòm hắt sáng • Phải là Cửa sổ <code>O2</code> rèm gỗ &amp; Bàn phấn bo cong chữ S.</strong>"
         ]
       },
       wc02: {
@@ -1038,7 +1043,7 @@
 
     function setMasterTone(tone) {
       currentMasterTone = tone;
-      ["warmbeige", "italian", "smokedwood"].forEach(t => {
+      ["studio349", "warmbeige", "italian", "smokedwood"].forEach(t => {
         const b = document.getElementById("tone-master-" + t);
         if (b) b.classList.toggle("active", t === tone);
       });
@@ -1049,10 +1054,12 @@
       const data = VIEWS[key];
       if (!data) return;
       currentMasterView = key;
-      const toneLabel = currentMasterTone === "warmbeige"
-        ? "[☕ Tone 1: Warm Beige] "
-        : (currentMasterTone === "italian" ? "[👑 Tone 2: Italian Luxury] " : "[💎 Tone 3: Smoked Wood • 0% Kính Tủ] ");
-      const resolvedImg = data.imgs ? data.imgs[currentMasterTone] : data.img;
+      const toneLabel = currentMasterTone === "studio349"
+        ? "[🌟 Gu 349 × 100% Vân Gỗ] "
+        : (currentMasterTone === "warmbeige"
+          ? "[☕ Tone 1: Warm Beige] "
+          : (currentMasterTone === "italian" ? "[👑 Tone 2: Italian Luxury] " : "[💎 Tone 3: Smoked Wood • 0% Kính Tủ] "));
+      const resolvedImg = data.imgs ? (data.imgs[currentMasterTone] || data.imgs.studio349) : data.img;
       document.getElementById("main-3d-img").src = resolvedImg;
       document.getElementById("main-3d-caption").textContent = (data.imgs ? toneLabel : "") + data.caption;
       const infoEl = document.getElementById("main-3d-info");

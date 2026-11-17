@@ -1111,23 +1111,27 @@
 
       <div class="header-row-controls">
         <div class="floor-pills" role="group" aria-label="Chọn tầng hồ sơ kỹ thuật xưởng">
-          <button type="button" class="floor-pill" id="btn-floor-f1" aria-expanded="false" aria-controls="chapter-floor-1" onclick="switchFloor('f1')">
-            ✅ TẦNG 1: HOÀN CHỈNH (7 Góc • 5 BV 2D)
+          <button type="button" class="floor-pill active-floor" id="btn-floor-f1" aria-expanded="true" aria-controls="chapter-floor-1" onclick="switchFloor('f1')">
+            1️⃣ TẦNG 1: HOÀN CHỈNH (7 Góc • 5 BV 2D)
           </button>
-          <button type="button" class="floor-pill active-floor" id="btn-floor-f2" aria-expanded="true" aria-controls="chapter-floor-2" onclick="switchFloor('f2')">
-            ✅ TẦNG 2: HOÀN CHỈNH (8 Góc • 6 BV 2D)
+          <button type="button" class="floor-pill" id="btn-floor-f2" aria-expanded="false" aria-controls="chapter-floor-2" onclick="switchFloor('f2')">
+            2️⃣ TẦNG 2: HOÀN CHỈNH (8 Góc • 6 BV 2D)
           </button>
           <button type="button" class="floor-pill" id="btn-floor-all" aria-expanded="false" onclick="switchFloor('all')">
-            📚 XEM GỘP T1 + T2 (15 Góc • 11 BV)
+            📚 XEM LẦN LƯỢT T1 &rarr; T2 (15 Góc • 11 BV)
           </button>
           <button type="button" class="floor-pill queued-floor" onclick="openRoadmapModal('Tầng 3')">
-            ⏳ TẦNG 3: Tiếp Theo (P.Làm Việc • PN3 &amp; PN4)
+            3️⃣ TẦNG 3: Tiếp Theo (P.Làm Việc • PN3 &amp; PN4)
           </button>
         </div>
 
-        <div class="tone-bar" role="group" aria-label="Chuyển đổi song song 3 tone màu vật liệu">
+        <div class="tone-bar" role="group" aria-label="Chuyển đổi song song các tone màu vật liệu">
           <span class="tone-bar-label">🎨 Đổi Tone Vật Liệu:</span>
-          <button type="button" class="tone-btn" id="btn-mode-warmbeige" aria-pressed="true" onclick="setPaletteMode('warmbeige')">
+          <button type="button" class="tone-btn" id="btn-mode-studio349" aria-pressed="true" onclick="setPaletteMode('studio349')">
+            <span class="swatch-dot" style="background:linear-gradient(135deg,#e2d7c5,#5a3b24);"></span>
+            🌟 Gu 349 × Vân Gỗ &amp; Travertine (Mới Chốt)
+          </button>
+          <button type="button" class="tone-btn" id="btn-mode-warmbeige" aria-pressed="false" onclick="setPaletteMode('warmbeige')">
             <span class="swatch-dot" style="background:linear-gradient(135deg,#d7cab8,#5f402b);"></span>
             ☕ Tone 1: Warm Beige
           </button>
@@ -1137,10 +1141,10 @@
           </button>
           <button type="button" class="tone-btn" id="btn-mode-smokedwood" aria-pressed="false" onclick="setPaletteMode('smokedwood')">
             <span class="swatch-dot" style="background:linear-gradient(135deg,#433227,#b55e2c);"></span>
-            💎 Tone 3: Boutique Smoked Wood (0% Kính Tủ)
+            💎 Tone 3: Smoked Wood (0% Kính Tủ)
           </button>
           <button type="button" class="tone-btn" id="btn-mode-split" aria-pressed="false" onclick="setPaletteMode('split')">
-            ⚖️ Đọ Cả 3 Tone (1 • 2 • 3)
+            ⚖️ Đọ 3 Tone Cũ
           </button>
         </div>
       </div>
@@ -1148,7 +1152,7 @@
   </header>
 
   <main class="container">
-    <div id="chapter-floor-1" class="floor-chapter" hidden="until-found">
+    <div id="chapter-floor-1" class="floor-chapter">
     <!-- HERO -->
     <section class="hero">
       <div class="hero-card">
@@ -2137,7 +2141,7 @@
     <!-- ========================================================================================= -->
     <!-- CHAPTER FLOOR 2: MASTER OPEN-SUITE PA2 • MEZZANINE LOUNGE • BEDROOM 1 • BEDROOM 2         -->
     <!-- ========================================================================================= -->
-    <div id="chapter-floor-2" class="floor-chapter">
+    <div id="chapter-floor-2" class="floor-chapter" hidden="until-found">
       <section class="hero" id="hero-f2">
         <div class="hero-card" style="border-color: rgba(56, 189, 248, 0.52);">
           <span class="eyebrow" style="background: rgba(56, 189, 248, 0.16); border-color: rgba(56, 189, 248, 0.48); color: #bae6fd;">
@@ -3322,9 +3326,30 @@
     ];
 
     let currentViewKey = "v01";
-    let currentPaletteMode = "smokedwood"; // Default to newly requested Tone 3 so user sees it immediately!
+    let currentPaletteMode = "studio349";
+
+    const STUDIO349_MAP = {
+      v01: "assets/wow_t1_foyer_d1.jpg",
+      v02: "assets/wow_t1_v02_living_north.jpg",
+      v03: "assets/wow_t1_v03_living_reverse.jpg",
+      v04: "assets/wow_t1_v04_dining_kitchen.jpg",
+      v05: "assets/wow_t1_v05_kitchen_reverse.jpg",
+      v06: "assets/wow_bedroom_secondary_349.jpg",
+      v07: "assets/t1_v07_grandparents_north_warmbeige.jpg",
+      t2v01: "assets/master_vach_optC.jpg",
+      t2v02: "assets/wow_master_bed_allwood.jpg?v=2",
+      t2v03: "assets/wow_master_wic_moon_north.jpg",
+      t2v04: "assets/wow_master_wic_moon_south.jpg",
+      t2v05: "assets/t2_v05_lounge_hall_warmbeige.jpg",
+      t2v06: "assets/wow_bedroom_secondary_349.jpg",
+      t2v07: "assets/t2_v07_pn1_south_warmbeige.jpg",
+      t2v08: "assets/wow_bedroom_secondary_349.jpg"
+    };
 
     function getToneMeta(mode) {
+      if (mode === "studio349") {
+        return { key: "img349", tag: "🌟 Gu 349 × Vân Gỗ & Travertine", full: "🌟 Gu 349 Studio Design × Vân Gỗ & Travertine (Mới Chốt)" };
+      }
       if (mode === "warmbeige") {
         return { key: "imgWarm", tag: "☕ Tone 1: Warm Beige", full: "☕ Tone 1 (Warm Beige & Cashmere-Latte)" };
       }
@@ -3332,6 +3357,12 @@
         return { key: "imgItal", tag: "👑 Tone 2: Italian Luxury", full: "👑 Tone 2 (Italian Modern Quiet Luxury)" };
       }
       return { key: "imgSmoked", tag: "💎 Tone 3: Smoked Wood (0% Kính Tủ)", full: "💎 Tone 3 (Boutique Smoked Wood • Cánh Gỗ Đặc 0% Kính Tủ)" };
+    }
+
+    function resolveViewSrc(v, vk, mode) {
+      if (mode === "studio349") return STUDIO349_MAP[vk] || v.imgWarm;
+      const meta = getToneMeta(mode);
+      return v[meta.key];
     }
 
     function renderStudio() {
@@ -3377,7 +3408,7 @@
         cardTer.hidden = true;
 
         const meta = getToneMeta(currentPaletteMode);
-        imgPri.src = v[meta.key];
+        imgPri.src = resolveViewSrc(v, currentViewKey, currentPaletteMode);
         imgPri.alt = `${v.title} — ${meta.full}`;
         capPri.textContent = `${meta.full} — ${v.code}: ${v.title}`;
       }
@@ -3438,7 +3469,7 @@
             `;
           } else {
             const meta = getToneMeta(currentPaletteMode);
-            const src = v[meta.key];
+            const src = resolveViewSrc(v, vk, currentPaletteMode);
             imgsHtml = `
               <div class="walk-imgs">
                 <div class="walk-thumb-wrap" onclick="openLightbox('${src}', '${meta.full} — ${v.code}: ${v.zone}')">
@@ -3651,8 +3682,8 @@
       }
     ];
 
-    let currentT2ViewKey = "t2v01";
-    let currentFloorMode = "f2"; // Default active floor = Tầng 2 as requested!
+    let currentT2ViewKey = "t2v02";
+    let currentFloorMode = "f1";
 
     function renderT2Studio() {
       const v = T2_VIEWS[currentT2ViewKey];
@@ -3698,7 +3729,7 @@
         cardTer.hidden = true;
 
         const meta = getToneMeta(currentPaletteMode);
-        imgPri.src = v[meta.key];
+        imgPri.src = resolveViewSrc(v, currentT2ViewKey, currentPaletteMode);
         imgPri.alt = `${v.title} — ${meta.full}`;
         capPri.textContent = `${meta.full} — ${v.code}: ${v.title}`;
       }
@@ -3758,7 +3789,7 @@
             `;
           } else {
             const meta = getToneMeta(currentPaletteMode);
-            const src = v[meta.key];
+            const src = resolveViewSrc(v, vk, currentPaletteMode);
             imgsHtml = `
               <div class="walk-imgs">
                 <div class="walk-thumb-wrap" onclick="openLightbox('${src}', '${meta.full} — ${v.code}: ${v.zone}')">
@@ -3849,7 +3880,7 @@
 
     function setPaletteMode(mode) {
       currentPaletteMode = mode;
-      ["warmbeige", "italian", "smokedwood", "split"].forEach(m => {
+      ["studio349", "warmbeige", "italian", "smokedwood", "split"].forEach(m => {
         const btn = document.getElementById("btn-mode-" + m);
         if (btn) btn.setAttribute("aria-pressed", m === mode ? "true" : "false");
       });
@@ -3956,18 +3987,15 @@
       });
     });
 
-    setPaletteMode("smokedwood");
+    setPaletteMode("studio349");
     if (window.location.hash) {
       syncFloorFromHash();
     } else if (!("onbeforematch" in HTMLElement.prototype)) {
-      // Mandatory Safari fallback for hidden="until-found" (modern-web-guidance: search-hidden-content):
-      // Expand hidden chapters by default on unsupported browsers so Find-in-Page & deep anchors remain 100% reachable,
-      // while keeping Chapter 2 (Tầng 2) first in view via scroll/order or letting the user toggle single-floor view.
       document.querySelectorAll('[hidden="until-found"]').forEach(el => el.removeAttribute("hidden"));
       document.getElementById("btn-floor-f1")?.setAttribute("aria-expanded", "true");
       document.getElementById("btn-floor-f2")?.setAttribute("aria-expanded", "true");
-      document.getElementById("hero-f2")?.scrollIntoView({ behavior: "instant" });
     }
   </script>
+  <script src="assets/qvilla-nav.js" defer></script>
 </body>
 </html>
