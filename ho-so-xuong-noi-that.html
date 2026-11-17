@@ -1129,7 +1129,11 @@
           <span class="tone-bar-label">🎨 Đổi Tone Vật Liệu:</span>
           <button type="button" class="tone-btn" id="btn-mode-studio349" aria-pressed="true" onclick="setPaletteMode('studio349')">
             <span class="swatch-dot" style="background:linear-gradient(135deg,#e2d7c5,#5a3b24);"></span>
-            🌟 Gu 349 × Vân Gỗ &amp; Travertine (Mới Chốt)
+            🪵 Gu 349 × Option A: 100% Vân Gỗ
+          </button>
+          <button type="button" class="tone-btn" id="btn-mode-studio349leather" aria-pressed="false" onclick="setPaletteMode('studio349leather')">
+            <span class="swatch-dot" style="background:linear-gradient(135deg,#f1ebe1,#b86935);"></span>
+            ✨ Gu 349 × Option B: Da Kem Đá Master
           </button>
           <button type="button" class="tone-btn" id="btn-mode-warmbeige" aria-pressed="false" onclick="setPaletteMode('warmbeige')">
             <span class="swatch-dot" style="background:linear-gradient(135deg,#d7cab8,#5f402b);"></span>
@@ -3538,9 +3542,17 @@
       t3v06: "assets/wow_t3_v06_skylight_hall.jpg"
     };
 
+    const STUDIO349_LEATHER_OVERRIDES = {
+      t2v01: "assets/master_vach_optC.jpg",
+      t2v02: "assets/wow_master_bed_cream_leather.jpg"
+    };
+
     function getToneMeta(mode) {
       if (mode === "studio349") {
-        return { key: "img349", tag: "🌟 Gu 349 × Vân Gỗ & Travertine", full: "🌟 Gu 349 Studio Design × Vân Gỗ & Travertine (Mới Chốt)" };
+        return { key: "img349", tag: "🪵 Gu 349 × Option A (100% Vân Gỗ)", full: "🪵 Gu 349 Studio Design × Option A: 100% Vân Gỗ & Travertine" };
+      }
+      if (mode === "studio349leather") {
+        return { key: "img349leather", tag: "✨ Gu 349 × Option B (Da Kem Đá Master)", full: "✨ Gu 349 Studio Design × Option B: Bọc Da Kem Đá Master (Chuẩn Kính KT-2.08)" };
       }
       if (mode === "warmbeige") {
         return { key: "imgWarm", tag: "☕ Tone 1: Warm Beige", full: "☕ Tone 1 (Warm Beige & Cashmere-Latte)" };
@@ -3552,6 +3564,9 @@
     }
 
     function resolveViewSrc(v, vk, mode) {
+      if (mode === "studio349leather") {
+        return STUDIO349_LEATHER_OVERRIDES[vk] || STUDIO349_MAP[vk] || v.imgWarm;
+      }
       if (mode === "studio349") return STUDIO349_MAP[vk] || v.imgWarm;
       const meta = getToneMeta(mode);
       return v[meta.key];
@@ -4336,13 +4351,13 @@
 
     function setPaletteMode(mode) {
       currentPaletteMode = mode;
-      ["studio349", "warmbeige", "italian", "smokedwood", "split"].forEach(m => {
+      ["studio349", "studio349leather", "warmbeige", "italian", "smokedwood", "split"].forEach(m => {
         const btn = document.getElementById("btn-mode-" + m);
         if (btn) btn.setAttribute("aria-pressed", m === mode ? "true" : "false");
       });
       const tfootT1 = document.getElementById("tfoot-t1-total");
       if (tfootT1) {
-        tfootT1.textContent = (mode === "smokedwood" || mode === "studio349") ? "198.200.000 ₫ (Đã trừ -4,5tr cánh kính)" : "202.700.000 ₫";
+        tfootT1.textContent = (mode === "smokedwood" || mode === "studio349" || mode === "studio349leather") ? "198.200.000 ₫ (Đã trừ -4,5tr cánh kính)" : "202.700.000 ₫";
       }
       const tfootT2 = document.getElementById("tfoot-t2-total");
       if (tfootT2) {
