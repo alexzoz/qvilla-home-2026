@@ -1091,10 +1091,10 @@
     <div class="container">
       <div class="header-row-top">
         <a href="index.html" class="brand" title="Quay về Trang Chủ &amp; Tổng Dự Toán Q Villa">
-          <span class="brand-badge">🔧 HỒ SƠ GIAO XƯỞNG • T1 &amp; T2</span>
+          <span class="brand-badge">🔧 HỒ SƠ GIAO XƯỞNG • T1 &rarr; T2 &rarr; T3</span>
           <div class="brand-title">
             <h1>Hồ Sơ Kỹ Thuật Đặt Đóng Nội Thất Xưởng — Đồng Bộ Đa Góc Nhìn 360° &amp; Bản Vẽ Chia Khoang 2D</h1>
-            <p>Đã hoàn chỉnh Tầng 1 &amp; Tầng 2 (15 Góc × 3 Tone = 45 Ảnh 1:1 + 11 Bản Vẽ 2D CĐ-03/CĐ-04) • 0% Lam dọc • 0% Vải nỉ xù</p>
+            <p>Hoàn chỉnh trọn bộ cả 3 Tầng T1 &rarr; T2 &rarr; T3 (22 Góc "WOW" Gu 349 × Vân Gỗ &amp; Travertine • 0% Bọc Da Giường/Đảo • 0% Kính Tủ Đứng)</p>
           </div>
         </a>
         <nav class="nav-links" aria-label="Điều hướng hồ sơ Q Villa">
@@ -1115,13 +1115,13 @@
             1️⃣ TẦNG 1: HOÀN CHỈNH (7 Góc • 5 BV 2D)
           </button>
           <button type="button" class="floor-pill" id="btn-floor-f2" aria-expanded="false" aria-controls="chapter-floor-2" onclick="switchFloor('f2')">
-            2️⃣ TẦNG 2: HOÀN CHỈNH (8 Góc • 6 BV 2D)
+            2️⃣ TẦNG 2: HOÀN CHỈNH (9 Góc • 6 BV 2D)
+          </button>
+          <button type="button" class="floor-pill" id="btn-floor-f3" aria-expanded="false" aria-controls="chapter-floor-3" onclick="switchFloor('f3')">
+            3️⃣ TẦNG 3: HOÀN CHỈNH (6 Góc • P.LV • PN3–4 &amp; Sảnh)
           </button>
           <button type="button" class="floor-pill" id="btn-floor-all" aria-expanded="false" onclick="switchFloor('all')">
-            📚 XEM LẦN LƯỢT T1 &rarr; T2 (15 Góc • 11 BV)
-          </button>
-          <button type="button" class="floor-pill queued-floor" onclick="openRoadmapModal('Tầng 3')">
-            3️⃣ TẦNG 3: Tiếp Theo (P.Làm Việc • PN3 &amp; PN4)
+            📚 XEM LẦN LƯỢT T1 &rarr; T2 &rarr; T3 (22 Góc)
           </button>
         </div>
 
@@ -2405,20 +2405,28 @@
                 <circle class="pin-circle" cx="876" cy="302" r="14" fill="#0284c7" stroke="#bae6fd" stroke-width="1.8" />
                 <text x="876" y="306" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">V08</text>
               </g>
+
+              <!-- T2-V09: PN2 Reverse 180 looking North at 2.900mm 3-Module Wall -->
+              <g class="cam-pin" id="pin-t2v09" onclick="selectT2View('t2v09')">
+                <polygon class="pin-cone" points="876,455 695,270 1055,270" fill="rgba(56,189,248,0.14)" stroke="#38bdf8" stroke-width="1.2" />
+                <circle class="pin-circle" cx="876" cy="455" r="14" fill="#0284c7" stroke="#bae6fd" stroke-width="1.8" />
+                <text x="876" y="459" fill="#fff" font-size="9" font-weight="900" text-anchor="middle">V09</text>
+              </g>
             </svg>
           </div>
         </div>
 
-        <!-- Single-Row Scrollable Tablist for Floor 2 (8 Camera Angles) -->
-        <div class="tabs-scroller" role="tablist" aria-label="Chọn 8 góc nhìn chuẩn hóa Tầng 2">
+        <!-- Single-Row Scrollable Tablist for Floor 2 (9 Camera Angles) -->
+        <div class="tabs-scroller" role="tablist" aria-label="Chọn 9 góc nhìn chuẩn hóa Tầng 2">
           <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v01" aria-selected="true" onclick="selectT2View('t2v01')">T2-V01 • Master Ngủ: Nhìn Nam (Vách Tranh &amp; 2 Lối 850)</button>
           <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v02" aria-selected="false" onclick="selectT2View('t2v02')">T2-V02 • Master Ngủ (Ngược 180°): Đầu Giường Bắc &amp; Tủ #3</button>
-          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v03" aria-selected="false" onclick="selectT2View('t2v03')">T2-V03 • Master Thay Đồ: Nhìn Bắc (Tủ Đảo 4 Khoang &amp; Cửa O1)</button>
-          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v04" aria-selected="false" onclick="selectT2View('t2v04')">T2-V04 • Master Thay Đồ (Ngược 180°): Tủ #1–#2 &amp; WC-02</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v03" aria-selected="false" onclick="selectT2View('t2v03')">T2-V03 • Master Thay Đồ: Nhìn Bắc (Vòng Sáng &amp; Đảo Kính)</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v04" aria-selected="false" onclick="selectT2View('t2v04')">T2-V04 • Master Thay Đồ (Ngược 180°): 6 Ngăn Gỗ &amp; WC-02</button>
           <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v05" aria-selected="false" onclick="selectT2View('t2v05')">T2-V05 • Sảnh Thư Giãn Thông Tầng &amp; Hành Lang T2</button>
-          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v06" aria-selected="false" onclick="selectT2View('t2v06')">T2-V06 • Phòng Ngủ 1: Nhìn Bắc (Giường &amp; Bàn 2,05m)</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v06" aria-selected="false" onclick="selectT2View('t2v06')">T2-V06 • Phòng Ngủ 1: Nhìn Bắc (Giường Gỗ &amp; Bàn 2,05m)</button>
           <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v07" aria-selected="false" onclick="selectT2View('t2v07')">T2-V07 • Phòng Ngủ 1 (Ngược 180°): Hệ Tủ + Tivi 3,55m</button>
-          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v08" aria-selected="false" onclick="selectT2View('t2v08')">T2-V08 • Phòng Ngủ 2: Nhìn Nam (Giường R60 &amp; Giếng Trời)</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v08" aria-selected="false" onclick="selectT2View('t2v08')">T2-V08 • Phòng Ngủ 2: Nhìn Nam (Giường Gỗ &amp; Giếng Trời)</button>
+          <button type="button" role="tab" class="cam-tab cam-tab-t2" id="tab-t2v09" aria-selected="false" onclick="selectT2View('t2v09')">T2-V09 • Phòng Ngủ 2 (Ngược 180°): Hệ 3 Module 2,9m</button>
         </div>
 
         <!-- Synchronized 3D Stage & Spec Panel for Floor 2 -->
@@ -3095,6 +3103,183 @@
       </section>
     </div>
 
+    <!-- ========================================================================= -->
+    <!-- CHAPTER 3: COMPLETE FLOOR 3 WORKSHOP DOSSIER (T3-V01 -> T3-V06)           -->
+    <!-- ========================================================================= -->
+    <div id="chapter-floor-3" class="floor-chapter" hidden="until-found">
+      <section class="hero" id="hero-f3">
+        <div class="hero-card">
+          <span class="eyebrow">📐 CHƯƠNG 3 HOÀN CHỈNH 100%: TOÀN BỘ TẦNG 3 (PHÒNG LÀM VIỆC ĐÔI • PHÒNG NGỦ 3 • PHÒNG NGỦ 4 &amp; SẢNH MÁI KÍNH)</span>
+          <h2>Hồ Sơ Chuẩn Hóa Giao Xưởng Nội Thất Tầng 3 — Đủ 06 Góc Nhìn Thuận ↔ Nghịch 360° Chuẩn CAD KT-2.04 &amp; KT-4.03</h2>
+          <p>
+            Hoàn tất mảnh ghép cuối cùng của Q Villa theo đúng ngôn ngữ <strong>Gu 349 Studio Design × Karma/KES Vân Gỗ Đẹp &amp; Đá Roman Travertine</strong>: <strong>Phòng Làm Việc Đôi Vợ Chồng <code>PA T3-A</code></strong> (đủ cả 2 chiều <code>T3-V01</code> Tủ sách + Cột Hộp KT <code>980mm</code> điêu khắc <code>0% lam sọc</code> &amp; <code>T3-V02</code> Vách cửa lùa 4 cánh kính sọc mờ không ray sàn ngăn Phòng Thờ), <strong>Phòng Ngủ 3 (2 chiều)</strong> &amp; <strong>Phòng Ngủ 4</strong> chuẩn trần phẳng cao <code>+3,13m</code> khung Ray nam châm đen <code>P-UT12</code>, cùng <strong>Sảnh Đỉnh Cầu Thang Dưới Mái Kính Giếng Trời</strong>. <em>(Riêng Phòng Thờ Gia Tiên quản lý độc lập tại <a href="phong-tho-tang3.html" style="color:var(--accent-light);font-weight:800;">🪷 phong-tho-tang3.html</a>).</em>
+          </p>
+
+          <div class="kpi-grid">
+            <div class="kpi-box">
+              <div class="kpi-label">1. Độ Phủ Góc Nhìn 360° Tầng 3</div>
+              <div class="kpi-val">06 Góc "WOW" (T3-V01 &rarr; V06)</div>
+              <div class="kpi-sub">Đủ 2 chiều P.Làm Việc Đôi • Đủ 2 chiều PN3 • PN4 đón nắng giếng trời • Sảnh đỉnh thang mái kính</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-label">2. Bản Vẽ M&amp;E &amp; Kết Cấu Tầng 3</div>
+              <div class="kpi-val">Chuẩn KT-2.04 • KT-4.03 • CĐ-05</div>
+              <div class="kpi-sub">Trần phẳng cao <code>+3,13m</code> khung Ray nam châm 48V • ĐH treo <code>12.000 BTU</code> trên Sofa • Vách lùa 4 cánh không ray sàn</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-label">3. Chuẩn Vật Liệu Tầng 3</div>
+              <div class="kpi-val">100% Vân Gỗ • 0% Da Giường • 0% Kính Tủ</div>
+              <div class="kpi-sub">Bàn đôi <code>3,5m</code> &amp; Bàn <code>PN3 2,05m</code> chập đôi <code>Plywood 36mm</code> • Cánh tủ <code>MDF 17mm</code> Kem Cashmere phẳng</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-label">4. Tổng Đặt Xưởng Tầng 3 (Không Gồm P.Thờ)</div>
+              <div class="kpi-val" id="kpi-t3-total-val">147,00 Tr (0% Kính Tủ)</div>
+              <div class="kpi-sub">P.Làm Việc Đôi (<code>65,0tr</code>) + PN3 Trục B–D (<code>46,5tr</code>) + PN4 Trục A–B (<code>35,5tr</code>)</div>
+            </div>
+          </div>
+
+          <div class="quick-jumps">
+            <a href="#sec-t3-studio">🎯 1. Studio 3D 06 Góc Tầng 3 (T3-V01 &rarr; V06)</a>
+            <a href="#sec-t3-walkthrough">🔄 2. Xem Đủ 4 Khu Tầng 3 Theo Cặp Góc Thuận ↔ Nghịch</a>
+            <a href="#sec-t3-boq-table">📋 3. Bảng Bóc Tách Đặt Xưởng Nội Thất Tầng 3</a>
+            <a href="phong-lam-viec-tang3.html">💻 4. Mở Bản Vẽ 2D Tương Tác Đèn/LAN/ĐH P.Làm Việc T3 &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="sec-t3-studio">
+        <h2 class="section-title">
+          🎯 1. Studio Đối Chiếu 3D Không Điểm Mù — Toàn Bộ 06 Góc Tầng 3 (T3-V01 &rarr; T3-V06)
+          <span class="badge-pill badge-emerald">Bấm chọn từng góc nhìn bên dưới hoặc đối chiếu trực tiếp Mặt bằng CAD KT-2.04</span>
+        </h2>
+        <p class="section-sub">
+          Mỗi góc nhìn Tầng 3 đều tuân thủ tuyệt đối bản vẽ công năng <code>KT-2.04</code>, trần đèn <code>KT-4.03</code> và lát sàn <code>KT-4.08</code>:
+          <button type="button" class="action-btn" style="padding:4px 10px;font-size:0.76rem;margin-left:6px;" onclick="openLightbox('assets/tang3_kt204_noi_that_dien_mang_rieng.png', 'Bản vẽ CAD 2D Mặt bằng bố trí Nội thất & Điện mạng Tầng 3 (KT-2.04 — PA T3-A)')">📐 Xem CAD 2D P.Làm Việc KT-2.04</button>
+          <button type="button" class="action-btn" style="padding:4px 10px;font-size:0.76rem;margin-left:4px;" onclick="openLightbox('assets/kt408_latsan_t3_zoom.png', 'Bản vẽ CAD 2D Mặt bằng tổng thể lát sàn & cửa Tầng 3 (KT-4.08)')">📐 Xem Mặt Bằng Tổng Thể Tầng 3 KT-4.08</button>
+        </p>
+
+        <div class="tabs-scroller" role="tablist" aria-label="Chọn 6 góc nhìn chuẩn hóa Tầng 3">
+          <button type="button" role="tab" class="cam-tab" id="tab-t3v01" aria-selected="true" onclick="selectT3View('t3v01')">T3-V01 • P.Làm Việc: Nhìn Nam (Tủ Sách • Hộp KT Điêu Khắc &amp; ĐH)</button>
+          <button type="button" role="tab" class="cam-tab" id="tab-t3v02" aria-selected="false" onclick="selectT3View('t3v02')">T3-V02 • P.Làm Việc (Ngược 180°): Vách Kính Sọc Ngăn P.Thờ</button>
+          <button type="button" role="tab" class="cam-tab" id="tab-t3v03" aria-selected="false" onclick="selectT3View('t3v03')">T3-V03 • Phòng Ngủ 3: Nhìn Bắc (Giường Gỗ &amp; Trần Ray Đen)</button>
+          <button type="button" role="tab" class="cam-tab" id="tab-t3v04" aria-selected="false" onclick="selectT3View('t3v04')">T3-V04 • Phòng Ngủ 3 (Ngược 180°): Hệ Tủ Cao 2,75m (0% Kính)</button>
+          <button type="button" role="tab" class="cam-tab" id="tab-t3v05" aria-selected="false" onclick="selectT3View('t3v05')">T3-V05 • Phòng Ngủ 4: Nhìn Nam (Đón Nắng Đỉnh Giếng Trời)</button>
+          <button type="button" role="tab" class="cam-tab" id="tab-t3v06" aria-selected="false" onclick="selectT3View('t3v06')">T3-V06 • Sảnh Đỉnh Thang Mái Kính &amp; Hành Lang Gallery T3</button>
+        </div>
+
+        <div class="studio-grid" id="t3-studio-tabpanel" role="tabpanel" aria-labelledby="tab-t3v01">
+          <div class="stage-imgs" id="t3-studio-stage-imgs">
+            <div class="img-card" id="t3-card-img-primary">
+              <img id="t3-studio-img-primary" src="assets/wow_t3_v01_study_south.jpg" alt="Phối cảnh chuẩn hóa 1:1 Tầng 3 Q Villa" width="1376" height="768" loading="lazy" onclick="openLightbox(this.src, document.getElementById('t3-studio-cap-primary').textContent)" />
+              <div class="img-bar">
+                <span id="t3-studio-cap-primary">Đang tải phối cảnh Tầng 3...</span>
+                <span>🔍 Click vào ảnh để phóng to toàn màn hình</span>
+              </div>
+            </div>
+
+            <div class="img-card" id="t3-card-img-secondary" hidden>
+              <img id="t3-studio-img-secondary" src="assets/v3_1to1_r7_office_italian.jpg" alt="Phối cảnh đối chiếu Italian Quiet Luxury Tầng 3" width="1376" height="768" loading="lazy" onclick="openLightbox(this.src, document.getElementById('t3-studio-cap-secondary').textContent)" />
+              <div class="img-bar">
+                <span id="t3-studio-cap-secondary">👑 Tone 2: Italian Modern Quiet Luxury</span>
+                <span>🔍 Click để phóng to</span>
+              </div>
+            </div>
+
+            <div class="img-card" id="t3-card-img-tertiary" hidden>
+              <img id="t3-studio-img-tertiary" src="assets/v3_1to1_r7_office_smokedwood.jpg" alt="Phối cảnh đối chiếu Smoked Wood Tầng 3" width="1376" height="768" loading="lazy" onclick="openLightbox(this.src, document.getElementById('t3-studio-cap-tertiary').textContent)" />
+              <div class="img-bar">
+                <span id="t3-studio-cap-tertiary">💎 Tone 3: Boutique Smoked Wood (0% Kính Tủ)</span>
+                <span>🔍 Click để phóng to</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="spec-panel" id="t3-studio-spec-panel"></div>
+        </div>
+      </section>
+
+      <section class="block heavy-deferred" id="sec-t3-walkthrough">
+        <h2 class="section-title">
+          🔄 2. Danh Bạ Đủ 04 Phân Khu Tầng 3 Theo Cặp Góc Thuận ↔ Nghịch (T3-V01 &rarr; T3-V06)
+        </h2>
+        <p class="section-sub">
+          Xem liền mạch từ Phòng Làm Việc Đôi Vợ Chồng sang Phòng Ngủ 3, Phòng Ngủ 4 và Sảnh Đỉnh Thang Mái Kính Giếng Trời:
+        </p>
+        <div id="t3-walkthrough-container"></div>
+      </section>
+
+      <section class="block heavy-deferred" id="sec-t3-boq-table">
+        <h2 class="section-title">
+          📋 3. Bảng Bóc Tách Đặt Hàng Xưởng Nội Thất Tầng 3 (05 Hạng Mục — Không Gồm Phòng Thờ Độc Lập)
+        </h2>
+        <div tabindex="0" role="region" aria-labelledby="t3-workshop-caption" class="table-wrapper">
+          <table class="workshop-table">
+            <caption id="t3-workshop-caption">
+              Danh mục đặt xưởng nội thất Tầng 3 Q Villa (Gu 349 × Karma/KES Vân Gỗ &amp; Travertine • 0% Bọc Da Giường • 0% Cánh Kính Tủ = 147,00 Tr ₫)
+            </caption>
+            <thead>
+              <tr>
+                <th>Hạng Mục Đặt Xưởng (Tầng 3)</th>
+                <th>Phân Khu / Vách</th>
+                <th>Kích Thước (D × R × C mm)</th>
+                <th>Kết Cấu Cốt Gỗ &amp; Quy Cách Gia Công</th>
+                <th>Tọa Độ Ổ Điện &amp; Hồ Sơ</th>
+                <th>Dự Toán Xưởng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">01. Hệ Bàn Làm Việc Đôi 3,5m + Tủ Máy In + 02 Ghế Xoay Gỗ Da Cognac</th>
+                <td>9A. P.Làm Việc Đôi<br>(Tường Tây 2 Cửa Sổ)</td>
+                <td>Bàn đôi: <code>3.200 × 600 × 750</code><br>Tủ in: <code>300 × 600</code></td>
+                <td>• Mặt bàn chập đôi <code>02 tấm Plywood 18mm = dày 36mm</code> bo tròn <code>R80</code> vượt nhịp kẹp Arm 2–4 màn hình không rung.<br>• Phủ vân gỗ Óc chó <code>Karma Grain</code>.</td>
+                <td>• 2 cụm ổ đôi + LAN Cat6 <code>E1, E2 (+650mm)</code> &amp; <code>E3</code> máy in.<br>• Xem <a href="phong-lam-viec-tang3.html" style="color:var(--sky-light);">KT-2.04</a></td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">18.500.000 ₫</td>
+              </tr>
+              <tr>
+                <th scope="row">02. Tủ Sách Hậu Đá Travertine 2,44m + Bọc Điêu Khắc Hộp KT 980mm</th>
+                <td>9A. P.Làm Việc Đôi<br>(Tường Nam)</td>
+                <td>Tủ sách: <code>2.440 × 500 × 2.750</code><br>Hộp KT: <code>980 × 500 × 2.750</code></td>
+                <td>• 100% đợt ngang chịu tải sách nặng dùng <code>Plywood 18mm</code>; hậu <code>Laminate Roman Travertine</code> hắt LED <code>2800K</code>; cánh dưới Kem Cashmere (<code>0% kính</code>).<br>• Hộp KT <code>980mm</code> uốn gỗ Óc chó <code>R120</code> lồng hốc tượng đá (<code>0% lam sọc</code>).</td>
+                <td>• Tuyến Spotlight <code>SP5–SP7</code> cách mặt tủ <code>350mm</code>.</td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">27.000.000 ₫</td>
+              </tr>
+              <tr>
+                <th scope="row">03. Vách Cửa Lùa 4 Cánh Kính Sọc Mờ Ngăn P.Thờ + Sofa Đọc Sách &amp; Bàn Đá</th>
+                <td>9A. P.Làm Việc Đôi<br>(Trục B &amp; Tường Đông)</td>
+                <td>Vách lùa: <code>2.400 × 2.750</code><br>Sofa: <code>1.570 × 640</code></td>
+                <td>• Hệ ray treo giảm chấn âm trần <strong>0% ray dưới sàn</strong> + kính cường lực sọc mờ an toàn.<br>• Sofa cong bọc da Microfiber Kem Latte đặt dưới ĐH treo <code>12.000 BTU</code>.</td>
+                <td>• Ổ <code>E4</code> cạnh Sofa; ống đồng ĐH đi âm vào Hộp KT <code>980mm</code>.</td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">19.500.000 ₫</td>
+              </tr>
+              <tr>
+                <th scope="row">04. Trọn Bộ Nội Thất Phòng Ngủ 3 (Trục B–D Tầng 3 • 0% Da • 0% Kính)</th>
+                <td>10. Phòng Ngủ 3<br>(4,95 × 3,30m)</td>
+                <td>Giường: <code>1.800 × 2.000</code><br>Bàn: <code>2.050</code> • Tủ: <code>3.550 × 2.750</code></td>
+                <td>• Giống quy cách <code>BV-T2.05 (PN1)</code>, nâng chiều cao hệ tủ lên <code>2.750mm</code> khớp trần phẳng khung Ray đen <code>P-UT12</code>; giường 100% vân gỗ + vòm gỗ <code>R150</code>.</td>
+                <td>• Tâm Hốc Tivi <code>55"</code> cách Đông <code>1.900mm</code> (<code>CĐ-05</code>).</td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">46.500.000 ₫</td>
+              </tr>
+              <tr>
+                <th scope="row">05. Trọn Bộ Nội Thất Phòng Ngủ 4 (Trục A–B Tầng 3 • 0% Da • 0% Kính)</th>
+                <td>11. Phòng Ngủ 4<br>(3,21 × 4,49m)</td>
+                <td>Giường: <code>1.800 × 2.000</code><br>Hệ Bắc 3 Module: <code>2.900 × 2.750</code></td>
+                <td>• Giống quy cách <code>BV-T2.06 (PN2)</code>, nâng chiều cao hệ tủ 3 Module lên <code>2.750mm</code> khớp trần phẳng <code>P-UT12</code>; đầu giường vòm tròn đá <code>Travertine</code>.</td>
+                <td>• Ổ Tivi cách Đông <code>1.550mm</code> &amp; ổ Bàn <code>250mm</code> (<code>CĐ-05</code>).</td>
+                <td style="font-weight:800;color:var(--emerald-light);white-space:nowrap;">35.500.000 ₫</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="5">TỔNG CỘNG ĐẶT XƯỞNG NỘI THẤT TẦNG 3 (P.LÀM VIỆC ĐÔI + PN3 + PN4 — CHƯA GỒM PHÒNG THỜ TRANG RIÊNG)</th>
+                <td style="white-space:nowrap;font-size:1.05rem;">147.000.000 ₫</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </section>
+    </div>
+
     <!-- SECTION 5: 8 MANDATORY WORKSHOP CONTRACT & QC RULES -->
     <section class="block heavy-deferred" id="sec-contract-rules">
       <h2 class="section-title">🛡️ 5. 08 Điều Khoản Kỹ Thuật Bắt Buộc Ghi Vào Hợp Đồng Với Xưởng Nội Thất</h2>
@@ -3334,16 +3519,23 @@
       v03: "assets/wow_t1_v03_living_reverse.jpg",
       v04: "assets/wow_t1_v04_dining_kitchen.jpg",
       v05: "assets/wow_t1_v05_kitchen_reverse.jpg",
-      v06: "assets/wow_bedroom_secondary_349.jpg",
-      v07: "assets/t1_v07_grandparents_north_warmbeige.jpg",
-      t2v01: "assets/master_vach_optC.jpg",
+      v06: "assets/wow_t1_v06_grandparents_south.jpg",
+      v07: "assets/wow_t1_v07_grandparents_north.jpg",
+      t2v01: "assets/wow_master_v01_south_allwood.jpg",
       t2v02: "assets/wow_master_bed_allwood.jpg?v=2",
       t2v03: "assets/wow_master_wic_moon_north.jpg",
       t2v04: "assets/wow_master_wic_moon_south.jpg",
-      t2v05: "assets/t2_v05_lounge_hall_warmbeige.jpg",
-      t2v06: "assets/wow_bedroom_secondary_349.jpg",
-      t2v07: "assets/t2_v07_pn1_south_warmbeige.jpg",
-      t2v08: "assets/wow_bedroom_secondary_349.jpg"
+      t2v05: "assets/wow_t2_v05_lounge_hall.jpg",
+      t2v06: "assets/wow_t2_v06_pn1_north.jpg",
+      t2v07: "assets/wow_t2_v07_pn1_south.jpg",
+      t2v08: "assets/wow_t2_v08_pn2_south.jpg",
+      t2v09: "assets/wow_t2_v09_pn2_north.jpg",
+      t3v01: "assets/wow_t3_v01_study_south.jpg",
+      t3v02: "assets/wow_t3_v02_study_north.jpg",
+      t3v03: "assets/wow_t3_v03_pn3_north.jpg",
+      t3v04: "assets/wow_t3_v04_pn3_south.jpg",
+      t3v05: "assets/wow_t3_v05_pn4_south.jpg",
+      t3v06: "assets/wow_t3_v06_skylight_hall.jpg"
     };
 
     function getToneMeta(mode) {
@@ -3638,18 +3830,35 @@
         code: "T2-V08",
         zone: "Khu 8 • Phòng Ngủ 2 (13,5 m² — Trục A–B)",
         direction: "Nhìn hướng Nam (Từ Hệ tủ Bắc nhìn vào Vách đầu giường 3.210mm • Trái Ban công D4 • Phải Giếng trời)",
-        title: "T2-V08 • Phòng Ngủ 2 Nhìn Nam: Vách Đặc 3.210mm, Giường Gỗ R60 • Trái Ban Công Đông D4 • Phải Cửa Sổ Giếng Trời Tây",
+        title: "T2-V08 • Phòng Ngủ 2 Nhìn Nam: Vòm Travertine & Giường Cánh Gỗ R60 (0% Da) • Trái Ban Công D4 • Phải Giếng Trời Tây",
         imgWarm: "assets/t2_v08_pn2_south_warmbeige.jpg",
         imgItal: "assets/t2_v08_pn2_south_italian.jpg",
         imgSmoked: "assets/t2_v08_pn2_south_smokedwood.jpg",
         bpId: "bv-t2-06",
         bpLabel: "📐 Xem Bản Vẽ Cả 2 Vách Bắc (2.900) & Nam (3.210) BV-T2.06",
-        oppositeKey: "t2v06",
-        oppositeLabel: "🔄 Đối Chiếu Sang Phòng Ngủ 1 Cạnh Bên (T2-V06)",
+        oppositeKey: "t2v09",
+        oppositeLabel: "🔄 Quay 180° Xem Vách Bắc 3 Module 2,90m Của PN2 (T2-V09)",
         bullets: [
-          "<strong>Đồng trục dọc 100% với P.Ngủ Ông Bà Tầng 1 (<code>3.210 × 4.490 mm</code>):</strong> Bên trái là cửa kính lùa <code>3.030mm</code> ra <strong>Ban công Đông <code>D4</code></strong>, bên phải là cửa sổ lớn nhìn vào vườn cây <strong>Giếng trời Tây</strong>, phía trên là <strong>Trần bo cong <code>PA C</code> chỉ đen <code>12mm</code></strong>.",
-          "<strong>Đã chuẩn hóa Vách Bắc sau lưng camera thành Hệ 3 Module liền mạch <code>2.900 × 2.650 mm</code> (<code>BV-T2.06</code>):</strong> Gồm <code>Tủ áo 950 + Hốc Tivi 50\" 1.150 + Bàn học 800</code> (thay cho kiểu kê bàn rời lắt nhắt cũ) để ăn khớp 100% với ổ Tivi <code>1.550mm</code> &amp; ổ Bàn <code>250mm</code> của bản vẽ <code>CĐ-04</code>!",
-          "<strong>Cả 3 Tone đều dùng <code>100%</code> cánh gỗ/Melamine phẳng đặc (0% kính tủ)</strong> với đơn giá giữ nguyên <code>35.500.000 ₫</code> trọn phòng."
+          "<strong>Đồng trục dọc 100% với P.Ngủ Ông Bà Tầng 1 (<code>3.210 × 4.490 mm</code>):</strong> Bên trái là cửa kính lùa <code>3.030mm</code> ra <strong>Ban công Đông <code>D4</code> lan can kính</strong>, bên phải là cửa sổ lớn nhìn vào vườn cây <strong>Giếng trời Tây</strong>.",
+          "<strong>Vách đầu giường vòm đá <code>Roman Travertine</code> + Giường cánh gỗ Óc chó 100% vân gỗ (<code>0% bọc da</code>)</strong> sang trọng, bền vĩnh cửu.",
+          "<strong>Bấm nút góc ngược <code>T2-V09</code> để xem trực tiếp Hệ 3 Module <code>2.900 × 2.650 mm</code> đối diện đầu giường!</strong>"
+        ]
+      },
+      t2v09: {
+        code: "T2-V09",
+        zone: "Khu 8 • Phòng Ngủ 2 (Góc Ngược 180° Vách Bắc)",
+        direction: "Nhìn hướng Bắc (Từ đầu giường nhìn về Cửa D3, Tủ áo 950 + Hốc Tivi 50\" 1.150 + Bàn học 800)",
+        title: "T2-V09 • Phòng Ngủ 2 Góc Ngược 180°: Khung Gỗ Bo R120 Ôm Tủ Áo 950 + Tivi 50\" Travertine 1.150 + Bàn Học 800 (0% Kính)",
+        imgWarm: "assets/wow_t2_v09_pn2_north.jpg",
+        imgItal: "assets/wow_t2_v09_pn2_north.jpg",
+        imgSmoked: "assets/wow_t2_v09_pn2_north.jpg",
+        bpId: "bv-t2-06",
+        bpLabel: "📐 Xem Bản Vẽ Chia Khoang Vách Bắc 2.900mm BV-T2.06",
+        oppositeKey: "t2v08",
+        oppositeLabel: "🔄 Quay 180° Nhìn Về Vách Nam Đầu Giường (T2-V08)",
+        bullets: [
+          "<strong>Đảo la bàn 180° khớp khít với <code>T2-V08</code>:</strong> Trái là <strong>Cửa gỗ Lim <code>D3</code></strong> + công tắc Aqara; Phải là cửa kính lùa ra <strong>Ban công Đông <code>D4</code> Tầng 2</strong> có lan can kính.",
+          "<strong>Chính diện Vách Bắc <code>2.900 × 2.650 mm</code> (<code>BV-T2.06</code>):</strong> Cổng gỗ Óc chó bo tròn <code>R120</code> ôm trọn Tủ áo 2 cánh Kem (<code>950mm</code>) + Hốc Tivi <code>50\"</code> bo tròn đá <code>Travertine</code> (<code>1.150mm</code>, khớp ổ <code>1.550mm</code>) + Bàn học treo bo tròn &amp; kệ sách LED (<code>800mm</code>, khớp ổ <code>250mm</code>, <code>0% kính</code>)."
         ]
       }
     };
@@ -3661,24 +3870,24 @@
         views: ["t2v01", "t2v02"]
       },
       {
-        heading: "Khu 5B • Master Khu Thay Đồ Walk-In Closet (Đủ 2 Chiều Đảo 180°: T2-V03 Tủ Đảo 4 Khoang ↔ T2-V04 Tủ #1–#2, WC-02, O1 & O2)",
+        heading: "Khu 5B • Master Khu Thay Đồ Walk-In Closet (Đủ 2 Chiều Đảo 180°: T2-V03 Vòng Xuyên Sáng & Đảo Kính ↔ T2-V04 6 Ngăn Gỗ & WC-02)",
         badge: "BV-T2.02, BV-T2.03 & BV-T2.04 • 68,00 Tr (Tone 3: 61,00 Tr)",
         views: ["t2v03", "t2v04"]
       },
       {
-        heading: "Khu 6 • Sảnh Thư Giãn Đọc Sách Thông Tầng & Hành Lang Cầu Thang Tầng 2 (1.800 × 2.010 mm)",
+        heading: "Khu 6 • Sảnh Thư Giãn Đọc Sách Thông Tầng & Hành Lang Cầu Thang Tầng 2 (1.800 × 2.010 mm • Khớp Ô Kính 750mm Master)",
         badge: "Mục 06 Bảng T2 • 8,50 Tr ₫",
         views: ["t2v05"]
       },
       {
-        heading: "Khu 7 • Phòng Ngủ 1 Trục B–D (16,2 m² — Đủ 2 Chiều Đảo 180°: T2-V06 Giường & Bàn 2,05m ↔ T2-V07 Hệ Tủ + Tivi 3,55m)",
-        badge: "Bản vẽ xưởng: BV-T2.05 • 49,00 Tr (Tone 3: 46,50 Tr)",
+        heading: "Khu 7 • Phòng Ngủ 1 Trục B–D (16,2 m² — Đủ 2 Chiều Đảo 180°: T2-V06 Giường Gỗ & Bàn 2,05m ↔ T2-V07 Hệ Tủ + Tivi 3,55m)",
+        badge: "Bản vẽ xưởng: BV-T2.05 • 49,00 Tr (0% Kính: 46,50 Tr)",
         views: ["t2v06", "t2v07"]
       },
       {
-        heading: "Khu 8 • Phòng Ngủ 2 Trục A–B (13,5 m² — T2-V08 Vách Nam Đầu Giường 3,21m + Chuẩn Hóa Vách Bắc 3 Module 2,90m)",
+        heading: "Khu 8 • Phòng Ngủ 2 Trục A–B (13,5 m² — Đủ 2 Chiều Đảo 180°: T2-V08 Vách Nam Đầu Giường 3,21m ↔ T2-V09 Vách Bắc 3 Module 2,90m)",
         badge: "Bản vẽ xưởng: BV-T2.06 • 35,50 Tr ₫",
-        views: ["t2v08"]
+        views: ["t2v08", "t2v09"]
       }
     ];
 
@@ -3827,6 +4036,236 @@
       }).join("");
     }
 
+    const T3_VIEWS = {
+      t3v01: {
+        code: "T3-V01",
+        zone: "Khu 9A • Phòng Làm Việc Đôi Vợ Chồng (14,5 m² — PA T3-A)",
+        direction: "Nhìn hướng Nam (Đúng 2 cửa sổ Tây trái • Tủ sách + Cột Hộp KT 980mm giữa • Sofa & ĐH treo phải)",
+        title: "T3-V01 • P.Làm Việc Đôi Nhìn Nam (Chuẩn 100% CAD KT-2.04): Bàn Đôi 3,5m, Tủ Sách Travertine, Hộp KT 980mm Điêu Khắc & ĐH Treo",
+        imgWarm: "assets/v3_1to1_r7_office_warmbeige.jpg",
+        imgItal: "assets/v3_1to1_r7_office_italian.jpg",
+        imgSmoked: "assets/v3_1to1_r7_office_smokedwood.jpg",
+        bpId: "sec-t3-boq-table",
+        bpLabel: "📋 Xem Bảng Bóc Tách P.Làm Việc T3 (Mục 01–03)",
+        oppositeKey: "t3v02",
+        oppositeLabel: "🔄 Quay 180° Xem Vách Cửa Lùa 4 Cánh Kính Sọc Mờ Ngăn Phòng Thờ (T3-V02)",
+        bullets: [
+          "<strong>Tường Tây bên trái (<code>KT-2.04</code>):</strong> Đúng <strong>02 ô cửa sổ mặt tiền lam chắn nắng</strong> ngăn bởi trụ tường giữa, kê liên hoàn <strong>Hệ bàn đôi <code>3,5m</code> chập đôi <code>Plywood 36mm</code> bo tròn <code>R80</code></strong> + 2 màn hình Arm + 2 ghế da bò Cognac.",
+          "<strong>Tường Nam chính diện (<code>2.440 + 980 = 3.420 mm</code> • 0% Lam sọc • 0% Kính tủ):</strong> Giá sách 4 khoang hậu đá <code>Roman Travertine</code> hắt LED + cánh dưới Kem Cashmere, nối liền khối với <strong>Hộp kỹ thuật <code>980mm</code> uốn gỗ Óc chó <code>R120</code> lồng hốc tượng đá</strong> (đã xóa bỏ cửa giả lệch CAD!).",
+          "<strong>Tường Đông bên phải &amp; Trần <code>KT-4.03</code>:</strong> Sofa đọc sách da trơn bo cong đặt ngay dưới <strong>dàn lạnh ĐH treo <code>12.000 BTU</code></strong>; trần phẳng cao <code>+3,13m</code> gắn khung chữ nhật <strong>Ray nam châm âm trần 48V (<code>1,93×2,34m</code>)</strong>."
+        ]
+      },
+      t3v02: {
+        code: "T3-V02",
+        zone: "Khu 9A • Phòng Làm Việc Đôi (Góc Ngược 180° Nhìn Bắc)",
+        direction: "Nhìn hướng Bắc (Từ Tủ sách nhìn về Vách cửa lùa 4 cánh kính sọc mờ ngăn Phòng Thờ & Cửa D3)",
+        title: "T3-V02 • P.Làm Việc Góc Ngược 180°: Hệ Vách Cửa Lùa 4 Cánh Kính Sọc Mờ Không Ray Sàn Ngăn Phòng Thờ & Cửa D3 Hành Lang",
+        imgWarm: "assets/wow_t3_v02_study_north.jpg",
+        imgItal: "assets/wow_t3_v02_study_north.jpg",
+        imgSmoked: "assets/wow_t3_v02_study_north.jpg",
+        bpId: "sec-t3-boq-table",
+        bpLabel: "📋 Xem Quy Cách Vách Kính Sọc 2,40 × 2,75m (Mục 03)",
+        oppositeKey: "t3v01",
+        oppositeLabel: "🔄 Quay 180° Nhìn Về Tủ Sách & Hộp Kỹ Thuật Điêu Khắc (T3-V01)",
+        bullets: [
+          "<strong>Mặt đứng Bắc Trục B:</strong> Hệ <strong>Vách cửa lùa 4 cánh khung mảnh + kính cường lực sọc mờ (<code>2.400 × 2.750 mm</code>, ray treo âm trần <code>0% ray dưới sàn</code>)</strong> giúp sàn gỗ xương cá chạy liền mạch, giữ sự trang nghiêm kín đáo cho Phòng Thờ mà vẫn lấy sáng thoáng đãng.",
+          "<strong>Bên trái:</strong> Dọc bàn đôi <code>3,5m</code> &amp; tủ máy in dưới 2 cửa sổ mặt tiền.",
+          "<strong>Bên phải:</strong> Sofa đọc sách dưới ĐH treo <code>12.000 BTU</code> và <strong>01 Cửa gỗ Lim <code>D3</code> mở ra hành lang Tầng 3</strong> + công tắc Aqara."
+        ]
+      },
+      t3v03: {
+        code: "T3-V03",
+        zone: "Khu 10 • Phòng Ngủ 3 Tầng 3 (16,2 m² — Trục B–D)",
+        direction: "Nhìn hướng Bắc (Giường 100% vân gỗ • Trái Bàn 2,05m • Phải Ban công T3 • Trần phẳng khung Ray đen P-UT12)",
+        title: "T3-V03 • Phòng Ngủ 3 Nhìn Bắc: Vòm Gỗ R150 Ôm Đá Travertine, Giường 100% Vân Gỗ (0% Da) & Trần Phẳng Ray Đen P-UT12",
+        imgWarm: "assets/wow_t3_v03_pn3_north.jpg",
+        imgItal: "assets/wow_t3_v03_pn3_north.jpg",
+        imgSmoked: "assets/wow_t3_v03_pn3_north.jpg",
+        bpId: "sec-t3-boq-table",
+        bpLabel: "📋 Xem Quy Cách Nội Thất PN3 Tầng 3 (Mục 04 — 46,5 Tr)",
+        oppositeKey: "t3v04",
+        oppositeLabel: "🔄 Quay 180° Xem Vách Nam Hệ Tủ Cao 2,75m Của PN3 (T3-V04)",
+        bullets: [
+          "<strong>Chuẩn đặc trưng trần Tầng 3 (<code>KT-4.03</code>):</strong> Trần thạch cao cán phẳng cao thoáng gắn <strong>khung chữ nhật Ray nam châm âm trần đen <code>P-UT12</code></strong> + hốc rèm hắt LED ấm.",
+          "<strong>Giường <code>1.800×2.000</code> 100% vân gỗ Óc chó (<code>0% bọc da</code>)</strong> + cổng vòm gỗ <code>R150</code> ôm mảng đá <code>Roman Travertine</code> phẳng mịn + bàn học treo cửa sổ Tây <code>2.050mm</code>."
+        ]
+      },
+      t3v04: {
+        code: "T3-V04",
+        zone: "Khu 10 • Phòng Ngủ 3 (Góc Ngược 180° Vách Nam)",
+        direction: "Nhìn hướng Nam (Từ đầu giường nhìn về Hệ tủ cao 2.750mm • Trái Ban công T3 • Phải Cửa D3)",
+        title: "T3-V04 • Phòng Ngủ 3 Góc Ngược 180°: Hệ Tủ Khung Gỗ Bo R120 Cao 2,75m + Hốc Tivi 55\" Travertine & Kệ Đá (0% Kính Tủ)",
+        imgWarm: "assets/wow_t3_v04_pn3_south.jpg",
+        imgItal: "assets/wow_t3_v04_pn3_south.jpg",
+        imgSmoked: "assets/wow_t3_v04_pn3_south.jpg",
+        bpId: "sec-t3-boq-table",
+        bpLabel: "📋 Xem Quy Cách Hệ Tủ 3,55 × 2,75m PN3 (Mục 04)",
+        oppositeKey: "t3v03",
+        oppositeLabel: "🔄 Quay 180° Nhìn Về Đầu Giường Bắc & Bàn 2,05m (T3-V03)",
+        bullets: [
+          "<strong>Nâng chiều cao hệ tủ lên <code>2.750 mm</code> theo trần Tầng 3:</strong> Cổng gỗ Óc chó bo <code>R120</code> + cánh phẳng Kem Cashmere tay nắm đũa gỗ dài + Hốc Tivi <code>55\"</code> đá <code>Travertine</code> (tâm cách Đông <code>1.900mm</code>) + Hốc kệ đá bên phải (<code>0% kính</code>)."
+        ]
+      },
+      t3v05: {
+        code: "T3-V05",
+        zone: "Khu 11 • Phòng Ngủ 4 Tầng 3 (13,5 m² — Trục A–B)",
+        direction: "Nhìn hướng Nam (Trái Ban công Đông T3 • Chính diện Vòm Travertine & Giường gỗ • Phải Đỉnh Giếng Trời Tây)",
+        title: "T3-V05 • Phòng Ngủ 4 Nhìn Nam: Vòm Tròn Đá Travertine, Giường 100% Vân Gỗ & Ô Cửa Sổ Sát Đỉnh Mái Kính Giếng Trời",
+        imgWarm: "assets/wow_t3_v05_pn4_south.jpg",
+        imgItal: "assets/wow_t3_v05_pn4_south.jpg",
+        imgSmoked: "assets/wow_t3_v05_pn4_south.jpg",
+        bpId: "sec-t3-boq-table",
+        bpLabel: "📋 Xem Quy Cách Nội Thất PN4 Tầng 3 (Mục 05 — 35,5 Tr)",
+        oppositeKey: "t3v06",
+        oppositeLabel: "🏛️ Ra Xem Sảnh Đỉnh Thang Mái Kính Giếng Trời Tầng 3 (T3-V06)",
+        bullets: [
+          "<strong>Ngập tràn ánh sáng tự nhiên từ đỉnh Giếng trời Tây bên phải:</strong> Ô cửa sổ <code>PN4</code> nằm ngay dưới mái kính giếng trời đón nắng rọi qua giàn cây rủ xanh mướt; bên trái mở ra ban công Đông Tầng 3.",
+          "<strong>Đầu giường vòm tròn đá <code>Roman Travertine</code> + cánh gỗ Óc chó uốn cong &amp; Giường <code>100% vân gỗ (0% da)</code></strong> dưới trần phẳng khung Ray đen <code>P-UT12</code>."
+        ]
+      },
+      t3v06: {
+        code: "T3-V06",
+        zone: "Khu 12 • Sảnh Đỉnh Cầu Thang & Hành Lang Tầng 3 (Mái Kính Giếng Trời)",
+        direction: "Nhìn dọc Sảnh thang & Hành lang Tầng 3 (Thấy Mái kính giếng trời trên thang & Hốc vòm Gallery Travertine)",
+        title: "T3-V06 • Sảnh Đỉnh Thang Mái Kính Giếng Trời & Hành Lang Điêu Khắc Tầng 3 (KT-4.08)",
+        imgWarm: "assets/wow_t3_v06_skylight_hall.jpg",
+        imgItal: "assets/wow_t3_v06_skylight_hall.jpg",
+        imgSmoked: "assets/wow_t3_v06_skylight_hall.jpg",
+        bpId: "sec-t3-boq-table",
+        bpLabel: "📋 Xem Bảng Tổng Hợp Tầng 3",
+        oppositeKey: "t3v01",
+        oppositeLabel: "💻 Vào Phòng Làm Việc Đôi Vợ Chồng Tầng 3 (T3-V01)",
+        bullets: [
+          "<strong>Ánh sáng thiên đỉnh từ Mái kính giếng trời:</strong> Nắng tự nhiên tràn xuống hệ cầu thang bậc gỗ Óc chó hắt LED âm bậc và nhịp thang lên Tầng Tum.",
+          "<strong>Điểm nhấn Gallery 349 Studio Design trên hành lang gạch mờ <code>800×800</code>:</strong> Hốc vòm gỗ Óc chó &amp; đá <code>Roman Travertine</code> hắt Spotlight <code>2800K</code> đặt tượng điêu khắc nghệ thuật giữa các cửa gỗ Lim <code>D3</code>."
+        ]
+      }
+    };
+
+    const T3_ZONE_GROUPS = [
+      {
+        heading: "Khu 9A • Phòng Làm Việc & Đọc Sách Đôi Vợ Chồng PA T3-A (Đủ 2 Chiều Đảo 180°: T3-V01 Tủ Sách & Hộp KT ↔ T3-V02 Vách Kính Sọc Ngăn P.Thờ)",
+        badge: "Chuẩn CAD KT-2.04 • 65,00 Tr ₫",
+        views: ["t3v01", "t3v02"]
+      },
+      {
+        heading: "Khu 10 • Phòng Ngủ 3 Trục B–D Tầng 3 (Đủ 2 Chiều Đảo 180°: T3-V03 Giường Gỗ & Trần Ray Đen ↔ T3-V04 Hệ Tủ Cao 2,75m 0% Kính)",
+        badge: "Chuẩn CĐ-05 • 46,50 Tr ₫",
+        views: ["t3v03", "t3v04"]
+      },
+      {
+        heading: "Khu 11 & 12 • Phòng Ngủ 4 Đón Nắng Đỉnh Giếng Trời (T3-V05) & Sảnh Đỉnh Thang Mái Kính Gallery Tầng 3 (T3-V06)",
+        badge: "Chuẩn KT-4.08 • PN4: 35,50 Tr ₫",
+        views: ["t3v05", "t3v06"]
+      }
+    ];
+
+    let currentT3ViewKey = "t3v01";
+
+    function renderT3Studio() {
+      const v = T3_VIEWS[currentT3ViewKey];
+      if (!v) return;
+      const studioGrid = document.getElementById("t3-studio-tabpanel");
+      const stageImgs = document.getElementById("t3-studio-stage-imgs");
+      const cardSec = document.getElementById("t3-card-img-secondary");
+      const cardTer = document.getElementById("t3-card-img-tertiary");
+      const imgPri = document.getElementById("t3-studio-img-primary");
+      const imgSec = document.getElementById("t3-studio-img-secondary");
+      const imgTer = document.getElementById("t3-studio-img-tertiary");
+      const capPri = document.getElementById("t3-studio-cap-primary");
+      const capSec = document.getElementById("t3-studio-cap-secondary");
+      const capTer = document.getElementById("t3-studio-cap-tertiary");
+      const panel = document.getElementById("t3-studio-spec-panel");
+      if (!studioGrid || !panel) return;
+
+      studioGrid.setAttribute("aria-labelledby", "tab-" + currentT3ViewKey);
+
+      if (currentPaletteMode === "split") {
+        studioGrid.classList.add("split-mode");
+        stageImgs.classList.remove("split-two");
+        stageImgs.classList.add("split-three");
+        cardSec.hidden = false;
+        cardTer.hidden = false;
+        imgPri.src = v.imgWarm;
+        capPri.textContent = `☕ Tone 1 — ${v.code}: ${v.zone}`;
+        imgSec.src = v.imgItal;
+        capSec.textContent = `👑 Tone 2 — ${v.code}: ${v.zone}`;
+        imgTer.src = v.imgSmoked;
+        capTer.textContent = `💎 Tone 3 — ${v.code}: ${v.zone}`;
+      } else {
+        studioGrid.classList.remove("split-mode");
+        stageImgs.classList.remove("split-two", "split-three");
+        cardSec.hidden = true;
+        cardTer.hidden = true;
+        const meta = getToneMeta(currentPaletteMode);
+        imgPri.src = resolveViewSrc(v, currentT3ViewKey, currentPaletteMode);
+        imgPri.alt = `${v.title} — ${meta.full}`;
+        capPri.textContent = `${meta.full} — ${v.code}: ${v.title}`;
+      }
+
+      panel.innerHTML = `
+        <div class="spec-meta-row">
+          <span class="badge-pill badge-amber">${v.code} • ${v.zone}</span>
+          <span class="badge-pill badge-sky">🧭 ${v.direction}</span>
+        </div>
+        <h3>${v.title}</h3>
+        <ul class="check-list">
+          ${v.bullets.map(b => `<li>${b}</li>`).join("")}
+        </ul>
+        <div class="panel-actions">
+          <a href="#${v.bpId}" class="action-btn">${v.bpLabel} &darr;</a>
+          <button type="button" class="action-btn amber" onclick="selectT3View('${v.oppositeKey}')">${v.oppositeLabel}</button>
+        </div>
+      `;
+
+      document.querySelectorAll("#chapter-floor-3 .cam-tab").forEach(btn => {
+        const active = btn.id === "tab-" + currentT3ViewKey;
+        btn.setAttribute("aria-selected", active ? "true" : "false");
+        if (active && currentFloorMode === "f3") {
+          btn.scrollIntoView({ block: "nearest", inline: "nearest" });
+        }
+      });
+    }
+
+    function renderT3Walkthrough() {
+      const container = document.getElementById("t3-walkthrough-container");
+      if (!container) return;
+      const meta = getToneMeta(currentPaletteMode === "split" ? "studio349" : currentPaletteMode);
+      container.innerHTML = T3_ZONE_GROUPS.map(zg => {
+        const cardsHtml = zg.views.map(vk => {
+          const v = T3_VIEWS[vk];
+          const src = resolveViewSrc(v, vk, currentPaletteMode === "split" ? "studio349" : currentPaletteMode);
+          return `
+            <article class="walk-card">
+              <div class="walk-imgs">
+                <div class="walk-thumb-wrap" onclick="openLightbox('${src}', '${meta.full} — ${v.code}: ${v.zone}')">
+                  <img src="${src}" alt="${v.title}" loading="lazy" width="1376" height="768" />
+                  <span class="thumb-tag">${v.code} • ${meta.tag}</span>
+                </div>
+              </div>
+              <div class="walk-body">
+                <h4>${v.title}</h4>
+                <p>🧭 <strong>Hướng camera:</strong> ${v.direction}</p>
+                <div style="margin-top:auto;padding-top:8px;display:flex;flex-wrap:wrap;gap:8px;">
+                  <a href="#${v.bpId}" class="action-btn" style="padding:5px 10px;font-size:0.76rem;">${v.bpLabel}</a>
+                  <button type="button" class="action-btn amber" style="padding:5px 10px;font-size:0.76rem;" onclick="selectT3View('${vk}');document.getElementById('sec-t3-studio').scrollIntoView({behavior:'smooth'});">🎯 Mở Trong Studio T3</button>
+                </div>
+              </div>
+            </article>
+          `;
+        }).join("");
+        return `
+          <div class="zone-group">
+            <div class="zone-header">
+              <h3>${zg.heading}</h3>
+              <span class="badge-pill badge-emerald">${zg.badge}</span>
+            </div>
+            <div class="walk-grid">${cardsHtml}</div>
+          </div>
+        `;
+      }).join("");
+    }
+
     function selectView(key) {
       if (!T1_VIEWS[key]) return;
       currentViewKey = key;
@@ -3839,17 +4278,26 @@
       renderT2Studio();
     }
 
-    // Switch between Floor 1 ('f1'), Floor 2 ('f2'), or Both Floors ('all') using accessible hidden="until-found"
+    function selectT3View(key) {
+      if (!T3_VIEWS[key]) return;
+      currentT3ViewKey = key;
+      renderT3Studio();
+    }
+
+    // Switch between Floor 1 ('f1'), Floor 2 ('f2'), Floor 3 ('f3'), or All Floors ('all') using accessible hidden="until-found"
     function switchFloor(mode, shouldScroll = true) {
       currentFloorMode = mode;
       const ch1 = document.getElementById("chapter-floor-1");
       const ch2 = document.getElementById("chapter-floor-2");
+      const ch3 = document.getElementById("chapter-floor-3");
       const b1 = document.getElementById("btn-floor-f1");
       const b2 = document.getElementById("btn-floor-f2");
+      const b3 = document.getElementById("btn-floor-f3");
       const bAll = document.getElementById("btn-floor-all");
 
       const showF1 = (mode === "f1" || mode === "all");
       const showF2 = (mode === "f2" || mode === "all");
+      const showF3 = (mode === "f3" || mode === "all");
 
       if (ch1) {
         if (showF1) ch1.removeAttribute("hidden");
@@ -3859,6 +4307,10 @@
         if (showF2) ch2.removeAttribute("hidden");
         else ch2.setAttribute("hidden", "until-found");
       }
+      if (ch3) {
+        if (showF3) ch3.removeAttribute("hidden");
+        else ch3.setAttribute("hidden", "until-found");
+      }
 
       if (b1) {
         b1.classList.toggle("active-floor", mode === "f1");
@@ -3867,6 +4319,10 @@
       if (b2) {
         b2.classList.toggle("active-floor", mode === "f2");
         b2.setAttribute("aria-expanded", showF2 ? "true" : "false");
+      }
+      if (b3) {
+        b3.classList.toggle("active-floor", mode === "f3");
+        b3.setAttribute("aria-expanded", showF3 ? "true" : "false");
       }
       if (bAll) {
         bAll.classList.toggle("active-floor", mode === "all");
@@ -3886,7 +4342,7 @@
       });
       const tfootT1 = document.getElementById("tfoot-t1-total");
       if (tfootT1) {
-        tfootT1.textContent = mode === "smokedwood" ? "198.200.000 ₫ (Đã trừ -4,5tr cánh kính)" : "202.700.000 ₫";
+        tfootT1.textContent = (mode === "smokedwood" || mode === "studio349") ? "198.200.000 ₫ (Đã trừ -4,5tr cánh kính)" : "202.700.000 ₫";
       }
       const tfootT2 = document.getElementById("tfoot-t2-total");
       if (tfootT2) {
@@ -3896,6 +4352,8 @@
       renderWalkthrough();
       renderT2Studio();
       renderT2Walkthrough();
+      renderT3Studio();
+      renderT3Walkthrough();
     }
 
     function openLightbox(src, titleText) {
@@ -3907,21 +4365,16 @@
       dialog.showModal();
     }
 
-    function openRoadmapModal(floorName) {
-      const dialog = document.getElementById("floor-roadmap-modal");
-      document.getElementById("roadmap-title").textContent = `⏳ ${floorName} — Bước Cuối Cùng Sau Khi Duyệt Xong Tầng 2`;
-      dialog.showModal();
-    }
-
     // Mandatory synchronization for hidden="until-found" find-in-page & fragment deep links (modern-web-guidance: search-hidden-content)
     document.querySelectorAll(".floor-chapter").forEach(chapter => {
       chapter.addEventListener("beforematch", () => {
         if (chapter.id === "chapter-floor-1") switchFloor("f1", false);
         else if (chapter.id === "chapter-floor-2") switchFloor("f2", false);
+        else if (chapter.id === "chapter-floor-3") switchFloor("f3", false);
       });
     });
 
-    // Fallback for browsers without onbeforematch (e.g. Safari) + URL fragment routing (#bv-t1-*, #bv-t2-*)
+    // Fallback for browsers without onbeforematch (e.g. Safari) + URL fragment routing (#bv-t1-*, #bv-t2-*, #hero-f3)
     function syncFloorFromHash() {
       const h = (window.location.hash || "").toLowerCase();
       if (!h) return;
@@ -3931,6 +4384,10 @@
         if (target) setTimeout(() => target.scrollIntoView({ behavior: "smooth" }), 50);
       } else if (h.includes("bv-t2") || h.includes("sec-t2") || h === "#hero-f2") {
         switchFloor("f2", false);
+        const target = document.querySelector(h);
+        if (target) setTimeout(() => target.scrollIntoView({ behavior: "smooth" }), 50);
+      } else if (h.includes("bv-t3") || h.includes("sec-t3") || h === "#hero-f3") {
+        switchFloor("f3", false);
         const target = document.querySelector(h);
         if (target) setTimeout(() => target.scrollIntoView({ behavior: "smooth" }), 50);
       }
@@ -3994,6 +4451,7 @@
       document.querySelectorAll('[hidden="until-found"]').forEach(el => el.removeAttribute("hidden"));
       document.getElementById("btn-floor-f1")?.setAttribute("aria-expanded", "true");
       document.getElementById("btn-floor-f2")?.setAttribute("aria-expanded", "true");
+      document.getElementById("btn-floor-f3")?.setAttribute("aria-expanded", "true");
     }
   </script>
   <script src="assets/qvilla-nav.js" defer></script>

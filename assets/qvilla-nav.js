@@ -18,9 +18,9 @@
         {
           heading: "🌟 Tổng Thể Nội Thất 349 × Travertine & Dự Toán",
           items: [
-            { href: "mau-modern-luxury-349.html", icon: "✨", title: "Tổng Duyệt Phối Cảnh 349 × Travertine (T1 → T3)", badge: "Mới chốt" },
+            { href: "mau-modern-luxury-349.html", icon: "✨", title: "Tổng Duyệt 22 Phối Cảnh WOW 349 × Travertine (T1 → T3)", badge: "Đủ 22 góc" },
             { href: "noi-that-toan-nha.html", icon: "🪑", title: "Dự Toán & Mã Ván Nội Thất Toàn Nhà (Plywood + MDF)" },
-            { href: "ho-so-xuong-noi-that.html", icon: "🔧", title: "Hồ Sơ Đa Góc 360° & Bản Vẽ Đóng Tủ Giao Xưởng" },
+            { href: "ho-so-xuong-noi-that.html", icon: "🔧", title: "Hồ Sơ Đa Góc 360° & Bản Vẽ Giao Xưởng (T1 → T2 → T3)", badge: "Đủ 3 tầng" },
             { href: "index.html#sec-cost-table", icon: "💰", title: "Bảng Dự Toán Chi Tiết 52 Hạng Mục Hoàn Thiện" }
           ]
         },
