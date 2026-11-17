@@ -1144,8 +1144,8 @@
             👑 Tone 2: Italian Quiet Luxury
           </button>
           <button type="button" class="tone-btn" id="btn-mode-smokedwood" aria-pressed="false" onclick="setPaletteMode('smokedwood')">
-            <span class="swatch-dot" style="background:linear-gradient(135deg,#433227,#b55e2c);"></span>
-            💎 Tone 3: Smoked Wood (0% Kính Tủ)
+            <span class="swatch-dot" style="background:linear-gradient(135deg,#3a281d,#6c4127);"></span>
+            💎 Tone 3 Mới: Boutique Trầm (BT-01/02/03)
           </button>
           <button type="button" class="tone-btn" id="btn-mode-split" aria-pressed="false" onclick="setPaletteMode('split')">
             ⚖️ Đọ 3 Tone Cũ
@@ -3388,15 +3388,15 @@
         title: "V02 • Phòng Khách Nhìn Bắc: Vách Tivi Phẳng 3.200mm, Khung Ray Nam Châm 4 Cạnh & Liên Thông Phòng Ăn",
         imgWarm: "assets/t1_v02_living_north_warmbeige.jpg",
         imgItal: "assets/t1_v02_living_north_italian.jpg",
-        imgSmoked: "assets/t1_v02_living_north_smokedwood.jpg",
+        imgSmoked: "assets/boutique_bt01_eucalyptus_t1_v02.jpg",
         bpId: "bv-t1-02",
         bpLabel: "📐 Xem Bản Vẽ Vách Tivi & Sofa Poliform BV-T1.02",
         oppositeKey: "v03",
         oppositeLabel: "🔄 Quay 180° Xem Mặt Trước Sofa Poliform & Tiền Sảnh (V03)",
         bullets: [
-          "<strong>Vách Tivi Tường Bắc (<code>3.200 × 3.400 mm • 0% Lam gỗ dọc</code>):</strong> Hai biên ốp ván gỗ phẳng khổ rộng <code>600 mm</code>, mảng giữa <code>2.000 mm</code> ốp phẳng <code>Laminate vân đá Travertine mờ</code> gắn bảng bo góc <code>R80</code> đỡ Tivi <code>85 inch</code> hắt sáng <code>2800K</code> + kệ treo <code>Plywood 18mm</code> bo tròn <code>R60</code> dài <code>3.200 mm</code>.",
-          "<strong>Trần Phòng Khách <code>PA C</code> chuẩn 100% M&amp;E:</strong> Hộp trần bo cong 4 góc <code>R350</code> + chỉ âm đen <code>12mm</code> + <strong>Khung chữ nhật Đèn Ray Nam Châm 4 cạnh khép kín (<code>1.825 × 2.970 mm — Lộ 5</code>)</strong> bao quanh Quạt trần 5 cánh gỗ <code>Lộ 6</code>.",
-          "<strong>Liên thông sang Phòng Ăn &amp; Bếp bên phải khớp 100% với <code>V04</code>:</strong> Cửa kính lùa vườn Bắc <code>D2 (3.070mm)</code>, Bàn ăn Đá Nung Kết 8 ghế dưới <strong>Quạt trần 5 cánh gỗ <code>Lộ 6A</code></strong> (không vẽ đèn thả sai thực tế!) và Tủ bếp cánh kính màu Be phía sau."
+          "<strong>Vách Tivi Tường Bắc (<code>3.200 × 3.400 mm • 0% Lam gỗ dọc</code>):</strong> Mảng đá <code>Travertine</code> liền mạch kết hợp cột bo tròn điêu khắc hốc LED <code>2800K</code> + kệ treo <code>Plywood 18mm</code> bo tròn <code>R60</code> dài <code>3.200 mm</code>.",
+          "<strong>💎 Đối chiếu ngay 3 Mã Gỗ Mới cho <code>Boutique Tone Trầm</code> tại Phòng Khách:</strong> <button type='button' class='action-btn' style='padding:3px 8px;font-size:0.75rem;' onclick=\"openLightbox('assets/boutique_bt01_eucalyptus_t1_v02.jpg', '🥃 BT-01: Bạch Đàn Hun Khói Ánh Đồng Lụa (An Cường VCT 23 / Karma Vein)')\">🥃 BT-01 Bạch Đàn VCT 23</button> <button type='button' class='action-btn' style='padding:3px 8px;font-size:0.75rem;' onclick=\"openLightbox('assets/boutique_bt02_amberburl_t1_v02.jpg', '🔥 BT-02: Óc Chó Hổ Phách & Vân Nu Xoáy (Karma Nuka + Columbia Walnut LK 4560 A)')\">🔥 BT-02 Óc Chó Vân Nu</button> <button type='button' class='action-btn' style='padding:3px 8px;font-size:0.75rem;' onclick=\"openLightbox('assets/boutique_bt03_roastedteak_t1_v02.jpg', '🍂 BT-03: Giá Tếch Nướng & Hạt Dẻ Trầm (Bandung Teak LK 4604 A / KES 22614)')\">🍂 BT-03 Giá Tếch Trầm</button>",
+          "<strong>Trần Phòng Khách <code>PA C</code> chuẩn 100% M&amp;E:</strong> Hộp trần bo cong 4 góc <code>R350</code> + chỉ âm đen <code>12mm</code> + <strong>Khung chữ nhật Đèn Ray Nam Châm 4 cạnh khép kín (<code>1.825 × 2.970 mm — Lộ 5</code>)</strong> bao quanh Quạt trần 5 cánh gỗ <code>Lộ 6</code>."
         ]
       },
       v03: {
@@ -3560,7 +3560,7 @@
       if (mode === "italian") {
         return { key: "imgItal", tag: "👑 Tone 2: Italian Luxury", full: "👑 Tone 2 (Italian Modern Quiet Luxury)" };
       }
-      return { key: "imgSmoked", tag: "💎 Tone 3: Smoked Wood (0% Kính Tủ)", full: "💎 Tone 3 (Boutique Smoked Wood • Cánh Gỗ Đặc 0% Kính Tủ)" };
+      return { key: "imgSmoked", tag: "💎 Tone 3 Mới: Boutique Trầm (BT-01/02/03 • 0% Kính Tủ)", full: "💎 Tone 3 Mới (Boutique Tone Trầm: BT-01 VCT 23 Ánh Đồng • BT-02 Karma Nuka Vân Nu • BT-03 Teak LK 4604)" };
     }
 
     function resolveViewSrc(v, vk, mode) {
@@ -3740,15 +3740,15 @@
         title: "T2-V02 • Master Khu Ngủ Góc Ngược 180°: Vách Đầu Giường Bắc 3.910mm, Giường King Bo R60, Kính 750mm & Tủ Áo #3",
         imgWarm: "assets/t2_v02_master_sleep_north_warmbeige.jpg",
         imgItal: "assets/t2_v02_master_sleep_north_italian.jpg",
-        imgSmoked: "assets/t2_v02_master_sleep_north_smokedwood.jpg",
+        imgSmoked: "assets/boutique_bt01_eucalyptus_t2_v02.jpg",
         bpId: "bv-t2-01",
         bpLabel: "📐 Xem Bản Vẽ Vách Bắc & Tủ #3 BV-T2.01",
         oppositeKey: "t2v01",
         oppositeLabel: "🔄 Quay 180° Nhìn Về Vách Tranh Trục B & Khu Thay Đồ (T2-V01)",
         bullets: [
           "<strong>Đảo la bàn 180° chính xác tuyệt đối so với <code>T2-V01</code>:</strong> Bên trái là cửa kính lùa <code>Logia 01</code> ngập nắng; bên phải là hốc tường Đông đua <code>1.070mm</code> gồm <strong>ô kính cố định <code>750×2.400mm</code> nhìn ra mảng xanh Sảnh thư giãn</strong> và <strong>Hệ Tủ Áo #3 (<code>2.010×600×2.650mm</code>)</strong>.",
-          "<strong>Giường King <code>2.000 × 2.200 mm</code> 100% bệ gỗ <code>Plywood 18mm</code> bo góc <code>R60</code> (0% nỉ bọc giường!):</strong> Đi kèm ghế đôn đuôi giường bọc da bò Microfiber trơn và 2 táp treo khớp đúng 2 cụm <code>S1 +700mm</code> cách nhau <code>2.140 mm</code>.",
-          "<strong>So sánh 3 Tone rõ nét trên Tủ #3 bên phải:</strong> <code>Tone 1 &amp; 2</code> dùng 2 cánh giữa kính màu LED; <strong><code>Tone 3</code> đóng phẳng 4 cánh gỗ đặc <code>LK 4512 A</code> liền thớ vân sang trọng (0% kính)</strong>."
+          "<strong>💎 So sánh trực quan 3 Mã Gỗ Mới cho <code>Boutique Tone Trầm (Cánh Tủ #3 Đặc 100%)</code>:</strong> <button type='button' class='action-btn' style='padding:3px 8px;font-size:0.75rem;' onclick=\"openLightbox('assets/boutique_bt01_eucalyptus_t2_v02.jpg', '🥃 Master BT-01: Bạch Đàn Hun Khói Ánh Đồng VCT 23 / Karma Vein — Tủ #3 cánh đặc chạy chỉ đồng mảnh')\">🥃 BT-01 Bạch Đàn VCT 23</button> <button type='button' class='action-btn' style='padding:3px 8px;font-size:0.75rem;' onclick=\"openLightbox('assets/boutique_bt02_amberburl_t2_v02.jpg', '🔥 Master BT-02: Đầu giường Vân Nu Karma Nuka + Tủ #3 cánh đặc Columbia Walnut LK 4560 A')\">🔥 BT-02 Óc Chó Vân Nu</button> <button type='button' class='action-btn' style='padding:3px 8px;font-size:0.75rem;' onclick=\"openLightbox('assets/boutique_bt03_roastedteak_t2_v02.jpg', '🍂 Master BT-03: Gỗ Giá Tếch Nướng / English Walnut LK 4604 A ấm áp')\">🍂 BT-03 Giá Tếch Trầm</button>",
+          "<strong>Ngoài ra giữ đủ 2 Option tiêu chuẩn Gu 349:</strong> <button type='button' class='action-btn' style='padding:3px 8px;font-size:0.75rem;' onclick=\"openLightbox('assets/wow_master_bed_allwood.jpg?v=2', 'Option A: Master 100% Vân Gỗ + Cánh tủ Kem Cashmere')\">🪵 Option A: Cánh Tủ Kem</button> <button type='button' class='action-btn' style='padding:3px 8px;font-size:0.75rem;' onclick=\"openLightbox('assets/wow_master_bed_cream_leather.jpg', 'Option B: Master Bọc Da Kem Đá 349 Studio Design')\">✨ Option B: Bọc Da Kem Đá</button>"
         ]
       },
       t2v03: {
@@ -3812,7 +3812,7 @@
         title: "T2-V06 • PN1 (Đổi Sang Gỗ Tươi Sáng Hopeful / KES Ash Dawn / Karma Light Oak): Bàn Dài 2.050mm & Giường Đôi 1,8×2,0m",
         imgWarm: "assets/t2_v06_pn1_north_warmbeige.jpg",
         imgItal: "assets/t2_v06_pn1_north_italian.jpg",
-        imgSmoked: "assets/t2_v06_pn1_north_smokedwood.jpg",
+        imgSmoked: "assets/wow_t2_v06_pn1_girl_lightoak_north.jpg",
         bpId: "bv-t2-05",
         bpLabel: "📐 Xem Bản Vẽ Bàn 2.050mm & Tủ Nam BV-T2.05",
         oppositeKey: "t2v07",
@@ -3830,7 +3830,7 @@
         title: "T2-V07 • PN1 Góc Ngược 180°: Khung Bo R60 Gỗ Sáng, Tủ Kem Tay Nắm Bán Nguyệt + Ngăn Kéo Poplar Blush + Kệ Vòm 0% Kính",
         imgWarm: "assets/t2_v07_pn1_south_warmbeige.jpg",
         imgItal: "assets/t2_v07_pn1_south_italian.jpg",
-        imgSmoked: "assets/t2_v07_pn1_south_smokedwood.jpg",
+        imgSmoked: "assets/wow_t2_v07_pn1_girl_lightoak_south.jpg",
         bpId: "bv-t2-05",
         bpLabel: "📐 Xem Bản Vẽ Chia Khoang Vách Nam 3.550mm BV-T2.05",
         oppositeKey: "t2v06",
@@ -3847,7 +3847,7 @@
         title: "T2-V08 • PN2 (Gỗ Tươi Sáng Hopeful / KES / Karma • Chuẩn Bình Thường 7→17+T): Giường R60 Không Chắn & Vòm Hoa 3D",
         imgWarm: "assets/t2_v08_pn2_south_warmbeige.jpg",
         imgItal: "assets/t2_v08_pn2_south_italian.jpg",
-        imgSmoked: "assets/t2_v08_pn2_south_smokedwood.jpg",
+        imgSmoked: "assets/wow_t2_v08_pn2_girl_lightoak_south.jpg",
         bpId: "bv-t2-06",
         bpLabel: "📐 Xem Bản Vẽ Cả 2 Vách Bắc (2.900) & Nam (3.210) BV-T2.06",
         oppositeKey: "t2v09",
