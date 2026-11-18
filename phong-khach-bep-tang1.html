@@ -644,7 +644,6 @@
           <button type="button" class="tab-btn active" id="tone-switch-studio349" onclick="setT1Tone('studio349')" style="padding:7px 14px;border-radius:999px;border-color:#f59e0b;">🌟 Vân Gỗ &amp; Travertine (Mới Chốt)</button>
           <button type="button" class="tab-btn" id="tone-switch-bt04" onclick="setT1Tone('bt04')" style="padding:7px 14px;border-radius:999px;border-color:#94a3b8;">🏙️ Hiện Đại BT-04: Sồi Khói Ghi Mocha (Khớp Đá T2)</button>
           <button type="button" class="tab-btn" id="tone-switch-bt05" onclick="setT1Tone('bt05')" style="padding:7px 14px;border-radius:999px;border-color:#fb923c;">☀️ Hiện Đại BT-05: Gỗ Caramel × Ghi Bazan (Khớp Lam T3)</button>
-          <button type="button" class="tab-btn" id="tone-switch-boutique" onclick="setT1Tone('boutique')" style="padding:7px 14px;border-radius:999px;border-color:#c084fc;">🥃 Boutique Trầm BT-01..03 (VCT 23 / Karma Nuka)</button>
         </div>
       </div>
       <p class="section-sub">
@@ -1057,13 +1056,12 @@
         img349: "assets/wow_t1_v02_living_north.jpg",
         imgBt04: "assets/boutique_bt04_greigemocha_t1_v02.jpg",
         imgBt05: "assets/boutique_bt05_caramelbasalt_t1_v02.jpg",
-        imgBoutique: "assets/boutique_bt01_eucalyptus_t1_v02.jpg",
         caption: "V02 • Phòng Khách nhìn Bắc: Vách Tivi đá Travertine 3,2m & hốc gốm gỗ bo cong, bên phải khớp đúng Cửa vườn Bắc D2 + Bàn ăn dưới trần phẳng +3.40m & Quạt Lộ 6 / 6A",
         title: "V02 • Phòng Khách Nhìn Bắc: Vách Tivi Đá Travertine 3.200mm & Liên Thông Đúng Cửa Vườn Bắc D2",
         items: [
           "<strong>1. Vách Tivi Tường Bắc <code>Roman Travertine</code> &amp; Gỗ Bo Cong (<code>3.200 × 3.400 mm</code>):</strong> Mảng đá <code>Travertine</code> liền mạch kết hợp cột bo tròn gỗ có hốc trưng bày gốm hắt LED <code>2700K</code> + kệ treo bo <code>R60</code>.",
           "<strong>2. Sofa Bệ Gỗ Bo <code>R60</code> Đệm Kem Sáng (<code>2.800 × 1.850 mm</code>):</strong> Khung bệ gỗ liền khay tay bên trái (tiết kiệm chi phí bọc da khung) trên nền gạch mờ <code>1000×1000</code>.",
-          "<strong>3. Đối chiếu thêm các mã gỗ Boutique Trầm mới trên V02:</strong> <button type='button' class='tab-btn' style='padding:3px 9px;font-size:0.75rem;' onclick=\"openLightbox('assets/boutique_bt02_amberburl_t1_v02.jpg','BT-02: Óc Chó Vân Nu Hổ Phách Karma Nuka + LK 4560 A')\">🔥 Xem BT-02 (Karma Nuka)</button> <button type='button' class='tab-btn' style='padding:3px 9px;font-size:0.75rem;' onclick=\"openLightbox('assets/boutique_bt03_roastedteak_t1_v02.jpg','BT-03: Giá Tếch Rang Trầm Bandung Teak LK 4604 A / KES 22614')\">🍂 Xem BT-03 (Roasted Teak)</button>"
+          "<strong>3. Chuẩn xác 100% Khu Ăn – Bếp phía phải:</strong> Cửa kính lùa vườn Bắc <code>D2 (3.070mm)</code> sau lưng Bàn ăn 8 ghế dưới trần phẳng <code>+3.40m</code> &amp; Quạt <code>Lộ 6A</code>."
         ]
       },
       v03_living_reverse: {
@@ -1130,7 +1128,7 @@
 
     function setT1Tone(tone) {
       currentT1Tone = tone;
-      ["studio349", "bt04", "bt05", "boutique"].forEach(t => {
+      ["studio349", "bt04", "bt05"].forEach(t => {
         const el = document.getElementById("tone-switch-" + t);
         if (el) el.classList.toggle("active", tone === t);
       });
@@ -1153,9 +1151,6 @@
         } else if (currentT1Tone === "bt05") {
           resolvedSrc = data.imgBt05 || data.img349;
           tonePrefix = data.imgBt05 ? "☀️ Hiện Đại BT-05 (Gỗ Caramel Sọc Thẳng × Cánh Ghi Bazan — Khớp Lam Gỗ T3) — " : "🌟 Vân Gỗ & Travertine — ";
-        } else if (currentT1Tone === "boutique") {
-          resolvedSrc = data.imgBoutique || data.img349;
-          tonePrefix = data.imgBoutique ? "🥃 Boutique Trầm BT-01 (Bạch Đàn Khói Ánh Đồng VCT 23) — " : "🌟 Vân Gỗ & Travertine — ";
         } else {
           resolvedSrc = data.img349;
           tonePrefix = "🌟 Modern Luxury × Vân Gỗ & Travertine — ";
