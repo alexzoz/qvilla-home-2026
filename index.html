@@ -152,7 +152,7 @@
 
     /* Hero Banner */
     .hero {
-      padding: 28px 0 18px;
+      padding: 14px 0 20px;
     }
 
     .hero-card {
@@ -1186,83 +1186,12 @@
   </header>
 
   <main class="container">
-    <!-- HERO & REALTIME BUDGET SUMMARY -->
-    <section class="hero">
-      <div class="hero-card">
-        <div class="hero-top">
-          <div class="hero-info">
-            <span class="hero-eyebrow">✨ PHẠM VI: HOÀN THIỆN KIẾN TRÚC, CÔNG THỢ, ĐIỆN NƯỚC &amp; KHU BẾP (ĐÃ BỎ NỘI THẤT ĐỒ RỜI)</span>
-            <h2>Tổng Hợp 12 Phân Khu Hoàn Thiện &amp; Bảng Dự Toán Chi Phí Chi Tiết (Sau Khi Đổ Mái Tầng 3)</h2>
-            <p>
-              Đã cập nhật đầy đủ: <strong>Cửa nhôm kính DCONS</strong> (Bản 3.1/Bản 2/Bản 1), <strong>Công thợ nề &amp; xây trát còn lại</strong>, <strong>Trần thạch cao 2026</strong>, <strong>Gạch ốp lát – Đá cầu thang – Sàn gỗ xương cá</strong>, <strong>Tủ bếp Inox 3 lớp KITPRO + Đá Vicostone</strong>, <strong>Thiết bị bếp Bosch/GrandX/Konox</strong>, và <strong>đã loại bỏ toàn bộ nội thất bàn tủ rời ở Phòng Làm Việc Tầng 3</strong> (chỉ tính đèn, điện, LAN, điều hòa, rèm).
-            </p>
-          </div>
-          <div class="preset-bar" role="group" aria-label="Chọn kịch bản ngân sách">
-            <button type="button" class="preset-btn saved-custom-btn" id="btn-preset-saved" data-preset="saved" onclick="restoreLastSavedBudget()" title="Quay về đúng bảng giá bạn đã bấm Lưu gần nhất">
-              📌 Bản Đã Lưu Của Tôi
-            </button>
-            <button type="button" class="preset-btn active" data-preset="optimal" onclick="applyPreset('optimal')">
-              ⭐ PA Tối Ưu Khuyên Dùng (Full Bếp)
-            </button>
-            <button type="button" class="preset-btn" data-preset="under2b" onclick="applyPreset('under2b')">
-              🎯 PA Gói Gọn &lt; 2 Tỷ (Lùi Mái Sắt Tum)
-            </button>
-            <button type="button" class="preset-btn" data-preset="nofurniture" onclick="applyPreset('nofurniture')">
-              🏗️ Thuần Hoàn Thiện (Chưa Tính Bếp)
-            </button>
-            <button type="button" class="preset-btn" data-preset="economy" onclick="applyPreset('economy')">
-              🌱 PA Tiết Kiệm Tối Đa
-            </button>
-            <button type="button" class="preset-btn" data-preset="premium" onclick="applyPreset('premium')">
-              💎 PA Nguyên Bản / Báo Giá Gốc
-            </button>
-            <button type="button" class="preset-btn save-action-btn" onclick="manualSaveBudget()" title="Chỉ khi bấm nút này thì bảng giá hiện tại mới được lưu lại cho lần mở sau">
-              💾 Bấm Để Lưu Bảng Giá
-            </button>
-          </div>
-        </div>
-
-        <div class="kpi-grid">
-          <div class="kpi-box highlight-emerald">
-            <div class="kpi-label">Tổng Dự Toán Hoàn Thiện Đang Chọn (12 Phân Khu)</div>
-            <div class="kpi-value" id="kpi-grand-total">1.999.090.000 ₫</div>
-            <div class="kpi-sub" id="kpi-grand-sub">Đã chọn 50/50 hạng mục hoàn thiện &amp; khu bếp bên dưới</div>
-          </div>
-          <div class="kpi-box highlight-amber">
-            <div class="kpi-label">Nhóm I: Cửa Nhôm, Cửa Gỗ, Gạch Đá, Trần, Sơn &amp; Mặt Tiền</div>
-            <div class="kpi-value" id="kpi-group-a">1.053.050.000 ₫</div>
-            <div class="kpi-sub">Vật tư &amp; Hạng mục Hoàn thiện Kiến trúc + Ngoại thất + Tum</div>
-          </div>
-          <div class="kpi-box highlight-sky">
-            <div class="kpi-label">Nhóm II: Công Thợ, Xây Trát, Điện Nước, Aqara, WC &amp; Bếp</div>
-            <div class="kpi-value" id="kpi-group-b">946.040.000 ₫</div>
-            <div class="kpi-sub">Công thợ nề + MEP + Aqara + Đèn OPPLE + 4 WC + Tủ bếp &amp; TB Bếp</div>
-          </div>
-          <div class="kpi-box">
-            <div class="kpi-label">Tiết Kiệm So Với Báo Giá Gốc / PA Nguyên Bản</div>
-            <div class="kpi-value" style="color: #34d399;" id="kpi-savings">-425.250.000 ₫</div>
-            <div class="kpi-sub" id="kpi-savings-sub">So với mức 2.424.340.000 ₫ của PA Nguyên bản chưa tối ưu</div>
-          </div>
-        </div>
-
-        <!-- Visual Stacked Progress Bar -->
-        <div class="budget-bar-wrap">
-          <div class="budget-bar-header">
-            <strong>📊 Tỷ trọng phân bổ ngân sách theo 12 phân khu hoàn thiện:</strong>
-            <span id="budget-mode-label" style="color: var(--accent-light); font-weight: 700;">Đang áp dụng: ⭐ PA Tối Ưu Khuyên Dùng</span>
-          </div>
-          <div class="budget-bar-track" id="budget-bar-track"></div>
-          <div class="budget-legend" id="budget-legend"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- NEW SECTION: SEQUENTIAL FLOOR-BY-FLOOR 349 SHOWCASE + CATEGORY DROP-MENUS -->
-    <section id="sec-floors-sync" style="margin-bottom: 14px;">
+    <!-- TOP SECTION: SEQUENTIAL FLOOR-BY-FLOOR SHOWCASE + CATEGORY DROP-MENUS -->
+    <section id="sec-floors-sync" style="padding-top: 22px; margin-bottom: 8px;">
       <div class="section-header">
         <div>
           <span class="section-tag">🌟 ĐỒNG BỘ MỚI NHẤT • SẮP XẾP LẦN LƯỢT THEO TẦNG (TẦNG 1 &rarr; TẦNG 2 &rarr; TẦNG 3 &rarr; TUM) &amp; HẠNG MỤC KỸ THUẬT</span>
-          <h2>Bản Đồ Toàn Nhà Q Villa Theo Thứ Tự Tầng &amp; Bộ Menu Hạng Mục Chuyên Sâu (Gu 349 × Vân Gỗ &amp; Travertine)</h2>
+          <h2>Bản Đồ Toàn Nhà Q Villa Theo Thứ Tự Tầng &amp; Bộ Menu Hạng Mục Chuyên Sâu</h2>
           <p>Bấm vào từng nút hạng mục bên dưới để <strong>xổ Drop Menu chọn nhanh bản vẽ chuyên đề</strong>, hoặc bấm trực tiếp vào ảnh từng tầng để phóng to 4K:</p>
         </div>
       </div>
@@ -1272,12 +1201,12 @@
         <span class="strip-label">📂 CHỌN NHANH THEO HẠNG MỤC:</span>
 
         <button type="button" class="qv-drop-btn" data-accent="gold" popovertarget="idx-cat-pop-nt" aria-controls="idx-cat-pop-nt" aria-expanded="false">
-          <span>✨ Nội Thất 349 × Travertine (T1&rarr;T3)</span><span class="qv-chev" aria-hidden="true">▾</span>
+          <span>✨ Nội Thất Theo Tầng (T1&rarr;T3)</span><span class="qv-chev" aria-hidden="true">▾</span>
         </button>
         <div id="idx-cat-pop-nt" class="qv-popover-panel" popover="auto">
           <div class="qv-pop-sec-title">🌟 Tổng Hợp &amp; Xưởng Nội Thất</div>
           <ul class="qv-pop-list">
-            <li><a class="qv-pop-link" href="mau-modern-luxury-349.html"><span class="qv-pop-ico" aria-hidden="true">✨</span><span class="qv-pop-txt">Tổng Duyệt Phối Cảnh 349 × Travertine (T1 &rarr; T3)</span><span class="qv-pop-badge">Mới chốt</span></a></li>
+            <li><a class="qv-pop-link" href="mau-modern-luxury-349.html"><span class="qv-pop-ico" aria-hidden="true">✨</span><span class="qv-pop-txt">Tổng Duyệt 22 Phối Cảnh Nội Thất (T1 &rarr; T3)</span><span class="qv-pop-badge">Mới chốt</span></a></li>
             <li><a class="qv-pop-link" href="noi-that-toan-nha.html"><span class="qv-pop-ico" aria-hidden="true">🪑</span><span class="qv-pop-txt">Dự Toán &amp; Mã Ván Nội Thất Toàn Nhà (Karma/KES)</span></a></li>
             <li><a class="qv-pop-link" href="ho-so-xuong-noi-that.html"><span class="qv-pop-ico" aria-hidden="true">🔧</span><span class="qv-pop-txt">Hồ Sơ Đa Góc 360° &amp; Bản Vẽ Đóng Tủ Giao Xưởng</span></a></li>
           </ul>
@@ -1351,7 +1280,7 @@
         <article class="floor-seq-card f1">
           <div class="floor-mosaic">
             <div class="m-main" onclick="openIdxLightbox('assets/wow_t1_v02_living_north.jpg', 'Tầng 1 (V02): Phòng Khách nhìn Bắc — Vách Tivi đá Travertine 3,2m & liên thông đúng Cửa vườn Bắc D2 + Bàn ăn dưới Quạt trần')">
-              <img src="assets/wow_t1_v02_living_north.jpg" alt="Tầng 1 Phòng khách V02 Gu 349Design" loading="lazy" />
+              <img src="assets/wow_t1_v02_living_north.jpg" alt="Tầng 1 Phòng khách V02 Vân Gỗ và Đá Travertine" loading="lazy" />
               <span class="floor-step-pill">1️⃣ TẦNG 1 • ĐỦ 7 GÓC V01&rarr;V07</span>
             </div>
             <div class="m-sub" onclick="openIdxLightbox('assets/wow_t1_v06_grandparents_south.jpg', 'Tầng 1 (V06 Mới): Phòng Ngủ Ông Bà nhìn Nam — Vòm đá Roman Travertine + Giường 100% vân gỗ (0% da, không thảm) + Trái sân vườn tầng trệt')">
@@ -1422,7 +1351,7 @@
         <article class="floor-seq-card f3">
           <div class="floor-mosaic">
             <div class="m-main" onclick="openIdxLightbox('assets/wow_t3_v01_study_south.jpg', 'Tầng 3 (T3-V01): Phòng Làm Việc Đôi Vợ Chồng chuẩn 100% CAD KT-2.04 — 2 cửa sổ mặt tiền, Bàn đôi 3,5m, Tủ sách Travertine + Cột Hộp KT 980mm hốc đá điêu khắc, Sofa dưới ĐH treo & Trần phẳng khung Ray 48V')">
-              <img src="assets/wow_t3_v01_study_south.jpg" alt="Tầng 3 Phòng làm việc đôi Gu 349Design chuẩn CAD" loading="lazy" />
+              <img src="assets/wow_t3_v01_study_south.jpg" alt="Tầng 3 Phòng làm việc đôi chuẩn CAD" loading="lazy" />
               <span class="floor-step-pill">3️⃣ TẦNG 3 • ĐỦ 6 GÓC T3-V01&rarr;V06</span>
             </div>
             <div class="m-sub" onclick="openIdxLightbox('assets/wow_t3_v02_study_north.jpg', 'Tầng 3 (T3-V02 — Ngược 180°): Hệ vách cửa lùa 4 cánh kính sọc mờ không ray sàn ngăn Phòng Thờ Gia Tiên + Cửa D3 ra hành lang')">
@@ -1487,6 +1416,77 @@
             </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <!-- HERO & REALTIME BUDGET SUMMARY -->
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-top">
+          <div class="hero-info">
+            <span class="hero-eyebrow">✨ PHẠM VI: HOÀN THIỆN KIẾN TRÚC, CÔNG THỢ, ĐIỆN NƯỚC &amp; KHU BẾP (ĐÃ BỎ NỘI THẤT ĐỒ RỜI)</span>
+            <h2>Tổng Hợp 12 Phân Khu Hoàn Thiện &amp; Bảng Dự Toán Chi Phí Chi Tiết (Sau Khi Đổ Mái Tầng 3)</h2>
+            <p>
+              Đã cập nhật đầy đủ: <strong>Cửa nhôm kính DCONS</strong> (Bản 3.1/Bản 2/Bản 1), <strong>Công thợ nề &amp; xây trát còn lại</strong>, <strong>Trần thạch cao 2026</strong>, <strong>Gạch ốp lát – Đá cầu thang – Sàn gỗ xương cá</strong>, <strong>Tủ bếp Inox 3 lớp KITPRO + Đá Vicostone</strong>, <strong>Thiết bị bếp Bosch/GrandX/Konox</strong>, và <strong>đã loại bỏ toàn bộ nội thất bàn tủ rời ở Phòng Làm Việc Tầng 3</strong> (chỉ tính đèn, điện, LAN, điều hòa, rèm).
+            </p>
+          </div>
+          <div class="preset-bar" role="group" aria-label="Chọn kịch bản ngân sách">
+            <button type="button" class="preset-btn saved-custom-btn" id="btn-preset-saved" data-preset="saved" onclick="restoreLastSavedBudget()" title="Quay về đúng bảng giá bạn đã bấm Lưu gần nhất">
+              📌 Bản Đã Lưu Của Tôi
+            </button>
+            <button type="button" class="preset-btn active" data-preset="optimal" onclick="applyPreset('optimal')">
+              ⭐ PA Tối Ưu Khuyên Dùng (Full Bếp)
+            </button>
+            <button type="button" class="preset-btn" data-preset="under2b" onclick="applyPreset('under2b')">
+              🎯 PA Gói Gọn &lt; 2 Tỷ (Lùi Mái Sắt Tum)
+            </button>
+            <button type="button" class="preset-btn" data-preset="nofurniture" onclick="applyPreset('nofurniture')">
+              🏗️ Thuần Hoàn Thiện (Chưa Tính Bếp)
+            </button>
+            <button type="button" class="preset-btn" data-preset="economy" onclick="applyPreset('economy')">
+              🌱 PA Tiết Kiệm Tối Đa
+            </button>
+            <button type="button" class="preset-btn" data-preset="premium" onclick="applyPreset('premium')">
+              💎 PA Nguyên Bản / Báo Giá Gốc
+            </button>
+            <button type="button" class="preset-btn save-action-btn" onclick="manualSaveBudget()" title="Chỉ khi bấm nút này thì bảng giá hiện tại mới được lưu lại cho lần mở sau">
+              💾 Bấm Để Lưu Bảng Giá
+            </button>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-box highlight-emerald">
+            <div class="kpi-label">Tổng Dự Toán Hoàn Thiện Đang Chọn (12 Phân Khu)</div>
+            <div class="kpi-value" id="kpi-grand-total">1.999.090.000 ₫</div>
+            <div class="kpi-sub" id="kpi-grand-sub">Đã chọn 50/50 hạng mục hoàn thiện &amp; khu bếp bên dưới</div>
+          </div>
+          <div class="kpi-box highlight-amber">
+            <div class="kpi-label">Nhóm I: Cửa Nhôm, Cửa Gỗ, Gạch Đá, Trần, Sơn &amp; Mặt Tiền</div>
+            <div class="kpi-value" id="kpi-group-a">1.053.050.000 ₫</div>
+            <div class="kpi-sub">Vật tư &amp; Hạng mục Hoàn thiện Kiến trúc + Ngoại thất + Tum</div>
+          </div>
+          <div class="kpi-box highlight-sky">
+            <div class="kpi-label">Nhóm II: Công Thợ, Xây Trát, Điện Nước, Aqara, WC &amp; Bếp</div>
+            <div class="kpi-value" id="kpi-group-b">946.040.000 ₫</div>
+            <div class="kpi-sub">Công thợ nề + MEP + Aqara + Đèn OPPLE + 4 WC + Tủ bếp &amp; TB Bếp</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-label">Tiết Kiệm So Với Báo Giá Gốc / PA Nguyên Bản</div>
+            <div class="kpi-value" style="color: #34d399;" id="kpi-savings">-425.250.000 ₫</div>
+            <div class="kpi-sub" id="kpi-savings-sub">So với mức 2.424.340.000 ₫ của PA Nguyên bản chưa tối ưu</div>
+          </div>
+        </div>
+
+        <!-- Visual Stacked Progress Bar -->
+        <div class="budget-bar-wrap">
+          <div class="budget-bar-header">
+            <strong>📊 Tỷ trọng phân bổ ngân sách theo 12 phân khu hoàn thiện:</strong>
+            <span id="budget-mode-label" style="color: var(--accent-light); font-weight: 700;">Đang áp dụng: ⭐ PA Tối Ưu Khuyên Dùng</span>
+          </div>
+          <div class="budget-bar-track" id="budget-bar-track"></div>
+          <div class="budget-legend" id="budget-legend"></div>
+        </div>
       </div>
     </section>
 
@@ -1804,7 +1804,7 @@
         <!-- Card 11: Phòng Làm Việc Tầng 3 — ĐÃ BỎ NỘI THẤT (phong-lam-viec-tang3.html) -->
         <article class="portal-card">
           <div class="portal-thumb">
-            <img src="assets/wow_t3_v01_study_south.jpg" alt="Phối cảnh 3D Phòng làm việc đôi Tầng 3 Gu 349Design × Travertine chuẩn CAD KT-2.04" loading="lazy" />
+            <img src="assets/wow_t3_v01_study_south.jpg" alt="Phối cảnh 3D Phòng làm việc đôi Tầng 3 Modern Luxury × Travertine chuẩn CAD KT-2.04" loading="lazy" />
             <span class="portal-badge-top">11. M&amp;E Phòng Làm Việc T3 (Bỏ Nội Thất)</span>
             <span class="portal-cost-pill" id="card-cost-cat11">14,75 Triệu ₫</span>
           </div>
