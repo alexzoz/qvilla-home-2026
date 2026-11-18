@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hồ Sơ Kỹ Thuật Đặt Đóng Nội Thất Giao Xưởng (Tầng 1 &amp; Tầng 2 Hoàn Chỉnh 100% • 15 Góc 3D × 3 Tone • 11 Bản Vẽ 2D) — Q Villa</title>
+  <title>Hồ Sơ Nội Thất Giao Xưởng (T1 → T3) — Q Villa</title>
   <style>
     :root {
       color-scheme: dark;
@@ -69,72 +69,92 @@
       padding: 0 20px;
     }
 
-    /* Sticky Top Header & Global Tone Bar */
+    /* Sticky Top Header & Compact Single-Row Control Bar */
     header.site-header {
       position: sticky;
       top: 0;
       z-index: 120;
-      background: rgba(7, 11, 18, 0.94);
+      background: rgba(7, 11, 18, 0.95);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
-      padding: 10px 0;
+      padding: 7px 0;
     }
 
     .header-row-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      padding-bottom: 10px;
+      gap: 10px;
+      flex-wrap: nowrap;
+      padding-bottom: 6px;
       border-bottom: 1px solid rgba(148, 163, 184, 0.14);
     }
 
     a.brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
+      flex: 1 1 auto;
+      min-inline-size: 0;
       text-decoration: none;
       color: inherit;
     }
 
     .brand-badge {
+      flex: none;
       background: linear-gradient(135deg, #10b981, #059669);
       color: #04130d;
       font-weight: 900;
-      font-size: 0.75rem;
-      padding: 6px 12px;
+      font-size: 0.72rem;
+      padding: 5px 10px;
       border-radius: 999px;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       white-space: nowrap;
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+    }
+
+    .brand-title {
+      flex: 1 1 auto;
+      min-inline-size: 0;
     }
 
     .brand-title h1 {
-      font-size: 1.04rem;
+      font-size: 0.98rem;
+      line-height: 1.28;
       font-weight: 800;
       color: #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .brand-title p {
-      font-size: 0.76rem;
-      color: var(--text-muted);
+    @media (max-width: 1023px) {
+      .brand-title h1 {
+        font-size: 0.9rem;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        overflow: hidden;
+        text-wrap: balance;
+      }
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 7px;
-      flex-wrap: wrap;
+      gap: 6px;
+      flex: none;
     }
 
     .nav-links a, .btn-print {
       text-decoration: none;
       color: var(--text-secondary);
-      font-size: 0.78rem;
+      font-size: 0.77rem;
       font-weight: 700;
-      padding: 6px 11px;
+      padding: 5px 10px;
       border-radius: 999px;
       border: 1px solid var(--border);
       background: rgba(30, 41, 59, 0.6);
@@ -160,95 +180,151 @@
       color: #fff;
     }
 
-    /* Global Sticky Tone Switcher Row */
+    /* Compact Single-Row Floor + Palette Switcher */
     .header-row-controls {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding-top: 10px;
+      gap: 8px;
+      flex-wrap: nowrap;
+      padding-top: 6px;
     }
 
     .floor-pills {
       display: flex;
       align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
+      gap: 5px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      min-inline-size: 0;
+      flex: 1 1 auto;
     }
+    .floor-pills::-webkit-scrollbar { display: none; }
 
     .floor-pill {
+      flex: none;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
+      gap: 4px;
+      padding: 5px 10px;
       border-radius: 999px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 800;
       border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.85);
+      background: rgba(15, 23, 42, 0.88);
       color: var(--text-muted);
       cursor: pointer;
+      white-space: nowrap;
       transition: all 0.16s ease;
+    }
+
+    .floor-pill:focus-visible,
+    .palette-trigger-btn:focus-visible,
+    .tone-btn:focus-visible {
+      outline: 2px solid var(--accent-light);
+      outline-offset: -2px;
     }
 
     .floor-pill.active-floor {
-      background: rgba(16, 185, 129, 0.2);
+      background: rgba(16, 185, 129, 0.22);
       border-color: var(--emerald);
       color: var(--emerald-light);
-      box-shadow: 0 0 18px rgba(16, 185, 129, 0.2);
     }
 
-    .floor-pill.queued-floor:hover {
+    .floor-pill:hover {
       border-color: var(--accent);
-      color: var(--accent-light);
+      color: #fff;
     }
 
-    .tone-bar {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .tone-bar-label {
-      font-size: 0.76rem;
-      font-weight: 800;
-      color: var(--accent-light);
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .tone-btn {
+    .palette-picker-wrap {
+      flex: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 13px;
+    }
+
+    .palette-trigger-btn {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 11px;
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-family: inherit;
+      font-size: 0.76rem;
       font-weight: 800;
-      border: 1px solid var(--border);
-      background: var(--bg-elevated);
+      border: 1px solid var(--accent);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.26), rgba(234, 88, 12, 0.2));
+      color: #fff;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.16s ease, border-color 0.16s ease;
+    }
+
+    .palette-trigger-btn:hover {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.38), rgba(234, 88, 12, 0.3));
+    }
+
+    .tone-btn {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border-radius: 9px;
+      font-size: 0.8rem;
+      font-weight: 750;
+      text-align: left;
+      border: 1px solid transparent;
+      background: rgba(30, 41, 59, 0.55);
       color: var(--text-secondary);
       cursor: pointer;
-      transition: all 0.16s ease;
+      transition: all 0.14s ease;
     }
 
     .tone-btn:hover {
       color: #fff;
-      border-color: var(--accent);
+      background: rgba(245, 158, 11, 0.16);
+      border-color: rgba(245, 158, 11, 0.45);
     }
 
     .tone-btn[aria-pressed="true"] {
-      background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(234, 88, 12, 0.25));
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.28), rgba(234, 88, 12, 0.22));
       border-color: var(--accent);
       color: #fff;
-      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.28);
+    }
+
+    .floor-pill, .palette-trigger-btn {
+      position: relative;
+    }
+
+    .short-lbl {
+      display: none;
+      user-select: none;
+    }
+
+    @media (max-width: 768px) {
+      .long-lbl {
+        position: absolute;
+        inline-size: 1px;
+        block-size: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
+      .short-lbl {
+        display: inline;
+      }
+      .floor-pill, .palette-trigger-btn {
+        padding: 5px 8px;
+        font-size: 0.74rem;
+      }
     }
 
     .swatch-dot {
-      width: 12px;
-      height: 12px;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
       border: 1px solid rgba(255, 255, 255, 0.55);
       flex: none;
@@ -1090,66 +1166,77 @@
   <header class="site-header">
     <div class="container">
       <div class="header-row-top">
-        <a href="index.html" class="brand" title="Quay về Trang Chủ &amp; Tổng Dự Toán Q Villa">
-          <span class="brand-badge">🔧 HỒ SƠ GIAO XƯỞNG • T1 &rarr; T2 &rarr; T3</span>
+        <a href="index.html" class="brand" title="Quay về Trang Chủ Q Villa">
+          <span class="brand-badge">🔧 HỒ SƠ XƯỞNG</span>
           <div class="brand-title">
-            <h1>Hồ Sơ Kỹ Thuật Đặt Đóng Nội Thất Xưởng — Đồng Bộ Đa Góc Nhìn 360° &amp; Bản Vẽ Chia Khoang 2D</h1>
-            <p>Hoàn chỉnh trọn bộ cả 3 Tầng T1 &rarr; T2 &rarr; T3 (22 Góc "WOW" Gu 349 × Vân Gỗ &amp; Travertine • 0% Bọc Da Giường/Đảo • 0% Kính Tủ Đứng)</p>
+            <h1>Hồ Sơ Nội Thất Giao Xưởng (T1 &rarr; T3)</h1>
           </div>
         </a>
         <nav class="nav-links" aria-label="Điều hướng hồ sơ Q Villa">
-          <a href="index.html">💰 Tổng Dự Toán</a>
-          <a href="noi-that-toan-nha.html">🛋️ Nội Thất Toàn Nhà</a>
-          <a href="ho-so-xuong-noi-that.html" class="active">🔧 Hồ Sơ Xưởng (T1 &amp; T2)</a>
-          <a href="phong-khach-bep-tang1.html">🏠 Khách &amp; Bếp T1</a>
-          <a href="phong-master-tang2.html">👑 Master T2 (Trần &amp; ĐH)</a>
-          <a href="phong-lam-viec-tang3.html">💻 P. Làm Việc T3</a>
-          <a href="phong-tho-tang3.html">🪷 Phòng Thờ (Riêng)</a>
-          <button type="button" class="btn-print" onclick="switchFloor('all', false); setTimeout(() => window.print(), 120);">🖨️ In Trọn Bộ PDF A3</button>
+          <a href="index.html">🏠 Trang Chủ</a>
+          <button type="button" class="btn-print" onclick="switchFloor('all', false); setTimeout(() => window.print(), 120);">🖨️ In PDF A3</button>
         </nav>
       </div>
 
       <div class="header-row-controls">
         <div class="floor-pills" role="group" aria-label="Chọn tầng hồ sơ kỹ thuật xưởng">
           <button type="button" class="floor-pill active-floor" id="btn-floor-f1" aria-expanded="true" aria-controls="chapter-floor-1" onclick="switchFloor('f1')">
-            1️⃣ TẦNG 1: HOÀN CHỈNH (7 Góc • 5 BV 2D)
+            <span aria-hidden="true">1️⃣</span>
+            <span class="long-lbl">Tầng 1 (7 Góc • 5 BV)</span>
+            <span class="short-lbl" aria-hidden="true">T1</span>
           </button>
           <button type="button" class="floor-pill" id="btn-floor-f2" aria-expanded="false" aria-controls="chapter-floor-2" onclick="switchFloor('f2')">
-            2️⃣ TẦNG 2: HOÀN CHỈNH (9 Góc • 6 BV 2D)
+            <span aria-hidden="true">2️⃣</span>
+            <span class="long-lbl">Tầng 2 (9 Góc • 6 BV)</span>
+            <span class="short-lbl" aria-hidden="true">T2</span>
           </button>
           <button type="button" class="floor-pill" id="btn-floor-f3" aria-expanded="false" aria-controls="chapter-floor-3" onclick="switchFloor('f3')">
-            3️⃣ TẦNG 3: HOÀN CHỈNH (6 Góc • P.LV • PN3–4 &amp; Sảnh)
+            <span aria-hidden="true">3️⃣</span>
+            <span class="long-lbl">Tầng 3 (6 Góc)</span>
+            <span class="short-lbl" aria-hidden="true">T3</span>
           </button>
           <button type="button" class="floor-pill" id="btn-floor-all" aria-expanded="false" onclick="switchFloor('all')">
-            📚 XEM LẦN LƯỢT T1 &rarr; T2 &rarr; T3 (22 Góc)
+            <span aria-hidden="true">📚</span>
+            <span class="long-lbl">Cả 3 Tầng (22 Góc)</span>
+            <span class="short-lbl" aria-hidden="true">T1–3</span>
           </button>
         </div>
 
-        <div class="tone-bar" role="group" aria-label="Chuyển đổi song song các phương án thiết kế mới">
-          <span class="tone-bar-label">🎨 Chọn Phương Án Mới:</span>
-          <button type="button" class="tone-btn" id="btn-mode-studio349" aria-pressed="true" onclick="setPaletteMode('studio349')">
-            <span class="swatch-dot" style="background:linear-gradient(135deg,#e2d7c5,#5a3b24);"></span>
-            🪵 PA 1: Gu 349 × 100% Vân Gỗ (Đủ 22 Góc)
+        <div class="palette-picker-wrap">
+          <button type="button" class="palette-trigger-btn" id="btn-palette-picker" popovertarget="palette-mode-popover" aria-controls="palette-mode-popover" aria-expanded="false">
+            <span class="swatch-dot" id="active-palette-dot" style="background:linear-gradient(135deg,#e2d7c5,#5a3b24);"></span>
+            <span class="long-lbl" id="active-palette-long">PA 1: Gu 349 × Vân Gỗ</span>
+            <span class="short-lbl" id="active-palette-short" aria-hidden="true">PA 1: Gỗ 349</span>
+            <span class="qv-chev" aria-hidden="true">▾</span>
           </button>
-          <button type="button" class="tone-btn" id="btn-mode-studio349leather" aria-pressed="false" onclick="setPaletteMode('studio349leather')">
-            <span class="swatch-dot" style="background:linear-gradient(135deg,#f1ebe1,#b86935);"></span>
-            ✨ PA 2: Gu 349 × Da Kem Đá Master
-          </button>
-          <button type="button" class="tone-btn" id="btn-mode-bt04" aria-pressed="false" onclick="setPaletteMode('bt04')">
-            <span class="swatch-dot" style="background:linear-gradient(135deg,#584b40,#b8b3ab);"></span>
-            🏙️ PA 3: Hiện Đại BT-04 (Sồi Khói Ghi Mocha)
-          </button>
-          <button type="button" class="tone-btn" id="btn-mode-bt05" aria-pressed="false" onclick="setPaletteMode('bt05')">
-            <span class="swatch-dot" style="background:linear-gradient(135deg,#845836,#6b6761);"></span>
-            ☀️ PA 4: Hiện Đại BT-05 (Caramel × Ghi Bazan)
-          </button>
-          <button type="button" class="tone-btn" id="btn-mode-boutique" aria-pressed="false" onclick="setPaletteMode('boutique')">
-            <span class="swatch-dot" style="background:linear-gradient(135deg,#3a281d,#6c4127);"></span>
-            🥃 PA 5: Boutique Trầm (BT-01 • BT-02 • BT-03)
-          </button>
-          <button type="button" class="tone-btn" id="btn-mode-split" aria-pressed="false" onclick="setPaletteMode('split')">
-            ⚖️ Đọ Song Song Các PA Mới
-          </button>
+          <div id="palette-mode-popover" class="qv-popover-panel" popover="auto" role="group" aria-label="Chọn phương án thiết kế mới">
+            <div class="qv-pop-sec-title">🎨 Chọn Phương Án Thiết Kế</div>
+            <button type="button" class="tone-btn" id="btn-mode-studio349" data-close-popover="1" aria-pressed="true" onclick="setPaletteMode('studio349')">
+              <span class="swatch-dot" style="background:linear-gradient(135deg,#e2d7c5,#5a3b24);"></span>
+              <span>🪵 PA 1: Gu 349 × 100% Vân Gỗ (Đủ 22 Góc)</span>
+            </button>
+            <button type="button" class="tone-btn" id="btn-mode-studio349leather" data-close-popover="1" aria-pressed="false" onclick="setPaletteMode('studio349leather')">
+              <span class="swatch-dot" style="background:linear-gradient(135deg,#f1ebe1,#b86935);"></span>
+              <span>✨ PA 2: Gu 349 × Da Kem Đá Master</span>
+            </button>
+            <button type="button" class="tone-btn" id="btn-mode-bt04" data-close-popover="1" aria-pressed="false" onclick="setPaletteMode('bt04')">
+              <span class="swatch-dot" style="background:linear-gradient(135deg,#584b40,#b8b3ab);"></span>
+              <span>🏙️ PA 3: Hiện Đại BT-04 (Sồi Khói Ghi Mocha)</span>
+            </button>
+            <button type="button" class="tone-btn" id="btn-mode-bt05" data-close-popover="1" aria-pressed="false" onclick="setPaletteMode('bt05')">
+              <span class="swatch-dot" style="background:linear-gradient(135deg,#845836,#6b6761);"></span>
+              <span>☀️ PA 4: Hiện Đại BT-05 (Caramel × Ghi Bazan)</span>
+            </button>
+            <button type="button" class="tone-btn" id="btn-mode-boutique" data-close-popover="1" aria-pressed="false" onclick="setPaletteMode('boutique')">
+              <span class="swatch-dot" style="background:linear-gradient(135deg,#3a281d,#6c4127);"></span>
+              <span>🥃 PA 5: Boutique Trầm (BT-01 • BT-02 • BT-03)</span>
+            </button>
+            <hr class="qv-pop-hr" />
+            <button type="button" class="tone-btn" id="btn-mode-split" data-close-popover="1" aria-pressed="false" onclick="setPaletteMode('split')">
+              <span aria-hidden="true">⚖️</span>
+              <span>Đọ Song Song 4 Phương Án Mới</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -4220,12 +4307,52 @@
       }
     }
 
+    const PALETTE_PICKER_META = {
+      studio349: {
+        dot: "linear-gradient(135deg,#e2d7c5,#5a3b24)",
+        longText: "PA 1: Gu 349 × Vân Gỗ",
+        shortText: "PA 1: Gỗ 349"
+      },
+      studio349leather: {
+        dot: "linear-gradient(135deg,#f1ebe1,#b86935)",
+        longText: "PA 2: Da Kem Đá Master",
+        shortText: "PA 2: Da Kem"
+      },
+      bt04: {
+        dot: "linear-gradient(135deg,#584b40,#b8b3ab)",
+        longText: "PA 3: Hiện Đại BT-04",
+        shortText: "PA 3: BT-04"
+      },
+      bt05: {
+        dot: "linear-gradient(135deg,#845836,#6b6761)",
+        longText: "PA 4: Hiện Đại BT-05",
+        shortText: "PA 4: BT-05"
+      },
+      boutique: {
+        dot: "linear-gradient(135deg,#3a281d,#6c4127)",
+        longText: "PA 5: Boutique Trầm",
+        shortText: "PA 5: Trầm"
+      },
+      split: {
+        dot: "linear-gradient(90deg,#e2d7c5 33%,#584b40 66%,#845836 100%)",
+        longText: "⚖️ Đọ 4 PA Mới",
+        shortText: "⚖️ Đọ PA"
+      }
+    };
+
     function setPaletteMode(mode) {
       currentPaletteMode = mode;
       ["studio349", "studio349leather", "bt04", "bt05", "boutique", "split"].forEach(m => {
         const btn = document.getElementById("btn-mode-" + m);
         if (btn) btn.setAttribute("aria-pressed", m === mode ? "true" : "false");
       });
+      const meta = PALETTE_PICKER_META[mode] || PALETTE_PICKER_META.studio349;
+      const dotEl = document.getElementById("active-palette-dot");
+      const longEl = document.getElementById("active-palette-long");
+      const shortEl = document.getElementById("active-palette-short");
+      if (dotEl) dotEl.style.background = meta.dot;
+      if (longEl) longEl.textContent = meta.longText;
+      if (shortEl) shortEl.textContent = meta.shortText;
       const tfootT1 = document.getElementById("tfoot-t1-total");
       if (tfootT1) {
         tfootT1.textContent = "198.200.000 ₫ (0% Kính Tủ Đứng)";
