@@ -640,10 +640,11 @@
     <section class="block" id="sec-3d">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px;">
         <h2 class="section-title" style="margin-bottom:0;">✨ 1. Phối Cảnh 3D Đồng Bộ 100% Thực Tế Nhà Thật Tầng 1 (Modern Luxury × Vân Gỗ &amp; Travertine Mới Chốt • Đủ 5 Góc V01 &rarr; V05)</h2>
-        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <div style="display:flex;gap:8px;flex-wrap:wrap;flex-wrap:balance;">
           <button type="button" class="tab-btn active" id="tone-switch-studio349" onclick="setT1Tone('studio349')" style="padding:7px 14px;border-radius:999px;border-color:#f59e0b;">🌟 Vân Gỗ &amp; Travertine (Mới Chốt)</button>
           <button type="button" class="tab-btn" id="tone-switch-bt04" onclick="setT1Tone('bt04')" style="padding:7px 14px;border-radius:999px;border-color:#94a3b8;">🏙️ Hiện Đại BT-04: Sồi Khói Ghi Mocha (Khớp Đá T2)</button>
           <button type="button" class="tab-btn" id="tone-switch-bt05" onclick="setT1Tone('bt05')" style="padding:7px 14px;border-radius:999px;border-color:#fb923c;">☀️ Hiện Đại BT-05: Gỗ Caramel × Ghi Bazan (Khớp Lam T3)</button>
+          <button type="button" class="tab-btn" id="tone-switch-wm06" onclick="setT1Tone('wm06')" style="padding:7px 14px;border-radius:999px;border-color:#cbd5e1;">🕊️ Warm Minimalist WM-06: Kem Greige × Chỉ Đen 10%</button>
         </div>
       </div>
       <p class="section-sub">
@@ -1056,6 +1057,7 @@
         img349: "assets/wow_t1_v02_living_north.jpg",
         imgBt04: "assets/boutique_bt04_greigemocha_t1_v02.jpg",
         imgBt05: "assets/boutique_bt05_caramelbasalt_t1_v02.jpg",
+        imgWm06: "assets/warm_minimalist_wm06_t1_v02.jpg",
         caption: "V02 • Phòng Khách nhìn Bắc: Vách Tivi đá Travertine 3,2m & hốc gốm gỗ bo cong, bên phải khớp đúng Cửa vườn Bắc D2 + Bàn ăn dưới trần phẳng +3.40m & Quạt Lộ 6 / 6A",
         title: "V02 • Phòng Khách Nhìn Bắc: Vách Tivi Đá Travertine 3.200mm & Liên Thông Đúng Cửa Vườn Bắc D2",
         items: [
@@ -1128,7 +1130,7 @@
 
     function setT1Tone(tone) {
       currentT1Tone = tone;
-      ["studio349", "bt04", "bt05"].forEach(t => {
+      ["studio349", "bt04", "bt05", "wm06"].forEach(t => {
         const el = document.getElementById("tone-switch-" + t);
         if (el) el.classList.toggle("active", tone === t);
       });
@@ -1151,6 +1153,9 @@
         } else if (currentT1Tone === "bt05") {
           resolvedSrc = data.imgBt05 || data.img349;
           tonePrefix = data.imgBt05 ? "☀️ Hiện Đại BT-05 (Gỗ Caramel Sọc Thẳng × Cánh Ghi Bazan — Khớp Lam Gỗ T3) — " : "🌟 Vân Gỗ & Travertine — ";
+        } else if (currentT1Tone === "wm06") {
+          resolvedSrc = data.imgWm06 || data.img349;
+          tonePrefix = data.imgWm06 ? "🕊️ Warm Minimalist WM-06 (70% Kem Greige Phẳng Mờ × Travertine × Chỉ Đen 10%) — " : "🌟 Vân Gỗ & Travertine — ";
         } else {
           resolvedSrc = data.img349;
           tonePrefix = "🌟 Modern Luxury × Vân Gỗ & Travertine — ";
