@@ -799,22 +799,45 @@
         </div>
 
         <div class="blueprint-card" style="border-color: rgba(245, 158, 11, 0.85);">
-          <div class="blueprint-toolbar" style="background: linear-gradient(90deg, rgba(120,53,15,0.95), rgba(6,78,59,0.88));">
-            <div style="font-size: 0.86rem; font-weight: 800; color: #fde68a;">
-              🌟 MỚI CHỐT (ĐỒNG BỘ VÂN GỖ & TRAVERTINE): CẶP GÓC ĐỐI XỨNG 180° (V04 &amp; V05) — BẾP KÍNH BE • ĐẢO BO R400 3 NGĂN KÉO VÂN GỖ &amp; VÒM CAFE 0% KÍNH
+          <div class="blueprint-toolbar" style="background: linear-gradient(90deg, rgba(30,41,59,0.95), rgba(6,78,59,0.88));flex-wrap:wrap;gap:8px;">
+            <div style="font-size: 0.86rem; font-weight: 800; color: #f8fafc;">
+              🕊️ PA 1 (ƯU TIÊN): WARM MINIMALIST WM-06 &bull; CẶP GÓC ĐỐI XỨNG 180° (V04 &amp; V05) — BẾP KÍNH BE &bull; ĐẢO BO R400 KEM GREIGE &amp; TỦ CAFE 0% KÍNH
             </div>
-            <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <button type="button" class="btn-cad" onclick="openLightbox('assets/wow_t1_v04_dining_kitchen.jpg', 'Góc V04 Mới (Nhìn Đông chuẩn 100% công năng): Bếp chữ I kính Be tường trái + Đảo bán đảo ngang Trục 3 bo R400 + Vòm Cafe 0% kính tường phải + Cửa lùa 1,79m ra Bếp ướt sân sau')">🔍 Phóng To V04 (Nhìn Đông)</button>
-              <button type="button" class="btn-cad" onclick="openLightbox('assets/wow_t1_v05_kitchen_reverse.jpg', 'Góc V05 Mới (Ngược 180° Nhìn Tây): Mặt trong Bàn Đảo bo R400 3 ngăn kéo 100% vân gỗ Óc chó + Vòm Cafe trái + Bếp kính Be phải xuyên suốt 12,01m')">🔍 Phóng To V05 (Nhìn Tây 180°)</button>
+            <div style="display:flex; gap:6px; flex-wrap:wrap; flex-wrap:balance;">
+              <button type="button" class="btn-cad" id="bep-tone-wm06" onclick="setBepScheme('wm06')" aria-pressed="true" style="background:rgba(226,232,240,0.22);border-color:#f8fafc;color:#fff;font-weight:800;">🕊️ PA 1 (Ưu Tiên): Warm Minimalist WM-06</button>
+              <button type="button" class="btn-cad" id="bep-tone-wood" onclick="setBepScheme('wood')" aria-pressed="false" style="border-color:#f59e0b;color:#fde68a;">🪵 PA 2: Vân Gỗ &amp; Travertine</button>
+              <button type="button" class="btn-cad" id="bep-v04-zoom" onclick="openLightbox('assets/warm_minimalist_wm06_t1_v04_dining_kitchen.jpg', 'WM-06 Góc V04 (Nhìn Đông chuẩn 100% công năng): Bếp chữ I kính Be tường trái + Đảo bán đảo ngang Trục 3 bo R400 Kem Greige & Travertine + Tủ Cafe 0% kính tường phải + Cửa lùa 1,79m ra Bếp ướt sân sau')">🔍 Phóng To V04 (Nhìn Đông)</button>
+              <button type="button" class="btn-cad" id="bep-v05-zoom" onclick="openLightbox('assets/warm_minimalist_wm06_t1_v05_kitchen_rev.jpg', 'WM-06 Góc V05 (Ngược 180° Nhìn Tây): Mặt trong Bàn Đảo bo R400 1 cánh + 3 ngăn kéo Kem Greige LL 21 tay nắm đen mảnh 10% + Tủ Cafe trái + Bếp kính Be phải xuyên suốt 12,01m')">🔍 Phóng To V05 (Nhìn Tây 180°)</button>
             </div>
           </div>
           <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 12px; padding: 12px; background: #070b10;">
-            <img src="assets/wow_t1_v04_dining_kitchen.jpg" alt="Góc V04 Phòng ăn nhìn Đông vào Khu Bếp chuẩn công năng Modern Luxury" loading="lazy" style="width:100%; height:340px; object-fit:cover; border-radius:10px; cursor:zoom-in;" onclick="openLightbox('assets/wow_t1_v04_dining_kitchen.jpg', 'Góc V04 Mới (Nhìn Đông chuẩn 100% công năng): Bếp chữ I kính Be tường trái + Đảo bán đảo ngang Trục 3 bo R400 + Vòm Cafe 0% kính tường phải + Cửa lùa 1,79m ra Bếp ướt sân sau')">
-            <img src="assets/wow_t1_v05_kitchen_reverse.jpg" alt="Góc V05 Khu bếp nhìn ngược hướng Tây qua mặt trong Bàn đảo 3 ngăn kéo vân gỗ" loading="lazy" style="width:100%; height:340px; object-fit:cover; border-radius:10px; cursor:zoom-in;" onclick="openLightbox('assets/wow_t1_v05_kitchen_reverse.jpg', 'Góc V05 Mới (Ngược 180° Nhìn Tây): Mặt trong Bàn Đảo bo R400 3 ngăn kéo 100% vân gỗ Óc chó + Vòm Cafe trái + Bếp kính Be phải xuyên suốt 12,01m')">
+            <img id="bep-v04-img" src="assets/warm_minimalist_wm06_t1_v04_dining_kitchen.jpg" alt="WM-06 Góc V04 Phòng ăn nhìn Đông vào Khu Bếp chuẩn công năng" loading="lazy" style="width:100%; height:340px; object-fit:cover; border-radius:10px; cursor:zoom-in;" onclick="openLightbox(this.src, document.getElementById('bep-v04-zoom').dataset.cap || 'WM-06 Góc V04 (Nhìn Đông chuẩn 100% công năng): Bếp chữ I kính Be + Đảo ngang Trục 3 bo R400 Kem Greige + Tủ Cafe 0% kính + Cửa sân sau 1,79m')">
+            <img id="bep-v05-img" src="assets/warm_minimalist_wm06_t1_v05_kitchen_rev.jpg" alt="WM-06 Góc V05 Khu bếp nhìn ngược hướng Tây qua mặt trong Bàn đảo 3 ngăn kéo" loading="lazy" style="width:100%; height:340px; object-fit:cover; border-radius:10px; cursor:zoom-in;" onclick="openLightbox(this.src, document.getElementById('bep-v05-zoom').dataset.cap || 'WM-06 Góc V05 (Ngược 180° Nhìn Tây): Mặt trong Bàn Đảo bo R400 Kem Greige LL 21 tay nắm đen mảnh 10% + Tủ Cafe trái + Bếp kính Be phải xuyên suốt 12,01m')">
           </div>
           <div style="padding: 12px 16px; font-size: 0.84rem; color: #e2e8f0; border-top: 1px solid var(--border);">
-            • <strong>Đã đồng bộ trực tiếp từ <a href="mau-modern-luxury-349.html#sec-t1-wow" style="color:#fde68a;font-weight:800;">Tổng Duyệt Vân Gỗ & Travertine</a>:</strong> Dãy Bếp chữ I cánh kính màu Be nằm thẳng dọc tường Bắc (trái) dưới trần phẳng <code>+3.400m</code>; <strong>Bàn đảo ngang Trục 3 bo tròn <code>R400</code> (1 cánh mở + 3 ngăn kéo 100% vân gỗ Óc chó)</strong> nối liền <strong>Hốc vòm pha Cafe Espresso (<code>0% cánh kính ở Tủ phụ</code>)</strong>; chính diện cuối hành lang mở thẳng qua <strong>Cửa lùa <code>1.790mm</code></strong> ra <strong>Bếp ướt &amp; Tháp giặt sấy</strong>.
+            • <strong>Đã đồng bộ trực tiếp từ <a href="mau-modern-luxury-349.html#sec-t1-wow" style="color:#fde68a;font-weight:800;">Tổng Duyệt PA 1 Warm Minimalist WM-06 / PA 2 Vân Gỗ</a>:</strong> Dãy Bếp chữ I cánh kính màu Be nằm thẳng dọc tường Bắc (trái) dưới trần phẳng <code>+3.400m</code>; <strong>Bàn đảo ngang Trục 3 bo tròn <code>R400</code> (1 cánh mở + 3 ngăn kéo Kem Greige <code>LL 21</code> tay nắm đen mảnh 10% hoặc vân gỗ ở PA 2)</strong> nối liền <strong>Hốc vòm pha Cafe (<code>0% kính</code>)</strong>; chính diện cuối hành lang mở thẳng qua <strong>Cửa lùa <code>1.790mm</code></strong> ra <strong>Bếp ướt &amp; Tháp giặt sấy</strong>.
           </div>
+          <script>
+            function setBepScheme(mode) {
+              var isWood = mode === "wood";
+              var v4 = isWood ? "assets/wow_t1_v04_dining_kitchen.jpg" : "assets/warm_minimalist_wm06_t1_v04_dining_kitchen.jpg";
+              var v5 = isWood ? "assets/wow_t1_v05_kitchen_reverse.jpg" : "assets/warm_minimalist_wm06_t1_v05_kitchen_rev.jpg";
+              var c4 = isWood ? "PA 2 Góc V04 (Nhìn Đông): Bếp kính Be tường trái + Đảo bo R400 Vân Gỗ + Vòm Cafe 0% kính + Cửa lùa 1,79m ra Bếp ướt" : "WM-06 Góc V04 (Nhìn Đông): Bếp kính Be tường trái + Đảo bo R400 Kem Greige LL 21 & Travertine + Tủ Cafe 0% kính + Cửa sân sau 1,79m";
+              var c5 = isWood ? "PA 2 Góc V05 (Ngược 180° Nhìn Tây): Mặt trong Bàn Đảo bo R400 3 ngăn kéo Vân Gỗ Óc chó + Vòm Cafe trái + Bếp kính Be phải" : "WM-06 Góc V05 (Ngược 180° Nhìn Tây): Mặt trong Bàn Đảo bo R400 3 ngăn kéo Kem Greige LL 21 tay nắm đen 10% + Tủ Cafe trái + Bếp kính Be phải";
+              var img4 = document.getElementById("bep-v04-img");
+              var img5 = document.getElementById("bep-v05-img");
+              var z4 = document.getElementById("bep-v04-zoom");
+              var z5 = document.getElementById("bep-v05-zoom");
+              if (img4) img4.src = v4;
+              if (img5) img5.src = v5;
+              if (z4) { z4.dataset.cap = c4; z4.setAttribute("onclick", "openLightbox('" + v4 + "', '" + c4 + "')"); }
+              if (z5) { z5.dataset.cap = c5; z5.setAttribute("onclick", "openLightbox('" + v5 + "', '" + c5 + "')"); }
+              var bw = document.getElementById("bep-tone-wm06");
+              var bg = document.getElementById("bep-tone-wood");
+              if (bw) { bw.setAttribute("aria-pressed", String(!isWood)); bw.style.background = !isWood ? "rgba(226,232,240,0.22)" : ""; bw.style.borderColor = !isWood ? "#f8fafc" : "#cbd5e1"; }
+              if (bg) { bg.setAttribute("aria-pressed", String(isWood)); bg.style.background = isWood ? "rgba(245,158,11,0.28)" : ""; }
+            }
+          </script>
         </div>
 
         <div class="blueprint-card" style="border-color: rgba(245, 158, 11, 0.55);">

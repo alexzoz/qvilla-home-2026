@@ -1185,28 +1185,52 @@
       <!-- Photorealistic 3D Interior Render Showcase (Synced 2-Way 360° with mau-modern-luxury-349.html) -->
       <div class="blueprint-box" style="margin-top:20px; border-color: rgba(245, 158, 11, 0.65);">
         <div class="blueprint-hdr">
-          <h3>✨ Phối Cảnh 3D Thực Tế Đủ 2 Chiều Đảo 180° (PA T3-A Chuẩn 100% CAD KT-2.04) — Modern Luxury Bo Cong × Vân Gỗ &amp; Travertine (0% Kính Tủ • 0% Lam Sọc)</h3>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button class="btn active" onclick="document.getElementById('study3d-main-render').src='assets/wow_t3_v01_study_south.jpg'">💻 T3-V01: Nhìn Nam (Tủ Sách • Hộp KT Điêu Khắc &amp; ĐH Treo)</button>
-            <button class="btn" onclick="document.getElementById('study3d-main-render').src='assets/wow_t3_v02_study_north.jpg'">🔄 T3-V02: Ngược 180° (Vách Kính Sọc Ngăn P.Thờ &amp; Cửa D3)</button>
-            <button class="btn" onclick="openLightbox(document.getElementById('study3d-main-render').src)">🔍 Phóng To 4K</button>
-            <a class="btn primary" href="assets/wow_t3_v01_study_south.jpg" download="Phoi_Canh_3D_Phong_Lam_Viec_Tang3_V01_South.jpg">⬇️ Tải Ảnh 3D</a>
+          <h3>🕊️ PA 1 (Ưu Tiên): Warm Minimalist WM-06 &bull; Phối Cảnh 3D Thực Tế Đủ 2 Chiều Đảo 180° (PA T3-A Chuẩn 100% CAD KT-2.04 — 0% Kính Tủ • 0% Lam Sọc)</h3>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;flex-wrap:balance;">
+            <button type="button" class="btn active" id="study-tone-wm06" onclick="setStudyScheme('wm06')">🕊️ PA 1 (Ưu Tiên): Warm Minimalist WM-06</button>
+            <button type="button" class="btn" id="study-tone-wood" onclick="setStudyScheme('wood')">🪵 PA 2: Vân Gỗ &amp; Travertine</button>
+            <button type="button" class="btn" onclick="document.getElementById('study3d-main-render').src=window._studyV01Src||'assets/warm_minimalist_wm06_t3_v01_study_south.jpg'">💻 T3-V01: Nhìn Nam (Tủ Sách &amp; Hộp KT)</button>
+            <button type="button" class="btn" onclick="document.getElementById('study3d-main-render').src=window._studyV02Src||'assets/warm_minimalist_wm06_t3_v02_study_north.jpg'">🔄 T3-V02: Ngược 180° (Vách Kính Sọc P.Thờ)</button>
+            <button type="button" class="btn" onclick="openLightbox(document.getElementById('study3d-main-render').src)">🔍 Phóng To 4K</button>
+            <a class="btn primary" id="study3d-download-link" href="assets/warm_minimalist_wm06_t3_v01_study_south.jpg" download="Phoi_Canh_3D_Phong_Lam_Viec_Tang3_WM06_V01_South.jpg">⬇️ Tải Ảnh 3D</a>
           </div>
         </div>
         <div class="blueprint-img-wrap" style="background:#0f172a;padding:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:12px;">
           <figure style="margin:0;border:1px solid rgba(245,158,11,0.45);border-radius:10px;overflow:hidden;background:#080c14;">
-            <img id="study3d-main-render" src="assets/wow_t3_v01_study_south.jpg" alt="T3-V01 Phòng Làm Việc Đôi Tầng 3 nhìn Nam chuẩn CAD KT-2.04" onclick="openLightbox(this.src)">
+            <img id="study3d-main-render" src="assets/warm_minimalist_wm06_t3_v01_study_south.jpg" alt="WM-06 T3-V01 Phòng Làm Việc Đôi Tầng 3 nhìn Nam chuẩn CAD KT-2.04" onclick="openLightbox(this.src)">
             <figcaption style="padding:10px 12px;font-size:0.82rem;color:#e2e8f0;">
-              <strong style="color:#fde68a;">💻 Góc T3-V01 (Nhìn Nam):</strong> Trái đúng <strong>02 cửa sổ mặt tiền</strong> + Bàn đôi <code>3,5m</code> bo <code>R80</code> • Giữa Tủ sách <code>2,44m</code> hậu <code>Travertine</code> (<code>0% kính</code>) nối liền <strong>Cột Hộp Kỹ Thuật <code>980mm</code> hốc tượng đá (<code>0% lam sọc</code>)</strong> • Phải Sofa dưới <strong>ĐH treo <code>12.000 BTU</code></strong> • Trần phẳng <code>+3,13m</code> khung Ray nam châm 48V.
+              <strong style="color:#fde68a;">💻 Góc T3-V01 (Nhìn Nam):</strong> Trái đúng <strong>02 cửa sổ mặt tiền</strong> + Bàn đôi <code>3,5m</code> bo <code>R80</code> • Giữa Tủ sách <code>2,44m</code> Kem Greige / Travertine (<code>0% kính</code>) nối liền <strong>Cột Hộp Kỹ Thuật <code>980mm</code> hốc tượng đá (<code>0% lam sọc</code>)</strong> • Phải Sofa dưới <strong>ĐH treo <code>12.000 BTU</code></strong> • Trần phẳng <code>+3,13m</code> khung Ray nam châm 48V.
             </figcaption>
           </figure>
           <figure style="margin:0;border:1px solid rgba(56,189,248,0.45);border-radius:10px;overflow:hidden;background:#080c14;">
-            <img src="assets/wow_t3_v02_study_north.jpg" alt="T3-V02 Phòng Làm Việc Đôi Tầng 3 nhìn ngược 180 độ về vách kính sọc ngăn Phòng Thờ" onclick="openLightbox(this.src)">
+            <img id="study3d-north-render" src="assets/warm_minimalist_wm06_t3_v02_study_north.jpg" alt="WM-06 T3-V02 Phòng Làm Việc Đôi Tầng 3 nhìn ngược 180 độ về vách kính sọc ngăn Phòng Thờ" onclick="openLightbox(this.src)">
             <figcaption style="padding:10px 12px;font-size:0.82rem;color:#e2e8f0;">
-              <strong style="color:#bae6fd;">🔄 Góc T3-V02 (Ngược 180° Nhìn Bắc):</strong> Chính diện <strong>Hệ vách cửa lùa 4 cánh kính sọc mờ (treo âm trần <code>0% ray sàn</code>)</strong> ngăn cách trang nghiêm với Phòng Thờ phía sau • Trái bàn đôi &amp; tủ máy in • Phải Sofa, ĐH treo &amp; <strong>Cửa gỗ Lim <code>D3</code> ra hành lang T3</strong>.
+              <strong style="color:#bae6fd;">🔄 Góc T3-V02 (Ngược 180° Nhìn Bắc):</strong> Chính diện <strong>Hệ vách cửa lùa 4 cánh kính sọc mờ (treo âm trần <code>0% ray sàn</code>)</strong> ngăn cách trang nghiêm với Phòng Thờ phía sau • Trái bàn đôi &amp; tủ máy in • Phải Sofa, ĐH treo &amp; <strong>Cửa <code>D3</code> ra hành lang T3</strong>.
             </figcaption>
           </figure>
         </div>
+        <script>
+          window._studyV01Src = "assets/warm_minimalist_wm06_t3_v01_study_south.jpg";
+          window._studyV02Src = "assets/warm_minimalist_wm06_t3_v02_study_north.jpg";
+          function setStudyScheme(mode) {
+            var isWood = mode === "wood";
+            window._studyV01Src = isWood ? "assets/wow_t3_v01_study_south.jpg" : "assets/warm_minimalist_wm06_t3_v01_study_south.jpg";
+            window._studyV02Src = isWood ? "assets/wow_t3_v02_study_north.jpg" : "assets/warm_minimalist_wm06_t3_v02_study_north.jpg";
+            var mainEl = document.getElementById("study3d-main-render");
+            var northEl = document.getElementById("study3d-north-render");
+            var dlEl = document.getElementById("study3d-download-link");
+            if (mainEl) mainEl.src = window._studyV01Src;
+            if (northEl) northEl.src = window._studyV02Src;
+            if (dlEl) {
+              dlEl.href = window._studyV01Src;
+              dlEl.download = isWood ? "Phoi_Canh_3D_Phong_Lam_Viec_Tang3_V01_South.jpg" : "Phoi_Canh_3D_Phong_Lam_Viec_Tang3_WM06_V01_South.jpg";
+            }
+            var bw = document.getElementById("study-tone-wm06");
+            var bg = document.getElementById("study-tone-wood");
+            if (bw) bw.classList.toggle("active", !isWood);
+            if (bg) bg.classList.toggle("active", isWood);
+          }
+        </script>
       </div>
     </div>
   </section>
