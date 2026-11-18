@@ -211,6 +211,13 @@
       align-items: center;
     }
 
+    .tb-sep {
+      border-inline-start: 1px solid var(--border);
+      min-block-size: 20px;
+      align-self: stretch;
+      margin: 2px 2px;
+    }
+
     .btn-mode, .btn-toggle, .btn-cam {
       appearance: none;
       border: 1px solid var(--border);
@@ -219,15 +226,29 @@
       font-size: 12px;
       font-weight: 600;
       padding: 6px 10px;
+      min-inline-size: 24px;
+      min-block-size: 28px;
       border-radius: 7px;
       cursor: pointer;
-      transition: all 0.15s ease;
       white-space: nowrap;
     }
 
-    .btn-mode:hover, .btn-toggle:hover, .btn-cam:hover {
-      color: var(--text-main);
-      border-color: rgba(255, 255, 255, 0.25);
+    @media (prefers-reduced-motion: no-preference) {
+      .btn-mode, .btn-toggle, .btn-cam {
+        transition: all 0.15s ease;
+      }
+    }
+
+    @media (hover: hover) {
+      .btn-mode:hover, .btn-toggle:hover, .btn-cam:hover {
+        color: var(--text-main);
+        border-color: rgba(255, 255, 255, 0.25);
+      }
+    }
+
+    .btn-mode:focus-visible, .btn-toggle:focus-visible, .btn-cam:focus-visible, .sec-pill:focus-visible {
+      outline: 2px solid var(--mesh);
+      outline-offset: 2px;
     }
 
     .btn-mode[aria-pressed="true"] {
@@ -238,9 +259,60 @@
     }
 
     .btn-toggle[aria-pressed="true"] {
-      background: rgba(34, 211, 238, 0.16);
-      color: #67e8f9;
-      border-color: rgba(34, 211, 238, 0.55);
+      background: rgba(16, 185, 129, 0.20);
+      color: #6ee7b7;
+      border-color: rgba(16, 185, 129, 0.65);
+      box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.20);
+    }
+
+    /* Section Station Selector Dock inside Canvas (Top-Left, shown when section cut is active) */
+    .section-station-dock {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 6;
+      display: none;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 8px;
+      background: rgba(16, 19, 25, 0.88);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(16, 185, 129, 0.55);
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+      max-width: min(440px, calc(100% - 20px));
+    }
+
+    .section-station-dock.active {
+      display: flex;
+    }
+
+    .sec-dock-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      color: #6ee7b7;
+      margin-right: 2px;
+    }
+
+    .sec-pill {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--bg-elevated);
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .sec-pill[aria-pressed="true"] {
+      background: #10b981;
+      color: #052e16;
+      border-color: #34d399;
+      font-weight: 700;
     }
 
     #canvas-wrap {
@@ -373,6 +445,8 @@
       height: 10px;
       border-radius: 3px;
       display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      forced-color-adjust: none;
     }
 
     .cam-hint-bar {
@@ -508,6 +582,20 @@
       border: 1px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 14px;
+    }
+
+    .card.full-span {
+      grid-column: 1 / -1;
+    }
+
+    figure.svg-figure {
+      margin: 0;
+    }
+
+    figure.svg-figure figcaption {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
     }
 
     .card h3 {
@@ -841,29 +929,40 @@
 
     <!-- Exact Site Scope Banner -->
     <div class="scope-strip">
-      <span class="scope-pill-err">TRỤ B (TƯỜNG 220 THỤT 250mm + TRÁN PHẲNG 750mm)</span>
-      <span>Hiện trạng: <strong>S4–V4–TX3 &amp; mái chéo phải</strong> đã đúng bản vẽ. Riêng <strong>Trục B</strong> thợ xây <strong>tường gạch 220 vuông góc thụt vào 250mm</strong> (không vát chéo, mặt ngoài tại <code>Z=-0.25</code>) thẳng hàng với trán mái phẳng trên B — giải pháp cực gọn: <strong>xẻ vát góc phải 230×150mm + xây câu gạch đặc mũi trái dày 250→0mm</strong> + bù mũi mái 160mm (chưa xét nhôm/sơn).</span>
-      <span class="scope-pill-ok">✓ S4–V4, TX2, TX3 &amp; Mái chéo phải: Giữ nguyên</span>
+      <span class="scope-pill-err">ĐỦ KHỐI XÂY CẢ TRONG LẪN NGOÀI · VĂNG 800 CHẠY SUỐT TỚI GIỮA B</span>
+      <span>Mô hình 1:1 hiện gồm <strong>đầy đủ khối xây cả trong lẫn ngoài</strong>: hộp rỗng mặt tiền (<code>TX4 / TX2 / TX3</code>), vách ngăn &amp; cửa lùa dọc <strong>Trục B</strong> chia <strong>Phòng Ngủ Thờ</strong> – <strong>Phòng Làm Việc</strong> tới <strong>Trục 2</strong>, gờ bồn cây ngoài &amp; <strong>Bồn hoa 02</strong> trên mái; giữ <strong>🔵 Văng 800</strong> làm bệ đỡ khối <strong>🟢 Đổ bù</strong> tại tim B.</span>
+      <span class="scope-pill-ok">✓ Đủ Trong + Ngoài · Bấm "🏠 Mở trần" xem mặt bằng</span>
     </div>
 
     <!-- Main 3D Studio + Narrow 235px Sidebar -->
-    <section class="studio-grid" id="studio-grid" aria-label="Mô hình 3D sửa Tường 220 thụt 250mm và Mái chéo Trục B tầng 3">
+    <section class="studio-grid" id="studio-grid" aria-label="Mô hình 3D đầy đủ khối xây cả trong lẫn ngoài và xử lý giữa Trục B">
       <div class="viewport-card">
-        <div class="mode-toolbar">
-          <div class="mode-group" role="group" aria-label="Chế độ xem phần thô">
-            <button type="button" class="btn-mode" data-mode="fix_pier_b" aria-pressed="true">🔩 Sửa Tường 220 + Mái B</button>
-            <button type="button" class="btn-mode" data-mode="err_pier_b" aria-pressed="false">⚠️ Tường 220 thụt 250mm</button>
-            <button type="button" class="btn-mode" data-mode="brick_cad" aria-pressed="false">🧱 Sau khi tạo hình thô</button>
-            <button type="button" class="btn-mode" data-mode="plaster_m75" aria-pressed="false">✨ Trát hoàn thiện M75 + GMN-04</button>
+        <div class="mode-toolbar" role="toolbar" focusgroup="toolbar wrap" aria-label="Chế độ xem và cắt mặt cắt 3D" aria-controls="three-canvas">
+          <div class="mode-group" role="group" aria-label="Phương án hiển thị">
+            <button type="button" class="btn-mode" data-mode="fix_pier_b" aria-pressed="true">🔩 Sửa Tường + Đổ bù 510mm</button>
+            <button type="button" class="btn-mode" data-mode="err_pier_b" aria-pressed="false">⚠️ Mái dừng giữa B</button>
+            <button type="button" class="btn-mode" data-mode="brick_cad" aria-pressed="false">🧱 Đủ khối thô</button>
+            <button type="button" class="btn-mode" data-mode="keep_240" aria-pressed="false">📐 PA Giữ mái (Vai 240)</button>
+            <button type="button" class="btn-mode" data-mode="plaster_m75" aria-pressed="false">✨ PA Nối đủ (Vai 750)</button>
           </div>
-          <div class="tool-group">
-            <button type="button" class="btn-toggle" id="btn-section" aria-pressed="false">✂️ Cắt lớp cấu tạo trong</button>
-            <button type="button" class="btn-toggle" id="btn-explode" aria-pressed="false">💥 Tách lớp Tường &amp; Mái B</button>
+          <span role="separator" aria-orientation="vertical" class="tb-sep"></span>
+          <div class="tool-group" role="group" aria-label="Cắt lớp và tách khối">
+            <button type="button" class="btn-toggle" id="btn-plan-cut" aria-pressed="false">🏠 Mở trần (Trong + Ngoài)</button>
+            <button type="button" class="btn-toggle" id="btn-section" aria-pressed="false">✂️ Cắt xem Mặt Cắt Đổ Bù</button>
+            <button type="button" class="btn-toggle" id="btn-explode" aria-pressed="false">💥 Tách lớp Tim B</button>
           </div>
         </div>
 
         <div id="canvas-wrap">
-          <canvas id="three-canvas" aria-label="Khung nhìn 3D mặt tiền tầng 2 và tầng 3 tập trung vào tường 220 thụt 250mm và mái chéo tại Trục B"></canvas>
+          <canvas id="three-canvas" aria-label="Khung nhìn 3D mặt tiền tầng 2 và tầng 3 hiển thị rõ phần đổ bù xanh lá, gạch xây cam, tường 220 vàng và mái văng 800mm xanh dương"></canvas>
+
+          <!-- Top-Left Floating Cross-Section Station Picker (visible when section cut is active) -->
+          <div class="section-station-dock" id="section-station-dock" role="group" aria-label="Chọn vị trí mặt cắt dọc qua phần đổ bù">
+            <span class="sec-dock-lbl">Vị trí cắt 3D:</span>
+            <button type="button" class="sec-pill" data-cut="-0.70" aria-pressed="false">MC A-A (Mũi 140)</button>
+            <button type="button" class="sec-pill" data-cut="-0.45" aria-pressed="true">MC B-B (Giữa Đổ Bù)</button>
+            <button type="button" class="sec-pill" data-cut="-0.14" aria-pressed="false">MC C-C (Phải Tim B)</button>
+          </div>
 
           <!-- Floating Zoom & Sidebar Toggle Toolbar -->
           <div class="canvas-zoom-dock" aria-label="Điều khiển phóng to thu nhỏ và cột chú thích">
@@ -873,28 +972,32 @@
               <span class="zoom-pct" id="zoom-pct">148%</span>
             </div>
             <button type="button" class="zoom-btn" id="btn-zoom-out" title="Thu nhỏ (-)">－</button>
-            <button type="button" class="zoom-btn accent" id="btn-focus-b" title="Zoom sát Trục B (TX4 + Mái chéo)">🎯 Trụ B</button>
+            <button type="button" class="zoom-btn accent" id="btn-focus-b" title="Zoom sát giữa Trục B (TX4 + Mái chéo)">🎯 Giữa B</button>
             <button type="button" class="zoom-btn sidebar-btn" id="btn-toggle-sidebar" title="Thu gọn hoặc mở cột chú thích phải">⇔ Ẩn chú thích</button>
           </div>
 
-          <!-- Compact Legend -->
+          <!-- Compact High-Contrast Legend -->
           <div class="canvas-legend">
-            <span class="leg-item"><span class="swatch" style="background:#7a8391;"></span>BTCT &amp; Mái chéo phải đã đúng</span>
-            <span class="leg-item"><span class="swatch" style="background:#d97706;"></span>Tường 220 &amp; Trán phẳng B (thụt 250mm)</span>
-            <span class="leg-item"><span class="swatch" style="background:#ef4444;"></span>Góc gạch cắt vát 230×150 &amp; Râu Φ8–Φ10</span>
-            <span class="leg-item"><span class="swatch" style="background:#c85232;"></span>Gạch đặc đắp mũi 250mm + Mái bù 750mm</span>
-            <span class="leg-item"><span class="swatch" style="background:#22d3ee;"></span>Lưới mắt cáo &amp; GMN-04</span>
-            <span class="leg-item"><span class="swatch" style="background:#cbd5e1;"></span>Vữa trát M75 (15mm)</span>
+            <span class="leg-item"><span class="swatch" style="background:#10b981;"></span>Bê tông ĐỔ BÙ đè lên văng 800 (510mm)</span>
+            <span class="leg-item"><span class="swatch" style="background:#ea580c;"></span>Gạch đặc xây bù TX4 &amp; hồi trái</span>
+            <span class="leg-item"><span class="swatch" style="background:#b8623b;"></span>Khối xây trong nhà, hộp rỗng &amp; bồn hoa</span>
+            <span class="leg-item"><span class="swatch" style="background:#0ea5e9;"></span>Mái văng 800 kéo tới Giữa B (giữ làm bệ đỡ)</span>
+            <span class="leg-item"><span class="swatch" style="background:#d97706;"></span>Tường 220 cũ (dưới bụng văng 800)</span>
+            <span class="leg-item"><span class="swatch" style="background:#ef4444;"></span>Mép văng 50mm &amp; góc 230×150 cắt bỏ + Thép cấy</span>
+            <span class="leg-item"><span class="swatch" style="background:#7a8391;"></span>Mái vát đã đổ tới Giữa B</span>
           </div>
         </div>
 
         <div class="cam-hint-bar">
           <div>
-            <strong>Thao tác:</strong> Kéo 1 ngón để xoay (ngước được từ dưới lên soi đáy dốc mái B) · Giữ <code>Shift</code>/chuột phải hoặc 2 ngón kéo để trượt · <strong>Cuộn chuột / Chụm 2 ngón / Kéo thanh zoom</strong>.
+            <strong>Thao tác:</strong> Bấm <strong>🏠 Mở trần (Trong + Ngoài)</strong> hoặc <strong>👁️ Từ Trong Phòng nhìn ra B</strong> để soi rõ hộp rỗng <code>TX4/TX2/TX3</code>, vách <code>Trục B</code> &amp; tường hậu <code>Trục 2</code> · Cuộn để zoom.
           </div>
           <div class="tool-group">
-            <button type="button" class="btn-cam" data-cam="soffit_b">Ngước soi Mái chéo B</button>
-            <button type="button" class="btn-cam" data-cam="pier_b">Soi sát Trụ B</button>
+            <button type="button" class="btn-cam" data-cam="inside_b">👁️ Từ Trong Phòng nhìn ra B</button>
+            <button type="button" class="btn-cam" data-cam="full_inout">🏛️ Tổng thể Trong &amp; Ngoài</button>
+            <button type="button" class="btn-cam" data-cam="compare_front">So sánh Chính diện T3</button>
+            <button type="button" class="btn-cam" data-cam="soffit_b">Ngước soi Mạch nối giữa B</button>
+            <button type="button" class="btn-cam" data-cam="pier_b">Soi sát Trụ B + Văng 800</button>
             <button type="button" class="btn-cam" data-cam="front">Chính diện T2–T3</button>
             <button type="button" class="btn-cam" data-cam="iso_34">Phối cảnh 3/4</button>
             <button type="button" class="btn-cam" data-cam="top_section">Nhìn từ trên</button>
@@ -903,252 +1006,518 @@
       </div>
 
       <!-- Narrowed 235px Right Inspector Column -->
-      <aside class="inspector-card" id="inspector-card" aria-label="Thông số kỹ thuật sửa Trục B">
+      <aside class="inspector-card" id="inspector-card" aria-label="Thông số kỹ thuật sửa tại giữa Trục B và mái văng 800mm">
         <div class="ins-head">
-          <h2 class="ins-title" id="ins-mode-title">Sửa Tường 220 + Mái B</h2>
-          <span class="ins-badge" id="ins-mode-badge">Thụt 250mm</span>
+          <h2 class="ins-title" id="ins-mode-title">Sửa Mái dừng giữa B</h2>
+          <span class="ins-badge" id="ins-mode-badge">Đổ bù 510mm</span>
         </div>
 
         <div class="ins-box">
-          <h3>Khối tường Trụ B (TX4)</h3>
-          <div class="ins-kv"><span class="ins-k">Tường hiện hữu</span><span class="ins-v">Gạch 220 · thụt 250mm</span></div>
-          <div class="ins-kv"><span class="ins-k">Xẻ vát góc phải</span><span class="ins-v">230 × 150 mm (sát S4)</span></div>
-          <div class="ins-kv"><span class="ins-k">Đắp đặc mũi trái</span><span class="ins-v">Dày 250 → 0 mm (rộng 520)</span></div>
-          <div class="ins-kv"><span class="ins-k">Neo &amp; Giằng</span><span class="ins-v">2 hàng Φ8 @350 · +9.300</span></div>
+          <h3>Mái văng 800 kéo tới Giữa B (🔵)</h3>
+          <div class="ins-kv"><span class="ins-k">Phạm vi thực tế</span><span class="ins-v">Chạy suốt tới tim B (X=-0.265)</span></div>
+          <div class="ins-kv"><span class="ins-k">Cao độ &amp; Bề dày</span><span class="ins-v">+10.800..+10.950 · dày 150 mm</span></div>
+          <div class="ins-kv"><span class="ins-k">Xử lý mép ngoài</span><span class="ins-v">Xén 50mm bằng mặt tường 220</span></div>
+          <div class="ins-kv"><span class="ins-k">Tận dụng kết cấu</span><span class="ins-v">Giữ 750mm trong làm bệ đỡ Đổ bù!</span></div>
         </div>
 
         <div class="ins-box">
-          <h3>Đoạn Mái chéo trên B</h3>
-          <div class="ins-kv"><span class="ins-k">Đoạn cần nối bù</span><span class="ins-v">750 mm (đến S4)</span></div>
-          <div class="ins-kv"><span class="ins-k">Đua mũi 160mm</span><span class="ins-v">250 mm ra Z=0.00</span></div>
-          <div class="ins-kv"><span class="ins-k">Độ tụt bụng dốc</span><span class="ins-v">500 mm -> Z=-400</span></div>
-          <div class="ins-kv"><span class="ins-k">Chỉ tách &amp; Ngắt nước</span><span class="ins-v">10×10mm · GMN-04</span></div>
+          <h3>Phần Bê Tông Đổ Bù (🟢)</h3>
+          <div class="ins-kv"><span class="ins-k">Bề rộng &amp; Chiều cao</span><span class="ins-v">Rộng 510 · cao 450mm trên văng</span></div>
+          <div class="ins-kv"><span class="ins-k">Mũi vươn khỏi văng</span><span class="ins-v">250 mm (mũi 160 + dốc 500)</span></div>
+          <div class="ins-kv"><span class="ins-k">Neo xuống văng 800</span><span class="ins-v">2 hàng râu đứng Φ10–Φ12</span></div>
+          <div class="ins-kv"><span class="ins-k">Neo ngang tim B</span><span class="ins-v">3Φ12 cấy vào mái vát giữa B</span></div>
         </div>
 
         <div class="ins-box" id="ins-dynamic-box">
           <h3>Trọng tâm thực hiện</h3>
           <ul class="ins-list" id="ins-bullets">
-            <li><strong>Cắt vát góc gạch phải (230 × 150mm):</strong> Dùng máy cắt lưỡi kim cương xẻ bỏ tam giác gạch thừa sát má cửa <code>S4</code> để lùi chân vát về đúng mép tường cửa <code>Z=-400mm</code> (còn thịt tường dày <code>70–220mm</code>, không chạm cột BTCT).</li>
-            <li><strong>Xây câu gạch đặc mũi trái (250 → 0mm):</strong> Khoan cấy 2 hàng râu <code>Φ8 @350</code>, xây <strong>gạch đặc câu ngang</strong> thuôn từ mũi <code>250mm</code> (1 viên gạch quay ngang + vữa) về <code>0mm</code> + giằng mỏng <code>+9.300</code>.</li>
-            <li><strong>Phần mái trên B (750mm):</strong> Từ mép phẳng <code>Z=-250mm</code> cấy <code>Φ10</code> đua mũi <code>160mm</code> ra đúng <code>250mm (Z=0)</code> và tỉa/bọc vát bụng <code>500mm</code> về đỉnh cửa <code>S4 (-400mm)</code>.</li>
-            <li><strong>Chống nứt khe cắt–đắp:</strong> Đóng lưới mắt cáo <code>300mm</code> dọc mạch chéo tại giữa trụ &amp; gắn nẹp <code>GMN-04</code>.</li>
+            <li><strong>Giữ nguyên Mái văng 800 (🔵) làm bệ đỡ:</strong> Bản văng dày <code>150mm</code> chạy tới tim B nằm ngay dưới đáy khối đổ bù (cao <code>450mm</code>) — <strong>0% đập bỏ</strong>, biến khối bù thành dạng đè tựa cực kỳ vững.</li>
+            <li><strong>Cắt xén dải mép nhô 50mm (🔴):</strong> Nếu văng nhô quá mặt tường <code>220</code> (<code>Z=-0.20</code>), dùng máy cắt kim cương xén phẳng bằng <code>Z=-0.25</code> trong đoạn <code>510mm</code> để thông mạch gạch &amp; không cấn mặt vát sát tim B.</li>
+            <li><strong>Phần Đổ Bù Bê Tông (🟢):</strong> Cấy <strong>2 hàng râu đứng <code>Φ10–Φ12</code></strong> xuyên xuống lưng văng <code>800</code> + <strong><code>3Φ12</code> ngang</strong> vào mái vát giữa B, gác mũi <code>160mm</code> lên trụ gạch <code>140mm</code>.</li>
+            <li><strong>Phần Gạch Đặc Xây Bù (🟠) &amp; Xẻ phải B (🔴):</strong> Xây gạch đặc <code>250→0mm</code> liền mạch tới bụng vát + tường hồi ôm trên/dưới văng <code>800</code>; bên phải B xẻ góc <code>230×150mm</code>.</li>
           </ul>
         </div>
 
+        <div class="ins-box">
+          <h3>Khối xây Trong + Ngoài (1:1 CAD)</h3>
+          <div class="ins-kv"><span class="ins-k">Mặt ngoài (Z=-1.25..+0.22)</span><span class="ins-v">TX4 · S4 · TX2 rỗng · V4 · TX3 rỗng</span></div>
+          <div class="ins-kv"><span class="ins-k">Bồn hoa 02 (+11.40..+11.98)</span><span class="ins-v">Gạch 140–340–140 trên dầm trong</span></div>
+          <div class="ins-kv"><span class="ins-k">Mặt trong P. Thờ vs Làm Việc</span><span class="ins-v">Bước giật 600 tại Cột (1,B)</span></div>
+          <div class="ins-kv"><span class="ins-k">Vách Trục B &amp; Tường Trục 2</span><span class="ins-v">Vách 140+cửa 4 cánh · O1 900</span></div>
+        </div>
+
         <div class="ins-status-ok">
-          <strong>Đã làm đúng từ S4 sang phải:</strong><br/>
-          • Ban công trái <code>A2 / A3</code> ✓<br/>
-          • Ô cửa <code>S4 (1250)</code> &amp; <code>V4 (900)</code> ✓<br/>
-          • Trụ giữa <code>TX2 (1350)</code> &amp; <code>TX3 (750)</code> ✓<br/>
-          • Mái chéo trên S4–TX3 ✓
+          <strong>Đã đổ/xây chuẩn tới Trục 2:</strong><br/>
+          • Tường bao <code>Trục C/A/2</code> + Hộp <code>TX2/TX3/TX1</code> ✓<br/>
+          • Mái văng <code>800</code> + Mái vát trên <code>S4–TX3</code> ✓<br/>
+          • Vách <code>Trục B</code> + Cửa <code>D9 / S4 / V4 / O1</code> ✓
         </div>
       </aside>
     </section>
 
-    <!-- Section 2: 2D Plans & Vertical Section for Pier B (220mm @ -250mm) + Overhead Roof Slope Fix -->
+    <!-- Section 2: 4-Panel Color-Coded Cross-Section Sheet (MC B-B, A-A, C-C, D-D) -->
     <div class="sec-head">
-      <h2>Mặt bằng định vị &amp; Mặt cắt sửa Tường 220 (thụt 250mm) + Mái chéo Trục B</h2>
-      <span class="sec-sub">Dữ liệu trích chuẩn từ KT-2.09, KT-3.05, KT-3.06 Chi tiết 01 &amp; CT Khối xây 4</span>
+      <h2>Bộ 4 Mặt Cắt Tô Màu Tách Biệt: Mái Văng 800 Chạy Tới Giữa B + Đổ Bù Đè Lên</h2>
+      <span class="sec-sub">Theo thực tế KT-3.06 (MC 1-1 văng 800 chạy xuyên đoạn thiếu &amp; MC 2-2 mái vát) · Giữ văng 800 (xanh dương) làm bệ đỡ · Đổ bù đè lên (xanh lá) · Xén mép nhô 50mm (đỏ)</span>
     </div>
 
-    <section class="diagram-grid" aria-label="Bản vẽ mặt bằng và mặt cắt sửa Tường 220 thụt 250mm và Mái chéo Trục B">
+    <section class="diagram-grid" aria-label="4 bản vẽ mặt cắt tô màu tách biệt phần đổ bù bê tông đè lên mái văng 800mm kéo dài tới giữa Trục B">
+      <!-- PANEL 1: MC B-B (Giữa bụng Đổ Bù X = -0.45 + Bồn hoa 02 + Không gian Trong Nhà) -->
       <div class="card">
-        <h3>1. Mặt bằng cắt ngang Trụ B: Cắt góc phải 230×150 + Đắp gạch đặc mũi trái 250mm</h3>
-        <p class="lead">Tường gạch <code>220mm</code> hiện hữu nằm tại <code>Z = -250..-470mm</code> (màu vàng). Đường chéo chuẩn <code>TX4</code> đi từ mũi <code>(140mm, Z=0)</code> tới má cửa <code>S4 (Z=-400mm)</code> cắt ngang mặt trước tại điểm cách mép trái <code>520mm</code> — chia Trụ B thành đúng 2 thao tác: <strong>cắt vát phải 230×150mm (đỏ)</strong> và <strong>đắp đặc trái 250→0mm (cam)</strong>.</p>
+        <h3>1. Mặt cắt B-B (Tại X = -0.45 — Bồn hoa 02 + Văng 800 + Đổ Bù + Trong nhà)</h3>
+        <p class="lead">Thấy đủ lớp từ <strong>trong phòng (P. Ngủ Thờ + cửa lùa D9 + trần +3.000)</strong> xuyên qua <strong>🔵 Văng 800</strong>, <strong>🟢 Đổ Bù</strong>, <strong>🟠 Gạch bù TX4</strong>, lên tới <strong>🧱 Bồn hoa 02 (+11.40..+11.98)</strong> lùi trên dầm trong &amp; gờ bồn cây ngoài `250mm`.</p>
         <div class="svg-frame">
-          <svg viewBox="0 0 560 245" width="100%" role="img" aria-label="Mặt bằng chi tiết tỷ lệ lớn tường 220mm thụt 250mm tại Trục B với tam giác đỏ cắt vát 230x150mm bên phải và nêm gạch đặc đắp 250mm bên trái">
-            <rect width="560" height="245" fill="#0d1016"/>
+          <svg viewBox="0 -32 560 307" width="100%" role="img" aria-label="Mặt cắt B-B đầy đủ trong và ngoài tại X=-0.45 gồm bồn hoa 02 trên mái, văng 800 làm bệ đỡ, đổ bù xanh lá, gạch xây cam và cửa lùa phòng thờ bên trong">
+            <rect x="0" y="-32" width="560" height="307" fill="#0d1016"/>
             <defs>
+              <pattern id="hatchGreen" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="0" y2="8" stroke="#34d399" stroke-width="2" />
+              </pattern>
+              <pattern id="hatchOrange" width="8" height="8" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="0" y2="8" stroke="#fb923c" stroke-width="1.8" />
+              </pattern>
               <pattern id="hatchRed" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
                 <line x1="0" y1="0" x2="0" y2="8" stroke="#f87171" stroke-width="2" />
               </pattern>
-              <pattern id="hatchBrick" width="8" height="8" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse">
-                <line x1="0" y1="0" x2="0" y2="8" stroke="#fb923c" stroke-width="1.8" />
+              <pattern id="hatchBlue" width="8" height="8" patternTransform="rotate(-45 0 0)" patternUnits="userSpaceOnUse">
+                <line x1="0" y1="0" x2="0" y2="8" stroke="#38bdf8" stroke-width="1.8" />
               </pattern>
             </defs>
 
-            <!-- Coordinate system in SVG (TX4 width 750mm mapped to x=110..380 -> 0.36 px/mm; Z mapped y=190 at Z=0, y=130 at Z=-250, y=94 at Z=-400, y=77 at Z=-470, y=34 at Z=-650) -->
-            <!-- Reference Z planes -->
-            <line x1="30" y1="190" x2="535" y2="190" stroke="#94a3b8" stroke-width="1.5"/>
-            <text x="34" y="205" fill="#cbd5e1" font-size="9.5" font-weight="700">Z = 0.00 (Mép ngoài mũi TX4 140mm &amp; mũi mái 160mm)</text>
+            <!-- Scale in Z (162 px/m): Z=-1.25 @ 62, Z=-1.00 @ 102, Z=-0.55 @ 175, Z=-0.47 @ 188, Z=-0.25 @ 224, Z=-0.20 @ 232, Z=-0.1213 @ 245, Z=0.00 @ 265, +0.22 @ 280 -->
+            <!-- Upper Y: Roof slab + BỒN HOA 02 (KT-3.06D 140-340-140 at Z=-1.52..-0.90 -> x=22..120, y=-6..22) -->
+            <rect x="14" y="16" width="161" height="6" fill="#64748b"/>
+            <rect x="22" y="-6" width="22" height="22" fill="url(#hatchOrange)" stroke="#fb923c" stroke-width="1.5"/>
+            <rect x="44" y="-2" width="54" height="18" fill="#5c4033" stroke="#92400e" stroke-width="1"/>
+            <rect x="98" y="-6" width="22" height="22" fill="url(#hatchOrange)" stroke="#fb923c" stroke-width="1.5"/>
+            <text x="126" y="-8" fill="#fdba74" font-size="8.4" font-weight="800">🧱 Bồn hoa 02 gạch đặc (+11.40..+11.98)</text>
+            <text x="126" y="4" fill="#cbd5e1" font-size="7.8">Lùi trên dầm trong (0% đè lên mũi vát 160)</text>
 
-            <line x1="30" y1="130" x2="430" y2="130" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4 3"/>
-            <text x="16" y="126" fill="#fde68a" font-size="9">Z = -250mm</text>
+            <!-- Interior Phòng Ngủ Thờ + D9 Sliding Frame (x=14..62) -->
+            <rect x="14" y="22" width="48" height="216" fill="#1e293b" fill-opacity="0.35"/>
+            <line x1="14" y1="95" x2="62" y2="95" stroke="#94a3b8" stroke-dasharray="3 2"/>
+            <text x="16" y="106" fill="#cbd5e1" font-size="7.5">Trần +3.000</text>
+            <rect x="76" y="92" width="10" height="146" fill="#0ea5e9" fill-opacity="0.22" stroke="#38bdf8" stroke-width="1"/>
+            <text x="16" y="162" fill="#94a3b8" font-size="8" font-weight="700">Trong nhà</text>
+            <text x="16" y="173" fill="#94a3b8" font-size="7.6">(P. Thờ +7.85)</text>
 
-            <line x1="30" y1="94" x2="535" y2="94" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4 3"/>
-            <text x="16" y="90" fill="#7dd3fc" font-size="9">Z = -400mm</text>
+            <!-- Reference Z dashed verticals -->
+            <line x1="102" y1="12" x2="102" y2="248" stroke="#475569" stroke-dasharray="3 3"/>
+            <text x="86" y="13" fill="#94a3b8" font-size="8">-1.00</text>
+            <line x1="188" y1="12" x2="188" y2="248" stroke="#fbbf24" stroke-dasharray="3 3"/>
+            <text x="174" y="13" fill="#fde68a" font-size="8">-0.47</text>
+            <line x1="224" y1="12" x2="224" y2="248" stroke="#38bdf8" stroke-dasharray="3 3"/>
+            <text x="210" y="13" fill="#7dd3fc" font-size="8">-0.25</text>
+            <line x1="265" y1="12" x2="265" y2="248" stroke="#34d399" stroke-dasharray="3 3"/>
+            <text x="255" y="13" fill="#6ee7b7" font-size="8.5" font-weight="700">Z=0</text>
 
-            <!-- Grid B line -->
-            <line x1="294" y1="12" x2="294" y2="232" stroke="#64748b" stroke-dasharray="4 4"/>
-            <text x="278" y="238" fill="#94a3b8" font-size="9.5" font-weight="700">Trục B</text>
+            <!-- Floor 3 slab + Exterior Curb Z=0..+0.22 -->
+            <rect x="14" y="238" width="268" height="12" fill="#64748b"/>
+            <rect x="265" y="226" width="17" height="12" fill="url(#hatchOrange)" stroke="#fb923c" stroke-width="1.3"/>
+            <text x="24" y="247" fill="#f8fafc" font-size="8.5" font-weight="700">Sàn T3 (+7.800) + Gờ bồn ngoài</text>
 
-            <!-- RC Column (1,B) safely in the rear structural line -->
-            <rect x="115" y="18" width="115" height="58" fill="#334155" stroke="#94a3b8" stroke-width="1.3"/>
-            <text x="132" y="50" fill="#cbd5e1" font-size="9.5" font-weight="700">Cột BTCT (1,B)</text>
+            <!-- Inner beam S3 (250x600mm: Z=-1.25..-1.00 -> x=62..102, y=22..92) -->
+            <rect x="62" y="22" width="40" height="70" fill="#475569" stroke="#94a3b8" stroke-width="1.2"/>
+            <text x="64" y="52" fill="#cbd5e1" font-size="7.6">Dầm</text>
+            <text x="64" y="63" fill="#94a3b8" font-size="7.4">250×600</text>
 
-            <!-- Left balcony slab edge A3 (Z=-250) -->
-            <rect x="14" y="18" width="90" height="112" fill="#475569" fill-opacity="0.32" stroke="#64748b"/>
-            <text x="22" y="68" fill="#94a3b8" font-size="9">Ban công A3</text>
-            <text x="22" y="81" fill="#94a3b8" font-size="8.5">(thụt 250mm)</text>
+            <!-- SKY BLUE: MÁI VĂNG 800mm running through segment up to Grid B, retained from Z=-1.00..-0.25 (x=102..224, y=74..92) -->
+            <rect x="102" y="74" width="122" height="18" fill="url(#hatchBlue)" stroke="#38bdf8" stroke-width="2"/>
+            <rect x="102" y="74" width="122" height="18" fill="#0284c7" fill-opacity="0.45"/>
+            <text x="106" y="86" fill="#e0f2fe" font-size="8.2" font-weight="800">🔵 VĂNG 800 (bệ đỡ 150mm)</text>
 
-            <!-- Existing 220mm Brick Wall (Z=-250..-470, x=110..380) + S4 Jamb Wall (Z=-400..-650, x=380..535) -->
-            <!-- Rear strip behind Z=-400 stays intact -->
-            <rect x="110" y="77" width="270" height="17" fill="#d97706" fill-opacity="0.45" stroke="#f59e0b" stroke-width="1.2"/>
-            <!-- Front retained left trapezoid (-250..-400, x=110..298 -> -0.254) -->
-            <polygon points="110,94 110,130 298,130 380,94" fill="#d97706" fill-opacity="0.58" stroke="#fbbf24" stroke-width="1.5"/>
-            <text x="132" y="114" fill="#fef3c7" font-size="9.5" font-weight="700">Tường gạch 220 hiện trạng (giữ)</text>
+            <!-- RED CUT STRIP: Outer 50mm lip of Văng 800 protruding beyond Z=-0.25 (x=224..232, y=74..92) -->
+            <rect x="224" y="74" width="9" height="18" fill="url(#hatchRed)" stroke="#ef4444" stroke-width="1.6" stroke-dasharray="2 1"/>
 
-            <!-- Right S4 Window Wall & Glass (Z=-400..-650) -->
-            <rect x="380" y="34" width="150" height="60" fill="none" stroke="#38bdf8" stroke-dasharray="3 2"/>
-            <line x1="380" y1="62" x2="530" y2="62" stroke="#7dd3fc" stroke-width="4" opacity="0.65"/>
-            <text x="392" y="54" fill="#7dd3fc" font-size="9.5" font-weight="700">Ô cửa sổ S4 (1250mm) đã đúng ✓</text>
-            <text x="392" y="82" fill="#6ee7b7" font-size="8.8">Mái chéo trên S4 dốc tới Z=-400mm</text>
+            <!-- AMBER: Existing 220mm Brick Wall tucked directly under Văng 800 bottom y=92 (Z=-0.47..-0.25 => x=188..224, y=92..238) -->
+            <rect x="188" y="92" width="36" height="146" fill="#d97706" fill-opacity="0.62" stroke="#fbbf24" stroke-width="1.8"/>
+            <text x="193" y="176" fill="#fef3c7" font-size="8.5" font-weight="800" transform="rotate(-90 208 176)">Tường 220 (-250)</text>
 
-            <!-- RED CUT WEDGE on Right Corner (x=298..380, y=94..130 => 230mm x 150mm) -->
-            <polygon points="298,130 380,130 380,94" fill="url(#hatchRed)" stroke="#ef4444" stroke-width="2.2"/>
-            <line x1="298" y1="130" x2="380" y2="94" stroke="#fca5a5" stroke-width="2.5"/>
+            <!-- ORANGE: NEW SOLID BRICK BUILD-OUT at X=-0.45 -->
+            <polygon points="224,76.5 245,57 245,238 224,238" fill="url(#hatchOrange)" stroke="#ea580c" stroke-width="2"/>
+            <rect x="224" y="142" width="21" height="9" fill="#f8fafc" stroke="#94a3b8"/>
+            <line x1="204" y1="115" x2="241" y2="115" stroke="#ef4444" stroke-width="2.2"/>
+            <line x1="204" y1="186" x2="241" y2="186" stroke="#ef4444" stroke-width="2.2"/>
 
-            <!-- TERRACOTTA NEW SOLID BRICK BUILD-OUT on Left Nose (x=110..298, y=130..190 => 140mm flat + 380mm bevel, thick 250->0mm) -->
-            <polygon points="110,130 110,190 160,190 298,130" fill="url(#hatchBrick)" stroke="#e07a3f" stroke-width="2.4"/>
+            <!-- EMERALD GREEN: CONCRETE POUR-BACK sitting directly ON TOP of Văng 800 (y=74) & sloping out to Z=0 -->
+            <polygon points="175,22 265,22 265,40 245,57 224,76.5 224,74 175,74" fill="url(#hatchGreen)" stroke="#10b981" stroke-width="2.4"/>
+            <line x1="187" y1="30" x2="187" y2="87" stroke="#ef4444" stroke-width="2.4"/>
+            <line x1="210" y1="30" x2="210" y2="87" stroke="#ef4444" stroke-width="2.4"/>
+            <circle cx="255" cy="30" r="2.6" fill="#ef4444"/>
+            <circle cx="238" cy="40" r="2.6" fill="#ef4444"/>
+            <circle cx="255" cy="39" r="2.6" fill="#22d3ee"/>
 
-            <!-- Dowels Φ8 along Z=-250 face -->
-            <line x1="132" y1="112" x2="132" y2="178" stroke="#ef4444" stroke-width="2.8"/>
-            <line x1="196" y1="112" x2="196" y2="165" stroke="#ef4444" stroke-width="2.8"/>
-
-            <!-- Cyan Mesh 300mm straddling joint at x=298, y=130 & left shadow joint x=110 -->
-            <line x1="256" y1="148" x2="338" y2="112" stroke="#22d3ee" stroke-width="3.2" stroke-dasharray="5 3"/>
-            <line x1="108" y1="77" x2="108" y2="190" stroke="#22d3ee" stroke-width="2.2"/>
-
-            <!-- Callout text labels -->
-            <text x="114" y="220" fill="#fdba74" font-size="9.5" font-weight="700">1. Đắp gạch đặc mũi trái: Dày 250→0mm (mũi 140 + vát 380mm) + 2 hàng râu Φ8</text>
-            <text x="352" y="156" fill="#fca5a5" font-size="9.5" font-weight="700">2. Cắt vát góc gạch phải</text>
-            <text x="364" y="169" fill="#fca5a5" font-size="9" font-weight="700">230 × 150mm (sát cửa S4)</text>
-            <text x="342" y="114" fill="#67e8f9" font-size="9" font-weight="700">3. Lưới 300mm trùm khe nối</text>
+            <!-- Right-side Callouts -->
+            <text x="280" y="29" fill="#6ee7b7" font-size="9.3" font-weight="800">🟢 XANH LÁ: Bê tông ĐỔ BÙ (cao 450 đè lên văng 800)</text>
+            <text x="280" y="47" fill="#a7f3d0" font-size="8.6">• Ngồi trực tiếp trên bản văng 🔵 + mũi vươn 250mm tới Z=0</text>
+            <text x="280" y="65" fill="#fca5a5" font-size="8.6">• Cấy 2 hàng râu đứng Φ10–12 xuống văng + 3Φ12 ngang tim B</text>
+            <text x="280" y="88" fill="#7dd3fc" font-size="9.3" font-weight="800">🔵 XANH DƯƠNG: Mái Văng 800 giữ nguyên làm bệ đỡ</text>
+            <text x="280" y="106" fill="#bae6fd" font-size="8.6">• Cốt +10.800..+10.950 (dày 150) — KHÔNG đập bỏ, rất lợi kết cấu</text>
+            <text x="280" y="128" fill="#fca5a5" font-size="9.1" font-weight="800">🔴 ĐỎ: Xén gọn mép nhô 50mm (Z=-0.25..-0.20)</text>
+            <text x="280" y="146" fill="#fecaca" font-size="8.6">• Cắt bằng mặt tường 220 để không cấn góc chéo &amp; thông gạch cam</text>
+            <text x="280" y="170" fill="#fdba74" font-size="9.3" font-weight="800">🟠 CAM: Gạch Đặc Xây Bù TX4 + Giằng +9.300 &amp; Φ8</text>
+            <text x="280" y="192" fill="#fde68a" font-size="9.3" font-weight="800">🟡 VÀNG: Tường 220 Cũ (chạm khít đáy văng +10.800)</text>
+            <text x="280" y="214" fill="#67e8f9" font-size="8.6" font-weight="700">🔹 Cạnh mũi Z=0: Nẹp GMN-04 &amp; Lưới mắt cáo 300mm</text>
+            <text x="135" y="266" fill="#cbd5e1" font-size="8.8" font-weight="700">◀── Trong P. Thờ | Văng 800 bệ đỡ | Tường 220 | Z=0 + Gờ ngoài ──▶</text>
           </svg>
         </div>
       </div>
 
+      <!-- PANEL 2: MC A-A (Qua mũi 140mm X = -0.70 & Hộp rỗng TX4 cả trong lẫn ngoài) -->
       <div class="card">
-        <h3>2. Mặt cắt đứng qua Trục B: Cả Tường 220 dưới &amp; Trán phẳng trên đều thụt 250mm</h3>
-        <p class="lead">Do cả mặt trước tường gạch <code>220mm</code> dưới lẫn hộp trán phẳng trên Trục B đang cùng thụt vào <code>250mm (Z=-0.25)</code>, khi sửa chỉ cần đồng loạt đua mũi ra thêm <code>250mm</code> về mặt phẳng <code>Z = 0.00</code> và cắt/bù bụng dốc <code>500mm</code> tới mép <code>Z = -400mm</code>.</p>
+        <h3>2. Mặt cắt A-A (Tại X = -0.70 — Hộp TX4 trong-ngoài, Văng 800 &amp; Bồn hoa 02)</h3>
+        <p class="lead">Cắt tại <strong>mũi phẳng `140mm`</strong> thấy trọn cấu tạo <strong>hộp rỗng TX4 cả trong lẫn ngoài</strong>: ngoài là <strong>🟠 mũi gạch `250mm`</strong> + <strong>🟢 Đổ bù</strong>, giữa là <strong>tường `220` + khoang rỗng kỹ thuật</strong>, mặt trong là <strong>tường hậu `220` phẳng với P. Ngủ Thờ</strong>.</p>
         <div class="svg-frame">
-          <svg viewBox="0 0 560 245" width="100%" role="img" aria-label="Mặt cắt đứng qua mũi Trục B cho thấy tường 220mm ở Z=-250mm được đắp đặc thêm 250mm ra Z=0, và mái chéo 750mm phía trên cũng đua từ Z=-250mm ra Z=0 với mũi 160mm và dốc 500mm vào Z=-400mm">
-            <rect width="560" height="245" fill="#0d1016"/>
-            <!-- Floor 3 & Roof Slabs -->
-            <rect x="24" y="202" width="286" height="14" fill="#64748b"/>
-            <text x="30" y="213" fill="#f8fafc" font-size="9.5" font-weight="700">Sàn T3 (+7.800)</text>
-            <rect x="24" y="18" width="286" height="12" fill="#64748b"/>
-            <text x="30" y="28" fill="#f8fafc" font-size="9.5" font-weight="700">Sàn Mái (+11.400)</text>
+          <svg viewBox="0 -32 560 307" width="100%" role="img" aria-label="Mặt cắt A-A đầy đủ trong và ngoài tại mũi 140mm cho thấy tường hậu 220 trong nhà, khoang rỗng giữa hộp TX4, mái văng 800 và bồn hoa 02 trên mái">
+            <rect x="0" y="-32" width="560" height="307" fill="#0d1016"/>
+            <rect x="14" y="16" width="161" height="6" fill="#64748b"/>
+            <rect x="22" y="-6" width="22" height="22" fill="url(#hatchOrange)" stroke="#fb923c" stroke-width="1.5"/>
+            <rect x="44" y="-2" width="54" height="18" fill="#5c4033" stroke="#92400e" stroke-width="1"/>
+            <rect x="98" y="-6" width="22" height="22" fill="url(#hatchOrange)" stroke="#fb923c" stroke-width="1.5"/>
+            <text x="126" y="-8" fill="#fdba74" font-size="8.4" font-weight="800">🧱 Bồn hoa 02 (+11.40..+11.98)</text>
 
-            <!-- Structural line Z=-400..-650 (x=130..186) + Column (1,B) -->
-            <rect x="108" y="18" width="42" height="58" fill="#475569" stroke="#94a3b8"/>
-            <text x="30" y="52" fill="#cbd5e1" font-size="9.5">Cửa/Tường S4</text>
-            <text x="30" y="64" fill="#7dd3fc" font-size="8.8">(mặt Z = -400)</text>
-            <rect x="108" y="76" width="42" height="126" fill="#334155" stroke="#94a3b8"/>
-            <text x="32" y="138" fill="#cbd5e1" font-size="9.5">Cột (1,B)</text>
+            <rect x="14" y="22" width="48" height="216" fill="#1e293b" fill-opacity="0.35"/>
+            <text x="16" y="148" fill="#94a3b8" font-size="7.8" font-weight="700">Trong P. Thờ</text>
+            <text x="16" y="160" fill="#94a3b8" font-size="7.4">(giật 600mm)</text>
 
-            <!-- Existing 220mm Brick Wall (Z=-470..-250 -> x=165..238, bottom Y=202, top Y=76) -->
-            <rect x="165" y="76" width="73" height="126" fill="#d97706" fill-opacity="0.45" stroke="#fbbf24" stroke-width="1.6"/>
-            <text x="169" y="150" fill="#fef3c7" font-size="8.5" font-weight="700" transform="rotate(-90 198 150)">Tường 220 (thụt 250)</text>
+            <line x1="102" y1="12" x2="102" y2="248" stroke="#475569" stroke-dasharray="3 3"/>
+            <line x1="188" y1="12" x2="188" y2="248" stroke="#fbbf24" stroke-dasharray="3 3"/>
+            <line x1="224" y1="12" x2="224" y2="248" stroke="#38bdf8" stroke-dasharray="3 3"/>
+            <line x1="265" y1="12" x2="265" y2="248" stroke="#34d399" stroke-dasharray="3 3"/>
+            <text x="86" y="13" fill="#94a3b8" font-size="8">-1.00</text>
+            <text x="174" y="13" fill="#fde68a" font-size="8">-0.47</text>
+            <text x="210" y="13" fill="#7dd3fc" font-size="8">-0.25</text>
+            <text x="255" y="13" fill="#6ee7b7" font-size="8.5" font-weight="700">Z=0</text>
 
-            <!-- Existing WRONG flat canopy on B flush at Z=-250 (x=150..238, Y=18..76) -->
-            <rect x="150" y="18" width="88" height="58" fill="#f59e0b" fill-opacity="0.24" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4 3"/>
+            <rect x="14" y="238" width="268" height="12" fill="#64748b"/>
+            <rect x="265" y="226" width="17" height="12" fill="url(#hatchOrange)" stroke="#fb923c" stroke-width="1.3"/>
+            <text x="24" y="247" fill="#f8fafc" font-size="8.5" font-weight="700">Sàn T3 (+7.800) + Gờ ngoài</text>
 
-            <!-- Z=-400 to Z=0 reference lines (x=186 at -400, x=238 at -250, x=308 at Z=0) -->
-            <line x1="186" y1="16" x2="186" y2="202" stroke="#38bdf8" stroke-dasharray="3 3" stroke-width="1"/>
-            <line x1="238" y1="16" x2="238" y2="202" stroke="#fbbf24" stroke-dasharray="3 3" stroke-width="1"/>
+            <!-- Inner 220mm back wall closing TX4 inside (+ beam S3 above) -->
+            <rect x="62" y="22" width="40" height="70" fill="#475569" stroke="#94a3b8" stroke-width="1.2"/>
+            <rect x="64" y="92" width="36" height="146" fill="url(#hatchOrange)" stroke="#ea580c" stroke-width="1.6"/>
+            <text x="68" y="178" fill="#fed7aa" font-size="7.8" font-weight="700" transform="rotate(-90 82 178)">Hậu TX4 (220)</text>
 
-            <!-- Red bottom hang corner on flat canopy (from x=186..238 under slope ySlope400) -->
-            <polygon points="186,76 238,76 238,57" fill="#ef4444" fill-opacity="0.52" stroke="#f87171" stroke-width="1.4"/>
+            <!-- Left Flank Return Wall TX4 enclosing hollow core -->
+            <rect x="102" y="92" width="86" height="146" fill="url(#hatchOrange)" fill-opacity="0.30" stroke="#fb923c" stroke-width="1.4"/>
+            <rect x="102" y="22" width="73" height="52" fill="url(#hatchOrange)" fill-opacity="0.52" stroke="#fb923c" stroke-width="1.4"/>
+            <text x="108" y="160" fill="#fed7aa" font-size="8" font-weight="700">Lòng hộp rỗng</text>
+            <text x="112" y="171" fill="#fed7aa" font-size="7.6">+ hồi TX4</text>
 
-            <!-- Target KT-3.06 Sloped Hood Wedge extending from Z=-400 (x=186, Y=76) to Z=0 (x=308, Y=42) -->
-            <polygon points="150,18 308,18 308,42 186,76 150,76" fill="#34d399" fill-opacity="0.22" stroke="#34d399" stroke-width="2"/>
-            <line x1="205" y1="30" x2="300" y2="30" stroke="#ef4444" stroke-width="2.6"/>
-            <line x1="186" y1="76" x2="306" y2="42" stroke="#22d3ee" stroke-width="2.2"/>
-            <circle cx="306" cy="43" r="3.5" fill="#22d3ee"/>
+            <!-- SKY BLUE VĂNG 800 passing cleanly through TX4 + RED 50mm cut lip -->
+            <rect x="102" y="74" width="122" height="18" fill="url(#hatchBlue)" stroke="#38bdf8" stroke-width="2"/>
+            <rect x="102" y="74" width="122" height="18" fill="#0284c7" fill-opacity="0.45"/>
+            <rect x="224" y="74" width="9" height="18" fill="url(#hatchRed)" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="2 1"/>
 
-            <!-- NEW 250mm SOLID BONDED BRICK BUILD-OUT at Nose (x=238..308, Z=-250..0.00) -->
-            <polygon points="238,57 308,42 308,202 238,202" fill="#c85232" fill-opacity="0.46" stroke="#e07a3f" stroke-width="2.2"/>
-            <rect x="238" y="182" width="70" height="20" fill="#9a3412" opacity="0.9"/>
-            <rect x="238" y="122" width="70" height="12" fill="#cbd5e1" stroke="#f8fafc"/>
-            <!-- Phi8 epoxy dowels anchored into old 220 wall -->
-            <line x1="210" y1="96" x2="294" y2="96" stroke="#ef4444" stroke-width="2.6"/>
-            <line x1="210" y1="158" x2="294" y2="158" stroke="#ef4444" stroke-width="2.6"/>
-            <line x1="210" y1="128" x2="294" y2="128" stroke="#ef4444" stroke-width="2.6"/>
+            <!-- AMBER Existing 220mm Wall -->
+            <rect x="188" y="92" width="36" height="146" fill="#d97706" fill-opacity="0.62" stroke="#fbbf24" stroke-width="1.8"/>
 
-            <!-- Right-side callout legend -->
-            <text x="320" y="29" fill="#6ee7b7" font-size="9.5" font-weight="700">1. Cấy Φ10 đua mũi 160mm ra Z=0 (250mm) + GMN-04</text>
-            <text x="320" y="50" fill="#fca5a5" font-size="9.5">2. Góc bụng thừa 150mm → Tỉa (nếu gạch) / Bọc Cemboard</text>
-            <text x="320" y="72" fill="#67e8f9" font-size="9.5" font-weight="700">3. Mái dốc xuống 500mm dừng khít tại Z = -400mm</text>
-            <text x="320" y="102" fill="#fdba74" font-size="9.5" font-weight="700">4. Khoan cấy Φ8 epoxy (@300–350mm) vào tường 220 cũ</text>
-            <text x="320" y="130" fill="#e2e8f0" font-size="9.5" font-weight="700">5. Giằng mỏng 70–80mm (2Φ10 neo tường cũ) tại +9.300</text>
-            <text x="320" y="156" fill="#fdba74" font-size="9.5">6. Xây GẠCH ĐẶC câu ngang dày 250mm (1 viên quay ngang)</text>
-            <text x="320" y="182" fill="#fdba74" font-size="9.5">7. Chân trụ: 3 hàng gạch đặc + SikaTop Seal 107</text>
-            <text x="200" y="232" fill="#94a3b8" font-size="9.5" font-weight="700">◀── Thụt -250mm | Đua thêm đúng 250mm ra Z = 0.00 ──▶</text>
+            <!-- ORANGE FULL 250mm SOLID BRICK NOSE up to lip underside y=40 -->
+            <rect x="224" y="40" width="41" height="198" fill="url(#hatchOrange)" stroke="#ea580c" stroke-width="2.2"/>
+            <rect x="224" y="142" width="41" height="9" fill="#f8fafc" stroke="#94a3b8"/>
+            <line x1="202" y1="115" x2="258" y2="115" stroke="#ef4444" stroke-width="2.4"/>
+            <line x1="202" y1="186" x2="258" y2="186" stroke="#ef4444" stroke-width="2.4"/>
+            <text x="235" y="130" fill="#ffe4d6" font-size="8.5" font-weight="800" transform="rotate(-90 245 130)">Mũi gạch 250mm</text>
+
+            <!-- EMERALD GREEN POUR-BACK OVER 140mm NOSE & ABOVE VĂNG 800 -->
+            <polygon points="175,22 265,22 265,40 224,40 224,74 175,74" fill="url(#hatchGreen)" stroke="#10b981" stroke-width="2.4"/>
+            <line x1="187" y1="30" x2="187" y2="87" stroke="#ef4444" stroke-width="2.4"/>
+            <line x1="210" y1="30" x2="210" y2="87" stroke="#ef4444" stroke-width="2.4"/>
+            <circle cx="262" cy="41" r="2.6" fill="#22d3ee"/>
+
+            <!-- Annotations -->
+            <text x="280" y="34" fill="#6ee7b7" font-size="9.3" font-weight="800">🟢 ĐỔ BÙ TRÊN MŨI 140: Khóa cứng 2 đầu</text>
+            <text x="280" y="54" fill="#a7f3d0" font-size="8.6">• Trước gác lên trụ gạch 250mm, sau tỳ &amp; neo vào văng 800</text>
+            <text x="280" y="78" fill="#fdba74" font-size="9.3" font-weight="800">🟠 HỘP TX4 ĐỦ TRONG–NGOÀI + HỒI ÔM VĂNG 800</text>
+            <text x="280" y="98" fill="#fed7aa" font-size="8.6">• Mặt trong khép bằng tường P. Thờ (tạo giật cấp 600 sang S4)</text>
+            <text x="280" y="116" fill="#fed7aa" font-size="8.6">• Mép văng nhô 50mm (🔴) cắt bằng Z=-0.25 · sườn soi rãnh 30×10</text>
+            <text x="280" y="144" fill="#7dd3fc" font-size="9.2" font-weight="700">🔵 MÁI VĂNG 800mm ĐI XUYÊN TRỤ</text>
+            <text x="280" y="162" fill="#bae6fd" font-size="8.6">• Không cần phá bỏ dải bản sàn này; xén mép ngoài 50mm là đủ</text>
+            <text x="280" y="190" fill="#67e8f9" font-size="8.6" font-weight="700">🔹 Cốt +7.800..+8.050: 3 hàng gạch đặc + SikaTop Seal 107</text>
           </svg>
         </div>
+      </div>
+
+      <!-- PANEL 3: MC C-C (Bên phải Tim Trục B X = -0.14) -->
+      <div class="card">
+        <h3>3. Mặt cắt C-C (Tại X = -0.14 — Bên phải Giữa Trục B, sát cửa S4)</h3>
+        <p class="lead">Văng `800mm` dừng tại tim B (cách lát cắt này `125mm` sang trái). Ở phần `240mm` bên phải tim B, <strong>⚪ Mái bê tông vát đã đổ sẵn (0% đổ bù)</strong>; chỉ dùng máy cắt <strong>🔴 Xẻ vát nêm gạch thừa `230 × 150mm`</strong> ăn sát má cửa `S4 (Z=-400)`.</p>
+        <div class="svg-frame">
+          <svg viewBox="0 0 560 250" width="100%" role="img" aria-label="Mặt cắt C-C bên phải giữa Trục B cho thấy mái bê tông vát xám đã đổ sẵn và nêm gạch đỏ cần cắt vát khỏi tường 220 cũ">
+            <rect width="560" height="250" fill="#0d1016"/>
+            <line x1="158" y1="12" x2="158" y2="232" stroke="#475569" stroke-dasharray="3 3"/>
+            <line x1="199" y1="12" x2="199" y2="232" stroke="#38bdf8" stroke-dasharray="3 3"/>
+            <line x1="224" y1="12" x2="224" y2="232" stroke="#fbbf24" stroke-dasharray="3 3"/>
+            <line x1="265" y1="12" x2="265" y2="232" stroke="#94a3b8" stroke-dasharray="3 3"/>
+            <text x="150" y="13" fill="#94a3b8" font-size="8">-0.65</text>
+            <text x="190" y="13" fill="#7dd3fc" font-size="8">-0.40</text>
+            <text x="215" y="13" fill="#fde68a" font-size="8">-0.25</text>
+            <text x="255" y="13" fill="#cbd5e1" font-size="8.5" font-weight="700">Z=0</text>
+
+            <rect x="24" y="218" width="244" height="12" fill="#64748b"/>
+            <text x="28" y="227" fill="#f8fafc" font-size="8.5" font-weight="700">Sàn T3 (+7.800)</text>
+
+            <!-- EXISTING GREY CAST SLOPED CONCRETE HOOD KT-3.06 -->
+            <polygon points="158,22 265,22 265,40 199,96 158,96" fill="#64748b" fill-opacity="0.72" stroke="#cbd5e1" stroke-width="2"/>
+            <text x="163" y="48" fill="#f8fafc" font-size="8.5" font-weight="700">Mái BT đã đổ ✓</text>
+
+            <!-- AMBER RETAINED 220 WALL -->
+            <polygon points="188,96 199,96 212,85 212,218 188,218" fill="#d97706" fill-opacity="0.62" stroke="#fbbf24" stroke-width="1.8"/>
+
+            <!-- RED CUT-AWAY WEDGE OF 220 WALL -->
+            <polygon points="212,85 224,75 224,218 212,218" fill="url(#hatchRed)" stroke="#ef4444" stroke-width="2.2"/>
+
+            <rect x="158" y="96" width="30" height="122" fill="none" stroke="#38bdf8" stroke-dasharray="3 2"/>
+            <text x="38" y="156" fill="#7dd3fc" font-size="8.8">Lưng tường cửa S4</text>
+            <text x="38" y="168" fill="#7dd3fc" font-size="8.5">(cốt mặt -400mm)</text>
+
+            <!-- Annotations -->
+            <text x="280" y="34" fill="#cbd5e1" font-size="9.5" font-weight="800">⚪ MÁI VÁT XÁM: Bê tông đã đổ sẵn tới giữa B</text>
+            <text x="280" y="54" fill="#94a3b8" font-size="8.8">• Mái văng 800 đã dừng tại tim B (không sang tới đây)</text>
+            <text x="280" y="84" fill="#fca5a5" font-size="9.5" font-weight="800">🔴 ĐỎ: Nêm gạch tường 220 CẮT VÁT BỎ (230 × 150mm)</text>
+            <text x="280" y="104" fill="#fecaca" font-size="8.8">• Dùng máy cắt tường lưỡi kim cương xẻ đứng theo vạch chéo</text>
+            <text x="280" y="122" fill="#fecaca" font-size="8.8">• Thịt gạch vàng phía sau + tường cửa S4 còn rất dày dặn</text>
+            <text x="280" y="152" fill="#fde68a" font-size="9.5" font-weight="800">🟡 VÀNG: Tường 220 còn giữ lại ăn khít bụng mái</text>
+            <text x="280" y="172" fill="#fef3c7" font-size="8.8">• Bắn lưới mắt cáo 300mm qua ranh chuyển tiếp ở giữa trụ</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- PANEL 4: MC D-D (Mặt đứng cắt dọc: Văng 800 chạy suốt tới Tim B đỡ dưới Đổ Bù 510) -->
+      <div class="card">
+        <h3>4. Mặt đứng cắt dọc D-D (Văng 800 🔵 chạy tới Giữa B đỡ Đổ Bù 510 🟢)</h3>
+        <p class="lead">Nhìn thẳng vào Trụ B: thấy rõ <strong>🔵 Mái văng 800mm</strong> chạy suốt từ Logia trái xuyên qua đoạn thiếu <code>510mm</code> tới tận <code>Giữa Trục B</code>. Khối <strong>🟢 Đổ bù 510mm</strong> ngồi trực tiếp lên lưng văng 800 (<code>2</code> hàng râu đứng) và nối ngang <code>3Φ12</code> sang <strong>⚪ Mái vát đã đổ</strong>.</p>
+        <div class="svg-frame">
+          <svg viewBox="0 0 560 250" width="100%" role="img" aria-label="Mặt đứng cắt dọc D-D cho thấy mái văng 800 xanh dương chạy liên tục tới giữa Trục B nằm ngay dưới làm bệ đỡ cho khối đổ bù xanh lá 510mm">
+            <rect width="560" height="250" fill="#0d1016"/>
+            <rect x="20" y="216" width="520" height="12" fill="#64748b"/>
+            <text x="26" y="225" fill="#f8fafc" font-size="8.8" font-weight="700">Sàn Tầng 3 (+7.800)</text>
+
+            <!-- Inner beam background above left logia -->
+            <rect x="20" y="28" width="104" height="48" fill="#475569" fill-opacity="0.28" stroke="#64748b"/>
+            <text x="24" y="56" fill="#cbd5e1" font-size="8.2">Cửa lùa lùi</text>
+
+            <!-- S4 Window Right -->
+            <rect x="405" y="114" width="135" height="102" fill="#1e293b" fill-opacity="0.6" stroke="#38bdf8" stroke-dasharray="3 2"/>
+            <text x="438" y="166" fill="#7dd3fc" font-size="9" font-weight="700">Ô cửa S4 (1250)</text>
+
+            <!-- GREY ALREADY-CAST SLOPED CONCRETE ROOF rightward from Tim B (x=314..540) -->
+            <polygon points="314,28 540,28 540,114 405,114 314,82" fill="#64748b" fill-opacity="0.78" stroke="#cbd5e1" stroke-width="2"/>
+            <text x="385" y="54" fill="#f8fafc" font-size="9" font-weight="800">⚪ Mái vát ĐÃ ĐỔ (tới Giữa B) ✓</text>
+
+            <!-- AMBER + RED Cut 240mm wall right of Tim B (x=314..405) -->
+            <polygon points="314,82 405,114 405,216 314,216" fill="#d97706" fill-opacity="0.52" stroke="#fbbf24" stroke-width="1.4"/>
+            <polygon points="314,82 405,114 314,114" fill="url(#hatchRed)" stroke="#ef4444" stroke-width="1.8"/>
+            <text x="320" y="156" fill="#fca5a5" font-size="8.5" font-weight="800">🔴 Xẻ 230×150</text>
+
+            <!-- ORANGE NEW SOLID BRICK PIER LEFT OF TIM B (x=124..314, sitting below Văng 800 / slope) -->
+            <polygon points="124,93 314,93 314,216 124,216" fill="url(#hatchOrange)" stroke="#ea580c" stroke-width="2"/>
+            <rect x="124" y="142" width="190" height="9" fill="#f8fafc" stroke="#94a3b8"/>
+            <text x="150" y="150" fill="#0f172a" font-size="7.8" font-weight="800">Giằng +9.300 (2Φ10)</text>
+            <text x="132" y="184" fill="#fed7aa" font-size="8.8" font-weight="800">🟠 Gạch đặc 250→0mm</text>
+
+            <!-- CONTINUOUS SKY BLUE MÁI VĂNG 800 running from left Logia ALL THE WAY TO TIM B (x=20..314, y=76..93) -->
+            <rect x="20" y="76" width="104" height="17" fill="#0284c7" fill-opacity="0.78" stroke="#38bdf8" stroke-width="2"/>
+            <rect x="124" y="76" width="190" height="17" fill="url(#hatchBlue)" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 2"/>
+            <rect x="124" y="76" width="190" height="17" fill="#0284c7" fill-opacity="0.45"/>
+            <text x="23" y="88" fill="#e0f2fe" font-size="8" font-weight="800">🔵 Văng 800 lộ</text>
+            <text x="138" y="88" fill="#e0f2fe" font-size="8" font-weight="800">🔵 Văng 800 chạy tới tim B (bệ đỡ)</text>
+
+            <!-- EMERALD GREEN 510mm CONCRETE POUR-BACK sitting directly ON TOP of Văng 800 (x=124..314, y=28..76) -->
+            <rect x="124" y="28" width="190" height="48" fill="url(#hatchGreen)" stroke="#10b981" stroke-width="2.4"/>
+            <text x="154" y="42" fill="#a7f3d0" font-size="8.6" font-weight="800">🟢 ĐỔ BÙ 510mm đè lên văng 800</text>
+
+            <!-- Vertical Phi10-12 dowels into Văng 800 + Horizontal 3Phi12 splice into right cast hood + 30x10 joint + GMN-04 -->
+            <line x1="155" y1="45" x2="155" y2="88" stroke="#ef4444" stroke-width="2.2"/>
+            <line x1="205" y1="45" x2="205" y2="88" stroke="#ef4444" stroke-width="2.2"/>
+            <line x1="255" y1="45" x2="255" y2="88" stroke="#ef4444" stroke-width="2.2"/>
+            <line x1="295" y1="45" x2="295" y2="88" stroke="#ef4444" stroke-width="2.2"/>
+            <line x1="134" y1="53" x2="365" y2="53" stroke="#ef4444" stroke-width="2.4"/>
+            <line x1="134" y1="62" x2="365" y2="62" stroke="#ef4444" stroke-width="2.4"/>
+            <line x1="122" y1="26" x2="122" y2="216" stroke="#22d3ee" stroke-width="2.2"/>
+            <line x1="124" y1="57" x2="538" y2="57" stroke="#22d3ee" stroke-width="1.8" stroke-dasharray="4 2"/>
+
+            <!-- Grid B Centerline + 300mm mesh -->
+            <line x1="314" y1="10" x2="314" y2="238" stroke="#f87171" stroke-width="1.8" stroke-dasharray="5 3"/>
+            <rect x="292" y="28" width="44" height="58" fill="none" stroke="#22d3ee" stroke-width="2" stroke-dasharray="3 2"/>
+            <text x="276" y="245" fill="#fca5a5" font-size="8.8" font-weight="800">Giữa Trục B + Lưới 300mm</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- PANEL 5 FULL-WIDTH: MẶT BẰNG KHỐI XÂY ĐẦY ĐỦ CẢ TRONG LẪN NGOÀI (TRỤC 1 → TRỤC 2) -->
+      <div class="card full-span">
+        <h3>5. Mặt bằng Khối xây Tầng 3 Đầy đủ Cả Trong Lẫn Ngoài (Từ Bồn cây ngoài → Trục 1 → Trục 2)</h3>
+        <p class="lead">Thể hiện trọn vẹn cấu trúc mặt tiền lẫn bên trong: <strong>hộp xây rỗng <code>TX4</code> (kèm <code>Cột 1,B</code> &amp; bước giật <code>600mm</code>), <code>TX2 (1350mm rỗng)</code>, <code>TX3 (750mm rỗng)</code>, <code>TX1</code></strong>; tường <code>680mm</code> + cửa lùa <code>D9 (2300mm)</code> phòng Ngủ Thờ, vách <code>140mm + cửa lùa 4 cánh</code> dọc Trục B tới Trục 2.</p>
+        <figure class="svg-figure">
+          <div class="svg-frame">
+            <svg viewBox="0 0 1120 420" width="100%" role="img" aria-labelledby="svg-plan-inout-title">
+              <title id="svg-plan-inout-title">Mặt bằng khối xây Tầng 3 cả trong lẫn ngoài từ mặt tiền tới Trục 2</title>
+              <rect width="1120" height="420" fill="#0d1016"/>
+
+              <!-- Map: X (-4.40 .. +4.50) -> px = 90 + (X + 4.40) * 105; Z (-4.50 .. +0.35): Top (Z=-4.50) at y=22, Bottom (Z=+0.35) at y=396 (77 px/m): py = 368 + Z * 77 -->
+              <!-- Grid Axis dashed lines: Trục C (X=-3.865 -> px=146), Giữa Trục B (X=-0.265 -> px=524), Trục A (X=+4.115 -> px=984), Trục 2 (Z=-4.23 -> py=42), Trục 1 (Z=-0.77 -> py=309) -->
+              <line x1="146" y1="16" x2="146" y2="404" stroke="#475569" stroke-dasharray="4 4"/>
+              <text x="132" y="14" fill="#94a3b8" font-size="10.5" font-weight="800">TRỤC C</text>
+              <line x1="524" y1="16" x2="524" y2="404" stroke="#f87171" stroke-width="1.6" stroke-dasharray="5 3"/>
+              <text x="488" y="14" fill="#fca5a5" font-size="10.5" font-weight="800">GIỮA TRỤC B</text>
+              <line x1="984" y1="16" x2="984" y2="404" stroke="#475569" stroke-dasharray="4 4"/>
+              <text x="970" y="14" fill="#94a3b8" font-size="10.5" font-weight="800">TRỤC A</text>
+              <line x1="72" y1="42" x2="1040" y2="42" stroke="#475569" stroke-dasharray="4 4"/>
+              <text x="18" y="46" fill="#94a3b8" font-size="10" font-weight="800">TRỤC 2</text>
+              <line x1="72" y1="309" x2="1040" y2="309" stroke="#475569" stroke-dasharray="4 4"/>
+              <text x="18" y="313" fill="#94a3b8" font-size="10" font-weight="800">TRỤC 1</text>
+
+              <!-- Room floors -->
+              <rect x="158" y="51" width="356" height="221" fill="#1e293b" fill-opacity="0.45"/>
+              <text x="275" y="145" fill="#e2e8f0" font-size="14" font-weight="800">P. NGỦ THỜ (12,1 m²)</text>
+              <text x="242" y="164" fill="#94a3b8" font-size="11">Nền +7.850 · Ban Phật hậu Trục C (680mm)</text>
+
+              <rect x="532" y="51" width="439" height="266" fill="#172030" fill-opacity="0.55"/>
+              <text x="678" y="155" fill="#e2e8f0" font-size="14" font-weight="800">P. LÀM VIỆC &amp; ĐỌC SÁCH (14,5 m²)</text>
+              <text x="668" y="174" fill="#94a3b8" font-size="11">Mặt trong S4–TX2–V4 tiến ra Z=-0.65 (giật 600mm)</text>
+
+              <!-- Logia 02 Balcony Slab + SKY BLUE Mái Văng 800mm (extending under TX4 up to Tim B!) -->
+              <rect x="158" y="291" width="312" height="77" fill="#0f172a" stroke="#64748b" stroke-width="1"/>
+              <rect x="158" y="291" width="366" height="62" fill="#0284c7" fill-opacity="0.32" stroke="#38bdf8" stroke-width="1.6" stroke-dasharray="5 3"/>
+              <text x="230" y="342" fill="#7dd3fc" font-size="11" font-weight="800">🔵 MÁI VĂNG 800mm (phủ qua LOGIA 02 tới Giữa Trục B)</text>
+
+              <!-- Exterior Sidewalls + Planter Curb at Z=0..+0.22 -->
+              <rect x="134" y="368" width="854" height="17" fill="url(#hatchOrange)" fill-opacity="0.5" stroke="#fb923c" stroke-width="1.4"/>
+              <text x="650" y="380" fill="#fed7aa" font-size="9.5" font-weight="700">Gờ bồn cây ngoài Z = 0 → +220mm (+ Lan can kính Logia 02)</text>
+
+              <!-- PERIMETER WALLS INSIDE: Trục C (with S5 sealed), Trục A, Trục 2 + O1 Door + TX1 + Hộp KT -->
+              <!-- Trục C wall (X=-3.975..-3.755 -> x=134..158, Z=-4.34..-1.25 -> y=34..272) -->
+              <rect x="134" y="34" width="24" height="238" fill="#b8623b" stroke="#fdba74" stroke-width="1.5"/>
+              <text x="128" y="200" fill="#fed7aa" font-size="9.5" font-weight="700" transform="rotate(-90 128 200)">Tường Trục C (bịt kín S5)</text>
+              <!-- Trục A wall (x=971..995, y=34..318) -->
+              <rect x="971" y="34" width="24" height="284" fill="#b8623b" stroke="#fdba74" stroke-width="1.5"/>
+              <!-- TX1 Hollow Box (X=+3.565..+4.005, Z=-4.12..-3.62 -> x=925..971, y=51..89) -->
+              <rect x="925" y="51" width="46" height="38" fill="#0d1016" stroke="#fdba74" stroke-width="4"/>
+              <text x="928" y="75" fill="#fed7aa" font-size="8.5" font-weight="700">TX1 rỗng</text>
+              <!-- Trục 2 Rear wall (Z=-4.34..-4.12 -> y=34..51) with Door O1 (X=-0.10..+0.80 -> x=541..636) & Hộp KT (x=867..971) -->
+              <rect x="134" y="34" width="383" height="17" fill="#b8623b" stroke="#fdba74" stroke-width="1.5"/>
+              <rect x="541" y="37" width="95" height="11" fill="#0d1016" stroke="#38bdf8" stroke-width="1.4"/>
+              <text x="562" y="31" fill="#7dd3fc" font-size="9" font-weight="700">Cửa gỗ O1 (900)</text>
+              <rect x="636" y="34" width="359" height="17" fill="#b8623b" stroke="#fdba74" stroke-width="1.5"/>
+              <rect x="867" y="51" width="104" height="38" fill="#0d1016" stroke="#fdba74" stroke-width="2.5"/>
+              <text x="875" y="74" fill="#cbd5e1" font-size="8.5">Hộp KT 980×500</text>
+              <!-- Columns on Trục 2 -->
+              <rect x="134" y="34" width="24" height="18" fill="#94a3b8"/>
+              <rect x="513" y="34" width="24" height="18" fill="#94a3b8"/>
+              <rect x="971" y="34" width="24" height="18" fill="#94a3b8"/>
+
+              <!-- TRỤC B INTERIOR PARTITION: 140mm wall (x=517..531) -->
+              <rect x="517" y="251" width="14" height="25" fill="#b8623b" stroke="#fdba74" stroke-width="1.5"/>
+              <rect x="519" y="112" width="10" height="139" fill="#0ea5e9" fill-opacity="0.25" stroke="#38bdf8" stroke-width="1.6"/>
+              <text x="536" y="190" fill="#7dd3fc" font-size="10" font-weight="800">Vách Trục B + Cửa lùa 4 cánh</text>
+              <rect x="517" y="51" width="14" height="61" fill="#b8623b" stroke="#fdba74" stroke-width="1.5"/>
+              <text x="415" y="88" fill="#fed7aa" font-size="9.5" font-weight="700">Cánh gà 800–900mm</text>
+
+              <!-- P. NGỦ THỜ RECESSED FRONT (Z=-1.25..-1.03 -> y=272..291): Tường 680 + D9 2300 -->
+              <rect x="158" y="272" width="71" height="19" fill="#b8623b" stroke="#fdba74" stroke-width="1.5"/>
+              <text x="160" y="266" fill="#fed7aa" font-size="8.8" font-weight="700">Tường 680 Ban Phật</text>
+              <rect x="229" y="276" width="241" height="11" fill="#0ea5e9" fill-opacity="0.24" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="305" y="268" fill="#7dd3fc" font-size="9.5" font-weight="800">Cửa đi lùa 4 cánh D9 / S3 (2300)</text>
+
+              <!-- HỘP RỖNG TX4 (GIỮA TRỤC B): Back 220 + Cột (1,B) + Hollow Shaft + Yellow 220 + Orange Nose + Green Overhang Contour + Red Lip -->
+              <rect x="470" y="272" width="31" height="19" fill="#b8623b" stroke="#fdba74" stroke-width="1.5"/>
+              <rect x="501" y="276" width="23" height="42" fill="#94a3b8" stroke="#f8fafc" stroke-width="1.4"/> <!-- Cột (1,B) 220x550 -->
+              <rect x="470" y="291" width="16" height="41" fill="url(#hatchOrange)" fill-opacity="0.6" stroke="#fb923c" stroke-width="1.4"/> <!-- Hồi rỗng TX4 -->
+              <rect x="470" y="332" width="54" height="17" fill="#d97706" fill-opacity="0.72" stroke="#fbbf24" stroke-width="1.6"/> <!-- Tường 220 trái -->
+              <polygon points="524,332 524,349 549,337 524,337" fill="#d97706" fill-opacity="0.72" stroke="#fbbf24" stroke-width="1.4"/>
+              <polygon points="525,349 549,349 549,337" fill="url(#hatchRed)" stroke="#ef4444" stroke-width="1.8"/> <!-- Red cut 230x150 -->
+              <polygon points="470,349 470,368 485,368 524,349" fill="url(#hatchOrange)" stroke="#ea580c" stroke-width="2"/> <!-- Orange build-out -->
+              <rect x="470" y="349" width="54" height="4" fill="url(#hatchRed)" stroke="#ef4444" stroke-width="1.2"/> <!-- Red 50mm lip -->
+              <rect x="470" y="349" width="54" height="19" fill="none" stroke="#10b981" stroke-width="2.2" stroke-dasharray="4 2"/> <!-- Green Pour contour -->
+              <text x="390" y="388" fill="#6ee7b7" font-size="9" font-weight="800">TX4 rỗng + Đổ bù 510mm + Cột (1,B)</text>
+
+              <!-- ROOM WALL FACE P. LÀM VIỆC (Z=-0.65..-0.40 -> y=318..337): S4 + HOLLOW TX2 + V4 + HOLLOW TX3 -->
+              <rect x="549" y="324" width="131" height="8" fill="#0ea5e9" fill-opacity="0.24" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="588" y="315" fill="#7dd3fc" font-size="9.5" font-weight="700">Cửa S4 (1250)</text>
+
+              <!-- TX2 Hollow Box (X=+1.225..+2.575 -> x=680..822, Z=-0.78..-0.40 -> y=308..337) -->
+              <rect x="680" y="308" width="142" height="9" fill="#b8623b" stroke="#fdba74" stroke-width="1.4"/>
+              <rect x="680" y="328" width="142" height="9" fill="#b8623b" stroke="#fdba74" stroke-width="1.4"/>
+              <rect x="680" y="317" width="23" height="11" fill="#b8623b"/>
+              <rect x="799" y="317" width="23" height="11" fill="#b8623b"/>
+              <text x="713" y="326" fill="#fde68a" font-size="8.8" font-weight="800">TX2 RỖNG (1350)</text>
+
+              <rect x="822" y="324" width="95" height="8" fill="#0ea5e9" fill-opacity="0.24" stroke="#38bdf8" stroke-width="1.5"/>
+              <text x="844" y="315" fill="#7dd3fc" font-size="9.5" font-weight="700">Cửa V4 (900)</text>
+
+              <!-- TX3 Hollow Beveled Box (X=+3.475..+4.225 -> x=917..995, Z=-0.65..0.00 -> y=318..368) -->
+              <polygon points="917,337 981,368 995,368 995,318 917,318" fill="url(#hatchOrange)" fill-opacity="0.45" stroke="#fdba74" stroke-width="2"/>
+              <polygon points="938,340 976,358 980,358 980,340" fill="#0d1016" stroke="#fdba74" stroke-width="1.2"/>
+              <rect x="968" y="320" width="26" height="24" fill="#94a3b8"/> <!-- Cột (1,A) -->
+              <text x="916" y="388" fill="#fdba74" font-size="9" font-weight="800">TX3 Rỗng (750)</text>
+            </svg>
+          </div>
+          <figcaption><strong>Chú giải mặt bằng 1:1:</strong> Phía dưới là mặt tiền (<code>Gờ bồn cây ngoài Z=+220mm</code>, <code>Mái văng 800</code> phủ sang tới <code>Giữa Trục B</code>); chính giữa gồm <code>TX4</code> (có khoang rỗng kỹ thuật + <code>Cột 1,B</code> nối vào <code>Vách 140 Trục B</code>), hộp rỗng <code>TX2</code>, <code>TX3</code>; phía trên khép kín toàn bộ nhịp tới <code>Trục 2</code> (cửa <code>O1</code>, hộp <code>TX1</code>, hộp <code>KT</code>).</figcaption>
+        </figure>
       </div>
     </section>
 
-    <!-- Section 3: Practical Dual Check for Wall + Overhead Roof + 6-Step Sequence + Sticky Table -->
+    <!-- Section 3: Why Keeping Extended 800mm Canopy Helps + 2 Roof Splice Methods + 6-Step Sequence + Sticky Table -->
     <div class="sec-head">
-      <h2>2 Quyết định kỹ thuật Tường 220 + Mái trên B &amp; Quy trình 6 bước thi công</h2>
-      <span class="sec-sub">Tường 220 chỉ thụt 250mm nên thi công đắp gạch đặc câu ngang rất chắc chắn — không cần xây vỏ rỗng 110mm</span>
+      <h2>Ảnh hưởng khi Mái văng 800 kéo dài tới Giữa B &amp; Quy trình 6 bước thi công</h2>
+      <span class="sec-sub">Giữ bản văng 800 làm bệ đỡ BTCT có sẵn cho khối đổ bù 510mm — chỉ xén gọn dải mép nhô 50mm ngoài mặt tường 220</span>
     </div>
 
-    <div class="case-grid" aria-label="Hai phương án xử lý tường 220 và hai tình huống phần mái trên Trục B">
+    <div class="case-grid" aria-label="Phân tích kết cấu khi mái văng 800 kéo dài qua đoạn thiếu 510mm và hai cách thi công">
       <article class="case-box c1">
-        <h3>Phần Tường 220 dưới — Chọn Phương án Chuẩn CAD vs. Không Cắt Tường</h3>
+        <h3>Vì sao Mái văng 800 chạy tới Giữa B lại LÀ LỢI THẾ KẾT CẤU?</h3>
         <ul>
-          <li><strong>Phương án Chuẩn CAD 100% (Khuyên dùng — Xẻ góc + Đắp đặc):</strong> Cắt vát tam giác gạch <code>230 × 150mm</code> bên phải sát cửa <code>S4</code> (vì đó là gạch <code>220</code> nối tường cửa tới <code>-650mm</code>, không chạm cột BTCT). Phần mũi trái <code>520mm</code> xây <strong>gạch đặc câu ngang</strong> dày từ <code>250mm</code> thuôn về <code>0mm</code>. Khớp 100% độ vát <code>400mm</code> của <code>TX4</code> &amp; khớp khít đường gãy mái chéo <code>KT-3.06</code>!</li>
-          <li><strong>Phương án Phụ (Nếu chủ nhà không muốn cắt đục tường cũ):</strong> Giữ nguyên góc phải ở <code>Z = -250mm</code>, chỉ xây đắp gạch đặc ở mũi trái nhô <code>250mm</code> rồi vát thẳng về góc <code>-250mm</code> sát <code>S4</code>. Góc vát đạt <code>250mm / 610mm</code> (thoải hơn bản vẽ ~1 chút nhưng <strong>0% đục cắt</strong> tường <code>220</code> đã xây).</li>
+          <li><strong>Có sẵn bản sàn BTCT 150mm đỡ ngay đáy khối đổ bù:</strong> Bản văng <code>800</code> (cao độ <code>+10.800..+10.950</code>, dài suốt <code>510mm</code> tới tim B) trở thành <strong>bệ đỡ cứng</strong> gánh phần bụng sau của khối bê tông đổ bù (cao <code>450mm</code>) — <strong>tuyệt đối KHÔNG đập bỏ bản văng này</strong>.</li>
+          <li><strong>Chỉ cần xén dải mép nhô 50mm (<code>🔴</code>):</strong> Nếu bản văng đua đủ <code>800mm</code> ra tới <code>Z=-0.20</code> (vượt mặt tường <code>220</code> là <code>50mm</code>), chỉ dùng máy cắt cắt phẳng dải mép ngoài về <code>Z=-0.25</code> trong đoạn <code>510mm</code> (còn nếu thực tế đổ bằng tường <code>220</code> sẵn thì chỉ vát nhẹ mép sát tim B ~<code>15mm</code>).</li>
+          <li><strong>Phía trước hoàn toàn thông suốt:</strong> Sau khi xén về <code>Z=-0.25</code>, toàn bộ mũi gạch đặc <code>🟠 TX4</code> phía trước (<code>Z=-0.25..0.00</code>) xây liền mạch từ sàn T3 lên đỡ mũi đổ bù; bên phải tim B chỉ xẻ góc gạch <code>230×150mm</code> sát cửa <code>S4</code>.</li>
         </ul>
       </article>
       <article class="case-box c2">
-        <h3>Phần Mái trên Trục B (750mm) — Thăm dò bụng trần trước khi tỉa</h3>
+        <h3>2 Cách tạo hình 510 × 250mm Mái chéo đè lên Mái văng 800</h3>
         <ul>
-          <li><strong>TH1 — Bụng trán phẳng chỉ là gạch xây / bê tông lót:</strong> Tỉa gọn góc bụng thừa (dài ~<code>150mm</code> dưới dây dốc từ <code>Z=-400</code> tới <code>-250mm</code>). Khoan cấy <code>Φ10 @250mm</code> vào đầu mái <code>S4</code> &amp; mặt trước <code>Z=-250</code> để đổ bê tông đá mi đua mũi <code>160mm</code> ra đúng <code>250mm (Z=0)</code>.</li>
-          <li><strong>TH2 — Phía trên là dầm BTCT chịu lực (KHÔNG CẮT THÉP DẦM):</strong> Giữ nguyên 100% dầm BTCT. Khoan râu <code>Φ10</code> đua mũi <code>160mm</code> ra <code>Z=0</code> bằng mặt mái <code>S4</code>; phần gầm vát <code>500mm</code> đóng khung thép hộp mạ kẽm <code>25×25</code> + <strong>Cemboard 12mm chịu nước + lưới mắt cáo</strong> ôm kín bụng dầm (lệch cốt đầu B không đáng kể, giữ nét thẳng liền <code>5000mm</code>).</li>
+          <li><strong>Cách A — Đổ bù "bê tông đá mi" neo thẳng xuống Mái văng 800 (Khuyên dùng):</strong> Băm nhám mặt trên bản văng <code>🔵</code> (<code>+10.950</code>) &amp; mặt cắt giữa B; khoan epoxy <strong>2 hàng râu đứng <code>Φ10–Φ12 @150–180</code></strong> (sâu <code>100–110mm</code> xuống bản văng <code>150mm</code>) + <strong><code>3Φ12</code> ngang</strong> cấy vào mái vát giữa B gác sang mũi gạch <code>140mm</code> + lưới <code>Φ6@100</code>. Quét <code>Sika Latex TH</code> và đổ bê tông đá mi M250–300 đè kín từ <code>+10.950 → +11.400</code>.</li>
+          <li><strong>Cách B — Khung thép hộp mạ kẽm + 2 lớp Cemboard 12mm (Nhanh, nhẹ):</strong> Khoan nở hóa chất cấy bản mã trực tiếp xuống mặt trên <code>Mái văng 800</code> &amp; đầu mái vát tim B, hàn khung <code>30×30×1.8mm</code> gác sang mũi gạch <code>140mm</code>, ốp 2 lớp <strong>Cemboard 12mm chịu nước</strong> + đóng lưới mắt cáo.</li>
         </ul>
       </article>
     </div>
 
-    <section class="steps-grid" aria-label="Quy trình 6 bước sửa tường 220 thụt 250mm và mái chéo Trục B">
+    <section class="steps-grid" aria-label="Quy trình 6 bước sửa tường 220 và nối mái bê tông vát đè lên mái văng 800">
       <article class="step-card">
         <span class="step-num">1</span>
-        <h3>Căng dây chéo TX4 &amp; dây mái S4</h3>
-        <p>Kéo dây mực chuẩn theo mặt trước mái <code>S4 (Z=0, mũi 160mm)</code> và kéo dây vát <code>TX4</code> từ điểm mũi <code>(140mm từ mép trái, Z=0)</code> chéo vào má cửa <code>S4 (Z=-400mm)</code>. Dây cắt mặt tường <code>220</code> hiện hữu cách mép cửa <code>S4</code> đúng <code>~230mm</code>.</p>
+        <h3>Căng dây từ đầu bê tông giữa B &amp; ranh tường TX4</h3>
+        <p>Kéo dây mực nối dài từ <strong>mũi <code>160mm (Z=0)</code> và mặt vát</strong> tại <code>giữa Trục B</code> sang trái <code>510mm</code>; đánh dấu ranh <code>X=-0.775</code> soi rãnh <code>30×10mm</code> tách khỏi phần <code>Mái văng 800</code> lộ thiên bên Logia 02.</p>
       </article>
       <article class="step-card">
         <span class="step-num">2</span>
-        <h3>Cắt vát góc gạch 230×150mm &amp; thăm dò mái</h3>
-        <p>Dùng <strong>máy cắt tường lưỡi kim cương</strong> xẻ đứng theo vạch mực ở <code>230mm</code> góc phải, đục bỏ nêm gạch thừa sâu tối đa <code>150mm</code> (về <code>Z=-400</code>). Kiểm tra luôn bụng trán mái trên B để tỉa góc <code>150mm</code> (TH1) hoặc bọc che (TH2).</p>
+        <h3>Xén mép nhô 50mm của văng 800 &amp; góc 230×150 phải B</h3>
+        <p>Trong đoạn <code>510mm</code> trái B, dùng máy cắt kim cương <strong>cắt phẳng dải mép văng <code>50mm</code></strong> về đúng mặt tường <code>220 (Z=-0.25)</code> (giữ nguyên <code>750mm</code> bản văng bên trong làm bệ đỡ). Bên phải tim B xẻ vát góc gạch <code>230×150mm</code> sát cửa <code>S4</code>.</p>
       </article>
       <article class="step-card">
         <span class="step-num">3</span>
-        <h3>Đua mũi mái 160mm thêm 250mm ra Z=0</h3>
-        <p>Khoan epoxy râu <code>Φ10 @250mm</code> nối liền đầu mái <code>S4</code> &amp; mặt trước <code>Z=-250</code>. Tạo hình đoạn mái bù <code>750mm</code> chuẩn mũi <code>160mm</code> (đua đúng <code>250mm</code>) + bụng dốc <code>500mm</code> + nẹp chỉ âm đứng <code>10×10mm</code> ở mép trái B.</p>
+        <h3>Cấy 2 hàng Φ8 &amp; xây gạch đặc bù TX4 + hồi trái</h3>
+        <p>Cấy epoxy <strong>2 hàng râu <code>Φ8 @300–350</code></strong> mặt trước tường <code>220</code>; xây đặc câu ngang <code>250→0mm</code> (kèm giằng <code>+9.300</code>) thông suốt từ sàn T3 tới bụng dốc mái, đồng thời xây tường hồi trái <code>TX4</code> ôm khít dưới &amp; trên bản văng <code>800</code>.</p>
       </article>
       <article class="step-card">
         <span class="step-num">4</span>
-        <h3>Băm nhám &amp; cấy 2 hàng râu Φ8 (@300–350)</h3>
-        <p>Đục tỉa băm nhám mặt ngoài vùng mũi trái (rộng <code>520mm</code>) của tường <code>220</code> cũ, khoan sâu <code>90–100mm</code> cấy <strong>2 hàng đứng râu thép <code>Φ8</code></strong> bằng keo cấy thép epoxy + quét hồ dầu <code>Sika Latex</code> trước khi xây.</p>
+        <h3>Cấy râu đứng xuống Văng 800 + 3Φ12 ngang &amp; Đổ bù</h3>
+        <p>Băm nhám mặt trên <code>Mái văng 800 (+10.950)</code> &amp; đầu mái vát giữa B; cấy <strong>2 hàng râu đứng <code>Φ10–Φ12</code> xuống văng <code>800</code></strong> + <strong><code>3Φ12</code> ngang tim B</strong> gác lên trụ mũi <code>140mm</code>, quét <code>Sika Latex</code> rồi đổ bê tông đá mi đè lên văng.</p>
       </article>
       <article class="step-card">
         <span class="step-num">5</span>
-        <h3>Xây gạch đặc 250→0mm &amp; giằng +9.300</h3>
-        <p>Chân trụ xây <code>3 hàng gạch đặc + SikaTop 107</code>. Thân xây <strong>gạch đặc câu ngang đặc khít 100%</strong> dày <code>250mm</code> ở mũi thuôn dần về <code>0mm</code> tại điểm cắt <code>520mm</code>, kèm dải giằng <code>70–80mm (2Φ10)</code> tại <code>+9.300</code>, đỉnh chèn chặt bụng mái mới.</p>
+        <h3>Chống thấm SikaTop 107 &amp; đóng lưới 300mm mối B</h3>
+        <p>Mặt đỉnh mái (<code>+11.400</code>) quét <strong>3 lớp <code>SikaTop Seal 107</code></strong> trùm qua mạch nối tim B <code>300mm</code>. Đóng <strong>lưới mắt cáo <code>300mm</code></strong> phủ dọc mạch ngừng giữa B, khe tường dưới và ranh tiếp giáp văng <code>800</code> bên trái.</p>
       </article>
       <article class="step-card">
         <span class="step-num">6</span>
-        <h3>Đóng lưới 300mm khe chéo, GMN-04 &amp; trát M75</h3>
-        <p>Bắn ghim <strong>lưới mắt cáo mạ kẽm rộng 300mm</strong> dọc ranh chuyển tiếp cắt–đắp giữa trụ (<code>X=-254</code>), khe đứng trái B, và mối mái S4. Kẹp nẹp PVC <code>90°/135°</code>, gắn <code>GMN-04</code> liên tục, trát M75 <code>15mm</code> sắc nét.</p>
+        <h3>Soi chỉ âm 30×10, gắn GMN-04 &amp; trát M75</h3>
+        <p>Kẹp nẹp chỉ âm đứng tại ranh <code>X=-0.775</code> (tách khối vát <code>TX4</code> với đoạn văng <code>800</code> lộ ra bên ban công <code>A3</code>), gắn <strong>nẹp <code>GMN-04</code></strong> liên tục qua tim B tới mũi <code>140mm</code>, trát hoàn thiện <code>M75</code> dày <code>15mm</code>.</p>
       </article>
     </section>
 
     <div tabindex="0" role="region" aria-labelledby="remediation-table-caption" class="table-wrapper">
       <table class="spec-table">
-        <caption id="remediation-table-caption">Bảng đối chiếu phạm vi hiện trạng (Tường 220 thụt 250mm) &amp; biện pháp sửa Trục B (Tầng 3)</caption>
+        <caption id="remediation-table-caption">Bảng đối chiếu hiện trạng (Văng 800 chạy tới Giữa Trục B) &amp; biện pháp sửa chuẩn khối 3D</caption>
         <thead>
           <tr>
             <th scope="col">Hạng mục mặt tiền T3</th>
@@ -1159,40 +1528,40 @@
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Tường Trụ B (TX4) — Góc phải sát S4</th>
-            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Dư 150mm:</strong> Tường <code>220</code> phẳng nằm tại <code>Z=-250mm</code>, không vát</td>
-            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Chân vát <code>TX4</code> ăn vào mép ngoài tường cửa <code>S4</code> tại <code>Z=-400mm</code></td>
-            <td style="--label-4: 'Biện pháp thi công phần thô';">Cắt vát bằng máy lưỡi kim cương đoạn <code>230mm × sâu 150mm</code> (về <code>-400mm</code>). <em>Hoặc giữ -250mm nếu không cắt.</em></td>
+            <th scope="row">Mái văng 800 chạy xuyên đoạn thiếu (510mm trái B)</th>
+            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Đua ra tới Z=-0.20:</strong> Bản văng <code>150mm</code> chạy tới tim B, mép ngoài nhô quá tường <code>220</code> ~<code>50mm</code></td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Văng <code>800</code> chỉ lộ bên Logia 02; trong khối <code>TX4</code> bị phủ kín thành vát <code>160/500</code></td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';"><strong>KHÔNG đập bỏ bản văng.</strong> Xén gọn dải mép nhô <code>50mm</code> bằng mặt tường <code>220 (Z=-0.25)</code>; giữ phần còn lại làm bệ đỡ cứng cho khối đổ bù</td>
           </tr>
           <tr>
-            <th scope="row">Tường Trụ B (TX4) — Mũi trái 520mm</th>
-            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Thiếu 250mm:</strong> Tường <code>220</code> thụt vào <code>Z=-250mm</code></td>
-            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Mũi phẳng <code>140mm</code> tại <code>Z=0.00</code>, vát chéo <code>610mm</code> vào <code>S4</code></td>
-            <td style="--label-4: 'Biện pháp thi công phần thô';">Băm nhám + cấy 2 hàng <code>Φ8 @350</code> + xây <strong>gạch đặc câu ngang 250→0mm</strong> + giằng <code>+9.300</code></td>
+            <th scope="row">Khối Bê tông Đổ Bù bên trái tim B (510 × 450mm)</th>
+            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Thiếu cao độ:</strong> Trên lưng văng <code>+10.950</code> đang hụt <code>450mm</code> tới đỉnh <code>+11.400</code></td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Nối phẳng mái vát <code>160mm/500mm</code> tới mũi <code>Z=0</code> qua hết <code>TX4 (510mm)</code></td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';">Khoan <strong>2 hàng râu đứng <code>Φ10–12</code> xuống văng <code>800</code></strong> + <strong><code>3Φ12</code> ngang tim B</strong> gác lên mũi gạch <code>140mm</code>, đổ bê tông đá mi (hoặc khung + <code>Cemboard</code>)</td>
           </tr>
           <tr>
-            <th scope="row">Mái chéo trên Trục B (750mm)</th>
-            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Thụt 250mm &amp; phẳng:</strong> Hộp trán phẳng <code>600mm</code> thẳng mặt với tường <code>220</code> tại <code>Z=-250</code></td>
-            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Mũi ngoài <code>160mm</code> tại <code>Z=0</code>, dốc ngược <code>500mm</code> tới <code>Z=-400</code> trên <code>S4</code></td>
-            <td style="--label-4: 'Biện pháp thi công phần thô';"><strong>TH1 (gạch/lót):</strong> Tỉa góc bụng <code>150mm</code> + cấy <code>Φ10</code> đổ bê tông đá mi. <strong>TH2 (dầm BTCT):</strong> Giữ dầm, đua mũi <code>250mm</code> + bọc Cemboard <code>12mm</code></td>
+            <th scope="row">Tường 220 bên phải tim B (sát cửa S4)</th>
+            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Dư 150mm:</strong> Tường <code>220</code> vuông phẳng nằm tại <code>Z=-250mm</code></td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Mặt vát ăn lùi về mép tường cửa <code>S4</code> tại <code>Z=-400mm</code></td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';">Dùng máy cắt lưỡi kim cương <strong>xẻ vát góc gạch <code>230×150mm</code></strong> lên kịch bụng bê tông vát đã có</td>
           </tr>
           <tr>
-            <th scope="row">Ngắt nước mũi mái (GMN-04) &amp; Chỉ âm 10×10</th>
-            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Thiếu tại Trục B</strong> do mũi 160mm chưa vươn ra Z=0</td>
-            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Rãnh ngắt nước <code>GMN-04</code> chạy suốt 5000mm &amp; rãnh đứng <code>10×10mm</code> tách ban công trái</td>
-            <td style="--label-4: 'Biện pháp thi công phần thô';">Đặt thanh nẹp <code>GMN-04</code> ăn liền mạch từ đoạn <code>S4</code> sang hết đầu <code>TX4</code>, kẹp nẹp chỉ âm <code>10×10mm</code> khi trát M75</td>
+            <th scope="row">Tường 220 bên trái tim B (mũi 140 + vát 370)</th>
+            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Thiếu 250mm:</strong> Thụt mặt tường vào <code>Z=-250mm</code> dưới đáy văng <code>800</code></td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Mũi phẳng <code>140mm</code> tại <code>Z=0</code>, vát chéo <code>610mm</code> + hồi trái ôm văng</td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';">Sau khi xén mép văng về <code>Z=-0.25</code>, cấy 2 hàng <code>Φ8 @350</code> + xây <strong>gạch đặc <code>250→0mm</code></strong> + tường hồi ôm trên/dưới văng <code>800</code></td>
           </tr>
           <tr>
-            <th scope="row">Nhịp ban công trái (A2 / A3)</th>
-            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Đúng:</strong> Khẩu độ tường mở &amp; trần phẳng <code>A3</code></td>
-            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Mảng phẳng lùi, tách khối riêng với cổng 5000mm</td>
-            <td style="--label-4: 'Biện pháp thi công phần thô';">Giữ nguyên hoàn toàn; chỉ soi rãnh chỉ âm tách ranh tại tim mép trái <code>TX4</code></td>
+            <th scope="row">Mối nối mạch ngừng Tim B, GMN-04 &amp; Rãnh 30×10</th>
+            <td style="--label-2: 'Hiện trạng thực tế';">Mạch bê tông dừng ở tim B; văng <code>800</code> chạy thông từ Logia 02</td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Không nứt mạch giữa <code>TX4</code>, ngắt nước suốt <code>5000mm</code> &amp; tách rãnh <code>30×10</code></td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';">Quét <code>Sika Latex</code> + <code>3 lớp SikaTop 107</code>; đóng <strong>lưới <code>300mm</code></strong> qua mạch B &amp; mép tiếp giáp văng, gắn <code>GMN-04</code> &amp; trát <code>M75</code></td>
           </tr>
           <tr>
-            <th scope="row">Ô cửa S4, TX2, V4 &amp; Khối vát phải TX3</th>
-            <td style="--label-2: 'Hiện trạng thực tế';"><strong>Đúng:</strong> Đã xây đủ khối vát &amp; đổ mái dốc <code>KT-3.06</code></td>
-            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Vát đối xứng rộng <code>750mm</code> ăn khít mũi <code>160mm</code></td>
-            <td style="--label-4: 'Biện pháp thi công phần thô';">Giữ nguyên hoàn toàn; lấy cao độ &amp; độ dốc <code>S4–TX3</code> làm cữ căng dây cho Trục B</td>
+            <th scope="row">So sánh: Giữ mái giữa B vs. Nối đủ 510mm</th>
+            <td style="--label-2: 'Hiện trạng thực tế';">Đã có sẵn văng <code>800</code> chạy tới tim B bên trái nên đổ bù lên rất nhàn</td>
+            <td style="--label-3: 'Chuẩn thiết kế 3D &amp; CAD';">Khung vát cân xứng <code>750mm (trái) – 750mm (phải)</code></td>
+            <td style="--label-4: 'Biện pháp thi công phần thô';"><strong>PA Giữ B:</strong> Văng <code>800</code> lộ dài thêm <code>510mm</code> vào tới tim B; vai trái hẹp còn <code>240mm</code> (lệch <code>1:3.1</code>). <strong>PA Nối đủ:</strong> Tận dụng ngay văng <code>800</code> làm bệ đỡ đổ bù <code>510mm</code> để lấy lại cân xứng <code>100%</code>.</td>
           </tr>
         </tbody>
       </table>
@@ -1323,6 +1692,7 @@
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      renderer.localClippingEnabled = true;
 
       const scene = new THREE.Scene();
       scene.background = new THREE.Color('#101319');
@@ -1376,14 +1746,20 @@
 
       const mats = {
         concrete: new THREE.MeshStandardMaterial({ color: '#6b7280', roughness: 0.85, metalness: 0.05 }),
+        concreteLeft: new THREE.MeshStandardMaterial({ color: '#6b7280', roughness: 0.85, metalness: 0.05 }),
         builtOk: new THREE.MeshStandardMaterial({ color: '#788292', roughness: 0.88, metalness: 0.04 }),
+        builtOkLeft: new THREE.MeshStandardMaterial({ color: '#788292', roughness: 0.88, metalness: 0.04 }),
+        canopy800Mat: new THREE.MeshStandardMaterial({ color: '#0284c7', roughness: 0.72, metalness: 0.08 }),
+        canopy800ClipMat: new THREE.MeshStandardMaterial({ color: '#0284c7', roughness: 0.72, metalness: 0.08 }),
         builtWrongG2: new THREE.MeshStandardMaterial({ color: '#d97706', roughness: 0.75, transparent: true, opacity: 0.86 }),
         cutCorner: new THREE.MeshStandardMaterial({ color: '#ef4444', roughness: 0.55, emissive: '#7f1d1d', emissiveIntensity: 0.45 }),
         cutGhost: new THREE.MeshBasicMaterial({ color: '#ef4444', wireframe: true, transparent: true, opacity: 0.78 }),
-        brickNew: new THREE.MeshStandardMaterial({ map: brickTex, color: '#e06443', roughness: 0.85, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }),
-        brickGhost: new THREE.MeshStandardMaterial({ map: brickTex, color: '#e06443', roughness: 0.85, transparent: true, opacity: 0.48 }),
-        wedgeNew: new THREE.MeshStandardMaterial({ color: '#d96543', roughness: 0.80, transparent: true, opacity: 0.88, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }),
-        wedgeGhost: new THREE.MeshStandardMaterial({ color: '#d96543', roughness: 0.80, transparent: true, opacity: 0.34 }),
+        brickNew: new THREE.MeshStandardMaterial({ map: brickTex, color: '#ea580c', roughness: 0.85, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }),
+        brickGhost: new THREE.MeshStandardMaterial({ map: brickTex, color: '#ea580c', roughness: 0.85, transparent: true, opacity: 0.48 }),
+        pourGreen: new THREE.MeshStandardMaterial({ color: '#10b981', roughness: 0.72, transparent: true, opacity: 0.92, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }),
+        pourGreenGhost: new THREE.MeshStandardMaterial({ color: '#10b981', roughness: 0.72, transparent: true, opacity: 0.36 }),
+        wedgeNew: new THREE.MeshStandardMaterial({ color: '#10b981', roughness: 0.72, transparent: true, opacity: 0.90, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }),
+        wedgeGhost: new THREE.MeshStandardMaterial({ color: '#10b981', roughness: 0.72, transparent: true, opacity: 0.34 }),
         brickDark: new THREE.MeshStandardMaterial({ color: '#9a3412', roughness: 0.9 }),
         tieConcrete: new THREE.MeshStandardMaterial({ color: '#cbd5e1', roughness: 0.7 }),
         rebar: new THREE.MeshStandardMaterial({ color: '#ef4444', roughness: 0.35, metalness: 0.45, emissive: '#991b1b', emissiveIntensity: 0.38 }),
@@ -1391,10 +1767,71 @@
         gmnBead: new THREE.MeshStandardMaterial({ color: '#22d3ee', roughness: 0.3, emissive: '#0891b2', emissiveIntensity: 0.35 }),
         shadowGroove: new THREE.MeshStandardMaterial({ color: '#0b0e14', roughness: 0.95 }),
         plaster: new THREE.MeshStandardMaterial({ color: '#b4bcc8', roughness: 0.92, metalness: 0.02, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }),
+        plasterWarm: new THREE.MeshStandardMaterial({ color: '#d6cfc4', roughness: 0.9, metalness: 0.02, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -1 }),
+        brickContext: new THREE.MeshStandardMaterial({ map: brickTex, color: '#b8623b', roughness: 0.88 }),
+        plasterInner: new THREE.MeshStandardMaterial({ color: '#dfd9ce', roughness: 0.92 }),
+        glassRail: new THREE.MeshStandardMaterial({ color: '#7dd3fc', roughness: 0.15, transparent: true, opacity: 0.28 }),
+        soilDark: new THREE.MeshStandardMaterial({ color: '#3f2e21', roughness: 0.95 }),
+        planCapBrick: new THREE.MeshBasicMaterial({ color: '#e07a3f', side: THREE.DoubleSide }),
+        planCapConc: new THREE.MeshBasicMaterial({ color: '#cbd5e1', side: THREE.DoubleSide }),
+        missingWingGhost: new THREE.MeshBasicMaterial({ color: '#ef4444', wireframe: true, transparent: true, opacity: 0.35 }),
         glassVoid: new THREE.MeshStandardMaterial({ color: '#1e293b', roughness: 0.3, transparent: true, opacity: 0.38 }),
+        capPourGreen: new THREE.MeshBasicMaterial({ color: '#34d399', side: THREE.DoubleSide }),
+        capBrickOrange: new THREE.MeshBasicMaterial({ color: '#fb923c', side: THREE.DoubleSide }),
+        capWallAmber: new THREE.MeshBasicMaterial({ color: '#fbbf24', side: THREE.DoubleSide }),
+        capTieWhite: new THREE.MeshBasicMaterial({ color: '#f8fafc', side: THREE.DoubleSide }),
+        capOldGrey: new THREE.MeshBasicMaterial({ color: '#94a3b8', side: THREE.DoubleSide }),
+        capCutRed: new THREE.MeshBasicMaterial({ color: '#f87171', side: THREE.DoubleSide }),
+        capCanopyBlue: new THREE.MeshBasicMaterial({ color: '#38bdf8', side: THREE.DoubleSide }),
         line45: new THREE.LineBasicMaterial({ color: '#22d3ee' }),
         lineWarn: new THREE.LineBasicMaterial({ color: '#f59e0b' })
       };
+
+      const clipPlaneX = new THREE.Plane(new THREE.Vector3(1, 0, 0), 0.45);
+      const clipPlaneY = new THREE.Plane(new THREE.Vector3(0, -1, 0), 5.85);
+      const clippableMats = [
+        mats.concrete, mats.builtOk, mats.canopy800ClipMat, mats.builtWrongG2, mats.cutCorner, mats.cutGhost,
+        mats.brickNew, mats.brickGhost, mats.brickDark, mats.tieConcrete,
+        mats.pourGreen, mats.pourGreenGhost, mats.wedgeNew, mats.wedgeGhost,
+        mats.plaster, mats.plasterWarm, mats.gmnBead, mats.shadowGroove
+      ];
+      const planOnlyMats = [
+        mats.concreteLeft, mats.builtOkLeft, mats.canopy800Mat, mats.brickContext,
+        mats.plasterInner, mats.rebar, mats.glassVoid, mats.glassRail, mats.soilDark
+      ];
+
+      function xzPlate(xzPts, holePts, yPos, mat, edgeHex) {
+        const shape = new THREE.Shape();
+        shape.moveTo(xzPts[0][0], -xzPts[0][1]);
+        for (let i = 1; i < xzPts.length; i++) shape.lineTo(xzPts[i][0], -xzPts[i][1]);
+        shape.closePath();
+        if (holePts && holePts.length) {
+          const hole = new THREE.Path();
+          hole.moveTo(holePts[0][0], -holePts[0][1]);
+          for (let i = 1; i < holePts.length; i++) hole.lineTo(holePts[i][0], -holePts[i][1]);
+          hole.closePath();
+          shape.holes.push(hole);
+        }
+        const geo = new THREE.ShapeGeometry(shape);
+        const mesh = new THREE.Mesh(geo, mat);
+        mesh.rotation.x = -Math.PI / 2;
+        mesh.position.y = yPos;
+        if (edgeHex !== false) addCrispEdges(mesh, edgeHex || '#f8fafc', 15);
+        return mesh;
+      }
+
+      function yzPlate(yzPts, xPos, mat, edgeHex) {
+        const shape = new THREE.Shape();
+        shape.moveTo(yzPts[0][0], yzPts[0][1]);
+        for (let i = 1; i < yzPts.length; i++) shape.lineTo(yzPts[i][0], yzPts[i][1]);
+        shape.closePath();
+        const geo = new THREE.ShapeGeometry(shape);
+        const mesh = new THREE.Mesh(geo, mat);
+        mesh.rotation.y = -Math.PI / 2;
+        mesh.position.x = xPos;
+        if (edgeHex !== false) addCrispEdges(mesh, edgeHex || '#f8fafc', 15);
+        return mesh;
+      }
 
       // Exact KT-3.06 CHI TIET 01 overhang slope on Z in [-0.40, 0.00]
       function ySlope400(z) {
@@ -1464,105 +1901,208 @@
       const root = new THREE.Group();
       scene.add(root);
 
-      // ---- 1. Structural Base & Already-Correct Elements (T2 + T3 Left Balcony + T3 Right S4..TX3) ----
+      // ---- 1. Structural Base & Full Interior + Exterior Shell (T2 + T3 to Axis 2 + Roof Planter) ----
       const staticGroup = new THREE.Group();
       root.add(staticGroup);
 
-      // Slabs: +4.200 (Y=0), +7.800 (Y=3.6), +11.400 (Y=7.2) across 8.45m width (-4.225..+4.225)
-      staticGroup.add(box(8.55, 0.14, 1.85, 0.0, 0.07, -0.52, mats.concrete));
-      staticGroup.add(box(8.55, 0.16, 1.85, 0.0, 3.60, -0.52, mats.concrete));
-      staticGroup.add(box(8.55, 0.18, 1.15, 0.0, 7.20, -1.20, mats.concrete));
+      // Slabs: +4.200 (Y=0), +7.800 (Y=3.6) extending full bay Z=-4.48..+0.22; Roof +11.400 split behind recessed Logia 02
+      staticGroup.add(box(8.55, 0.14, 4.70, 0.0, 0.07, -2.13, mats.concreteLeft));
+      staticGroup.add(box(8.55, 0.16, 4.70, 0.0, 3.60, -2.13, mats.concreteLeft));
+      staticGroup.add(box(4.54, 0.18, 3.83, 2.005, 7.20, -2.565, mats.concreteLeft));
+      staticGroup.add(box(4.01, 0.18, 3.23, -2.27, 7.20, -2.865, mats.concreteLeft));
 
-      // Floor 2 piers & walls (T2 built)
-      staticGroup.add(box(0.50, 3.4, 0.24, -3.95, 1.85, -0.76, mats.builtOk));  // T2 Pier D
-      staticGroup.add(box(0.75, 3.4, 0.22, -0.40, 1.85, -0.36, mats.builtOk));  // T2 Pier B (220mm wall set back 250mm: Z=-0.47..-0.25)
-      staticGroup.add(box(1.35, 3.4, 0.24, 1.90, 1.85, -0.525, mats.builtOk));  // T2 Middle Pier
-      staticGroup.add(box(0.65, 3.4, 0.24, 3.88, 1.85, -0.76, mats.builtOk));   // T2 Pier A
-      staticGroup.add(box(3.25, 0.85, 0.22, -2.10, 0.56, -0.76, mats.builtOk)); // T2 left sill
-      staticGroup.add(box(4.20, 0.85, 0.22, 1.75, 0.56, -0.76, mats.builtOk));  // T2 right sill
-      staticGroup.add(box(8.30, 0.55, 0.22, 0.0, 3.25, -0.76, mats.builtOk));   // T2 top lintel
+      // Floor 2 piers, rear/side enclosure walls & exterior planter curb (T2 built)
+      staticGroup.add(box(0.50, 3.4, 0.24, -3.95, 1.85, -0.76, mats.builtOkLeft)); // T2 Pier D
+      staticGroup.add(box(0.75, 3.4, 0.22, -0.40, 1.85, -0.36, mats.builtOkLeft)); // T2 Pier B (220mm wall set back 250mm: Z=-0.47..-0.25)
+      staticGroup.add(box(1.35, 3.4, 0.24, 1.90, 1.85, -0.525, mats.builtOkLeft)); // T2 Middle Pier
+      staticGroup.add(box(0.65, 3.4, 0.24, 3.88, 1.85, -0.76, mats.builtOkLeft));  // T2 Pier A
+      staticGroup.add(box(3.25, 0.85, 0.22, -2.10, 0.56, -0.76, mats.builtOkLeft)); // T2 left sill
+      staticGroup.add(box(4.20, 0.85, 0.22, 1.75, 0.56, -0.76, mats.builtOkLeft));  // T2 right sill
+      staticGroup.add(box(8.30, 0.55, 0.22, 0.0, 3.25, -0.76, mats.builtOkLeft));   // T2 top lintel
+      staticGroup.add(box(0.22, 3.41, 3.46, -3.865, 1.845, -2.61, mats.builtOkLeft)); // T2 Axis C perimeter
+      staticGroup.add(box(0.22, 3.41, 3.46, 4.115, 1.845, -2.61, mats.builtOkLeft));  // T2 Axis A perimeter
+      staticGroup.add(box(8.20, 3.41, 0.22, 0.125, 1.845, -4.23, mats.builtOkLeft));  // T2 Axis 2 rear wall
+      staticGroup.add(box(0.14, 3.41, 3.46, -0.265, 1.845, -2.61, mats.builtOkLeft)); // T2 Axis B partition
+      staticGroup.add(box(8.55, 0.22, 0.22, 0.0, 0.25, 0.11, mats.builtOkLeft));      // T2 exterior planter curb
 
-      // Floor 3 Left Balcony (Trục D -> left edge of TX4 at X=-0.775) — ALREADY BUILT RIGHT
-      staticGroup.add(box(0.32, 3.44, 1.45, -4.06, 5.40, -0.22, mats.builtOk)); // Left side wall
-      staticGroup.add(box(3.15, 1.00, 0.18, -2.35, 4.18, -0.76, mats.builtOk)); // Left sill A2
-      // Left Balcony Flat Canopy Fascia A3 (Y=6.60..7.20, front face recessed at Z=-0.25)
-      const leftCanopy = box(3.45, 0.60, 1.00, -2.50, 6.90, -0.75, mats.builtOk);
-      addCrispEdges(leftCanopy, '#cbd5e1', 20);
-      staticGroup.add(leftCanopy);
+      // Floor 3 Left Balcony (Trục D -> Trục B) per KT-3.06 Mặt cắt 1-1 (250 | 800 | 200, Y = 6.60..6.75):
+      staticGroup.add(box(0.32, 3.44, 1.45, -4.06, 5.40, -0.22, mats.builtOkLeft)); // Left boundary side wall
+      staticGroup.add(box(0.29, 3.52, 0.25, -3.915, 5.44, -0.575, mats.builtOkLeft)); // A2 white L-frame 290mm pier
+      staticGroup.add(box(1.61, 1.00, 0.20, -3.255, 4.18, -0.60, mats.builtOkLeft));  // A2 left balcony low curb
+      staticGroup.add(box(3.635, 0.60, 0.25, -2.0825, 6.90, -1.125, mats.builtOkLeft)); // Inner 250x600 beam A3/S3
+      staticGroup.add(box(2.26, 2.86, 0.04, -1.925, 5.11, -1.14, mats.glassVoid)); // D9/S3 Sliding door at Z=-1.14
+      staticGroup.add(box(3.15, 1.00, 0.18, -2.35, 4.18, -1.12, mats.builtOkLeft)); // Inner sill under sliding door
+      // SKY-BLUE MÁI VĂNG 800mm exposed along Logia 02 (X=-3.90..-0.778, Y=6.60..6.75, Z=-1.00..-0.20)
+      const canopy800LeftMesh = box(3.122, 0.15, 0.80, -2.339, 6.675, -0.60, mats.canopy800Mat);
+      addCrispEdges(canopy800LeftMesh, '#7dd3fc', 20);
+      staticGroup.add(canopy800LeftMesh);
 
-      // T3 structural RC column (1,B) safely in back structural line & 250x500 upper beam along Axis 1
-      staticGroup.add(box(0.32, 3.44, 0.24, -0.61, 5.40, -0.77, mats.concrete));
+      // Column (1,B) 220x550mm (X=-0.485..-0.265, Z=-1.20..-0.65 -> creates exact 600mm interior step) + Grid B tie + Upper Beam
+      staticGroup.add(box(0.22, 3.44, 0.55, -0.375, 5.40, -0.925, mats.concrete));
+      staticGroup.add(box(0.22, 0.60, 0.45, -0.265, 6.90, -1.475, mats.concrete));
       staticGroup.add(box(5.00, 0.50, 0.25, 1.725, 6.85, -0.775, mats.concrete));
 
-      // T3 S4 (1250), TX2 middle pier (1350), and V4 (900) aligned to window wall Z=-0.40..-0.65
-      staticGroup.add(box(1.25, 2.86, 0.06, 0.60, 5.11, -0.52, mats.glassVoid));  // S4 (1250mm)
-      staticGroup.add(box(1.35, 2.86, 0.25, 1.90, 5.11, -0.525, mats.builtOk));   // TX2 middle pier (1350mm)
-      staticGroup.add(box(0.90, 2.86, 0.06, 3.025, 5.11, -0.52, mats.glassVoid)); // V4 (900mm)
+      // Extended Mái Văng 800mm continuing through the 510mm Pier B gap (X=-0.773..-0.265):
+      const canopy800ExtGroup = new THREE.Group();
+      root.add(canopy800ExtGroup);
+      const canopy800ExtRetained = box(0.508, 0.15, 0.75, -0.519, 6.675, -0.625, mats.canopy800ClipMat);
+      addCrispEdges(canopy800ExtRetained, '#7dd3fc', 20);
+      const canopy800LipErr = box(0.508, 0.15, 0.05, -0.519, 6.675, -0.225, mats.cutCorner);
+      addCrispEdges(canopy800LipErr, '#fca5a5', 20);
+      const canopy800LipCutGhost = box(0.508, 0.15, 0.05, -0.519, 6.675, -0.225, mats.cutGhost);
+      const canopy800LipKeep = box(0.508, 0.15, 0.05, -0.519, 6.675, -0.225, mats.canopy800Mat);
+      addCrispEdges(canopy800LipKeep, '#7dd3fc', 20);
+      canopy800ExtGroup.add(canopy800ExtRetained, canopy800LipErr, canopy800LipCutGhost, canopy800LipKeep);
 
-      // T3 Right Diagonal Block TX3 (Trục A) — Split cleanly at Z=-0.40 (zero non-planar bend)
+      // Helpers for True Hollow TX2 (CT KHỐI XÂY 2) & Hollow TX3 (CT KHỐI XÂY 3)
+      function addHollowTX2(group, mat) {
+        group.add(box(1.35, 2.86, 0.11, 1.90, 5.11, -0.455, mat));  // Outer 110mm leaf
+        group.add(box(1.35, 2.86, 0.11, 1.90, 5.11, -0.725, mat));  // Inner 110mm leaf
+        group.add(box(0.22, 2.86, 0.16, 1.335, 5.11, -0.59, mat));  // Left 220mm cheek
+        group.add(box(0.22, 2.86, 0.16, 2.465, 5.11, -0.59, mat));  // Right 220mm cheek
+      }
       const tx3FrontPts = [[3.475, -0.40], [4.085, 0.00], [4.225, 0.00], [4.225, -0.40]];
-      staticGroup.add(makeSlopedExtrude(tx3FrontPts, null, 3.68, (wx, wz) => ySlope400(wz), mats.builtOk, '#94a3b8'));
-      staticGroup.add(box(0.75, 2.86, 0.25, 3.85, 5.11, -0.525, mats.builtOk));
+      const tx3HolePts = [[3.66, -0.36], [4.04, -0.13], [4.08, -0.13], [4.08, -0.36]];
+      function makeHollowTX3(mat, edgeColor) {
+        return makeSlopedExtrude(tx3FrontPts, tx3HolePts, 3.68, (wx, wz) => ySlope400(wz), mat, edgeColor);
+      }
 
-      // T3 Right Sloped Roof Hood KT-3.06 OVER S4 -> TX3 (X = -0.025 .. +4.225) — ALREADY BUILT RIGHT
-      // Stops abruptly at X = -0.025 (left jamb of S4); split cleanly at Z=-0.40
-      const hoodRightFrontPts = [[-0.025, -0.40], [-0.025, 0.00], [4.225, 0.00], [4.225, -0.40]];
+      // T3 S4 (1250), Hollow TX2 (1350), V4 (900), Hollow TX3 + Column (1,A) + inner 125mm TX3 rear wall
+      staticGroup.add(box(1.25, 2.86, 0.06, 0.60, 5.11, -0.52, mats.glassVoid));  // S4 (1250mm)
+      addHollowTX2(staticGroup, mats.builtOk);
+      staticGroup.add(box(0.90, 2.86, 0.06, 3.025, 5.11, -0.52, mats.glassVoid)); // V4 (900mm)
+      staticGroup.add(makeHollowTX3(mats.builtOk, '#94a3b8'));
+      staticGroup.add(box(0.26, 3.44, 0.31, 4.095, 5.40, -0.555, mats.concrete)); // Column (1,A)
+      staticGroup.add(box(0.49, 2.86, 0.125, 3.72, 5.11, -0.5875, mats.builtOk)); // TX3 inner 125mm brick wall
+
+      // T3 Right Sloped Roof Hood KT-3.06 OVER S4 -> TX3 AND right 240mm of TX4 (X = -0.265 .. +4.225)
+      const hoodRightFrontPts = [[-0.265, -0.40], [-0.265, 0.00], [4.225, 0.00], [4.225, -0.40]];
       staticGroup.add(makeSlopedExtrude(hoodRightFrontPts, null, (wx, wz) => ySlope400(wz), 7.20, mats.builtOk, '#e2e8f0'));
-      staticGroup.add(box(4.25, 0.66, 0.25, 2.10, 6.87, -0.525, mats.builtOk));
+      staticGroup.add(box(4.49, 0.66, 0.25, 1.98, 6.87, -0.525, mats.builtOk));
 
-      // ---- 2. Trục B As-Built 220mm Square Wall @ Z=-0.25 (-250mm) + Flat 600mm Canopy ----
+      // ---- 1B. Full Exterior Context (Planter Curbs, Glass Rail, Roof BỒN HOA 02) & Full Interior T3 Masonry ----
+      const contextBrickMeshes = [];
+      function addCtxBrick(parent, mesh) {
+        parent.add(mesh);
+        contextBrickMeshes.push(mesh);
+        return mesh;
+      }
+
+      const exteriorContextGroup = new THREE.Group();
+      root.add(exteriorContextGroup);
+      // T3 Exterior planter curb (Z=0.00..+0.22) + soil strip + Logia 02 glass railing
+      addCtxBrick(exteriorContextGroup, box(8.45, 0.20, 0.22, 0.0, 3.70, 0.11, mats.brickContext));
+      exteriorContextGroup.add(box(3.50, 0.20, 0.40, 1.725, 3.70, -0.20, mats.soilDark));
+      exteriorContextGroup.add(box(3.00, 1.00, 0.025, -2.28, 4.28, 0.08, mats.glassRail));
+      // BỒN HOA 02 (KT-3.06D: 140-340-140 brick planter, 580mm tall at Y=7.20..7.78, set back behind roof lip!)
+      addCtxBrick(exteriorContextGroup, box(4.49, 0.58, 0.14, 1.98, 7.49, -0.37, mats.brickContext));   // Right outer 140mm
+      addCtxBrick(exteriorContextGroup, box(4.49, 0.58, 0.14, 1.98, 7.49, -0.85, mats.brickContext));   // Right inner 140mm
+      addCtxBrick(exteriorContextGroup, box(0.14, 0.58, 0.34, 4.155, 7.49, -0.61, mats.brickContext));  // Right end cap
+      exteriorContextGroup.add(box(4.21, 0.44, 0.34, 1.98, 7.42, -0.61, mats.soilDark));
+      addCtxBrick(exteriorContextGroup, box(3.635, 0.58, 0.14, -2.0825, 7.49, -0.97, mats.brickContext)); // Left outer 140mm
+      addCtxBrick(exteriorContextGroup, box(3.635, 0.58, 0.14, -2.0825, 7.49, -1.45, mats.brickContext)); // Left inner 140mm
+      addCtxBrick(exteriorContextGroup, box(0.14, 0.58, 0.62, -0.335, 7.49, -0.68, mats.brickContext));   // Step return at Tim B
+      exteriorContextGroup.add(box(3.36, 0.44, 0.34, -2.14, 7.42, -1.21, mats.soilDark));
+
+      const interiorT3Group = new THREE.Group();
+      root.add(interiorT3Group);
+      // TX4 inner 220mm rear closing wall (X=-0.775..-0.485, Z=-1.25..-1.03, Y=3.68..6.60) flush with P. Ngủ Thờ front
+      addCtxBrick(interiorT3Group, box(0.29, 2.92, 0.22, -0.63, 5.14, -1.14, mats.brickContext));
+      // P. Ngủ Thờ recessed facade wall (Z=-1.25..-1.03): Cột (1,C) + 680mm Ban Phật back wall + D9 4-panel frames
+      interiorT3Group.add(box(0.24, 3.44, 0.24, -3.855, 5.40, -1.13, mats.concrete));
+      addCtxBrick(interiorT3Group, box(0.68, 2.92, 0.22, -3.415, 5.14, -1.14, mats.brickContext));
+      [-3.06, -1.925, -0.79].forEach((mx) => interiorT3Group.add(box(0.04, 2.86, 0.08, mx, 5.11, -1.14, mats.concreteLeft)));
+
+      // Trục B interior beam (220x450) + 140mm masonry partition + 4-panel sliding door + 800mm Cánh gà (Z=-4.12..-1.20)
+      interiorT3Group.add(box(0.22, 0.45, 2.92, -0.265, 6.975, -2.66, mats.concrete));
+      addCtxBrick(interiorT3Group, box(0.14, 3.07, 0.32, -0.265, 5.215, -1.36, mats.brickContext)); // Đố đầu Tây
+      addCtxBrick(interiorT3Group, box(0.14, 0.52, 1.80, -0.265, 6.49, -2.42, mats.brickContext));  // Trán trên cửa lùa
+      interiorT3Group.add(box(0.06, 2.55, 1.80, -0.265, 4.955, -2.42, mats.glassVoid));             // Kính lùa 4 cánh Trục B
+      [-1.53, -2.42, -3.31].forEach((mz) => interiorT3Group.add(box(0.09, 2.55, 0.04, -0.265, 4.955, mz, mats.concreteLeft)));
+      addCtxBrick(interiorT3Group, box(0.14, 3.07, 0.80, -0.265, 5.215, -3.72, mats.brickContext)); // Cánh gà 800mm
+
+      // T3 Perimeter Walls: Axis C (sealing S5), Axis A + Hollow TX1 (440x500), Axis 2 Rear Wall + Door O1 (900) + Hộp KT
+      addCtxBrick(interiorT3Group, box(0.22, 3.40, 3.09, -3.865, 5.38, -2.795, mats.brickContext)); // Trục C (bịt kín S5)
+      addCtxBrick(interiorT3Group, box(0.22, 3.40, 3.69, 4.115, 5.38, -2.495, mats.brickContext));  // Trục A
+      addCtxBrick(interiorT3Group, box(0.44, 3.40, 0.11, 3.785, 5.38, -3.675, mats.brickContext));  // TX1 vách ngoài
+      addCtxBrick(interiorT3Group, box(0.11, 3.40, 0.39, 3.62, 5.38, -3.925, mats.brickContext));   // TX1 vách bên
+      addCtxBrick(interiorT3Group, box(3.38, 3.40, 0.22, -2.065, 5.38, -4.23, mats.brickContext));  // Trục 2 sau P. Thờ
+      addCtxBrick(interiorT3Group, box(0.92, 1.00, 0.22, 0.35, 6.58, -4.23, mats.brickContext));    // Lanh tô trên cửa O1 (900)
+      addCtxBrick(interiorT3Group, box(3.205, 3.40, 0.22, 2.4025, 5.38, -4.23, mats.brickContext)); // Trục 2 sau P. Làm Việc
+      addCtxBrick(interiorT3Group, box(0.98, 3.40, 0.11, 3.515, 5.38, -3.675, mats.brickContext));  // Hộp KT (110mm)
+      addCtxBrick(interiorT3Group, box(0.11, 3.40, 0.39, 3.08, 5.38, -3.925, mats.brickContext));
+      // Axis 2 Structural Columns (2,C), (2,B), (2,A)
+      interiorT3Group.add(box(0.24, 3.44, 0.24, -3.865, 5.40, -4.23, mats.concrete));
+      interiorT3Group.add(box(0.24, 3.44, 0.24, -0.265, 5.40, -4.23, mats.concrete));
+      interiorT3Group.add(box(0.24, 3.44, 0.24, 4.115, 5.40, -4.23, mats.concrete));
+
+      // Horizontal Plan-Cut Architectural Caps at Y = 5.845 (visible when Mở trần is active so walls & hollow cavities read crystal clear!)
+      const planCapGroup = new THREE.Group();
+      root.add(planCapGroup);
+      const yPC = 5.845;
+      planCapGroup.add(xzPlate([[-3.975, -1.25], [-3.755, -1.25], [-3.755, -4.34], [-3.975, -4.34]], null, yPC, mats.planCapBrick, '#fed7aa')); // Trục C
+      planCapGroup.add(xzPlate([[4.005, -0.65], [4.225, -0.65], [4.225, -4.34], [4.005, -4.34]], null, yPC, mats.planCapBrick, '#fed7aa'));   // Trục A
+      planCapGroup.add(xzPlate([[-3.755, -4.12], [-0.375, -4.12], [-0.375, -4.34], [-3.755, -4.34]], null, yPC, mats.planCapBrick, '#fed7aa')); // Trục 2 trái
+      planCapGroup.add(xzPlate([[0.80, -4.12], [4.005, -4.12], [4.005, -4.34], [0.80, -4.34]], null, yPC, mats.planCapBrick, '#fed7aa'));      // Trục 2 phải
+      planCapGroup.add(xzPlate([[-3.755, -1.03], [-3.075, -1.03], [-3.075, -1.25], [-3.755, -1.25]], null, yPC, mats.planCapBrick, '#fed7aa')); // P. Thờ 680
+      planCapGroup.add(xzPlate([[-0.775, -1.03], [-0.485, -1.03], [-0.485, -1.25], [-0.775, -1.25]], null, yPC, mats.planCapBrick, '#fed7aa')); // Hậu TX4
+      planCapGroup.add(xzPlate([[-0.335, -1.20], [-0.195, -1.20], [-0.195, -1.52], [-0.335, -1.52]], null, yPC, mats.planCapBrick, '#fed7aa')); // Trục B đố Tây
+      planCapGroup.add(xzPlate([[-0.335, -3.32], [-0.195, -3.32], [-0.195, -4.12], [-0.335, -4.12]], null, yPC, mats.planCapBrick, '#fed7aa')); // Trục B cánh gà
+      planCapGroup.add(xzPlate([[3.565, -3.62], [4.005, -3.62], [4.005, -4.12], [3.565, -4.12]], [[3.675, -3.73], [3.995, -3.73], [3.995, -4.10], [3.675, -4.10]], yPC, mats.planCapBrick, '#fed7aa')); // TX1 rỗng
+      planCapGroup.add(xzPlate([[1.225, -0.40], [2.575, -0.40], [2.575, -0.78], [1.225, -0.78]], [[1.445, -0.51], [2.355, -0.51], [2.355, -0.67], [1.445, -0.67]], yPC, mats.planCapConc, '#f8fafc')); // TX2 rỗng!
+      planCapGroup.add(xzPlate(tx3FrontPts, tx3HolePts, yPC, mats.planCapConc, '#f8fafc')); // TX3 rỗng!
+      planCapGroup.add(xzPlate([[-0.485, -0.65], [-0.265, -0.65], [-0.265, -1.20], [-0.485, -1.20]], null, yPC, mats.planCapConc, '#ffffff')); // Cột (1,B)
+      planCapGroup.add(xzPlate([[-3.975, -4.12], [-3.755, -4.12], [-3.755, -4.34], [-3.975, -4.34]], null, yPC, mats.planCapConc, '#ffffff'));
+      planCapGroup.add(xzPlate([[-0.385, -4.12], [-0.145, -4.12], [-0.145, -4.34], [-0.385, -4.34]], null, yPC, mats.planCapConc, '#ffffff'));
+      planCapGroup.add(xzPlate([[3.995, -4.12], [4.235, -4.12], [4.235, -4.34], [3.995, -4.34]], null, yPC, mats.planCapConc, '#ffffff'));
+
+      // ---- 2. Trục B As-Built 220mm Square Wall @ Z=-0.25 (-250mm) tucked beneath Văng 800 (+10.800 / Y=6.60) ----
       const pierBWrongGroup = new THREE.Group();
       root.add(pierBWrongGroup);
 
-      // Structural/backing parts of the 220mm wall that stay intact in both views:
-      // Left return leg (-0.775..-0.555, Z=-0.90..-0.47), rear 70mm strip (-0.47..-0.40), and S4 jamb backing (-0.275..-0.025, Z=-0.65..-0.47)
+      // Structural/backing parts of the 220mm wall that stay intact in both views (capped at Y=6.60 underside of Văng 800):
       const wall220ReturnLeg = box(0.22, 2.92, 0.43, -0.665, 5.14, -0.685, mats.builtWrongG2);
-      const wall220RearStrip = box(0.75, 2.86, 0.07, -0.40, 5.11, -0.435, mats.builtWrongG2);
+      const wall220RearStripLeft = box(0.51, 2.92, 0.07, -0.52, 5.14, -0.435, mats.builtWrongG2);
+      const wall220RearStripRight = box(0.24, 2.86, 0.07, -0.145, 5.11, -0.435, mats.builtWrongG2);
       const wall220S4Jamb = box(0.25, 2.86, 0.18, -0.15, 5.11, -0.56, mats.builtWrongG2);
-      pierBWrongGroup.add(wall220ReturnLeg, wall220RearStrip, wall220S4Jamb);
+      pierBWrongGroup.add(wall220ReturnLeg, wall220RearStripLeft, wall220RearStripRight, wall220S4Jamb);
 
-      // Front Z=-0.40..-0.25 split cleanly into:
-      // 1) err_pier_b: full height Y=3.68..6.60 (left retained trapezoid amber + right 230x150mm cut wedge red)
+      // Front Z=-0.40..-0.25 split cleanly at Grid B centerline (X = -0.265) so zero clipping with cast concrete hood:
+      const wall220RightFixPts = [[-0.265, -0.40], [-0.265, -0.25], [-0.254, -0.25], [-0.025, -0.40]];
+      const cutRightTriPts = [[-0.254, -0.25], [-0.025, -0.25], [-0.025, -0.40]];
+
+      // 1) err_pier_b: left 510mm flat 220 wall up to Y=6.60 (under extended 800mm canopy) + right 240mm wall + red 230x150 cut corner
       const wrongFrontErrGroup = new THREE.Group();
       pierBWrongGroup.add(wrongFrontErrGroup);
-      const wall220LeftTrapPts = [[-0.775, -0.40], [-0.775, -0.25], [-0.254, -0.25], [-0.025, -0.40]];
-      const cutRightTriPts = [[-0.254, -0.25], [-0.025, -0.25], [-0.025, -0.40]];
-      const wall220LeftErr = makeSlopedExtrude(wall220LeftTrapPts, null, 3.68, 6.60, mats.builtWrongG2, '#fbbf24');
-      const cutRightSolidErr = makeSlopedExtrude(cutRightTriPts, null, 3.68, 6.60, mats.cutCorner, '#fca5a5');
-      wrongFrontErrGroup.add(wall220LeftErr, cutRightSolidErr);
+      const wall220Left510Err = box(0.51, 2.92, 0.15, -0.52, 5.14, -0.325, mats.builtWrongG2);
+      addCrispEdges(wall220Left510Err, '#fbbf24', 20);
+      const wall220Right240Err = makeSlopedExtrude(wall220RightFixPts, null, 3.68, (wx, wz) => ySlope400(wz) - 0.003, mats.builtWrongG2, '#fbbf24');
+      const cutRightSolidErr = makeSlopedExtrude(cutRightTriPts, null, 3.68, (wx, wz) => ySlope400(wz) - 0.003, mats.cutCorner, '#fca5a5');
+      wrongFrontErrGroup.add(wall220Left510Err, wall220Right240Err, cutRightSolidErr);
 
-      // 2) fix_pier_b: retained left trapezoid beveled up to ySlope400(wz) - 0.003
+      // 2) fix_pier_b: left 510mm retained 220 wall up to Y=6.60 (under Văng 800 support shelf) + right 240mm retained beveled wall
       const wrongFrontFixGroup = new THREE.Group();
       pierBWrongGroup.add(wrongFrontFixGroup);
-      const wall220LeftFix = makeSlopedExtrude(wall220LeftTrapPts, null, 3.68, (wx, wz) => ySlope400(wz) - 0.003, mats.builtWrongG2, '#fbbf24');
-      wrongFrontFixGroup.add(wall220LeftFix);
+      const wall220Left510Fix = box(0.51, 2.92, 0.15, -0.52, 5.14, -0.325, mats.builtWrongG2);
+      addCrispEdges(wall220Left510Fix, '#fbbf24', 20);
+      const wall220Right240Fix = makeSlopedExtrude(wall220RightFixPts, null, 3.68, (wx, wz) => ySlope400(wz) - 0.003, mats.builtWrongG2, '#fbbf24');
+      wrongFrontFixGroup.add(wall220Left510Fix, wall220Right240Fix);
 
       // Wireframe outline of the cut-away 230x150mm brick corner (slides right/forward on explode)
       const cutRightGhost = makeSlopedExtrude(cutRightTriPts, null, 3.68, (wx, wz) => ySlope400(wz) - 0.003, mats.cutGhost, false);
       pierBWrongGroup.add(cutRightGhost);
 
-      // Wrong upper flat canopy encroaching over Trục B (X = -0.775 .. -0.025, Y = 6.60 .. 7.20, Z = -0.65 .. -0.25)
+      // In err_pier_b, cyan wireframe outline marks the 450mm open gap above Văng 800 (Y=6.75..7.20) waiting for green pour-back
       const wrongTopErrOnlyGroup = new THREE.Group();
       pierBWrongGroup.add(wrongTopErrOnlyGroup);
+      const notchWire = box(0.51, 0.45, 0.30, -0.52, 6.975, -0.40, mats.cutGhost);
+      wrongTopErrOnlyGroup.add(notchWire);
 
-      // Full wrong flat box flush at Z=-0.25 matching wall 220 below
-      const wrongTopFlatFull = box(0.75, 0.60, 0.40, -0.40, 6.90, -0.45, mats.builtWrongG2);
-      addCrispEdges(wrongTopFlatFull, '#fbbf24', 18);
-      // Red slice hanging BELOW ySlope400(z) (Z = -0.352 .. -0.25, bottom Y = 6.60 -> top ySlope400(z))
-      const hangCutPts = [[-0.775, -0.352], [-0.775, -0.25], [-0.025, -0.25], [-0.025, -0.352]];
-      const wrongTopHangCut = makeSlopedExtrude(hangCutPts, null, 6.595, (wx, wz) => ySlope400(wz) + 0.005, mats.cutCorner, '#fca5a5');
-      wrongTopErrOnlyGroup.add(wrongTopFlatFull, wrongTopHangCut);
-
-      // Existing upper core that stays embedded INSIDE the new sloped top wedge (split cleanly at Z=-0.40)
+      // Dummy holder preserved for toggle logic (no inaccurate high ceiling block hiding 800mm canopy)
       const wrongTopRetainedCore = new THREE.Group();
       pierBWrongGroup.add(wrongTopRetainedCore);
-      const wrongCoreFrontPts = [[-0.765, -0.40], [-0.765, -0.254], [-0.035, -0.254], [-0.035, -0.40]];
-      wrongTopRetainedCore.add(
-        makeSlopedExtrude(wrongCoreFrontPts, null, (wx, wz) => ySlope400(wz) + 0.004, 7.192, mats.concrete, '#94a3b8'),
-        box(0.73, 0.652, 0.245, -0.40, 6.866, -0.5225, mats.concrete)
-      );
 
-      // Target TX4 bevel chord + Target outer 160mm roof lip at Z=0.00
+      // Visual guides: TX4 diagonal chord, target outer 510mm roof lip, and Grid B centerline cold-joint plane (X = -0.265)
       const lineGeo = new THREE.BufferGeometry().setFromPoints([
         new THREE.Vector3(-0.635, 3.70, 0.01),
         new THREE.Vector3(-0.025, 3.70, -0.40),
@@ -1572,18 +2112,25 @@
       ]);
       const hoodGuideGeo = new THREE.BufferGeometry().setFromPoints([
         new THREE.Vector3(-0.775, 7.205, 0.008),
-        new THREE.Vector3(-0.025, 7.205, 0.008),
-        new THREE.Vector3(-0.025, 7.04, 0.008),
+        new THREE.Vector3(-0.265, 7.205, 0.008),
+        new THREE.Vector3(-0.265, 7.04, 0.008),
         new THREE.Vector3(-0.775, 7.04, 0.008),
         new THREE.Vector3(-0.775, 7.205, 0.008)
       ]);
-      pierBWrongGroup.add(new THREE.Line(lineGeo, mats.line45), new THREE.Line(hoodGuideGeo, mats.line45));
+      const lineBGeo = new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(-0.265, 3.70, -0.242),
+        new THREE.Vector3(-0.265, 7.21, -0.242),
+        new THREE.Vector3(-0.265, 7.21, 0.01),
+        new THREE.Vector3(-0.265, 7.04, 0.01),
+        new THREE.Vector3(-0.265, 6.7275, -0.242)
+      ]);
+      pierBWrongGroup.add(new THREE.Line(lineGeo, mats.line45), new THREE.Line(hoodGuideGeo, mats.line45), new THREE.Line(lineBGeo, mats.lineWarn));
 
-      // ---- 3. Trục B Fix Group (Solid 250mm Bonded Brick Left Nose + Overhead 750mm Sloped Roof Splice) ----
+      // ---- 3. Trục B Fix Group (🟠 Orange Solid Brick Nose + 🟢 Emerald Green 510mm Concrete Pour-Back) ----
       const tx4FixGroup = new THREE.Group();
       root.add(tx4FixGroup);
 
-      // 3A. Lower Left Solid Bonded Brick Wedge (Z=-0.25..0.00, X=-0.775..-0.254 -> max thickness 250mm, 100% solid!)
+      // 3A. Lower Left Solid Bonded Brick Wedge + Left Flank Return Wall hugging Văng 800 (Z=-1.00..-0.90 lower + Z=-1.00..-0.55 upper)
       const tx4WallGroup = new THREE.Group();
       tx4FixGroup.add(tx4WallGroup);
 
@@ -1593,71 +2140,112 @@
       const brickShellLower = makeSlopedExtrude(tx4SolidLeft, null, 3.92, 5.28, mats.brickNew, '#fdba74');
       const tieBelt = makeSlopedExtrude(tx4SolidLeft, null, 5.28, 5.36, mats.tieConcrete, '#f8fafc');
       const brickShellUpper = makeSlopedExtrude(tx4SolidLeft, null, 5.36, (wx, wz) => ySlope400(wz) - 0.003, mats.brickNew, '#fdba74');
-      tx4WallGroup.add(brickBottomSolid, brickShellLower, tieBelt, brickShellUpper);
+      const tx4FlankLower = box(0.14, 2.92, 0.10, -0.705, 5.14, -0.95, mats.brickNew);
+      addCrispEdges(tx4FlankLower, '#fdba74', 20);
+      const tx4FlankUpper = box(0.14, 0.45, 0.45, -0.705, 6.975, -0.775, mats.brickNew);
+      addCrispEdges(tx4FlankUpper, '#fdba74', 20);
+      tx4WallGroup.add(brickBottomSolid, brickShellLower, tieBelt, brickShellUpper, tx4FlankLower, tx4FlankUpper);
 
       const dowelGroup = new THREE.Group();
       tx4WallGroup.add(dowelGroup);
-      // 2 vertical columns of Phi8 epoxy dowels anchored into front Z=-0.25 face of existing 220 wall
       for (let i = 0; i < 6; i++) {
         const y = 4.02 + i * 0.44;
-        dowelGroup.add(box(0.022, 0.022, 0.30, -0.68, y, -0.21, mats.rebar)); // Nose anchor (-0.36..-0.06)
-        dowelGroup.add(box(0.022, 0.022, 0.21, -0.46, y, -0.255, mats.rebar)); // Mid-bevel anchor (-0.36..-0.15)
+        dowelGroup.add(box(0.022, 0.022, 0.30, -0.68, y, -0.21, mats.rebar));
+        dowelGroup.add(box(0.022, 0.022, 0.21, -0.46, y, -0.255, mats.rebar));
       }
-      // Top vertical anchors + tie belt bars at +9.300 (Y=5.32)
       dowelGroup.add(box(0.022, 0.24, 0.022, -0.64, ySlope400(-0.12), -0.12, mats.rebar));
       dowelGroup.add(box(0.022, 0.24, 0.022, -0.40, ySlope400(-0.20), -0.20, mats.rebar));
 
-      // 3B. Overhead 750mm Sloped Roof Extension Group (completing KT-3.06 from S4 to left edge X=-0.775)
+      // 3B. Overhead 510mm GREEN Concrete Pour-Back sitting directly ON TOP of Văng 800 (Y=6.75..7.20) + front overhang (Z=-0.25..0.00)
       const topWedgeFixGroup = new THREE.Group();
       tx4FixGroup.add(topWedgeFixGroup);
 
-      const hoodExtFrontPts = [[-0.775, -0.40], [-0.775, 0.00], [-0.025, 0.00], [-0.025, -0.40]];
-      const topWedgeNew = makeSlopedExtrude(hoodExtFrontPts, null, (wx, wz) => ySlope400(wz), 7.20, mats.wedgeNew, '#fb923c');
-      const topWedgeRearBox = box(0.75, 0.66, 0.25, -0.40, 6.87, -0.525, mats.concrete);
-      topWedgeFixGroup.add(topWedgeNew, topWedgeRearBox);
+      const hoodExt510Pts = [[-0.775, -0.25], [-0.775, 0.00], [-0.265, 0.00], [-0.265, -0.25]];
+      const topWedgeNew = makeSlopedExtrude(hoodExt510Pts, null, (wx, wz) => ySlope400(wz), 7.20, mats.pourGreen, '#6ee7b7');
+      const topPourAnchorBox = box(0.51, 0.45, 0.30, -0.52, 6.975, -0.40, mats.pourGreen);
+      addCrispEdges(topPourAnchorBox, '#6ee7b7', 20);
+      topWedgeFixGroup.add(topWedgeNew, topPourAnchorBox);
 
-      // Rebar splice dowels Φ10 & sloped ribs inside the new 750mm roof extension
+      // Rebar splice dowels: 3 horizontal Phi12 from Grid B concrete + 6 vertical Phi10-12 dowels anchored DOWN into Văng 800!
       const topSteelGroup = new THREE.Group();
       topWedgeFixGroup.add(topSteelGroup);
 
-      // 3 horizontal splice dowels Φ10 from existing sloped edge S4 (X=-0.025) into Trục B extension
+      const barZ = [-0.05, -0.13, -0.21];
+      const barY = [7.09, 7.04, 6.98];
       for (let k = 0; k < 3; k++) {
-        const zBar = -0.06 - k * 0.14;
-        const yBar = Math.min(7.13, ySlope400(zBar) + 0.08);
-        topSteelGroup.add(box(0.60, 0.022, 0.022, -0.24, yBar, zBar, mats.rebar));
+        topSteelGroup.add(box(0.58, 0.024, 0.024, -0.43, barY[k], barZ[k], mats.rebar));
       }
-      // 3 cantilevered Φ10 dowels projecting forward from Z=-0.25 out to 160mm front lip (Z=-0.02)
-      for (let k = 0; k < 3; k++) {
-        const xBar = -0.64 + k * 0.24;
-        topSteelGroup.add(box(0.022, 0.022, 0.34, xBar, 7.12, -0.18, mats.rebar));
-      }
-      // 3 inclined steel/rebar framing ribs running along ySlope400(z) slope (0.40m run, 0.50m drop)
-      const slopeLen = Math.hypot(0.40, 0.50);
-      const slopeAng = -Math.atan2(0.50, 0.40);
-      for (let k = 0; k < 3; k++) {
-        const xRib = -0.66 + k * 0.26;
-        const rib = box(0.024, 0.024, slopeLen - 0.03, xRib, 6.79, -0.20, mats.rebar);
-        rib.rotation.x = slopeAng;
+      const dowelX = [-0.68, -0.52, -0.36];
+      const dowelZ = [-0.32, -0.46];
+      dowelX.forEach((dx) => {
+        dowelZ.forEach((dz) => {
+          topSteelGroup.add(box(0.022, 0.49, 0.022, dx, 6.875, dz, mats.rebar));
+        });
+      });
+      const slopeLen250 = Math.hypot(0.25, 0.3125);
+      const slopeAng250 = -Math.atan2(0.3125, 0.25);
+      for (let k = 0; k < 2; k++) {
+        const xRib = -0.60 + k * 0.22;
+        const rib = box(0.024, 0.024, slopeLen250 - 0.02, xRib, 6.884, -0.125, mats.rebar);
+        rib.rotation.x = slopeAng250;
         topSteelGroup.add(rib);
       }
 
-      // GMN-04 drip bead along the 160mm front lip bottom
-      const gmnBeadNew = box(0.75, 0.022, 0.022, -0.40, 7.032, -0.01, mats.gmnBead);
+      // GMN-04 drip bead along the new 510mm front lip bottom
+      const gmnBeadNew = box(0.51, 0.022, 0.022, -0.52, 7.032, -0.01, mats.gmnBead);
       topWedgeFixGroup.add(gmnBeadNew);
 
-      // 10x10mm shadow groove separating TX4/KT-3.06 from left balcony fascia A3
-      const leftShadowFix = box(0.016, 0.66, 0.65, -0.778, 6.87, -0.325, mats.shadowGroove);
+      // 30x10mm shadow groove separating TX4 from exposed Văng 800 & left balcony
+      const leftShadowFix = box(0.016, 0.60, 1.00, -0.778, 6.90, -0.50, mats.shadowGroove);
       topWedgeFixGroup.add(leftShadowFix);
 
-      // 3C. 300mm Galvanized Wire Mesh across diagonal cut-to-build seam, left joint, S4 jamb & sloped soffit
+      // 3C. 300mm Galvanized Wire Mesh across Grid B roof cold-joint splice (X=-0.265), wall cut-to-build joint, left seam & soffit
       const meshGroup = new THREE.Group();
       tx4FixGroup.add(meshGroup);
-      meshGroup.add(box(0.015, 3.45, 0.30, -0.78, 5.40, -0.24, mats.meshCyan));   // Left vertical seam
-      meshGroup.add(box(0.30, 2.95, 0.015, -0.254, 5.20, -0.248, mats.meshCyan)); // Diagonal cut-to-build joint (X=-0.254, Z=-0.25)
-      meshGroup.add(box(0.015, 0.66, 0.40, -0.025, 6.87, -0.20, mats.meshCyan));  // Roof splice joint at S4
-      const soffitMeshPlane = box(0.74, 0.012, slopeLen - 0.02, -0.40, 6.788, -0.20, mats.meshCyan);
-      soffitMeshPlane.rotation.x = slopeAng;
+      meshGroup.add(box(0.015, 3.45, 0.30, -0.78, 5.40, -0.24, mats.meshCyan));     // Left vertical seam
+      meshGroup.add(box(0.30, 2.95, 0.015, -0.254, 5.20, -0.248, mats.meshCyan));   // Diagonal cut-to-build wall joint
+      meshGroup.add(box(0.30, 0.46, 0.46, -0.265, 6.97, -0.23, mats.meshCyan));     // Grid B centerline roof cold joint
+      const soffitMeshPlane = box(0.50, 0.012, slopeLen250 - 0.02, -0.52, 6.884, -0.125, mats.meshCyan);
+      soffitMeshPlane.rotation.x = slopeAng250;
       meshGroup.add(soffitMeshPlane);
+
+      // Dynamic 3D Cross-Section Cap Plates (vivid green / orange / blue / amber / white / red)
+      const sectionCapGroup = new THREE.Group();
+      root.add(sectionCapGroup);
+      function buildSectionCap(xCut) {
+        while (sectionCapGroup.children.length) sectionCapGroup.remove(sectionCapGroup.children[0]);
+        if (xCut < -0.265) {
+          const zW = xCut <= -0.635 ? 0.0 : -0.40 * ((xCut + 0.635) / 0.610);
+          const yW = ySlope400(zW);
+          // 🟢 Emerald Green Pour-Back Concrete sitting ON TOP of Văng 800 (Y=6.75..7.20)
+          sectionCapGroup.add(yzPlate([[0.00, 7.20], [0.00, 7.04], [zW, yW], [-0.25, 6.7275], [-0.25, 6.75], [-0.55, 6.75], [-0.55, 7.20]], xCut, mats.capPourGreen, '#a7f3d0'));
+          // 🔵 Sky-Blue Extended Mái Văng 800 Slab + Inner S3 Beam
+          sectionCapGroup.add(yzPlate([[-1.25, 6.60], [-0.25, 6.60], [-0.25, 6.75], [-1.00, 6.75], [-1.00, 7.20], [-1.25, 7.20]], xCut, mats.capCanopyBlue, '#e0f2fe'));
+          // 🔴 Red Trimmed 50mm Protruding Canopy Lip (Z=-0.25..-0.20)
+          sectionCapGroup.add(yzPlate([[-0.25, 6.60], [-0.20, 6.60], [-0.20, 6.75], [-0.25, 6.75]], xCut, mats.capCutRed, '#fee2e2'));
+          // 🟠 Orange Solid Brick Nose Cap
+          if (zW > -0.249) {
+            sectionCapGroup.add(yzPlate([[-0.25, 3.68], [zW, 3.68], [zW, yW], [-0.25, 6.7275]], xCut, mats.capBrickOrange, '#fed7aa'));
+            sectionCapGroup.add(yzPlate([[-0.25, 5.28], [zW, 5.28], [zW, 5.36], [-0.25, 5.36]], xCut + 0.002, mats.capTieWhite, '#ffffff'));
+          }
+          // Left flank return wall cut at MC A-A (X = -0.70): lower below Văng 800 + upper above Văng 800
+          if (xCut <= -0.635) {
+            sectionCapGroup.add(yzPlate([[-1.00, 3.68], [-0.47, 3.68], [-0.47, 6.60], [-1.00, 6.60]], xCut, mats.capBrickOrange, '#fed7aa'));
+            sectionCapGroup.add(yzPlate([[-1.00, 6.75], [-0.55, 6.75], [-0.55, 7.20], [-1.00, 7.20]], xCut, mats.capBrickOrange, '#fed7aa'));
+          }
+          // 🟡 Amber Existing 220mm Brick Wall tucked below Văng 800 (Y=3.68..6.60)
+          sectionCapGroup.add(yzPlate([[-0.47, 3.68], [-0.25, 3.68], [-0.25, 6.60], [-0.47, 6.60]], xCut, mats.capWallAmber, '#fef3c7'));
+        } else {
+          const zW = -0.40 * ((xCut + 0.635) / 0.610);
+          const yW = ySlope400(zW);
+          // ⚪ Already-Cast Grey Concrete Roof Cap
+          sectionCapGroup.add(yzPlate([[0.00, 7.20], [0.00, 7.04], [-0.40, 6.54], [-0.65, 6.54], [-0.65, 7.20]], xCut, mats.capOldGrey, '#f8fafc'));
+          // 🟡 Retained 220 Wall Cap
+          sectionCapGroup.add(yzPlate([[-0.47, 3.68], [zW, 3.68], [zW, yW], [-0.40, 6.54], [-0.47, 6.54]], xCut, mats.capWallAmber, '#fef3c7'));
+          // 🔴 Red Cut-Away Brick Wedge Cap
+          sectionCapGroup.add(yzPlate([[zW, 3.68], [-0.25, 3.68], [-0.25, 6.7275], [zW, yW]], xCut, mats.capCutRed, '#fee2e2'));
+        }
+      }
 
       // ---- 4. Completed Rough Massing & M75 Plaster Skins ----
       const tx4FullFrontPts = [[-0.775, -0.40], [-0.775, 0.00], [-0.635, 0.00], [-0.025, -0.40]];
@@ -1666,32 +2254,55 @@
       root.add(fullBrickGroup);
       fullBrickGroup.add(makeSlopedExtrude(tx4FullFrontPts, null, 3.68, (wx, wz) => ySlope400(wz) - 0.003, mats.brickNew, '#fdba74'));
       fullBrickGroup.add(box(0.75, 2.86, 0.25, -0.40, 5.11, -0.525, mats.brickNew));
-      fullBrickGroup.add(box(0.22, 2.86, 0.25, -0.665, 5.11, -0.775, mats.brickNew));
-      fullBrickGroup.add(makeSlopedExtrude(hoodExtFrontPts, null, (wx, wz) => ySlope400(wz), 7.20, mats.wedgeNew, '#fdba74'));
-      fullBrickGroup.add(box(0.75, 0.66, 0.25, -0.40, 6.87, -0.525, mats.wedgeNew));
-      fullBrickGroup.add(makeSlopedExtrude(tx3FrontPts, null, 3.68, (wx, wz) => ySlope400(wz) - 0.003, mats.brickNew, '#fdba74'));
-      fullBrickGroup.add(box(0.75, 2.86, 0.25, 3.85, 5.11, -0.525, mats.brickNew));
-      fullBrickGroup.add(box(1.35, 2.86, 0.25, 1.90, 5.11, -0.525, mats.brickNew));
+      fullBrickGroup.add(box(0.14, 2.92, 0.53, -0.705, 5.14, -0.735, mats.brickNew));
+      fullBrickGroup.add(box(0.14, 0.45, 0.45, -0.705, 6.975, -0.775, mats.brickNew));
+      fullBrickGroup.add(makeSlopedExtrude(hoodExt510Pts, null, (wx, wz) => ySlope400(wz), 7.20, mats.pourGreen, '#6ee7b7'));
+      fullBrickGroup.add(box(0.51, 0.45, 0.30, -0.52, 6.975, -0.40, mats.pourGreen));
+      fullBrickGroup.add(makeHollowTX3(mats.brickNew, '#fdba74'));
+      fullBrickGroup.add(box(0.49, 2.86, 0.125, 3.72, 5.11, -0.5875, mats.brickNew));
+      addHollowTX2(fullBrickGroup, mats.brickNew);
       fullBrickGroup.add(box(0.75, 3.4, 0.22, -0.40, 1.85, -0.36, mats.brickNew));
       fullBrickGroup.add(box(0.65, 3.4, 0.24, 3.88, 1.85, -0.76, mats.brickNew));
-      fullBrickGroup.add(box(0.016, 0.66, 0.65, -0.778, 6.87, -0.325, mats.shadowGroove));
+      fullBrickGroup.add(box(0.016, 0.60, 1.00, -0.778, 6.90, -0.50, mats.shadowGroove));
 
       const plasterGroup = new THREE.Group();
       root.add(plasterGroup);
       const hoodFullFrontPts = [[-0.775, -0.40], [-0.775, 0.00], [4.225, 0.00], [4.225, -0.40]];
-      plasterGroup.add(makeSlopedExtrude(tx4FullFrontPts, null, 3.68, (wx, wz) => ySlope400(wz), mats.plaster, '#f8fafc'));
-      plasterGroup.add(box(0.75, 2.86, 0.25, -0.40, 5.11, -0.525, mats.plaster));
-      plasterGroup.add(box(0.22, 2.86, 0.25, -0.665, 5.11, -0.775, mats.plaster));
-      plasterGroup.add(makeSlopedExtrude(tx3FrontPts, null, 3.68, (wx, wz) => ySlope400(wz), mats.plaster, '#f8fafc'));
-      plasterGroup.add(box(0.75, 2.86, 0.25, 3.85, 5.11, -0.525, mats.plaster));
-      plasterGroup.add(makeSlopedExtrude(hoodFullFrontPts, null, (wx, wz) => ySlope400(wz), 7.20, mats.plaster, '#f8fafc'));
-      plasterGroup.add(box(5.00, 0.66, 0.25, 1.725, 6.87, -0.525, mats.plaster));
-      plasterGroup.add(box(1.35, 2.86, 0.25, 1.90, 5.11, -0.525, mats.plaster));
-      plasterGroup.add(box(8.55, 0.16, 1.86, 0.0, 3.60, -0.52, mats.plaster));
+      plasterGroup.add(makeSlopedExtrude(tx4FullFrontPts, null, 3.68, (wx, wz) => ySlope400(wz), mats.plasterWarm, '#f8fafc'));
+      plasterGroup.add(box(0.75, 2.86, 0.25, -0.40, 5.11, -0.525, mats.plasterWarm));
+      plasterGroup.add(box(0.14, 3.52, 0.60, -0.705, 5.44, -0.70, mats.plasterWarm));
+      plasterGroup.add(makeHollowTX3(mats.plasterWarm, '#f8fafc'));
+      plasterGroup.add(box(0.49, 2.86, 0.125, 3.72, 5.11, -0.5875, mats.plasterWarm));
+      plasterGroup.add(makeSlopedExtrude(hoodFullFrontPts, null, (wx, wz) => ySlope400(wz), 7.20, mats.plasterWarm, '#f8fafc'));
+      plasterGroup.add(box(5.00, 0.66, 0.25, 1.725, 6.87, -0.525, mats.plasterWarm));
+      addHollowTX2(plasterGroup, mats.plasterWarm);
+      plasterGroup.add(box(8.55, 0.16, 4.70, 0.0, 3.60, -2.13, mats.plaster));
       plasterGroup.add(box(0.75, 3.4, 0.23, -0.40, 1.85, -0.36, mats.plaster));
-      // Full 5.00m GMN-04 drip bead & 10x10mm shadow joint along left edge of TX4
       plasterGroup.add(box(5.00, 0.02, 0.02, 1.725, 7.032, -0.008, mats.gmnBead));
-      plasterGroup.add(box(0.016, 3.52, 0.65, -0.778, 5.44, -0.325, mats.shadowGroove));
+      plasterGroup.add(box(0.016, 3.52, 0.80, -0.778, 5.44, -0.40, mats.shadowGroove));
+
+      // ---- 4B. Comparison Mode Group: Keep Existing Roof at Grid B Centerline (Văng 800 exposed all way to B vs 750mm) ----
+      const keep240Group = new THREE.Group();
+      root.add(keep240Group);
+      // Left 510mm kept recessed below extended Văng 800 (Z=-1.00..-0.20, Y=6.60..6.75) & inner beam S3
+      keep240Group.add(box(0.51, 2.92, 0.22, -0.52, 5.14, -0.36, mats.builtOkLeft));
+      keep240Group.add(box(0.51, 0.60, 0.25, -0.52, 6.90, -1.125, mats.builtOkLeft));
+      // Narrow 240mm left beveled shoulder (X=-0.265..-0.025: 50mm nose + 190mm steep bevel to Z=-0.40)
+      const keep240FrontPts = [[-0.265, -0.40], [-0.265, 0.00], [-0.215, 0.00], [-0.025, -0.40]];
+      keep240Group.add(makeSlopedExtrude(keep240FrontPts, null, 3.68, (wx, wz) => ySlope400(wz), mats.plasterWarm, '#f8fafc'));
+      keep240Group.add(box(0.24, 2.86, 0.25, -0.145, 5.11, -0.525, mats.plasterWarm));
+      // Existing 4.49m cast sloped roof + right 750mm TX3 + TX2 in identical warm finish for direct 1:1 comparison
+      keep240Group.add(makeSlopedExtrude(hoodRightFrontPts, null, (wx, wz) => ySlope400(wz), 7.20, mats.plasterWarm, '#f8fafc'));
+      keep240Group.add(box(4.49, 0.66, 0.25, 1.98, 6.87, -0.525, mats.plasterWarm));
+      keep240Group.add(makeHollowTX3(mats.plasterWarm, '#f8fafc'));
+      keep240Group.add(box(0.49, 2.86, 0.125, 3.72, 5.11, -0.5875, mats.plasterWarm));
+      addHollowTX2(keep240Group, mats.plasterWarm);
+      keep240Group.add(box(4.49, 0.02, 0.02, 1.98, 7.032, -0.008, mats.gmnBead));
+      keep240Group.add(box(0.016, 3.52, 0.65, -0.268, 5.44, -0.325, mats.shadowGroove));
+      const missingRoofPts = [[-0.775, -0.25], [-0.775, 0.00], [-0.265, 0.00], [-0.265, -0.25]];
+      const missingWallPts = [[-0.775, -0.25], [-0.775, 0.00], [-0.635, 0.00], [-0.265, -0.243]];
+      keep240Group.add(makeSlopedExtrude(missingRoofPts, null, (wx, wz) => ySlope400(wz), 7.20, mats.missingWingGhost, false));
+      keep240Group.add(makeSlopedExtrude(missingWallPts, null, 3.68, (wx, wz) => ySlope400(wz), mats.missingWingGhost, false));
 
       // ---- 5. Orbit / Smooth Exponential Zoom / Multi-Touch Pinch & Pan (Upward tilt enabled!) ----
       const orbit = {
@@ -1825,7 +2436,16 @@
       });
 
       function setCameraPreset(name) {
-        if (name === 'soffit_b') {
+        if (name === 'inside_b') {
+          orbit.theta = 2.75; orbit.phi = 1.48; orbit.radius = 2.05;
+          orbit.target.set(-0.35, 5.15, -0.75);
+        } else if (name === 'full_inout') {
+          orbit.theta = -0.55; orbit.phi = 1.02; orbit.radius = 10.6;
+          orbit.target.set(0.10, 4.80, -1.90);
+        } else if (name === 'compare_front') {
+          orbit.theta = 0.0; orbit.phi = 1.50; orbit.radius = 6.9;
+          orbit.target.set(0.85, 5.45, -0.25);
+        } else if (name === 'soffit_b') {
           orbit.theta = -0.34; orbit.phi = 1.72; orbit.radius = 2.65;
           orbit.target.set(-0.38, 6.45, -0.28);
         } else if (name === 'pier_b') {
@@ -1849,48 +2469,60 @@
         b.addEventListener('click', () => setCameraPreset(b.dataset.cam));
       });
 
-      // ---- 6. Modes, Section Cut & Explode Logic ----
+      // ---- 6. Modes, Section Cut, Plan Cut (Trong+Ngoài) & Explode Logic + Toolbar Roving-Tabindex Fallback ----
       let currentMode = 'fix_pier_b';
       let isSection = false;
+      let isPlanCut = false;
       let isExploded = false;
+      let currentCutX = -0.45;
+      const stationDock = document.getElementById('section-station-dock');
 
       const modeInfo = {
         fix_pier_b: {
-          title: 'Sửa Tường 220 + Mái B',
-          badge: 'Thụt 250mm',
+          title: 'Sửa Mái dừng giữa B',
+          badge: 'Đổ bù lên Văng 800',
           bullets: [
-            '<strong>Cắt vát góc gạch phải (230 × 150mm):</strong> Dùng máy cắt lưỡi kim cương xẻ bỏ nêm gạch thừa sát má cửa <code>S4</code> lùi về <code>Z=-400mm</code> (không chạm cột BTCT).',
-            '<strong>Xây câu gạch đặc mũi trái (250 → 0mm):</strong> Băm nhám, khoan cấy 2 hàng râu <code>Φ8 @350</code>, xây gạch đặc câu ngang dày <code>250mm</code> thuôn về <code>0mm</code> + giằng mỏng <code>+9.300</code>.',
-            '<strong>Mái chéo trên B (750mm):</strong> Đua mũi <code>160mm</code> ra thêm <code>250mm (Z=0)</code> + tỉa/bọc vát bụng <code>500mm</code> về đỉnh cửa <code>S4 (-400mm)</code>.',
-            'Ghim lưới mắt cáo <code>300mm</code> dọc khe nối chéo giữa trụ, gắn <code>GMN-04</code> trước khi trát M75.'
+            '<strong>Giữ nguyên Mái văng 800 (🔵) làm bệ đỡ:</strong> Bản văng dày <code>150mm</code> chạy tới tim B nằm ngay dưới đáy khối đổ bù (<code>450mm</code>) — <strong>0% đập bỏ</strong>.',
+            '<strong>Xén mép nhô 50mm (🔴):</strong> Nếu văng nhô tới <code>Z=-0.20</code>, cắt phẳng về <code>Z=-0.25</code> trong đoạn <code>510mm</code> để thông mạch gạch &amp; không cấn vát.',
+            '<strong>Phần Đổ Bù Bê Tông (🟢):</strong> Cấy <strong>2 hàng râu đứng <code>Φ10–Φ12</code> xuống văng <code>800</code></strong> + <strong><code>3Φ12</code> ngang</strong> từ tim B gác qua mũi gạch <code>140mm</code>.',
+            '<strong>Phần Gạch Xây (🟠) &amp; Xẻ phải B (🔴):</strong> Xây đặc <code>250→0mm</code> + tường hồi ôm trên/dưới văng <code>800</code>; phải B xẻ góc <code>230×150mm</code>.'
           ]
         },
         err_pier_b: {
-          title: 'Tường 220 Thụt 250mm',
-          badge: 'Hiện trạng B',
+          title: 'Hiện trạng Văng 800 tới B',
+          badge: 'Nhô mép 50mm · Hụt 450mm',
           bullets: [
-            '<strong>Tường dưới:</strong> Đang là tường gạch <code>220mm</code> vuông góc, mặt ngoài thụt đúng <code>250mm (Z=-0.25)</code>.',
-            '<strong>Mái trên Trục B:</strong> Trán phẳng ngang cao <code>600mm</code> cũng đang nằm thẳng mặt với tường dưới tại <code>Z=-0.25</code>.',
-            'Góc phải sát cửa <code>S4 (230×150mm, đỏ)</code> dư ra so với đường chéo <code>TX4</code> đi vào <code>Z=-400mm</code>.',
-            'Mũi trái rộng <code>520mm</code> chỉ cần xây đắp đặc thêm đúng <code>250mm</code> ra mép <code>Z=0</code>.'
+            '<strong>Mái văng 800mm (🔵):</strong> Đua tới <code>Z=-0.20</code> và <strong>chạy xuyên qua đoạn thiếu <code>510mm</code></strong> tới tận giữa Trục B (cốt <code>+10.800..+10.950</code>).',
+            '<strong>Dải mép nhô 50mm (🔴):</strong> Vượt mặt tường <code>220</code> (<code>Z=-0.25</code>) gây cấn mặt vát sát tim B — chỉ cần cắt xén dải này trong đoạn <code>510mm</code>.',
+            '<strong>Khoảng hụt trên lưng văng (<code>450mm</code>):</strong> Chờ cấy râu đứng xuống bản văng và đổ bù <strong>🟢 bê tông đá mi</strong> lên đỉnh <code>+11.400</code>.',
+            '<strong>Bên phải tim B (🔴):</strong> Góc tường <code>220</code> dư <code>230×150mm</code> cần xẻ vát vào <code>Z=-400</code>.'
           ]
         },
         brick_cad: {
-          title: 'Sau Tạo Hình Thô',
-          badge: 'Khớp khối T3',
+          title: 'Đủ Khối Thô 3D',
+          badge: 'Khớp KT-3.06',
           bullets: [
-            'Đoạn mái bù <code>750mm</code> nối phẳng hàng 100% với mũi <code>160mm</code> &amp; dốc <code>500mm</code> về mép cửa <code>S4 (Z=-400)</code>.',
-            'Trụ vát <code>TX4</code> (140 + 610mm) đặc chắc 100% đối xứng hoàn toàn với <code>TX3</code>.',
-            'Rãnh chỉ âm đứng <code>10×10mm</code> tách dứt khoát khối cổng vát <code>5000mm</code> với ban công trái <code>A3</code>.'
+            'Khối <strong>🟢 Đổ bù bê tông 510mm</strong> đè phẳng lên lưng <strong>🔵 Mái văng 800</strong>, trước gác mũi gạch <strong>🟠 140mm</strong>, phải nối liền mái vát giữa B.',
+            'Tường hồi trái <code>TX4</code> xây ôm kín dưới &amp; trên <strong>🔵 Mái văng 800mm</strong>, tách khỏi phần văng lộ thiên bên Logia 02 bằng rãnh <code>30×10mm</code>.',
+            'Trụ vát <code>TX4 (750mm)</code> đối xứng hoàn toàn với <code>TX3 (750mm)</code> bên phải.'
+          ]
+        },
+        keep_240: {
+          title: 'PA Giữ Mái Giữa B',
+          badge: 'Vai 240 vs 750',
+          bullets: [
+            '<strong>Văng 800mm kéo dài hết 510mm trái B:</strong> Nếu giữ nguyên không đổ bù, mái văng <code>800</code> ăn lộ luôn tới tim B (góc vai phễu lùi vào tận giữa B).',
+            '<strong>Vai trái còn 240mm vs Vai phải 750mm:</strong> Khung phễu lệch tỷ lệ <strong><code>1 : 3.1</code></strong> (lưới đỏ mờ là phần mái &amp; mũi gạch mất đi).',
+            '<strong>PA tối ưu:</strong> Tận dụng ngay bản văng <code>800</code> làm bệ đỡ đổ bù <code>510mm</code> để lấy lại mặt tiền cân đối <code>100%</code>!'
           ]
         },
         plaster_m75: {
-          title: 'Trát Hoàn Thiện M75',
-          badge: 'Sẵn sàng ốp/sơn',
+          title: 'PA Nối đủ (Vai 750)',
+          badge: 'Vai 750 vs 750',
           bullets: [
-            'Trát vữa <code>M75</code> dày <code>15mm</code>, kẹp nẹp góc PVC <code>90°/135°</code> dọc mũi 140mm &amp; đường mòi vát vào S4.',
-            'Đặt <strong>nẹp ngắt nước <code>GMN-04</code></strong> liên tục suốt mép dưới <code>160mm</code> kể cả đoạn Trục B mới nối.',
-            'Đạt hình khối T3 hoàn chỉnh trước khi chủ nhà quyết định sơn gỉ hay ốp nhôm.'
+            '<strong>Khung vát cân xứng 100%:</strong> Toàn bộ phần văng <code>800</code> trong đoạn <code>510mm</code> đã được bọc kín bên trong khối xây tô <code>TX4 (750mm)</code>.',
+            'Lưới mắt cáo <code>300mm</code> phủ kín mạch ngừng nối mái giữa B &amp; ranh tiếp giáp văng <code>800</code> trước khi trát <code>M75</code> <code>15mm</code>.',
+            'Nẹp <code>GMN-04</code> chạy suốt <code>5000mm</code>, tách rãnh <code>30×10mm</code> với phần văng <code>800mm</code> lộ thiên bên Logia 02.'
           ]
         }
       };
@@ -1899,6 +2531,7 @@
         const isFix = currentMode === 'fix_pier_b';
         const isErr = currentMode === 'err_pier_b';
         const isBrick = currentMode === 'brick_cad';
+        const isKeep = currentMode === 'keep_240';
         const isPlaster = currentMode === 'plaster_m75';
 
         pierBWrongGroup.visible = isFix || isErr;
@@ -1908,19 +2541,47 @@
         wrongTopErrOnlyGroup.visible = isErr;
         wrongTopRetainedCore.visible = isFix;
         tx4FixGroup.visible = isFix;
+        canopy800ExtGroup.visible = isFix || isErr || isKeep || isBrick;
+        canopy800LipErr.visible = isErr;
+        canopy800LipCutGhost.visible = isFix;
+        canopy800LipKeep.visible = isKeep;
         fullBrickGroup.visible = isBrick;
+        keep240Group.visible = isKeep;
         plasterGroup.visible = isPlaster;
 
-        // Section cut cuts upper half of TX4 solid left build-out AND switches top wedge to translucent so Φ10 dowels shine through
-        brickShellUpper.visible = !isSection;
-        meshGroup.visible = isFix && !isSection;
-        brickShellLower.material = (isSection || isExploded) ? mats.brickGhost : mats.brickNew;
-        topWedgeNew.material = (isSection || isExploded) ? mats.wedgeGhost : mats.wedgeNew;
+        const ctxMat = isBrick ? mats.brickNew : (isPlaster || isKeep ? mats.plasterInner : mats.brickContext);
+        contextBrickMeshes.forEach((m) => { m.material = ctxMat; });
 
-        // Explode left solid 250mm build-out forward along +Z, slide cut-away red right corner, and lift overhead wedge
+        clipPlaneX.constant = -(currentCutX - 0.002);
+        const clipXY = [];
+        if (isSection) clipXY.push(clipPlaneX);
+        if (isPlanCut) clipXY.push(clipPlaneY);
+        clippableMats.forEach((m) => {
+          m.clippingPlanes = clipXY.length ? clipXY : null;
+          m.needsUpdate = true;
+        });
+        const planArr = isPlanCut ? [clipPlaneY] : null;
+        planOnlyMats.forEach((m) => {
+          m.clippingPlanes = planArr;
+          m.needsUpdate = true;
+        });
+        planCapGroup.visible = isPlanCut;
+
+        stationDock.classList.toggle('active', isSection);
+        sectionCapGroup.visible = isSection;
+        if (isSection) buildSectionCap(currentCutX);
+
+        meshGroup.visible = isFix && !isSection;
+        brickShellUpper.material = isExploded ? mats.brickGhost : mats.brickNew;
+        brickShellLower.material = isExploded ? mats.brickGhost : mats.brickNew;
+        topWedgeNew.material = isExploded ? mats.pourGreenGhost : mats.pourGreen;
+        topPourAnchorBox.material = isExploded ? mats.pourGreenGhost : mats.pourGreen;
+
+        // Explode left solid 250mm build-out forward along +Z, slide cut-away red right corner & trimmed 50mm lip, and lift green pour-back cap
         const expOffset = isExploded ? 0.52 : 0;
         tx4WallGroup.position.set(0, 0, expOffset);
         cutRightGhost.position.set(isExploded ? 0.10 : 0, 0, isExploded ? 0.16 : 0);
+        canopy800LipCutGhost.position.set(0, 0, isExploded ? 0.28 : 0);
         topWedgeFixGroup.position.set(0, isExploded ? 0.22 : 0, isExploded ? 0.18 : 0);
         dowelGroup.position.set(0, 0, isExploded ? -0.18 : 0);
         meshGroup.position.set(0, 0, expOffset * 1.15);
@@ -1940,11 +2601,36 @@
         });
       });
 
+      const btnPlanCut = document.getElementById('btn-plan-cut');
+      btnPlanCut.addEventListener('click', () => {
+        isPlanCut = !isPlanCut;
+        btnPlanCut.setAttribute('aria-pressed', String(isPlanCut));
+        if (isPlanCut) setCameraPreset('full_inout');
+        updateSceneState();
+      });
+
       const btnSection = document.getElementById('btn-section');
       btnSection.addEventListener('click', () => {
         isSection = !isSection;
         btnSection.setAttribute('aria-pressed', String(isSection));
+        if (isSection) {
+          orbit.theta = -0.95; orbit.phi = 1.38; orbit.radius = 2.65;
+          orbit.target.set(currentCutX, 5.85, -0.42);
+          applyCamera();
+        }
         updateSceneState();
+      });
+
+      document.querySelectorAll('.sec-pill').forEach((sp) => {
+        sp.addEventListener('click', () => {
+          document.querySelectorAll('.sec-pill').forEach((b) => b.setAttribute('aria-pressed', 'false'));
+          sp.setAttribute('aria-pressed', 'true');
+          currentCutX = parseFloat(sp.dataset.cut);
+          orbit.theta = -0.95; orbit.phi = 1.38; orbit.radius = 2.65;
+          orbit.target.set(currentCutX, 5.85, -0.42);
+          applyCamera();
+          updateSceneState();
+        });
       });
 
       const btnExplode = document.getElementById('btn-explode');
@@ -1953,6 +2639,32 @@
         btnExplode.setAttribute('aria-pressed', String(isExploded));
         updateSceneState();
       });
+
+      // Fallback roving tabindex for focusgroup toolbar (Firefox / Safari per Modern Web Guidance)
+      if (!('focusGroup' in HTMLElement.prototype)) {
+        const bar = document.querySelector('[role="toolbar"]');
+        if (bar) {
+          const items = Array.from(bar.querySelectorAll('button'));
+          items.forEach((b, i) => { b.tabIndex = i ? -1 : 0; });
+          bar.addEventListener('focusin', ({ target }) => {
+            if (items.includes(target)) items.forEach((b) => { b.tabIndex = b === target ? 0 : -1; });
+          });
+          bar.addEventListener('keydown', (e) => {
+            const idx = items.indexOf(document.activeElement);
+            if (idx === -1) return;
+            const rtl = getComputedStyle(bar).direction === 'rtl';
+            const step = rtl ? { ArrowRight: -1, ArrowLeft: 1 }[e.key] : { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+            let next = -1;
+            if (step !== undefined) next = (idx + step + items.length) % items.length;
+            else if (e.key === 'Home') next = 0;
+            else if (e.key === 'End') next = items.length - 1;
+            if (next !== -1) {
+              e.preventDefault();
+              items[next].focus();
+            }
+          });
+        }
+      }
 
       function resizeRenderer() {
         const w = wrap.clientWidth;

@@ -1,0 +1,382 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 920" width="1680" height="920">
+    
+  <defs>
+    <pattern id="hatch-moisture" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="12" height="12" fill="#ecfdf5"/>
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.45"/>
+    </pattern>
+    <pattern id="hatch-void" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="#f8fafc"/>
+      <line x1="0" y1="0" x2="16" y2="16" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="16" y1="0" x2="0" y2="16" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+    </pattern>
+    <pattern id="hatch-cabinet" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect width="10" height="10" fill="#f1f5f9"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#64748b" stroke-width="1.1" stroke-opacity="0.4"/>
+    </pattern>
+    <pattern id="hatch-rattan" width="10" height="10" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#fef3c7"/>
+      <path d="M 0 5 L 10 5 M 5 0 L 5 10" stroke="#d97706" stroke-width="0.8" stroke-opacity="0.38"/>
+    </pattern>
+    <pattern id="hatch-concrete" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="10" fill="#cbd5e1"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#475569" stroke-width="1.4"/>
+    </pattern>
+    <pattern id="hatch-insul" width="12" height="8" patternUnits="userSpaceOnUse">
+      <rect width="12" height="8" fill="#fef9c3"/>
+      <path d="M0,8 Q3,0 6,8 T12,8" fill="none" stroke="#ca8a04" stroke-width="1.1"/>
+    </pattern>
+    <marker id="dim-tick" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <line x1="2" y1="8" x2="8" y2="2" stroke="#dc2626" stroke-width="1.8"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0284c7"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+      .title-h1 { font-size: 20px; font-weight: 800; fill: #ffffff; }
+      .title-sub { font-size: 12px; font-weight: 600; fill: #cbd5e1; }
+      .axis-circle { fill: #ffffff; stroke: #0f172a; stroke-width: 2; }
+      .axis-txt { font-size: 14px; font-weight: 800; fill: #0f172a; text-anchor: middle; dominant-baseline: central; }
+      .axis-line { stroke: #94a3b8; stroke-width: 1; stroke-dasharray: 10,4,2,4; }
+      .wall { fill: #334155; stroke: #0f172a; stroke-width: 1.5; }
+      .room-c1 { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .cove-box { fill: #fffbeb; stroke: #d97706; stroke-width: 2.2; }
+      .led-line { fill: none; stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 6,4; }
+      .shadowline { fill: none; stroke: #ef4444; stroke-width: 1.4; stroke-dasharray: 3,3; }
+      .curtain-box { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.8; }
+      .ac-unit { fill: #e0f2fe; stroke: #0284c7; stroke-width: 2; }
+      .ac-grille { fill: #0284c7; stroke: #0369a1; stroke-width: 1.2; }
+      .ac-duct { fill: none; stroke: #0284c7; stroke-width: 3; stroke-dasharray: 7,4; opacity: 0.85; }
+      .pipe-line { fill: none; stroke: #e11d48; stroke-width: 2.2; stroke-dasharray: 8,4; }
+      .hatch-access { fill: #fef2f2; stroke: #dc2626; stroke-width: 1.8; }
+      .elev-tag { fill: #ecfeff; stroke: #0891b2; stroke-width: 1.5; rx: 4; }
+      .elev-txt { font-size: 11px; font-weight: 800; fill: #0e7490; text-anchor: middle; }
+      .room-lbl { font-size: 13px; font-weight: 800; fill: #0f172a; text-anchor: middle; }
+      .note-lbl { font-size: 10.5px; font-weight: 600; fill: #334155; text-anchor: middle; }
+      .dim-line { stroke: #dc2626; stroke-width: 1.3; marker-start: url(#dim-tick); marker-end: url(#dim-tick); }
+      .dim-txt { font-size: 11px; font-weight: 800; fill: #b91c1c; text-anchor: middle; }
+      .spot { fill: #ffffff; stroke: #0284c7; stroke-width: 1.8; }
+      .spot-cross { stroke: #0284c7; stroke-width: 1.1; }
+      .tbl-hdr { fill: #0f172a; }
+      .tbl-hdr-txt { font-size: 11.5px; font-weight: 800; fill: #ffffff; }
+      .tbl-cell-txt { font-size: 10.1px; font-weight: 600; fill: #1e293b; }
+      .tbl-bold { font-size: 11px; font-weight: 800; fill: #0f172a; }
+    </style>
+  </defs>
+
+    <rect width="1680" height="920" fill="#ffffff"/>
+    
+    <rect x="0" y="0" width="1680" height="72" fill="#0f172a"/>
+    <rect x="18" y="14" width="108" height="44" rx="8" fill="#f59e0b"/>
+    <text x="72" y="42" style="font-size:17px;font-weight:900;fill:#0f172a;text-anchor:middle;">KT-TC-02</text>
+    <text x="142" y="34" class="title-h1">MẶT BẰNG ĐÓNG TRẦN THẠCH CAO &amp; PHỐI HỢP CƠ ĐIỆN — TẦNG 2 (MASTER PA2)</text>
+    <text x="142" y="55" class="title-sub">Biệt Thự Q Villa • Cốt sàn Tầng 2 (+4.200) • Chuẩn hóa KT-4.02 (PA2), CĐ-09, CĐ-16 &amp; KC-28 (Đơn vị: mm)</text>
+    <rect x="1520" y="16" width="142" height="40" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="1591" y="41" style="font-size:13px;font-weight:800;fill:#fde68a;text-anchor:middle;">TỜ 02 / 06</text>
+    
+    <line x1="65" y1="115" x2="65" y2="805" class="axis-line"/>
+<circle cx="65" cy="100" r="14" class="axis-circle"/><text x="65" y="100" class="axis-txt">1</text>
+<circle cx="65" cy="822" r="14" class="axis-circle"/><text x="65" y="822" class="axis-txt">1</text>
+<line x1="120" y1="115" x2="120" y2="805" class="axis-line"/>
+<circle cx="120" cy="100" r="14" class="axis-circle"/><text x="120" y="100" class="axis-txt">1'</text>
+<circle cx="120" cy="822" r="14" class="axis-circle"/><text x="120" y="822" class="axis-txt">1'</text>
+<line x1="405" y1="115" x2="405" y2="805" class="axis-line"/>
+<circle cx="405" cy="100" r="14" class="axis-circle"/><text x="405" y="100" class="axis-txt">2</text>
+<circle cx="405" cy="822" r="14" class="axis-circle"/><text x="405" y="822" class="axis-txt">2</text>
+<line x1="820" y1="115" x2="820" y2="805" class="axis-line"/>
+<circle cx="820" cy="100" r="14" class="axis-circle"/><text x="820" y="100" class="axis-txt">3</text>
+<circle cx="820" cy="822" r="14" class="axis-circle"/><text x="820" y="822" class="axis-txt">3</text>
+<line x1="1075" y1="115" x2="1075" y2="805" class="axis-line"/>
+<circle cx="1075" cy="100" r="14" class="axis-circle"/><text x="1075" y="100" class="axis-txt">4</text>
+<circle cx="1075" cy="822" r="14" class="axis-circle"/><text x="1075" y="822" class="axis-txt">4</text>
+<line x1="45" y1="165" x2="1225" y2="165" class="axis-line"/>
+<circle cx="30" cy="165" r="14" class="axis-circle"/><text x="30" y="165" class="axis-txt">C</text>
+<line x1="45" y1="405" x2="1225" y2="405" class="axis-line"/>
+<circle cx="30" cy="405" r="14" class="axis-circle"/><text x="30" y="405" class="axis-txt">B</text>
+<line x1="45" y1="760" x2="1225" y2="760" class="axis-line"/>
+<circle cx="30" cy="760" r="14" class="axis-circle"/><text x="30" y="760" class="axis-txt">A</text>
+
+    <line x1="120" y1="134" x2="405" y2="134" class="dim-line"/>
+    <rect x="190.5" y="120" width="144.0" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="262.5" y="130" class="dim-txt">3.580 mm (Trục 1'–2)</text>
+
+    <line x1="405" y1="134" x2="820" y2="134" class="dim-line"/>
+    <rect x="543.9" y="120" width="137.2" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="612.5" y="130" class="dim-txt">5.220 mm (Trục 2–3)</text>
+
+    <line x1="820" y1="134" x2="1075" y2="134" class="dim-line"/>
+    <rect x="878.9" y="120" width="137.2" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="947.5" y="130" class="dim-txt">3.210 mm (Trục 3–4)</text>
+
+    <line x1="1075" y1="134" x2="1215" y2="134" class="dim-line"/>
+    <rect x="1093.4" y="120" width="103.2" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="1145.0" y="130" class="dim-txt">2.000 (Sân/BC)</text>
+
+    <line x1="52" y1="165" x2="52" y2="405" class="dim-line"/>
+    <g transform="translate(46,285.0) rotate(-90)">
+      <rect x="-31.2" y="-11" width="62.4" height="13" fill="#ffffff" opacity="0.92"/>
+      <text x="0" y="-1" class="dim-txt">3.010 mm</text>
+    </g>
+
+    <line x1="52" y1="405" x2="52" y2="760" class="dim-line"/>
+    <g transform="translate(46,582.5) rotate(-90)">
+      <rect x="-31.2" y="-11" width="62.4" height="13" fill="#ffffff" opacity="0.92"/>
+      <text x="0" y="-1" class="dim-txt">4.490 mm</text>
+    </g>
+
+    <!-- West Logia 01 -->
+    <rect x="65" y="165" width="88" height="240" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <text x="108" y="285" transform="rotate(-90 108 285)" style="font-size:10px;font-weight:800;fill:#475569;text-anchor:middle;">LOGIA 01 (03 Ống bơ nổi)</text>
+
+    <!-- Master Bedroom North (153..405, 165..405) -->
+    <rect x="153" y="165" width="252" height="240" class="room-c1"/>
+    <rect x="153" y="172" width="22" height="226" class="curtain-box"/>
+    <text x="164" y="285" transform="rotate(-90 164 285)" style="font-size:9px;font-weight:800;fill:#5b21b6;text-anchor:middle;">HỐC RÈM ĐÔI 240</text>
+    <!-- Wardrobe #3 East -->
+    <rect x="366" y="170" width="38" height="215" fill="url(#hatch-cabinet)" stroke="#475569" stroke-width="1.4"/>
+    <text x="385" y="278" transform="rotate(90 385 278)" style="font-size:9px;font-weight:800;fill:#334155;text-anchor:middle;">TỦ ÁO #3 (SÂU 600)</text>
+    <!-- Master Cove 2600x2150 -->
+    <rect x="200" y="198" width="138" height="170" class="cove-box"/>
+    <rect x="205" y="203" width="128" height="160" class="led-line"/>
+    
+    <g transform="translate(223.0,230)">
+      <rect width="92" height="32" class="elev-tag"/>
+      <line x1="0" y1="16" x2="92" y2="16" stroke="#0891b2" stroke-width="1"/>
+      <text x="46.0" y="12" class="elev-txt">C1 (HỘP)</text>
+      <text x="46.0" y="27" class="elev-txt" style="fill:#0f172a;">+3.130</text>
+    </g>
+    <rect x="247" y="305" width="44" height="20" rx="4" fill="#dcfce7" stroke="#16a34a" stroke-width="1.5"/>
+    <text x="269" y="319" style="font-size:8.5px;font-weight:800;fill:#15803d;text-anchor:middle;">HUB M3</text>
+    <!-- 2 AC Grilles 1000x150 -->
+    <rect x="182" y="242" width="10" height="82" class="ac-grille"/>
+    <rect x="344" y="242" width="10" height="82" class="ac-grille"/>
+
+    <!-- Island Partition Axis B (1740x450) -->
+    <rect x="208" y="392" width="122" height="28" fill="url(#hatch-cabinet)" stroke="#b45309" stroke-width="2"/>
+    <text x="269" y="410" style="font-size:9px;font-weight:800;fill:#92400e;text-anchor:middle;">VÁCH TỦ ĐẢO 1740×450 (+3.00)</text>
+
+    <!-- Master Walk-in Closet (153..405, 405..635) -->
+    <rect x="153" y="420" width="252" height="215" class="room-c1"/>
+    <!-- Access Hatch Right Passage (850mm) + Daikin IN 2.3 -->
+    <rect x="336" y="424" width="62" height="26" class="ac-unit"/>
+    <text x="367" y="440" style="font-size:8.5px;font-weight:800;fill:#0369a1;text-anchor:middle;">IN 2.3 (18K)</text>
+    
+    <g>
+      <rect x="352" y="456" width="36" height="36" class="hatch-access"/>
+      <line x1="352" y1="456" x2="388" y2="492" stroke="#dc2626" stroke-width="1.2"/>
+      <line x1="388" y1="456" x2="352" y2="492" stroke="#dc2626" stroke-width="1.2"/>
+      <text x="370.0" y="504" style="font-size:9.5px;font-weight:800;fill:#dc2626;text-anchor:middle;">THĂM 450</text>
+    </g>
+    <!-- Barrisol Moon Dome Ø1200 -->
+    <circle cx="268" cy="512" r="50" fill="#fef9c3" stroke="#0f172a" stroke-width="2.6"/>
+    <circle cx="268" cy="512" r="44" fill="none" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="5,3"/>
+    <text x="268" y="506" style="font-size:10px;font-weight:900;fill:#92400e;text-anchor:middle;">VÒM Ø1.200MM</text>
+    <text x="268" y="520" style="font-size:9px;font-weight:800;fill:#b45309;text-anchor:middle;">Barrisol +150mm</text>
+    <text x="268" y="533" style="font-size:8.5px;font-weight:700;fill:#334155;text-anchor:middle;">Viền P-UT12 đen</text>
+    <!-- 2 AC Grilles 800x150 -->
+    <rect x="190" y="478" width="10" height="65" class="ac-grille"/>
+    <rect x="332" y="478" width="10" height="65" class="ac-grille"/>
+    <text x="206" y="576" style="font-size:9.5px;font-weight:800;fill:#0e7490;">C1 PHẲNG +3.000 (2 khe gió 800×150)</text>
+    <!-- Wardrobes #1 &amp; #2 South -->
+    <rect x="158" y="602" width="105" height="32" fill="url(#hatch-cabinet)" stroke="#475569" stroke-width="1.4"/>
+    <rect x="292" y="602" width="108" height="32" fill="url(#hatch-cabinet)" stroke="#475569" stroke-width="1.4"/>
+    <text x="210" y="622" style="font-size:9px;font-weight:800;fill:#334155;text-anchor:middle;">TỦ ÁO #1 (1180×600)</text>
+    <text x="346" y="622" style="font-size:9px;font-weight:800;fill:#334155;text-anchor:middle;">TỦ ÁO #2 (1180×600)</text>
+
+    <!-- Master WC-02 (153..405, 635..760) -->
+    <rect x="153" y="635" width="252" height="125" fill="url(#hatch-moisture)" stroke="#059669" stroke-width="2"/>
+    
+    <g transform="translate(226.0,650)">
+      <rect width="98" height="32" class="elev-tag"/>
+      <line x1="0" y1="16" x2="98" y2="16" stroke="#0891b2" stroke-width="1"/>
+      <text x="49.0" y="12" class="elev-txt">C2 (WC-02)</text>
+      <text x="49.0" y="27" class="elev-txt" style="fill:#0f172a;">+2.400</text>
+    </g>
+    
+    <g>
+      <rect x="348" y="648" width="34" height="34" class="hatch-access"/>
+      <line x1="348" y1="648" x2="382" y2="682" stroke="#dc2626" stroke-width="1.2"/>
+      <line x1="382" y1="648" x2="348" y2="682" stroke="#dc2626" stroke-width="1.2"/>
+      <text x="365.0" y="694" style="font-size:9.5px;font-weight:800;fill:#dc2626;text-anchor:middle;">THĂM 450</text>
+    </g>
+    <rect x="166" y="716" width="54" height="26" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+    <text x="193" y="733" style="font-size:8.5px;font-weight:800;fill:#b45309;text-anchor:middle;">SƯỞI T1</text>
+    <rect x="352" y="716" width="26" height="26" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+
+    <!-- Double-Height Void / Thong Tang (405..695, 165..405) -->
+    <rect x="405" y="165" width="290" height="240" fill="url(#hatch-void)" stroke="#0f172a" stroke-width="2"/>
+    <rect x="455" y="248" width="190" height="66" rx="8" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+    <text x="550" y="275" style="font-size:12px;font-weight:900;fill:#dc2626;text-anchor:middle;">Ô THÔNG TẦNG MỞ LÊN T3</text>
+    <text x="550" y="294" style="font-size:10px;font-weight:700;fill:#334155;text-anchor:middle;">KHÔNG ĐÓNG TRẦN • Bả phẳng thành dầm</text>
+
+    <!-- Corridor T2 (405..820, 405..495) -->
+    <rect x="405" y="405" width="415" height="90" class="room-c1"/>
+    <rect x="435" y="422" width="285" height="56" class="cove-box"/>
+    <!-- Copper Pipe Route Master -> TX2 -->
+    <polyline points="398,437 402,437 402,414 750,414 750,485 642,485 642,675" class="pipe-line"/>
+    <rect x="415" y="406" width="256" height="14" rx="3" fill="#ffffff" opacity="0.94"/>
+    <text x="543" y="416" style="font-size:8.6px;font-weight:800;fill:#be123c;text-anchor:middle;">Ống đồng ĐH Master 10/16 đi trên trần HL về thẳng TX2</text>
+    <rect x="444" y="427" width="268" height="15" rx="3" fill="#fffbeb" opacity="0.96"/>
+    <text x="578" y="438" style="font-size:9.6px;font-weight:800;fill:#92400e;text-anchor:middle;">HỘP HÀNH LANG 3.570×890 (+3.130 / Viền +3.000)</text>
+    <circle cx="422" cy="450" r="13" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8"/>
+    <text x="422" y="454" style="font-size:8.5px;font-weight:800;fill:#1d4ed8;text-anchor:middle;">WIFI 2</text>
+
+    <!-- Staircase + Common WC T2 + Shaft TX2 + Skylight -->
+    <rect x="405" y="495" width="190" height="265" fill="#f8fafc" stroke="#334155" stroke-width="1.5"/>
+    <text x="500" y="630" class="room-lbl">CẦU THANG BỘ</text>
+
+    <rect x="595" y="495" width="225" height="170" fill="url(#hatch-moisture)" stroke="#059669" stroke-width="2"/>
+    
+    <g transform="translate(654.0,510)">
+      <rect width="108" height="32" class="elev-tag"/>
+      <line x1="0" y1="16" x2="108" y2="16" stroke="#0891b2" stroke-width="1"/>
+      <text x="54.0" y="12" class="elev-txt">C2 (WC CHUNG)</text>
+      <text x="54.0" y="27" class="elev-txt" style="fill:#0f172a;">+2.400</text>
+    </g>
+    
+    <g>
+      <rect x="608" y="612" width="34" height="34" class="hatch-access"/>
+      <line x1="608" y1="612" x2="642" y2="646" stroke="#dc2626" stroke-width="1.2"/>
+      <line x1="642" y1="612" x2="608" y2="646" stroke="#dc2626" stroke-width="1.2"/>
+      <text x="625.0" y="658" style="font-size:9.5px;font-weight:800;fill:#dc2626;text-anchor:middle;">THĂM 450</text>
+    </g>
+    <rect x="738" y="602" width="54" height="26" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="1.6"/>
+    <text x="765" y="619" style="font-size:8.5px;font-weight:800;fill:#b45309;text-anchor:middle;">SƯỞI T1</text>
+
+    <rect x="595" y="665" width="95" height="95" fill="#ffe4e6" stroke="#e11d48" stroke-width="2"/>
+    <text x="642" y="715" style="font-size:9.5px;font-weight:800;fill:#be123c;text-anchor:middle;">HỘP KT TX2</text>
+    <rect x="690" y="665" width="130" height="95" fill="url(#hatch-void)" stroke="#475569" stroke-width="1.5"/>
+    <text x="755" y="715" style="font-size:10.5px;font-weight:800;fill:#334155;text-anchor:middle;">GIẾNG TRỜI</text>
+
+    <!-- Bedroom 1 (695..1075, 165..405) -->
+    <rect x="695" y="165" width="380" height="240" class="room-c1"/>
+    <rect x="815" y="182" width="230" height="186" class="cove-box"/>
+    <rect x="1051" y="185" width="20" height="180" class="curtain-box"/>
+    <rect x="820" y="372" width="215" height="30" fill="url(#hatch-cabinet)" stroke="#475569" stroke-width="1.3"/>
+    
+    <g transform="translate(884.0,224)">
+      <rect width="92" height="32" class="elev-tag"/>
+      <line x1="0" y1="16" x2="92" y2="16" stroke="#0891b2" stroke-width="1"/>
+      <text x="46.0" y="12" class="elev-txt">C1 (PN 1)</text>
+      <text x="46.0" y="27" class="elev-txt" style="fill:#0f172a;">+3.130</text>
+    </g>
+    <text x="930" y="325" class="room-lbl">PHÒNG NGỦ 1 (ĐÔNG BẮC)</text>
+    <text x="930" y="342" class="note-lbl">Viền +3.000 • Hộp 2.990×2.050 (+3.130)</text>
+
+    <!-- Bedroom 2 (820..1075, 435..760) -->
+    <rect x="820" y="435" width="255" height="325" class="room-c1"/>
+    <rect x="828" y="440" width="190" height="32" fill="url(#hatch-cabinet)" stroke="#475569" stroke-width="1.3"/>
+    <rect x="852" y="492" width="190" height="222" class="cove-box"/>
+    <rect x="1051" y="510" width="20" height="175" class="curtain-box"/>
+    
+    <g transform="translate(901.0,532)">
+      <rect width="92" height="32" class="elev-tag"/>
+      <line x1="0" y1="16" x2="92" y2="16" stroke="#0891b2" stroke-width="1"/>
+      <text x="46.0" y="12" class="elev-txt">C1 (PN 2)</text>
+      <text x="46.0" y="27" class="elev-txt" style="fill:#0f172a;">+3.130</text>
+    </g>
+    <text x="947" y="638" class="room-lbl">PHÒNG NGỦ 2 (ĐÔNG NAM)</text>
+    <text x="947" y="655" style="font-size:9px;font-weight:600;fill:#334155;text-anchor:middle;">Viền +3.000 • Hộp 2.040×3.140 (+3.130)</text>
+
+    <!-- East Balconies -->
+    <rect x="1075" y="190" width="95" height="200" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="6,4"/>
+    <rect x="1075" y="485" width="95" height="250" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="6,4"/>
+    <text x="1122" y="290" transform="rotate(90 1122 290)" style="font-size:9.5px;font-weight:800;fill:#475569;text-anchor:middle;">BAN CÔNG (Ống bơ nổi)</text>
+
+    <circle cx="215" cy="188" r="6.5" class="spot"/><line x1="208.5" y1="188" x2="221.5" y2="188" class="spot-cross"/><line x1="215" y1="181.5" x2="215" y2="194.5" class="spot-cross"/><circle cx="315" cy="188" r="6.5" class="spot"/><line x1="308.5" y1="188" x2="321.5" y2="188" class="spot-cross"/><line x1="315" y1="181.5" x2="315" y2="194.5" class="spot-cross"/><circle cx="256" cy="275" r="6.5" class="spot"/><line x1="249.5" y1="275" x2="262.5" y2="275" class="spot-cross"/><line x1="256" y1="268.5" x2="256" y2="281.5" class="spot-cross"/><circle cx="274" cy="275" r="6.5" class="spot"/><line x1="267.5" y1="275" x2="280.5" y2="275" class="spot-cross"/><line x1="274" y1="268.5" x2="274" y2="281.5" class="spot-cross"/><circle cx="235" cy="382" r="6.5" class="spot"/><line x1="228.5" y1="382" x2="241.5" y2="382" class="spot-cross"/><line x1="235" y1="375.5" x2="235" y2="388.5" class="spot-cross"/><circle cx="295" cy="382" r="6.5" class="spot"/><line x1="288.5" y1="382" x2="301.5" y2="382" class="spot-cross"/><line x1="295" y1="375.5" x2="295" y2="388.5" class="spot-cross"/><circle cx="352" cy="245" r="6.5" class="spot"/><line x1="345.5" y1="245" x2="358.5" y2="245" class="spot-cross"/><line x1="352" y1="238.5" x2="352" y2="251.5" class="spot-cross"/><circle cx="352" cy="325" r="6.5" class="spot"/><line x1="345.5" y1="325" x2="358.5" y2="325" class="spot-cross"/><line x1="352" y1="318.5" x2="352" y2="331.5" class="spot-cross"/><circle cx="230" cy="435" r="6.5" class="spot"/><line x1="223.5" y1="435" x2="236.5" y2="435" class="spot-cross"/><line x1="230" y1="428.5" x2="230" y2="441.5" class="spot-cross"/><circle cx="230" cy="588" r="6.5" class="spot"/><line x1="223.5" y1="588" x2="236.5" y2="588" class="spot-cross"/><line x1="230" y1="581.5" x2="230" y2="594.5" class="spot-cross"/><circle cx="305" cy="435" r="6.5" class="spot"/><line x1="298.5" y1="435" x2="311.5" y2="435" class="spot-cross"/><line x1="305" y1="428.5" x2="305" y2="441.5" class="spot-cross"/><circle cx="305" cy="588" r="6.5" class="spot"/><line x1="298.5" y1="588" x2="311.5" y2="588" class="spot-cross"/><line x1="305" y1="581.5" x2="305" y2="594.5" class="spot-cross"/><circle cx="178" cy="485" r="6.5" class="spot"/><line x1="171.5" y1="485" x2="184.5" y2="485" class="spot-cross"/><line x1="178" y1="478.5" x2="178" y2="491.5" class="spot-cross"/><circle cx="178" cy="545" r="6.5" class="spot"/><line x1="171.5" y1="545" x2="184.5" y2="545" class="spot-cross"/><line x1="178" y1="538.5" x2="178" y2="551.5" class="spot-cross"/><circle cx="375" cy="515" r="6.5" class="spot"/><line x1="368.5" y1="515" x2="381.5" y2="515" class="spot-cross"/><line x1="375" y1="508.5" x2="375" y2="521.5" class="spot-cross"/><circle cx="200" cy="695" r="6.5" class="spot"/><line x1="193.5" y1="695" x2="206.5" y2="695" class="spot-cross"/><line x1="200" y1="688.5" x2="200" y2="701.5" class="spot-cross"/><circle cx="260" cy="695" r="6.5" class="spot"/><line x1="253.5" y1="695" x2="266.5" y2="695" class="spot-cross"/><line x1="260" y1="688.5" x2="260" y2="701.5" class="spot-cross"/><circle cx="320" cy="695" r="6.5" class="spot"/><line x1="313.5" y1="695" x2="326.5" y2="695" class="spot-cross"/><line x1="320" y1="688.5" x2="320" y2="701.5" class="spot-cross"/><circle cx="455" cy="452" r="6.5" class="spot"/><line x1="448.5" y1="452" x2="461.5" y2="452" class="spot-cross"/><line x1="455" y1="445.5" x2="455" y2="458.5" class="spot-cross"/><circle cx="575" cy="452" r="6.5" class="spot"/><line x1="568.5" y1="452" x2="581.5" y2="452" class="spot-cross"/><line x1="575" y1="445.5" x2="575" y2="458.5" class="spot-cross"/><circle cx="695" cy="452" r="6.5" class="spot"/><line x1="688.5" y1="452" x2="701.5" y2="452" class="spot-cross"/><line x1="695" y1="445.5" x2="695" y2="458.5" class="spot-cross"/><circle cx="628" cy="535" r="6.5" class="spot"/><line x1="621.5" y1="535" x2="634.5" y2="535" class="spot-cross"/><line x1="628" y1="528.5" x2="628" y2="541.5" class="spot-cross"/><circle cx="628" cy="605" r="6.5" class="spot"/><line x1="621.5" y1="605" x2="634.5" y2="605" class="spot-cross"/><line x1="628" y1="598.5" x2="628" y2="611.5" class="spot-cross"/><circle cx="695" cy="565" r="6.5" class="spot"/><line x1="688.5" y1="565" x2="701.5" y2="565" class="spot-cross"/><line x1="695" y1="558.5" x2="695" y2="571.5" class="spot-cross"/><circle cx="765" cy="565" r="6.5" class="spot"/><line x1="758.5" y1="565" x2="771.5" y2="565" class="spot-cross"/><line x1="765" y1="558.5" x2="765" y2="571.5" class="spot-cross"/><circle cx="855" cy="195" r="6.5" class="spot"/><line x1="848.5" y1="195" x2="861.5" y2="195" class="spot-cross"/><line x1="855" y1="188.5" x2="855" y2="201.5" class="spot-cross"/><circle cx="855" cy="365" r="6.5" class="spot"/><line x1="848.5" y1="365" x2="861.5" y2="365" class="spot-cross"/><line x1="855" y1="358.5" x2="855" y2="371.5" class="spot-cross"/><circle cx="945" cy="195" r="6.5" class="spot"/><line x1="938.5" y1="195" x2="951.5" y2="195" class="spot-cross"/><line x1="945" y1="188.5" x2="945" y2="201.5" class="spot-cross"/><circle cx="945" cy="365" r="6.5" class="spot"/><line x1="938.5" y1="365" x2="951.5" y2="365" class="spot-cross"/><line x1="945" y1="358.5" x2="945" y2="371.5" class="spot-cross"/><circle cx="1035" cy="195" r="6.5" class="spot"/><line x1="1028.5" y1="195" x2="1041.5" y2="195" class="spot-cross"/><line x1="1035" y1="188.5" x2="1035" y2="201.5" class="spot-cross"/><circle cx="1035" cy="365" r="6.5" class="spot"/><line x1="1028.5" y1="365" x2="1041.5" y2="365" class="spot-cross"/><line x1="1035" y1="358.5" x2="1035" y2="371.5" class="spot-cross"/><circle cx="855" cy="280" r="6.5" class="spot"/><line x1="848.5" y1="280" x2="861.5" y2="280" class="spot-cross"/><line x1="855" y1="273.5" x2="855" y2="286.5" class="spot-cross"/><circle cx="936" cy="280" r="6.5" class="spot"/><line x1="929.5" y1="280" x2="942.5" y2="280" class="spot-cross"/><line x1="936" y1="273.5" x2="936" y2="286.5" class="spot-cross"/><circle cx="954" cy="280" r="6.5" class="spot"/><line x1="947.5" y1="280" x2="960.5" y2="280" class="spot-cross"/><line x1="954" y1="273.5" x2="954" y2="286.5" class="spot-cross"/><circle cx="865" cy="500" r="6.5" class="spot"/><line x1="858.5" y1="500" x2="871.5" y2="500" class="spot-cross"/><line x1="865" y1="493.5" x2="865" y2="506.5" class="spot-cross"/><circle cx="865" cy="595" r="6.5" class="spot"/><line x1="858.5" y1="595" x2="871.5" y2="595" class="spot-cross"/><line x1="865" y1="588.5" x2="865" y2="601.5" class="spot-cross"/><circle cx="865" cy="695" r="6.5" class="spot"/><line x1="858.5" y1="695" x2="871.5" y2="695" class="spot-cross"/><line x1="865" y1="688.5" x2="865" y2="701.5" class="spot-cross"/><circle cx="1030" cy="500" r="6.5" class="spot"/><line x1="1023.5" y1="500" x2="1036.5" y2="500" class="spot-cross"/><line x1="1030" y1="493.5" x2="1030" y2="506.5" class="spot-cross"/><circle cx="1030" cy="595" r="6.5" class="spot"/><line x1="1023.5" y1="595" x2="1036.5" y2="595" class="spot-cross"/><line x1="1030" y1="588.5" x2="1030" y2="601.5" class="spot-cross"/><circle cx="1030" cy="695" r="6.5" class="spot"/><line x1="1023.5" y1="695" x2="1036.5" y2="695" class="spot-cross"/><line x1="1030" y1="688.5" x2="1030" y2="701.5" class="spot-cross"/><circle cx="936" cy="595" r="6.5" class="spot"/><line x1="929.5" y1="595" x2="942.5" y2="595" class="spot-cross"/><line x1="936" y1="588.5" x2="936" y2="601.5" class="spot-cross"/><circle cx="954" cy="595" r="6.5" class="spot"/><line x1="947.5" y1="595" x2="960.5" y2="595" class="spot-cross"/><line x1="954" y1="588.5" x2="954" y2="601.5" class="spot-cross"/>
+    
+    <line x1="153" y1="782" x2="405" y2="782" class="dim-line"/>
+    <rect x="190.0" y="768" width="178.0" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="279.0" y="778" class="dim-txt">3.440 mm (Khu Master PA2)</text>
+    
+    <line x1="405" y1="782" x2="820" y2="782" class="dim-line"/>
+    <rect x="492.9" y="768" width="239.2" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="612.5" y="778" class="dim-txt">5.220 mm (Thông tầng • Thang • WC)</text>
+    
+    <line x1="820" y1="782" x2="1075" y2="782" class="dim-line"/>
+    <rect x="875.5" y="768" width="144.0" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="947.5" y="778" class="dim-txt">3.210 mm (PN1 &amp; PN2)</text>
+
+    <rect x="1245" y="96" width="418" height="748" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="1245" y="96" width="418" height="36" rx="8" class="tbl-hdr"/>
+<text x="1454" y="119" class="tbl-hdr-txt" text-anchor="middle">BẢNG QUY CÁCH ĐÓNG TRẦN TẦNG 2 (GIAO THỢ)</text>
+<rect x="1253" y="144" width="402" height="76" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="153" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="169" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">PA2 NGỦ</text>
+<text x="1344" y="169" class="tbl-bold">Khu Ngủ Master (Trục 1'–2 / B–C): Hộp +3.130</text>
+<text x="1263" y="190" class="tbl-cell-txt">• Hộp giật cấp 2.600×2.150mm (+3.130) • Viền xung quanh +3.000</text>
+<text x="1263" y="208" class="tbl-cell-txt" style="fill:#0369a1;">• Hốc rèm đôi Logia 01 (240mm) • Dừng sát Tủ #3 &amp; Vách Đảo 1740×450</text>
+<rect x="1253" y="226" width="402" height="76" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="235" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="251" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">Ø1200</text>
+<text x="1344" y="251" class="tbl-bold">Khu Thay Đồ Master: Vòm Mặt Trăng Barrisol</text>
+<text x="1263" y="272" class="tbl-cell-txt">• Trần phẳng +3.000mm • Uốn khung tròn Ø1.200mm sâu +150mm</text>
+<text x="1263" y="290" class="tbl-cell-txt" style="fill:#0369a1;">• Tâm cách Tây 1.720 &amp; Nam 1.350mm • Viền nẹp ron âm đen P-UT12</text>
+<rect x="1253" y="308" width="402" height="76" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="317" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="333" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">ĐH IN 2.3</text>
+<text x="1344" y="333" class="tbl-bold">Điều Hòa Daikin 18K 2 Chiều &amp; Lỗ Thăm 450</text>
+<text x="1263" y="354" class="tbl-cell-txt">• 02 khe 1000×150 (Khu Ngủ) + 02 khe 800×150mm (Khu Thay Đồ)</text>
+<text x="1263" y="372" class="tbl-cell-txt" style="fill:#0369a1;">• Nắp thăm 450×450 đặt tại lối đi phải 850mm (Né Vách Đảo Trục B!)</text>
+<rect x="1253" y="390" width="402" height="76" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="399" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="415" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">MỞ T3</text>
+<text x="1344" y="415" class="tbl-bold">Ô Thông Tầng (Trục 2–3 / B–C): KHÔNG ĐÓNG</text>
+<text x="1263" y="436" class="tbl-cell-txt">• Tuyệt đối không đóng thạch cao vùng thông tầng mở lên Tầng 3</text>
+<text x="1263" y="454" class="tbl-cell-txt" style="fill:#0369a1;">• Chỉ ốp/bả phẳng dầm bo quanh giếng thông tầng • Đón đèn rọi 15° T3</text>
+<rect x="1253" y="472" width="402" height="76" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="481" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="497" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">HL + WIFI</text>
+<text x="1344" y="497" class="tbl-bold">Hành Lang Tầng 2: Tuyến Ống Đồng Về TX2</text>
+<text x="1263" y="518" class="tbl-cell-txt">• Viền +3.000 • Hộp giật cấp 3.570×890mm (+3.130) hắt LED</text>
+<text x="1263" y="536" class="tbl-cell-txt" style="fill:#0369a1;">• Đi ống đồng ĐH Master trên trần HL về thẳng Hộp TX2 • Wifi PoE #2</text>
+<rect x="1253" y="554" width="402" height="76" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="563" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="579" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">PN1 &amp; PN2</text>
+<text x="1344" y="579" class="tbl-bold">02 Phòng Ngủ Phía Đông (Trục 3–4)</text>
+<text x="1263" y="600" class="tbl-cell-txt">• PN1 hộp 2.990×2.050 (+3.130) • PN2 hộp 2.040×3.140 (+3.130)</text>
+<text x="1263" y="618" class="tbl-cell-txt" style="fill:#0369a1;">• Viền +3.000 che ống ĐH treo tường • 02 Hốc rèm lót Plywood 18mm</text>
+<rect x="1253" y="636" width="402" height="76" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="645" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="661" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">02 WC T2</text>
+<text x="1344" y="661" class="tbl-bold">WC-02 Master &amp; WC-01 Chung (C2 +2.400mm)</text>
+<text x="1263" y="682" class="tbl-cell-txt">• Tấm siêu chịu ẩm 9mm • Mỗi phòng 01 Nắp thăm nhôm 450×450</text>
+<text x="1263" y="700" class="tbl-cell-txt" style="fill:#0369a1;">• Mỗi WC khoét 01 Đèn sưởi Aqara T1 (275×575) + 01 Quạt hút 240</text>
+<rect x="1253" y="718" width="402" height="76" rx="6" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1"/>
+<rect x="1260" y="727" width="76" height="24" rx="4" fill="#0f172a"/>
+<text x="1298" y="743" style="font-size:10px;font-weight:800;fill:#fde68a;text-anchor:middle;">42 LỖ Ø75</text>
+<text x="1344" y="743" class="tbl-bold">Tổng Khoét Đèn Tầng 2 &amp; Nẹp Z-Shadowline</text>
+<text x="1263" y="764" class="tbl-cell-txt">• 42 lỗ Ø75mm + 01 Vòm Ø1200 + 06 dây chờ đèn nổi Ban công</text>
+<text x="1263" y="782" class="tbl-cell-txt" style="fill:#0369a1;">• Chạy nẹp Z-Shadowline khe 10mm toàn bộ tường trát (trừ vách tủ)</text>
+    
+    <g transform="translate(18, 854)">
+      <rect width="1645" height="52" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.2"/>
+      <rect x="14" y="14" width="24" height="22" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+      <text x="45" y="29" class="tbl-cell-txt">C1: Tấm tiêu chuẩn 9mm</text>
+
+      <rect x="195" y="14" width="24" height="22" fill="url(#hatch-moisture)" stroke="#10b981" stroke-width="1.5"/>
+      <text x="226" y="29" class="tbl-cell-txt">C2: Tấm siêu chịu ẩm 9mm</text>
+
+      <rect x="388" y="14" width="26" height="22" class="cove-box"/>
+      <text x="421" y="29" class="tbl-cell-txt">Ô giật cấp + Khe LED 24V</text>
+
+      <rect x="585" y="14" width="26" height="22" class="curtain-box"/>
+      <text x="618" y="29" class="tbl-cell-txt">Hốc rèm âm (Lót Plywood 18mm)</text>
+
+      <rect x="822" y="18" width="32" height="14" class="ac-grille"/>
+      <text x="861" y="29" class="tbl-cell-txt">Miệng gió ĐH (SAG/RAG)</text>
+
+      <rect x="1020" y="14" width="22" height="22" class="hatch-access"/>
+      <line x1="1020" y1="14" x2="1042" y2="36" stroke="#dc2626" stroke-width="1.2"/>
+      <line x1="1042" y1="14" x2="1020" y2="36" stroke="#dc2626" stroke-width="1.2"/>
+      <text x="1049" y="29" class="tbl-cell-txt">Nắp thăm 450×450</text>
+
+      <line x1="1180" y1="25" x2="1216" y2="25" class="pipe-line"/>
+      <text x="1223" y="29" class="tbl-cell-txt">Tuyến ống nước/ống đồng cần né</text>
+
+      <line x1="1435" y1="25" x2="1470" y2="25" class="shadowline"/>
+      <text x="1477" y="29" class="tbl-cell-txt">Nẹp Z-Shadowline chống nứt</text>
+    </g>
+    
+    </svg>

@@ -1,0 +1,357 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 1040" width="1680" height="1040">
+    
+  <defs>
+    <pattern id="hatch-moisture" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="12" height="12" fill="#ecfdf5"/>
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.45"/>
+    </pattern>
+    <pattern id="hatch-void" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect width="16" height="16" fill="#f8fafc"/>
+      <line x1="0" y1="0" x2="16" y2="16" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="16" y1="0" x2="0" y2="16" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3"/>
+    </pattern>
+    <pattern id="hatch-cabinet" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect width="10" height="10" fill="#f1f5f9"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#64748b" stroke-width="1.1" stroke-opacity="0.4"/>
+    </pattern>
+    <pattern id="hatch-rattan" width="10" height="10" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#fef3c7"/>
+      <path d="M 0 5 L 10 5 M 5 0 L 5 10" stroke="#d97706" stroke-width="0.8" stroke-opacity="0.38"/>
+    </pattern>
+    <pattern id="hatch-concrete" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="10" fill="#cbd5e1"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#475569" stroke-width="1.4"/>
+    </pattern>
+    <pattern id="hatch-insul" width="12" height="8" patternUnits="userSpaceOnUse">
+      <rect width="12" height="8" fill="#fef9c3"/>
+      <path d="M0,8 Q3,0 6,8 T12,8" fill="none" stroke="#ca8a04" stroke-width="1.1"/>
+    </pattern>
+    <marker id="dim-tick" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <line x1="2" y1="8" x2="8" y2="2" stroke="#dc2626" stroke-width="1.8"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#0284c7"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+      .title-h1 { font-size: 20px; font-weight: 800; fill: #ffffff; }
+      .title-sub { font-size: 12px; font-weight: 600; fill: #cbd5e1; }
+      .axis-circle { fill: #ffffff; stroke: #0f172a; stroke-width: 2; }
+      .axis-txt { font-size: 14px; font-weight: 800; fill: #0f172a; text-anchor: middle; dominant-baseline: central; }
+      .axis-line { stroke: #94a3b8; stroke-width: 1; stroke-dasharray: 10,4,2,4; }
+      .wall { fill: #334155; stroke: #0f172a; stroke-width: 1.5; }
+      .room-c1 { fill: #ffffff; stroke: #334155; stroke-width: 1.5; }
+      .cove-box { fill: #fffbeb; stroke: #d97706; stroke-width: 2.2; }
+      .led-line { fill: none; stroke: #f59e0b; stroke-width: 2; stroke-dasharray: 6,4; }
+      .shadowline { fill: none; stroke: #ef4444; stroke-width: 1.4; stroke-dasharray: 3,3; }
+      .curtain-box { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.8; }
+      .ac-unit { fill: #e0f2fe; stroke: #0284c7; stroke-width: 2; }
+      .ac-grille { fill: #0284c7; stroke: #0369a1; stroke-width: 1.2; }
+      .ac-duct { fill: none; stroke: #0284c7; stroke-width: 3; stroke-dasharray: 7,4; opacity: 0.85; }
+      .pipe-line { fill: none; stroke: #e11d48; stroke-width: 2.2; stroke-dasharray: 8,4; }
+      .hatch-access { fill: #fef2f2; stroke: #dc2626; stroke-width: 1.8; }
+      .elev-tag { fill: #ecfeff; stroke: #0891b2; stroke-width: 1.5; rx: 4; }
+      .elev-txt { font-size: 11px; font-weight: 800; fill: #0e7490; text-anchor: middle; }
+      .room-lbl { font-size: 13px; font-weight: 800; fill: #0f172a; text-anchor: middle; }
+      .note-lbl { font-size: 10.5px; font-weight: 600; fill: #334155; text-anchor: middle; }
+      .dim-line { stroke: #dc2626; stroke-width: 1.3; marker-start: url(#dim-tick); marker-end: url(#dim-tick); }
+      .dim-txt { font-size: 11px; font-weight: 800; fill: #b91c1c; text-anchor: middle; }
+      .spot { fill: #ffffff; stroke: #0284c7; stroke-width: 1.8; }
+      .spot-cross { stroke: #0284c7; stroke-width: 1.1; }
+      .tbl-hdr { fill: #0f172a; }
+      .tbl-hdr-txt { font-size: 11.5px; font-weight: 800; fill: #ffffff; }
+      .tbl-cell-txt { font-size: 10.1px; font-weight: 600; fill: #1e293b; }
+      .tbl-bold { font-size: 11px; font-weight: 800; fill: #0f172a; }
+    </style>
+  </defs>
+
+    <rect width="1680" height="1040" fill="#ffffff"/>
+    
+    <rect x="0" y="0" width="1680" height="72" fill="#0f172a"/>
+    <rect x="18" y="14" width="108" height="44" rx="8" fill="#f59e0b"/>
+    <text x="72" y="42" style="font-size:17px;font-weight:900;fill:#0f172a;text-anchor:middle;">KT-TC-05</text>
+    <text x="142" y="34" class="title-h1">BẢN VẼ 06 MẶT CẮT CHI TIẾT CẤU TẠO KỸ THUẬT TRẦN THẠCH CAO (TỶ LỆ 1:10)</text>
+    <text x="142" y="55" class="title-sub">Bản vẽ cầm tay chỉ việc giao Tổ Trưởng Thạch Cao • Khung Vĩnh Tường TIKA @406mm + Gyproc 9mm + Chống nứt Z-Shadowline</text>
+    <rect x="1520" y="16" width="142" height="40" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="1591" y="41" style="font-size:13px;font-weight:800;fill:#fde68a;text-anchor:middle;">TỜ 05 / 06</text>
+    
+
+    <!-- ==================== DETAIL 1: STEPPED LED COVE ==================== -->
+    <g transform="translate(24, 92)">
+      <rect width="532" height="445" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.6"/>
+      <rect width="532" height="36" rx="10" fill="#0f172a"/>
+      <text x="16" y="23" class="tbl-hdr-txt">MC-01 • CHI TIẾT KHE HẮT SÁNG LED GIẬT CẤP (+130MM / +150MM)</text>
+
+      <!-- Concrete Slab -->
+      <rect x="40" y="58" width="450" height="28" fill="url(#hatch-concrete)" stroke="#334155" stroke-width="1.5"/>
+      <text x="265" y="76" style="font-size:10.5px;font-weight:800;fill:#0f172a;text-anchor:middle;">SÀN BÊ TÔNG CỐT THÉP (Khoan nở đạn thép M6 @800–1000mm)</text>
+      <!-- Threaded Hanger Rods -->
+      <line x1="120" y1="86" x2="120" y2="256" stroke="#475569" stroke-width="2.5"/>
+      <line x1="380" y1="86" x2="380" y2="162" stroke="#475569" stroke-width="2.5"/>
+      <!-- Main &amp; Furring Channels -->
+      <rect x="95" y="244" width="180" height="12" fill="#94a3b8" stroke="#334155"/>
+      <rect x="255" y="150" width="215" height="12" fill="#94a3b8" stroke="#334155"/>
+      <!-- Lower Gypsum +3.000 / +3.400 -->
+      <rect x="40" y="256" width="250" height="11" fill="#ffffff" stroke="#0284c7" stroke-width="2.2"/>
+      <!-- Light Baffle Lip 55mm -->
+      <rect x="279" y="212" width="11" height="55" fill="#ffffff" stroke="#0284c7" stroke-width="2.2"/>
+      <!-- Vertical Riser -->
+      <rect x="232" y="162" width="11" height="94" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+      <!-- Upper Gypsum +3.130 / +3.530 -->
+      <rect x="232" y="162" width="258" height="11" fill="#ffffff" stroke="#0284c7" stroke-width="2.2"/>
+      <!-- COB LED Strip + Alu Profile -->
+      <rect x="255" y="246" width="20" height="8" fill="#f59e0b"/>
+      <path d="M 265 244 L 248 182 M 265 244 L 285 182" stroke="#f59e0b" stroke-width="1.6" stroke-dasharray="4,3"/>
+      <!-- LED Driver 24V tucked behind lip -->
+      <rect x="172" y="232" width="52" height="12" rx="2" fill="#fde68a" stroke="#b45309" stroke-width="1.2"/>
+      <text x="198" y="226" style="font-size:9.5px;font-weight:800;fill:#92400e;text-anchor:middle;">Nguồn đũa 24V</text>
+
+      
+    <line x1="505" y1="173" x2="505" y2="267" class="dim-line"/>
+    <g transform="translate(499,220.0) rotate(-90)">
+      <rect x="-58.4" y="-11" width="116.8" height="13" fill="#ffffff" opacity="0.92"/>
+      <text x="0" y="-1" class="dim-txt">130mm (Thờ: 150)</text>
+    </g>
+      
+    <line x1="312" y1="212" x2="312" y2="267" class="dim-line"/>
+    <g transform="translate(306,239.5) rotate(-90)">
+      <rect x="-27.8" y="-11" width="55.6" height="13" fill="#ffffff" opacity="0.92"/>
+      <text x="0" y="-1" class="dim-txt">Mỏ 55mm</text>
+    </g>
+      
+    <line x1="232" y1="292" x2="290" y2="292" class="dim-line"/>
+    <rect x="202.6" y="278" width="116.8" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="261.0" y="288" class="dim-txt">Gờ hắt 120–150mm</text>
+
+      <text x="24" y="340" class="tbl-bold">• Quy tắc chống lộ hạt sáng &amp; dễ thay nguồn:</text>
+      <text x="24" y="360" class="tbl-cell-txt">1. Mỏ chắn sáng đứng bắt buộc cao 50–60mm che khuất 100% dây LED COB 24V.</text>
+      <text x="24" y="380" class="tbl-cell-txt">2. Dán thanh nhôm tản nhiệt U-Alu dưới đáy khe, quay mặt LED hướng lên trần cao.</text>
+      <text x="24" y="400" class="tbl-cell-txt">3. Sơn bả nhẵn cả lòng trong khe hắt để ánh sáng phản xạ mịn đều không loang.</text>
+      <text x="24" y="420" class="tbl-cell-txt" style="fill:#b91c1c;">4. Cấm quấn băng keo nối dây điện 220V trần trụi (phải dùng cút nối Wago/hộp nối).</text>
+    </g>
+
+    <!-- ==================== DETAIL 2: MOTORIZED CURTAIN POCKET ==================== -->
+    <g transform="translate(574, 92)">
+      <rect width="532" height="445" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.6"/>
+      <rect width="532" height="36" rx="10" fill="#0f172a"/>
+      <text x="16" y="23" class="tbl-hdr-txt">MC-02 • HỐC RÈM TỰ ĐỘNG 2 LỚP ÂM TRẦN (GIA CỐ GỖ PLYWOOD 18MM)</text>
+
+      <!-- Concrete Slab &amp; Window Wall -->
+      <rect x="40" y="58" width="450" height="28" fill="url(#hatch-concrete)" stroke="#334155" stroke-width="1.5"/>
+      <rect x="40" y="86" width="38" height="225" fill="#cbd5e1" stroke="#334155" stroke-width="1.5"/>
+      <rect x="48" y="185" width="22" height="126" fill="#bae6fd" stroke="#0284c7" stroke-width="2"/>
+      <text x="59" y="250" transform="rotate(-90 59 250)" style="font-size:9.5px;font-weight:800;fill:#0369a1;text-anchor:middle;">KÍNH CỬA DCONS</text>
+
+      <!-- 18mm Plywood Backing Plate + Top Gypsum -->
+      <rect x="78" y="124" width="185" height="16" fill="#fde68a" stroke="#92400e" stroke-width="2"/>
+      <text x="170" y="117" style="font-size:10px;font-weight:900;fill:#92400e;text-anchor:middle;">★ GỖ PLYWOOD CHỊU ẨM DÀY 18MM</text>
+      <rect x="78" y="140" width="185" height="10" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+      <!-- Two Curtain Tracks (Fabric + Sheer) -->
+      <rect x="112" y="150" width="22" height="18" rx="2" fill="#475569"/>
+      <rect x="195" y="150" width="22" height="18" rx="2" fill="#475569"/>
+      <line x1="123" y1="168" x2="123" y2="305" stroke="#7c3aed" stroke-width="3" stroke-dasharray="6,3"/>
+      <line x1="206" y1="168" x2="206" y2="305" stroke="#a855f7" stroke-width="2.5" stroke-dasharray="4,3"/>
+      <!-- Vertical Curtain Drop Face &amp; Main Ceiling -->
+      <rect x="253" y="140" width="11" height="120" fill="#ffffff" stroke="#0284c7" stroke-width="2.2"/>
+      <rect x="253" y="250" width="235" height="11" fill="#ffffff" stroke="#0284c7" stroke-width="2.2"/>
+      <!-- Corner Bead V-PVC -->
+      <circle cx="256" cy="258" r="5" fill="#ef4444"/>
+      <line x1="261" y1="255" x2="318" y2="236" stroke="#ef4444" stroke-width="1.2"/>
+      <text x="395" y="238" style="font-size:9.5px;font-weight:800;fill:#b91c1c;text-anchor:middle;">Nẹp góc V-nhựa chống mẻ cạnh</text>
+
+      
+    <line x1="78" y1="295" x2="253" y2="295" class="dim-line"/>
+    <rect x="32.30000000000001" y="281" width="266.4" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="165.5" y="291" class="dim-txt">Rộng thông thủy 240mm (Rèm đơn: 180mm)</text>
+      
+    <line x1="285" y1="140" x2="285" y2="260" class="dim-line"/>
+    <g transform="translate(279,200.0) rotate(-90)">
+      <rect x="-48.199999999999996" y="-11" width="96.39999999999999" height="13" fill="#ffffff" opacity="0.92"/>
+      <text x="0" y="-1" class="dim-txt">Sâu 160–180mm</text>
+    </g>
+
+      <text x="24" y="340" class="tbl-bold">• Yêu cầu bắt buộc cho 09 Hốc rèm toàn nhà (Aqara):</text>
+      <text x="24" y="360" class="tbl-cell-txt">1. Lót suốt bản gỗ Plywood chịu ẩm 18mm trên đỉnh hốc trước khi bắn tấm thạch cao.</text>
+      <text x="24" y="380" class="tbl-cell-txt">2. Chiều rộng hốc rèm 2 lớp (Vải + Voan) đạt chuẩn 220–250mm để múi rèm không cọ.</text>
+      <text x="24" y="400" class="tbl-cell-txt">3. Bả sơn trắng hoàn thiện toàn bộ mặt đứng và trần trong lòng hốc rèm.</text>
+      <text x="24" y="420" class="tbl-cell-txt" style="fill:#7c3aed;">4. Kiểm tra dây nguồn chờ 220V động cơ rèm Aqara thò ra đúng góc khuất đầu hốc.</text>
+    </g>
+
+    <!-- ==================== DETAIL 3: Z-SHADOWLINE &amp; P-UT12 ==================== -->
+    <g transform="translate(1124, 92)">
+      <rect width="532" height="445" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.6"/>
+      <rect width="532" height="36" rx="10" fill="#0f172a"/>
+      <text x="16" y="23" class="tbl-hdr-txt">MC-03 • NẸP Z-SHADOWLINE CHỐNG NỨT TƯỜNG &amp; NẸP RON ĐEN P-UT12</text>
+
+      <!-- Left Diagram: Z-Shadowline at Wall -->
+      <rect x="38" y="65" width="44" height="210" fill="#cbd5e1" stroke="#334155" stroke-width="1.5"/>
+      <text x="60" y="170" transform="rotate(-90 60 170)" style="font-size:10px;font-weight:800;fill:#1e293b;text-anchor:middle;">TƯỜNG XÂY TRÁT PHẲNG</text>
+      <!-- Z-Shadowline Profile -->
+      <path d="M 82 162 L 82 186 L 98 186 L 98 174 L 130 174" fill="none" stroke="#dc2626" stroke-width="3.2"/>
+      <rect x="98" y="176" width="145" height="11" fill="#ffffff" stroke="#0284c7" stroke-width="2.2"/>
+      <text x="162" y="156" style="font-size:10px;font-weight:900;fill:#dc2626;text-anchor:middle;">Khe âm 10×10mm</text>
+      <text x="162" y="214" style="font-size:10px;font-weight:800;fill:#0f172a;text-anchor:middle;">Nẹp Genta Z-10 / VT Shadowline</text>
+      <text x="162" y="230" style="font-size:9.5px;font-weight:700;fill:#059669;text-anchor:middle;">✓ Triệt tiêu 100% nứt giáp tường</text>
+
+      <!-- Divider -->
+      <line x1="272" y1="62" x2="272" y2="295" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+      <!-- Right Diagram: P-UT12 Black Reveal -->
+      <rect x="295" y="176" width="76" height="11" fill="#ffffff" stroke="#0284c7" stroke-width="2.2"/>
+      <path d="M 355 174 L 371 174 L 371 160 L 389 160 L 389 174 L 405 174" fill="none" stroke="#0f172a" stroke-width="3.2"/>
+      <rect x="389" y="176" width="95" height="11" fill="#ffffff" stroke="#0284c7" stroke-width="2.2"/>
+      <text x="380" y="148" style="font-size:10px;font-weight:900;fill:#0f172a;text-anchor:middle;">Rãnh đen 12×9mm</text>
+      <text x="392" y="214" style="font-size:10px;font-weight:800;fill:#0f172a;text-anchor:middle;">Nẹp ron âm đen P-UT12</text>
+      <text x="392" y="230" style="font-size:9.5px;font-weight:700;fill:#0369a1;text-anchor:middle;">Viền Vòm Mặt Trăng &amp; P.Ngủ</text>
+
+      <text x="24" y="340" class="tbl-bold">• Quy định bắt buộc xử lý mối nối &amp; giáp tường:</text>
+      <text x="24" y="360" class="tbl-cell-txt">1. Tuyệt đối KHÔNG bả chét bột trực tiếp từ tấm thạch cao ăn liền vào tường vữa trát.</text>
+      <text x="24" y="380" class="tbl-cell-txt">2. Chạy nẹp Z-Shadowline quanh 100% chu vi tường (trừ đoạn có Tủ kịch trần áp sát).</text>
+      <text x="24" y="400" class="tbl-cell-txt">3. Mối nối giữa 2 tấm thạch cao: Dán băng giấy đục lỗ Vĩnh Tường + Bột Gyp-Filler 3 lớp.</text>
+      <text x="24" y="420" class="tbl-cell-txt" style="fill:#b91c1c;">4. Các điểm giao góc chữ L hộp giật cấp: Cắt tấm nguyên chữ L (cấm ghép nối ngay góc!).</text>
+    </g>
+
+    <!-- ==================== DETAIL 4: KITCHEN 60CM BULKHEAD ==================== -->
+    <g transform="translate(24, 558)">
+      <rect width="532" height="456" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.6"/>
+      <rect width="532" height="36" rx="10" fill="#0f172a"/>
+      <text x="16" y="23" class="tbl-hdr-txt">MC-04 • HỘP TRÁN THẲNG 600MM TỦ BẾP CHỮ I &amp; ỐNG HÚT MÙI Ø150</text>
+
+      <!-- Concrete Slab &amp; North Kitchen Wall -->
+      <rect x="40" y="55" width="450" height="26" fill="url(#hatch-concrete)" stroke="#334155" stroke-width="1.5"/>
+      <rect x="40" y="81" width="34" height="235" fill="#cbd5e1" stroke="#334155" stroke-width="1.5"/>
+      <!-- Ø150 Exhaust Duct inside 60cm Bulkhead -->
+      <circle cx="145" cy="128" r="28" fill="#fed7aa" stroke="#ea580c" stroke-width="2.5"/>
+      <text x="145" y="132" style="font-size:10px;font-weight:900;fill:#9a3412;text-anchor:middle;">ỐNG Ø150</text>
+      <!-- Gypsum Bulkhead: +3.400 down to +2.800 (depth 595mm) -->
+      <rect x="246" y="102" width="11" height="98" fill="url(#hatch-moisture)" stroke="#059669" stroke-width="2.2"/>
+      <rect x="74" y="190" width="183" height="10" fill="url(#hatch-moisture)" stroke="#059669" stroke-width="2.2"/>
+      <!-- Main Kitchen Flat Ceiling +3.400 -->
+      <rect x="246" y="102" width="244" height="11" fill="#ffffff" stroke="#0284c7" stroke-width="2.2"/>
+      <text x="438" y="96" style="font-size:9.5px;font-weight:800;fill:#0e7490;text-anchor:middle;">TRẦN BẾP PHẲNG +3.400</text>
+      <!-- Kitchen Spotlight at 1000mm from wall -->
+      <rect x="352" y="88" width="24" height="25" fill="#0284c7"/>
+      <path d="M 364 115 L 330 275 M 364 115 L 398 275" stroke="#f59e0b" stroke-width="1.4" stroke-dasharray="4,3"/>
+      <!-- False Door Portal +2.290..+2.800 (depth 600mm) -->
+      <rect x="74" y="200" width="186" height="68" fill="url(#hatch-cabinet)" stroke="#475569" stroke-width="2"/>
+      <text x="167" y="238" style="font-size:9.5px;font-weight:800;fill:#1e293b;text-anchor:middle;">Cánh giả tủ bếp sâu 600 (+2.80m)</text>
+      <!-- Upper Cabinet 370mm -->
+      <rect x="74" y="268" width="116" height="48" fill="#e2e8f0" stroke="#475569" stroke-width="1.5"/>
+      <text x="132" y="296" style="font-size:9px;font-weight:700;fill:#334155;text-anchor:middle;">Tủ trên sâu 370</text>
+
+      
+    <line x1="282" y1="102" x2="282" y2="200" class="dim-line"/>
+    <g transform="translate(276,151.0) rotate(-90)">
+      <rect x="-31.2" y="-11" width="62.4" height="13" fill="#ffffff" opacity="0.92"/>
+      <text x="0" y="-1" class="dim-txt">Hạ 600mm</text>
+    </g>
+      
+    <line x1="74" y1="174" x2="257" y2="174" class="dim-line"/>
+    <rect x="130.9" y="160" width="69.19999999999999" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="165.5" y="170" class="dim-txt">Sâu 595mm</text>
+      
+    <line x1="74" y1="312" x2="364" y2="312" class="dim-line"/>
+    <rect x="96.0" y="298" width="246.0" height="13" fill="#ffffff" opacity="0.92"/>
+    <text x="219.0" y="308" class="dim-txt">Đèn Bếp cách tường Bắc đúng 1.000mm</text>
+
+      <text x="24" y="348" class="tbl-bold">• Phối hợp Thợ Trần – Thợ Điện Nước – Thợ Tủ Bếp KITPRO:</text>
+      <text x="24" y="368" class="tbl-cell-txt">1. Lắp sẵn ống thoát mùi cứng PVC/nhôm Ø150 sát trần bê tông ra Sân sau trước.</text>
+      <text x="24" y="388" class="tbl-cell-txt">2. Đóng hộp trán bằng tấm chịu ẩm C2 sâu đúng 595mm (lùi 5mm so với mặt cánh 600).</text>
+      <text x="24" y="408" class="tbl-cell-txt">3. Dãy 04 đèn Bếp khoét cách tường Bắc đúng 1.000mm để rọi thẳng giữa mặt bàn đá.</text>
+      <text x="24" y="428" class="tbl-cell-txt" style="fill:#0369a1;">4. Nếu chọn Tủ tiêu chuẩn 2,29m (không cánh giả): hạ hộp thạch cao xuống cốt +2.290mm.</text>
+    </g>
+
+    <!-- ==================== DETAIL 5: BARRISOL MOON DOME &amp; FAN ANCHOR ==================== -->
+    <g transform="translate(574, 558)">
+      <rect width="532" height="456" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.6"/>
+      <rect width="532" height="36" rx="10" fill="#0f172a"/>
+      <text x="16" y="23" class="tbl-hdr-txt">MC-05 • VÒM MẶT TRĂNG BARRISOL Ø1200 &amp; GIA CỐ TY QUẠT TRẦN M12</text>
+
+      <!-- Left: Barrisol Moon Dome Ø1200 -->
+      <rect x="30" y="55" width="235" height="22" fill="url(#hatch-concrete)" stroke="#334155" stroke-width="1.4"/>
+      <!-- Recessed Dome Box +150mm -->
+      <rect x="68" y="102" width="160" height="10" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+      <rect x="68" y="112" width="10" height="88" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+      <rect x="218" y="112" width="10" height="88" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+      <!-- Ziczac Matrix LED 24V -->
+      <g fill="#f59e0b">
+        <circle cx="92" cy="116" r="3.5"/><circle cx="118" cy="116" r="3.5"/><circle cx="148" cy="116" r="3.5"/><circle cx="178" cy="116" r="3.5"/><circle cx="202" cy="116" r="3.5"/>
+      </g>
+      <!-- Stretch Membrane at +3.000 -->
+      <line x1="78" y1="196" x2="218" y2="196" stroke="#eab308" stroke-width="4"/>
+      <rect x="30" y="192" width="38" height="10" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+      <rect x="228" y="192" width="38" height="10" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+      <text x="148" y="160" style="font-size:9.5px;font-weight:800;fill:#92400e;text-anchor:middle;">Hộc sâu 150mm sơn trắng</text>
+      <text x="148" y="218" style="font-size:9.5px;font-weight:900;fill:#0f172a;text-anchor:middle;">Màng xuyên sáng Ø1.200mm</text>
+
+      <line x1="278" y1="55" x2="278" y2="305" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+      <!-- Right: Twin M12 Ceiling Fan Anchor -->
+      <rect x="295" y="55" width="205" height="24" fill="url(#hatch-concrete)" stroke="#334155" stroke-width="1.4"/>
+      <!-- Steel Anchor Plate + 2 M12 Rods -->
+      <rect x="362" y="79" width="72" height="8" fill="#dc2626"/>
+      <line x1="378" y1="87" x2="378" y2="216" stroke="#dc2626" stroke-width="3.5"/>
+      <line x1="418" y1="87" x2="418" y2="216" stroke="#dc2626" stroke-width="3.5"/>
+      <rect x="368" y="212" width="60" height="8" fill="#0f172a"/>
+      <!-- Gypsum Ceiling around rod -->
+      <rect x="295" y="192" width="76" height="10" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+      <rect x="425" y="192" width="75" height="10" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+      <!-- Fan Canopy &amp; Blades -->
+      <path d="M 375 220 L 421 220 L 410 245 L 386 245 Z" fill="#475569"/>
+      <rect x="310" y="245" width="176" height="8" rx="4" fill="#92400e"/>
+      <text x="398" y="274" style="font-size:9.5px;font-weight:900;fill:#dc2626;text-anchor:middle;">Khoan nở đạn sắt M10/M12 vào BTCT</text>
+      <text x="398" y="290" style="font-size:9px;font-weight:700;fill:#334155;text-anchor:middle;">(Cấm tuyệt đối bắt quạt vào xương trần!)</text>
+
+      <text x="24" y="348" class="tbl-bold">• Yêu cầu gia cố chịu lực độc lập (Quạt trần T1, Vòm T2 &amp; Cửa lùa T3):</text>
+      <text x="24" y="368" class="tbl-cell-txt">1. Vòm Ø1200mm Master: Uốn xương V-gai tròn đường kính thông thủy đúng 1.200mm.</text>
+      <text x="24" y="388" class="tbl-cell-txt">2. Đưa bộ nguồn 24V của Vòm Barrisol ra nằm cạnh Lỗ thăm điều hòa 450×450 lối đi phải.</text>
+      <text x="24" y="408" class="tbl-cell-txt">3. Quạt trần L6, L6A (T1) &amp; Đèn thả P.Thờ (T3): Khoan ty sắt M10/M12 trước khi bắn tấm.</text>
+      <text x="24" y="428" class="tbl-cell-txt" style="fill:#b91c1c;">4. Cửa lùa Trục B (T3): Ốp vách trán dày 140mm nhồi bông khoáng Rockwool 50kg/m³.</text>
+    </g>
+
+    <!-- ==================== DETAIL 6: MOISTURE WC CEILING &amp; MEP ==================== -->
+    <g transform="translate(1124, 558)">
+      <rect width="532" height="456" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.6"/>
+      <rect width="532" height="36" rx="10" fill="#0f172a"/>
+      <text x="16" y="23" class="tbl-hdr-txt">MC-06 • TRẦN CHỊU ẨM 4 PHÒNG WC (+2.400) &amp; HỘP KỸ THUẬT MEP</text>
+
+      <!-- Sunken Concrete Slab + Drain Pipes D110/D90 -->
+      <rect x="35" y="55" width="460" height="24" fill="url(#hatch-concrete)" stroke="#334155" stroke-width="1.5"/>
+      <!-- P-trap &amp; PVC Drain Pipe D110 -->
+      <path d="M 110 79 L 110 125 L 470 138" fill="none" stroke="#e11d48" stroke-width="10" stroke-linecap="round"/>
+      <text x="285" y="116" style="font-size:9.5px;font-weight:800;fill:#be123c;text-anchor:middle;">Ống thoát xí bệt D110 &amp; thoát sàn D90 (dốc i=1–2%)</text>
+
+      <!-- Water Heater above WC ceiling -->
+      <rect x="70" y="140" width="105" height="46" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.8"/>
+      <text x="122" y="167" style="font-size:9.5px;font-weight:800;fill:#0369a1;text-anchor:middle;">Bình Nóng Lạnh</text>
+
+      <!-- Moisture-resistant Gypsum Board C2 at +2.400 -->
+      <rect x="35" y="220" width="460" height="12" fill="url(#hatch-moisture)" stroke="#059669" stroke-width="2.2"/>
+      <!-- Access Hatch 450x450 under Water Heater / Valves -->
+      <rect x="80" y="216" width="86" height="18" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+      <text x="123" y="254" style="font-size:9.5px;font-weight:800;fill:#dc2626;text-anchor:middle;">Nắp thăm 450×450</text>
+
+      <!-- Aqara T1 Bathroom Heater (275x575 cutout) -->
+      <rect x="225" y="198" width="115" height="36" rx="3" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="282" y="220" style="font-size:9.5px;font-weight:800;fill:#92400e;text-anchor:middle;">Sưởi Aqara T1 (300×600)</text>
+      <text x="282" y="254" style="font-size:9px;font-weight:700;fill:#b45309;text-anchor:middle;">Khoét 275×575 + Khung U đỡ</text>
+
+      <!-- Exhaust Fan 240x240 -->
+      <rect x="392" y="196" width="66" height="38" fill="#dbeafe" stroke="#2563eb" stroke-width="1.8"/>
+      <path d="M 425 196 L 425 168 L 488 168" fill="none" stroke="#2563eb" stroke-width="6"/>
+      <text x="425" y="254" style="font-size:9.5px;font-weight:800;fill:#1d4ed8;text-anchor:middle;">Quạt hút 240×240</text>
+
+      
+    <line x1="508" y1="79" x2="508" y2="220" class="dim-line"/>
+    <g transform="translate(502,149.5) rotate(-90)">
+      <rect x="-72.0" y="-11" width="144.0" height="13" fill="#ffffff" opacity="0.92"/>
+      <text x="0" y="-1" class="dim-txt">Khoảng kỹ thuật ≥600</text>
+    </g>
+
+      <text x="24" y="348" class="tbl-bold">• Quy trình bắt buộc trước khi đóng tấm trần 04 Phòng WC (+2.400mm):</text>
+      <text x="24" y="368" class="tbl-cell-txt">1. Nghiệm thu thử áp lực ống cấp nước PPR &amp; xả thử độ dốc ống thoát D110/D90 (0% rò rỉ).</text>
+      <text x="24" y="388" class="tbl-cell-txt">2. Treo xong Bình nóng lạnh + đi sẵn ống bạc mềm Ø100 từ vị trí quạt hút vào Hộp KT.</text>
+      <text x="24" y="408" class="tbl-cell-txt">3. Gia cố 2 thanh U-gai kẹp sát mép lỗ khoét 275×575mm để đỡ Đèn sưởi Aqara T1 chắc chắn.</text>
+      <text x="24" y="428" class="tbl-cell-txt" style="fill:#059669;">4. Ốp gạch tường 600×1200 cao qua cốt +2.450mm rồi mới chạy Nẹp Z-Shadowline đóng trần!</text>
+    </g>
+    </svg>
