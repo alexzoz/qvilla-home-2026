@@ -600,15 +600,16 @@
 
     <!-- SECTION 1: INTERACTIVE 3D VIEWS -->
     <section class="block" id="sec-3d">
-      <h2 class="section-title">✨ 1. Phối Cảnh 3D Thực Tế Phòng Master Tầng 2 (Vách Tủ Đảo 2 Mặt • Mặt Trước Treo Tranh • Mặt Sau Tủ Áo • 2 Lối Đi Mở 850mm)</h2>
+      <h2 class="section-title">✨ 1. Phối Cảnh 3D Phòng Master Tầng 2 (PA 1A Tinh Chỉnh Minimalist Phẳng • Cửa Lùa Âm 0% Ray Sàn • TV 65" • Đọ Song Song PA 1B)</h2>
       <p class="section-sub">
-        Bấm chọn từng góc nhìn 3D bên dưới để xem chi tiết thiết kế đã chốt của <strong>Khu Giường Ngủ, Vách Tủ Đảo 2 Mặt, Khu Thay Đồ và Phòng Tắm WC-02</strong>:
+        Đã xếp <strong>PA 1A (WM-06 Minimalist Tinh Chỉnh)</strong> lên đầu tiên để anh chị bấm chuyển trực tiếp với <strong>PA 1B (Bản Vách Treo &amp; Tủ Đảo 450mm Cũ)</strong> và <strong>PA 2 (100% Vân Gỗ)</strong> trên cả Khu Giường Ngủ, Vách Ngăn Trục B &amp; Khu Thay Đồ Sau Phòng Ngủ:
       </p>
 
       <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 16px;margin-bottom:14px;border-radius:12px;background:rgba(15,23,42,0.88);border:1px solid rgba(245,158,11,0.45);">
-        <span style="font-size:0.82rem;font-weight:800;color:#fde68a;">🎨 ĐỔI TONE VẬT LIỆU PHÒNG MASTER (ƯU TIÊN PA 1: WARM MINIMALIST WM-06):</span>
+        <span style="font-size:0.82rem;font-weight:800;color:#fde68a;">🎨 CHỌN TONE &amp; PHƯƠNG ÁN PHÒNG MASTER (ĐƯA PA 1A TINH CHỈNH LÊN SỐ 1):</span>
         <div style="display:flex;flex-wrap:wrap;flex-wrap:balance;gap:8px;">
-          <button type="button" class="tab-btn active" id="tone-master-wm06" onclick="setMasterTone('wm06')" style="padding:7px 13px;font-size:0.8rem;border-color:#cbd5e1;color:#f8fafc;">🕊️ PA 1 (Ưu Tiên): Warm Minimalist WM-06</button>
+          <button type="button" class="tab-btn active" id="tone-master-wm06min" onclick="setMasterTone('wm06min')" style="padding:7px 13px;font-size:0.8rem;border-color:#6ee7b7;color:#ecfdf5;">🕊️ PA 1A (Mới Tinh Chỉnh #1): WM-06 Minimalist Phẳng • Cửa Lùa Âm &amp; TV 65"</button>
+          <button type="button" class="tab-btn" id="tone-master-wm06" onclick="setMasterTone('wm06')" style="padding:7px 13px;font-size:0.8rem;border-color:#cbd5e1;color:#f8fafc;">🕊️ PA 1B (Bản Cũ): WM-06 Bình Phong Treo &amp; Tủ Đảo 450mm</button>
           <button type="button" class="tab-btn" id="tone-master-studio349" onclick="setMasterTone('studio349')" style="padding:7px 13px;font-size:0.8rem;border-color:#f59e0b;">🪵 PA 2 Option A: 100% Vân Gỗ (Chuẩn KT-2.08)</button>
           <button type="button" class="tab-btn" id="tone-master-studio349_leather" onclick="setMasterTone('studio349_leather')" style="padding:7px 13px;font-size:0.8rem;border-color:#38bdf8;color:#bae6fd;">✨ Option B: Bọc Da Kem Đá (Đã Sửa Cửa KT-2.08)</button>
           <button type="button" class="tab-btn" id="tone-master-bt04" onclick="setMasterTone('bt04')" style="padding:7px 13px;font-size:0.8rem;border-color:#94a3b8;color:#e2e8f0;">🏙️ Hiện Đại BT-04: Sồi Khói Ghi Mocha (Khớp Đá T2)</button>
@@ -617,20 +618,20 @@
       </div>
 
       <div class="tab-bar">
-        <button class="tab-btn active" onclick="switch3D('bedroom')" id="tab-bedroom">
-          👑 Góc 1 (T2-V02): Giường &amp; Đầu Giường + Ô Kính 750mm Tường Đông &amp; Tủ #3
-        </button>
-        <button class="tab-btn" onclick="switch3D('pa2_walkin')" id="tab-pa2_walkin">
-          🌕 Góc 2 (T2-V03): Vòng Chiếu Xuyên Sáng Ø1,2m + Đảo Mặt Kính Nhìn Ra Khu Ngủ
+        <button class="tab-btn active" onclick="switch3D('pa2_walkin')" id="tab-pa2_walkin">
+          🌕 Góc 2 (T2-V03): Sau Giường — Vòng Ø1,2m + Đảo Kính &amp; Vách Âm Cửa Lùa
         </button>
         <button class="tab-btn" onclick="switch3D('wic_south')" id="tab-wic_south">
-          🪞 Góc 3 (T2-V04 • Ngược 180°): 6 Ngăn Kéo Đảo + Vòng Ø1,2m Nhìn Về Tủ #1–#2 &amp; WC-02
+          🪞 Góc 3 (T2-V04 • Ngược 180°): 6 Ngăn Đảo + Gương Kịch Trần + Bàn O2 &amp; Tủ #1–#2
         </button>
         <button class="tab-btn" onclick="switch3D('pa2_bed')" id="tab-pa2_bed">
-          🏛️ Góc 4 (T2-V01): Mặt Trước Vách Ngăn Trục B (PA C Bình Phong Treo / PA A / PA B)
+          🏛️ Góc 4 (T2-V01): Vách Ngăn Trục B Nhìn Từ Giường (TV 65" &amp; Cửa Lùa Âm / Bình Phong)
+        </button>
+        <button class="tab-btn" onclick="switch3D('bedroom')" id="tab-bedroom">
+          👑 Góc 1 (T2-V02): Giường &amp; Đầu Giường + Ô Kính 750mm Tường Đông &amp; Tủ #3
         </button>
         <button class="tab-btn" onclick="switch3D('wc02')" id="tab-wc02">
-          🚿 Góc 5: Bên Trong Phòng Tắm WC-02 (3 Khoang Chuẩn KT-5.03)
+          🚿 Góc 5: Bên Trong Phòng Tắm Master WC-02 (3 Khoang Chuẩn KT-5.03)
         </button>
         <button class="tab-btn" onclick="switch3D('pa2_ceiling')" id="tab-pa2_ceiling">
           💡 Góc 6: Phối Cảnh Chuyên Đề Trần – Đèn Mặt Trăng Ø1.200 &amp; 06 Bóng Lộ 18
@@ -639,28 +640,48 @@
 
       <div class="viewer-grid">
         <div class="img-frame">
-          <img id="main-3d-img" src="assets/warm_minimalist_wm06_t2_v02.jpg" alt="Phối cảnh 3D Phòng Master Tầng 2 PA 1 Warm Minimalist WM-06" onclick="openLightbox(this.src)" />
+          <img id="main-3d-img" src="assets/warm_minimalist_wm06_min_t2_v03_wic_north.jpg" alt="Phối cảnh 3D Phòng Master Tầng 2 PA 1A Warm Minimalist WM-06 Tinh Chỉnh" width="1376" height="768" fetchpriority="high" onclick="openLightbox(this.src)" />
           <div class="img-caption">
-            <span id="main-3d-caption">[🕊️ PA 1 Warm Minimalist WM-06: Kem Greige × Chỉ Đen 10%] T2-V02: Giường &amp; Đầu giường Master + Vách kính cố định 750mm nằm đúng trên Tường Đông bên phải (KT-2.08) &amp; Tủ #3 (0% kính)</span>
+            <span id="main-3d-caption">[🕊️ PA 1A Mới Tinh Chỉnh: WM-06 Minimalist Phẳng] T2-V03 (Khu Thay Đồ Nhìn Bắc): Vách Phẳng 220mm Âm 2 Cửa Lùa Kịch Trần (0% Ray Sàn) + Đảo Kính Vát 45° + Khe Đứng Rộng ~860mm</span>
             <span>🔍 Bấm vào ảnh để phóng to</span>
           </div>
         </div>
 
         <div class="info-panel" id="main-3d-info">
-          <h3>T2-V02 • Giường Cánh Chim 100% Vân Gỗ Đẹp &amp; Chuẩn Hóa Ô Kính 750mm Tường Đông (KT-2.08)</h3>
+          <h3>T2-V03 • PA 1A Tinh Chỉnh: Vách Phẳng 220mm Âm 2 Cửa Lùa &amp; Khe Đứng Đảo 860mm</h3>
           <ul class="check-list">
             <li>
-              <strong>1. Khoe trọn mặt vân gỗ ghép đối xứng (<code>0% bọc da</code> — Tiết kiệm chi phí &amp; bền vĩnh cửu):</strong>
-              Toàn bộ vách đầu giường uốn cánh chim, thành giường bay <code>R60</code> và ghế băng đuôi giường dùng <strong>100% vân gỗ Nu/Óc chó (<code>Karma Nuka + Karma Grain</code>) điểm chỉ đồng mảnh</strong> kết hợp 2 táp đá <code>Travertine</code>.
+              <strong>1. Giải phóng khe đứng từ 630mm lên ~860mm:</strong> Vách Trục B thu gọn thành <code>1.740 × 220 × 2.650 mm</code> âm 2 cánh lùa treo kịch trần (<code>0% ray sàn</code>) kết hợp Đảo kính <code>1.150 × 500 mm</code> góc vát <code>45°</code> sắc nét.
             </li>
             <li>
-              <strong>2. Chuẩn 100% vị trí ô cửa theo <code>KT-2.08</code>:</strong>
-              Bức tường Bắc đầu giường xây đặc liền mạch tới kịch góc phải; <strong>vách kính cố định <code>O2 (750mm)</code> nằm vuông góc trên Tường Đông bên tay phải</strong> (cùng mặt phẳng lưng <code>Tủ áo #3 sâu 600mm</code>, hắt nắng chéo vào ngách)!
+              <strong>2. Mặt sau Vách Trục B Minimalist (<code>0% cánh kính tủ đứng</code>):</strong> Tấm phẳng <code>Kem Greige LL 21</code> chia ron đen mảnh <code>10%</code> ôm hốc đá <code>Light Travertine</code> nông <code>120mm</code> bày túi xách &amp; nước hoa.
             </li>
             <li>
-              <strong>3. Đối chiếu đủ các phương án vách ngăn tại <a href="mau-modern-luxury-349.html#sec-master-wow" style="color:#fde68a;">Tổng Duyệt Vân Gỗ & Travertine</a>.</strong>
+              <strong>3. Thoáng sáng hai bên tối đa:</strong> Phải là <strong>gương phẳng tràn viền kịch trần <code>800×2.650mm</code></strong>; Trái là bàn treo cửa sổ <code>O2</code> <strong>không bị gương chắn sáng</strong> (dời gương sang tường đặc kế bên).
             </li>
           </ul>
+        </div>
+      </div>
+
+      <!-- Compact Side-by-Side Quick Audit Strip: PA 1A Tinh Chỉnh vs PA 1B Bản Cũ -->
+      <div style="margin-top:16px;padding:14px 16px;border-radius:14px;background:rgba(15,23,42,0.72);border:1px solid rgba(16,185,129,0.38);">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
+          <strong style="font-size:0.88rem;color:#6ee7b7;">⚖️ ĐỐI CHIẾU NHANH 5 ĐIỂM NÂNG CẤP TRÊN 3 GÓC PHÍA SAU MASTER (PA 1A MỚI ↔ PA 1B CŨ)</strong>
+          <span style="font-size:0.77rem;color:#cbd5e1;">Bấm thẳng vào từng ảnh bên dưới để phóng to 4K soi chi tiết cho 2 vợ chồng cùng chốt:</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;">
+          <div style="background:rgba(7,11,18,0.7);border:1px solid rgba(148,163,184,0.22);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/warm_minimalist_wm06_min_t2_v01_master_south.jpg')">
+            <img src="assets/warm_minimalist_wm06_min_t2_v01_master_south.jpg" alt="T2-V01 PA 1A Vách phẳng 220mm âm cửa lùa và TV The Frame 65 inch" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:8px 10px;font-size:0.77rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T2-V01 (PA 1A):</strong> Bỏ 2 ty treo trần &amp; bo nặng &rarr; Vách phẳng kịch trần + <strong>TV The Frame 65" âm phẳng</strong> + <strong>2 cửa lùa treo âm tường 0% ray sàn</strong>.</div>
+          </div>
+          <div style="background:rgba(7,11,18,0.7);border:1px solid rgba(148,163,184,0.22);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/warm_minimalist_wm06_min_t2_v03_wic_north.jpg')">
+            <img src="assets/warm_minimalist_wm06_min_t2_v03_wic_north.jpg" alt="T2-V03 PA 1A Đảo kính phẳng và khe đứng 860mm rộng rãi" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:8px 10px;font-size:0.77rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T2-V03 (PA 1A):</strong> Nới khe đứng đảo <code>630 &rarr; ~860mm</code> + Đảo kính vát <code>45°</code> thẳng tâm vòng <code>Ø1,2m</code> + 2 cửa lùa kéo khít ban đêm cản sáng/hơi lạnh.</div>
+          </div>
+          <div style="background:rgba(7,11,18,0.7);border:1px solid rgba(148,163,184,0.22);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/warm_minimalist_wm06_min_t2_v04_wic_south.jpg')">
+            <img src="assets/warm_minimalist_wm06_min_t2_v04_wic_south.jpg" alt="T2-V04 PA 1A Gương phẳng kịch trần và bàn O2 thoáng 100 phần trăm" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:8px 10px;font-size:0.77rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T2-V04 (PA 1A):</strong> Gương vòm &rarr; <strong>Gương phẳng LED kịch trần</strong> • Cửa sổ <code>O2</code> thoáng sáng 100% nhờ dời gương sang tường đặc cạnh bàn phấn.</div>
+          </div>
         </div>
       </div>
     </section>
@@ -955,26 +976,41 @@
 
   <script src="assets/qvilla-nav.js" defer></script>
   <script>
-    let currentMasterTone = "wm06";
-    let currentMasterView = "bedroom";
+    let currentMasterTone = "wm06min";
+    let currentMasterView = "pa2_walkin";
 
     const VIEWS = {
       pa2_bed: {
         imgs: {
+          wm06min: "assets/warm_minimalist_wm06_min_t2_v01_master_south.jpg",
           wm06: "assets/warm_minimalist_wm06_t2_v01_master_south.jpg",
           studio349: "assets/wow_master_v01_south_allwood.jpg",
           studio349_leather: "assets/master_vach_optC.jpg"
         },
+        titles: {
+          wm06min: "T2-V01 (PA 1A Tinh Chỉnh) • Vách Phẳng 220mm Âm 2 Cửa Lùa Kịch Trần (0% Ray Sàn) & Tivi The Frame 65\""
+        },
+        captions: {
+          wm06min: "T2-V01 (Nhìn hướng Nam từ Giường Bắc): Vách phẳng 1.740×220×2.650mm âm 2 cửa lùa treo kịch trần (0% ray sàn) + TV 65\" The Frame âm phẳng + Đá Light Travertine"
+        },
         caption: "T2-V01 (Nhìn hướng Nam từ Giường Bắc): Bình Phong Travertine Treo Lơ Lửng + Đôn đuôi giường + Vòng Chiếu Xuyên Sáng Ø1.200mm",
         title: "T2-V01 • Mặt Trước Vách Ngăn Trục B Nhìn Từ Giường Ngủ (PA C / PA B / PA A)",
+        itemsByTone: {
+          wm06min: [
+            "<strong>1. Vách phẳng kiến trúc Minimalist <code>1.740 × 220 × 2.650 mm</code> (0% ty treo sắt, 0% bo cong nặng):</strong> Bỏ hoàn toàn bình phong treo rủ; thay bằng vách phẳng kịch trần phủ <code>Kem Greige LL 21</code> chia ron đen mảnh <code>10%</code> phối dải đá <code>Light Travertine</code> LED dọc.",
+            "<strong>2. Âm phẳng Tivi <code>65\" Samsung The Frame</code> &amp; 02 Cửa Lùa Treo Âm Tường (<code>0% ray dưới sàn</code>):</strong> Ban ngày 2 cánh kính sọc mờ khung nhôm đen mảnh (<code>860×2.650mm</code>) trượt giấu hoàn toàn vào hốc vách; ban đêm kéo khít 2 lối <code>850mm</code> giữ hơi lạnh ĐH &amp; chắn 100% ánh sáng WC.",
+            "<strong>3. Đối chiếu 1-click:</strong> Bấm <strong>PA 1B (Bản Cũ)</strong> ngay bên trên để so trực tiếp với mẫu Bình phong treo cũ hoặc bấm <button type='button' class='lb-btn' onclick=\"openLightbox('assets/master_vach_optA.jpg')\">⭐ PA A (Đảo Lửng 1,35m)</button>."
+          ]
+        },
         items: [
-          "<strong>1. Đồng bộ 100% theo gu đang chọn:</strong> <code>PA 1 WM-06</code> dùng bình phong đá Travertine bo viền Kem Greige <code>LL 21</code> &amp; đôn Sồi sáng; <code>PA 2 Option A</code> dùng 100% Vân Gỗ; <code>Option B</code> bọc da bò Cognac.",
+          "<strong>1. Đồng bộ 100% theo gu đang chọn:</strong> <code>PA 1B WM-06</code> dùng bình phong đá Travertine bo viền Kem Greige <code>LL 21</code> &amp; đôn Sồi sáng; <code>PA 2 Option A</code> dùng 100% Vân Gỗ; <code>Option B</code> bọc da bò Cognac.",
           "<strong>2. Hai bên Trái &amp; Phải đi lại mở thông hoàn toàn (<code>850 + 1.740 + 850 = 3.440 mm</code>):</strong> Không vướng cánh cửa, không ray sàn, thông gió điều hòa 100%.",
           "<strong>3. Xem thêm 2 biến thể mặt trước:</strong> <button type='button' class='lb-btn' onclick=\"openLightbox('assets/master_vach_optA.jpg')\">⭐ Xem PA A (Đảo Lửng 1,35m)</button> <button type='button' class='lb-btn' onclick=\"openLightbox('assets/master_vach_optB.jpg')\">✨ Xem PA B (Cổng Vòm Kính Sọc)</button>"
         ]
       },
       bedroom: {
         imgs: {
+          wm06min: "assets/warm_minimalist_wm06_t2_v02.jpg",
           wm06: "assets/warm_minimalist_wm06_t2_v02.jpg",
           studio349: "assets/wow_master_bed_allwood.jpg?v=2",
           studio349_leather: "assets/wow_master_bed_cream_leather.jpg",
@@ -984,18 +1020,32 @@
         caption: "T2-V02: Giường & Đầu giường Master + Vách kính cố định 750mm nằm đúng trên Tường Đông bên phải (KT-2.08) & Tủ #3 (0% kính)",
         title: "T2-V02 • Giường Master & Chuẩn Hóa Ô Kính 750mm Tường Đông (KT-2.08)",
         items: [
-          "<strong>1. PA 1 Ưu Tiên — Warm Minimalist WM-06:</strong> Vách Kem Greige <code>LL 21</code> chia ron đen mảnh kẹp 2 dải đá <code>Light Travertine</code> LED dọc + giường bay Sồi sáng đầu giường da <code>Warm Saddle</code> + <code>Tủ #3 (0% kính)</code> tay nắm âm đen mảnh <code>10%</code> (chuyển sang PA 2 Option A/B hoặc BT-04/BT-05 bằng các nút bên trên).",
+          "<strong>1. PA 1A &amp; 1B — Warm Minimalist WM-06:</strong> Vách Kem Greige <code>LL 21</code> chia ron đen mảnh kẹp 2 dải đá <code>Light Travertine</code> LED dọc + giường bay Sồi sáng đầu giường da <code>Warm Saddle</code> + <code>Tủ #3 (0% kính)</code> tay nắm âm đen mảnh <code>10%</code>.",
           "<strong>2. Chuẩn 100% kiến trúc <code>KT-2.08</code>:</strong> Toàn bộ bức tường Bắc đầu giường xây đặc liền mạch tới kịch góc phải; <strong>vách kính cố định <code>O2 (750mm)</code> nằm vuông góc trên Tường Đông bên tay phải</strong> (cùng mặt phẳng lưng <code>Tủ áo #3 sâu 600mm</code>)!",
           "<strong>3. Hệ <code>Tủ Áo #3 (2.010×600mm, 0% cánh kính)</code>:</strong> Cánh phẳng sáng màu không lộ đồ kết hợp hốc đá <code>Travertine</code> trưng bày bình điêu khắc."
         ]
       },
       pa2_walkin: {
         imgs: {
+          wm06min: "assets/warm_minimalist_wm06_min_t2_v03_wic_north.jpg",
           wm06: "assets/warm_minimalist_wm06_t2_v03_wic_north.jpg",
           studio349: "assets/wow_master_wic_moon_north.jpg"
         },
+        titles: {
+          wm06min: "T2-V03 (PA 1A Tinh Chỉnh) • Vòng Ø1,2m + Đảo Kính Vát 45° + Khe Đứng 860mm & Vách Âm 2 Cửa Lùa"
+        },
+        captions: {
+          wm06min: "T2-V03 (Khu Thay Đồ nhìn Bắc): Vòng Ø1.200mm thẳng tâm Đảo kính vát 45° + Khe đứng rộng ~860mm trước Vách Trục B 220mm âm 2 cửa lùa treo kịch trần (0% ray sàn)"
+        },
         caption: "T2-V03 (Khu Thay Đồ nhìn Bắc): Vòng chiếu xuyên sáng Ø1.200mm thẳng dọi tâm Bàn Đảo Mặt Kính + Thân đảo Kem Greige / Vân Gỗ, nhìn xuyên 2 lối đi 850mm sang Khu Ngủ",
         title: "T2-V03 • Khu Thay Đồ Nhìn Bắc: Vòng Chiếu Xuyên Sáng Ø1,2m Thẳng Tâm Bàn Đảo Mặt Kính",
+        itemsByTone: {
+          wm06min: [
+            "<strong>1. Giải phóng khe đứng giữa Vách Trục B &amp; Đảo từ 630mm lên ~860mm:</strong> Giảm độ dày Vách Trục B từ <code>450mm &rarr; 220mm</code> và tinh gọn Đảo kính còn <code>1.150 × 500 × 850 mm</code> vát mòi <code>45°</code> sắc nét, đi lại hay mở ngăn kéo cực kỳ thoáng rộng.",
+            "<strong>2. Mặt sau Vách Trục B Minimalist (<code>0% cánh kính tủ đứng</code>):</strong> Phủ <code>Kem Greige LL 21</code> chia ron đen mảnh ôm <strong>hốc đá <code>Light Travertine</code> nông <code>120mm</code></strong> hắt LED trưng bày túi &amp; nước hoa; 2 bên là 2 cửa lùa treo âm tường không ray sàn.",
+            "<strong>3. Mở thoáng ánh sáng tự nhiên &amp; soi dáng:</strong> Trái nâng cấp bàn treo dưới cửa sổ <code>O2</code> <strong>không bị gương chắn sáng</strong> (dời gương ra tường đặc bên cạnh); Phải dùng <strong>gương phẳng tràn viền LED kịch trần</strong>."
+          ]
+        },
         items: [
           "<strong>1. Đồng trục tâm 100% theo <code>KT-4.02</code>:</strong> Vòng chiếu xuyên sáng Barrisol <code>Ø1.200mm</code> âm phẳng trên trần (kèm <code>06</code> bóng <code>Lộ 18</code>, không vướng đèn thả) rọi thẳng đứng xuống mặt kính cường lực siêu trong <code>10mm</code> soi khay đồng hồ, nhẫn &amp; kính mắt.",
           "<strong>2. Thân Bàn Đảo <code>0% Bọc Da</code>:</strong> Bo tròn <code>R80</code> trên chân đế đá <code>Travertine</code> hắt LED gầm — bản <code>WM-06</code> dùng Kem Greige phẳng ron đen 10%, bản <code>PA 2</code> dùng 100% vân gỗ Óc chó.",
@@ -1004,13 +1054,27 @@
       },
       wic_south: {
         imgs: {
+          wm06min: "assets/warm_minimalist_wm06_min_t2_v04_wic_south.jpg",
           wm06: "assets/warm_minimalist_wm06_t2_v04_wic_south.jpg",
           studio349: "assets/wow_master_wic_moon_south.jpg"
         },
+        titles: {
+          wm06min: "T2-V04 (PA 1A Tinh Chỉnh • Ngược 180°) • 6 Ngăn Kéo Phẳng Âm Ron Đen • Gương Kịch Trần & Bàn O2 Thoáng Sáng"
+        },
+        captions: {
+          wm06min: "T2-V04 (Ngược 180° nhìn Nam): 6 ngăn kéo đảo phẳng vát 45° âm ron đen • Trái Cửa O1 & Gương phẳng kịch trần • Phải Bàn O2 dời gương mở thoáng cửa sổ • Tủ #1–#2 0% kính ôm cửa WC-02"
+        },
         caption: "T2-V04 (Góc ngược 180° nhìn Nam): 6 ngăn kéo mặt trước bàn đảo dưới Vòng xuyên sáng Ø1,2m • Trái Cửa O1 & Gương vòm • Phải Cửa sổ O2 & Bàn phấn • Chính diện Tủ #1–#2 & WC-02",
         title: "T2-V04 • Góc Ngược 180°: 6 Ngăn Kéo Đảo & Cặp Tủ Chống Ẩm #1–#2 Ôm Cửa WC-02",
+        itemsByTone: {
+          wm06min: [
+            "<strong>1. Đảo phụ kiện 6 ngăn kéo phẳng Minimalist (0% bo cong, 0% tay nắm lồi):</strong> Cắt vát <code>45°</code> phủ <code>Kem Greige LL 21</code> chạy chỉ móc âm đen mảnh dưới <code>Vòng Ø1,2m</code>, bệ đá <code>Light Travertine</code> hắt LED gầm.",
+            "<strong>2. Gương soi toàn thân phẳng tràn viền kịch trần (vách Trái cạnh cửa O1):</strong> Thay gương vòm cũ bằng gương chữ nhật <code>800×2.650mm</code> viền LED hắt tường thanh thoát, liền mạch ngôn ngữ phẳng.",
+            "<strong>3. Bàn trang điểm / làm việc dưới Cửa sổ O2 (vách Phải) + Cặp Tủ #1–#2 (<code>0% kính</code>):</strong> Dời gương LED sang mảng tường đặc cạnh cửa sổ để đón 100% nắng gió tự nhiên; cặp <code>Tủ #1–#2</code> cánh phẳng <code>0% kính</code> nẹp đá Travertine mảnh ôm cửa kính sọc mờ <code>WC-02</code>."
+          ]
+        },
         items: [
-          "<strong>1. 6 Ngăn Kéo Mặt Trước Bàn Đảo (0% Bọc Da):</strong> Dùng Kem Greige phẳng tay nắm âm đen mảnh (<code>PA 1 WM-06</code>) hoặc 100% vân gỗ Óc chó đối xứng (<code>PA 2</code>).",
+          "<strong>1. 6 Ngăn Kéo Mặt Trước Bàn Đảo (0% Bọc Da):</strong> Dùng Kem Greige phẳng tay nắm âm đen mảnh (<code>PA 1B WM-06</code>) hoặc 100% vân gỗ Óc chó đối xứng (<code>PA 2</code>).",
           "<strong>2. Cặp Tủ Áo #1 &amp; #2 (<code>1.180×600mm × 2</code>, <code>0% kính</code>):</strong> Đóng hậu <code>Plywood 9mm</code> + đáy <code>Plywood 18mm</code> chịu nước giáp tường ướt <code>WC-02</code>, bo cột đá <code>Travertine</code> hắt sáng dọc hai bên cửa kính sọc đồng.",
           "<strong>3. Trái là Cửa gỗ <code>O1</code> &amp; Gương vòm hắt sáng • Phải là Cửa sổ <code>O2</code> rèm gỗ &amp; Bàn phấn.</strong>"
         ]
@@ -1039,7 +1103,7 @@
 
     function setMasterTone(tone) {
       currentMasterTone = tone;
-      ["wm06", "studio349", "studio349_leather", "bt04", "bt05"].forEach(t => {
+      ["wm06min", "wm06", "studio349", "studio349_leather", "bt04", "bt05"].forEach(t => {
         const b = document.getElementById("tone-master-" + t);
         if (b) b.classList.toggle("active", t === tone);
       });
@@ -1054,29 +1118,34 @@
       if (!data) return;
       currentMasterView = key;
       const toneLabelMap = {
-        wm06: "[🕊️ PA 1 Warm Minimalist WM-06: Kem Greige × Chỉ Đen 10%] ",
+        wm06min: "[🕊️ PA 1A Mới Tinh Chỉnh: WM-06 Minimalist Phẳng • Cửa Lùa Âm & TV 65\"] ",
+        wm06: "[🕊️ PA 1B Bản Cũ: WM-06 Bình Phong Treo & Tủ Đảo 450mm] ",
         studio349: "[🪵 PA 2 Option A: 100% Vân Gỗ] ",
         studio349_leather: "[✨ Option B: Bọc Da Kem Đá (Đã Sửa Ô Kính KT-2.08)] ",
         bt04: "[🏙️ Hiện Đại BT-04: Sồi Khói Ghi Mocha (Khớp Đá T2)] ",
         bt05: "[☀️ Hiện Đại BT-05: Gỗ Caramel × Ghi Bazan (Khớp Lam T3)] "
       };
       const hasExactTone = Boolean(data.imgs && data.imgs[currentMasterTone]);
-      const toneLabel = hasExactTone ? (toneLabelMap[currentMasterTone] || "") : "[🕊️ PA 1 Warm Minimalist WM-06] ";
-      const resolvedImg = data.imgs ? (data.imgs[currentMasterTone] || data.imgs.wm06 || data.imgs.studio349) : data.img;
+      const resolvedTone = hasExactTone ? currentMasterTone : "wm06min";
+      const toneLabel = hasExactTone ? (toneLabelMap[currentMasterTone] || "") : "[🕊️ PA 1A WM-06 Minimalist] ";
+      const resolvedImg = data.imgs ? (data.imgs[currentMasterTone] || data.imgs.wm06min || data.imgs.wm06 || data.imgs.studio349) : data.img;
+      const resolvedCaption = (data.captions && data.captions[resolvedTone]) ? data.captions[resolvedTone] : data.caption;
+      const resolvedTitle = (data.titles && data.titles[resolvedTone]) ? data.titles[resolvedTone] : data.title;
+      const resolvedItems = (data.itemsByTone && data.itemsByTone[resolvedTone]) ? data.itemsByTone[resolvedTone] : data.items;
       document.getElementById("main-3d-img").src = resolvedImg;
-      document.getElementById("main-3d-caption").textContent = (data.imgs ? toneLabel : "") + data.caption;
+      document.getElementById("main-3d-caption").textContent = (data.imgs ? toneLabel : "") + resolvedCaption;
       const infoEl = document.getElementById("main-3d-info");
       infoEl.innerHTML = `
-        <h3>${data.title}</h3>
+        <h3>${resolvedTitle}</h3>
         <ul class="check-list">
-          ${data.items.map(it => `<li>${it}</li>`).join("")}
+          ${resolvedItems.map(it => `<li>${it}</li>`).join("")}
         </ul>
       `;
       document.querySelectorAll(".tab-bar .tab-btn").forEach(btn => btn.classList.remove("active"));
       const activeBtn = document.getElementById("tab-" + key);
       if (activeBtn) activeBtn.classList.add("active");
     }
-    switch3D("bedroom");
+    switch3D("pa2_walkin");
 
     let currentZoom = 1;
     let baseWidth = 900;

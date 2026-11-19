@@ -1152,13 +1152,28 @@
       </p>
 
       <div class="tone-selector-grid" role="group" aria-label="Chọn phong cách thiết kế toàn nhà">
-        <button type="button" class="tone-option-btn" id="btn-tone-wm06" aria-pressed="true" onclick="selectDesignTone('wm06')">
+        <button type="button" class="tone-option-btn" id="btn-tone-wm06min" aria-pressed="true" onclick="selectDesignTone('wm06min')">
           <div class="tone-top-row">
-            <span class="tone-pill" style="background:rgba(226,232,240,0.28);color:#f8fafc;border-color:#cbd5e1;">🕊️ PA 1 ƯU TIÊN • WARM MINIMALIST WM-06 • 70-20-10</span>
-            <span class="tone-harmony">Kem Greige × Đen Mờ 10%</span>
+            <span class="tone-pill" style="background:rgba(16,185,129,0.24);color:#ecfdf5;border-color:#6ee7b7;">🕊️ PA 1A MỚI TINH CHỈNH #1 • WM-06 MASTER PHẲNG</span>
+            <span class="tone-harmony">Cửa Lùa Âm &amp; TV 65"</span>
           </div>
-          <h3>Warm Minimalist: Kem Greige × Chỉ Đen 10%</h3>
-          <p><strong>70% Kem Greige phẳng mờ</strong> (<code>LL 21 / Warm Putty</code>) + <strong>20% Travertine &amp; Gỗ sáng</strong> + <strong>10% Đen Mờ</strong> (bàn mỏng, tay nắm, nhôm DCONS).</p>
+          <h3>WM-06 Tinh Chỉnh: Cửa Lùa Âm 220mm &amp; Khe Đứng 860mm</h3>
+          <p><strong>Đưa lên #1:</strong> Vách Trục B thu <code>220mm</code> âm <strong>2 cửa lùa <code>0% ray sàn</code> &amp; TV <code>65"</code></strong> + đảo vát <code>45°</code> nới khe đứng <code>860mm</code> + gương kịch trần &amp; bàn <code>O2</code> thoáng 100%.</p>
+          <div class="tone-mini-dots">
+            <span class="tone-dot" style="background:#dfd9cf;" title="70% Cánh & Vách Phẳng Kem Greige LL 21"></span>
+            <span class="tone-dot" style="background:#e5ddd0;" title="20% Đá Light Roman Travertine & Gỗ Sồi Sáng"></span>
+            <span class="tone-dot" style="background:#10b981;" title="Nâng cấp Master PA 1A: Vách 220mm Âm Cửa Lùa & Khe Đứng 860mm"></span>
+            <span class="tone-price-tag" style="color:#6ee7b7;">~591,00 Tr ₫</span>
+          </div>
+        </button>
+
+        <button type="button" class="tone-option-btn" id="btn-tone-wm06" aria-pressed="false" onclick="selectDesignTone('wm06')">
+          <div class="tone-top-row">
+            <span class="tone-pill" style="background:rgba(226,232,240,0.28);color:#f8fafc;border-color:#cbd5e1;">🕊️ PA 1B BẢN CŨ • WARM MINIMALIST WM-06 • 70-20-10</span>
+            <span class="tone-harmony">Bình Phong Treo &amp; Đảo 450</span>
+          </div>
+          <h3>Warm Minimalist Bản Cũ: Bình Phong Treo &amp; Tủ Đảo 450</h3>
+          <p><strong>70% Kem Greige phẳng mờ</strong> (<code>LL 21</code>) + bình phong đá treo ty &amp; tủ đảo Trục B sâu <code>450mm</code> bo cong <code>R80–R120</code> (giữ lại để đối chiếu song song).</p>
           <div class="tone-mini-dots">
             <span class="tone-dot" style="background:#dfd9cf;" title="70% Cánh & Vách Phẳng Kem Greige LL 21 / Warm Putty / Karma Cashmere"></span>
             <span class="tone-dot" style="background:#e5ddd0;" title="20% Đá Light Roman Travertine & Gỗ Sồi Sáng"></span>
@@ -1236,11 +1251,11 @@
               🎨 BẢNG MÃ VÁN &amp; ĐÁ WARM MINIMALIST WM-06 ĐANG ÁP DỤNG CHO CẢ 7 PHÂN KHU BÊN DƯỚI (0% LAM DỌC • DỄ VỆ SINH TUYỆT ĐỐI)
             </span>
             <h3 style="font-size:1.04rem;color:#fff;margin-top:2px;" id="active-tone-heading">
-              🕊️ PA 1 (Ưu Tiên Số 1): Warm Minimalist WM-06 — 70% Kem Greige Phẳng Mờ × 20% Đá Travertine &amp; Gỗ Sáng × 10% Nét Đen Mờ Kiến Trúc
+              🕊️ PA 1A (Đề Xuất #1): Warm Minimalist WM-06 Tinh Chỉnh — Master Vách Phẳng 220mm Âm 2 Cửa Lùa (0% Ray Sàn) &amp; TV 65" The Frame
             </h3>
           </div>
           <span class="filter-pill active" id="active-tone-cost-pill" style="cursor:default;">
-            Tổng 7 phân khu = ~585,00 Tr ₫ (0% Kính Tủ Đứng • 0% Lam Dọc • Khớp 100% Nhôm Đen DCONS &amp; Công Tắc Aqara)
+            Tổng 7 phân khu = ~591,00 Tr ₫ (0% Kính Tủ Đứng • Khe đứng Đảo 860mm • 2 Cửa Lùa Âm Kín ĐH)
           </span>
         </div>
         <div class="swatch-strip-grid" id="tone-swatch-strip"></div>
@@ -1275,8 +1290,16 @@
 
       <!-- Exclusive Searchable Accordions using <details name="qvilla-tone-spec"> (modern-web-guidance: search-hidden-content) -->
       <div class="tone-accordion-stack">
-        <details class="tone-disclosure" name="qvilla-tone-spec" id="details-wm06" open>
-          <summary>🕊️ PA 1 (Ưu Tiên): Hồ Sơ Warm Minimalist WM-06 — Công Thức 70–20–10: Kem Greige Phẳng × Travertine × Chỉ Đen Mờ 10%</summary>
+        <details class="tone-disclosure" name="qvilla-tone-spec" id="details-wm06min" open>
+          <summary>🕊️ PA 1A (Mới Tinh Chỉnh #1): WM-06 Minimalist Master — Vách Phẳng 220mm Âm 2 Cửa Lùa, TV 65" &amp; Khe Đứng Đảo 860mm</summary>
+          <div class="tone-disclosure-body">
+            <p>• <strong>5 nâng cấp thực dụng phía sau Phòng Master:</strong> (1) Thu mỏng Vách Trục B từ <code>450mm &rarr; 220mm</code> kịch trần bỏ ty treo sắt; (2) Giấu gọn <strong>02 cửa lùa treo kính sọc mờ (<code>0% ray dưới sàn</code>)</strong> để sàn xương cá chạy liền mà ban đêm vẫn kéo khít cản sáng/tiếng ồn &amp; giữ hơi lạnh điều hòa; (3) Âm phẳng <strong>TV <code>65" The Frame</code></strong> nhìn từ giường; (4) Đảo kính vát <code>45°</code> sâu <code>500mm</code> nới khe đứng từ <code>630mm &rarr; ~860mm</code>; (5) Gương phẳng tràn viền kịch trần cột Đông &amp; dời gương trang điểm sang tường đặc để Cửa sổ <code>O2</code> thoáng sáng 100%.</p>
+            <p>• <strong>Xếp song song với PA 1B:</strong> Chọn nút <strong>PA 1B Bản Cũ</strong> ngay bên trên hoặc vào <a href="phong-master-tang2.html" style="color:#6ee7b7;font-weight:800;">Phòng Master Tầng 2</a> để 2 vợ chồng bấm so sánh trực tiếp trước khi chốt xưởng.</p>
+          </div>
+        </details>
+
+        <details class="tone-disclosure" name="qvilla-tone-spec" id="details-wm06">
+          <summary>🕊️ PA 1B (Bản Cũ): Hồ Sơ Warm Minimalist WM-06 — Bình Phong Treo &amp; Tủ Đảo 450mm Bo Cong R80–R120</summary>
           <div class="tone-disclosure-body">
             <p>• <strong>Bảng mã ván xưởng 70–20–10 sáng thoáng:</strong> Dùng <strong>70% Nền Cánh &amp; Vách Phẳng Mờ Kem Greige</strong> (<code>An Cường Lacquered Laminate LL 21 / Acrylic Mờ Kem Greige</code> • <code>KES Warm Putty</code> • <code>Karma Cashmere Matte</code>) chia tấm khổ lớn ron mảnh sắc nét (<code>0% lam sóng nhỏ</code>, <code>0% kính tủ đứng lộ đồ</code>) + <strong>20% Đá <code>Light Roman Travertine</code> &amp; Gỗ Sồi sáng</strong> (<code>KES 12105 / Hopeful Light Oak</code>, đầu giường bọc da bò nhạt <code>Warm Saddle-Caramel</code>).</p>
             <p>• <strong>Ăn khớp 100% hệ thiết bị cố định Q Villa bằng 10% Nét Đen Mờ:</strong> Chỉ dùng màu đen cho <strong>mặt bàn ăn mỏng, bàn trà thấp, táp đầu giường, tay nắm âm đen mảnh</strong> — hòa quyện tự nhiên với <strong>khung cửa nhôm đen DCONS, ray nam châm, quạt trần đen mờ, công tắc Aqara xám/đen và hệ tủ bếp cánh kính màu Be</strong> mà hoàn toàn không làm nặng nề không gian.</p>
@@ -1907,14 +1930,14 @@
       wm06: {
         btnId: "btn-tone-wm06",
         detailsId: "details-wm06",
-        labelShort: "PA 1 Warm Minimalist WM-06: Kem Greige × Travertine × Chỉ Đen 10%",
-        heading: "🕊️ PA 1 (Ưu Tiên Số 1): Warm Minimalist WM-06 — 70% Kem Greige Phẳng Mờ × 20% Đá Travertine & Gỗ Sáng × 10% Nét Đen Mờ Kiến Trúc",
+        labelShort: "PA 1B WM-06 Bản Cũ: Bình Phong Treo & Tủ Đảo 450mm",
+        heading: "🕊️ PA 1B (Bản Cũ): Warm Minimalist WM-06 — 70% Kem Greige Phẳng Mờ × Bình Phong Treo & Tủ Đảo Bo R80–R120",
         costPill: "Tổng 7 phân khu = ~585,00 Tr ₫ (0% Kính Tủ Đứng • 0% Lam Dọc • Khớp 100% Nhôm Đen DCONS & Công Tắc Aqara)",
         sofaPriceOptimal: 37000000,
         enableWarmBeigePkg: false,
         enableItalianPkg: false,
         enableTone3Pkg: false,
-        tag2: "Warm Minimalist WM-06: Kem Greige LL 21 × Chỉ Đen 10%",
+        tag2: "Warm Minimalist WM-06 (Bản Cũ): Kem Greige × Chỉ Đen 10%",
         swatches: [
           {
             bg: "linear-gradient(135deg, #dfd9cf, #cec6b9)",
@@ -1954,8 +1977,19 @@
       }
     };
 
-    const ALL_TONE_KEYS = ["wm06", "studio349", "studio349leather", "bt04", "bt05"];
-    let currentTone = "wm06";
+    TONE_CONFIGS.wm06min = {
+      ...TONE_CONFIGS.wm06,
+      btnId: "btn-tone-wm06min",
+      detailsId: "details-wm06min",
+      labelShort: "PA 1A WM-06 Minimalist Tinh Chỉnh: Cửa Lùa Âm 220mm & TV 65\"",
+      heading: "🕊️ PA 1A (Đề Xuất #1): Warm Minimalist WM-06 Tinh Chỉnh — Master Vách Phẳng 220mm Âm 2 Cửa Lùa (0% Ray Sàn) & TV 65\" The Frame",
+      costPill: "Tổng 7 phân khu = ~591,00 Tr ₫ (0% Kính Tủ Đứng • Khe đứng Đảo 860mm • 2 Cửa Lùa Âm Kín ĐH)",
+      tag2: "PA 1A WM-06 Tinh Chỉnh: Cửa Lùa Âm 220mm & Đảo Vát 45°",
+      images: TONE_CONFIGS.wm06.images.map((src, idx) => idx === 5 ? "assets/warm_minimalist_wm06_min_t2_v03_wic_north.jpg" : src)
+    };
+
+    const ALL_TONE_KEYS = ["wm06min", "wm06", "studio349", "studio349leather", "bt04", "bt05"];
+    let currentTone = "wm06min";
     let currentPresetMode = "optimal";
     let isSyncingToneDetails = false;
 
@@ -2117,7 +2151,7 @@
         luxPkg.price = currentPresetMode === "premium" ? 14500000 : 10500000;
       }
       if (currentPresetMode === "optimal" || currentPresetMode === "withkitchen" || currentPresetMode === "woodonly") {
-        const isZeroStandGlass = (toneId === "studio349" || toneId === "studio349leather" || toneId === "bt04" || toneId === "bt05" || toneId === "wm06" || toneId === "tone3");
+        const isZeroStandGlass = (toneId === "studio349" || toneId === "studio349leather" || toneId === "bt04" || toneId === "bt05" || toneId === "wm06" || toneId === "wm06min" || toneId === "tone3");
         const noGlassAdjust = {
           nt2_2: isZeroStandGlass ? 29000000 : 33500000,
           nt5_1: isZeroStandGlass ? 11500000 : 13000000,
@@ -2135,7 +2169,7 @@
         if (currentPresetMode === "optimal" || currentPresetMode === "withkitchen") {
           sofaItem.price = cfg.sofaPriceOptimal;
         } else if (currentPresetMode === "premium") {
-          sofaItem.price = (toneId === "bt04" || toneId === "bt05" || toneId === "wm06" || toneId === "tone3") ? 49000000 : 45000000;
+          sofaItem.price = (toneId === "bt04" || toneId === "bt05" || toneId === "wm06" || toneId === "wm06min" || toneId === "tone3") ? 49000000 : 45000000;
         }
       }
     }
@@ -2270,7 +2304,7 @@
     }
 
     function loadSavedInteriorBudget() {
-      let loadedTone = "wm06";
+      let loadedTone = "wm06min";
       let hasCustomSavedItems = false;
       try {
         const raw = localStorage.getItem(STORAGE_KEY_NT);
@@ -2278,7 +2312,7 @@
           const parsed = JSON.parse(raw);
           if (parsed && Array.isArray(parsed.items)) {
             itemsState = parsed.items;
-            loadedTone = (parsed.tone && TONE_CONFIGS[parsed.tone]) ? parsed.tone : "wm06";
+            loadedTone = (parsed.tone && TONE_CONFIGS[parsed.tone]) ? parsed.tone : "wm06min";
             hasCustomSavedItems = true;
             document.getElementById("save-status").textContent = "📌 Đang hiển thị: Bản dự toán nội thất V5 đã lưu của bạn";
           }
@@ -2303,7 +2337,7 @@
         itemsState = savedItemsSnapshot;
         renderInteriorTable();
       } else {
-        selectDesignTone("wm06");
+        selectDesignTone("wm06min");
       }
     }
 
