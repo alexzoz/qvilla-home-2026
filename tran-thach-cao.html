@@ -224,6 +224,15 @@
       color: #6ee7b7;
     }
 
+    .wf-step.step-4 {
+      border-color: rgba(245, 158, 11, 0.65);
+      background: linear-gradient(145deg, rgba(245, 158, 11, 0.14), rgba(16, 185, 129, 0.08));
+    }
+
+    .wf-step.step-4 h3 {
+      color: #fde68a;
+    }
+
     .wf-step {
       padding: 14px 16px;
       border-radius: 12px;
@@ -568,6 +577,27 @@
     article.room-card.curve-card {
       border-color: rgba(16, 185, 129, 0.48);
       background: linear-gradient(180deg, rgba(16, 185, 129, 0.06), var(--surface));
+    }
+
+    article.room-card.wm06-card {
+      border-color: rgba(245, 158, 11, 0.55);
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.07), var(--surface));
+    }
+
+    .wm06-spec-item {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.38);
+      border-radius: 12px;
+      padding: 13px 15px;
+      font-size: 0.84rem;
+      color: #cbd5e1;
+    }
+
+    .wm06-spec-item strong {
+      display: block;
+      color: #fde68a;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
     }
 
     .ducanh-spec-grid {
@@ -1003,10 +1033,18 @@
       }
 
       table.cmp-table {
-        --label-2: "Phương Án A (100% XHOME Gốc Vuông)";
-        --label-3: "Phương Án B (Bản Đã Vẽ / Trần Phẳng)";
-        --label-4: "Phương Án C Mới (Kiểu Bo Cong R350)";
-        --label-5: "Gợi Ý Phối Hợp & Khuyến Nghị Chốt";
+        --label-2: "PA A (100% XHOME Vuông)";
+        --label-3: "PA B (Tối Ưu / Phẳng)";
+        --label-4: "PA C (Bo Cong Máng Hắt R350)";
+        --label-5: "PA D Mới (WM-06 Sạch Bụi & LED Rèm)";
+        --label-6: "Gợi Ý Phối Hợp & Khuyến Nghị Chốt";
+      }
+
+      table.led-remap-table {
+        --label-2: "Lộ Đèn Gốc Trên CĐ-11..14";
+        --label-3: "Kiểu Trần PA D (WM-06)";
+        --label-4: "Đấu Nối Đèn Thay Thế (Giữ Nguyên Công Tắc)";
+        --label-5: "Ưu Điểm Chiếu Sáng & Vệ Sinh";
       }
 
       table.boq-table {
@@ -1180,10 +1218,11 @@
       </a>
       <nav class="nav-links" aria-label="Điều hướng nhanh hồ sơ trần thạch cao">
         <a href="#sec-qvilla-real-photos">📸 13 Khu Giật Cấp XHOME</a>
-        <a href="#sec-pa-c-bo-cong" style="border-color:rgba(16,185,129,0.55);color:#6ee7b7;background:rgba(16,185,129,0.12);">🌙 PA C Mới: Trần Bo Cong R350</a>
+        <a href="#sec-pa-d-wm06" style="border-color:rgba(245,158,11,0.65);color:#fde68a;background:rgba(245,158,11,0.14);">🕊️ PA D Mới: WM-06 Sạch Bụi &amp; LED Rèm</a>
+        <a href="#sec-pa-c-bo-cong" style="border-color:rgba(16,185,129,0.55);color:#6ee7b7;background:rgba(16,185,129,0.12);">🌙 PA C: Trần Bo Cong R350</a>
         <a href="#sec-xhome-100">📐 1. CAD 100% XHOME</a>
         <a href="#sec-xhome-details">🔧 2. Mặt Cắt KT-4.05</a>
-        <a href="#sec-floor-compare">⚖️ 3. Đối Chiếu A • B • C</a>
+        <a href="#sec-floor-compare">⚖️ 3. Đối Chiếu A • B • C • D</a>
         <a href="#sec-decision-matrix">📋 4. Ma Trận Chốt</a>
         <a href="#sec-boq">💰 5. Dự Toán</a>
         <a href="Ho_So_Thi_Cong_Tran_Thach_Cao_4_Tang_QVilla.pdf" target="_blank" class="btn-pdf">⬇️ In PDF A3 (10 Tờ)</a>
@@ -1197,21 +1236,24 @@
       <div class="hero-card">
         <div class="hero-top">
           <div>
-            <span class="hero-tag">📐 CẬP NHẬT THEO ĐÚNG QUY TRÌNH CHỦ NHÀ DUYỆT • 100% HỒ SƠ GỐC XHOME TRƯỚC</span>
-            <h2 class="hero-title">Hồ Sơ Trần Thạch Cao Nguyên Bản 100% XHOME (KT-4.01 → KT-4.05) &amp; Đối Chiếu Từng Tầng Đã Vẽ</h2>
+            <span class="hero-tag">📐 HỒ SƠ ĐỐI CHIẾU 4 PHƯƠNG ÁN TRẦN THẠCH CAO &amp; LED GIÁN TIẾP • Q VILLA</span>
+            <h2 class="hero-title">Hồ Sơ Trần Thạch Cao Nguyên Bản 100% XHOME (KT-4.01 → KT-4.05) &amp; Đối Chiếu 4 Phương Án (PA A • B • C • D)</h2>
             <p class="hero-desc">
-              Toàn bộ phần đầu trang này đã được dựng chuẩn xác theo <strong>100% hồ sơ thiết kế trần thạch cao &amp; chiếu sáng nguyên bản của XHOME</strong> (<code>KT-4.01 → KT-4.05</code> &amp; <code>CĐ-11 → CĐ-14</code>) làm mốc gốc chuẩn. Ngay phía dưới (<a href="#sec-floor-compare">Mục 3 &amp; Mục 4</a>) là phần <strong>đặt song song đối chiếu trực quan từng tầng</strong> với các bản vẽ đã tinh chỉnh trước đó (<em>Bếp/Khách T1, Master PA2 T2, Phòng Thờ &amp; Làm Việc T3, Tầng Tum 2 Mái Kính</em>) để Chủ nhà dễ xem xét và tích chọn phương án ưng ý nhất cho từng phòng.
+              Toàn bộ phần nền vẫn giữ chuẩn xác <strong>100% thiết kế gốc XHOME</strong> (<code>KT-4.01 → KT-4.05</code> &amp; <code>CĐ-11 → CĐ-14</code>). Nay đã bổ sung thêm <strong>Phương Án D (Chuẩn Warm Minimalist WM-06 — Bỏ mỏ hắt bụi, đưa LED ra hốc rèm &amp; phẳng hóa Hành lang + Tầng 3)</strong> ngay trước <strong>PA C</strong> để anh chị đối chiếu đủ cả 4 phương án tại <a href="#sec-floor-compare">Mục 3</a> &amp; <a href="#sec-decision-matrix">Mục 4</a> trước khi chốt với đội thợ thạch cao.
             </p>
           </div>
           <div class="hero-actions">
+            <a href="#sec-pa-d-wm06" class="btn-action btn-primary" style="background:linear-gradient(135deg,#f59e0b,#d97706);color:#1f1202;">
+              🕊️ Xem Ngay PA D Mới: Chuẩn WM-06 (0% Mỏ Hắt Bụi • LED Rèm) ↓
+            </a>
             <a href="#sec-pa-c-bo-cong" class="btn-action btn-primary" style="background:linear-gradient(135deg,#10b981,#059669);color:#022c22;">
-              🌙 Xem Ngay PA C Mới: Kiểu Bo Cong R350 (Đức Anh 35) ↓
+              🌙 Xem PA C: Kiểu Bo Cong Máng Hắt R350 (Đức Anh 35) ↓
             </a>
             <a href="#sec-qvilla-real-photos" class="btn-action btn-secondary">
               📸 Xem 13 Khu Giật Cấp Gốc XHOME ↓
             </a>
             <a href="Ho_So_Thi_Cong_Tran_Thach_Cao_4_Tang_QVilla.pdf" target="_blank" class="btn-action btn-secondary">
-              📄 Mở Bộ Hồ Sơ In A3 (10 Tờ: Đủ PA A • B • C)
+              📄 Mở Bộ Hồ Sơ In A3 (10 Tờ: PA A • B • C)
             </a>
           </div>
         </div>
@@ -1226,8 +1268,12 @@
             <p>Đồng bộ va chạm thực tế tại các trang <a href="bep-tang1.html">Bếp 2,8m</a>, <a href="phong-master-tang2.html">Master PA2 (dời lỗ thăm ĐH)</a>, <a href="phong-tho-tang3.html">Phòng Thờ Y=1.960</a>, <a href="phong-lam-viec-tang3.html">Làm Việc Phẳng T3-A</a> &amp; <a href="tang-tum-3d.html">2 Mái Kính Tum</a>.</p>
           </div>
           <div class="wf-step step-3">
-            <h3>③ PHƯƠNG ÁN C MỚI (Kiểu Bo Cong Hiện Đại 2026)</h3>
-            <p>Tham khảo chuẩn thi công <strong>Đức Anh 35 (<code>@ducanh_tranthachcao</code>)</strong>: Giật cấp <strong>bo cong 4 góc <code>R300–R350mm</code></strong> + phào cong êm sáng + <strong>nẹp nhựa âm đen <code>12mm</code> uốn cong song song</strong> + Vòm Capsule Thay Đồ <code>R650</code> &amp; nắp thăm <code>R80</code>.</p>
+            <h3>③ PHƯƠNG ÁN C (Bo Cong Máng Hắt R350)</h3>
+            <p>Tham khảo chuẩn thi công <strong>Đức Anh 35 (<code>@ducanh_tranthachcao</code>)</strong>: Giật cấp <strong>bo cong 4 góc <code>R300–R350mm</code></strong> + phào cong êm sáng + <strong>nẹp nhựa âm đen <code>12mm</code> uốn cong</strong> + Vòm Capsule <code>R650</code>.</p>
+          </div>
+          <div class="wf-step step-4">
+            <h3>④ PHƯƠNG ÁN D MỚI (Chuẩn WM-06 Sạch Bụi • LED Rèm)</h3>
+            <p><strong>Hợp phong cách <code>WM-06</code> nhất:</strong> Chỉ giật cấp <strong>đứng kín bo <code>R350</code></strong> nơi giấu ĐH âm trần (<code>0% mỏ hắt đọng bụi</code>), đưa LED gián tiếp sang <strong>hốc rèm âm 215–250mm</strong>, đóng <strong>phẳng 100%</strong> 3 Hành lang + Thay đồ + cả Tầng 3!</p>
           </div>
         </div>
 
@@ -1243,14 +1289,14 @@
             <div class="kpi-sub">Giật cấp +130mm (<code>+3.530</code> / <code>+3.130</code>; P.Thờ <code>+3.150</code>)</div>
           </div>
           <div class="kpi-box">
-            <div class="kpi-label">Chi Tiết Nẹp &amp; Khe Sáng Gốc</div>
-            <div class="kpi-val">P-UT12 (12mm) • U10</div>
-            <div class="kpi-sub">Khe hắt 01 &amp; 02 (bậc 130–150, mỏ 150) • Khe rèm 200–250</div>
+            <div class="kpi-label">Chi Tiết Nẹp &amp; Khe Sáng</div>
+            <div class="kpi-val">P-UT12 • U10 • Hốc Rèm</div>
+            <div class="kpi-sub"><code>PA D</code> chuyển LED khe trần sang hốc rèm &amp; thanh âm phẳng (0% bụi)</div>
           </div>
           <div class="kpi-box">
             <div class="kpi-label">Tổng Khối Lượng &amp; Ngân Sách</div>
-            <div class="kpi-val">228 m² • 59,08 Triệu ₫</div>
-            <div class="kpi-sub">Khung Vĩnh Tường + Tấm Gyproc + Phụ kiện (chưa gồm Sơn bả)</div>
+            <div class="kpi-val">228 m² • 56,90 – 65,50 Tr</div>
+            <div class="kpi-sub"><code>PA D</code>: ~56,90Tr • <code>PA A/B</code>: 59,08Tr • <code>PA C</code>: 65,50Tr</div>
           </div>
         </div>
       </div>
@@ -1585,6 +1631,185 @@
             <a href="#sec-floor-compare" class="btn-mini">⚖️ Xuống Bảng So Sánh Chọn</a>
           </footer>
         </article>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- NEW SECTION: OPTION D — WARM MINIMALIST WM-06 DUST-FREE & CURTAIN LED -->
+    <!-- ===================================================================== -->
+    <section id="sec-pa-d-wm06" class="block">
+      <div class="sec-head">
+        <div>
+          <span class="sec-badge amber">PHƯƠNG ÁN D MỚI • ĐỒNG BỘ WARM MINIMALIST WM-06 (0% MỎ HẮT HỨNG BỤI • CHUYỂN LED SANG HỐC RÈM &amp; PHẲNG HÓA T3 / HÀNH LANG)</span>
+          <h2>🕊️ Phương Án D — Trần Sạch Bụi Chuẩn WM-06: Giữ Cốt Cao Nơi Có ĐH Âm Trần (Đứng Kín) • Đưa LED Ra Hốc Rèm &amp; Đóng Phẳng Hành Lang + Tầng 3</h2>
+          <p>Trả lời trực tiếp bài toán kết hợp giữa <strong>phong cách Warm Minimalist <code>WM-06</code></strong> và <strong>hệ lộ dây công tắc Aqara / Điều hòa âm trần của Q Villa</strong>: giữ độ cao lòng giữa (<code>+3.53m</code> T1 &amp; <code>+3.13m</code> T2) bằng <strong>giật cấp cạnh đứng kín bo <code>R350mm</code> (không làm gờ mỏ hắt đọng bụi)</strong>, chuyển toàn bộ lộ LED trần sang <strong>LED hốc rèm âm / thanh LED âm phẳng</strong> và đóng <strong>trần phẳng 100%</strong> tại Hành lang, Khu Thay Đồ &amp; Tầng 3.</p>
+        </div>
+      </div>
+
+      <div class="ducanh-spec-grid">
+        <div class="wm06-spec-item">
+          <strong>① Giật Cấp Đứng Kín Bo R350 (Chỉ Nơi Có Ống Gió ĐH)</strong>
+          Tại P.Khách T1 &amp; Khu Ngủ Master T2, viền ngoài bắt buộc hạ <code>35–40cm</code> để giấu dàn lạnh âm trần. Lòng giữa nâng lên <code>+13cm</code> bằng <strong>thành đứng đặc kín bo <code>R350</code> + chỉ âm <code>P-UT12</code></strong> (<code>0% mỏ hắt hở đọng bụi</code>).
+        </div>
+        <div class="wm06-spec-item">
+          <strong>② Chuyển Dây LED Khe Trần Sang "LED Hắt Hốc Rèm"</strong>
+          Dây chờ <code>Lộ 4</code> (Khách), <code>Lộ 14</code> (Master), <code>Lộ 12/7</code> (PN1–2) đấu nối thẳng sang <strong>thanh nhôm LED COB <code>3000K</code> giấu trong hốc rèm âm <code>215–250mm</code></strong>: rọi trượt dọc rèm voan cực dịu mắt, không chói khi nằm ngửa.
+        </div>
+        <div class="wm06-spec-item">
+          <strong>③ Phẳng Hóa 100% Thay Đồ, 3 Hành Lang &amp; Toàn Tầng 3</strong>
+          Khu Thay Đồ giữ phẳng <code>+3.00m</code> tôn Vòm <code>Ø1,2m</code>; 3 Hành lang (T2–T3–Tum) bỏ hộp hẹp dùng <strong>01 thanh LED âm phẳng <code>3500K</code></strong>; P.Làm Việc + PN3/4 (dùng ĐH treo) phẳng 100% ở cốt cao <code>+3.13m</code>!
+        </div>
+        <div class="wm06-spec-item">
+          <strong>④ Kinh Tế &amp; Bền Sạch Nhất (~56,90 Triệu ₫ Toàn Nhà)</strong>
+          Bỏ được hàng chục mét dài mỏ hắt &amp; hộp hẹp nên tổng gói thạch cao PA D chỉ còn <strong><code>~56,90 Tr ₫</code></strong> (rẻ hơn <code>2,18 Tr</code> so với PA A/B và rẻ hơn <code>8,60 Tr</code> so với PA C), lại không bao giờ phải trèo thang hút bụi khe trần.
+        </div>
+      </div>
+
+      <div class="room-gallery-grid">
+        <article class="room-card wm06-card">
+          <img src="assets/qvilla_pa_d_wm06_01_khach_bep_hoc_rem.jpg" alt="PA D Phòng Khách Tầng 1 Q-Villa — Giật cấp đứng kín bo R350 không mỏ hắt bụi kết hợp LED hốc rèm" width="1376" height="768" loading="lazy" data-zoom-src="assets/qvilla_pa_d_wm06_01_khach_bep_hoc_rem.jpg" data-zoom-title="PHƯƠNG ÁN D (WM-06 Sạch Bụi) — D01. Phòng Khách – Ăn Tầng 1: Giật Cấp Đứng Kín Bo R350 + P-UT12 Đen + LED Hắt Hốc Rèm">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag amber">PA D • ĐỨNG KÍN BO R350 • TẦNG 1</span>
+              <span class="room-tag emerald">LED HỐC RÈM TÂY + P-UT12</span>
+            </div>
+            <h3>D01. Phòng Khách Tầng 1 — Giật Cấp Đứng Kín Bo R350 + Nẹp Âm P-UT12 + LED Hốc Rèm 3000K</h3>
+          </header>
+          <div class="room-specs">
+            <p>Khớp 100% thiết kế nội thất <code>WM-06</code> (Tivi vách đá Travertine, Kem Greige phẳng, quạt trần đen 5 cánh &amp; sân bonsai Trái).</p>
+            <ul>
+              <li><strong>Đứng kín 0% khe bụi:</strong> Giữ lòng giữa <code>+3.530mm</code> cao thoáng giữa các ống gió ĐH, thành đứng sơn trắng khít liền mạch với rãnh đen <code>P-UT12</code> bo cong <code>R350mm</code> &amp; 2 ray 48V âm phẳng.</li>
+              <li><strong>Giữ nguyên Lộ 4 công tắc Aqara:</strong> Nối đầu chờ <code>Lộ 4</code> vào thanh nhôm <strong>LED COB <code>3000K</code> hốc rèm <code>215mm</code></strong> vách Tây và LED hắt vách đá TV.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_pa_d_wm06_01_khach_bep_hoc_rem.jpg" data-zoom-title="PHƯƠNG ÁN D — D01. Phòng Khách Tầng 1: Giật Cấp Đứng Kín Bo R350 + LED Hốc Rèm">🔍 Phóng To PA D (Khách T1)</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/qvilla_pa_c_bo_cong_01_phong_khach.jpg" data-zoom-title="Đọ với PA C (Có Máng Hắt LED Bo Cong) — Phòng Khách T1">⚖️ Đọ PA C (Có Máng Hắt)</button>
+          </footer>
+        </article>
+
+        <article class="room-card wm06-card">
+          <img src="assets/qvilla_pa_d_wm06_02_master_khong_mo_hat_hoc_rem.jpg" alt="PA D Khu Ngủ Master và Khu Thay Đồ Q-Villa Tầng 2 — Trần đứng kín R350 không mỏ hắt, LED hốc rèm Logia 01 và Thay Đồ trần phẳng" width="1376" height="768" loading="lazy" data-zoom-src="assets/qvilla_pa_d_wm06_02_master_khong_mo_hat_hoc_rem.jpg" data-zoom-title="PHƯƠNG ÁN D (WM-06 Sạch Bụi) — D02. Master Tầng 2: Ngủ Đứng Kín R350 + LED Hốc Rèm 250mm &amp; Thay Đồ Trần Phẳng">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag amber">PA D • MASTER BO R350 + PHẲNG • TẦNG 2</span>
+              <span class="room-tag emerald">KHỚP PA 1A TV 65"</span>
+            </div>
+            <h3>D02. Master Tầng 2 — Khu Ngủ Đứng Kín Bo R350 + LED Hốc Rèm Logia 01 &amp; Thay Đồ Phẳng 100%</h3>
+          </header>
+          <div class="room-specs">
+            <p>Khớp đồng bộ 1:1 với vách Trục B bo <code>R100</code> kịch trần âm <strong>TV <code>65" The Frame</code></strong> và 2 lối mở <code>850mm</code> không cửa lùa.</p>
+            <ul>
+              <li><strong>Khu Ngủ sạch bụi &amp; dịu mắt:</strong> Thành trần đứng kín bo <code>R350mm</code> giữ cốt cao <code>+3.13m</code> giữa 2 khe gió ĐH; toàn bộ <strong><code>Lộ 14</code> chuyển sang LED hốc rèm <code>250mm</code></strong> + vách đá <code>Travertine</code> (không hắt đèn trần gây chói mắt).</li>
+              <li><strong>Khu Thay Đồ phía sau:</strong> Đóng <strong>trần phẳng 100% cốt <code>+3.000mm</code></strong> để Vòm Mặt Trăng <code>Ø1.200mm</code> làm điểm nhấn duy nhất.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_pa_d_wm06_02_master_khong_mo_hat_hoc_rem.jpg" data-zoom-title="PHƯƠNG ÁN D — D02. Master Tầng 2: Trần Đứng Kín R350 + LED Hốc Rèm + Thay Đồ Phẳng">🔍 Phóng To PA D (Master T2)</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/qvilla_pa_c_bo_cong_03_master_ngu.jpg" data-zoom-title="Đọ với PA C (B Cong 35 Có Phào Hắt LED) — Khu Ngủ Master">⚖️ Đọ PA C (Có Máng Hắt)</button>
+          </footer>
+        </article>
+
+        <article class="room-card wm06-card">
+          <img src="assets/qvilla_pa_d_wm06_03_hanh_lang_phang_led_am.jpg" alt="PA D Hành Lang Tầng 2 và Tầng 3 Cạnh Ô Thông Tầng Q-Villa — Trần phẳng 100 phần trăm kèm thanh LED tuyến tính âm phẳng" width="1376" height="768" loading="lazy" data-zoom-src="assets/qvilla_pa_d_wm06_03_hanh_lang_phang_led_am.jpg" data-zoom-title="PHƯƠNG ÁN D (WM-06 Sạch Bụi) — D03. Hành Lang T2–T3–Tum: Trần Phẳng 100% + Thanh Nhôm LED Âm Phẳng">
+          <header>
+            <div class="room-meta-row">
+              <span class="room-tag amber">PA D • TRẦN PHẲNG + LED ÂM • T2–T3–TUM</span>
+              <span class="room-tag emerald">BỎ HỘP HẸP 890MM</span>
+            </div>
+            <h3>D03. Hành Lang T2 – T3 – Tum — Bỏ Hộp Giật Cấp → Trần Phẳng 100% + Thanh LED Âm Phẳng</h3>
+          </header>
+          <div class="room-specs">
+            <p>Thay vì đóng hộp hẹp <code>890mm</code> chạy mỏ LED 4 cạnh như bản gốc <code>KT-4.02..4.04</code>, chuyển sang một mặt trần phẳng liên hoàn.</p>
+            <ul>
+              <li><strong>Đúng tinh thần Warm Minimalist:</strong> Gắn <strong>01 dải thanh nhôm LED âm phẳng mặt mica mờ <code>3500K</code></strong> thẳng tắp với mặt sơn trần (đấu vào lộ dây hành lang <code>Lộ HL / Lộ 4,5,6</code> cũ).</li>
+              <li><strong>Rộng thoáng &amp; 0% vệ sinh:</strong> Kết hợp ánh sáng thiên đỉnh từ Ô thông tầng &amp; mặt kính lan can giúp hành lang sáng cao, sạch bụi tuyệt đối.</li>
+            </ul>
+          </div>
+          <footer>
+            <button type="button" class="btn-mini" data-zoom-src="assets/qvilla_pa_d_wm06_03_hanh_lang_phang_led_am.jpg" data-zoom-title="PHƯƠNG ÁN D — D03. Hành Lang T2–T3: Trần Phẳng 100% + Thanh LED Tuyến Tính Âm Phẳng">🔍 Phóng To PA D (Hành Lang)</button>
+            <button type="button" class="btn-mini amber" data-zoom-src="assets/qvilla_tran_giat_cap_t2_07_hanh_lang_thong_tang.jpg" data-zoom-title="Đọ với PA A Gốc XHOME (Hộp Giật Cấp Dài 3.570×890mm) — Hành Lang T2">⚖️ Đọ PA A (Hộp Giật Cấp)</button>
+          </footer>
+        </article>
+      </div>
+
+      <article class="cad-card" style="margin-top:22px;border-color:rgba(245,158,11,0.55);">
+        <div class="cad-card-head">
+          <div class="cad-title-wrap">
+            <span class="cad-code" style="background:#f59e0b;color:#1f1202;">KT-PAD.01 • BẢN VẼ PHƯƠNG ÁN D</span>
+            <h3>Bản Vẽ 04 Mặt Cắt Cấu Tạo PA D (WM-06 Sạch Bụi): So Sánh Mỏ Hắt Cũ ↔ Đứng Kín R350 • LED Hốc Rèm • Trần Phẳng LED Âm</h3>
+          </div>
+          <button type="button" class="btn-mini amber" data-zoom-src="assets/cad_pa_d_wm06_sach_bui_hoc_rem.svg" data-zoom-title="KT-PAD.01 — Bản Vẽ Mặt Cắt Kỹ Thuật Phương Án D (Chuẩn Warm Minimalist WM-06 Sạch Bụi)">🔍 Phóng To Bản Vẽ KT-PAD.01</button>
+        </div>
+        <div class="cad-canvas" data-zoom-src="assets/cad_pa_d_wm06_sach_bui_hoc_rem.svg" data-zoom-title="KT-PAD.01 — Bản Vẽ Mặt Cắt Kỹ Thuật Phương Án D (Chuẩn Warm Minimalist WM-06 Sạch Bụi)">
+          <img src="assets/cad_pa_d_wm06_sach_bui_hoc_rem.svg" alt="Bản vẽ mặt cắt kỹ thuật Phương án D trần sạch bụi chuẩn Warm Minimalist WM-06 Q Villa KT-PAD.01" width="1680" height="860" loading="lazy">
+        </div>
+      </article>
+
+      <div tabindex="0" role="region" aria-labelledby="led-remap-caption" class="table-wrapper" style="margin-top:22px;">
+        <table class="data-table led-remap-table">
+          <caption id="led-remap-caption">⚡ Bảng Chuyển Đổi Các Lộ Dây LED Khi Bỏ Mỏ Hắt Trần Sang PA D (Giữ Nguyên 100% Nút Công Tắc Aqara Trên CĐ-11..14)</caption>
+          <thead>
+            <tr>
+              <th>Khu Vực &amp; Nút Công Tắc</th>
+              <th>Lộ Đèn Gốc Trên CĐ-11..14</th>
+              <th>Kiểu Trần PA D (WM-06)</th>
+              <th>Đấu Nối Đèn Thay Thế (Tận Dụng Dây Chờ Cũ)</th>
+              <th>Hiệu Quả Chiếu Sáng &amp; Vệ Sinh</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Tầng 1 • Tiền Sảnh D1</th>
+              <td><code>Lộ 2</code> (Khe LED 2.090×1.125)</td>
+              <td><strong>Trần phẳng +3.400mm</strong> (không vướng ĐH)</td>
+              <td>Đấu <code>Lộ 2</code> vào <strong>LED hắt gương hữu cơ &amp; hốc đá Tủ giày</strong>.</td>
+              <td>Đón sảnh sáng rõ, mặt trần phẳng mịn 100%.</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 1 • Phòng Khách</th>
+              <td><code>Lộ 4</code> (Khe LED 2.255×3.400)</td>
+              <td><strong>Giật cấp đứng kín bo R350</strong> (+3.400→+3.530)</td>
+              <td>Nối <code>Lộ 4</code> sang <strong>thanh LED COB 3000K hốc rèm Tây (<code>215mm</code>) + LED vách TV</strong>.</td>
+              <td>Giữ đủ độ cao <code>+3.53m</code> quanh ống gió ĐH, ánh rèm cực sang.</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 2 • Khu Ngủ Master</th>
+              <td><code>Lộ 14</code> (Khe LED 2.600×2.150)</td>
+              <td><strong>Giật cấp đứng kín bo R350</strong> (+3.000→+3.130)</td>
+              <td>Nối <code>Lộ 14</code> sang <strong>LED hốc rèm <code>Logia 01 (250mm)</code> + Vách đá TV <code>65"</code></strong>.</td>
+              <td>Nằm ngửa không chói mắt, <code>0%</code> bụi gờ trần đầu giường.</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 2 • Khu Thay Đồ Master</th>
+              <td><code>Lộ 17</code> (Khe hộp 2.370×1.340)</td>
+              <td><strong>Trần phẳng +3.000mm</strong> (tôn Vòm <code>Ø1,2m</code>)</td>
+              <td><code>Lộ 17</code> cấp cho <strong>Vòm Mặt Trăng <code>Ø1.200mm</code> + LED hốc rèm <code>O2</code></strong>.</td>
+              <td>Không bị hộp chữ nhật chia cắt mảng trần quanh vòng sáng.</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 2 • PN1 &amp; PN2 Bé Gái</th>
+              <td><code>Lộ 12</code> (PN1) • <code>Lộ 7</code> (PN2)</td>
+              <td><strong>Đứng kín bo R300</strong> (hoặc phẳng <code>+3.00m</code>)</td>
+              <td>Kéo sang <strong>LED hốc rèm cửa sổ/ban công (<code>200mm</code>) + đầu giường</strong>.</td>
+              <td>Ánh sáng ngủ dịu cho bé, không đọng xác thiêu thân.</td>
+            </tr>
+            <tr>
+              <th scope="row">Tầng 3 • P.Làm Việc, PN3 &amp; PN4</th>
+              <td><code>Lộ 18</code> (P.LV) • Phẳng <code>P-UT12</code></td>
+              <td><strong>Trần phẳng 100% cốt cao +3.130mm</strong></td>
+              <td><code>Lộ 18</code> đổi sang <strong>Thanh LED âm phẳng 4000K + LED rèm Tây/Đông</strong>.</td>
+              <td>Ăn gian thêm +13cm cao độ do dùng ĐH treo tường.</td>
+            </tr>
+            <tr>
+              <th scope="row">T2, T3 &amp; Tum • 03 Hành Lang</th>
+              <td><code>Lộ HL</code> • <code>Lộ 4,5,6</code> (Tum)</td>
+              <td><strong>Trần phẳng 100%</strong> (bỏ hộp hẹp <code>890mm</code>)</td>
+              <td>Đổi sang <strong>01 dải Thanh nhôm LED tuyến tính âm phẳng mặt mica</strong>.</td>
+              <td>Hành lang thông thoáng rộng mắt, không bụi bẩn cầu thang.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
@@ -2029,22 +2254,26 @@
           </div>
 
           <div class="real-pair-wrap">
-            <div class="real-pair-title">👁️ ĐỐI CHIẾU THỰC TẾ 1:1 TẦNG 1 NHÀ Q-VILLA (PA A VUÔNG XHOME vs. PA C BO CONG R350 ĐỨC ANH 35):</div>
+            <div class="real-pair-title">👁️ ĐỐI CHIẾU THỰC TẾ 1:1 TẦNG 1 NHÀ Q-VILLA (PA A VUÔNG XHOME vs. PA C BO CONG MÁNG HẮT vs. PA D WM-06 SẠCH BỤI):</div>
             <div class="real-pair-grid">
               <div class="real-pair-item">
-                <img src="assets/qvilla_tran_giat_cap_t1_02_phong_khach.jpg" alt="Phòng Khách Tầng 1 Q-Villa PA A giật cấp vuông góc 90 độ chuẩn XHOME" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t1_02_phong_khach.jpg" data-zoom-title="PA A (100% Gốc XHOME): Phòng Khách Giật Cấp Vuông Góc 90° + Khung Ray Nam Châm Chữ Nhật">
+                <img src="assets/qvilla_tran_giat_cap_t1_02_phong_khach.jpg" alt="Phòng Khách Tầng 1 Q-Villa PA A giật cấp vuông góc 90 độ chuẩn XHOME" width="1376" height="768" loading="lazy" data-zoom-src="assets/qvilla_tran_giat_cap_t1_02_phong_khach.jpg" data-zoom-title="PA A (100% Gốc XHOME): Phòng Khách Giật Cấp Vuông Góc 90° + Khung Ray Nam Châm Chữ Nhật">
                 <div class="real-pair-cap"><strong>🅰️ Phòng Khách PA A (Gốc XHOME):</strong> Giật cấp vuông 90° <code>2.255×3.400</code> + khung ray nam châm chữ nhật sắc cạnh.</div>
               </div>
               <div class="real-pair-item">
-                <img src="assets/qvilla_pa_c_bo_cong_01_phong_khach.jpg" alt="Phòng Khách Tầng 1 Q-Villa PA C giật cấp bo cong R350mm kèm chỉ nhựa âm đen 12mm bo cong" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_01_phong_khach.jpg" data-zoom-title="PA C Mới (Kiểu Bo Cong @ducanh_tranthachcao): Phòng Khách Bo Cong R350mm + Chỉ Nhựa Âm Đen 12mm Bo Cong + 2 Thanh Ray 48V">
-                <div class="real-pair-cap"><strong>🌙 Phòng Khách PA C (Bo Cong R350):</strong> Bo tròn 4 góc êm mượt + chỉ nhựa âm đen <code>12mm</code> bo song song + 2 thanh ray 48V.</div>
+                <img src="assets/qvilla_pa_c_bo_cong_01_phong_khach.jpg" alt="Phòng Khách Tầng 1 Q-Villa PA C giật cấp bo cong R350mm kèm chỉ nhựa âm đen 12mm bo cong" width="1376" height="768" loading="lazy" data-zoom-src="assets/qvilla_pa_c_bo_cong_01_phong_khach.jpg" data-zoom-title="PA C (Bo Cong @ducanh_tranthachcao): Phòng Khách Bo Cong R350mm + Chỉ Nhựa Âm Đen 12mm + 2 Thanh Ray 48V">
+                <div class="real-pair-cap"><strong>🌙 Phòng Khách PA C (Bo Cong Có Máng Hắt R350):</strong> Bo tròn 4 góc + chỉ đen <code>12mm</code> + khe hắt LED viền trên trần.</div>
+              </div>
+              <div class="real-pair-item" style="border-color:rgba(245,158,11,0.55);">
+                <img src="assets/qvilla_pa_d_wm06_01_khach_bep_hoc_rem.jpg" alt="Phòng Khách Tầng 1 Q-Villa PA D giật cấp đứng kín bo cong R350 không mỏ hắt bụi và LED hốc rèm" width="1376" height="768" loading="lazy" data-zoom-src="assets/qvilla_pa_d_wm06_01_khach_bep_hoc_rem.jpg" data-zoom-title="PA D Mới (WM-06 Sạch Bụi): Phòng Khách Giật Cấp Đứng Kín R350 (0% Mỏ Hắt Hở) + P-UT12 + LED Hắt Hốc Rèm">
+                <div class="real-pair-cap"><strong>🕊️ Phòng Khách PA D (WM-06 Không Mỏ Hắt):</strong> Đứng kín <code>R350</code> giữ độ cao <code>+3.53m</code> + <code>0% khe bụi</code> + LED <code>Lộ 4</code> hắt hốc rèm!</div>
               </div>
               <div class="real-pair-item">
-                <img src="assets/qvilla_tran_giat_cap_t1_01_tien_sanh.jpg" alt="Tiền Sảnh Tầng 1 Q-Villa PA A giật cấp vuông góc XHOME" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t1_01_tien_sanh.jpg" data-zoom-title="PA A (100% Gốc XHOME): Tiền Sảnh Cửa D1 Giật Cấp Vuông Góc 90°">
+                <img src="assets/qvilla_tran_giat_cap_t1_01_tien_sanh.jpg" alt="Tiền Sảnh Tầng 1 Q-Villa PA A giật cấp vuông góc XHOME" width="1376" height="768" loading="lazy" data-zoom-src="assets/qvilla_tran_giat_cap_t1_01_tien_sanh.jpg" data-zoom-title="PA A (100% Gốc XHOME): Tiền Sảnh Cửa D1 Giật Cấp Vuông Góc 90°">
                 <div class="real-pair-cap"><strong>🅰️ Tiền Sảnh PA A (Gốc XHOME):</strong> Hộp vuông 90° <code>2.090×1.125 (+3.530)</code> trước cửa gỗ Lim <code>D1</code>.</div>
               </div>
               <div class="real-pair-item">
-                <img src="assets/qvilla_pa_c_bo_cong_02_tien_sanh.jpg" alt="Tiền Sảnh Tầng 1 Q-Villa PA C giật cấp bo cong R300mm kèm chỉ âm đen 12mm" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_02_tien_sanh.jpg" data-zoom-title="PA C Mới (Kiểu Bo Cong @ducanh_tranthachcao): Tiền Sảnh Cửa D1 Bo Cong R300mm + Chỉ Nhựa Âm Đen 12mm">
+                <img src="assets/qvilla_pa_c_bo_cong_02_tien_sanh.jpg" alt="Tiền Sảnh Tầng 1 Q-Villa PA C giật cấp bo cong R300mm kèm chỉ âm đen 12mm" width="1376" height="768" loading="lazy" data-zoom-src="assets/qvilla_pa_c_bo_cong_02_tien_sanh.jpg" data-zoom-title="PA C (Bo Cong @ducanh_tranthachcao): Tiền Sảnh Cửa D1 Bo Cong R300mm + Chỉ Nhựa Âm Đen 12mm">
                 <div class="real-pair-cap"><strong>🌙 Tiền Sảnh PA C (Bo Cong R300):</strong> Dáng vòm bo góc <code>R300mm</code> + chỉ đen <code>12mm</code> đồng bộ sang Phòng Khách.</div>
               </div>
             </div>
@@ -2056,8 +2285,8 @@
               Phụ thuộc 100% vào phương án tủ bếp Chủ nhà chốt ở trang <a href="bep-tang1.html">Bếp Tầng 1</a>: nếu đóng tủ bếp có dải cánh giả cao <code>2,80m</code> thì bắt buộc hạ thạch cao tới <code>+2.800mm</code> (dày <code>60cm</code>); nếu giữ tủ tiêu chuẩn <code>2,29m</code> không cánh giả thì mới hạ xuống <code>+2.330mm</code> như XHOME.
             </div>
             <div class="diff-box">
-              <strong>💡 Điểm Cần Chốt #2 (Trần Phòng Khách): Vuông (PA A), Phẳng (PA B) hay Bo Cong R350 (PA C)?</strong>
-              Chủ nhà có đủ <strong>03 cá tính rõ rệt</strong>: <em>PA A</em> (vuông sắc cạnh XHOME), <em>PA B</em> (phẳng tối giản âm Ray 48V không khe hắt), hoặc <em>PA C</em> (<strong>bo cong <code>R350mm</code> + chỉ âm đen <code>12mm</code> uốn cong</strong> kiểu Đức Anh 35 vừa mềm mại vừa sang).
+              <strong>💡 Điểm Cần Chốt #2 (Trần Phòng Khách): Chọn PA A, PA C hay PA D (WM-06)?</strong>
+              <strong>PA D (Đứng kín R350 + LED hốc rèm)</strong> giữ trọn độ cao <code>+3.53m</code> quanh ống gió ĐH và độ bo mềm mại giống PA C, nhưng mặt trần kín khít <code>100%</code> không tạo gờ mỏ hắt đọng bụi — cực hợp nhà phong cách <code>Warm Minimalist WM-06</code>!
             </div>
           </div>
         </article>
@@ -2126,8 +2355,16 @@
                 <div class="real-pair-cap"><strong>🌙 Thay Đồ PA C (Vòm Capsule R650):</strong> Thạch cao uốn vòm Viên Thuốc ôm bàn đảo — sang mềm mà <strong>tiết kiệm 6–8tr màng Barrisol</strong>!</div>
               </div>
               <div class="real-pair-item">
-                <img src="assets/qvilla_pa_c_bo_cong_03_master_ngu.jpg" alt="Khu Ngủ Master Q-Villa phương án C bo cong R350mm và nắp thăm bo góc R80" width="1376" height="768" data-zoom-src="assets/qvilla_pa_c_bo_cong_03_master_ngu.jpg" data-zoom-title="PA C Mới (Mẫu Đinh B Cong 35 Đức Anh 35) — Khu Ngủ Master Tầng 2 Bo Cong R350mm + Nắp Thăm Bo Tròn R80">
+                <img src="assets/qvilla_pa_c_bo_cong_03_master_ngu.jpg" alt="Khu Ngủ Master Q-Villa phương án C bo cong R350mm và nắp thăm bo góc R80" width="1376" height="768" loading="lazy" data-zoom-src="assets/qvilla_pa_c_bo_cong_03_master_ngu.jpg" data-zoom-title="PA C (Mẫu Đinh B Cong 35 Đức Anh 35) — Khu Ngủ Master Tầng 2 Bo Cong R350mm + Phào Hắt LED">
                 <div class="real-pair-cap"><strong>🌙 Khu Ngủ Master PA C ("B cong 35"):</strong> Hắt sáng phào cong <code>R350mm</code> + chỉ đen <code>12mm</code> + nắp thăm bo tròn <code>R80</code>.</div>
+              </div>
+              <div class="real-pair-item" style="border-color:rgba(245,158,11,0.55);">
+                <img src="assets/qvilla_pa_d_wm06_02_master_khong_mo_hat_hoc_rem.jpg" alt="Khu Ngủ Master Q-Villa PA D giật cấp đứng kín R350 không mỏ hắt bụi kết hợp LED hốc rèm và Thay Đồ trần phẳng" width="1376" height="768" loading="lazy" data-zoom-src="assets/qvilla_pa_d_wm06_02_master_khong_mo_hat_hoc_rem.jpg" data-zoom-title="PA D Mới (WM-06 Sạch Bụi) — Master T2: Đứng Kín Bo R350 (0% Mỏ Hắt) + LED Hốc Rèm Logia 01 &amp; Thay Đồ Trần Phẳng">
+                <div class="real-pair-cap"><strong>🕊️ Khu Ngủ &amp; Thay Đồ Master PA D:</strong> Ngủ đứng kín <code>R350 (0% bụi)</code> + LED <code>Lộ 14</code> ở hốc rèm <code>250mm</code>; Thay Đồ phẳng 100%!</div>
+              </div>
+              <div class="real-pair-item" style="border-color:rgba(245,158,11,0.55);">
+                <img src="assets/qvilla_pa_d_wm06_03_hanh_lang_phang_led_am.jpg" alt="Hành Lang Tầng 2 Q-Villa PA D trần phẳng hoàn toàn kèm thanh nhôm LED âm phẳng" width="1376" height="768" loading="lazy" data-zoom-src="assets/qvilla_pa_d_wm06_03_hanh_lang_phang_led_am.jpg" data-zoom-title="PA D Mới (WM-06 Sạch Bụi) — Hành Lang Tầng 2–3–Tum: Trần Phẳng 100% + Thanh LED Âm Phẳng">
+                <div class="real-pair-cap"><strong>🕊️ Hành Lang T2–T3–Tum PA D:</strong> Bỏ hộp giật cấp hẹp <code>890mm</code> &rarr; <strong>Trần phẳng + 1 dải LED âm phẳng</strong> sạch thoáng gấp đôi!</div>
               </div>
               <div class="real-pair-item">
                 <img src="assets/qvilla_tran_giat_cap_t2_08_phong_ngu_1.jpg" alt="Phòng Ngủ 1 Tầng 2 Q-Villa đóng trần giật cấp chữ nhật 2.990x2.050mm chuẩn XHOME" width="1376" height="768" data-zoom-src="assets/qvilla_tran_giat_cap_t2_08_phong_ngu_1.jpg" data-zoom-title="PA A — Kiểu Giật Cấp Vuông Góc 90° (PN1 Tầng 2 — KT-4.02)">
@@ -2298,21 +2535,22 @@
     <section id="sec-decision-matrix" class="block">
       <div class="sec-head">
         <div>
-          <span class="sec-badge amber">BẢNG TỔNG HỢP ĐỂ CHỦ NHÀ SO SÁNH CẢ 3 PHƯƠNG ÁN A • B • C &amp; QUYẾT ĐỊNH</span>
-          <h2>📋 4. Ma Trận Tổng Hợp 09 Khu Vực: PA A (100% XHOME Vuông) vs. PA B (Tối Ưu / Phẳng) vs. PA C Mới (Kiểu Bo Cong R350 Đức Anh 35)</h2>
-          <p>Bảng tóm tắt toàn bộ các vị trí trên 4 tầng để Chủ nhà đối chiếu nhanh trên iPad hoặc in ra tờ A3 số 10 tích chọn riêng từng phòng (có thể phối hợp linh hoạt: ví dụ <strong>Khách + Sảnh + Master làm PA C Bo Cong</strong>, <strong>P.Thờ giữ vuông <code>Y=1.960</code></strong>, <strong>PN3/4 làm Phẳng Chỉ Cong <code>PA C2</code></strong>!).</p>
+          <span class="sec-badge amber">BẢNG TỔNG HỢP ĐỂ CHỦ NHÀ SO SÁNH CẢ 4 PHƯƠNG ÁN A • B • C • D &amp; QUYẾT ĐỊNH</span>
+          <h2>📋 4. Ma Trận Tổng Hợp 09 Khu Vực: PA A (XHOME Vuông) vs. PA B (Tối Ưu) vs. PA C (Bo Cong Máng Hắt) vs. PA D (WM-06 Sạch Bụi)</h2>
+          <p>Bảng tóm tắt toàn bộ các vị trí trên 4 tầng để Chủ nhà đối chiếu đủ <strong>4 trường phái trần &amp; đèn gián tiếp</strong>: <em>PA A</em> (gốc XHOME), <em>PA B</em> (tối ưu nội thất), <em>PA C</em> (bo cong máng hắt R350) và <strong>PA D mới (khuyên dùng cho <code>Warm Minimalist WM-06</code>: đứng kín bo R350 + LED hốc rèm + phẳng hóa Hành lang &amp; Tầng 3)</strong>.</p>
         </div>
       </div>
 
       <div tabindex="0" role="region" aria-labelledby="cmp-table-caption" class="table-wrapper">
         <table class="data-table cmp-table">
-          <caption id="cmp-table-caption">⚖️ Bảng Đối Chiếu Toàn Diện Trần Thạch Cao 4 Tầng: PA A (Gốc XHOME) • PA B (Tối Ưu Nội Thất / Phẳng) • PA C (Bo Cong R350 @ducanh_tranthachcao)</caption>
+          <caption id="cmp-table-caption">⚖️ Bảng Đối Chiếu Toàn Diện Trần Thạch Cao 4 Tầng: PA A (Gốc XHOME) • PA B (Tối Ưu) • PA C (Bo Cong Máng Hắt R350) • PA D (WM-06 Sạch Bụi &amp; LED Rèm)</caption>
           <thead>
             <tr>
               <th>Tầng &amp; Không Gian</th>
               <th>PA A: 100% Gốc XHOME (Vuông 90°)</th>
               <th>PA B: Bản Đã Tối Ưu / Trần Phẳng</th>
-              <th>PA C Mới: Kiểu Bo Cong R350 (@ducanh_tranthachcao)</th>
+              <th>PA C: Kiểu Bo Cong Máng Hắt R350 (Đức Anh 35)</th>
+              <th>PA D Mới: Chuẩn WM-06 (0% Mỏ Hắt Bụi &amp; LED Hốc Rèm)</th>
               <th>Gợi Ý Phối Hợp &amp; Khuyến Nghị Chốt</th>
             </tr>
           </thead>
@@ -2322,63 +2560,72 @@
               <td>Khách giật cấp vuông <code>2.255×3.400 (+3.530)</code> + khung Ray 48V chữ nhật; Sảnh giật cấp vuông <code>2.090×1.125</code>; vách Bắc còn cửa sổ <code>V2</code>.</td>
               <td>Xây bịt <code>V2</code> liền vách TV; cấy 2 ty <code>M12</code> treo Quạt trần <code>L6</code>; có thể giữ hộp vuông hoặc đóng phẳng <code>+3.500</code> âm Ray 48V (<a href="phong-khach-bep-tang1.html">Xem T1</a>).</td>
               <td><strong>Bo cong 4 góc <code>R350mm</code> (Khách) &amp; <code>R300mm</code> (Sảnh)</strong> + khe LED COB liền mạch + <strong>nẹp nhựa âm đen <code>12mm</code> bo song song</strong> + 2 thanh Ray 48V hai bên Quạt trần.</td>
-              <td><strong>Rất hợp chọn PA C (Bo cong R350)</strong> kết hợp bịt <code>V2</code> &amp; cấy ty quạt của PA B — tạo điểm nhấn đón khách mềm mại, hiện đại chuẩn 2026!</td>
+              <td><strong>Giật cấp đứng kín bo <code>R350mm</code></strong> tại P.Khách để giữ cốt cao <code>+3.53m</code> quanh ống gió ĐH (<code>0% mỏ hắt hở</code>) + <strong>P-UT12 bo R350</strong>; <strong>LED <code>Lộ 4</code> dời ra hốc rèm Tây + vách đá TV</strong>; Tiền Sảnh <strong>phẳng + LED hắt vách tủ giày</strong>.</td>
+              <td><strong>Chọn PA D (Sạch bụi &amp; khớp WM-06)</strong> hoặc <strong>PA C</strong> — kết hợp bịt <code>V2</code> &amp; cấy ty quạt từ PA B!</td>
             </tr>
             <tr>
               <th scope="row">Tầng 1 • Khu Bếp &amp; Ăn<br>(Trục 2–4 / B–C)</th>
               <td>Trần phẳng <code>C1 +3.400</code>; sát tường Bắc hạ hộp trán sâu tới <code>+2.330mm</code> (dày <code>1,07m</code>); <code>03</code> đèn <code>L8</code> theo đảo dọc.</td>
               <td>Hạ <strong>hộp thạch cao thẳng <code>60cm</code> (<code>+2.800..+3.400</code>, tấm chịu ẩm <code>C2</code>)</strong> khớp cánh giả <code>2,80m</code> KITPRO &amp; che ống <code>Ø150</code> (<a href="bep-tang1.html">Xem Bếp</a>).</td>
               <td>Giữ hộp trán thẳng <code>+2.800mm</code> ôm tủ bếp, có thể chạy thêm <strong>đường chỉ nhựa âm đen <code>12mm</code> bo góc <code>R250mm</code></strong> bao khu bàn ăn đồng điệu Phòng Khách.</td>
-              <td><strong>Bắt buộc hạ trán bếp theo PA B (<code>+2.800mm</code>)</strong> để khớp khít tủ bếp <code>2,8m</code> cánh giả.</td>
+              <td>Giữ <strong>trần phẳng <code>+3.400</code> + hộp trán <code>+2.800mm</code> (PA B)</strong>; tích hợp khe âm tường hắt nhẹ mảng tường Bàn ăn hoặc đèn hốc tủ bếp (<code>0% khe bụi trên cao</code>).</td>
+              <td><strong>Bắt buộc hạ trán bếp theo PA B/D (<code>+2.800mm</code>)</strong> để khớp khít tủ bếp <code>2,8m</code> cánh giả.</td>
             </tr>
             <tr>
               <th scope="row">Tầng 1 • P. Ngủ Ông Bà<br>(Trục 3–4 / A–B)</th>
               <td>Viền <code>C1 +3.000</code>, giật cấp cạnh đứng <code>+3.130</code> kèm khung <strong>Nẹp <code>U10</code> đen <code>1.740×1.345</code></strong> góc vuông + <code>08</code> spotlight.</td>
               <td>Giữ nguyên 100% cao độ và thiết kế của XHOME, lót gỗ Plywood <code>18mm</code> đỉnh hốc rèm vườn sau.</td>
               <td>Bo tròn nhẹ 4 góc của bậc giật cấp đứng <code>+3.130</code> và uốn cong 4 góc khung chỉ đen <code>12mm</code> (<code>R250mm</code>) không làm khe hắt hứng bụi.</td>
-              <td><strong>Giữ PA A/B hoặc uốn góc chỉ đen PA C</strong> đều sạch (không có mỏ hắt bụi), rất hợp phòng Ông Bà.</td>
+              <td><strong>Giữ cạnh đứng kín <code>+3.130</code> + Nẹp <code>U10</code> đen</strong> (bản thân <code>KT-4.01</code> XHOME đã là đứng kín không mỏ hắt!) + gắn thêm LED ấm <strong>trong hốc rèm vườn sau</strong>.</td>
+              <td><strong>PA A/B &amp; PA D trùng nhau 100% ở cạnh đứng kín</strong> — cực sạch bụi, rất hợp phòng Ông Bà.</td>
             </tr>
             <tr>
               <th scope="row">Tầng 2 • Khu Ngủ Master<br>&amp; Trục B</th>
               <td>Hộp vuông <code>2.600×2.450 (+3.130)</code>; <strong>Dàn lạnh <code>IN 2.3</code> &amp; Lỗ thăm <code>450×450</code> nằm đè lên Trục B</strong>.</td>
-              <td>Thu hộp thành <code>2.600×2.150</code> cho <strong>Vách Tủ Đảo kịch trần Trục B</strong>; dời ĐH &amp; Lỗ thăm sang lối đi phải <code>850mm</code> (<a href="phong-master-tang2.html">Xem Master</a>).</td>
+              <td>Thu hộp thành <code>2.600×2.150</code> cho <strong>Vách ngăn Trục B kịch trần</strong>; dời ĐH &amp; Lỗ thăm sang lối đi phải <code>850mm</code> (<a href="phong-master-tang2.html">Xem Master</a>).</td>
               <td><strong>Mẫu đinh "B cong 35" (<code>R350mm</code>)</strong> + phào cong êm sáng + chỉ nhựa âm đen <code>12mm</code> bo cong + <strong>nắp thăm ĐH bo tròn 4 góc <code>R80mm</code> chìm phẳng</strong> tại lối đi phải!</td>
-              <td><strong>Đẹp nhất khi chọn PA C ("B cong 35")</strong> trên nền kích thước đã dời Lỗ thăm ĐH của PA B!</td>
+              <td><strong>Giật cấp đứng kín bo <code>R350mm</code> (<code>0% mỏ hắt bụi</code>) + chỉ đen <code>P-UT12</code> bo cong</strong>; chuyển dây <strong>LED <code>Lộ 14</code> vào hốc rèm <code>Logia 01</code> (<code>250mm</code>)</strong> &amp; vách đá <code>Travertine</code> quanh TV <code>65"</code>!</td>
+              <td><strong>PA D cực hợp phong cách <code>WM-06</code> Bo Cong</strong> (trần sạch, dịu mắt khi nằm ngủ &amp; giữ trọn <code>+3.13m</code>).</td>
             </tr>
             <tr>
               <th scope="row">Tầng 2 • Khu Thay Đồ<br>Master</th>
               <td>Đóng hộp giật cấp chữ nhật vuông góc <code>2.370×1.340 (+3.130)</code> + <code>06</code> spotlight; khe gió ĐH cách tường <code>100mm</code>.</td>
               <td>Trần phẳng <code>+3.000</code> khoét <strong>Vòm Mặt Trăng tròn <code>Ø1.200mm</code></strong> căng màng Barrisol xuyên sáng + căn khe gió <code>270mm</code>.</td>
               <td><strong>Vòm thạch cao hình Viên Thuốc / Stadium Capsule (<code>2.370×1.300</code>, 2 đầu tròn <code>R650mm</code>)</strong> hắt LED 3500K + chỉ đen <code>12mm</code> đồng tâm (<strong>0₫ màng Barrisol</strong>).</td>
-              <td><strong>Rất khuyên chọn PA C (Vòm Capsule R650)</strong>: ôm đúng tỷ lệ bàn đảo dài, sang mềm đồng bộ Khu Ngủ mà tiết kiệm ngay <code>6–8tr</code>!</td>
+              <td><strong>Đóng Trần Phẳng 100% cốt <code>+3.000mm</code></strong> để tôn trọn <strong>Vòng Mặt Trăng <code>Ø1.200mm</code></strong> chính tâm Đảo kính bo <code>R80</code> (hoặc khe LED hốc rèm cửa sổ <code>O2</code>, <code>0% hộp giật cấp</code> thừa).</td>
+              <td><strong>Chốt PA D (Trần phẳng + Vòm <code>Ø1.2m</code> + LED hốc rèm <code>O2</code>)</strong> nếu giữ Đèn Mặt Trăng, hoặc <strong>PA C (Capsule)</strong>.</td>
             </tr>
             <tr>
               <th scope="row">Tầng 2 • PN1, PN2<br>&amp; 02 WC</th>
               <td>PN1 hộp vuông <code>2.990×2.050 (+3.130)</code>; PN2 hộp vuông <code>2.040×3.140 (+3.130)</code>; WC-02 nắp thăm bên khoang ướt.</td>
               <td>Dời nắp thăm WC-02 sang khoang khô Lavabo (<a href="giam-sat-wc.html">Xem WC</a>); PN1/PN2 giữ vuông hoặc chuyển trần phẳng <code>P-UT12</code>.</td>
               <td><strong>PA C1:</strong> Giật cấp bo cong <code>R300mm</code> + chỉ đen <code>12mm</code> nằm gọn trong 3 khe gió (mẫu Nut Design × Đức Anh 35); hoặc <strong>PA C2:</strong> Phẳng + chỉ đen bo cong.</td>
-              <td><strong>Chọn PA C1 (Giật cấp bo R300)</strong> nếu thích ấm cúng hắt sáng nhẹ, hoặc <strong>PA C2</strong> nếu thích trần cao sạch bụi!</td>
+              <td><strong>Giật cấp đứng kín bo <code>R300mm</code> (<code>0% khe bụi</code>) + chuyển LED <code>Lộ 12 / Lộ 7</code> ra hốc rèm</strong> (giữ cốt cao <code>+3.13m</code>); hoặc làm <strong>Trần phẳng <code>+3.00m</code> + LED hốc rèm</strong> gọn sạch tuyệt đối.</td>
+              <td><strong>Chọn PA D (Đứng kín + LED hốc rèm)</strong> hoặc <strong>PA C1/C2</strong> — bé nằm dưới trần sạch không bám bụi.</td>
             </tr>
             <tr>
               <th scope="row">Tầng 3 • Phòng Thờ<br>(Trục 1'–2 / B–C)</th>
               <td>Hộp thạch cao trắng <code>+3.000/+3.150</code> đặt giữa phòng tại <code>Y = 1.605mm</code> + đèn thả <code>L16</code>.</td>
               <td>Giữ hộp thạch cao trắng vuông vức trang nghiêm nhưng <strong>dịch tâm hộp sang <code>Y = 1.960mm</code></strong> thẳng tâm Bàn thờ (<a href="phong-tho-tang3.html">Xem P.Thờ</a>).</td>
               <td><strong>Khuyến nghị giữ góc vuông trang nghiêm của PA B (<code>Y = 1.960mm</code>)</strong> để tôn nét đứng đắn truyền thống của Bàn thờ gỗ Gia tiên (không nên bo cong).</td>
-              <td><strong>Chốt PA B (Vuông vức dịch tâm <code>Y = 1.960mm</code>)</strong> — chuẩn phong thủy và thẳng trục tuyệt đối.</td>
+              <td>Giữ <strong>hộp đứng trang nghiêm dịch tâm <code>Y = 1.960mm</code> (PA B)</strong>; chuyển <code>Lộ 15</code> từ mỏ hắt sang <strong>rửa hốc rèm Tây hoặc hắt vách hậu Bàn thờ</strong> cho trang trọng không bám khói hương vào mỏ hắt.</td>
+              <td><strong>Chốt PA B/D (Vuông dịch tâm <code>Y = 1.960mm</code>)</strong> — không bám bụi hay ám khói ở gờ trần!</td>
             </tr>
             <tr>
               <th scope="row">Tầng 3 • P. Làm Việc<br>&amp; PN3, PN4</th>
               <td>P.Làm việc giật cấp vuông + đèn chùm <code>L19</code>; PN3 &amp; PN4 đóng trần phẳng <code>+3.130</code> chạy chỉ đen <code>P-UT12</code> góc vuông 90°.</td>
               <td><strong>PA T3-A:</strong> P.Làm việc đóng <strong>trần phẳng 100% <code>+3.130mm</code></strong> âm Ray 48V, bỏ đèn chùm <code>L19</code> (<a href="phong-lam-viec-tang3.html">Xem T3-A</a>).</td>
               <td><strong>P.Làm việc:</strong> Bo cong <code>R300</code> + 2 thanh LED âm phẳng (bỏ <code>L19</code>). <strong>PN3 &amp; PN4 (PA C2):</strong> Giữ trần phẳng <code>+3.130</code> nhưng <strong>uốn cong 4 góc chỉ đen <code>12mm</code> (<code>R300</code>)</strong>!</td>
-              <td><strong>PN3 &amp; PN4 chọn PA C2 (Phẳng + Chỉ Đen Bo Cong)</strong> vừa cao thoáng vừa ăn nhập 100% với Tầng 1 &amp; Tầng 2!</td>
+              <td><strong>Phẳng 100% toàn Tầng 3 ở cốt cao <code>+3.130mm</code></strong> (do dùng ĐH treo tường, không vướng ống gió!); P.Làm việc dùng <strong>Ray 48V + thanh LED âm phẳng</strong>; PN3–4 dùng <strong>chỉ đen <code>P-UT12</code> bo R300 + LED hốc rèm Đông</strong>.</td>
+              <td><strong>Khuyên chốt PA D/T3-A (Trần phẳng +3,13m cả Tầng 3)</strong> — cao thêm 13cm, tiết kiệm và đồng nhất tuyệt đối!</td>
             </tr>
             <tr>
-              <th scope="row">Tầng Tum • Hành Lang,<br>Kho &amp; Mái Kính</th>
-              <td>Hành lang Tum giật cấp khe LED + <code>05</code> Spot; Kho <code>03</code> Spot; <code>01</code> Giếng trời nhỏ.</td>
-              <td>Mở <strong>02 Ô Mái Kính lớn</strong>, đổ trần BTCT <code>+1.85m</code> Kho Solar; Hành lang Tum đóng trần phẳng chịu ẩm <code>C2</code> (<a href="tang-tum-3d.html">Xem Tum</a>).</td>
-              <td>Giữ trần phẳng tấm chịu ẩm <code>C2</code> của PA B trên Tầng Tum (khu áp mái nóng ẩm không nên làm máng hắt bo cong).</td>
-              <td><strong>Chốt PA B (Trần phẳng tấm chịu ẩm <code>C2</code>)</strong> bền sạch nhất cho Tầng Tum.</td>
+              <th scope="row">Tầng 2, 3, Tum • Hành Lang<br>&amp; Mái Kính Tum</th>
+              <td>Cả 3 Hành lang (T2, T3, Tum) đều đóng hộp giật cấp dài <code>890mm</code> chạy LED 4 cạnh; Tum còn <code>01</code> giếng trời nhỏ.</td>
+              <td>Tum mở <strong>02 Ô Mái Kính lớn</strong>, Hành lang Tum đóng trần phẳng <code>C2</code> (<a href="tang-tum-3d.html">Xem Tum</a>); Hành lang T2–T3 giữ hộp hẹp hoặc phẳng hóa.</td>
+              <td>Hành lang T2–T3 có thể bo cong nhẹ đầu hộp hẹp; Hành lang Tum giữ trần phẳng chịu ẩm <code>C2</code> của PA B.</td>
+              <td><strong>Bỏ hộp giật cấp ở CẢ 3 Hành lang (T2, T3 &amp; Tum)</strong>: Đóng <strong>Trần phẳng 100%</strong>, thay lộ LED viền bằng <strong>01 thanh nhôm LED tuyến tính âm phẳng mặt mica <code>3500K</code></strong> + Spotlight chống chói!</td>
+              <td><strong>Cực khuyên chốt PA D cho 3 Hành lang</strong> — rộng thoáng gấp đôi, 0% gờ bụi trên đầu cầu thang!</td>
             </tr>
           </tbody>
         </table>
@@ -2391,9 +2638,9 @@
     <section id="sec-boq" class="block">
       <div class="sec-head">
         <div>
-          <span class="sec-badge sky">DỰ TOÁN VẬT TƯ (SO SÁNH PA A/B &amp; PA C BO CONG) &amp; NGHIỆM THU CÔNG TRƯỜNG</span>
-          <h2>💰 5. Bảng Bóc Tách Khối Lượng Vĩnh Tường (PA A/B: 59,08Tr • PA C Bo Cong: 65,50Tr) &amp; Nghiệm Thu</h2>
-          <p>Khớp đồng bộ với bộ chọn phương án Hạng mục 3 tại <a href="index.html">Trang chủ Dự toán Q Villa</a>: gói chuẩn <strong>PA A/B là <code>59.080.000 ₫</code></strong>; nếu chọn <strong>Phương Án C — Kiểu Trần Bo Cong <code>R350mm</code> (Đức Anh 35)</strong> toàn nhà là <strong><code>65.500.000 ₫</code> (chênh <code>+6,42 Triệu ₫</code> cho tấm Gyproc Siêu Chịu Ẩm khía uốn cong, nẹp đục lỗ uốn cong, phào máng hắt, chỉ nhựa âm đen 12mm uốn cong &amp; nắp thăm R80 — nhưng tiết kiệm ngược <code>6–8 Triệu ₫</code> nếu thay màng căng Barrisol Khu Thay Đồ bằng Vòm Capsule thạch cao!)</strong>.</p>
+          <span class="sec-badge sky">DỰ TOÁN VẬT TƯ (SO SÁNH PA D SẠCH BỤI • PA A/B • PA C BO CONG) &amp; NGHIỆM THU CÔNG TRƯỜNG</span>
+          <h2>💰 5. Bảng Bóc Tách Khối Lượng Vĩnh Tường (PA D: ~56,90Tr • PA A/B: 59,08Tr • PA C Bo Cong: 65,50Tr) &amp; Nghiệm Thu</h2>
+          <p>Khớp đồng bộ với <a href="index.html">Trang chủ Dự toán Q Villa</a>: gói <strong>PA D (Warm Minimalist WM-06 Sạch Bụi — đứng kín + phẳng hóa Hành lang &amp; Tầng 3)</strong> chỉ còn <strong><code>~56.900.000 ₫</code> (tiết kiệm <code>~2,18 Tr</code> so với PA A/B và tiết kiệm <code>~8,60 Tr</code> so với PA C <code>65,50 Tr</code>)</strong> nhờ cắt bỏ toàn bộ mét dài mỏ hắt thạch cao hứng bụi ở Hành lang T2–T3–Tum, Khu Thay Đồ &amp; Phòng Làm Việc T3 (chỉ giữ công bo góc R350 + chỉ đen <code>P-UT12</code> tại Phòng Khách &amp; Master).</p>
         </div>
       </div>
 
