@@ -95,7 +95,7 @@
           heading: "⚡ Điện Thông Minh, Chiếu Sáng & Quạt Trần",
           items: [
             { href: "aqara-smarthome.html", icon: "⚡", title: "Bản Đồ Công Tắc Aqara, Schneider & Mạng Wifi PoE" },
-            { href: "chieu-sang-opple-3d.html", icon: "💡", title: "Phòng Lab Chiếu Sáng 3D OPPLE & Quạt Trần" }
+            { href: "chieu-sang-osram-3d.html", icon: "💡", title: "Phòng Lab Chiếu Sáng 3D OSRAM & Quạt Trần" }
           ]
         }
       ]

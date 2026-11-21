@@ -1,5 +1,5 @@
 /**
- * Q VILLA (XHOME) — OPPLE 3D LIGHTING SIMULATION, DIALUX LUX HEATMAP & GIMBAL AIMING STUDIO
+ * Q VILLA (XHOME) — OSRAM 3D LIGHTING SIMULATION, DIALUX LUX HEATMAP & GIMBAL AIMING STUDIO
  * Built with Three.js (r128) for real-time architectural lighting, volumetric cones,
  * ON/OFF emotional scenarios (no dimmer required), and spotlight tilt/rotation aiming.
  */
@@ -2019,7 +2019,7 @@
     };
   }
 
-  window.initOpple3DStudios = function () {
+  window.initOsram3DStudios = function () {
     document.querySelectorAll('.js-opple-3d-studio').forEach(el => {
       if (!el.dataset.studioInitialized) {
         el.dataset.studioInitialized = 'true';
@@ -2048,8 +2048,8 @@
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', window.initOpple3DStudios);
+    document.addEventListener('DOMContentLoaded', window.initOsram3DStudios);
   } else {
-    window.initOpple3DStudios();
+    window.initOsram3DStudios();
   }
 })();

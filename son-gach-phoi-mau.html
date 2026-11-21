@@ -828,6 +828,117 @@
       display: block;
       border-radius: 8px;
     }
+
+    /* Real Tiles By-Floor Photo Comparison Grid */
+    .floor-tile-cards {
+      display: grid;
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .floor-tile-row {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .floor-tile-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .floor-tile-head h3 {
+      font-size: 1.06rem;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .paint-chip-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #a7f3d0;
+      font-size: 0.77rem;
+      font-weight: 700;
+    }
+
+    .triple-compare-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+      gap: 14px;
+    }
+
+    .tile-photo-card {
+      background: #0b1120;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .tile-photo-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--accent);
+    }
+
+    .tile-photo-thumb {
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      cursor: zoom-in;
+      position: relative;
+      background: #060913;
+    }
+
+    .tile-photo-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .origin-pill {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.71rem;
+      font-weight: 800;
+      background: rgba(9, 14, 26, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+    }
+
+    .origin-pill.cn { border-color: #f59e0b; color: #fde68a; }
+    .origin-pill.vn { border-color: #10b981; color: #6ee7b7; }
+    .origin-pill.ref3d { border-color: #38bdf8; color: #bae6fd; }
+
+    .tile-photo-body {
+      padding: 12px 14px;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      display: grid;
+      gap: 4px;
+    }
+
+    .tile-photo-body strong {
+      color: #fff;
+      font-size: 0.89rem;
+    }
   </style>
 </head>
 <body>
@@ -838,20 +949,18 @@
         <span class="brand-badge">🏠 Q VILLA • TRANG CHỦ</span>
         <div class="brand-title">
           <h1>Phòng Phối Màu Sơn &amp; Chọn Gạch Ốp Lát Trực Quan — Q Villa (XHOME)</h1>
-          <p>Đồng bộ 100% với Cửa Gỗ Lim D3 • Sàn Gỗ Óc Chó • Đá Bếp Vicostone • Đèn OPPLE 3500K–4000K &amp; Mặt Tiền Thực Tế</p>
+          <p>Đồng bộ 100% với Cửa Gỗ Lim D3 • Sàn Gỗ Óc Chó • Đá Bếp Vicostone • Đèn OSRAM 3500K–4000K &amp; Mặt Tiền Thực Tế</p>
         </div>
       </a>
       <nav class="nav-links" aria-label="Điều hướng dự án">
         <a href="index.html">🏠 Trang Chủ &amp; Dự Toán</a>
         <a href="#sec-studio" class="active">🎨 1. Phòng Phối Màu &amp; Gạch</a>
+        <a href="#sec-real-tiles" style="border-color:rgba(245,158,11,0.7);color:#fde68a;">📸 1B. Ảnh Thật Gạch TQ vs VN Theo Tầng</a>
         <a href="#sec-brands">🪣 2. Hãng Sơn &amp; Hãng Gạch</a>
         <a href="#sec-takeoff">📋 3. Bảng Mã &amp; Số Thùng Đặt Mua</a>
         <a href="op-lat-chia-gach.html" style="border-color:rgba(20,184,166,0.7);color:#5eead4;">📐 Chia Gạch 1m/1m2 &amp; Định Vị</a>
+        <a href="mau-modern-luxury-349.html">✨ Nội Thất 22 Góc 3D</a>
         <a href="mat-tien.html">🏛️ Mặt Tiền</a>
-        <a href="cua-chinh-d1.html">🚪 Cửa Chính D1</a>
-        <a href="cua-go-lim-d3.html">🚪 Cửa Gỗ D3</a>
-        <a href="chieu-sang-opple-3d.html">💡 3D Đèn OPPLE</a>
-        <a href="giam-sat-wc.html">🚽 Giám Sát WC</a>
       </nav>
     </div>
   </header>
@@ -865,7 +974,7 @@
             <span class="hero-eyebrow">🎨 ĐỒNG BỘ VẬT LIỆU HOÀN THIỆN TOÀN CÔNG TRÌNH Q VILLA</span>
             <h2>5 "Mỏ Neo Vật Liệu Cố Định" Quyết Định Màu Sơn &amp; Màu Gạch Nhà Bạn</h2>
             <p>
-              Trước khi chọn mã sơn tường hay viên gạch lát nền, hệ thống lấy <strong>5 vật liệu cố định bạn đã chốt ở các conversation trước</strong> làm chuẩn quy chiếu để tính toán độ ăn khớp (Harmony Score) dưới từng nhiệt độ màu ánh sáng đèn OPPLE:
+              Trước khi chọn mã sơn tường hay viên gạch lát nền, hệ thống lấy <strong>5 vật liệu cố định bạn đã chốt ở các conversation trước</strong> làm chuẩn quy chiếu để tính toán độ ăn khớp (Harmony Score) dưới từng nhiệt độ màu ánh sáng đèn OSRAM:
             </p>
           </div>
         </div>
@@ -902,7 +1011,7 @@
           <div class="anchor-chip">
             <div class="anchor-swatch" style="background: radial-gradient(circle, #fff3d1 15%, #f59e0b 100%);"></div>
             <div class="anchor-meta">
-              <strong>5. Đèn OPPLE CRI≥92 &amp; Aqara H1</strong>
+              <strong>5. Đèn OSRAM CRI≥92 &amp; Aqara H1</strong>
               <span>Ánh sáng 3500K–4000K + Mặt trắng mờ</span>
             </div>
           </div>
@@ -914,7 +1023,7 @@
     <section id="sec-studio">
       <div class="section-header">
         <span class="section-tag">PHẦN 1 • BÀN PHỐI MÀU SƠN DULUX / KOVA &amp; GẠCH ỐP LÁT TƯƠNG TÁC THỜI GIAN THỰC</span>
-        <h2>Bấm Chọn Không Gian • Đổi Thử Mã Sơn Dulux/Kova, Mẫu Gạch &amp; Nhiệt Độ Đèn OPPLE</h2>
+        <h2>Bấm Chọn Không Gian • Đổi Thử Mã Sơn Dulux/Kova, Mẫu Gạch &amp; Nhiệt Độ Đèn OSRAM</h2>
         <p>
           Chọn 1 trong 6 phân khu thực tế của Q Villa bên dưới, sau đó bấm đổi <strong>Màu sơn tường (Dulux / Kova)</strong>, <strong>Màu vách nhấn</strong>, <strong>Mẫu gạch lát nền/ốp tường</strong> và <strong>Nhiệt độ đèn (3000K / 3500K / 4000K / Ban ngày)</strong> để kiểm tra trực quan:
         </p>
@@ -963,7 +1072,7 @@
               <span id="stage-room-title">🛋️ Mô Phỏng Phối Màu: Phòng Khách &amp; Tiền Sảnh Tầng 1</span>
             </div>
             <div class="kelvin-bar" role="group" aria-label="Chọn nhiệt độ màu ánh sáng">
-              <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">💡 Đèn OPPLE:</span>
+              <span style="font-size: 0.74rem; color: var(--text-muted); font-weight: 700;">💡 Đèn OSRAM:</span>
               <button type="button" class="kelvin-btn" data-k="5500" onclick="setKelvin(5500)">☀️ Ban ngày (5500K)</button>
               <button type="button" class="kelvin-btn active" data-k="4000" onclick="setKelvin(4000)">⭐ Trung tính (4000K)</button>
               <button type="button" class="kelvin-btn" data-k="3500" onclick="setKelvin(3500)">🌅 Phòng ngủ (3500K)</button>
@@ -978,17 +1087,17 @@
           <!-- Reference 3D Render Strip -->
           <div class="render-compare-bar">
             <div class="render-thumb-wrap" onclick="openCurrentRenderLightbox()">
-              <img id="ref-render-img" src="assets/2026_phong_khach_quat_tran_1792425234068.jpg" alt="Phối cảnh 3D thực tế của phân khu đang chọn" />
+              <img id="ref-render-img" src="assets/warm_minimalist_wm06_t1_v02.jpg" alt="Phối cảnh 3D thực tế của phân khu đang chọn" />
             </div>
             <div>
               <div style="font-size: 0.74rem; font-weight: 800; text-transform: uppercase; color: var(--accent-light);">
                 📸 Đối chiếu Phối cảnh 3D Thực tế của Q Villa (Bấm ảnh để phóng to)
               </div>
               <div id="ref-render-title" style="font-size: 0.92rem; font-weight: 800; color: #fff; margin: 2px 0;">
-                Phòng Khách Tầng 1 — Trần giật cấp chỉ đen P-UT12 + Quạt trần cánh gỗ óc chó
+                Phòng Khách &amp; Bàn Ăn Tầng 1 (bd406bf0 • WM-06) — Sàn 1000×1000 Xám Xi Măng Ấm + Vách Travertine
               </div>
               <p id="ref-render-desc" style="font-size: 0.8rem; color: var(--text-secondary);">
-                Tường sơn Trắng kem ấm (Dulux 30GY 88/014 White Cotton / Kova AP12-1) giúp nối êm giữa Cửa chính gỗ Lim D1, Quạt trần gỗ óc chó và Sàn gạch 800×800 Xám sáng ấm.
+                Tường sơn Trắng kem ấm (Dulux 30GY 88/014 White Cotton / Kova AP12-1) kết hợp Sàn 1000×1000 Xám Xi Măng Ấm (TQ Luxcasa 100LUBL10030M hoặc VN Viglacera NY11-GM8803).
               </p>
             </div>
             <button type="button" class="kelvin-btn" onclick="openCurrentRenderLightbox()" style="padding: 9px 14px;">
@@ -1050,6 +1159,234 @@
       </div>
     </section>
 
+    <!-- SECTION 1B: REAL TILE PHOTOS BY FLOOR (CHINESE IMPORT VS VIETNAMESE VIGLACERA/EUROTILE) -->
+    <section id="sec-real-tiles">
+      <div class="section-header">
+        <span class="section-tag">PHẦN 1B • ĐỐI CHIẾU ẢNH THẬT GẠCH TRUNG QUỐC VS VIỆT NAM CHIA THEO TỪNG TẦNG (KHỚP 100% NỘI THẤT MỚI)</span>
+        <h2>Ảnh Thật Viên Gạch Chia Theo Từng Tầng — Mỗi Khu 1 Mẫu Trung Quốc + 1 Mẫu Việt Nam (Bấm Ảnh Để Phóng To)</h2>
+        <p>
+          Lấy trực tiếp màu sàn từ bộ ảnh nội thất <strong>Warm Minimalist WM-06, 349 Vân Gỗ &amp; Phòng 2 Bé Gái Gỗ Sồi Sáng</strong> để so sánh thực tế giữa <strong>Gạch Nhập Khẩu Trung Quốc (Phật Sơn - Luxcasa)</strong> và <strong>Gạch Việt Nam Chính Hãng (Viglacera / Eurotile)</strong> kèm mã sơn <strong>Dulux / Kova</strong> đồng bộ:
+        </p>
+      </div>
+
+      <div class="floor-tile-cards">
+        <!-- TẦNG 1 -->
+        <article class="floor-tile-row">
+          <div class="floor-tile-head">
+            <div>
+              <h3>1️⃣ TẦNG 1: Khách – Ăn – Bếp – Tiền Sảnh (`55,1 m²`, đặt `62 m²` khổ `1000×1000 mm`) + Hành lang T2–Tum (`800×800`)</h3>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin-top:3px;">Sàn màu <strong>Xám Xi Măng Ấm Pha Kem (*Warm Greige Micro-Cement Matt*)</strong> để tôn Vách Tivi <code>Travertine</code>, Tủ bếp cánh kính Be &amp; Sofa bệ gỗ.</p>
+            </div>
+            <span class="paint-chip-badge">🎨 Sơn tường T1: Dulux 30GY 88/014 (White Cotton) / Kova AP12-1 • Trần: 99GY 90/000 / K-771</span>
+          </div>
+          <div class="triple-compare-grid">
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/warm_minimalist_wm06_t1_v02.jpg', '3D Nội thất Tầng 1 Q Villa — Sàn Xám Xi Măng Ấm Pha Kem (1000×1000)')">
+                <img src="assets/warm_minimalist_wm06_t1_v02.jpg" alt="Phối cảnh 3D Tầng 1 Q Villa" loading="lazy" />
+                <span class="origin-pill ref3d">🏠 Ảnh 3D Nội Thất T1</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>Sàn 3D thực tế: Khổ 1000×1000 Matt Lì</strong>
+                <span>Màu Xám Khói Ấm pha Kem không bóng kính — giúp triệt tiêu chói đèn ray nam châm và quạt trần Lộ 6 &amp; 6A.</span>
+              </div>
+            </div>
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/tiles/cn_t1_100lubl10030m_room.jpg', 'Gạch Trung Quốc: Luxcasa 100LUBL10030M (1000×1000 Men Matt Xám Xi Măng Ấm)')">
+                <img src="assets/tiles/cn_t1_100lubl10030m_room.jpg" alt="Gạch Trung Quốc 1000x1000 100LUBL10030M" loading="lazy" />
+                <span class="origin-pill cn">🇨🇳 Gạch Trung Quốc (Phật Sơn)</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>TQ Thương mại (`100LUBL10030M` • `1000×1000` Matt)</strong>
+                <span>Micro-Cement Xám Ấm y hệt 3D T1. Giá tổng kho: `1m×1m` <strong>~240k–290k/m²</strong> | `80×80` <strong>~185k–225k/m²</strong>. *Muốn kem sáng lấy mã `100LU10002`.*</span>
+              </div>
+            </div>
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/tiles/vn_t1_vig_ny11_gm8803.jpg', 'Gạch Việt Nam: Viglacera NY11-GM8803 (Men Matt Xám Xi Măng Ấm)')">
+                <img src="assets/tiles/vn_t1_vig_ny11_gm8803.jpg" alt="Gạch Việt Nam Viglacera NY11-GM8803" loading="lazy" />
+                <span class="origin-pill vn">🇻🇳 Gạch Việt Nam (Viglacera / Á Mỹ)</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>Viglacera `NY11-GM8803` / `CL52-9GP101001`</strong>
+                <span>Giá đại lý cấp 1: `1m×1m` <strong>~310k–350k/m²</strong> | `80×80` <strong>~215k–265k/m²</strong>. *Nếu thích tông Kem Ngà sáng lấy `CL-GP808`.*</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- TẦNG 2A: MASTER & P.ÔNG BÀ -->
+        <article class="floor-tile-row">
+          <div class="floor-tile-head">
+            <div>
+              <h3>2️⃣A TẦNG 1 (P.Ông Bà `13,6 m²`) &amp; TẦNG 2 (Phòng Master Open-Suite `20,8 m²`) — Gạch Gỗ Xương Cá `150×900 mm`</h3>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin-top:3px;">Sàn gỗ tông <strong>Nâu Hạt Dẻ Ấm / Sồi Hun Ấm (*Warm Chestnut-Walnut*)</strong> — sáng hơn giường/đảo gỗ Óc chó 1 tông để đồ nội thất nổi bật, không chìm sàn.</p>
+            </div>
+            <span class="paint-chip-badge">🎨 Sơn tường Master: Dulux 30GY 88/014 / Kova AP12-1 • P.Ông Bà: Dulux 40YY 83/043 / Kova AP13-1</span>
+          </div>
+          <div class="triple-compare-grid">
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/wow_master_bed_allwood.jpg', '3D Phòng Master Tầng 2 (100% Vân Gỗ &amp; Sàn Xương Cá Nâu Sồi Ấm)')">
+                <img src="assets/wow_master_bed_allwood.jpg" alt="Phối cảnh 3D Phòng Master T2" loading="lazy" />
+                <span class="origin-pill ref3d">👑 Ảnh 3D Master T2 &amp; Ông Bà T1</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>Sàn Xương Cá 150×900mm (Hạ cốt -16mm, 0% nẹp T8)</strong>
+                <span>Tôn trọn vách cánh chim Óc chó &amp; ánh đèn LED Vòng xuyên sáng `Ø1.200mm`. P.Ông Bà dùng Matt `R10` chống trượt không trải thảm.</span>
+              </div>
+            </div>
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/tiles/cn_wood_brown_201202.jpg', 'Gạch Trung Quốc: Luxcasa LU8111 / 212LU201202 (Vân Gỗ Nâu Ấm Óc Chó Sáng)')">
+                <img src="assets/tiles/cn_wood_brown_201202.jpg" alt="Gạch giả gỗ Trung Quốc Nâu Ấm" loading="lazy" />
+                <span class="origin-pill cn">🇨🇳 Gạch Trung Quốc (Phật Sơn)</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>TQ Thương mại (`LU8111` / `159LU91509` • `150×900`)</strong>
+                <span>Màu nâu hạt dẻ tự nhiên không đỏ. Giá tổng kho: <strong>~185k–235k/m²</strong> *(cần ướm kiểm tra độ phẳng từng thanh)*.</span>
+              </div>
+            </div>
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/tiles/vn_wood_vig_ny18_gc15904.jpg', 'Gạch Việt Nam: Viglacera NY18-GC15904 (150×900 Lát Xương Cá Thực Tế)')">
+                <img src="assets/tiles/vn_wood_vig_ny18_gc15904.jpg" alt="Gạch giả gỗ Viglacera NY18-GC15904 xương cá" loading="lazy" />
+                <span class="origin-pill vn">🇻🇳 Gạch Việt Nam (Viglacera / Á Mỹ)</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>Viglacera `NY18-GC15904` / `Á Mỹ AMYGRES`</strong>
+                <span>Ảnh chụp thực tế khi lên kiểu **Xương cá `150×900`**, thanh gạch phẳng đều dễ lát. Giá đại lý cấp 1: <strong>~215k–260k/m²</strong>.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- TẦNG 2B: 2 PHÒNG BÉ GÁI PN1 & PN2 -->
+        <article class="floor-tile-row">
+          <div class="floor-tile-head">
+            <div>
+              <h3>2️⃣B TẦNG 2 — 02 Phòng Ngủ Bé Gái (`PN1 16,2 m²` &amp; `PN2 13,5 m²` • Gỗ Sồi Sáng `Hopeful • KES • Karma`)</h3>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin-top:3px;">Sàn gỗ tông <strong>Sồi Vàng Mật Ong Sáng (*Honey Light Oak*)</strong> — ăn nhập 100% với nội thất gỗ Sồi sáng &amp; ngăn kéo Hồng phấn đất trầm.</p>
+            </div>
+            <span class="paint-chip-badge">🎨 Sơn tường: Dulux EasyClean 30GY 88/014 / Kova K-5500 AP12-1 (Chống bám bẩn lau sạch bút màu)</span>
+          </div>
+          <div class="triple-compare-grid">
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/wow_t2_v06_pn1_girl_lightoak_north.jpg', '3D Phòng Ngủ 2 Bé Gái T2 (PN1 &amp; PN2 Gỗ Sồi Sáng)')">
+                <img src="assets/wow_t2_v06_pn1_girl_lightoak_north.jpg" alt="Phối cảnh 3D Phòng Ngủ Bé Gái PN1" loading="lazy" />
+                <span class="origin-pill ref3d">👧 Ảnh 3D PN1 &amp; PN2 Tầng 2</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>Sàn Sồi Mật Ong Sáng (`PN1–PN2`: đặt ~34 m² = 32 hộp)</strong>
+                <span>Giúp phòng `13,5 m²` rộng bừng sáng dưới nắng ban công Đông `D4` &amp; `D8`, dùng bền từ tuổi 3–7 đến 17+ tuổi.</span>
+              </div>
+            </div>
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/tiles/cn_wood_159lu91509_honey.jpg', 'Gạch Trung Quốc: Bộ So Sánh 5 Thanh Thật Luxcasa (LU8177 Vàng Sồi Sáng / LU15860 Mật Ong)')">
+                <img src="assets/tiles/cn_wood_159lu91509_honey.jpg" alt="Gạch giả gỗ Trung Quốc LU8177 và LU15860" loading="lazy" />
+                <span class="origin-pill cn">🇨🇳 Gạch Trung Quốc (Phật Sơn)</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>TQ Thương mại (`LU8177` Sồi Sáng / `LU15860` Mật Ong)</strong>
+                <span>Thanh `LU8177` (giữa) khớp `98%` với ảnh 3D phòng bé gái. Giá tổng kho thực tế: <strong>~185k–235k/m²</strong>.</span>
+              </div>
+            </div>
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/tiles/vn_wood_vig_sh_gk15904.jpg', 'Gạch Việt Nam: Viglacera SH-GK15904 (150×900 Màu Sồi Vàng Mật Ong Sáng)')">
+                <img src="assets/tiles/vn_wood_vig_sh_gk15904.jpg" alt="Gạch giả gỗ Viglacera SH-GK15904 Sồi sáng" loading="lazy" />
+                <span class="origin-pill vn">🇻🇳 Gạch Việt Nam (Viglacera / Á Mỹ)</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>Viglacera `SH-GK15904` / `Á Mỹ AMYGRES 5508`</strong>
+                <span>Sắc Vàng Sồi ấm áp tươi sáng, xương Porcelain phẳng cạnh dễ thi công xương cá. Giá đại lý cấp 1: <strong>~215k–255k/m²</strong>.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- TẦNG 3: P.LÀM VIỆC, P.THỜ & PN3-4 -->
+        <article class="floor-tile-row">
+          <div class="floor-tile-head">
+            <div>
+              <h3>3️⃣ TẦNG 3 &amp; TUM: P.Làm Việc Đôi (`14,5 m²`) • P.Thờ Gỗ Gụ (`6,7 m²`) • `PN3–PN4` &amp; Sảnh Mái Kính</h3>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin-top:3px;">Gạch gỗ `150×900` xương cá chạy xuyên cửa lùa không ray dưới vào tận dưới **Án Gian Gỗ Gụ Lào** (`MM Matt R10` chống chói nắng chiều Tây).</p>
+            </div>
+            <span class="paint-chip-badge">🎨 Sơn P.Làm Việc: Dulux 30GY 88/014 / Kova AP12-1 • P.Thờ T3: Dulux 20YY 74/055 / Kova AP14-2 (Kem Cát Ấm)</span>
+          </div>
+          <div class="triple-compare-grid">
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/wow_t3_v01_study_south.jpg', '3D Phòng Làm Việc Đôi Tầng 3 (Nắng Lam Tây &amp; Sàn Xương Cá 150×900)')">
+                <img src="assets/wow_t3_v01_study_south.jpg" alt="Phối cảnh 3D Phòng Làm Việc T3" loading="lazy" />
+                <span class="origin-pill ref3d">💻 Ảnh 3D P.Làm Việc &amp; P.Thờ T3</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>Sàn xuyên cửa lùa 4 cánh không ray (`6,71m` liền thảm)</strong>
+                <span>Màu nâu mật ong ấm hài hòa cả Bàn làm việc đôi `3,5m` phía Tây và Bộ Án Gian Gỗ Gụ Lào + Lộc Bình men rạn phía Bắc.</span>
+              </div>
+            </div>
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/tiles/cn_wood_159lu91509_honey.jpg', 'Gạch Trung Quốc: Luxcasa LU15860 (Mật Ong) hoặc LU8111 (Nâu Trầm)')">
+                <img src="assets/tiles/cn_wood_159lu91509_honey.jpg" alt="Gạch giả gỗ Trung Quốc LU15860 và LU8111" loading="lazy" />
+                <span class="origin-pill cn">🇨🇳 Gạch Trung Quốc (Phật Sơn)</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>Luxcasa `LU15860` (`WM-06`) / `LU8111` (`349 Vân Gỗ`)</strong>
+                <span>Chọn thanh thứ 4 (`LU15860`) nếu nội thất theo `WM-06` sáng; chọn thanh thứ 5 (`LU8111`) nếu theo `349 Óc Chó &amp; Gỗ Gụ`.</span>
+              </div>
+            </div>
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/tiles/vn_wood_vig_ny18_gc15905.jpg', 'Gạch Việt Nam: Viglacera NY18-GC15905 (Vân Gỗ Nâu Xám Khói Tự Nhiên Chống Chói)')">
+                <img src="assets/tiles/vn_wood_vig_ny18_gc15905.jpg" alt="Gạch giả gỗ Viglacera NY18-GC15905" loading="lazy" />
+                <span class="origin-pill vn">🇻🇳 Gạch Việt Nam (Viglacera)</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>Viglacera `NY18-GC15905` / `NY18-GC15904`</strong>
+                <span>Rất phù hợp T3 (`PN4` + P.Làm việc + Sảnh Giếng trời) nhờ bề mặt Matt lì triệt tiêu hoàn toàn độ chói nắng chiều Tây.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 PHÒNG WC -->
+        <article class="floor-tile-row">
+          <div class="floor-tile-head">
+            <div>
+              <h3>4️⃣ 04 PHÒNG VỆ SINH (`WC-01` T1–T3 &amp; `WC-02 Master` — Tường `600×1200` Ốp Dọc + Sàn `600×600` R10/R11)</h3>
+              <p style="font-size:0.82rem;color:var(--text-muted);margin-top:3px;">Tường ốp dọc 2 viên kịch trần `+2.40m` màu <strong>Kem Xám Đá Vôi Ấm (*Warm Limestone*)</strong> tôn Cabin kính <code>Slimdoor Đen Mờ</code> &amp; 13 kệ đá Vicostone.</p>
+            </div>
+            <span class="paint-chip-badge">🎨 Trần WC (tấm C2 chịu ẩm): Dulux Ceiling White / Kova K-771 • Keo ron Epoxy Xám Bạc</span>
+          </div>
+          <div class="triple-compare-grid">
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/wc02_master_3khoang_chuan_kt503_3d.jpg', '3D WC-02 Master 3 Khoang — Gạch Ốp Dọc 600×1200 Kem Xám Đá Ấm')">
+                <img src="assets/wc02_master_3khoang_chuan_kt503_3d.jpg" alt="Phối cảnh 3D WC-02 Master" loading="lazy" />
+                <span class="origin-pill ref3d">🚿 Ảnh 3D WC-02 Master</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>Tổng 4 WC: 100,8 m² tường (70 hộp) + 24,5 m² sàn (17 hộp)</strong>
+                <span>Ốp dọc trùng mạch 100% xuống sàn `600×600`, không bám cặn canxi, dễ cọ rửa dưới ánh đèn `3500K–4000K`.</span>
+              </div>
+            </div>
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/tiles/cn_wc_612ludj118_room.webp', 'Gạch Trung Quốc: Luxcasa 612LUDJ118 (600×1200 Matt Lụa Kem Đá Vôi Ấm)')">
+                <img src="assets/tiles/cn_wc_612ludj118_room.webp" alt="Gạch phòng tắm Trung Quốc 612LUDJ118" loading="lazy" />
+                <span class="origin-pill cn">🇨🇳 Gạch Trung Quốc (Phật Sơn)</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>TQ Thương mại (`612LUDJ118` • `600×1200` Matt)</strong>
+                <span>Lên ảnh thực tế WC giống **98%** render 3D `WC-02 Master`. Giá tổng kho thực tế: <strong>~210k–260k/m²</strong> *(Sàn `60×60` ~165k–200k/m²)*.</span>
+              </div>
+            </div>
+            <div class="tile-photo-card">
+              <div class="tile-photo-thumb" onclick="openDirectLightbox('assets/tiles/vn_wc_euro_thv_q02.jpg', 'Gạch Việt Nam: Eurotile Thạch Vũ THV Q02 (600×1200 Men Matt Đá Vôi Kem Ấm)')">
+                <img src="assets/tiles/vn_wc_euro_thv_q02.jpg" alt="Gạch Eurotile Thạch Vũ THV Q02 600x1200" loading="lazy" />
+                <span class="origin-pill vn">🇻🇳 Gạch Việt Nam (Viglacera / Á Mỹ)</span>
+              </div>
+              <div class="tile-photo-body">
+                <strong>Viglacera / Á Mỹ / Prime (`600×1200` Matt)</strong>
+                <span>Giá đại lý dòng chuẩn (`AZ1 / CL-GP61207 / Á Mỹ`): <strong>~235k–285k/m²</strong> *(Nếu chọn dòng Eurotile `THV Q02` trên ảnh: ~320k–360k/m²)*.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <!-- SECTION 2: BRAND & PRODUCT LINE STRATEGY -->
     <section id="sec-brands">
       <div class="section-header">
@@ -1066,7 +1403,7 @@
           <h3>🪣 Hệ Sơn DULUX &amp; KOVA (Phối Hợp Tối Ưu Nhất)</h3>
           <p style="font-size: 0.84rem; color: var(--text-muted);">Tổng dự toán: <strong>~84,4 Triệu ₫</strong> (Nội thất 54,6tr + Ngoại thất 29,8tr)</p>
           <ul>
-            <li>✅ <strong>Bột bả:</strong> Dùng <strong>Bột bả Dulux cao cấp</strong> hoặc <strong>Kova MB-T Nội thất</strong> (dẻo, xả nhám phẳng mịn dưới đèn Spotlight chóa sâu OPPLE).</li>
+            <li>✅ <strong>Bột bả:</strong> Dùng <strong>Bột bả Dulux cao cấp</strong> hoặc <strong>Kova MB-T Nội thất</strong> (dẻo, xả nhám phẳng mịn dưới đèn Spotlight chóa sâu OSRAM).</li>
             <li>✅ <strong>Tường trong nhà (550 m²):</strong> 1 lớp lót kháng kiềm <em>Dulux SuperSealer Z505 (hoặc Kova K-109)</em> + 2 lớp phủ <strong>Dulux Ambiance 5in1 / EasyClean (Bóng Mờ)</strong> mã <code>30GY 88/014 (White Cotton)</code> hoặc <strong>Kova K-260 / K-5500</strong> mã <code>AP12-1</code>.</li>
             <li>✅ <strong>Trần thạch cao (228 m²):</strong> <strong>Dulux Ceiling White (Trắng trần siêu mờ)</strong> hoặc <strong>Kova K-771</strong> chống lóa khe LED.</li>
             <li>✅ <strong>Ngoại thất (350 m²):</strong> <strong>Dulux Weathershield Powerflexx</strong> (Mặt tiền co giãn che vết nứt) + <strong>Chống thấm Kova CT-11A Plus &amp; Phủ Kova CT-04 / K-5800</strong> cho 2 bức tường biên Trục A, D &amp; sân sau.</li>
@@ -1074,13 +1411,13 @@
         </article>
 
         <article class="brand-card recommended">
-          <span class="room-tab-badge" style="background: rgba(56, 189, 248, 0.2); color: var(--sky-light);">★ Khuyên Dùng Số 1 Cho Gạch Ốp Lát (327 m²)</span>
-          <h3>🪨 Gạch EUROTILE &amp; Á MỸ (AMYGRES)</h3>
-          <p style="font-size: 0.84rem; color: var(--text-muted);">Tổng dự toán vật tư: <strong>~100,5 Triệu ₫</strong> + Keo C2 &amp; Nẹp <strong>16,5 Triệu ₫</strong></p>
+          <span class="room-tab-badge" style="background: rgba(56, 189, 248, 0.2); color: var(--sky-light);">★ Giá Sát Thực Tế Tại Tổng Kho / Đại Lý Cấp 1</span>
+          <h3>🪨 Gạch VIGLACERA / Á MỸ / PRIME vs Gạch TQ Thương Mại</h3>
+          <p style="font-size: 0.84rem; color: var(--text-muted);">Tổng dự toán vật tư toàn nhà (~442 m² cả sân): <strong>~99,1 – 112,1 Triệu ₫</strong> + Keo C2 &amp; Nẹp <strong>16,5 Triệu ₫</strong></p>
           <ul>
-            <li>✅ <strong>Sàn T1, Bếp &amp; Hành lang (91 m²):</strong> Gạch <strong>Á Mỹ (AMYGRES) hoặc Eurotile 800×800</strong> xương đá Porcelain, màu <strong>Xám sáng ấm (Light Warm Grey)</strong> bề mặt <em>Bán bóng (Lappato)</em> (~350k/m²).</li>
-            <li>✅ <strong>04 Phòng WC (100 m² tường 600×1200 + 24 m² sàn 600×600):</strong> Gạch <strong>Eurotile bề mặt Matt Lụa (Baby Skin)</strong> tông Xám đá sáng (không bám cặn canxi, tôn 13 kệ đá trắng Vicostone).</li>
-            <li>✅ <strong>Sân T1, Sân thượng Tum &amp; 5 Ban công (112,5 m²):</strong> Gạch Granite chống trơn <strong>R11 / Sugar nhám</strong> của <strong>Viglacera / Á Mỹ / Prime</strong> (~235k/m²).</li>
+            <li>✅ <strong>Sàn T1 (`1m×1m` • `62 m²`) &amp; Hành lang (`80×80` • `30,7 m²`):</strong> TQ Thương Mại (~<strong>240k–290k/m²</strong> cho `1m×1m` • <strong>185k–225k/m²</strong> cho `80×80`) hoặc Viglacera/Á Mỹ (~<strong>310k–350k/m²</strong> cho `1m×1m` • <strong>215k–265k/m²</strong> cho `80×80`).</li>
+            <li>✅ <strong>Khu Gỗ Xương Cá `150×900` (`137,2 m²`):</strong> Nên ưu tiên <strong>Viglacera / Á Mỹ / Prime (~215k–260k/m²)</strong> phẳng cạnh tuyệt đối chống vấp góc 45° (TQ Thương mại ~<strong>185k–235k/m²</strong>).</li>
+            <li>✅ <strong>04 Phòng WC (`100,8 m²` Tường `60×120` + `24,5 m²` Sàn `60×60`) &amp; Sân (`112,5 m²`):</strong> Tường `60×120` TQ (~<strong>210k–260k/m²</strong>) vs Viglacera/Á Mỹ (~<strong>235k–285k/m²</strong>); Sân R11 (~<strong>165k–205k/m²</strong>).</li>
           </ul>
         </article>
 
@@ -1179,38 +1516,47 @@
               <td style="text-align:right; font-weight:800; color:var(--emerald-light);">28.000.000 ₫</td>
             </tr>
             <tr>
-              <th>7. Gạch Sàn Tầng 1, Bếp &amp; Hành Lang T2–Tum</th>
-              <td>T1 (55,1m²), T2 (7,1m²), T3 (7,1m²), Tum (13,5m²) = 82,8 m²</td>
-              <td><strong>Á Mỹ (AMYGRES)</strong> hoặc <strong>Eurotile / Viglacera</strong></td>
-              <td>Khổ <strong>800×800 mm</strong> • Xương Porcelain<br>Màu: <strong>Xám Sáng Ấm (Light Warm Grey)</strong></td>
-              <td>Bán bóng (Lappato) / Bóng kính</td>
-              <td><strong>91 m²</strong> (~48 hộp, gồm cả cắt len âm chân tường)</td>
-              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">32.000.000 ₫</td>
+              <th>7. Gạch Sàn Tầng 1 (`1m×1m`) &amp; Hành Lang T2–Tum (`800×800`)</th>
+              <td>T1 (55,1 m² &rarr; đặt 62 m²) + HL T2–Tum (27,7 m² &rarr; đặt 30,7 m²)</td>
+              <td><strong>TQ Thương Mại</strong> (240k–290k) / <strong>Viglacera • Á Mỹ • Prime</strong> (310k–350k cho 1m×1m; 215k–265k cho 80×80)</td>
+              <td>Màu: <strong>Xám Xi Măng Ấm (Warm Greige)</strong><br><small>TQ: `100LUBL10030M` | VN: `Viglacera CL52 / NY11-GM8803`</small></td>
+              <td>Men Matt Lì (Không bóng kính)</td>
+              <td><strong>62 m²</strong> (1m×1m) + <strong>30,7 m²</strong> (80×80)</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">22,7tr – 27,9tr ₫</td>
             </tr>
             <tr>
-              <th>8. Gạch Ốp &amp; Lát 04 Phòng Vệ Sinh</th>
-              <td>Tường kịch trần +2.4m (100 m²) + Sàn (24 m²)</td>
-              <td><strong>Eurotile</strong> (BST An Niên / Mộc Châu) hoặc <strong>Á Mỹ</strong></td>
-              <td>• Tường: <strong>600×1200 mm</strong> Xám Đá Sáng (Master phối thêm Xám Than)<br>• Sàn: <strong>600×600 mm</strong> đồng màu</td>
-              <td>Tường: <strong>Matt Lụa</strong><br>Sàn: <strong>Nhám R10</strong></td>
-              <td><strong>100 m²</strong> gạch 600×1200 + <strong>24 m²</strong> gạch 600×600</td>
-              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">42.000.000 ₫</td>
+              <th>8. Gạch Giả Gỗ Xương Cá 150×900 (T1 Ông Bà, T2, T3)</th>
+              <td>Ông Bà + Master + PN1–4 + P.Làm Việc + P.Thờ (120,6 m²)</td>
+              <td><strong>Viglacera • Á Mỹ • Prime</strong> (215k–260k/m²) *(Hoặc TQ Thương mại: 185k–235k/m²)*</td>
+              <td>• Master/T3: Nâu Hạt Dẻ (`NY18-GC15904`)<br>• 2 Bé Gái PN1–2: Sồi Sáng (`SH-GK15904`)</td>
+              <td>Men Matt vân gỗ <strong>R9 / R10</strong></td>
+              <td><strong>137,2 m²</strong> (127 hộp × 1,08 m², đã +13% cắt 45°)</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">28,8tr – 32,5tr ₫</td>
             </tr>
             <tr>
-              <th>9. Gạch Sân T1, Sân Thượng Tum &amp; 5 Ban Công</th>
+              <th>9. Gạch Ốp &amp; Lát 04 Phòng Vệ Sinh (Tường + Sàn)</th>
+              <td>Tường kịch trần +2.4m (100,8 m²) + Sàn (24,5 m²)</td>
+              <td><strong>TQ Thương Mại</strong> (Tường 210k–260k; Sàn 165k–200k) / <strong>Viglacera • Á Mỹ</strong> (Tường 235k–285k; Sàn 175k–210k)</td>
+              <td>• Tường: <strong>600×1200 Ốp Dọc</strong> Đá Vôi Kem Xám<br>• Sàn: <strong>600×600 mm</strong> đồng màu chống trơn</td>
+              <td>Tường: <strong>Matt Mịn</strong><br>Sàn: <strong>Nhám R10/R11</strong></td>
+              <td><strong>100,8 m²</strong> (70 hộp) + <strong>24,5 m²</strong> (17 hộp)</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">28,2tr – 30,9tr ₫</td>
+            </tr>
+            <tr>
+              <th>10. Gạch Sân T1, Sân Thượng Tum &amp; 5 Ban Công</th>
               <td>Sân T1 (27,3m²), Tum (56,5m²), 5 Ban công (22,4m²)</td>
-              <td><strong>Viglacera / Á Mỹ / Prime</strong> (Xương Granite ngoài trời)</td>
-              <td>• Sân &amp; Tum: <strong>600×600 mm</strong> Ghi xám đá<br>• 5 Ban công: <strong>300×600 mm</strong> Ghi xám</td>
+              <td><strong>Viglacera • Prime • Á Mỹ</strong> (165k–205k/m²) *(Hoặc TQ Thương mại: 155k–190k/m²)*</td>
+              <td>• Sân &amp; Tum: <strong>600×600 mm</strong> Ghi đá Bazan<br>• 5 Ban công: <strong>300×600 mm</strong> Ghi xám</td>
               <td>Nhám Chống Trơn <strong>R11</strong></td>
               <td><strong>88 m²</strong> (600×600) + <strong>24,5 m²</strong> (300×600)</td>
-              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">26.500.000 ₫</td>
+              <td style="text-align:right; font-weight:800; color:var(--emerald-light);">19,4tr – 20,8tr ₫</td>
             </tr>
             <tr>
-              <th>10. Keo Dán Gạch C2, Keo Ron &amp; Nẹp Âm Chân Tường</th>
-              <td>Toàn bộ ~327 m² gạch ốp lát các tầng</td>
-              <td><strong>Weber / SikaCeram</strong> + Keo ron <strong>Saveto / Webercolor</strong></td>
-              <td>Keo C2 ốp gạch 600×1200 &amp; 800×800 + Ron <strong>Xám Bạc (Silver Grey)</strong> + Nẹp âm <strong>DF-1212</strong></td>
-              <td>Chống bộp &amp; chống ố</td>
+              <th>11. Keo Dán Gạch C2, Keo Ron &amp; Nẹp Âm Chân Tường</th>
+              <td>Toàn bộ công trình (Không lát hồ dầu xi măng)</td>
+              <td><strong>Weber / SikaCeram</strong> + Keo ron <strong>Saveto / Epoxy</strong></td>
+              <td>Keo C2 ốp 1m×1m, xương cá &amp; 60×120 + Ron Epoxy WC + Nẹp âm <strong>DF-1212</strong></td>
+              <td>Chống bộp &amp; chống mốc</td>
               <td>Trọn gói toàn nhà</td>
               <td style="text-align:right; font-weight:800; color:var(--emerald-light);">16.500.000 ₫</td>
             </tr>
@@ -1252,30 +1598,30 @@
     const ROOM_CONFIGS = {
       living: {
         title: "🛋️ Mô Phỏng Phối Màu: Phòng Khách & Tiền Sảnh Tầng 1",
-        img: "assets/2026_phong_khach_quat_tran_1792425234068.jpg",
-        renderTitle: "Phòng Khách Tầng 1 — Trần giật cấp chỉ đen P-UT12 + Quạt trần cánh gỗ óc chó",
-        renderDesc: "Tường sơn Trắng kem ấm (Dulux 30GY 88/014 White Cotton / Kova AP12-1) giúp nối êm giữa Cửa chính gỗ Lim D1, Quạt trần gỗ óc chó và Sàn gạch 800×800 Xám sáng ấm.",
+        img: "assets/warm_minimalist_wm06_t1_v02.jpg",
+        renderTitle: "Phòng Khách & Bàn Ăn Tầng 1 (bd406bf0 • WM-06) — Sàn 1000×1000 Xám Xi Măng Ấm + Vách Travertine",
+        renderDesc: "Tường sơn Trắng kem ấm (Dulux 30GY 88/014 White Cotton / Kova AP12-1) kết hợp Sàn 1000×1000 Xám Xi Măng Ấm (TQ Luxcasa 100LUBL10030M hoặc VN Viglacera NY11-GM8803).",
         defaultKelvin: 4000
       },
       kitchen: {
         title: "🍳 Mô Phỏng Phối Màu: Phòng Bếp & Bàn Ăn 8 Ghế (Tủ KITPRO + Đá Vicostone)",
-        img: "assets/2026_phong_bep_an_quat_tran_1792425237150.jpg",
-        renderTitle: "Phòng Bếp & Bàn Ăn 8 Ghế — Tủ bếp cánh kính + Mặt đá Vicostone Trắng vân mây",
-        renderDesc: "Sàn gạch 800×800 Xám sáng ấm Lappato làm nổi bật bàn đảo đá trắng Calacatta mà không bị rối vân hay lộ vết bẩn khi nấu nướng.",
+        img: "assets/wow_t1_v02_living_north.jpg",
+        renderTitle: "Phòng Khách – Ăn – Bếp Tầng 1 (bd406bf0 • 349 Vân Gỗ) — Đảo Bo R400 & Tủ Cánh Kính Be",
+        renderDesc: "Sàn 1000×1000 Kem Xám Ấm Matt làm nổi bật bàn đá Vicostone & Travertine, đồng bộ 100% Tủ bếp Inox cánh kính màu Be.",
         defaultKelvin: 4000
       },
       bedroom: {
-        title: "🛏️ Mô Phỏng Phối Màu: Phòng Ngủ Master / Ông Bà & Cửa Gỗ Lim D3 (900×2400)",
-        img: "assets/2026_phong_ngu_master_t2_1792425234834.jpg",
-        renderTitle: "Phòng Ngủ Master Tầng 2 — Sàn gỗ xương cá Óc chó + Cửa gỗ Lim D3 + Đèn 3500K",
-        renderDesc: "Sơn tường Trắng kem (Dulux White Cotton / Kova AP12-1) + Vách đầu giường Xám Be (Dulux Warm Pewter / Kova AP16-2) tôn tuyệt đối màu Cửa gỗ Lim D3 và Sàn gỗ xương cá.",
+        title: "🛏️ Mô Phỏng Phối Màu: Phòng Ngủ Master / Ông Bà / 2 Bé Gái (Gạch Gỗ Xương Cá 150×900)",
+        img: "assets/wow_master_bed_allwood.jpg",
+        renderTitle: "Phòng Ngủ Master Tầng 2 (bd406bf0 • 100% Vân Gỗ) — Sàn Xương Cá 150×900 + Cửa Gỗ Lim D3",
+        renderDesc: "Master & Ông Bà dùng gạch gỗ 150×900 Nâu Hạt Dẻ Ấm (Viglacera NY18-GC15904 / Luxcasa LU8111); 2 Phòng Bé Gái PN1–PN2 dùng Sồi Vàng Sáng (Viglacera SH-GK15904 / Luxcasa LU8177).",
         defaultKelvin: 3500
       },
       wc: {
-        title: "🚿 Mô Phỏng Phối Màu: 04 Phòng WC (Tường 600×1200 Kịch Trần + 13 Kệ Đá Bếp)",
+        title: "🚿 Mô Phỏng Phối Màu: 04 Phòng WC (Tường 600×1200 Ốp Dọc + Sàn 600×600)",
         img: "assets/wc02_master_3khoang_chuan_kt503_3d.jpg",
-        renderTitle: "WC-02 Master 3 Khoang — Gạch 600×1200 Matt Lụa + Cabin Slimdoor Đen + Kệ Đá Trắng",
-        renderDesc: "Gạch Eurotile 600×1200 Matt Lụa Xám đá sáng (phối vách Xám đậm ở Master) làm nổi bật 13 tấm kệ đá góc Vicostone trắng vân mây tận dụng từ đá khoét bếp.",
+        renderTitle: "WC-02 Master 3 Khoang — Gạch 600×1200 Matt Lụa Kem Đá Vôi Ấm + Cabin Slimdoor Đen",
+        renderDesc: "Chọn TQ Luxcasa 612LUDJ118 hoặc VN Eurotile Thạch Vũ THV Q02 (Matt Lụa) để chống bám cặn canxi và tôn 13 kệ đá góc Vicostone trắng.",
         defaultKelvin: 4000
       },
       facade: {
@@ -1761,8 +2107,8 @@
         drawDconsWindowAndBedOrSofa(ctx, 450, 155, currentRoom);
       }
 
-      // 7. OPPLE Deep-Recessed Spotlight Cones (UGR < 16)
-      drawOppleSpotlights(ctx, W, currentKelvin);
+      // 7. OSRAM Deep-Recessed Spotlight Cones (UGR < 16)
+      drawOsramSpotlights(ctx, W, currentKelvin);
 
       // 8. Floating Callout Badges with exact Codes
       drawCalloutTag(ctx, 28, 72, `Trần: ${currentBrand === "dulux" ? "Dulux Ceiling White (Siêu mờ)" : "Kova K-771 Trắng Trần (Siêu mờ)"}`, "#0f172a");
@@ -1902,7 +2248,7 @@
       drawCalloutTag(ctx, x + 135, y + 235, "🪟 Cửa nhôm DCONS Hệ 100 Xám đá", "#1e293b");
     }
 
-    function drawOppleSpotlights(ctx, W, kelvin) {
+    function drawOsramSpotlights(ctx, W, kelvin) {
       const positions = [260, 480, 700];
       const beamColor = kelvin <= 3000
         ? "rgba(251, 191, 36, 0.22)"
@@ -2011,9 +2357,13 @@
 
     function openCurrentRenderLightbox() {
       const cfg = ROOM_CONFIGS[currentRoom];
+      openDirectLightbox(cfg.img, cfg.renderTitle);
+    }
+
+    function openDirectLightbox(src, title) {
       const dlg = document.getElementById("image-lightbox");
-      document.getElementById("lightbox-title").textContent = cfg.renderTitle;
-      document.getElementById("lightbox-img").src = cfg.img;
+      document.getElementById("lightbox-title").textContent = title || "Xem ảnh chi tiết Q Villa";
+      document.getElementById("lightbox-img").src = src;
       dlg.showModal();
     }
 
