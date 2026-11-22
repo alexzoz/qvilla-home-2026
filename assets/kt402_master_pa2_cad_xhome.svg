@@ -212,13 +212,14 @@
   <rect x="1024" y="405" width="34" height="136" fill="#ffffff" stroke="#000000" stroke-width="0.8"/>
   <text x="1045" y="473" fill="#000000" font-size="11" font-weight="bold" transform="rotate(-90 1045 473)" text-anchor="middle">TỦ ÁO KỊCH TRẦN #3 (600)</text>
 
-  <!-- (B) FREESTANDING CENTER ISLAND WALL / WARDROBE AT GRID B (1740 x 450 mm) -->
-  <rect x="537.5" y="633.75" width="261" height="67.5" rx="8" fill="url(#wardrobeHatch)" stroke="#c00000" stroke-width="2.2"/>
-  <line x1="537.5" y1="648.75" x2="798.5" y2="648.75" stroke="#c00000" stroke-width="1.2"/>
-  <rect x="556" y="653" width="224" height="44" fill="#ffffff" stroke="#c00000" stroke-width="0.9"/>
-  <text x="668" y="668" fill="#c00000" font-size="11.5" font-weight="bold" text-anchor="middle">VÁCH TỦ ĐẢO KỊCH TRẦN (1740 × 450)</text>
-  <text x="668" y="682" fill="#000000" font-size="10" font-weight="bold" text-anchor="middle">Bắc: Vách Tranh • Nam: Tủ Áo 4 khoang</text>
-  <text x="668" y="694" fill="#333333" font-size="9.5" text-anchor="middle">(Chừa cổ trần thạch cao +3.000 bao quanh đỉnh vách)</text>
+  <!-- (B) FREESTANDING CENTER ISLAND WALL / WARDROBE AT GRID B (PA 1A: 1740x280 | PA 1B/PA 2: 1740x450) -->
+  <rect x="537.5" y="633.75" width="261" height="67.5" rx="12" fill="url(#wardrobeHatch)" stroke="#c00000" stroke-width="2.2"/>
+  <rect x="537.5" y="640.5" width="261" height="42" rx="10" fill="none" stroke="#0066cc" stroke-width="1.3" stroke-dasharray="5,3"/>
+  <rect x="546" y="645" width="244" height="52" fill="#ffffff" stroke="#c00000" stroke-width="0.9"/>
+  <text x="668" y="658" fill="#c00000" font-size="9.2" font-weight="bold" text-anchor="middle">VÁCH TRỤC B: 1740×280 (PA 1A) | 1740×450 (PA 1B/2)</text>
+  <text x="668" y="670" fill="#000000" font-size="8.8" font-weight="bold" text-anchor="middle">Bắc: TV 65" Frame / Tranh • Nam: Hốc Đá &amp; Tủ Áo</text>
+  <text x="668" y="681.5" fill="#0066cc" font-size="8.2" font-weight="bold" text-anchor="middle">Thả từ trần: Lộ 14 (Bắc) + Lộ 19 (Nam &amp; Đảo) + 220V/LAN</text>
+  <text x="668" y="692" fill="#333333" font-size="7.8" text-anchor="middle">(Khe đứng Thay Đồ PA 1A: ~800mm • 0% cửa lùa • 2 lối 850mm)</text>
 
   <!-- Dimensions for Left Open Walkway (850mm), Center Unit (1740mm), Right Open Walkway (850mm) -->
   <g stroke="#c00000" stroke-width="1">
@@ -382,6 +383,62 @@
   </g>
   <text x="904" y="803" fill="#000000" font-size="9.5" font-weight="bold" text-anchor="middle">Lộ 17</text>
 
+  <!-- REUSED OLD SWITCHES (CĐ-12) & ELECTRICAL STUBS (CĐ-04) FOR NEW WARDROBES -->
+  <!-- 1. Switch cluster at East Door O1 pier (490mm wall north of O1) -->
+  <g>
+    <rect x="916" y="682" width="10" height="22" fill="#0066cc" stroke="#000000" stroke-width="0.9"/>
+    <line x1="926" y1="693" x2="958" y2="693" stroke="#0066cc" stroke-width="1" stroke-dasharray="3,2"/>
+    <rect x="958" y="668" width="218" height="44" rx="4" fill="#f0f9ff" stroke="#0066cc" stroke-width="1"/>
+    <text x="965" y="683" fill="#0055aa" font-size="8.6" font-weight="bold">CT CŨ CỬA O1 (TẬN DỤNG 100%):</text>
+    <text x="965" y="695" fill="#111111" font-size="8.3">• AQ H1 (17,18,19): Đảo Ø1.2m + 6 Spot + LED Tủ</text>
+    <text x="965" y="706" fill="#111111" font-size="8.3">• AQ H1 (14,15): Rèm/Vách TV + 6 Spot Ngủ</text>
+  </g>
+
+  <!-- 2. Old TV Outlet S1 (+1.2M/+0.4M) & LAN (+1.2M) behind new Tủ #3 (Hốc Đông) -->
+  <g>
+    <circle cx="1079" cy="410" r="5" fill="#0066cc" stroke="#000000" stroke-width="1"/>
+    <circle cx="1079" cy="426" r="5" fill="#c00000" stroke="#000000" stroke-width="1"/>
+    <polyline points="1084,418 1126,418 1126,188" fill="none" stroke="#c00000" stroke-width="1" stroke-dasharray="3,2"/>
+    <rect x="945" y="140" width="234" height="48" rx="4" fill="#fef2f2" stroke="#c00000" stroke-width="1"/>
+    <text x="952" y="154" fill="#c00000" font-size="8.6" font-weight="bold">TẬN DỤNG Ổ CŨ LƯNG TỦ #3 (CĐ-04):</text>
+    <text x="952" y="167" fill="#111111" font-size="8.2">• Giữ S1 (+1.2M): Driver 24V + Cảm biến LED Tủ #3</text>
+    <text x="952" y="179" fill="#0055aa" font-size="8.2">• Rút S1 (+0.4M) + LAN lên trần → TV 65" Vách B &amp; M3</text>
+  </g>
+
+  <!-- 3. Existing LED Stubs "+1.6M" at Wardrobes #1 & #2 + Relocated Mirror Stub +1.2M (Placed cleanly outside walls) -->
+  <g>
+    <!-- West outside callouts (clean blank space x=196..388) -->
+    <circle cx="408" cy="956" r="4.5" fill="#0066cc" stroke="#000000" stroke-width="0.9"/>
+    <polyline points="403,956 384,956 384,925 376,925" fill="none" stroke="#0066cc" stroke-width="1" stroke-dasharray="3,2"/>
+    <rect x="196" y="904" width="180" height="32" rx="4" fill="#f0f9ff" stroke="#0066cc" stroke-width="0.9"/>
+    <text x="202" y="917" fill="#0055aa" font-size="8.2" font-weight="bold">Dời Chờ Gương Oval (+1.2M):</text>
+    <text x="202" y="929" fill="#111111" font-size="8">Sang tường đặc 610mm cạnh O2</text>
+
+    <circle cx="422" cy="978" r="5" fill="#c00000" stroke="#000000" stroke-width="0.9"/>
+    <polyline points="417,978 376,978" fill="none" stroke="#c00000" stroke-width="1" stroke-dasharray="3,2"/>
+    <rect x="196" y="954" width="180" height="32" rx="4" fill="#fef2f2" stroke="#c00000" stroke-width="0.9"/>
+    <text x="202" y="967" fill="#c00000" font-size="8.2" font-weight="bold">Chờ LED Tủ #1 (+1.6M cũ):</text>
+    <text x="202" y="979" fill="#111111" font-size="8">Gom vào Nút 3 Lộ 19 (Cửa O1)</text>
+
+    <!-- East outside callouts (clean blank space x=958..1176) -->
+    <circle cx="924" cy="895" r="4.5" fill="#0066cc" stroke="#000000" stroke-width="0.9"/>
+    <polyline points="929,895 958,895" fill="none" stroke="#0066cc" stroke-width="1" stroke-dasharray="3,2"/>
+    <rect x="958" y="877" width="210" height="32" rx="4" fill="#f0f9ff" stroke="#0066cc" stroke-width="0.9"/>
+    <text x="964" y="890" fill="#0055aa" font-size="8.2" font-weight="bold">Giữ Chờ Gương Toàn Thân Đông (+1.2M):</text>
+    <text x="964" y="902" fill="#111111" font-size="8">Gương viên thuốc LED + Đấu chung Lộ 19</text>
+
+    <circle cx="914" cy="978" r="5" fill="#c00000" stroke="#000000" stroke-width="0.9"/>
+    <polyline points="919,978 958,978" fill="none" stroke="#c00000" stroke-width="1" stroke-dasharray="3,2"/>
+    <rect x="958" y="958" width="210" height="32" rx="4" fill="#fef2f2" stroke="#c00000" stroke-width="0.9"/>
+    <text x="964" y="971" fill="#c00000" font-size="8.2" font-weight="bold">Chờ LED Tủ #2 (+1.6M cũ):</text>
+    <text x="964" y="983" fill="#111111" font-size="8">Gom vào Nút 3 Lộ 19 (0% đục tường mới)</text>
+  </g>
+
+  <!-- 4. Under-floor conduit from Center Wall B to Glass Island -->
+  <line x1="668" y1="702" x2="668" y2="810" stroke="#0066cc" stroke-width="1.3" stroke-dasharray="4,3"/>
+  <rect x="598" y="746" width="140" height="16" rx="3" fill="#f0f9ff" stroke="#0066cc" stroke-width="0.8"/>
+  <text x="668" y="757" fill="#0055aa" font-size="8.2" font-weight="bold" text-anchor="middle">Gen Ø20 âm sàn → Đảo Kính (Lộ 19)</text>
+
   <!-- ========================================================================= -->
   <!-- 7. ZONE 3: WC-02 MOISTURE-RESISTANT CEILING (C2 / +2.400)                 -->
   <!-- ========================================================================= -->
@@ -462,13 +519,14 @@
     <line x1="512" y1="123" x2="544" y2="165" stroke="#c00000" stroke-width="1.3" stroke-dasharray="4,2"/>
     <text x="505" y="138" fill="#c00000" font-size="10" font-weight="bold" text-anchor="end">Đèn Lộ 15 bẻ 18° rọi Tranh</text>
 
-    <!-- FREESTANDING VÁCH TỦ ĐẢO TRỤC B (450mm deep: X=548..624, from floor Y=228 up to ceiling +3.000 Y=118) -->
+    <!-- FREESTANDING VÁCH TỦ ĐẢO TRỤC B (PA 1A: 280mm | PA 1B/PA 2: 450mm deep) -->
     <rect x="548" y="118" width="76" height="110" fill="url(#wardrobeHatch)" stroke="#c00000" stroke-width="2"/>
     <line x1="564" y1="118" x2="564" y2="228" stroke="#c00000" stroke-width="1.2"/>
-    <rect x="553" y="142" width="66" height="44" fill="#ffffff" stroke="#c00000" stroke-width="0.8"/>
-    <text x="586" y="156" fill="#c00000" font-size="10" font-weight="bold" text-anchor="middle">VÁCH TỦ ĐẢO</text>
-    <text x="586" y="169" fill="#000000" font-size="9.5" font-weight="bold" text-anchor="middle">Sâu 450mm</text>
-    <text x="586" y="181" fill="#000000" font-size="9" text-anchor="middle">(Chạm trần +3.00)</text>
+    <rect x="550" y="138" width="72" height="50" fill="#ffffff" stroke="#c00000" stroke-width="0.8"/>
+    <text x="586" y="151" fill="#c00000" font-size="9.2" font-weight="bold" text-anchor="middle">VÁCH TRỤC B</text>
+    <text x="586" y="163" fill="#0066cc" font-size="8.6" font-weight="bold" text-anchor="middle">PA1A: 280 + TV65"</text>
+    <text x="586" y="174" fill="#000000" font-size="8.6" font-weight="bold" text-anchor="middle">PA1B/2: Sâu 450</text>
+    <text x="586" y="184" fill="#333333" font-size="8.2" text-anchor="middle">(Chạm trần +3.00)</text>
 
     <!-- Walk-in Closet Ceiling South of Vách 2 (X=624..980): Flat band 350mm + Barrisol Moon Dome Ø1200 + South Wardrobe #1/#2 -->
     <line x1="624" y1="118" x2="690" y2="118" stroke="#000000" stroke-width="2.2"/>
@@ -518,22 +576,22 @@
     <!-- Row 1 -->
     <line x1="0" y1="114" x2="560" y2="114" stroke="#000000" stroke-width="0.8"/>
     <text x="21" y="92" fill="#c00000" font-size="12" font-weight="bold" text-anchor="middle">01</text>
-    <text x="48" y="84" fill="#c00000" font-size="11.2" font-weight="bold">Cổ trần Vách Tủ Đảo Trục B</text>
-    <text x="48" y="102" fill="#333333" font-size="10.2">(Thay vị trí Ghế Bench cũ)</text>
-    <text x="260.5" y="86" fill="#c00000" font-size="11.2" font-weight="bold" text-anchor="middle">1740 × 450 mm</text>
-    <text x="260.5" y="103" fill="#000000" font-size="10.2" text-anchor="middle">(Cao độ +3.000)</text>
+    <text x="48" y="84" fill="#c00000" font-size="11.2" font-weight="bold">Cổ trần Vách Trục B</text>
+    <text x="48" y="102" fill="#0055aa" font-size="9.8" font-weight="bold">(PA 1A: 280 • PA 1B/2: 450)</text>
+    <text x="260.5" y="86" fill="#c00000" font-size="10.8" font-weight="bold" text-anchor="middle">1740 × 280 / 450</text>
+    <text x="260.5" y="103" fill="#000000" font-size="10.2" text-anchor="middle">(Chạm trần +3.000)</text>
     <text x="323" y="83" fill="#000000" font-size="10.5">• Cách tường Tây 850mm • Cách tường Đông 850mm</text>
-    <text x="323" y="101" fill="#000000" font-size="10.5">• Mặt Bắc cách tường đầu giường (Trục C): 2825mm</text>
+    <text x="323" y="101" fill="#0055aa" font-size="10.2" font-weight="bold">• Khe đứng Đảo PA 1A: ~800mm (0% cửa lùa)</text>
 
     <!-- Row 2 -->
     <line x1="0" y1="164" x2="560" y2="164" stroke="#000000" stroke-width="0.8"/>
     <text x="21" y="142" fill="#c00000" font-size="12" font-weight="bold" text-anchor="middle">02</text>
     <text x="48" y="134" fill="#c00000" font-size="11.2" font-weight="bold">Hộp trần Khu Giường Ngủ</text>
-    <text x="48" y="152" fill="#333333" font-size="10.2">(Đã thu ngắn từ 2450 về 2150)</text>
+    <text x="48" y="152" fill="#0055aa" font-size="9.6" font-weight="bold">(PA D: Đứng kín • PA C: Hắt)</text>
     <text x="260.5" y="136" fill="#c00000" font-size="11.2" font-weight="bold" text-anchor="middle">2600 × 2150 mm</text>
     <text x="260.5" y="153" fill="#000000" font-size="10.2" text-anchor="middle">(Lòng hộp +3.130)</text>
-    <text x="323" y="133" fill="#000000" font-size="10.5">• Cách tường Bắc 280mm • Cách Vách Tranh 395mm</text>
-    <text x="323" y="151" fill="#000000" font-size="10.5">• Cách tường Tây 420mm • Cách trục 2: 420mm</text>
+    <text x="323" y="133" fill="#000000" font-size="10.5">• Cách tường Bắc 280mm • Cách Vách B 395mm</text>
+    <text x="323" y="151" fill="#0055aa" font-size="10" font-weight="bold">• PA D sạch bụi: Chuyển Lộ 14 sang Hốc Rèm &amp; TV</text>
 
     <!-- Row 3 -->
     <line x1="0" y1="214" x2="560" y2="214" stroke="#000000" stroke-width="0.8"/>
@@ -709,15 +767,17 @@
 
     <!-- Construction Notes Box -->
     <rect x="262" y="0" width="298" height="205" fill="#ffffff" stroke="#000000" stroke-width="1.2"/>
-    <text x="274" y="22" fill="#c00000" font-size="12" font-weight="bold">GHI CHÚ THI CÔNG BẮT BUỘC:</text>
-    <text x="274" y="46" fill="#000000" font-size="10.8">1. Kiểm tra kích thước thực tế tại công trường</text>
-    <text x="274" y="63" fill="#000000" font-size="10.8">   trước khi lên khung xương và khoét lỗ đèn.</text>
-    <text x="274" y="85" fill="#000000" font-size="10.8">2. Cao độ trần tính từ cốt sàn hoàn thiện Tầng 2.</text>
-    <text x="274" y="107" fill="#c00000" font-size="10.8" font-weight="bold">3. Tại vị trí Vách Tủ Đảo Trục B (1740×450):</text>
-    <text x="274" y="125" fill="#000000" font-size="10.8">   Thợ điện thả chờ sẵn dây Lộ 14 (mặt Bắc),</text>
-    <text x="274" y="142" fill="#000000" font-size="10.8">   dây Lộ 19 (mặt Nam) &amp; 01 nguồn 220V + Cat6</text>
-    <text x="274" y="159" fill="#000000" font-size="10.8">   ngay tại tâm cổ trần (cách tường Tây 1720mm).</text>
-    <text x="274" y="182" fill="#000000" font-size="10.8">4. Gia cố khung xương quanh Vòm tròn Ø1200mm.</text>
+    <text x="272" y="20" fill="#c00000" font-size="11.5" font-weight="bold">GHI CHÚ TẬN DỤNG CÔNG TẮC &amp; THI CÔNG:</text>
+    <text x="272" y="40" fill="#000000" font-size="10">1. Lưng Tủ #3: Giữ Ổ S1 (+1.2M) cấp LED cảm biến cánh;</text>
+    <text x="272" y="55" fill="#0055aa" font-size="10" font-weight="bold">   rút S1 (+0.4M) + LAN lên trần cấp TV 65" Vách B &amp; M3.</text>
+    <text x="272" y="75" fill="#c00000" font-size="10" font-weight="bold">2. Tại Vách Trục B (1740×280 PA 1A | ×450 PA 1B/2):</text>
+    <text x="272" y="90" fill="#000000" font-size="10">   Thả từ trần: Lộ 14 (LED Bắc) + Lộ 19 (LED Tủ Nam</text>
+    <text x="272" y="105" fill="#000000" font-size="10">   &amp; luồn ống Ø20 âm sàn ra Đảo Kính) + 220V/LAN TV.</text>
+    <text x="272" y="125" fill="#0055aa" font-size="10" font-weight="bold">3. Gom Tủ #1, #2 (+1.6M) + 2 Gương LED vào Lộ 19;</text>
+    <text x="272" y="140" fill="#000000" font-size="10">   dời chờ Gương Oval O2 sang tường đặc 610mm cạnh O2.</text>
+    <text x="272" y="160" fill="#000000" font-size="10">4. Khoét 6 Spot Lộ 18 (chỉ 2 bóng mới Bắc cách vách 300),</text>
+    <text x="272" y="175" fill="#000000" font-size="10">   gia cố Vòm Ø1200mm &amp; chừa Lỗ thăm 450 lối Phải 850.</text>
+    <text x="272" y="193" fill="#0055aa" font-size="9.8" font-weight="bold">5. PA D (WM-06): Trần Khu Ngủ đóng đứng kín 0% mỏ hắt.</text>
 
     <!-- Official XHOME-Style CAD Title Block -->
     <g transform="translate(0, 225)">
@@ -736,18 +796,18 @@
       <text x="87.5" y="95" fill="#000000" font-size="12" font-weight="bold" text-anchor="middle">TÊN BẢN VẼ:</text>
       <text x="87.5" y="115" fill="#c00000" font-size="11.5" font-weight="bold" text-anchor="middle">(BẢN VẼ GIAO THỢ TRẦN)</text>
       <text x="367.5" y="94" fill="#000000" font-size="15" font-weight="bold" text-anchor="middle">MẶT BẰNG TRẦN THẠCH CAO &amp; ĐỊNH VỊ KHOÉT LỖ ĐÈN</text>
-      <text x="367.5" y="118" fill="#c00000" font-size="12" font-weight="bold" text-anchor="middle">(ĐÃ CHỐT PA2: VÁCH TỦ ĐẢO 1740×450 • HỘP TRẦN 2600×2150 • 06 ĐÈN LỘ 18)</text>
+      <text x="367.5" y="118" fill="#c00000" font-size="9.4" font-weight="bold" text-anchor="middle">(PA 1A VÁCH 280 TV 65" / PA 1B-2 VÁCH 450 • HỘP 2600×2150 • TẬN DỤNG 100% CĐ-12/04)</text>
 
       <text x="87.5" y="172" fill="#000000" font-size="12" font-weight="bold" text-anchor="middle">ĐỒNG BỘ: CĐ-12 &amp; CĐ-16</text>
-      <text x="295" y="164" fill="#000000" font-size="11.2" text-anchor="middle">• Hộp trần Khu Ngủ: 2600 × 2150 (+3.130)</text>
+      <text x="295" y="164" fill="#000000" font-size="11.2" text-anchor="middle">• Hộp trần Khu Ngủ: 2600 × 2150 (PA D / PA C)</text>
       <text x="295" y="184" fill="#000000" font-size="11.2" text-anchor="middle">• Vòm Mặt Trăng: Ø1200 • Lỗ thăm: 450×450</text>
       <text x="487.5" y="164" fill="#000000" font-size="11.5" font-weight="bold" text-anchor="middle">TỶ LỆ: 1/50</text>
       <text x="487.5" y="184" fill="#000000" font-size="11.5" text-anchor="middle">ĐƠN VỊ: MM</text>
 
-      <text x="87.5" y="232" fill="#000000" font-size="12.5" font-weight="bold" text-anchor="middle">PHƯƠNG ÁN: PA2 (CHỐT)</text>
-      <text x="295" y="232" fill="#000000" font-size="12.5" font-weight="bold" text-anchor="middle">NGÀY CẬP NHẬT: 08/11/2026</text>
+      <text x="87.5" y="232" fill="#000000" font-size="12" font-weight="bold" text-anchor="middle">PA 1A WM-06 / PA 2</text>
+      <text x="295" y="232" fill="#000000" font-size="12.5" font-weight="bold" text-anchor="middle">NGÀY CẬP NHẬT: 22/11/2026</text>
       <text x="487.5" y="220" fill="#000000" font-size="11" font-weight="bold" text-anchor="middle">KÝ HIỆU BẢN VẼ:</text>
-      <text x="487.5" y="242" fill="#c00000" font-size="16" font-weight="bold" text-anchor="middle">KT-4.02 (PA2)</text>
+      <text x="487.5" y="242" fill="#c00000" font-size="15.5" font-weight="bold" text-anchor="middle">KT-4.02 (PA 1A/2)</text>
     </g>
   </g>
 </svg>
