@@ -639,6 +639,9 @@
         <button class="tab-btn" onclick="switch3D('pa2_ceiling')" id="tab-pa2_ceiling">
           💡 Góc 6: Phối Cảnh Chuyên Đề Trần – Đèn Mặt Trăng Ø1.200 &amp; 06 Bóng Lộ 18
         </button>
+        <button class="tab-btn" onclick="switch3D('pa1c_door_o1')" id="tab-pa1c_door_o1">
+          🚪 Góc 7 (T2-V05 • Từ Cửa O1 Nhìn Vào): Soi Độ Dày Vách Tủ 550mm Bo R100 &amp; Lối Đi 1,2m
+        </button>
       </div>
 
       <div class="viewer-grid">
@@ -727,6 +730,14 @@
           <div style="background:rgba(7,11,18,0.78);border:1px solid rgba(56,189,248,0.48);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm06_pa1c2_t2_v04_wic_no_island_south.jpg')">
             <img src="assets/wm06_pa1c2_t2_v04_wic_no_island_south.jpg" alt="T2-V04 PA 1C-2 ngược 180 độ nhìn Nam về Tủ 1, Tủ 2 và WC-02 khi bỏ Bàn Đảo" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
             <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#7dd3fc;">4. T2-V04 PA 1C-2 (Ngược 180° Không Đảo):</strong> Nhìn về <code>Tủ #1–#2</code> &amp; cửa kính sọc <code>WC-02</code> • Sàn xương cá giữa phòng trống rộng <code>~5,8 m²</code>, đứng thử đồ trước gương Đông &amp; bàn <code>O2</code> cực kỳ thoáng!</div>
+          </div>
+          <div style="background:rgba(7,11,18,0.78);border:1px solid rgba(251,191,36,0.48);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm06_pa1c1_t2_v05_door_o1_view_west.jpg')">
+            <img src="assets/wm06_pa1c1_t2_v05_door_o1_view_west.jpg" alt="T2-V05 PA 1C-1 đứng từ cửa O1 nhìn thẳng Tây soi độ dày hệ vách tủ 550mm bo R100 và giữ Bàn Đảo" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#fcd34d;">5. T2-V05 Từ Cửa O1 Nhìn Vào (PA 1C-1 Giữ Đảo):</strong> Nhìn thẳng <strong>hồi vách tủ dày <code>550 mm</code></strong> (<code>~500 mm</code> thùng tủ áo + <code>~50 mm</code> vách đá TV Travertine) bo <code>2 góc R100</code> kịch trần qua lối mở <code>1,2 m</code> — bên Phải là phòng ngủ giường tường Bắc, bên Trái là <code>Đảo kính R80</code> &amp; bàn trang điểm <code>O2</code>.</div>
+          </div>
+          <div style="background:rgba(7,11,18,0.78);border:1px solid rgba(56,189,248,0.48);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm06_pa1c2_t2_v05_door_o1_view_west_no_island.jpg')">
+            <img src="assets/wm06_pa1c2_t2_v05_door_o1_view_west_no_island.jpg" alt="T2-V05 PA 1C-2 đứng từ cửa O1 nhìn thẳng Tây soi độ dày hệ vách tủ 550mm bo R100 khi bỏ Bàn Đảo" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#7dd3fc;">6. T2-V05 Từ Cửa O1 Nhìn Vào (PA 1C-2 Bỏ Đảo):</strong> Cùng góc cửa <code>O1</code> thấy rõ khối hồi tủ <code>550 mm</code> kịch trần bo <code>R100</code> thanh thoát, nhưng bỏ Bàn Đảo nên sàn xương cá khu Thay Đồ thông thẳng <code>~5,8 m²</code> cực rộng ngay khi vừa bước vào phòng!</div>
           </div>
         </div>
 
@@ -1305,6 +1316,32 @@
           "<strong>2. Dịch Lỗ thăm điều hòa (<code>450×450 mm</code>) &amp; Cục <code>Aqara Hub M3 PoE #2</code> sang trần Lối đi mở bên Phải (<code>850 mm</code>):</strong> Không bị đỉnh Vách Tủ Đảo che khuất.",
           "<strong>3. Dây điện của Vách Tủ Đảo thả thẳng từ trên trần thạch cao xuống nóc tủ:</strong> Mặt trước đấu vào <code>Lộ 14</code>, mặt sau đấu vào <code>Lộ 19</code> trên trần."
         ]
+      },
+      pa1c_door_o1: {
+        imgs: {
+          wm06_pa1c1: "assets/wm06_pa1c1_t2_v05_door_o1_view_west.jpg",
+          wm06_pa1c2: "assets/wm06_pa1c2_t2_v05_door_o1_view_west_no_island.jpg"
+        },
+        captions: {
+          wm06_pa1c1: "Góc 7 (T2-V05 • Đứng từ Cửa O1 nhìn thẳng Tây): Lối mở 1,2m + Mặt hồi vách tủ dày 550mm bo 2 góc R100 & PA 1C-1 Giữ Bàn Đảo",
+          wm06_pa1c2: "Góc 7 (T2-V05 • Đứng từ Cửa O1 nhìn thẳng Tây): Lối mở 1,2m + Mặt hồi vách tủ dày 550mm bo 2 góc R100 & PA 1C-2 Bỏ Bàn Đảo"
+        },
+        titles: {
+          wm06_pa1c1: "Góc Nhìn Từ Cửa Vào O1: Kiểm Tra Độ Dày Vách Tủ 550 mm & Bố Cục Giữ Đảo (PA 1C-1)",
+          wm06_pa1c2: "Góc Nhìn Từ Cửa Vào O1: Kiểm Tra Độ Dày Vách Tủ 550 mm & Độ Thoáng Bỏ Đảo (PA 1C-2)"
+        },
+        itemsByTone: {
+          wm06_pa1c1: [
+            "<strong>1. Tiết diện hồi vách tủ dày <code>550 mm × cao 2.650 mm</code> nhìn trực diện:</strong> Gồm <code>~500 mm</code> thùng tủ quần áo áp Trục B (cánh mở về Trái) + <code>~50 mm</code> lớp ốp vách đá TV <code>65\"</code> hướng Phải; nhấn khe ánh sáng Travertine mảnh ở 1/3 phải giúp khối tủ dày 55 cm trông thanh thoát chứ không bị thô.",
+            "<strong>2. An toàn bo <code>2 góc R100</code> trên cùng đầu hồi Đông:</strong> Cả mép trái (hướng khu Thay Đồ) lẫn mép phải (hướng hành lang Ngủ) đều được bo cong <code>R100</code> kịch trần, tuyệt đối triệt tiêu cạnh vuông góc tại nút giao lối đi <code>1,2 m</code>.",
+            "<strong>3. Phân tách tầm nhìn 2 nửa rõ rệt ngay từ cửa <code>O1</code>:</strong> Nửa Phải xuyên thẳng vào khu Ngủ (giường King da bò <code>Warm Saddle</code> áp tường Bắc + Logia 01); nửa Trái mở vào vòm đèn <code>Ø1,2m</code>, <code>Đảo kính R80</code> và bàn trang điểm dưới <code>O2</code>."
+          ],
+          wm06_pa1c2: [
+            "<strong>1. Tiết diện hồi vách tủ dày <code>550 mm × cao 2.650 mm</code> bo <code>2 góc R100</code> giữ nguyên:</strong> Gồm <code>~500 mm</code> thùng tủ áo + <code>~50 mm</code> lớp hậu đá TV hướng về giường ngủ, đâm thẳng kịch tường Tây <code>2.240 mm</code>.",
+            "<strong>2. Bỏ Bàn Đảo tạo khoảng thông sàn ~5,8 m² nhìn từ cửa <code>O1</code>:</strong> Sàn gỗ sồi xương cá chạy liền mạch từ cửa <code>O1</code> vào tận bàn trang điểm bo cong dưới cửa sổ mành gỗ <code>O2</code> và gương viên nang LED, tăng cảm giác rộng rãi tối đa.",
+            "<strong>3. Trần phẳng hoàn toàn <code>2.650 mm</code> (0% giật cấp):</strong> Đồng nhất trần phẳng từ khu Thay Đồ qua lối đi <code>1,2 m</code> sang khu Ngủ, giữ vòm <code>Ø1,2m</code> làm điểm nhấn duy nhất của khu tủ đồ."
+          ]
+        }
       }
     };
 
@@ -1317,7 +1354,7 @@
       if ((tone === "bt04" || tone === "bt05") && currentMasterView !== "bedroom") {
         currentMasterView = "bedroom";
       }
-      if ((tone === "wm06_pa1c1" || tone === "wm06_pa1c2") && !["pa2_walkin", "wic_south", "pa2_bed"].includes(currentMasterView)) {
+      if ((tone === "wm06_pa1c1" || tone === "wm06_pa1c2") && !["pa2_walkin", "wic_south", "pa2_bed", "pa1c_door_o1"].includes(currentMasterView)) {
         currentMasterView = "pa2_walkin";
       }
       switch3D(currentMasterView);
@@ -1338,9 +1375,10 @@
         bt05: "[☀️ Hiện Đại BT-05: Gỗ Caramel × Ghi Bazan (Khớp Lam T3)] "
       };
       const hasExactTone = Boolean(data.imgs && data.imgs[currentMasterTone]);
-      const resolvedTone = hasExactTone ? currentMasterTone : "wm06min";
-      const toneLabel = hasExactTone ? (toneLabelMap[currentMasterTone] || "") : "[🕊️ PA 1A WM-06 Minimalist] ";
-      const resolvedImg = data.imgs ? (data.imgs[currentMasterTone] || data.imgs.wm06min || data.imgs.wm06 || data.imgs.studio349) : data.img;
+      const fallbackTone = (data.imgs && !data.imgs.wm06min && data.imgs.wm06_pa1c1) ? "wm06_pa1c1" : "wm06min";
+      const resolvedTone = hasExactTone ? currentMasterTone : fallbackTone;
+      const toneLabel = hasExactTone ? (toneLabelMap[currentMasterTone] || "") : (toneLabelMap[fallbackTone] || "[🕊️ PA 1A WM-06 Minimalist] ");
+      const resolvedImg = data.imgs ? (data.imgs[currentMasterTone] || data.imgs[fallbackTone] || data.imgs.wm06 || data.imgs.studio349) : data.img;
       const resolvedCaption = (data.captions && data.captions[resolvedTone]) ? data.captions[resolvedTone] : data.caption;
       const resolvedTitle = (data.titles && data.titles[resolvedTone]) ? data.titles[resolvedTone] : data.title;
       const resolvedItems = (data.itemsByTone && data.itemsByTone[resolvedTone]) ? data.itemsByTone[resolvedTone] : data.items;
