@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phòng 2 Con Gái Tầng 2 (WM-06 &amp; 3–7 Tuổi) &amp; 2 Phòng Ngủ Tầng 3 (PN3–PN4) — Q Villa</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg-base: #070b12;
+      --bg-surface: #0f172a;
+      --bg-elevated: #1e293b;
+      --border: rgba(148, 163, 184, 0.2);
+      --border-strong: rgba(244, 114, 182, 0.45);
+      --text-main: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-light: #fde68a;
+      --pink: #f472b6;
+      --pink-light: #fbcfe8;
+      --emerald: #10b981;
+      --emerald-light: #6ee7b7;
+      --sky: #38bdf8;
+      --sky-light: #bae6fd;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-lg: 0 20px 45px -15px rgba(0, 0, 0, 0.72);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.58;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(244, 114, 182, 0.11), transparent 36%),
+        radial-gradient(circle at 88% 15%, rgba(56, 189, 248, 0.10), transparent 36%),
+        radial-gradient(circle at 50% 85%, rgba(245, 158, 11, 0.06), transparent 42%),
+        var(--bg-base);
+      min-height: 100vh;
+      padding-bottom: 84px;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 11, 18, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    a.brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    a.brand:hover { transform: translateY(-1px); opacity: 0.95; }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #ec4899, #f59e0b);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 7px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
+    }
+
+    .brand-title h1 {
+      font-size: 1.04rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .brand-title p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-secondary);
+      font-size: 0.79rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(30, 41, 59, 0.55);
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #fff;
+      border-color: var(--pink);
+      background: rgba(236, 72, 153, 0.22);
+    }
+
+    /* Hero (above the fold — never content-visibility: auto) */
+    .hero { margin-top: 24px; }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(30, 41, 59, 0.84));
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--pink-light);
+      background: rgba(236, 72, 153, 0.18);
+      border: 1px solid rgba(244, 114, 182, 0.42);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .hero-card h2 {
+      font-size: clamp(1.3rem, 2.3vw, 1.72rem);
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: #fff;
+      line-height: 1.28;
+    }
+
+    .hero-card p {
+      color: var(--text-secondary);
+      font-size: 0.93rem;
+      max-width: 1180px;
+    }
+
+    .quick-jumps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .jump-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 700;
+      padding: 9px 15px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.82);
+      color: #f8fafc;
+      transition: transform 0.16s ease, border-color 0.16s ease, background 0.16s ease;
+    }
+
+    .jump-pill:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      background: rgba(245, 158, 11, 0.18);
+    }
+
+    .jump-pill.pink {
+      border-color: rgba(244, 114, 182, 0.65);
+      background: rgba(236, 72, 153, 0.18);
+      color: var(--pink-light);
+    }
+
+    .jump-pill.sky {
+      border-color: rgba(56, 189, 248, 0.65);
+      background: rgba(56, 189, 248, 0.16);
+      color: var(--sky-light);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .kpi-box {
+      background: rgba(15, 23, 42, 0.88);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 15px 17px;
+    }
+
+    .kpi-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    .kpi-val {
+      font-size: 1.16rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 4px 0 3px;
+    }
+
+    .kpi-sub {
+      font-size: 0.81rem;
+      color: var(--text-secondary);
+    }
+
+    /* Section Blocks */
+    .block {
+      margin-top: 28px;
+      background: rgba(15, 23, 42, 0.84);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+      scroll-margin-top: 86px;
+    }
+
+    /* Below-the-fold rendering deferral (modern-web-guidance: defer-rendering-heavy-content) */
+    .heavy-deferred {
+      content-visibility: auto;
+      contain-intrinsic-size: auto none auto 920px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.16rem, 2vw, 1.44rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .section-sub {
+      color: var(--text-secondary);
+      font-size: 0.91rem;
+      margin-top: 6px;
+      max-width: 1140px;
+    }
+
+    .badge-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+      border: 1px solid rgba(244, 114, 182, 0.45);
+      background: rgba(236, 72, 153, 0.16);
+      color: var(--pink-light);
+    }
+
+    .badge-chip.sky {
+      border-color: rgba(56, 189, 248, 0.48);
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--sky-light);
+    }
+
+    .badge-chip.emerald {
+      border-color: rgba(16, 185, 129, 0.5);
+      background: rgba(16, 185, 129, 0.16);
+      color: var(--emerald-light);
+    }
+
+    /* Accessible Single-Row Scrollable Tabs (modern-web-guidance: tabs) */
+    .tabs-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scroll-snap-type: inline proximity;
+      padding: 6px 4px 10px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: thin;
+    }
+
+    .tabs-bar [role="tab"] {
+      position: relative;
+      flex: none;
+      scroll-snap-align: start;
+      appearance: none;
+      background: rgba(30, 41, 59, 0.6);
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
+    }
+
+    .tabs-bar [role="tab"]:hover {
+      background: rgba(51, 65, 85, 0.75);
+      color: #fff;
+    }
+
+    /* Selected tab uses aria-selected + border underline shape (WCAG 1.4.1, Forced Colors safe) */
+    .tabs-bar [role="tab"][aria-selected="true"] {
+      color: #fff;
+      background: rgba(236, 72, 153, 0.2);
+      border-color: rgba(244, 114, 182, 0.72);
+    }
+
+    .tabs-bar.sky-tabs [role="tab"][aria-selected="true"] {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: rgba(56, 189, 248, 0.75);
+    }
+
+    .tabs-bar [role="tab"][aria-selected="true"]::after {
+      content: "";
+      position: absolute;
+      inset: auto 10px -11px 10px;
+      border-block-end: 3px solid var(--pink);
+    }
+
+    .tabs-bar.sky-tabs [role="tab"][aria-selected="true"]::after {
+      border-block-end-color: var(--sky);
+    }
+
+    /* Put padding/bg/border on inner wrapper, NEVER on [role="tabpanel"] (required for hidden="until-found") */
+    .panel-inner {
+      padding: 2px 0 4px;
+    }
+
+    .scheme-banner {
+      background: rgba(7, 11, 18, 0.68);
+      border: 1px solid rgba(148, 163, 184, 0.24);
+      border-left: 4px solid var(--pink);
+      border-radius: var(--radius-md);
+      padding: 15px 18px;
+      margin-bottom: 18px;
+    }
+
+    .scheme-banner.wm06 { border-left-color: var(--accent); }
+    .scheme-banner.kids { border-left-color: var(--pink); }
+    .scheme-banner.oak  { border-left-color: var(--emerald); }
+    .scheme-banner.t3   { border-left-color: var(--sky); }
+
+    .scheme-banner h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .scheme-banner p {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+
+    .swatch-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .swatch-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.77rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(30, 41, 59, 0.85);
+      border: 1px solid var(--border);
+      color: #e2e8f0;
+    }
+
+    .swatch-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      flex-shrink: 0;
+    }
+
+    /* Photo Grids */
+    .sub-room-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: var(--accent-light);
+      margin: 18px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    @media (max-width: 960px) {
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+
+    .shot-card {
+      background: rgba(7, 11, 18, 0.78);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.18s ease, border-color 0.18s ease;
+    }
+
+    .shot-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(244, 114, 182, 0.55);
+    }
+
+    .shot-card.sky-card:hover {
+      border-color: rgba(56, 189, 248, 0.6);
+    }
+
+    .shot-wrap {
+      position: relative;
+      aspect-ratio: 1376 / 768;
+      background: #040811;
+      overflow: hidden;
+      cursor: zoom-in;
+      border: none;
+      padding: 0;
+      width: 100%;
+      display: block;
+      text-align: left;
+    }
+
+    .shot-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.28s ease;
+    }
+
+    .shot-wrap:hover img { transform: scale(1.025); }
+
+    .shot-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      width: fit-content;
+      max-width: calc(100% - 20px);
+      font-size: 0.73rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(7, 11, 18, 0.84);
+      backdrop-filter: blur(8px);
+      color: var(--accent-light);
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      line-height: 1.3;
+    }
+
+    .shot-badge.pink {
+      color: var(--pink-light);
+      border-color: rgba(244, 114, 182, 0.55);
+    }
+
+    .shot-badge.sky {
+      color: var(--sky-light);
+      border-color: rgba(56, 189, 248, 0.55);
+    }
+
+    .shot-zoom-hint {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(7, 11, 18, 0.78);
+      color: #f8fafc;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .shot-body {
+      padding: 15px 17px 17px;
+      flex: 1;
+    }
+
+    .shot-body h4 {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .shot-body ul {
+      padding-left: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    .shot-body code, .scheme-banner code, .tip-card code, td code {
+      background: rgba(30, 41, 59, 0.9);
+      color: var(--accent-light);
+      padding: 1px 5px;
+      border-radius: 5px;
+      font-size: 0.82em;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    /* Architect Hybrid Tip Box */
+    .tip-card {
+      margin-top: 20px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.12), rgba(244, 114, 182, 0.10));
+      border: 1px solid rgba(16, 185, 129, 0.42);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
+    .tip-card h3 {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--emerald-light);
+      margin-bottom: 8px;
+    }
+
+    .tip-card p {
+      font-size: 0.88rem;
+      color: #e2e8f0;
+    }
+
+    /* Responsive Tables (modern-web-guidance: responsive-table) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(640px, 82vh);
+      container-type: inline-size;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(7, 11, 18, 0.72);
+      margin-top: 14px;
+    }
+
+    .table-wrapper:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    table.cmp-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.85rem;
+    }
+
+    table.cmp-table caption {
+      text-align: left;
+      padding: 12px 14px;
+      font-weight: 800;
+      color: var(--accent-light);
+      background: rgba(15, 23, 42, 0.96);
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+
+    table.cmp-table thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+    }
+
+    table.cmp-table thead th {
+      background: #111c33;
+      color: #f8fafc;
+      font-weight: 800;
+      text-align: left;
+      padding: 11px 13px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.28);
+      border-right: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    table.cmp-table tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 1;
+      background: #0c1425;
+      color: #fff;
+      font-weight: 800;
+      text-align: left;
+      padding: 11px 13px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+      border-right: 1px solid rgba(148, 163, 184, 0.2);
+      min-width: 165px;
+    }
+
+    table.cmp-table tbody td {
+      padding: 11px 13px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+      border-right: 1px solid rgba(148, 163, 184, 0.1);
+      vertical-align: top;
+    }
+
+    table.cmp-table tbody tr:hover td,
+    table.cmp-table tbody tr:hover th {
+      background: rgba(30, 41, 59, 0.52);
+    }
+
+    table.cmp-table a {
+      color: var(--sky-light);
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    @container (width < 640px) {
+      table.cmp-table, table.cmp-table thead, table.cmp-table tbody,
+      table.cmp-table tr, table.cmp-table th, table.cmp-table td {
+        display: block;
+      }
+
+      table.cmp-table thead {
+        display: none;
+      }
+
+      table.cmp-table tbody tr {
+        margin: 12px;
+        border: 1px solid rgba(148, 163, 184, 0.26);
+        border-radius: 10px;
+        overflow: hidden;
+        background: rgba(15, 23, 42, 0.82);
+      }
+
+      table.cmp-table tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        inset-inline-start: auto;
+        z-index: 2;
+        background: #172542;
+        border-right: none;
+      }
+
+      table.cmp-table tbody td {
+        border-right: none;
+      }
+
+      table.girls-cmp {
+        --label-2: "PA 1: Warm Minimalist WM-06";
+        --label-3: "PA 2: Chuyên Biệt 2 Bé (7T & 3T)";
+        --label-4: "PA 3: Gỗ Sồi Tươi Sáng (7→17T)";
+      }
+
+      table.rooms-cmp {
+        --label-2: "Tầng & Trục CAD";
+        --label-3: "Diện Tích & Cao Trần";
+        --label-4: "Cấu Hình Nội Thất Chính";
+        --label-5: "Bản Vẽ & Dự Toán";
+      }
+
+      table.cmp-table td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 800; color: var(--accent-light); display: block; margin-bottom: 2px; }
+      table.cmp-table td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 800; color: var(--pink-light); display: block; margin-bottom: 2px; }
+      table.cmp-table td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 800; color: var(--emerald-light); display: block; margin-bottom: 2px; }
+      table.cmp-table td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 800; color: var(--sky-light); display: block; margin-bottom: 2px; }
+    }
+
+    /* Safety & CAD Grid */
+    .cad-split {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 20px;
+      align-items: start;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .cad-split { grid-template-columns: 1fr; }
+    }
+
+    .safety-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .safety-item {
+      background: rgba(7, 11, 18, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 13px 15px;
+    }
+
+    .safety-item h4 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--pink-light);
+      margin-bottom: 4px;
+    }
+
+    .safety-item p {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
+    .action-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      font-size: 0.83rem;
+      font-weight: 800;
+      padding: 9px 15px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      background: rgba(56, 189, 248, 0.14);
+      color: var(--sky-light);
+      transition: background 0.16s ease, transform 0.16s ease;
+    }
+
+    .action-btn:hover {
+      background: rgba(56, 189, 248, 0.26);
+      transform: translateY(-1px);
+    }
+
+    .action-btn.gold {
+      border-color: rgba(245, 158, 11, 0.55);
+      background: rgba(245, 158, 11, 0.16);
+      color: var(--accent-light);
+    }
+
+    /* Native Modal Lightbox Dialog (modern-web-guidance: light-dismiss-a-dialog) */
+    dialog#lightbox-modal {
+      margin: auto;
+      padding: 0;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      border-radius: 16px;
+      background: #070b12;
+      color: #f8fafc;
+      max-width: min(95vw, 1380px);
+      max-height: 92vh;
+      overflow: hidden;
+      box-shadow: 0 28px 64px rgba(0, 0, 0, 0.82);
+    }
+
+    dialog#lightbox-modal::backdrop {
+      background-color: rgba(2, 6, 14, 0.82);
+      backdrop-filter: blur(5px);
+    }
+
+    .dialog-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 18px;
+      background: #0f172a;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dialog-bar h2 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: var(--accent-light);
+      line-height: 1.35;
+    }
+
+    .dialog-close-btn {
+      appearance: none;
+      background: rgba(244, 63, 94, 0.2);
+      color: #fecdd3;
+      border: 1px solid rgba(244, 63, 94, 0.55);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .dialog-close-btn:hover { background: rgba(244, 63, 94, 0.34); }
+
+    .dialog-img-wrap {
+      padding: 14px;
+      background: #040811;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dialog-img-wrap img {
+      max-width: 92vw;
+      max-height: 78vh;
+      object-fit: contain;
+      border-radius: 8px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="brand" title="Về Trang Chủ Q Villa">
+        <span class="brand-badge">🎀 PHÒNG NGỦ T2 &amp; T3</span>
+        <div class="brand-title">
+          <h1>2 Phòng Con Gái Tầng 2 (7T &amp; 3T) &amp; 2 Phòng Ngủ Tầng 3</h1>
+          <p>Hồ sơ riêng • 3 Phương án Phòng Con Gái (WM-06 • 3–7 Tuổi • Gỗ Sồi Sáng) &amp; Đủ 2 Chiều PN3–PN4 Tầng 3</p>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Điều hướng các hạng mục Nội thất Q Villa">
+        <a href="index.html">🏠 Trang Chủ</a>
+        <a href="noi-that-toan-nha.html">🪑 Nội Thất Toàn Nhà</a>
+        <a href="ho-so-xuong-noi-that.html">🔧 Hồ Sơ Xưởng</a>
+        <a href="phong-master-tang2.html">👑 P. Master T2</a>
+        <a href="#sec-t2-girls" class="active">🎀 2 P.Con Gái T2</a>
+        <a href="#sec-t3-bedrooms">🛏️ 2 P.Ngủ T3 (PN3–4)</a>
+        <a href="phong-lam-viec-tang3.html">💻 P. Làm Việc T3</a>
+        <a href="phong-tho-tang3.html">🪷 Phòng Thờ T3</a>
+        <a href="tran-thach-cao.html">📐 Trần Thạch Cao</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO SUMMARY (ABOVE THE FOLD) -->
+    <section class="hero">
+      <div class="hero-card">
+        <span class="hero-eyebrow">🎀 MỤC RIÊNG CHO 04 PHÒNG NGỦ GIA ĐÌNH • TẦNG 2 (PN1 &amp; PN2) &amp; TẦNG 3 (PN3 &amp; PN4)</span>
+        <h2>Thiết Kế 2 Phòng Con Gái Tầng 2 (Bé 7 Tuổi &amp; Bé 3 Tuổi) &amp; 2 Phòng Ngủ Tầng 3 — Chuẩn 100% CAD Q Villa</h2>
+        <p>
+          Trang chuyên biệt tách riêng toàn bộ <strong>04 phòng ngủ trục B–D &amp; A–B</strong> để bạn dễ mở duyệt trực tiếp từ mục <strong>Nội Thất</strong> mà không phải tìm lẫn trong hồ sơ tổng:
+          riêng <strong>2 Phòng Con Gái Tầng 2 (<code>PN1</code> &amp; <code>PN2</code>)</strong> có đủ <strong>03 phương án đối chiếu trọn bộ 4 góc</strong> (<strong>PA 1 Warm Minimalist WM-06</strong> đồng bộ cả nhà • <strong>PA 2 Chuyên Biệt Cho 2 Bé 7 &amp; 3 Tuổi</strong> bo tròn an toàn &amp; Montessori • <strong>PA 3 Gỗ Sồi Tươi Sáng</strong> dùng bền <code>7 → 17+</code> tuổi), và <strong>2 Phòng Ngủ Tầng 3 (<code>PN3</code> &amp; <code>PN4</code>)</strong> có trọn bộ <strong>đủ 2 chiều <code>180°</code></strong> chuẩn trần phẳng khung ray đen <code>P-UT12</code>.
+        </p>
+
+        <div class="quick-jumps">
+          <a href="#sec-t2-girls" class="jump-pill pink">🎀 1. Phòng 2 Con Gái Tầng 2 (3 Phương Án • 12 Ảnh 3D)</a>
+          <a href="#sec-t3-bedrooms" class="jump-pill sky">🛏️ 2. 02 Phòng Ngủ Tầng 3: PN3 &amp; PN4 (Đủ 2 Chiều 180°)</a>
+          <a href="#sec-compare-table" class="jump-pill">📊 3. Bảng So Sánh 3 Phương Án &amp; Dự Toán 4 Phòng</a>
+          <a href="#sec-cad-spec" class="jump-pill">📐 4. Mặt Bằng CAD &amp; Checklist An Toàn Bé 3–7T</a>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-box" style="border-color: rgba(244,114,182,0.42);">
+            <div class="kpi-label">Tầng 2 • Phòng Ngủ 1 (Trục B–D)</div>
+            <div class="kpi-val" style="color: var(--pink-light);">16,2 m² (4,95 × 3,30m)</div>
+            <div class="kpi-sub">Hiện tại 2 chị em (7T &amp; 3T) ngủ chung &rarr; sau là phòng Chị Lớn • Dự toán: <strong>46,50 Tr</strong></div>
+          </div>
+          <div class="kpi-box" style="border-color: rgba(244,114,182,0.42);">
+            <div class="kpi-label">Tầng 2 • Phòng Ngủ 2 (Trục A–B)</div>
+            <div class="kpi-val" style="color: var(--pink-light);">13,5 m² (3,21 × 4,49m)</div>
+            <div class="kpi-sub">Cạnh Giếng trời cây xanh: Phòng chơi Montessori bé 3T &rarr; phòng riêng Bé 2 • <strong>34,50 – 35,50 Tr</strong></div>
+          </div>
+          <div class="kpi-box" style="border-color: rgba(56,189,248,0.42);">
+            <div class="kpi-label">Tầng 3 • Phòng Ngủ 3 (Trục B–D)</div>
+            <div class="kpi-val" style="color: var(--sky-light);">16,2 m² (Trần +3,13m)</div>
+            <div class="kpi-sub">Đồng khung <code>PN1</code>, tủ cao <code>2.750mm</code> + Trần phẳng khung Ray đen <code>P-UT12</code> • <strong>46,50 Tr</strong></div>
+          </div>
+          <div class="kpi-box" style="border-color: rgba(56,189,248,0.42);">
+            <div class="kpi-label">Tầng 3 • Phòng Ngủ 4 (Trục A–B)</div>
+            <div class="kpi-val" style="color: var(--sky-light);">13,5 m² (Đỉnh Giếng Trời)</div>
+            <div class="kpi-sub">Đồng khung <code>PN2</code>, sát Mái kính giếng trời tràn nắng + Trần phẳng <code>P-UT12</code> • <strong>35,50 Tr</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 1: 2 DAUGHTERS' BEDROOMS ON FLOOR 2 (3 COMPLETE DESIGN SCHEMES)   -->
+    <!-- ========================================================================= -->
+    <section class="block" id="sec-t2-girls" style="border-color: rgba(244, 114, 182, 0.45);">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">🎀 1. Phòng Của 2 Con Gái Tầng 2 (PN1: 16,2 m² &amp; PN2: 13,5 m² — Cho Bé 7 Tuổi &amp; Bé 3 Tuổi)</h2>
+          <p class="section-sub">
+            Bấm chuyển từng tab bên dưới để đối chiếu <strong>03 phương án hoàn chỉnh (mỗi phương án đủ cả 4 góc thuận &harr; ngược 180° cho PN1 &amp; PN2)</strong> — tất cả đều tuân thủ tuyệt đối <strong><code>0%</code> cánh kính tủ đứng</strong>, <strong><code>100%</code> bo góc <code>R60–R100</code> an toàn</strong> và cốt ván chuẩn <strong><code>ENF / CARB-P2</code></strong> an toàn hô hấp cho trẻ nhỏ. Bấm vào từng ảnh để xem phóng to 4K:
+          </p>
+        </div>
+        <span class="badge-chip">3 Phương Án • 12 Góc 3D Chuẩn CAD</span>
+      </div>
+
+      <!-- Accessible Tablist: Girls Bedrooms Schemes -->
+      <div class="tabs-bar" role="tablist" focusgroup="tablist nomemory" aria-label="Chọn phương án thiết kế Phòng 2 Con Gái Tầng 2" data-tab-group="girls">
+        <button type="button" role="tab" id="tab-girls-wm06" aria-selected="true" focusgroupstart data-panel="panel-girls-wm06">
+          🕊️ PA 1 (Ưu Tiên #1): Warm Minimalist WM-06
+        </button>
+        <button type="button" role="tab" id="tab-girls-kids37" aria-selected="false" data-panel="panel-girls-kids37">
+          🎀 PA 2 (Đúng Tuổi 7T &amp; 3T): An Toàn &amp; Montessori
+        </button>
+        <button type="button" role="tab" id="tab-girls-oak" aria-selected="false" data-panel="panel-girls-oak">
+          ☀️ PA 3: Gỗ Sồi Tươi Sáng (7 &rarr; 17+ Tuổi)
+        </button>
+      </div>
+
+      <!-- TAB PANEL 1: WARM MINIMALIST WM-06 -->
+      <div role="tabpanel" id="panel-girls-wm06" aria-labelledby="tab-girls-wm06" data-tab-group="girls">
+        <div class="panel-inner">
+          <div class="scheme-banner wm06">
+            <h3>🕊️ PA 1 (Ưu Tiên #1): Warm Minimalist WM-06 — Đồng Bộ 100% Toàn Nhà, Trần Phẳng Sạch Bụi &amp; Dùng Tới Đại Học</h3>
+            <p>
+              Giữ đúng DNA <strong>70% Kem Greige siêu mờ (<code>LL 21</code>) phẳng chia ron tinh tế × 20% Đá Light Roman Travertine &amp; Gỗ Sồi sáng (<code>KES 12105</code>) × 10% Nét đen mảnh</strong> khớp hoàn hảo với Phòng Khách T1 &amp; Phòng Master T2. Riêng phòng 2 bé nhấn dịu bằng sắc <strong>hồng phấn đất (<code>Dusty Blush</code>)</strong> trên ghế học, gối tựa và cánh ngăn kéo — kết hợp <strong>trần phẳng sạch bụi <code>PA D</code> + LED hốc rèm</strong> không có khe giật cấp tích bụi, góc tủ/giường vẫn bo tròn <code>R60–R100</code> êm ái.
+            </p>
+            <div class="swatch-row">
+              <span class="swatch-tag"><span class="swatch-dot" style="background:#dfd7cc;"></span>70% Kem Greige Mờ (LL 21)</span>
+              <span class="swatch-tag"><span class="swatch-dot" style="background:#d9c9b2;"></span>20% Travertine &amp; Sồi Sáng KES 12105</span>
+              <span class="swatch-tag"><span class="swatch-dot" style="background:#cda6a3;"></span>Điểm Nhấn Dusty Blush (Poplar)</span>
+              <span class="swatch-tag"><span class="swatch-dot" style="background:#1e293b;"></span>10% Nét Đen Mảnh Nhôm DCONS</span>
+            </div>
+          </div>
+
+          <div class="sub-room-title">1A. Phòng Ngủ 1 (`PN1 — 16,2 m² • Trục B–D`) — Theo Warm Minimalist WM-06</div>
+          <div class="grid-2">
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/wm06_t2_v06_pn1_girls_north.jpg', '🕊️ WM-06 • PN1 Nhìn Bắc (16,2 m²): Trần phẳng PA D sạch bụi + Vách Kem Greige bo R100 ôm đá Travertine LED + Giường bay Sồi sáng R60 + Bàn học đôi 2,05m (2 ghế Dusty Blush & Kem) dưới cửa sổ Tây S3!')">
+                <img src="assets/wm06_t2_v06_pn1_girls_north.jpg" alt="PN1 Phòng ngủ con gái Tầng 2 nhìn Bắc phong cách Warm Minimalist WM-06" width="1376" height="768" loading="eager" />
+                <span class="shot-badge">🕊️ WM-06 • PN1 NHÌN BẮC — TRẦN PHẲNG SẠCH BỤI &amp; BÀN ĐÔI 2,05M</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN1 Nhìn Bắc (WM-06): Kem Greige Bo R100 × Đá Travertine &amp; Bàn Học Đôi 2,05m</h4>
+                <ul>
+                  <li><strong>Trần phẳng sạch bụi <code>PA D</code>:</strong> Loại bỏ hoàn toàn khe giật cấp sâu bám bụi trên đầu giường; ánh sáng dịu từ LED hốc rèm <code>3000K</code> và đèn thả đầu giường ấm áp.</li>
+                  <li><strong>Bàn đôi dài <code>2.050 × 550mm</code> bên trái (dưới cửa sổ <code>S3</code>):</strong> Đặt sẵn <strong>02 ghế ngồi học</strong> (1 hồng đất, 1 kem sáng) bo tròn góc <code>R60</code>, 2 chị em ngồi học/vẽ cạnh nhau cực thoáng sáng.</li>
+                  <li><strong>Giường đôi <code>1,8 × 2,0m</code> Sồi sáng bo <code>R60</code>:</strong> Đầu giường bọc nệm kem bo viền mềm; nếu giai đoạn đầu bé 3 tuổi ngủ cùng chỉ cần gắn thêm thanh chắn rời kẹp đệm.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/wm06_t2_v07_pn1_girls_south.jpg', '🕊️ WM-06 • PN1 Ngược 180° Nhìn Nam (3,55m): Hệ tủ kịch trần phẳng Kem Greige (0% kính) tay nắm đứng thanh mảnh + Hốc TV Frame 55 inch Travertine & ngăn kéo Sồi-Blush + Kệ sách vòm bo tròn!')">
+                <img src="assets/wm06_t2_v07_pn1_girls_south.jpg" alt="PN1 Phòng ngủ con gái Tầng 2 nhìn Nam hệ tủ 3,55m Warm Minimalist WM-06" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge">🔄 WM-06 • PN1 NGƯỢC 180° — HỆ TỦ 3,55M PHẲNG (0% KÍNH)</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN1 Ngược 180° Nhìn Nam (WM-06): Hệ Tủ 3,55m Cánh Phẳng &amp; Kệ Sách Vòm</h4>
+                <ul>
+                  <li><strong>Chuẩn <code>BV-T2.05</code> (<code>1.250 + 1.300 + 1.000 = 3.550mm</code>):</strong> Tủ áo 3 cánh Kem phẳng tay nắm đũa thanh mảnh (không cấn tay), <strong><code>0%</code> cánh kính</strong> tuyệt đối an toàn.</li>
+                  <li><strong>Giữa &amp; Phải:</strong> Hốc <code>Travertine</code> lắp Samsung The Frame <code>55"</code> (tâm cách Đông <code>1.900mm</code> đúng ổ <code>CĐ-04</code>) + 4 ngăn kéo Sồi sáng phối <code>Dusty Blush</code> + kệ sách vòm âm LED.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="sub-room-title">1B. Phòng Ngủ 2 (`PN2 — 13,5 m² • Trục A–B Cạnh Giếng Trời`) — Theo Warm Minimalist WM-06</div>
+          <div class="grid-2">
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/wm06_t2_v08_pn2_girls_south.jpg', '🕊️ WM-06 • PN2 Nhìn Nam (13,5 m²): Trái ban công Đông D4, phải ô cửa kính Giếng trời cây xanh, chính diện vách phẳng Kem Greige bo R120 ôm vòm đá Travertine 3000K + Trần phẳng PA D sạch bụi!')">
+                <img src="assets/wm06_t2_v08_pn2_girls_south.jpg" alt="PN2 Phòng ngủ con gái Tầng 2 nhìn Nam Warm Minimalist WM-06" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge">🕊️ WM-06 • PN2 NHÌN NAM — VÒM TRAVERTINE &amp; GIẾNG TRỜI XANH</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN2 Nhìn Nam (WM-06): Vòm Đá Travertine Giữa Kem Greige Phẳng &amp; Giếng Trời</h4>
+                <ul>
+                  <li><strong>Tối ưu phòng <code>13,5 m²</code> cực rộng mắt:</strong> Thay mảng gỗ lớn bằng nền <strong>Kem Greige phẳng mờ bo <code>R120</code></strong> kẹp vòm đá <code>Travertine</code> hắt LED giúp phòng nhẹ nhàng, sáng bừng cạnh cây xanh Giếng trời.</li>
+                  <li><strong>Giường bay <code>1,8 × 2,0m</code> bo <code>R60</code> &amp; 2 táp treo bo tròn:</strong> Đủ gọn cho lối đi 2 bên, khớp 100% vị trí ổ cắm đầu giường <code>CĐ-04</code>.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/wm06_t2_v09_pn2_girls_north.jpg', '🕊️ WM-06 • PN2 Ngược 180° Nhìn Bắc (2,90m): Tủ áo 950mm + Hốc TV 50 inch Travertine & 4 ngăn kéo Sồi-Blush 1.150mm + Bàn học 800mm cạnh ban công Đông dưới trần phẳng PA D!')">
+                <img src="assets/wm06_t2_v09_pn2_girls_north.jpg" alt="PN2 Phòng ngủ con gái Tầng 2 nhìn Bắc hệ tủ 2,90m Warm Minimalist WM-06" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge">🔄 WM-06 • PN2 NGƯỢC 180° — VÁCH BẮC 3 MODULE 2,90M</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN2 Ngược 180° Nhìn Bắc (WM-06): Hệ Tủ 3 Module 2,90m &amp; Bàn Học Cạnh Ban Công</h4>
+                <ul>
+                  <li><strong>Chuẩn <code>BV-T2.06</code> (<code>950 + 1.150 + 800 = 2.900mm</code>):</strong> Tủ áo 2 cánh phẳng bên trái + Hốc TV <code>50"</code> và 4 ngăn kéo giữa + Bàn học <code>800mm</code> hứng trực tiếp sáng tự nhiên từ cửa ban công <code>D4</code>.</li>
+                  <li><strong>Hoàn thiện sạch dấu vân tay:</strong> Cánh MDF lõi xanh phủ Kem Greige mờ kết hợp hốc gỗ Sồi sáng dùng bền đẹp từ lúc bé đi học lớp 1 tới khi lên đại học.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB PANEL 2: KID-FRIENDLY 7 & 3 YEARS OLD (AGE-SMART & MONTESSORI) -->
+      <div role="tabpanel" id="panel-girls-kids37" aria-labelledby="tab-girls-kids37" data-tab-group="girls" hidden="until-found">
+        <div class="panel-inner">
+          <div class="scheme-banner kids">
+            <h3>🎀 PA 2 (Đúng Độ Tuổi 7 Tuổi &amp; 3 Tuổi): An Toàn Tuyệt Đối, Bàn Học 2 Cỡ &amp; Không Gian Montessori Đáng Yêu</h3>
+            <p>
+              Thiết kế riêng cho đúng độ tuổi hiện tại của 2 công chúa: <strong>Chị 7 tuổi (đang học tiểu học, cần bàn học chuẩn công thái học &amp; bảng ghim bài)</strong> và <strong>Em 3 tuổi (mầm non, cần giường thấp/thanh chắn chống ngã, góc vẽ tầm thấp &amp; kệ sách Montessori tự lấy cất)</strong>. Giữ bảng màu <strong>Gỗ Sồi sáng + Kem sữa + Hồng đào phấn dịu (<code>Pastel Blush &amp; Butter Cream</code>)</strong> tinh tế — dễ thương đúng tuổi thơ mà tuyệt đối <strong>không lòe loẹt sến sẩm</strong>!
+            </p>
+            <div class="swatch-row">
+              <span class="swatch-tag"><span class="swatch-dot" style="background:#e8c7a1;"></span>Gỗ Sồi Sáng Bo Tròn R80</span>
+              <span class="swatch-tag"><span class="swatch-dot" style="background:#f5ebe0;"></span>Kem Sữa Boucle Chống Va Đập</span>
+              <span class="swatch-tag"><span class="swatch-dot" style="background:#e7b7b5;"></span>Hồng Phấn Đào Dịu Mắt</span>
+              <span class="swatch-tag"><span class="swatch-dot" style="background:#f2df9b;"></span>Vàng Bơ Pastel Ấm Áp</span>
+            </div>
+          </div>
+
+          <div class="sub-room-title">2A. Phòng Ngủ 1 (`PN1 — 16,2 m²`) — Phòng Ngủ Chung &amp; Góc Học Đôi Cho Chị 7T &amp; Em 3T</div>
+          <div class="grid-2">
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/kids37_t2_v06_pn1_girls_north.jpg', '🎀 PA 2 (Bé 7T & 3T) • PN1 Nhìn Bắc: Bàn học 2 tầng độ cao dưới cửa sổ S3 (Chị 7T ngồi ghế công thái học • Em 3T ngồi bàn thấp ghế đẩu vẽ/tô màu) + Đầu giường đám mây nệm kem + Thanh chắn gỗ bo mềm tháo lắp cho bé 3T + Chốt khóa ban công trên cao!')">
+                <img src="assets/kids37_t2_v06_pn1_girls_north.jpg" alt="PN1 Phòng ngủ 2 chị em 7 tuổi và 3 tuổi nhìn Bắc có bàn 2 tầng độ cao và thanh chắn giường" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge pink">🎀 BÉ 7T &amp; 3T • PN1 NHÌN BẮC — BÀN 2 CỠ &amp; THANH CHẮN THÁO LẮP</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN1 Nhìn Bắc (7T &amp; 3T): Bàn Học 2 Cỡ Chiều Cao, Đầu Giường Mây &amp; Thanh Chắn An Toàn</h4>
+                <ul>
+                  <li><strong>Bàn đôi <code>2,05m</code> giật 2 cốt chiều cao cực thực tế:</strong> Phần trên cao <code>720mm</code> + bảng ghim vòm cho <strong>Chị 7 tuổi học bài</strong>; phần hạ thấp <code>520mm</code> kèm hộc sách bo cong &amp; ghế đẩu gỗ tròn cho <strong>Em 3 tuổi tập vẽ, xếp hình</strong>!</li>
+                  <li><strong>Giường đôi <code>1,8×2,0m</code> an toàn 100%:</strong> Đầu giường đám mây bọc vải <code>Boucle</code> kem + vách vòm hồng phấn mềm chống cụng đầu; lắp <strong>thanh chắn gỗ bo tròn tháo rời được</strong> phía bên bé 3 tuổi ngủ (sau 6 tuổi tháo ra không để lại vết).</li>
+                  <li><strong>An toàn cửa sổ &amp; ban công:</strong> Dùng rèm tổ ong không dây kéo (chống quấn cổ trẻ nhỏ) và <strong>chốt khóa ban công lắp cao <code>1,8m</code></strong> ngoài tầm với bé 3 tuổi.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/kids37_t2_v07_pn1_girls_south.jpg', '🎀 PA 2 (Bé 7T & 3T) • PN1 Ngược 180° Nhìn Nam: Hệ tủ 3,55m tay nắm gỗ hình tròn & đám mây vừa tầm bé 3–7T + Ngăn kéo thấp tự lấy quần áo + Kệ sách vòm bày truyện tranh, thú bông & giỏ đồ chơi mây pastel (0% kính vỡ)!')">
+                <img src="assets/kids37_t2_v07_pn1_girls_south.jpg" alt="PN1 Phòng ngủ 2 bé gái 7 tuổi và 3 tuổi nhìn Nam tay nắm đám mây và kệ Montessori" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge pink">🔄 BÉ 7T &amp; 3T • PN1 NGƯỢC 180° — TAY NẮM MÂY &amp; KỆ ĐỒ CHƠI</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN1 Ngược 180° Nhìn Nam (7T &amp; 3T): Tay Nắm Gỗ Đám Mây &amp; Kệ Truyện Montessori</h4>
+                <ul>
+                  <li><strong>Tay nắm gỗ tròn &amp; đám mây đặt vừa tầm tay bé:</strong> Rèn cho 2 bé thói quen tự mở tủ lấy đồ (bản lề giảm chấn chống kẹp ngón tay); lớn lên chỉ cần đổi tay nắm gỗ là đổi phong cách ngay.</li>
+                  <li><strong>Kệ vòm Montessori bên phải:</strong> Tầng dưới đặt <strong>03 giỏ mây pastel đựng đồ chơi</strong> tầm tay bé 3 tuổi, tầng giữa bày sách truyện &amp; thú bông; <code>0%</code> cánh kính đảm bảo an toàn khi bé chạy nhảy.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="sub-room-title">2B. Phòng Ngủ 2 (`PN2 — 13,5 m² • Cạnh Giếng Trời`) — Phòng Chơi Montessori Bé 3T &rarr; Phòng Riêng Bé Thứ 2</div>
+          <div class="grid-2">
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/kids37_t2_v08_pn2_girls_south.jpg', '🎀 PA 2 (Bé 3 Tuổi) • PN2 Nhìn Nam: Giường bệt siêu thấp 30cm bo tròn R80 có thành bọc nệm 2 bên & đầu giường tai thỏ/mây + Vòm nhà cầu vồng pastel + Kệ sách mặt tiền Montessori & gối ngồi đọc truyện ngay dưới ô kính Giếng trời cây xanh!')">
+                <img src="assets/kids37_t2_v08_pn2_girls_south.jpg" alt="PN2 Phòng ngủ bé gái 3 tuổi nhìn Nam giường bệt tai thỏ và kệ sách Montessori dưới cửa giếng trời" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge pink">🎀 BÉ 3 TUỔI • PN2 NHÌN NAM — GIƯỜNG BỆT 30CM &amp; GÓC ĐỌC MONTESSORI</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN2 Nhìn Nam (Bé 3T): Giường Bệt Tai Thỏ Siêu Thấp &amp; Góc Đọc Sách Giếng Trời</h4>
+                <ul>
+                  <li><strong>Giường bệt siêu thấp (<code>28–32cm</code>) + thành bọc nệm 2 bên:</strong> Bé 3 tuổi tự trèo lên ngủ trưa hoặc chơi đùa thoải mái, lăn xuống thảm tròn êm hoàn toàn không đau, không cần rào chắn cao bí bách.</li>
+                  <li><strong>Tận dụng tuyệt đối ô cửa kính Giếng trời bên phải:</strong> Bố trí <strong>kệ sách mặt tiền Montessori tầm thấp</strong> lộ bìa sách kích thích bé thích đọc truyện + 3 gối đệm ngồi tắm nắng sáng cạnh giàn cây xanh!</li>
+                  <li><strong>Đèn tường hình mây &amp; trăng <code>2700K</code>:</strong> Làm đèn ngủ dịu mắt giúp bé 3 tuổi không sợ bóng tối khi tập ngủ riêng sau này.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/kids37_t2_v09_pn2_girls_north.jpg', '🎀 PA 2 (Bé 3 Tuổi) • PN2 Ngược 180° Nhìn Bắc: Tủ áo 950mm tay nắm gỗ tròn + Hốc giữa bảng nam châm dán tranh bé vẽ, giá sách & giỏ đồ chơi (đã đi sẵn ổ chờ TV CĐ-04 phía sau!) + Bàn sáng tạo 800mm dùng ghế công thái học tăng chỉnh chiều cao!')">
+                <img src="assets/kids37_t2_v09_pn2_girls_north.jpg" alt="PN2 Phòng ngủ bé gái 3 tuổi nhìn Bắc bảng nam châm trưng tranh và bàn học tăng chỉnh chiều cao" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge pink">🔄 BÉ 3 TUỔI • PN2 NGƯỢC 180° — BẢNG NAM CHÂM VẼ &amp; GHẾ TĂNG CHỈNH</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN2 Ngược 180° Nhìn Bắc (Bé 3T): Hốc Bảng Từ Trưng Tranh &amp; Bàn Học Lớn Theo Bé</h4>
+                <ul>
+                  <li><strong>Thay TV sớm bằng Hốc Bảng Nam Châm &amp; Giá Sách:</strong> Ở tuổi 3–6 không nên đặt TV trong phòng bé — hốc giữa biến thành <strong>bảng từ trưng bày tranh bé vẽ + kệ truyện + hộc giỏ đồ chơi</strong> (vẫn đi chờ sẵn ổ điện <code>CĐ-04</code> sau vách để lớn lên treo TV <code>50"</code> bất kỳ lúc nào!).</li>
+                  <li><strong>Bàn <code>800mm</code> cạnh ban công <code>D4</code>:</strong> Lắp sẵn mặt bàn chuẩn kèm <strong>ghế công thái học tăng chỉnh độ cao + kê chân</strong>, bé ngồi tô màu từ 3 tuổi đến khi học cấp 1–2 dùng liền mạch.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB PANEL 3: FRESH BLONDE OAK (7 -> 17+ YEARS) -->
+      <div role="tabpanel" id="panel-girls-oak" aria-labelledby="tab-girls-oak" data-tab-group="girls" hidden="until-found">
+        <div class="panel-inner">
+          <div class="scheme-banner oak">
+            <h3>☀️ PA 3 (Bản Đã Duyệt Trước): Gỗ Sồi / Tần Bì Tươi Sáng (Hopeful • KES Ash Dawn • Karma Poplar Blush — 7 &rarr; 17+ Tuổi)</h3>
+            <p>
+              Phương án đóng cố định chuẩn bình thường ngay từ đầu bằng bộ ván <strong>Gỗ Sồi Mật Ong / Tần Bì Bình Minh</strong> kết hợp mảng phù điêu hoa lá kem trắng 3D nhẹ nhàng và ngăn kéo nhấn <code>Karma Poplar Blush</code> — tươi tắn rạng rỡ, sang bền suốt 10–15 năm từ tiểu học đến hết cấp 3 mà không phải nâng cấp nội thất.
+            </p>
+            <div class="swatch-row">
+              <span class="swatch-tag"><span class="swatch-dot" style="background:#dcb88a;"></span>KES LP2 12105 Ash Dawn / Santana Oak</span>
+              <span class="swatch-tag"><span class="swatch-dot" style="background:#d6a9a6;"></span>Karma Poplar Origin Blush</span>
+              <span class="swatch-tag"><span class="swatch-dot" style="background:#f3ede3;"></span>Hopeful Plywood ENF + HPL Kem Chống Mực</span>
+            </div>
+          </div>
+
+          <div class="sub-room-title">3A. Phòng Ngủ 1 (`PN1 — 16,2 m²`) — Gỗ Sồi Tươi Sáng Trường Tồn</div>
+          <div class="grid-2">
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/wow_t2_v06_pn1_girl_lightoak_north.jpg', '☀️ PA 3 • PN1 Nhìn Bắc (Gỗ Sồi Tươi Sáng Hopeful/KES/Karma): Vách ốp gỗ sáng ôm phù điêu hoa 3D kem trắng + Giường đôi R60 1,8×2,0m + Bàn học dài 2,05m dưới cửa sổ Tây S3!')">
+                <img src="assets/wow_t2_v06_pn1_girl_lightoak_north.jpg" alt="PN1 Phòng ngủ con gái màu gỗ sồi tươi sáng nhìn Bắc" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge">☀️ PA 3 • PN1 NHÌN BẮC — GỖ SỒI SÁNG &amp; PHÙ ĐIÊU HOA 3D</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN1 Nhìn Bắc (Gỗ Sồi Sáng): Vách Gỗ Bình Minh &amp; Bàn Học Đôi 2,05m</h4>
+                <ul>
+                  <li>Không gian sáng nắng ấm áp tự nhiên, mặt bàn học phủ <code>Laminate HPL Kem Mờ</code> dễ lau sạch mực bút bi / màu sáp.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/wow_t2_v07_pn1_girl_lightoak_south.jpg', '☀️ PA 3 • PN1 Ngược 180° Nhìn Nam: Hệ tủ 3,55m khung gỗ sáng bo R60, tay nắm bán nguyệt + ngăn kéo Karma Poplar Blush + kệ sách vòm đá Travertine 0% kính!')">
+                <img src="assets/wow_t2_v07_pn1_girl_lightoak_south.jpg" alt="PN1 Phòng ngủ con gái màu gỗ sồi tươi sáng nhìn Nam" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge">🔄 PA 3 • PN1 NGƯỢC 180° — TỦ KEM TAY NẮM BÁN NGUYỆT</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN1 Ngược 180° Nhìn Nam (Gỗ Sồi Sáng): Tủ 3,55m &amp; Kệ Vòm Travertine</h4>
+                <ul>
+                  <li>Hệ tủ chuẩn <code>BV-T2.05</code> với tay nắm bán nguyệt gỗ sáng liền mạch, ngăn kéo nhấn <code>Poplar Blush</code> tinh tế.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="sub-room-title">3B. Phòng Ngủ 2 (`PN2 — 13,5 m²`) — Gỗ Sồi Tươi Sáng Trường Tồn</div>
+          <div class="grid-2">
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/wow_t2_v08_pn2_girl_lightoak_south.jpg', '☀️ PA 3 • PN2 Nhìn Nam (Gỗ Sồi Tươi Sáng): Vách gỗ sáng bo cong ôm vòm hoa 3D kem trắng + Giường đôi R60 + Giếng trời cây xanh bên phải!')">
+                <img src="assets/wow_t2_v08_pn2_girl_lightoak_south.jpg" alt="PN2 Phòng ngủ con gái màu gỗ sồi tươi sáng nhìn Nam" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge">☀️ PA 3 • PN2 NHÌN NAM — VÒM HOA 3D &amp; GIẾNG TRỜI XANH</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN2 Nhìn Nam (Gỗ Sồi Sáng): Vách Gỗ Sáng Nắng Ấm Mở Rộng Phòng 13,5m²</h4>
+                <ul>
+                  <li>Đóng sẵn chuẩn bình thường (<code>7 → 17+ tuổi</code>), đồng bộ 100% mã ván với <code>PN1</code>.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="shot-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/wow_t2_v09_pn2_girl_lightoak_north.jpg', '☀️ PA 3 • PN2 Ngược 180° Nhìn Bắc: Hệ tủ 3 module 2,90m gỗ sáng + ngăn kéo Poplar Blush + bàn học chuẩn 750mm cạnh ban công D4!')">
+                <img src="assets/wow_t2_v09_pn2_girl_lightoak_north.jpg" alt="PN2 Phòng ngủ con gái màu gỗ sồi tươi sáng nhìn Bắc" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge">🔄 PA 3 • PN2 NGƯỢC 180° — HỆ TỦ 2,90M &amp; BÀN CHUẨN 750MM</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>PN2 Ngược 180° Nhìn Bắc (Gỗ Sồi Sáng): Hệ Tủ 2,90m &amp; Bàn Học Chuẩn</h4>
+                <ul>
+                  <li>Khớp chính xác <code>BV-T2.06</code> (`950 + 1.150 + 800mm`), <code>0%</code> cánh kính và hốc bàn học lấy sáng tự nhiên cạnh ban công.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- Architect Recommendation Box -->
+      <div class="tip-card">
+        <h3>💡 Gợi Ý Phối Hợp "2 Trong 1" Tối Ưu Nhất Cho Gia Đình Có 2 Bé 7 &amp; 3 Tuổi (Đẹp Cả Hiện Tại Lẫn 15 Năm Sau)</h3>
+        <p>
+          Nếu bạn thích sự <strong>sang trọng, sạch bụi đồng bộ của PA 1 (WM-06)</strong> nhưng vẫn muốn <strong>đúng tâm lý &amp; an toàn cho 2 bé 7 và 3 tuổi như PA 2</strong>, giải pháp khôn ngoan nhất khi đặt xưởng là:
+          <strong>(1) Phần cứng cố định đóng theo PA 1 WM-06</strong> (trần phẳng sạch bụi <code>PA D</code> + hệ tủ kịch trần <code>3,55m / 2,90m</code> Kem Greige phẳng + vách Travertine bo tròn <code>R80–R120</code> — dùng 15–20 năm không phải tháo dỡ);
+          <strong>(2) Phần tương tác trẻ nhỏ lấy từ PA 2</strong> (giường thấp <code>32cm</code> + thanh chắn gỗ rời tháo lắp ở <code>PN1</code>, kệ sách mặt tiền Montessori tầm thấp đặt rời dưới cửa kính Giếng trời <code>PN2</code>, bảng nam châm treo vào hốc chờ TV <code>PN2</code>, tay nắm gỗ tròn dễ thay &amp; ghế học tăng chỉnh chiều cao). Khi 2 bé lớn lên cấp 2–3, chỉ cần tháo thanh chắn, bỏ kệ thấp và đổi ga gối là phòng tự động trở thành không gian <strong>Warm Minimalist WM-06</strong> hoàn chỉnh với <strong><code>0 ₫</code> chi phí sửa chữa</strong>!
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 2: 2 BEDROOMS ON FLOOR 3 (PN3 & PN4 — FULL 2-WAY COVERAGE)        -->
+    <!-- ========================================================================= -->
+    <section class="block heavy-deferred" id="sec-t3-bedrooms" style="border-color: rgba(56, 189, 248, 0.48);">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">🛏️ 2. 02 Phòng Ngủ Tầng 3: Phòng Ngủ 3 (`PN3 — 16,2 m²`) &amp; Phòng Ngủ 4 (`PN4 — 13,5 m²`)</h2>
+          <p class="section-sub">
+            Nằm trên cùng 2 trục kết cấu với <code>PN1 &amp; PN2</code> nhưng mang điểm nhấn riêng của <strong>Tầng 3 (<code>KT-2.04</code> &amp; <code>CĐ-05</code>)</strong>: <strong>trần thạch cao phẳng cao thoáng <code>+3,13m</code> gắn khung chữ nhật Ray nam châm đen <code>P-UT12</code></strong>, hệ tủ kịch trần cao <strong><code>2.750 mm</code></strong>, tầm nhìn ngọn cây rộng thoáng và đặc biệt <strong><code>PN4</code> nằm sát ngay dưới Đỉnh Mái Kính Giếng Trời</strong> tràn ngập nắng tự nhiên.
+          </p>
+        </div>
+        <span class="badge-chip sky">Đủ 2 Chiều 180° Cả PN3 &amp; PN4 • Trần Phẳng P-UT12</span>
+      </div>
+
+      <!-- Accessible Tablist: Floor 3 Bedrooms Schemes -->
+      <div class="tabs-bar sky-tabs" role="tablist" focusgroup="tablist nomemory" aria-label="Chọn phương án thiết kế 2 Phòng Ngủ Tầng 3" data-tab-group="t3">
+        <button type="button" role="tab" id="tab-t3-wm06" aria-selected="true" focusgroupstart data-panel="panel-t3-wm06">
+          🕊️ PA 1 (Ưu Tiên #1): Warm Minimalist WM-06 (Đủ 4 Góc PN3 &amp; PN4)
+        </button>
+        <button type="button" role="tab" id="tab-t3-wood" aria-selected="false" data-panel="panel-t3-wood">
+          🪵 PA 2: Vân Gỗ &amp; Đá Travertine (0% Da • 0% Kính)
+        </button>
+      </div>
+
+      <!-- TAB PANEL T3-1: WM-06 -->
+      <div role="tabpanel" id="panel-t3-wm06" aria-labelledby="tab-t3-wm06" data-tab-group="t3">
+        <div class="panel-inner">
+          <div class="scheme-banner t3">
+            <h3>🕊️ Tầng 3 — PA 1 Warm Minimalist WM-06: Kem Greige × Travertine × Khung Ray Nam Châm Đen P-UT12 (Đủ 4 Góc Thuận &harr; Nghịch)</h3>
+            <p>
+              Nét đen mảnh <code>10%</code> của phong cách <strong>WM-06</strong> (khung ray nam châm trần <code>P-UT12</code>, tay nắm tủ đứng mảnh, khung ghế &amp; nhôm DCONS) ăn khớp tuyệt đối với <strong>trần phẳng cao Tầng 3</strong>, mang lại cảm giác như phòng Boutique Resort yên tĩnh cho khách quý, người thân hoặc làm phòng ngủ riêng cho con khi lớn!
+            </p>
+          </div>
+
+          <div class="sub-room-title" style="color: var(--sky-light);">2A. Phòng Ngủ 3 (`PN3 — 16,2 m² • Trục B–D Tầng 3`) — Đủ 2 Chiều Bắc &harr; Nam</div>
+          <div class="grid-2">
+            <article class="shot-card sky-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/warm_minimalist_wm06_t3_v03_pn3_north.jpg', '🕊️ WM-06 T3-V03 • PN3 Tầng 3 Nhìn Bắc (16,2 m²): Trần phẳng cao +3,13m gắn khung Ray nam châm đen P-UT12 + Vách Kem Greige bo vòm ôm đá Travertine + Giường bay Sồi sáng đầu giường da Warm Saddle + Bàn 2,05m trái & Ban công Đông!')">
+                <img src="assets/warm_minimalist_wm06_t3_v03_pn3_north.jpg" alt="PN3 Tầng 3 nhìn Bắc Warm Minimalist WM-06 trần phẳng ray đen" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge sky">🕊️ WM-06 T3-V03 • PN3 NHÌN BẮC — TRẦN PHẲNG RAY ĐEN P-UT12</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>T3-V03 (PN3 Nhìn Bắc): Trần Phẳng Ray Đen P-UT12, Travertine &amp; Bàn 2,05m</h4>
+                <ul>
+                  <li><strong>Trần phẳng Tầng 3 không giật cấp:</strong> Gắn khung chữ nhật <strong>Ray nam châm đen <code>P-UT12</code></strong> tạo tỷ lệ kiến trúc sắc nét, sạch bụi và giữ chiều cao trần thông thoáng tối đa.</li>
+                  <li><strong>Vách Bắc &amp; Bàn Tây <code>2,05m</code>:</strong> Mảng đá <code>Light Roman Travertine</code> hắt LED ôm giường bay Sồi sáng + 2 táp treo đen mờ thanh lịch khớp tay nắm tủ.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="shot-card sky-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/warm_minimalist_wm06_t3_v04_pn3_south.jpg', '🕊️ WM-06 T3-V04 • PN3 Tầng 3 Ngược 180° Nhìn Nam: Hệ tủ cao 2.750mm phẳng Kem Greige tay nắm đen mảnh 10% + Hốc TV 55 inch Travertine bo góc & 4 ngăn kéo Sồi sáng + Kệ trang trí phải (0% cánh kính)!')">
+                <img src="assets/warm_minimalist_wm06_t3_v04_pn3_south.jpg" alt="PN3 Tầng 3 nhìn Nam hệ tủ cao 2,75m Warm Minimalist WM-06" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge sky">🔄 WM-06 T3-V04 • PN3 NGƯỢC 180° — HỆ TỦ 3,55 × 2,75M (0% KÍNH)</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>T3-V04 (PN3 Ngược 180°): Hệ Tủ Cao 2,75m Kem Greige &amp; Hốc TV 55" Travertine</h4>
+                <ul>
+                  <li><strong>Đồng quy cách <code>BV-T2.05</code> nâng cao lên <code>2.750mm</code>:</strong> Tâm hốc TV <code>55"</code> cách Đông đúng <code>1.900mm</code> (<code>CĐ-05</code>), tay nắm đứng đen mờ <code>10%</code> cực sắc sảo, <code>0%</code> cánh kính.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div class="sub-room-title" style="color: var(--sky-light);">2B. Phòng Ngủ 4 (`PN4 — 13,5 m² • Trục A–B Cạnh Đỉnh Giếng Trời Tầng 3`) — Đủ 2 Chiều Nam &harr; Bắc</div>
+          <div class="grid-2">
+            <article class="shot-card sky-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/warm_minimalist_wm06_t3_v05_pn4_south.jpg', '🕊️ WM-06 T3-V05 • PN4 Tầng 3 Nhìn Nam (13,5 m²): Ô kính lớn bên phải sát Đỉnh Mái Kính Giếng Trời tràn nắng & cây rủ xanh mát • Trái Ban công Đông • Vách Kem Greige bo cong ôm vòm tròn Travertine & Khung Ray đen P-UT12!')">
+                <img src="assets/warm_minimalist_wm06_t3_v05_pn4_south.jpg" alt="PN4 Tầng 3 nhìn Nam đón nắng mái kính giếng trời Warm Minimalist WM-06" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge sky">🕊️ WM-06 T3-V05 • PN4 NHÌN NAM — ĐÓN NẮNG ĐỈNH GIẾNG TRỜI</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>T3-V05 (PN4 Nhìn Nam): Vòm Tròn Travertine &amp; View Đỉnh Mái Kính Giếng Trời</h4>
+                <ul>
+                  <li><strong>Điểm đắt giá nhất Tầng 3:</strong> Cửa kính lớn bên phải nhìn thẳng ra <strong>đỉnh giếng trời mái kính</strong> đầy nắng và giàn cây rủ xanh mát — biến phòng <code>13,5m²</code> thành ốc đảo nghỉ dưỡng cực chill.</li>
+                  <li><strong>Vách đầu giường <code>3.210mm</code>:</strong> Phối vòm tròn đá <code>Travertine</code> hắt sáng <code>3000K</code> kẹp mảng Kem Greige phẳng bo cong 2 góc, giường bay Sồi sáng &amp; khung ray đen <code>P-UT12</code>.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="shot-card sky-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/warm_minimalist_wm06_t3_v05b_pn4_north.jpg', '🕊️ WM-06 T3-V05B (Mới Bổ Sung) • PN4 Tầng 3 Ngược 180° Nhìn Bắc: Trái cửa D3 Sồi sáng • Phải Ban công Đông T3 • Chính diện hệ tủ 3 module 2.900 × 2.750mm Kem Greige tay nắm đen mảnh + Hốc TV 50 inch Travertine + Bàn đọc sách 800mm dưới khung Ray đen P-UT12!')">
+                <img src="assets/warm_minimalist_wm06_t3_v05b_pn4_north.jpg" alt="PN4 Tầng 3 nhìn Bắc hệ tủ 3 module 2,90m Warm Minimalist WM-06" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge sky">🆕 WM-06 T3-V05B • PN4 NGƯỢC 180° — HỆ TỦ 2,90 × 2,75M &amp; BÀN 800MM</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>T3-V05B (PN4 Ngược 180° — Mới Bổ Sung): Vách Bắc 3 Module 2,90 × 2,75m</h4>
+                <ul>
+                  <li><strong>Hoàn thiện góc khuất cuối cùng của Tầng 3:</strong> Thể hiện rõ trọn vách Bắc <code>2.900 × 2.750mm</code> (<code>Tủ áo 950</code> tay nắm đen mảnh + <code>Hốc TV 50" &amp; 4 ngăn kéo 1.150</code> + <code>Bàn làm việc/đọc sách 800mm</code> cạnh ban công) khớp 100% ổ điện <code>CĐ-05</code> và trần phẳng ray đen <code>P-UT12</code>!</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB PANEL T3-2: PA 2 WOOD & TRAVERTINE -->
+      <div role="tabpanel" id="panel-t3-wood" aria-labelledby="tab-t3-wood" data-tab-group="t3" hidden="until-found">
+        <div class="panel-inner">
+          <div class="scheme-banner oak">
+            <h3>🪵 Tầng 3 — PA 2: Vân Gỗ Ấm &amp; Đá Roman Travertine (0% Bọc Da Giường • 0% Cánh Kính Tủ Đứng)</h3>
+            <p>
+              Dành để đối chiếu khi bạn muốn Tầng 3 mang sắc ấm trầm hơn của <strong>Gỗ Óc Chó / Karma Grain kết hợp đá Roman Travertine</strong> dưới trần phẳng khung ray nam châm đen <code>P-UT12</code>.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <article class="shot-card sky-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/wow_t3_v03_pn3_north.jpg', '🪵 PA 2 • T3-V03 PN3 Nhìn Bắc: Vòm gỗ Óc chó R150 ôm đá Travertine + Giường 100% vân gỗ (0% da) + Trần phẳng Ray đen P-UT12')">
+                <img src="assets/wow_t3_v03_pn3_north.jpg" alt="PN3 Tầng 3 nhìn Bắc phương án Vân Gỗ và đá Travertine" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge">🪵 PA 2 • PN3 NHÌN BẮC (VÂN GỖ &amp; TRAVERTINE)</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>T3-V03 (PN3 Bắc): Vòm Gỗ R150 &amp; Giường 100% Vân Gỗ</h4>
+                <ul>
+                  <li>Thay đầu giường bọc da bằng 100% khung gỗ bo tròn <code>R60</code> bền sạch, dễ vệ sinh khi ít sử dụng.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="shot-card sky-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/wow_t3_v04_pn3_south.jpg', '🪵 PA 2 • T3-V04 PN3 Ngược 180° Nhìn Nam: Hệ tủ cao 2,75m khung gỗ Óc chó bo R120 + Cánh phẳng Kem Cashmere + Hốc TV 55 inch Travertine (0% kính)')">
+                <img src="assets/wow_t3_v04_pn3_south.jpg" alt="PN3 Tầng 3 nhìn Nam hệ tủ 2,75m Vân Gỗ và Travertine" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge">🔄 PA 2 • PN3 NGƯỢC 180° (HỆ TỦ 2,75M)</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>T3-V04 (PN3 Nam): Hệ Tủ 3,55 × 2,75m Khung Gỗ Óc Chó</h4>
+                <ul>
+                  <li>Khung gỗ bo <code>R120</code> ôm cánh Kem phẳng <code>0% kính</code>, hốc kệ đá Travertine phải.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="shot-card sky-card">
+              <button type="button" class="shot-wrap" onclick="openLightbox('assets/wow_t3_v05_pn4_south.jpg', '🪵 PA 2 • T3-V05 PN4 Nhìn Nam: Vòm tròn đá Travertine hắt sáng + Cánh gỗ Óc chó uốn cong + Giường 100% vân gỗ bên cạnh Mái kính Giếng trời!')">
+                <img src="assets/wow_t3_v05_pn4_south.jpg" alt="PN4 Tầng 3 nhìn Nam phương án Vân Gỗ và Travertine" width="1376" height="768" loading="lazy" />
+                <span class="shot-badge">🪵 PA 2 • PN4 NHÌN NAM (ĐÓN NẮNG GIẾNG TRỜI)</span>
+                <span class="shot-zoom-hint">🔍 Phóng to</span>
+              </button>
+              <div class="shot-body">
+                <h4>T3-V05 (PN4 Nam): Vòm Tròn Travertine &amp; Cánh Gỗ Cong</h4>
+                <ul>
+                  <li>Tương phản ấm áp giữa gỗ Óc chó uốn cong với ánh nắng tự nhiên từ mái kính giếng trời bên phải.</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-card" style="border-color: rgba(56, 189, 248, 0.42); background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(15, 23, 42, 0.72));">
+        <h3 style="color: var(--sky-light);">📌 Lưu Ý Giai Đoạn Đầu Tư Tầng 3 (Linh Hoạt Dòng Tiền)</h3>
+        <p>
+          Trong Bảng Dự Toán Tổng (<a href="index.html" style="color: var(--accent-light); font-weight: 800;">index.html — Mục 15</a>), <strong>02 Phòng Ngủ Tầng 3 (<code>PN3: 46,50 Tr</code> + <code>PN4: 35,50 Tr</code> = <code>82,00 Tr</code>)</strong> đã được thiết kế sẵn đầy đủ điện mạng <code>CĐ-05</code>, trần phẳng <code>P-UT12</code> và bản vẽ đóng tủ để bạn có thể <strong>đóng ngay khi vào ở</strong> hoặc <strong>tạm lùi đóng sau 1–2 năm</strong> mà hoàn toàn không ảnh hưởng đến phần hoàn thiện nhà!
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 3: RESPONSIVE COMPARISON & BUDGET TABLES                          -->
+    <!-- ========================================================================= -->
+    <section class="block heavy-deferred" id="sec-compare-table">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">📊 3. Bảng So Sánh 3 Phương Án Phòng 2 Bé Gái &amp; Tổng Hợp 04 Phòng Ngủ (PN1 &rarr; PN4)</h2>
+          <p class="section-sub">
+            Đối chiếu trực tiếp ưu/nhược điểm từng phương án cho bé <strong>7 tuổi &amp; 3 tuổi</strong> và thông số chốt xưởng của trọn bộ 4 phòng ngủ:
+          </p>
+        </div>
+        <span class="badge-chip emerald">Khớp 100% Dự Toán Toàn Nhà</span>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="girls-cmp-caption" class="table-wrapper">
+        <table class="cmp-table girls-cmp">
+          <caption id="girls-cmp-caption">Bảng 1: So sánh 03 phương án thiết kế Phòng 2 Con Gái Tầng 2 (Bé 7 Tuổi &amp; Bé 3 Tuổi)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Tiêu Chí Đánh Giá</th>
+              <th scope="col">🕊️ PA 1: Warm Minimalist WM-06</th>
+              <th scope="col">🎀 PA 2: Chuyên Biệt 2 Bé (7T &amp; 3T)</th>
+              <th scope="col">☀️ PA 3: Gỗ Sồi Tươi Sáng (7&rarr;17T)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Độ đồng bộ với toàn nhà</th>
+              <td><strong>10/10</strong> — Khớp 100% bảng màu 70–20–10 với Khách, Master &amp; Tầng 3.</td>
+              <td><strong>8/10</strong> — Đồng bộ cốt gỗ Sồi sáng &amp; đường cong, thêm nét pastel vui tươi.</td>
+              <td><strong>8,5/10</strong> — Sáng ấm tự nhiên, chuyển tiếp mềm từ Sảnh đọc sách T2.</td>
+            </tr>
+            <tr>
+              <th scope="row">An toàn &amp; vừa tầm bé 3 tuổi</th>
+              <td>Tốt (bo <code>R60–R100</code>, <code>0%</code> kính), cần thêm thanh chắn giường rời cho bé 3T.</td>
+              <td><strong>10/10 Xuất sắc</strong> — Giường bệt <code>30cm</code> / thanh chắn tháo lắp, kệ sách thấp Montessori, góc vẽ riêng 3T.</td>
+              <td>Tốt (bo <code>R60</code>, <code>0%</code> kính), bàn học &amp; giường làm theo chiều cao tiêu chuẩn người lớn.</td>
+            </tr>
+            <tr>
+              <th scope="row">Công năng học tập bé 7 tuổi</th>
+              <td>Bàn đôi dài <code>2,05m</code> rộng rãi, 2 ghế chuẩn, đủ sáng cửa sổ Tây <code>S3</code>.</td>
+              <td><strong>Tối ưu 2 độ tuổi:</strong> Bàn giật 2 cốt (chị 7T ngồi ghế công thái học • em 3T tô màu ngay cạnh không quấy chị).</td>
+              <td>Bàn đôi <code>2,05m</code> mặt <code>HPL</code> chống mực bút bi, dùng ổn định lên cấp 2–3.</td>
+            </tr>
+            <tr>
+              <th scope="row">Trần thạch cao &amp; vệ sinh bụi</th>
+              <td><strong>Trần phẳng sạch bụi <code>PA D</code></strong> + LED hốc rèm (0 khe bám bụi, tốt cho hô hấp trẻ).</td>
+              <td>Trần phẳng hoặc bo cong nhẹ hắt LED dịu mắt ban đêm.</td>
+              <td>Trần bo cong <code>PA C</code> viền chỉ đen mềm mại.</td>
+            </tr>
+            <tr>
+              <th scope="row">Tuổi thọ sử dụng &amp; chuyển đổi</th>
+              <td><strong>15–20 năm</strong> (từ tiểu học đến đại học không lỗi mốt).</td>
+              <td><strong>3 &rarr; 10 tuổi</strong> (nếu khung tủ đóng phẳng và phụ kiện rời thì lên 12T đổi cực dễ, không đập phá).</td>
+              <td><strong>10–15 năm</strong> (từ <code>7 → 17+</code> tuổi đều đẹp tươi sáng).</td>
+            </tr>
+            <tr>
+              <th scope="row">Vật liệu an toàn hô hấp</th>
+              <td>MDF chống ẩm + Plywood <code>ENF / CARB-P2</code> (KES <code>LL 21</code> &amp; <code>12105</code>).</td>
+              <td>Plywood <code>ENF / CARB-P2</code> + vải <code>Boucle</code> chống bám bụi + sơn/keo PUR không mùi.</td>
+              <td><code>KES Ash Dawn</code> / <code>Karma Light Honey Oak &amp; Poplar Blush</code> / <code>Hopeful ENF</code>.</td>
+            </tr>
+            <tr>
+              <th scope="row">Dự toán gỗ 2 phòng (PN1+PN2)</th>
+              <td><strong>~81,00 – 82,00 Tr ₫</strong> (PN1: <code>46,5tr</code> + PN2: <code>34,5–35,5tr</code>).</td>
+              <td><strong>~84,00 – 87,00 Tr ₫</strong> (+3–5tr cho thanh chắn tháo lắp, vách bọc nệm &amp; kệ Montessori).</td>
+              <td><strong>~81,00 – 82,00 Tr ₫</strong> (đã hạch toán sẵn trong Bảng Dự Toán Tổng).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div tabindex="0" role="region" aria-labelledby="rooms-cmp-caption" class="table-wrapper" style="margin-top: 22px;">
+        <table class="cmp-table rooms-cmp">
+          <caption id="rooms-cmp-caption">Bảng 2: Thông số kỹ thuật, bản vẽ xưởng 2D &amp; dự toán trọn bộ 04 Phòng Ngủ (PN1, PN2 Tầng 2 &amp; PN3, PN4 Tầng 3)</caption>
+          <thead>
+            <tr>
+              <th scope="col">Phòng Ngủ</th>
+              <th scope="col">Tầng &amp; Trục CAD</th>
+              <th scope="col">Diện Tích &amp; Cao Trần</th>
+              <th scope="col">Cấu Hình Nội Thất Chính</th>
+              <th scope="col">Bản Vẽ 2D &amp; Dự Toán</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">🎀 Phòng Ngủ 1 (PN1)</th>
+              <td>Tầng 2 • Trục <code>B–D</code> (Đông Bắc)</td>
+              <td><code>16,2 m²</code> (4,95 × 3,30m)<br>Cao tủ: <code>2.650 mm</code></td>
+              <td>Giường đôi <code>1,8×2,0m</code> bo <code>R60–R80</code> + Bàn cửa sổ Tây <code>2.050×550mm</code> (Plywood <code>36mm</code>) + Hệ tủ Nam <code>3.550×600mm</code> (<code>0%</code> kính).</td>
+              <td><a href="ho-so-xuong-noi-that.html#bv-t2-05">BV-T2.05</a><br><strong>46.500.000 ₫</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">🎀 Phòng Ngủ 2 (PN2)</th>
+              <td>Tầng 2 • Trục <code>A–B</code> (Đông Nam)</td>
+              <td><code>13,5 m²</code> (3,21 × 4,49m)<br>Cao tủ: <code>2.650 mm</code></td>
+              <td>Giường <code>1,8×2,0m</code> (hoặc giường bệt <code>30cm</code>) tựa vách Nam <code>3.210mm</code> + Vách Bắc 3 Module <code>2.900mm</code> (<code>950+1.150+800</code>) cạnh Giếng trời.</td>
+              <td><a href="ho-so-xuong-noi-that.html#bv-t2-06">BV-T2.06</a><br><strong>34.500.000 – 35.500.000 ₫</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">🛏️ Phòng Ngủ 3 (PN3)</th>
+              <td>Tầng 3 • Trục <code>B–D</code> (Đông Bắc)</td>
+              <td><code>16,2 m²</code> (4,95 × 3,30m)<br>Trần phẳng <code>P-UT12</code> • Tủ <code>2.750 mm</code></td>
+              <td>Đồng cấu trúc <code>PN1</code>, nâng chiều cao hệ tủ Nam <code>3.550 × 2.750mm</code> + Khung Ray nam châm đen <code>P-UT12</code> + Bàn <code>2.050mm</code>.</td>
+              <td><a href="ho-so-xuong-noi-that.html#bv-t2-05">Quy cách BV-T2.05 (+100mm cao)</a><br><strong>46.500.000 ₫</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">🛏️ Phòng Ngủ 4 (PN4)</th>
+              <td>Tầng 3 • Trục <code>A–B</code> (Đông Nam)</td>
+              <td><code>13,5 m²</code> (3,21 × 4,49m)<br>Sát Đỉnh Giếng Trời • Tủ <code>2.750 mm</code></td>
+              <td>Đồng cấu trúc <code>PN2</code>, nâng hệ tủ Bắc 3 Module lên <code>2.900 × 2.750mm</code> + Vòm Travertine tròn hắt LED + Trần phẳng <code>P-UT12</code>.</td>
+              <td><a href="ho-so-xuong-noi-that.html#bv-t2-06">Quy cách BV-T2.06 (+100mm cao)</a><br><strong>35.500.000 ₫</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 4: CAD FLOORPLAN & KIDS SAFETY CHECKLIST                          -->
+    <!-- ========================================================================= -->
+    <section class="block heavy-deferred" id="sec-cad-spec">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">📐 4. Mặt Bằng CAD 2 Loại Phòng Ngủ (Trục A–B &amp; Trục B–D) &amp; 06 Tiêu Chuẩn An Toàn Cho Bé 3–7 Tuổi</h2>
+          <p class="section-sub">
+            Đối chiếu trực tiếp sơ đồ bố trí mặt bằng, cửa gió điều hòa, góc bẻ đèn chống chói <code>25°</code> và danh sách kiểm tra nghiệm thu xưởng:
+          </p>
+        </div>
+      </div>
+
+      <div class="cad-split">
+        <article class="shot-card">
+          <button type="button" class="shot-wrap" onclick="openLightbox('assets/ban_ve_2_loai_phong_ngu_truc_ab_va_bd.jpg', 'Bản vẽ CAD 2D Mặt bằng & Chiếu sáng 2 loại Phòng Ngủ Q Villa: Loại 1 Trục A–B (PN2 T2 • PN4 T3) & Loại 2 Trục B–D (PN1 T2 • PN3 T3)')">
+            <img src="assets/ban_ve_2_loai_phong_ngu_truc_ab_va_bd.jpg" alt="Bản vẽ mặt bằng 2 loại phòng ngủ trục A-B và B-D biệt thự Q Villa" width="1376" height="768" loading="lazy" />
+            <span class="shot-badge sky">📐 MẶT BẰNG CAD 2D — TRỤC A–B (PN2, PN4) &amp; TRỤC B–D (PN1, PN3)</span>
+            <span class="shot-zoom-hint">🔍 Phóng to</span>
+          </button>
+          <div class="shot-body">
+            <h4>Khớp 100% Tọa Độ Ổ Điện (CĐ-04 &amp; CĐ-05) &amp; Đèn Bẻ Góc Chống Chói 25°</h4>
+            <ul>
+              <li><strong>Trục B–D (<code>PN1</code> &amp; <code>PN3</code>):</strong> Tâm hốc TV <code>55"</code> cách Đông đúng <code>1.900mm</code>; bàn cửa sổ Tây <code>2,05m</code> chập đôi <code>Plywood 36mm</code> + 3 ke thép chữ T không võng.</li>
+              <li><strong>Trục A–B (<code>PN2</code> &amp; <code>PN4</code>):</strong> Tâm hốc TV <code>50"</code> cách Đông <code>1.550mm</code>; ổ bàn học cách Đông <code>250mm</code>; đèn Spotlight trên giường bắt buộc bẻ góc <code>25°</code> tránh rọi thẳng mắt bé.</li>
+            </ul>
+          </div>
+        </article>
+
+        <div class="safety-list">
+          <div class="safety-item">
+            <h4>1. Chuẩn Ván Không Mùi Formaldehyde (ENF / CARB-P2)</h4>
+            <p>Toàn bộ thùng giường, bàn học và tủ <code>PN1–PN2</code> dùng cốt Plywood / MDF chống ẩm đạt chuẩn <code>ENF / CARB-P2</code>, dán cạnh kín keo <code>PUR</code> 4 mặt để phòng đóng điều hòa kín tuyệt đối không cay mắt bé.</p>
+          </div>
+          <div class="safety-item">
+            <h4>2. Bo Tròn Mọi Cạnh Tiếp Xúc (R60–R100) &amp; 0% Cánh Kính</h4>
+            <p>Cấm 100% góc nhọn ở đuôi giường, cạnh bàn học <code>2,05m</code>, táp đầu giường và khung tủ; <code>0%</code> tủ cánh kính để 2 bé chạy nhảy nô đùa không bao giờ có nguy cơ vỡ kính hay va cạnh sắc.</p>
+          </div>
+          <div class="safety-item">
+            <h4>3. Bản Lề &amp; Ray Giảm Chấn Chống Kẹp Tay Trẻ Nhỏ</h4>
+            <p>100% cánh tủ áo và ngăn kéo tầm thấp lắp bản lề/ray giảm chấn chậm (<code>Blum / Hettich</code>) để bé 3 tuổi tự đóng mở lấy đồ chơi/quần áo mà không bị sập kẹp ngón tay.</p>
+          </div>
+          <div class="safety-item">
+            <h4>4. Khóa Giới Hạn Cửa Ban Công D4/D8 &amp; Rèm Không Dây</h4>
+            <p>Lắp khóa chốt phụ trên cao (<code>+1,8m</code>) cho cửa lùa ban công <code>D4/D8</code> và dùng rèm động cơ Aqara hoặc rèm tổ ong không dây kéo (<code>cordless</code>) loại bỏ hoàn toàn nguy cơ vướng dây.</p>
+          </div>
+          <div class="safety-item">
+            <h4>5. Ánh Sáng Bảo Vệ Thị Lực Cho Bé 7 Tuổi Học Bài</h4>
+            <p>Đèn bàn &amp; đèn hắt kệ sách dùng chuẩn <code>CRI &ge; 90</code>, nhiệt độ màu <code>4000K</code> không nhấp nháy (flicker-free), kết hợp đèn ngủ đầu giường/gầm giường cảm biến <code>2700K</code> êm mắt ban đêm.</p>
+          </div>
+          <div class="safety-item">
+            <h4>6. Khung Giường Thang Thép Hộp + Đệm Cao Su EVA</h4>
+            <p>Bên trong bệ giường gia cường 7 thang thép hộp mạ kẽm đệm xốp EVA chống kêu cót két tuyệt đối khi 2 bé nhún nhảy trên giường.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-links">
+        <a href="ho-so-xuong-noi-that.html#bv-t2-05" class="action-btn gold">🔧 Mở Bản Vẽ Chia Khoang Tủ 2D (BV-T2.05 &amp; BV-T2.06) &rarr;</a>
+        <a href="noi-that-toan-nha.html" class="action-btn">🪑 Mở Bảng Dự Toán Nội Thất Toàn Nhà &rarr;</a>
+        <a href="tran-thach-cao.html" class="action-btn">📐 So Sánh Trần Phẳng PA D &amp; Trần Bo Cong PA C &rarr;</a>
+        <a href="phong-master-tang2.html" class="action-btn">👑 Xem Phòng Master Tầng 2 (PA 1A WM-06) &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Native Light-Dismiss 4K Lightbox Dialog -->
+  <dialog id="lightbox-modal" closedby="any" aria-labelledby="lightbox-title">
+    <div class="dialog-bar">
+      <h2 id="lightbox-title">Xem chi tiết phối cảnh 4K — Phòng Ngủ Q Villa</h2>
+      <form method="dialog">
+        <button type="submit" class="dialog-close-btn">✕ Đóng (Esc)</button>
+      </form>
+    </div>
+    <div class="dialog-img-wrap">
+      <img id="lightbox-img" src="assets/wm06_t2_v06_pn1_girls_north.jpg" alt="Phối cảnh phóng to" />
+    </div>
+  </dialog>
+
+  <script>
+    // 1. Accessible Tabs Controller (selection follows click/arrow + hidden="until-found" beforematch sync)
+    function initTabGroup(groupName) {
+      const tablist = document.querySelector(`[role="tablist"][data-tab-group="${groupName}"]`);
+      if (!tablist) return;
+      const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
+      const panels = Array.from(document.querySelectorAll(`[role="tabpanel"][data-tab-group="${groupName}"]`));
+
+      function selectTab(targetTab, moveFocus = false) {
+        const panelId = targetTab.dataset.panel;
+        for (const tab of tabs) {
+          const isSelected = tab === targetTab;
+          tab.setAttribute('aria-selected', String(isSelected));
+          tab.toggleAttribute('focusgroupstart', isSelected);
+        }
+        for (const panel of panels) {
+          if (panel.id === panelId) {
+            panel.removeAttribute('hidden');
+          } else {
+            panel.setAttribute('hidden', 'until-found');
+          }
+        }
+        if (moveFocus) {
+          targetTab.focus();
+        }
+        targetTab.scrollIntoView({ block: 'nearest', inline: 'nearest', container: 'nearest' });
+      }
+
+      for (const tab of tabs) {
+        tab.addEventListener('click', () => selectTab(tab, false));
+        tab.addEventListener('keydown', (e) => {
+          const idx = tabs.indexOf(tab);
+          if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            selectTab(tabs[(idx + 1) % tabs.length], true);
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            selectTab(tabs[(idx - 1 + tabs.length) % tabs.length], true);
+          } else if (e.key === 'Home') {
+            e.preventDefault();
+            selectTab(tabs[0], true);
+          } else if (e.key === 'End') {
+            e.preventDefault();
+            selectTab(tabs[tabs.length - 1], true);
+          }
+        });
+      }
+
+      // Sync tab when browser Find-in-Page reveals a hidden="until-found" panel
+      for (const panel of panels) {
+        panel.addEventListener('beforematch', () => {
+          const matchingTab = tabs.find((t) => t.dataset.panel === panel.id);
+          if (matchingTab) selectTab(matchingTab, false);
+        });
+      }
+    }
+
+    initTabGroup('girls');
+    initTabGroup('t3');
+
+    // 2. Native Modal Lightbox with Safari closedby fallback
+    const lbDialog = document.getElementById('lightbox-modal');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbTitle = document.getElementById('lightbox-title');
+
+    function openLightbox(src, caption) {
+      lbImg.src = src;
+      lbImg.alt = caption || 'Phối cảnh phóng to 4K';
+      lbTitle.textContent = caption || 'Xem chi tiết phối cảnh 4K — Q Villa';
+      if (typeof lbDialog.showModal === 'function') {
+        lbDialog.showModal();
+      } else {
+        lbDialog.setAttribute('open', '');
+      }
+    }
+
+    if (lbDialog && !('closedBy' in HTMLDialogElement.prototype)) {
+      lbDialog.addEventListener('click', (event) => {
+        if (event.target !== lbDialog) return;
+        const rect = lbDialog.getBoundingClientRect();
+        const isDialogContent = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (isDialogContent) return;
+        lbDialog.close();
+      });
+    }
+  </script>
+</body>
+</html>
