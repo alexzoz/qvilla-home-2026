@@ -610,6 +610,8 @@
         <span style="font-size:0.82rem;font-weight:800;color:#fde68a;">🎨 CHỌN TONE &amp; PHƯƠNG ÁN PHÒNG MASTER (ĐƯA PA 1A BO CONG TINH CHỈNH LÊN SỐ 1):</span>
         <div style="display:flex;flex-wrap:wrap;flex-wrap:balance;gap:8px;">
           <button type="button" class="tab-btn active" id="tone-master-wm06min" onclick="setMasterTone('wm06min')" style="padding:7px 13px;font-size:0.8rem;border-color:#6ee7b7;color:#ecfdf5;">🕊️ PA 1A (Mới Tinh Chỉnh #1): WM-06 Bo Cong An Toàn • Vách Kịch Trần TV 65" (0% Cửa Lùa)</button>
+          <button type="button" class="tab-btn" id="tone-master-wm06_pa1c1" onclick="setMasterTone('wm06_pa1c1')" style="padding:7px 13px;font-size:0.8rem;border-color:#10b981;color:#a7f3d0;">🕊️ PA 1C-1 (Mới): Tủ 2,24m Áp Tường Tây + Lối Đi 1,2m (Giữ Bàn Đảo)</button>
+          <button type="button" class="tab-btn" id="tone-master-wm06_pa1c2" onclick="setMasterTone('wm06_pa1c2')" style="padding:7px 13px;font-size:0.8rem;border-color:#38bdf8;color:#bae6fd;">🕊️ PA 1C-2 (Mới): Tủ 2,24m Áp Tường Tây + Lối Đi 1,2m (Bỏ Bàn Đảo)</button>
           <button type="button" class="tab-btn" id="tone-master-wm06" onclick="setMasterTone('wm06')" style="padding:7px 13px;font-size:0.8rem;border-color:#cbd5e1;color:#f8fafc;">🕊️ PA 1B (Bản Cũ): WM-06 Bình Phong Treo 2 Ty &amp; Tủ Đảo 450mm</button>
           <button type="button" class="tab-btn" id="tone-master-studio349" onclick="setMasterTone('studio349')" style="padding:7px 13px;font-size:0.8rem;border-color:#f59e0b;">🪵 PA 2 Option A: 100% Vân Gỗ (Chuẩn KT-2.08)</button>
           <button type="button" class="tab-btn" id="tone-master-studio349_leather" onclick="setMasterTone('studio349_leather')" style="padding:7px 13px;font-size:0.8rem;border-color:#38bdf8;color:#bae6fd;">✨ Option B: Bọc Da Kem Đá (Đã Sửa Cửa KT-2.08)</button>
@@ -683,6 +685,101 @@
             <img src="assets/warm_minimalist_wm06_min_t2_v04_wic_south.jpg" alt="T2-V04 PA 1A Đảo 6 ngăn bo R80 và bàn cửa sổ O2 bo R60 dời gương thoáng 100 phần trăm" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
             <div style="padding:8px 10px;font-size:0.77rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T2-V04 (PA 1A):</strong> Đảo 6 ngăn &amp; trụ đá <code>WC-02</code> bo tròn an toàn • Cửa sổ <code>O2</code> thoáng 100% (bàn bo <code>R60</code>, dời gương pill LED sang mảng tường đặc kế bên).</div>
           </div>
+        </div>
+      </div>
+
+      <!-- NEW PA 1C VISUAL COMPARISON: FLUSH WEST 2.24m WARDROBE WALL + 1.2m EAST WALKWAY (KEEP ISLAND vs REMOVE ISLAND) -->
+      <div id="sec-pa1c-compare" style="margin-top:20px;padding:18px;border-radius:14px;background:rgba(15,23,42,0.82);border:1px solid rgba(56,189,248,0.48);">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:12px;">
+          <div>
+            <h3 style="font-size:1.06rem;font-weight:800;color:#bae6fd;margin-bottom:4px;">⚖️ So Sánh Trực Tiếp Phương Án Mới PA 1C (Hệ Tủ 2,24m Áp Tường Tây + 1 Lối Đi 1,2m Gần Cửa O1): PA 1C-1 Giữ Bàn Đảo vs. PA 1C-2 Bỏ Bàn Đảo</h3>
+            <p style="font-size:0.84rem;color:#cbd5e1;">Đẩy hệ tủ + vách Trục B (<code>2.240 × 550mm</code>) sát về Tường Tây (<code>+0,5m</code> chiều dài chứa đồ) và chừa <strong>01 lối đi duy nhất rộng <code>1.200mm (1,2m)</code> bên Đông</strong> thẳng Cửa <code>O1</code>; riêng <strong>Tivi <code>65"</code> mặt Bắc đặt lệch về bên trái của vách để thẳng hồng tâm Giường 100% (<code>1.720mm</code> từ Tường Tây)</strong>.</p>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="lb-btn active" onclick="setMasterTone('wm06_pa1c1')">Bật PA 1C-1 (Giữ Đảo)</button>
+            <button type="button" class="lb-btn" onclick="setMasterTone('wm06_pa1c2')" style="border-color:#38bdf8;color:#bae6fd;">Bật PA 1C-2 (Bỏ Đảo)</button>
+          </div>
+        </div>
+
+        <!-- 2D Comparison CAD -->
+        <div class="img-frame" style="margin-bottom:16px;border:1.5px solid rgba(56,189,248,0.55);">
+          <img src="assets/cad_pa1c_comparison_keep_vs_no_island.svg" alt="Bản vẽ Mặt bằng 2D đối chiếu PA 1C-1 Giữ Bàn Đảo và PA 1C-2 Bỏ Bàn Đảo với Hệ Tủ 2.240mm áp tường Tây và lối đi 1.200mm" onclick="openLightbox('assets/cad_pa1c_comparison_keep_vs_no_island.svg', 2.2)" />
+          <div class="img-caption" style="background:rgba(12,74,110,0.92);color:#e0f2fe;flex-wrap:wrap;">
+            <span>📐 <strong>MẶT BẰNG 2D PA 1C-1 vs PA 1C-2:</strong> Tủ <code>2.240×550mm</code> áp Tường Tây + Lối đi <code>1.200mm</code> bên Đông (thẳng Cửa <code>O1</code>) • Tâm TV <code>65"</code> giữ nguyên tại <code>1.720mm</code> thẳng tâm Giường</span>
+            <button type="button" class="lb-btn active" onclick="openLightbox('assets/cad_pa1c_comparison_keep_vs_no_island.svg', 2.5)">🔍 Phóng To Bản Vẽ 250%</button>
+          </div>
+        </div>
+
+        <!-- 4 New 3D Views Grid -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:12px;margin-bottom:16px;">
+          <div style="background:rgba(7,11,18,0.78);border:1px solid rgba(245,158,11,0.4);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm06_pa1c_t2_v01_bed_south.jpg')">
+            <img src="assets/wm06_pa1c_t2_v01_bed_south.jpg" alt="T2-V01 PA 1C nhìn Nam: Vách Tủ 2,24m áp tường Tây bên phải, TV 65 inch thẳng tâm giường, lối đi 1,2m bên trái thẳng cửa O1" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#fde68a;">1. T2-V01 (Nhìn Nam — Chung PA 1C):</strong> Vách Tủ <code>2,24m</code> áp sát Tường Tây (bên phải, <code>0%</code> hở sáng rọi vào đầu giường) • <strong>TV <code>65"</code></strong> đặt thẳng hồng tâm Giường • Lối mở duy nhất <strong><code>1,2m</code></strong> bên trái thẳng Cửa <code>O1</code>.</div>
+          </div>
+          <div style="background:rgba(7,11,18,0.78);border:1px solid rgba(16,185,129,0.45);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm06_pa1c1_t2_v03_wic_keep_island_north.jpg')">
+            <img src="assets/wm06_pa1c1_t2_v03_wic_keep_island_north.jpg" alt="T2-V03 PA 1C-1 nhìn Bắc: Hệ tủ 2,24m áp tường Tây bên trái, lối đi 1,2m bên phải, giữ Bàn Đảo Kính bo R80" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">2. T2-V03 PA 1C-1 (Giữ Bàn Đảo):</strong> Hệ tủ 5 khoang <code>2,24m</code> áp sát bên Trái (kề Bàn <code>O2</code>) + Lối đi <code>1,2m</code> bên Phải • <strong>Bàn Đảo Kính <code>R80</code></strong> &amp; Vòng <code>Ø1,2m</code> dịch nhẹ sang trái cho thông trục đi <code>1,2m</code>!</div>
+          </div>
+          <div style="background:rgba(7,11,18,0.78);border:1px solid rgba(56,189,248,0.48);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm06_pa1c2_t2_v03_wic_no_island_north.jpg')">
+            <img src="assets/wm06_pa1c2_t2_v03_wic_no_island_north.jpg" alt="T2-V03 PA 1C-2 nhìn Bắc: Bỏ Bàn Đảo rời, tích hợp tủ kính trang sức ngay giữa vách tủ 2,24m và khoảng sàn trống thênh thang" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#7dd3fc;">3. T2-V03 PA 1C-2 (Bỏ Bàn Đảo):</strong> Khoang giữa hệ tủ <code>2,24m</code> tích hợp luôn <strong>Tủ Kính Trang Sức &amp; Ngăn Kéo</strong> dưới hốc túi xách • Trung tâm phòng trống rộng thênh thang!</div>
+          </div>
+          <div style="background:rgba(7,11,18,0.78);border:1px solid rgba(56,189,248,0.48);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm06_pa1c2_t2_v04_wic_no_island_south.jpg')">
+            <img src="assets/wm06_pa1c2_t2_v04_wic_no_island_south.jpg" alt="T2-V04 PA 1C-2 ngược 180 độ nhìn Nam về Tủ 1, Tủ 2 và WC-02 khi bỏ Bàn Đảo" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#7dd3fc;">4. T2-V04 PA 1C-2 (Ngược 180° Không Đảo):</strong> Nhìn về <code>Tủ #1–#2</code> &amp; cửa kính sọc <code>WC-02</code> • Sàn xương cá giữa phòng trống rộng <code>~5,8 m²</code>, đứng thử đồ trước gương Đông &amp; bàn <code>O2</code> cực kỳ thoáng!</div>
+          </div>
+        </div>
+
+        <!-- 6-Criteria Comparison Table -->
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead>
+              <tr>
+                <th>Tiêu Chí So Sánh</th>
+                <th>PA 1A: Đảo Giữa 1,74m • 2 Lối 850mm</th>
+                <th>PA 1C-1: Tủ 2,24m Áp Tây • Lối 1,2m • Giữ Đảo</th>
+                <th>PA 1C-2: Tủ 2,24m Áp Tây • Lối 1,2m • Bỏ Đảo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tổng chiều dài tủ quần áo</strong></td>
+                <td><code>6,11 m</code> dài (Tủ 1–2: <code>2,36m</code> + Tủ 3: <code>2,01m</code> + Vách B: <code>1,74m</code>)</td>
+                <td><strong style="color:#6ee7b7;">6,61 m dài (+0,5m</strong> khoang tủ áo Trục B = 5 khoang)</td>
+                <td><strong style="color:#7dd3fc;">6,61 m dài (+0,5m</strong> tích hợp kính đồng hồ/trang sức)</td>
+              </tr>
+              <tr>
+                <td><strong>Sức chứa phụ kiện &amp; trang sức</strong></td>
+                <td>Bàn Đảo kính rời 6 ngăn kéo lớn (hiển thị đẹp kiểu Boutique)</td>
+                <td>Bàn Đảo kính <code>1.050×500</code> dịch trái + thêm <code>01</code> khoang tủ cao ở Trục B</td>
+                <td>Khay kính trưng bày trang sức &amp; ngăn kéo tích hợp âm ngay thân Tủ <code>2,24m</code></td>
+              </tr>
+              <tr>
+                <td><strong>Độ kín đáo &amp; chắn sáng Giường Ngủ</strong></td>
+                <td>Cân đối, vẫn lọt chút ánh sáng qua khe đi <code>850mm</code> bên Tây</td>
+                <td><strong style="color:#6ee7b7;">Chắn sáng 100% phía Tây</strong> (kín đáo bên bàn phấn <code>O2</code> &amp; rèm)</td>
+                <td><strong style="color:#7dd3fc;">Chắn sáng 100% phía Tây</strong> + Tách rõ 2 khu Ngủ / Thay Đồ</td>
+              </tr>
+              <tr>
+                <td><strong>Độ thoáng sàn Thay Đồ &amp; Lối đi</strong></td>
+                <td>2 lối <code>850mm</code> đi được 2 bên giường • Khe đứng Đảo <code>~800mm</code></td>
+                <td>Lối đi chính <strong><code>1.200mm</code></strong> thẳng Cửa <code>O1</code> • Khe đứng quanh đảo <code>650–800mm</code></td>
+                <td><strong style="color:#7dd3fc;">Rộng nhất (~5,8 m² sàn trống)</strong> + Lối chính <strong><code>1.200mm</code></strong> không vướng đảo</td>
+              </tr>
+              <tr>
+                <td><strong>Tận dụng điện &amp; Trần KT-4.02</strong></td>
+                <td>Tâm Vòm <code>Ø1,2m</code> ở giữa phòng, dây thả cổ trần Trục B</td>
+                <td>Vòm <code>Ø1,2m</code> dịch trái <code>250mm</code> đồng tâm đảo • Lỗ thăm ĐH lối <code>1,2m</code> cực rộng</td>
+                <td>Vòm <code>Ø1,2m</code> giữ tâm phòng • <strong>Không cần cắt sàn đi gen <code>Ø20</code> ra đảo</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Chênh lệch chi phí nội thất</strong></td>
+                <td>Mức chuẩn <code>PA 1A</code></td>
+                <td><strong>+4,5 → 6,0 Tr ₫</strong> (tăng <code>+0,5m</code> cánh &amp; thùng tủ Trục B <code>550mm</code>)</td>
+                <td><strong>-7,0 → 9,0 Tr ₫</strong> so với <code>PA 1C-1</code> (tiết kiệm cả tiền Đảo Kính rời &amp; cắt sàn)</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -1047,15 +1144,21 @@
       pa2_bed: {
         imgs: {
           wm06min: "assets/warm_minimalist_wm06_min_t2_v01_master_south.jpg",
+          wm06_pa1c1: "assets/wm06_pa1c_t2_v01_bed_south.jpg",
+          wm06_pa1c2: "assets/wm06_pa1c_t2_v01_bed_south.jpg",
           wm06: "assets/warm_minimalist_wm06_t2_v01_master_south.jpg",
           studio349: "assets/wow_master_v01_south_allwood.jpg",
           studio349_leather: "assets/master_vach_optC.jpg"
         },
         titles: {
-          wm06min: "T2-V01 (PA 1A Bo Cong Tinh Chỉnh) • Vách Bo R100 Kịch Trần 280mm Âm TV The Frame 65\" (0% Ty Treo, 0% Cửa Lùa)"
+          wm06min: "T2-V01 (PA 1A Bo Cong Tinh Chỉnh) • Vách Bo R100 Kịch Trần 280mm Âm TV The Frame 65\" (0% Ty Treo, 0% Cửa Lùa)",
+          wm06_pa1c1: "T2-V01 (PA 1C-1 & 1C-2) • Vách Tủ 2,24m Áp Tường Tây • TV 65\" Thẳng Tâm Giường & 1 Lối Đi 1,2m Bên Trái",
+          wm06_pa1c2: "T2-V01 (PA 1C-1 & 1C-2) • Vách Tủ 2,24m Áp Tường Tây • TV 65\" Thẳng Tâm Giường & 1 Lối Đi 1,2m Bên Trái"
         },
         captions: {
-          wm06min: "T2-V01 (Nhìn hướng Nam từ Giường Bắc): Vách bo cong R100 kịch trần (1.740×280×2.650mm, 0% ty treo) + TV 65\" The Frame âm phẳng + Kệ & đôn bo R60–R80 + 2 lối đi mở 850mm (0% cửa lùa)"
+          wm06min: "T2-V01 (Nhìn hướng Nam từ Giường Bắc): Vách bo cong R100 kịch trần (1.740×280×2.650mm, 0% ty treo) + TV 65\" The Frame âm phẳng + Kệ & đôn bo R60–R80 + 2 lối đi mở 850mm (0% cửa lùa)",
+          wm06_pa1c1: "T2-V01 (PA 1C Nhìn Nam): Vách Tủ 2.240mm đẩy sát Tường Tây (bên phải, 0% hở sáng) + TV 65\" căn thẳng tâm Giường (1.720mm từ Tây) + 01 Lối đi rộng 1.200mm bên trái thẳng Cửa O1",
+          wm06_pa1c2: "T2-V01 (PA 1C Nhìn Nam): Vách Tủ 2.240mm đẩy sát Tường Tây (bên phải, 0% hở sáng) + TV 65\" căn thẳng tâm Giường (1.720mm từ Tây) + 01 Lối đi rộng 1.200mm bên trái thẳng Cửa O1"
         },
         caption: "T2-V01 (Nhìn hướng Nam từ Giường Bắc): Bình Phong Travertine Treo Lơ Lửng + Đôn đuôi giường + Vòng Chiếu Xuyên Sáng Ø1.200mm",
         title: "T2-V01 • Mặt Trước Vách Ngăn Trục B Nhìn Từ Giường Ngủ (PA C / PA B / PA A)",
@@ -1064,6 +1167,16 @@
             "<strong>1. Vách bo cong R100–R120 kịch trần an toàn tuyệt đối (<code>1.740 × 280 × 2.650 mm</code>):</strong> Bỏ 2 ty sắt treo trần; bo tròn mềm mại 2 cạnh đứng cho lối đi <code>850mm</code> êm ái, mặt trước phủ <code>Kem Greige LL 21</code> lồng mảng đá <code>Light Travertine</code> LED ấm <code>3000K</code>.",
             "<strong>2. Âm phẳng Tivi <code>65\" Samsung The Frame</code> + Giữ 2 lối đi mở 100% (<code>0% cửa lùa, 0% ray sàn</code>):</strong> Khu Thay Đồ dùng chung hệ điều hòa âm trần nối ống gió nên không cần gắn cửa lùa — ánh sáng tự nhiên &amp; luồng gió lưu thông mượt mà, sàn xương cá chạy liền không vướng ray.",
             "<strong>3. Đối chiếu 1-click:</strong> Bấm <strong>PA 1B (Bản Cũ)</strong> ngay bên trên để so trực tiếp với mẫu Bình phong treo cũ hoặc bấm <button type='button' class='lb-btn' onclick=\"openLightbox('assets/master_vach_optA.jpg')\">⭐ PA A (Đảo Lửng 1,35m)</button>."
+          ],
+          wm06_pa1c1: [
+            "<strong>1. Đẩy sát Vách Tủ <code>2.240 mm</code> về Tường Tây (bên phải) — Chắn sáng 100% đầu giường:</strong> Không chừa khe hở bên rèm ban công Tây, toàn bộ ánh sáng khu thay đồ &amp; bàn phấn được tách kín đáo hoàn toàn khỏi giấc ngủ.",
+            "<strong>2. Chừa 01 Lối đi duy nhất rộng <code>1.200 mm (1,2m)</code> bên Đông (bên trái):</strong> Thẳng trực diện từ Cửa vào <code>O1</code> qua Khu Thay Đồ vào Giường Ngủ, giúp Lỗ thăm điều hòa &amp; di chuyển cực rộng rãi.",
+            "<strong>3. Bất đối xứng tinh tế để TV <code>65\"</code> vẫn thẳng tâm Giường 100%:</strong> Mảng đá <code>Travertine</code> bo <code>R80</code> &amp; TV <code>65\"</code> đặt tại tọa độ <code>1.720mm</code> từ Tường Tây — nhìn từ giường vẫn cân xứng tuyệt đối."
+          ],
+          wm06_pa1c2: [
+            "<strong>1. Đẩy sát Vách Tủ <code>2.240 mm</code> về Tường Tây (bên phải) — Chắn sáng 100% đầu giường:</strong> Khép kín hoàn toàn cạnh cột rèm Tây, tách biệt không gian Ngủ và Thay Đồ.",
+            "<strong>2. Chừa 01 Lối đi duy nhất rộng <code>1.200 mm (1,2m)</code> bên Đông (bên trái):</strong> Kết nối trực thông Cửa <code>O1</code> vào phòng ngủ.",
+            "<strong>3. Mặt trước TV <code>65\"</code> giữ nguyên trục tâm Giường <code>1.720mm</code>:</strong> Xem Góc 2 (`T2-V03`) &amp; Góc 3 (`T2-V04`) để thấy sự khác biệt bên trong Khu Thay Đồ khi <strong>Bỏ Bàn Đảo rời</strong>!"
           ]
         },
         items: [
@@ -1092,14 +1205,20 @@
       pa2_walkin: {
         imgs: {
           wm06min: "assets/warm_minimalist_wm06_min_t2_v03_wic_north.jpg",
+          wm06_pa1c1: "assets/wm06_pa1c1_t2_v03_wic_keep_island_north.jpg",
+          wm06_pa1c2: "assets/wm06_pa1c2_t2_v03_wic_no_island_north.jpg",
           wm06: "assets/warm_minimalist_wm06_t2_v03_wic_north.jpg",
           studio349: "assets/wow_master_wic_moon_north.jpg"
         },
         titles: {
-          wm06min: "T2-V03 (PA 1A Bo Cong Tinh Chỉnh) • Vòng Ø1,2m + Đảo Kính Bo R80 + Khe Đứng ~800mm (0% Cửa Lùa)"
+          wm06min: "T2-V03 (PA 1A Bo Cong Tinh Chỉnh) • Vòng Ø1,2m + Đảo Kính Bo R80 + Khe Đứng ~800mm (0% Cửa Lùa)",
+          wm06_pa1c1: "T2-V03 (PA 1C-1 Giữ Bàn Đảo) • Hệ Tủ 2,24m Áp Tây (+0,5m Tủ) + Lối Đi 1,2m Bên Cửa O1 + Đảo Kính Dịch Trái",
+          wm06_pa1c2: "T2-V03 (PA 1C-2 Bỏ Bàn Đảo) • Hệ Tủ 2,24m Tích Hợp Kính Trang Sức + Sàn Trống Thênh Thang (~5,8m²) & Lối 1,2m"
         },
         captions: {
-          wm06min: "T2-V03 (Khu Thay Đồ nhìn Bắc): Vòng Ø1.200mm thẳng tâm Đảo kính bo R80 + Khe đứng rộng ~800mm trước Vách Trục B bo R100 dày 280mm (0% cửa lùa, 2 lối mở 850mm thông ĐH)"
+          wm06min: "T2-V03 (Khu Thay Đồ nhìn Bắc): Vòng Ø1.200mm thẳng tâm Đảo kính bo R80 + Khe đứng rộng ~800mm trước Vách Trục B bo R100 dày 280mm (0% cửa lùa, 2 lối mở 850mm thông ĐH)",
+          wm06_pa1c1: "T2-V03 (PA 1C-1 Nhìn Bắc): Hệ tủ 5 khoang 2.240mm áp sát Tường Tây bên trái + Bàn Đảo Kính R80 dịch trái đồng tâm Vòng Ø1,2m + Trả 01 lối đi rộng 1.200mm bên phải trước Cửa O1",
+          wm06_pa1c2: "T2-V03 (PA 1C-2 Nhìn Bắc): Bỏ Bàn Đảo rời giữa phòng • Tích hợp tủ kính trang sức & ngăn kéo ngay trong hệ tủ 2.240mm áp Tường Tây • Sàn giữa phòng trống rộng + Lối đi 1.200mm bên phải"
         },
         caption: "T2-V03 (Khu Thay Đồ nhìn Bắc): Vòng chiếu xuyên sáng Ø1.200mm thẳng dọi tâm Bàn Đảo Mặt Kính + Thân đảo Kem Greige / Vân Gỗ, nhìn xuyên 2 lối đi 850mm sang Khu Ngủ",
         title: "T2-V03 • Khu Thay Đồ Nhìn Bắc: Vòng Chiếu Xuyên Sáng Ø1,2m Thẳng Tâm Bàn Đảo Mặt Kính",
@@ -1108,6 +1227,16 @@
             "<strong>1. Bo tròn R80 an toàn &amp; nới khe đứng từ 630mm lên ~800mm:</strong> Thu gọn Vách Trục B từ <code>450mm &rarr; 280mm</code> (bo 2 cạnh <code>R100</code>) kết hợp Đảo kính <code>1.150 × 520 × 850 mm</code> bo tròn cả 4 góc <code>R80</code> sắc nét — vừa đi lại ban đêm êm ái, vừa mở ngăn kéo thoải mái.",
             "<strong>2. Mặt sau Vách Trục B Minimalist bo mềm (<code>0% cánh kính tủ đứng • 0% cửa lùa</code>):</strong> Tấm phẳng <code>Kem Greige LL 21</code> chia ron đen mảnh ôm <strong>hốc đá <code>Light Travertine</code> bo góc <code>R40</code></strong> hắt LED bày túi xách; 2 bên lối <code>850mm</code> mở thông 100% chia sẻ luồng gió ĐH âm trần.",
             "<strong>3. Mở thoáng ánh sáng tự nhiên &amp; an toàn mọi góc:</strong> Trái nâng cấp bàn treo bo góc <code>R60</code> dưới cửa sổ <code>O2</code> <strong>dời gương oval LED sang tường đặc</strong> để không chắn sáng; Phải là <strong>gương viên thuốc toàn thân hắt LED</strong> trên vách đá Travertine."
+          ],
+          wm06_pa1c1: [
+            "<strong>1. Đẩy Vách Tủ <code>2.240mm</code> sát Tường Tây bên Trái &amp; Mở 1 Lối <code>1.200mm</code> bên Phải:</strong> Tăng thêm <code>+0,5m</code> tủ quần áo (tổng toàn phòng lên <code>6,61m</code> dài, <code>0% cánh kính tủ đứng</code>); ngồi bàn phấn <code>O2</code> không bị vướng người đi qua.",
+            "<strong>2. Giữ Bàn Đảo Mặt Kính bo <code>R80</code> (<code>1.050 × 500mm</code>) dịch trái <code>250mm</code>:</strong> Căn thẳng tâm với hệ tủ <code>2,24m</code> &amp; Vòng chiếu <code>Ø1,2m</code> trên trần, trả nguyên hành lang <code>1,2m</code> đi thẳng từ Cửa <code>O1</code> vào phòng ngủ.",
+            "<strong>3. Bấm chuyển ngay nút <code>PA 1C-2 (Bỏ Bàn Đảo)</code></strong> để so trực tiếp độ rộng khi bỏ hẳn bàn đảo rời!"
+          ],
+          wm06_pa1c2: [
+            "<strong>1. Giải phóng 100% mặt sàn giữa Khu Thay Đồ (<code>~5,8 m²</code> sàn trống liên hoàn):</strong> Bỏ hoàn toàn bàn đảo rời — đứng thử đồ trước Gương toàn thân Đông hay di chuyển giữa <code>O1</code>, Bàn <code>O2</code> &amp; <code>WC-02</code> đều rộng mênh mông.",
+            "<strong>2. Không mất công năng trưng bày trang sức:</strong> Tích hợp ngay <strong>khoang mặt kính cường lực soi khay đồng hồ/trang sức + hệ ngăn kéo phụ kiện</strong> bên dưới hốc túi xách <code>Travertine</code> trong lòng hệ tủ <code>2,24m</code>!",
+            "<strong>3. Tiết kiệm <code>7–9 Triệu ₫</code></strong> tiền đóng bàn đảo rời và <strong>không cần cắt sàn đi ống gen điện <code>Ø20</code> ra giữa phòng</strong>."
           ]
         },
         items: [
@@ -1119,14 +1248,20 @@
       wic_south: {
         imgs: {
           wm06min: "assets/warm_minimalist_wm06_min_t2_v04_wic_south.jpg",
+          wm06_pa1c1: "assets/warm_minimalist_wm06_min_t2_v04_wic_south.jpg",
+          wm06_pa1c2: "assets/wm06_pa1c2_t2_v04_wic_no_island_south.jpg",
           wm06: "assets/warm_minimalist_wm06_t2_v04_wic_south.jpg",
           studio349: "assets/wow_master_wic_moon_south.jpg"
         },
         titles: {
-          wm06min: "T2-V04 (PA 1A Bo Cong Tinh Chỉnh • Ngược 180°) • 6 Ngăn Kéo Đảo R80 • Bàn O2 Bo R60 Thoáng Sáng & Tủ #1–#2 WC-02"
+          wm06min: "T2-V04 (PA 1A Bo Cong Tinh Chỉnh • Ngược 180°) • 6 Ngăn Kéo Đảo R80 • Bàn O2 Bo R60 Thoáng Sáng & Tủ #1–#2 WC-02",
+          wm06_pa1c1: "T2-V04 (PA 1C-1 • Ngược 180° Giữ Bàn Đảo) • Đảo Kính Bo R80 Dịch Trái & Tủ #1–#2 Ôm Cửa Kính Sọc WC-02",
+          wm06_pa1c2: "T2-V04 (PA 1C-2 • Ngược 180° Bỏ Bàn Đảo) • Khoảng Sàn Gỗ Xương Cá Trống Rộng ~5,8m² Trước Cặp Tủ #1–#2 & WC-02"
         },
         captions: {
-          wm06min: "T2-V04 (Ngược 180° nhìn Nam): 6 ngăn kéo đảo bo R80 an toàn • Trái Cửa O1 & Gương LED bo viên thuốc • Phải Bàn O2 bo R60 dời gương mở thoáng cửa sổ • Tủ #1–#2 0% kính ôm cột đá bo WC-02"
+          wm06min: "T2-V04 (Ngược 180° nhìn Nam): 6 ngăn kéo đảo bo R80 an toàn • Trái Cửa O1 & Gương LED bo viên thuốc • Phải Bàn O2 bo R60 dời gương mở thoáng cửa sổ • Tủ #1–#2 0% kính ôm cột đá bo WC-02",
+          wm06_pa1c1: "T2-V04 (PA 1C-1 Ngược 180° nhìn Nam): Giữ Bàn Đảo kính bo R80 • Trái Cửa O1 & Gương LED Đông • Phải Bàn O2 & Gương Oval trên tường đặc • Tủ #1–#2 (0% kính) ôm WC-02",
+          wm06_pa1c2: "T2-V04 (PA 1C-2 Ngược 180° nhìn Nam — ĐÃ BỎ BÀN ĐẢO RỜI): Sàn giữa phòng rộng thoáng thênh thang dưới Vòng Ø1,2m • Dễ đứng thay đồ trước Tủ #1–#2 & Gương soi toàn thân"
         },
         caption: "T2-V04 (Góc ngược 180° nhìn Nam): 6 ngăn kéo mặt trước bàn đảo dưới Vòng xuyên sáng Ø1,2m • Trái Cửa O1 & Gương vòm • Phải Cửa sổ O2 & Bàn phấn • Chính diện Tủ #1–#2 & WC-02",
         title: "T2-V04 • Góc Ngược 180°: 6 Ngăn Kéo Đảo & Cặp Tủ Chống Ẩm #1–#2 Ôm Cửa WC-02",
@@ -1135,6 +1270,14 @@
             "<strong>1. Đảo phụ kiện 6 ngăn kéo bo tròn R80 an toàn (<code>0% góc nhọn, 0% bọc da</code>):</strong> Mặt kính &amp; 4 góc thân đảo bo tròn <code>R80</code> êm ái bằng gỗ Sồi sáng phối 6 mặt ngăn kéo <code>Kem Greige LL 21</code> tay nắm móc âm đen mảnh dưới <code>Vòng Ø1,2m</code>.",
             "<strong>2. Vách Trái (Đông) &amp; Tường Nam <code>WC-02</code> đồng bộ bo mềm:</strong> Gương soi toàn thân dáng viên thuốc bo <code>R80</code> hắt LED trên cột đá <code>Light Travertine</code> cạnh cửa <code>O1</code>; cặp <code>Tủ #1–#2</code> phẳng đặc (<code>0% kính</code>) phối 2 trụ đá bo tròn <code>R60</code> ôm cửa kính sọc mờ <code>WC-02</code>.",
             "<strong>3. Vách Phải (Tây): Bàn treo bo <code>R60</code> dưới Cửa sổ <code>O2</code> thoáng 100%:</strong> Dời gương oval LED sang mảng tường đặc kế bên để đón trọn nắng gió tự nhiên qua cửa sổ."
+          ],
+          wm06_pa1c1: [
+            "<strong>1. Khu Thay Đồ phía Nam đồng bộ 100% <code>PA 1A</code>:</strong> Cặp <code>Tủ #1–#2</code> đóng <code>Plywood</code> chống ẩm sát tường <code>WC-02</code>, cánh phẳng <code>0% kính</code> ôm cửa đôi kính sọc mờ.",
+            "<strong>2. Bàn phấn <code>O2</code> bên phải yên tĩnh hoàn toàn:</strong> Không còn luồng giao thông đi qua khe Tây nên người ngồi trang điểm cực thoải mái; Bàn Đảo kính dịch sang trái nhẹ nhường lối <code>1,2m</code> bên Cửa <code>O1</code>."
+          ],
+          wm06_pa1c2: [
+            "<strong>1. Khoảng sàn trống rộng ~5,8 m² nhìn về <code>Tủ #1–#2</code> &amp; <code>WC-02</code>:</strong> Mở cùng lúc nhiều cánh Tủ #1, Tủ #2 hay 2 vợ chồng cùng thay đồ buổi sáng không bao giờ vướng chân bàn đảo.",
+            "<strong>2. Cửa sổ <code>O2</code> &amp; Gương toàn thân Đông thoáng sạch 100%:</strong> Ánh sáng tự nhiên trải rộng hết mặt sàn xương cá dưới Vòng chiếu sáng <code>Ø1,2m</code>."
           ]
         },
         items: [
@@ -1167,12 +1310,15 @@
 
     function setMasterTone(tone) {
       currentMasterTone = tone;
-      ["wm06min", "wm06", "studio349", "studio349_leather", "bt04", "bt05"].forEach(t => {
+      ["wm06min", "wm06_pa1c1", "wm06_pa1c2", "wm06", "studio349", "studio349_leather", "bt04", "bt05"].forEach(t => {
         const b = document.getElementById("tone-master-" + t);
         if (b) b.classList.toggle("active", t === tone);
       });
       if ((tone === "bt04" || tone === "bt05") && currentMasterView !== "bedroom") {
         currentMasterView = "bedroom";
+      }
+      if ((tone === "wm06_pa1c1" || tone === "wm06_pa1c2") && !["pa2_walkin", "wic_south", "pa2_bed"].includes(currentMasterView)) {
+        currentMasterView = "pa2_walkin";
       }
       switch3D(currentMasterView);
     }
@@ -1183,6 +1329,8 @@
       currentMasterView = key;
       const toneLabelMap = {
         wm06min: "[🕊️ PA 1A Mới Tinh Chỉnh: WM-06 Bo Cong An Toàn • Vách Kịch Trần TV 65\" (0% Cửa Lùa)] ",
+        wm06_pa1c1: "[🕊️ PA 1C-1 Mới: Tủ 2,24m Áp Tây + Lối Đi 1,2m • Giữ Bàn Đảo] ",
+        wm06_pa1c2: "[🕊️ PA 1C-2 Mới: Tủ 2,24m Áp Tây + Lối Đi 1,2m • Bỏ Bàn Đảo] ",
         wm06: "[🕊️ PA 1B Bản Cũ: WM-06 Bình Phong Treo & Tủ Đảo 450mm] ",
         studio349: "[🪵 PA 2 Option A: 100% Vân Gỗ] ",
         studio349_leather: "[✨ Option B: Bọc Da Kem Đá (Đã Sửa Ô Kính KT-2.08)] ",
