@@ -34,7 +34,7 @@
             { href: "phong-khach-bep-tang1.html", icon: "🛋️", title: "Tầng 1: Tiền Sảnh • Phòng Khách • Phòng Ăn & Bếp", badge: "5 góc V01→V05" },
             { href: "bep-tang1.html", icon: "🍳", title: "Tầng 1: 3D Tủ Bếp Chữ I, Đảo Bo R400 & Đá Vicostone" },
             { href: "san-sau-tang1.html", icon: "🌿", title: "Tầng 1: 3D Bếp Ướt Sân Sau, Giặt Sấy & Lọc Nước" },
-            { href: "phong-master-tang2.html", icon: "👑", title: "Tầng 2: Phòng Master 100% Vân Gỗ & Vòng Xuyên Sáng", badge: "Mới chốt" },
+            { href: "phong-master-tang2.html", icon: "👑", title: "Tầng 2: Phòng Master Warm Minimalist WM-06 & Vòng Xuyên Sáng", badge: "WM-06" },
             { href: "phong-ngu-con-gai-t2-t3.html", icon: "🎀", title: "Tầng 2: 2 Phòng Con Gái (7T & 3T • PA WM-06 & Bé Gái)", badge: "2 phòng T2" },
             { href: "phong-ngu-con-gai-t2-t3.html#sec-t3-bedrooms", icon: "🛏️", title: "Tầng 3: 2 Phòng Ngủ (PN3 & PN4 • Đủ 2 Chiều)", badge: "2 phòng T3" },
             { href: "phong-lam-viec-tang3.html", icon: "💻", title: "Tầng 3: Phòng Làm Việc Đôi Vợ Chồng (PA T3-A)" },
