@@ -35,6 +35,8 @@
             { href: "bep-tang1.html", icon: "🍳", title: "Tầng 1: 3D Tủ Bếp Chữ I, Đảo Bo R400 & Đá Vicostone" },
             { href: "san-sau-tang1.html", icon: "🌿", title: "Tầng 1: 3D Bếp Ướt Sân Sau, Giặt Sấy & Lọc Nước" },
             { href: "phong-master-tang2.html", icon: "👑", title: "Tầng 2: Phòng Master 100% Vân Gỗ & Vòng Xuyên Sáng", badge: "Mới chốt" },
+            { href: "phong-ngu-con-gai-t2-t3.html", icon: "🎀", title: "Tầng 2: 2 Phòng Con Gái (7T & 3T • PA WM-06 & Bé Gái)", badge: "2 phòng T2" },
+            { href: "phong-ngu-con-gai-t2-t3.html#sec-t3-bedrooms", icon: "🛏️", title: "Tầng 3: 2 Phòng Ngủ (PN3 & PN4 • Đủ 2 Chiều)", badge: "2 phòng T3" },
             { href: "phong-lam-viec-tang3.html", icon: "💻", title: "Tầng 3: Phòng Làm Việc Đôi Vợ Chồng (PA T3-A)" },
             { href: "phong-tho-tang3.html", icon: "🪷", title: "Tầng 3: Phòng Thờ Gia Tiên (Hồ Sơ Chuyên Biệt)" },
             { href: "tang-tum-3d.html", icon: "🧊", title: "Tầng Tum: Mô Hình 3D Tầng Tum, Kho Solar & Sân Thượng" }
@@ -144,7 +146,7 @@
       ".qv-drop-btn[data-accent='sky'].has-current, .qv-drop-btn[data-accent='sky'][aria-expanded='true'] { border-color: #38bdf8; background: rgba(56, 189, 248, 0.22); box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.3); }",
       ".qv-chev { font-size: 0.68rem; opacity: 0.85; transition: transform 0.16s ease; }",
       "[popovertarget][aria-expanded='true'] .qv-chev { transform: rotate(180deg); }",
-      ".qv-popover-panel { padding: 10px; border-radius: 14px; border: 1px solid rgba(245, 158, 11, 0.45); background: rgba(11, 15, 25, 0.98); color: #f8fafc; box-shadow: 0 22px 50px rgba(0, 0, 0, 0.85); min-inline-size: min(320px, calc(100dvw - 16px)); max-inline-size: min(420px, calc(100dvw - 16px)); max-block-size: min(78dvh, 620px); overflow-y: auto; z-index: 9999; }",
+      ".qv-popover-panel { padding: 10px; border-radius: 14px; border: 1px solid rgba(245, 158, 11, 0.45); background: rgba(11, 15, 25, 0.98); color: #f8fafc; box-shadow: 0 22px 50px rgba(0, 0, 0, 0.85); min-inline-size: min(320px, calc(100dvw - 16px)); max-inline-size: min(420px, calc(100dvw - 16px)); max-block-size: min(82dvh, 720px); overflow-y: auto; z-index: 9999; }",
       ".qv-popover-panel:not(:is(:popover-open, .\\:popover-open)) { display: none; }",
       ".qv-popover-panel:is(:popover-open, .\\:popover-open) { display: grid; gap: 8px; }",
       "@supports (position-area: block-end) {",
