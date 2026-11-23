@@ -483,7 +483,6 @@
       </a>
       <nav class="nav-links" aria-label="Điều hướng chính">
         <a href="index.html" class="nav-switch" style="border-color:rgba(245,158,11,0.55);color:#fde68a;">🏠 Trang Chủ &amp; Dự Toán</a>
-        <a href="ho-so-xuong-noi-that.html#bv-t1-03" class="nav-switch" style="border-color:rgba(16,185,129,0.75);color:#6ee7b7;background:rgba(16,185,129,0.15);">🔧 Hồ Sơ Xưởng Đảo &amp; Tủ Phụ (BV-T1.03)</a>
         <a href="#sec-3d" style="border-color:#10b981;color:#34d399;background:rgba(16,185,129,0.14);">🧊 1. Mô Hình 3D Tương Tác (WebGL)</a>
         <a href="#sec-island-renders" style="border-color:#38bdf8;color:#7dd3fc;">🏝️ 2. Phối Cảnh 3D Bàn Đảo &amp; Tủ Bếp</a>
         <a href="#sec-cad-blueprint" style="border-color:#f59e0b;color:#fde68a;">📐 3. Bản Vẽ Kỹ Thuật CAD</a>
@@ -619,15 +618,25 @@
             </div>
 
             <div class="toggle3d-row">
-              <span style="font-size:0.78rem; font-weight:800; color:var(--text-muted);">Tuỳ chỉnh Trần &amp; Cửa:</span>
+              <span style="font-size:0.78rem; font-weight:800; color:var(--text-muted);">Tuỳ chỉnh Cánh, Trần &amp; Cửa:</span>
+              <label class="toggle3d-chip" style="border-color:#10b981; background:rgba(16,185,129,0.14);">
+                <span>🎨 Chất liệu &amp; Màu cánh:</span>
+                <select id="sel-door-finish" onchange="setDoorFinishMode(this.value)" style="color-scheme:dark; background:#0f172a; color:#fff; border-color:var(--border); border-radius:5px; padding:2px 6px; font-size:0.76rem; font-weight:700; cursor:pointer;">
+                  <option value="matte_vh04" selected>🌟 Chốt: Cánh Kính Sơn Nhám Mờ VH-04 (Kem Sữa Ấm • Không Lộ Vân Tay)</option>
+                  <option value="glossy_vh04">🪞 Cánh Kính Bóng Gương VH-04 (Kem Sữa Ấm • Glossy Glass)</option>
+                  <option value="matte_vh01">🤍 Cánh Kính Sơn Nhám Mờ VH-01 (Trắng Ngà • Warm Ivory)</option>
+                  <option value="matte_vh11">🩶 Cánh Kính Sơn Nhám Mờ VH-11 (Ghi Xám Đá Nhạt)</option>
+                  <option value="plywood">🪵 So sánh: Cánh Gỗ Plywood / Laminate Mờ</option>
+                </select>
+              </label>
               <label class="toggle3d-chip" style="border-color:#38bdf8; background:rgba(56,189,248,0.14);">
-                <span>🏗️ Cánh giả &amp; Thạch cao:</span>
+                <span>🏗️ Chiều cao Tủ &amp; Thạch cao:</span>
                 <select id="sel-soffit" onchange="setSoffitMode(this.value)" style="color-scheme:dark; background:#0f172a; color:#fff; border-color:var(--border); border-radius:5px; padding:2px 6px; font-size:0.76rem; font-weight:700; cursor:pointer;">
-                  <option value="bridge2800" selected>⭐ Chốt Kiểu 1: Cánh giả sâu 600mm (+2,8m) + Hộp thạch cao thẳng 60cm</option>
-                  <option value="xray2800">🔍 X-Ray Xuyên Thấu Cánh Giả: Xem Ống hút mùi Ø150 + Ổ điện +2.02m + Nguồn LED</option>
-                  <option value="stepped2800">Kiểu 2 (So sánh): Cánh giả lùi sâu 370mm + Hộp thạch cao giật bậc chữ П 60cm</option>
-                  <option value="std2330">Cũ (So sánh): Tủ tiêu chuẩn 2,29m + Hạ hộp thạch cao dày 1,1m</option>
-                  <option value="none">🚫 Bỏ hộp thạch cao (Lộ ống hút mùi Ø150 trên nóc tủ)</option>
+                  <option value="bridge2800" selected>💎 PA 1A: Tủ cao 2,80m (Thùng Nhôm Tổ Ong +20tr) + Hạ thạch cao 60cm (Sâu 600)</option>
+                  <option value="std2330">✅ PA 2 (Tiết kiệm 20tr): Tủ tiêu chuẩn 2,29m + Hạ thạch cao 1,11m (2 cột 600 / Giữa 360)</option>
+                  <option value="xray2800">🔍 X-Ray Xuyên Thấu: Xem Ống hút mùi Ø150 + Ổ điện +2.02m + Nguồn LED</option>
+                  <option value="stepped2800">PA 1B: Tủ 2,80m (Giữa lùi sâu 370mm) + Hộp thạch cao 60cm (2 cột 600 / Giữa 360)</option>
+                  <option value="none">🚫 Tủ tiêu chuẩn 2,29m — Không hạ thạch cao (Đi ống trên nóc tủ)</option>
                 </select>
               </label>
               <label class="toggle3d-chip" style="border-color:#f59e0b; background:rgba(245,158,11,0.14);">
@@ -798,52 +807,10 @@
           </div>
         </div>
 
-        <div class="blueprint-card" style="border-color: rgba(245, 158, 11, 0.85);">
-          <div class="blueprint-toolbar" style="background: linear-gradient(90deg, rgba(30,41,59,0.95), rgba(6,78,59,0.88));flex-wrap:wrap;gap:8px;">
-            <div style="font-size: 0.86rem; font-weight: 800; color: #f8fafc;">
-              🕊️ PA 1 (ƯU TIÊN): WARM MINIMALIST WM-06 &bull; CẶP GÓC ĐỐI XỨNG 180° (V04 &amp; V05) — BẾP KÍNH BE &bull; ĐẢO BO R400 KEM GREIGE &amp; TỦ CAFE 0% KÍNH
-            </div>
-            <div style="display:flex; gap:6px; flex-wrap:wrap; flex-wrap:balance;">
-              <button type="button" class="btn-cad" id="bep-tone-wm06" onclick="setBepScheme('wm06')" aria-pressed="true" style="background:rgba(226,232,240,0.22);border-color:#f8fafc;color:#fff;font-weight:800;">🕊️ PA 1 (Ưu Tiên): Warm Minimalist WM-06</button>
-              <button type="button" class="btn-cad" id="bep-tone-wood" onclick="setBepScheme('wood')" aria-pressed="false" style="border-color:#f59e0b;color:#fde68a;">🪵 PA 2: Vân Gỗ &amp; Travertine</button>
-              <button type="button" class="btn-cad" id="bep-v04-zoom" onclick="openLightbox('assets/warm_minimalist_wm06_t1_v04_dining_kitchen.jpg', 'WM-06 Góc V04 (Nhìn Đông chuẩn 100% công năng): Bếp chữ I kính Be tường trái + Đảo bán đảo ngang Trục 3 bo R400 Kem Greige & Travertine + Tủ Cafe 0% kính tường phải + Cửa lùa 1,79m ra Bếp ướt sân sau')">🔍 Phóng To V04 (Nhìn Đông)</button>
-              <button type="button" class="btn-cad" id="bep-v05-zoom" onclick="openLightbox('assets/warm_minimalist_wm06_t1_v05_kitchen_rev.jpg', 'WM-06 Góc V05 (Ngược 180° Nhìn Tây): Mặt trong Bàn Đảo bo R400 1 cánh + 3 ngăn kéo Kem Greige LL 21 tay nắm đen mảnh 10% + Tủ Cafe trái + Bếp kính Be phải xuyên suốt 12,01m')">🔍 Phóng To V05 (Nhìn Tây 180°)</button>
-            </div>
-          </div>
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 12px; padding: 12px; background: #070b10;">
-            <img id="bep-v04-img" src="assets/warm_minimalist_wm06_t1_v04_dining_kitchen.jpg" alt="WM-06 Góc V04 Phòng ăn nhìn Đông vào Khu Bếp chuẩn công năng" loading="lazy" style="width:100%; height:340px; object-fit:cover; border-radius:10px; cursor:zoom-in;" onclick="openLightbox(this.src, document.getElementById('bep-v04-zoom').dataset.cap || 'WM-06 Góc V04 (Nhìn Đông chuẩn 100% công năng): Bếp chữ I kính Be + Đảo ngang Trục 3 bo R400 Kem Greige + Tủ Cafe 0% kính + Cửa sân sau 1,79m')">
-            <img id="bep-v05-img" src="assets/warm_minimalist_wm06_t1_v05_kitchen_rev.jpg" alt="WM-06 Góc V05 Khu bếp nhìn ngược hướng Tây qua mặt trong Bàn đảo 3 ngăn kéo" loading="lazy" style="width:100%; height:340px; object-fit:cover; border-radius:10px; cursor:zoom-in;" onclick="openLightbox(this.src, document.getElementById('bep-v05-zoom').dataset.cap || 'WM-06 Góc V05 (Ngược 180° Nhìn Tây): Mặt trong Bàn Đảo bo R400 Kem Greige LL 21 tay nắm đen mảnh 10% + Tủ Cafe trái + Bếp kính Be phải xuyên suốt 12,01m')">
-          </div>
-          <div style="padding: 12px 16px; font-size: 0.84rem; color: #e2e8f0; border-top: 1px solid var(--border);">
-            • <strong>Đã đồng bộ trực tiếp từ <a href="mau-modern-luxury-349.html#sec-t1-wow" style="color:#fde68a;font-weight:800;">Tổng Duyệt PA 1 Warm Minimalist WM-06 / PA 2 Vân Gỗ</a>:</strong> Dãy Bếp chữ I cánh kính màu Be nằm thẳng dọc tường Bắc (trái) dưới trần phẳng <code>+3.400m</code>; <strong>Bàn đảo ngang Trục 3 bo tròn <code>R400</code> (1 cánh mở + 3 ngăn kéo Kem Greige <code>LL 21</code> tay nắm đen mảnh 10% hoặc vân gỗ ở PA 2)</strong> nối liền <strong>Hốc vòm pha Cafe (<code>0% kính</code>)</strong>; chính diện cuối hành lang mở thẳng qua <strong>Cửa lùa <code>1.790mm</code></strong> ra <strong>Bếp ướt &amp; Tháp giặt sấy</strong>.
-          </div>
-          <script>
-            function setBepScheme(mode) {
-              var isWood = mode === "wood";
-              var v4 = isWood ? "assets/wow_t1_v04_dining_kitchen.jpg" : "assets/warm_minimalist_wm06_t1_v04_dining_kitchen.jpg";
-              var v5 = isWood ? "assets/wow_t1_v05_kitchen_reverse.jpg" : "assets/warm_minimalist_wm06_t1_v05_kitchen_rev.jpg";
-              var c4 = isWood ? "PA 2 Góc V04 (Nhìn Đông): Bếp kính Be tường trái + Đảo bo R400 Vân Gỗ + Vòm Cafe 0% kính + Cửa lùa 1,79m ra Bếp ướt" : "WM-06 Góc V04 (Nhìn Đông): Bếp kính Be tường trái + Đảo bo R400 Kem Greige LL 21 & Travertine + Tủ Cafe 0% kính + Cửa sân sau 1,79m";
-              var c5 = isWood ? "PA 2 Góc V05 (Ngược 180° Nhìn Tây): Mặt trong Bàn Đảo bo R400 3 ngăn kéo Vân Gỗ Óc chó + Vòm Cafe trái + Bếp kính Be phải" : "WM-06 Góc V05 (Ngược 180° Nhìn Tây): Mặt trong Bàn Đảo bo R400 3 ngăn kéo Kem Greige LL 21 tay nắm đen 10% + Tủ Cafe trái + Bếp kính Be phải";
-              var img4 = document.getElementById("bep-v04-img");
-              var img5 = document.getElementById("bep-v05-img");
-              var z4 = document.getElementById("bep-v04-zoom");
-              var z5 = document.getElementById("bep-v05-zoom");
-              if (img4) img4.src = v4;
-              if (img5) img5.src = v5;
-              if (z4) { z4.dataset.cap = c4; z4.setAttribute("onclick", "openLightbox('" + v4 + "', '" + c4 + "')"); }
-              if (z5) { z5.dataset.cap = c5; z5.setAttribute("onclick", "openLightbox('" + v5 + "', '" + c5 + "')"); }
-              var bw = document.getElementById("bep-tone-wm06");
-              var bg = document.getElementById("bep-tone-wood");
-              if (bw) { bw.setAttribute("aria-pressed", String(!isWood)); bw.style.background = !isWood ? "rgba(226,232,240,0.22)" : ""; bw.style.borderColor = !isWood ? "#f8fafc" : "#cbd5e1"; }
-              if (bg) { bg.setAttribute("aria-pressed", String(isWood)); bg.style.background = isWood ? "rgba(245,158,11,0.28)" : ""; }
-            }
-          </script>
-        </div>
-
-        <div class="blueprint-card" style="border-color: rgba(245, 158, 11, 0.55);">
+        <div class="blueprint-card" style="border-color: rgba(245, 158, 11, 0.65);">
           <div class="blueprint-toolbar" style="background: linear-gradient(90deg, rgba(120,53,15,0.92), rgba(15,23,42,0.95));">
             <div style="font-size: 0.86rem; font-weight: 800; color: #fde68a;">
-              📐 GÓC KỸ THUẬT ĐỐI CHIẾU CÁNH GIẢ: TỦ 2,8M + CÁNH GIẢ SÂU 600MM + HẠ THẠCH CAO 60CM &amp; ĐẢO NGANG NỐI TỦ PHỤ
+              🌟 GÓC 3D PHỐI CẢNH CHUẨN TỶ LỆ THỰC TẾ: TỦ 2,8M + CÁNH GIẢ SÂU 600MM + HẠ THẠCH CAO 60CM &amp; ĐẢO NGANG NỐI TỦ PHỤ
             </div>
             <button type="button" class="btn-cad" onclick="openLightbox('assets/bep_chinh_dao_ngang_canh_gia_2m8_san_sau.jpg', 'Phối cảnh 3D chuẩn tỷ lệ thực tế: Tủ bếp chữ I dài 4.950mm + Dải cánh giả (+2.290..+2.800mm sâu 600mm phẳng mặt 2 cột) + Hộp thạch cao thẳng 600mm (+2.800..+3.400mm) + Cửa lùa 1.790mm ra Bếp ướt Sân sau + Bàn đảo ngang nối Tủ phụ 550mm')">🔍 Phóng To 8K</button>
           </div>
@@ -953,6 +920,121 @@
           <div style="padding: 12px 16px; font-size: 0.84rem; color: #e2e8f0; border-top: 1px solid var(--border);">
             • <strong>Chốt chiều sâu bàn bếp <code>600mm</code> + Tủ lạnh <code>Panasonic NR-X561GB-VN</code> (sâu <code>600mm</code>):</strong> Cả 3 khối (Cột lò nướng – Bàn bếp giữa – Tủ lạnh) phẳng trên 1 đường thẳng duy nhất, giữ trọn lối đi <code>1.000mm</code> với Bàn đảo.
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2B: CABINET DOOR MATERIAL (MATTE GLASS VH-04 VS PLYWOOD), HANDLE PROFILES & 610MM DEPTH RULE -->
+  <section id="sec-door-materials" style="padding-top: 10px;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Phần Chuyên Sâu 2B • Chốt Chất Liệu Cánh Kính Sơn Nhám, Kiểu Tay Nắm Mở Cánh &amp; Chiều Sâu Chuẩn 610mm</span>
+        <h2 class="section-title">🎨 Chốt Cánh Kính Sơn Màu Nhám (VH-04) Thay Vì Plywood • Phối 2 Kiểu Tay Nắm &amp; Đồng Bộ Chiều Sâu 610mm</h2>
+        <p class="section-desc">
+          Tổng hợp quyết định kỹ thuật từ mẫu thực tế tại showroom KITPRO: Lý do chọn <strong>Cánh Kính Cường Lực Sơn Màu Nhám (Matte Satin <code>VH-04</code>)</strong> đi cùng <strong>Thùng Inox 304</strong> thay vì Cánh gỗ Plywood, cách phối <strong>2 kiểu biên dạng tay nắm nhôm Anode</strong> theo tầm tay thao tác, và quy tắc <strong>kéo mặt đá sâu <code>610mm</code></strong> đồng phẳng với Hộc tủ lạnh.
+        </p>
+      </div>
+
+      <!-- 4 Sample Photos from KITPRO Showroom Folder -->
+      <div class="renders-grid" style="margin-bottom: 20px;">
+        <div class="blueprint-card" style="border-color: rgba(16, 185, 129, 0.7);">
+          <div class="blueprint-toolbar" style="background: linear-gradient(90deg, rgba(6,78,59,0.95), rgba(15,23,42,0.95));">
+            <div style="font-size: 0.85rem; font-weight: 800; color: #6ee7b7;">
+              🥇 MẪU CHỐT SỐ 1 (VH-04): MÀU KEM SỮA ẤM &amp; KIỂU TAY NẮM ĐÚC VÁT GIỮA CÁNH (DÙNG CHO TOÀN BỘ TỦ DƯỚI &amp; NGĂN KÉO)
+            </div>
+            <button type="button" class="btn-cad" onclick="openLightbox('assets/canh_kinh_vh04_tay_nam_vat_giua.jpg', 'Mẫu thực tế VH-04 (IMG_2748): Màu Kem sữa ấm (Warm Cashmere Cream) + Tay nắm đúc vát giữa cánh dùng cho toàn bộ Tủ dưới & Ngăn kéo Blum')">🔍 Phóng To Mẫu VH-04</button>
+          </div>
+          <div style="display:grid; grid-template-columns:1.1fr 0.9fr; gap:10px; padding:12px; background:#070b10;">
+            <img src="assets/canh_kinh_vh04_tay_nam_vat_giua.jpg" alt="Mẫu cánh kính VH-04 kem sữa ấm tay nắm vát giữa" loading="lazy" style="width:100%; height:280px; object-fit:cover; border-radius:10px; cursor:zoom-in;" onclick="openLightbox('assets/canh_kinh_vh04_tay_nam_vat_giua.jpg', 'Mẫu thực tế VH-04 (IMG_2748): Màu Kem sữa ấm + Tay nắm đúc vát giữa cánh')">
+            <img src="assets/canh_kinh_vh10_canh_phang.jpg" alt="Mẫu cạnh vát phẳng không gờ tay nắm cho tủ treo trên" loading="lazy" style="width:100%; height:280px; object-fit:cover; border-radius:10px; cursor:zoom-in;" onclick="openLightbox('assets/canh_kinh_vh10_canh_phang.jpg', 'Mẫu thực tế Kiểu C — Cạnh vát phẳng 45° không gờ nhô (IMG_2744): Dùng cho toàn bộ Tủ treo trên để mặt tủ phẳng liền khối 100%')">
+          </div>
+          <div style="padding: 12px 16px; font-size: 0.84rem; color: #e2e8f0; border-top: 1px solid var(--border);">
+            • <strong>Mã màu chốt: <code>VH-04</code> (Sơn màu nhám mờ / Matte Satin Kem sữa ấm):</strong> Tiệp màu hoàn hảo với viền khung nhôm Anode màu Champagne, tôn vân gỗ Óc chó và làm nổi bật Tủ lạnh Panasonic đen + Lò nướng Bosch mà <strong>không lộ vân tay, không bóng lóa</strong>.<br>
+            • <strong>Phối 2 kiểu mở cánh thông minh:</strong> <strong>Tủ dưới &amp; Ngăn kéo</strong> dùng <strong>Tay nắm đúc vát giữa cánh (ảnh trái)</strong> giúp móc 4 ngón tay kéo ngăn kéo xoong nồi nặng cực êm, không trượt khi tay ướt và không đọng bụi dọc rãnh; <strong>Tủ treo trên</strong> dùng <strong>Cạnh vát phẳng không gờ (ảnh phải)</strong> để mặt tủ trên phẳng liền khối như gương!
+          </div>
+        </div>
+
+        <div class="blueprint-card" style="border-color: rgba(56, 189, 248, 0.55);">
+          <div class="blueprint-toolbar" style="background: linear-gradient(90deg, rgba(12,74,110,0.92), rgba(15,23,42,0.95));">
+            <div style="font-size: 0.85rem; font-weight: 800; color: #7dd3fc;">
+              🥈 MẪU THAM KHẢO ĐỐI CHIẾU: MÃ MÀU TRẮNG NGÀ (VH-01) &amp; GHI XÁM NHẠT (VH-11) KÈM RÃNH TAY NẮM CHỮ J
+            </div>
+            <div style="display:flex; gap:6px;">
+              <button type="button" class="btn-cad" onclick="openLightbox('assets/canh_kinh_vh01_ranh_j.jpg', 'Mẫu thực tế VH-01 (IMG_2740): Màu Trắng ngà (Warm Ivory) + Rãnh tay nắm chữ J chạy suốt')">🔍 Mẫu VH-01</button>
+              <button type="button" class="btn-cad" onclick="openLightbox('assets/canh_kinh_vh11_ghi_xam.jpg', 'Mẫu thực tế VH-11 (IMG_2745): Màu Ghi xám đá nhạt (Light Warm Grey)')">🔍 Mẫu VH-11</button>
+            </div>
+          </div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:12px; background:#070b10;">
+            <img src="assets/canh_kinh_vh01_ranh_j.jpg" alt="Mẫu cánh kính VH-01 trắng ngà" loading="lazy" style="width:100%; height:280px; object-fit:cover; border-radius:10px; cursor:zoom-in;" onclick="openLightbox('assets/canh_kinh_vh01_ranh_j.jpg', 'Mẫu thực tế VH-01 (IMG_2740): Màu Trắng ngà (Warm Ivory) + Rãnh tay nắm chữ J chạy suốt')">
+            <img src="assets/canh_kinh_vh11_ghi_xam.jpg" alt="Mẫu cánh kính VH-11 ghi xám nhạt" loading="lazy" style="width:100%; height:280px; object-fit:cover; border-radius:10px; cursor:zoom-in;" onclick="openLightbox('assets/canh_kinh_vh11_ghi_xam.jpg', 'Mẫu thực tế VH-11 (IMG_2745): Màu Ghi xám đá nhạt (Light Warm Grey)')">
+          </div>
+          <div style="padding: 12px 16px; font-size: 0.84rem; color: #e2e8f0; border-top: 1px solid var(--border);">
+            • <strong><code>VH-01</code> (Trắng ngà - ảnh trái):</strong> Phù hợp nếu thích tông sáng tiệp gần sát với trần thạch cao trắng.<br>
+            • <strong><code>VH-11</code> (Ghi xám nhạt - ảnh phải):</strong> Có thể dùng nếu thích phối 2 màu (Tủ dưới Ghi xám <code>VH-11</code> + Tủ trên Kem sáng <code>VH-04</code>/<code>VH-01</code>). Tuy nhiên rãnh tay nắm chữ J chạy suốt nếu lắp ngửa ở tủ dưới sẽ dễ đọng vụn thức ăn hơn kiểu <strong>vát giữa cánh trên mẫu <code>VH-04</code></strong>.
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Table: Matte Glass Door vs Plywood Door & 610mm Depth Synchronization -->
+      <div class="blueprint-card" style="border-color: rgba(16, 185, 129, 0.55); margin-bottom: 18px;">
+        <div class="blueprint-toolbar" style="background: linear-gradient(90deg, rgba(6,78,59,0.92), rgba(12,74,110,0.88));">
+          <div style="font-size: 0.9rem; font-weight: 800; color: #fff;">
+            🛡️ BẢNG CHỐT KỸ THUẬT: CÁNH KÍNH SƠN MÀU NHÁM (VH-04) VS. CÁNH GỖ PLYWOOD &amp; QUY TẮC ĐỒNG BỘ CHIỀU SÂU 610MM
+          </div>
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:20%;">Hạng Mục Quyết Định</th>
+                <th style="width:42%; color:#6ee7b7;">🏆 Phương Án Chốt Thi Công (Tối Ưu Nhất Cho Bếp Q Villa)</th>
+                <th style="width:38%; color:#fda4af;">⚠️ Phương Án Không Khuyên Dùng &amp; Lý Do Kỹ Thuật</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Vật liệu Cánh tủ bếp chính (<code>4,95m</code>)</strong></td>
+                <td>
+                  • <strong>Chốt: Cánh Kính Cường Lực Sơn Màu Nhám Mờ (Matte Satin <code>VH-04</code>) + Khung Nhôm Anode <code>18×53mm</code>:</strong><br>
+                  • Bề mặt lì mịn như nhung (đạt đúng gu màu nhám không bóng gương), nhưng cốt 100% vô cơ (Kính + Nhôm Anode) đồng bộ hoàn hảo với <strong>Thùng Inox 304 KITPRO</strong>.<br>
+                  • <strong>Bất tử 100%</strong> trước hơi nước nóng <code>60–70°C</code> phả ra khi Máy rửa bát Bosch hé cửa sấy, nước chậu rửa, hơi nồi cơm và mùa nồm ẩm Hà Nội; không bao giờ cong vênh cánh cao.
+                </td>
+                <td>
+                  • <strong>Không nên làm Cánh gỗ Plywood cho dãy bếp nấu/rửa:</strong><br>
+                  • Đã đầu tư Thùng Inox 304 đắt tiền để loại bỏ gỗ khỏi khu bếp ướt, nếu lắp cánh Plywood thì đường <strong>keo dán chỉ cạnh 4 xung quanh cánh</strong> sau 3–5 năm gặp hơi nóng Máy rửa bát &amp; nước chậu rửa vẫn dễ bong mép, phồng tách lớp ván ép và cong nhẹ theo mùa nồm.<br>
+                  • <em>(Nếu thích chất liệu Gỗ: đưa vào Hệ tủ Rượu/Cafe khô ráo <code>2,8m</code> dọc tường P.Ngủ Ông Bà).</em>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>2. Chiều sâu toàn tuyến tủ bếp &amp; Mặt đá (<code>610mm</code>)</strong></td>
+                <td>
+                  • <strong>Chốt mốc phủ bì toàn tuyến = <code>610 mm (61 cm)</code>:</strong><br>
+                  1️⃣ <strong>Hộc tủ lạnh + Hộc kéo <code>152mm</code>:</strong> Sâu phủ bì cả cánh <strong><code>610 mm</code></strong> (<code>thùng 590 + cánh 20mm</code>). Tủ lạnh Panasonic (<code>sâu 600mm</code>) có đúng <code>10mm</code> khe thoáng tản nhiệt sau lưng $\rightarrow$ Mặt kính tủ lạnh phẳng khít mốc <code>610mm</code>!<br>
+                  2️⃣ <strong>Cột lò nướng trái (<code>650mm</code>):</strong> Sâu phủ bì cả cánh <strong><code>610 mm</code></strong> (<code>thùng 590 + cánh 20mm</code>).<br>
+                  3️⃣ <strong>Tủ bếp dưới ở giữa (<code>3.300mm</code>):</strong> Thùng <code>580</code> + Cánh <code>20</code> = <code>600 mm</code>; <strong>kéo Mặt đá bàn bếp sâu đúng <code>610 mm</code></strong> (nhô trước cánh tủ dưới <code>10mm</code> làm gờ chắn nước bảo vệ ngăn kéo Blum &amp; Máy rửa bát, đồng thời mép đá chạy bằng khít 2 cột hai đầu!).
+                </td>
+                <td>
+                  • <strong>Không nên nâng toàn bộ bếp lên sâu <code>650 mm (65 cm)</code>:</strong><br>
+                  • Làm vách tủ sâu <code>650mm</code> sẽ khiến tủ lạnh Panasonic <code>sâu 600mm</code> bị <strong>thụt lõm vào trong <code>40mm</code></strong> và <strong>cấn mép cánh trái khi mở góc &gt;90°</strong>.<br>
+                  • Mặt bàn sâu <code>650mm</code> làm người đứng rửa bát phải rướn người xa thêm <code>4cm</code> khi với tay mở chốt cửa sổ <code>S1A</code> hoặc úp bát lên tủ treo (sâu <code>370mm</code>), mất thêm <code>4cm</code> lối đi qua bàn đảo và bị tính phí vượt khổ Inox/Đá.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>3. Tầng tủ kịch trần (<code>+2.290..+2.800mm</code>) &amp; Chiều sâu Hộp thạch cao</strong></td>
+                <td>
+                  • <strong>Chọn 1 trong 2 phương án rõ ràng:</strong><br>
+                  • <strong>PA Tiết kiệm <code>20 triệu ₫</code> (Rất khuyên dùng):</strong> Bỏ cả cánh giả lẫn nhôm tổ ong, dùng <strong>Tủ tiêu chuẩn cao <code>2.290 mm</code></strong> (cao bằng đúng Hệ tủ Rượu/Cafe <code>2,29m</code> đối diện). Đóng hộp thạch cao từ <code>+3.400</code> xuống <code>+2.290mm</code> với chiều sâu <strong>ôm sát tủ dưới: 2 đầu cột sâu <code>600 mm</code>, khoang giữa sâu <code>355–360 mm</code></strong> (hoặc giật 2 cấp) để giấu kín ống hút mùi <code>Ø150</code>.<br>
+                  • <strong>PA Lên kịch trần <code>2.800 mm</code> (Nếu chịu chi <code>+20 triệu ₫</code>):</strong> Đã bỏ <code>20 triệu</code> thì <strong>lấy luôn Thùng tủ Nhôm tổ ong + Cánh kính</strong> để có thùng tủ thật cất đồ, phía trên hạ thạch cao <code>60cm</code> (sâu <code>600mm</code>).
+                </td>
+                <td>
+                  • <strong>Tuyệt đối KHÔNG chọn "Cánh giả + Khung Inox giá 20 triệu ₫":</strong><br>
+                  • Vì khi đua cánh giả ở giữa nhô ra <code>610mm</code> (hẫng <code>24cm</code> ngoài tủ treo <code>370mm</code>), xưởng phải đóng hệ khung hộp Inox có đáy + vách ngăn đắt ngang tiền làm luôn Thùng tủ Nhôm tổ ong (<code>~20 triệu ₫</code>).<br>
+                  • Cũng <strong>không đóng hộp thạch cao dày <code>1,11m</code> sâu <code>600mm</code> phẳng lồi ở khoang giữa</strong> khi dùng tủ <code>2,29m</code> (vì sẽ thò ra ngoài tủ treo <code>24cm</code> rất nặng nề — khoang giữa chỉ làm thạch cao sâu <code>355–360mm</code>).
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -1294,7 +1376,7 @@
         quartzWarn: new THREE.MeshPhysicalMaterial({ color: 0xfde68a, roughness: 0.18, metalness: 0.05, clearcoat: 0.8 }),
         walnut: new THREE.MeshStandardMaterial({ map: texWalnut, roughness: 0.42, metalness: 0.06 }),
         flutedWalnut: new THREE.MeshStandardMaterial({ map: texFluted, roughness: 0.48, metalness: 0.06 }),
-        acrylicCream: new THREE.MeshPhysicalMaterial({ color: 0xf4f1ea, roughness: 0.14, metalness: 0.02, clearcoat: 0.85, clearcoatRoughness: 0.08 }),
+        acrylicCream: new THREE.MeshPhysicalMaterial({ color: 0xe8dfd1, roughness: 0.38, metalness: 0.03, clearcoat: 0.22, clearcoatRoughness: 0.42 }),
         spacerCabinet: new THREE.MeshPhysicalMaterial({ color: 0x6d4c3d, roughness: 0.32, metalness: 0.08, clearcoat: 0.5 }),
         applianceBlack: new THREE.MeshPhysicalMaterial({ color: 0x11151c, roughness: 0.08, metalness: 0.2, clearcoat: 1.0 }),
         fridgeGlass: new THREE.MeshPhysicalMaterial({ color: 0x161b24, roughness: 0.06, metalness: 0.35, clearcoat: 1.0 }),
@@ -2284,6 +2366,63 @@
         rebuildKitchenScene();
       };
 
+      window.setDoorFinishMode = function(mode) {
+        const hudTitle = document.getElementById("hud3d-title");
+        const hudDesc = document.getElementById("hud3d-desc");
+        if (mode === "matte_vh04") {
+          mats.acrylicCream.map = null;
+          mats.acrylicCream.color.setHex(0xe8dfd1);
+          mats.acrylicCream.roughness = 0.38;
+          mats.acrylicCream.clearcoat = 0.22;
+          mats.acrylicCream.clearcoatRoughness = 0.42;
+          if (hudTitle && hudDesc) {
+            hudTitle.textContent = "🌟 Chốt Vật Liệu: Cánh Kính Cường Lực Sơn Nhám Mờ VH-04 (Kem Sữa Ấm • Matte Satin)";
+            hudDesc.textContent = "Bề mặt lì mịn như nhung (không bóng lóa, không lộ vân tay), khung nhôm Anode 18×53mm + Thùng Inox 304 bất tử trước nước & hơi nóng Máy rửa bát Bosch.";
+          }
+        } else if (mode === "glossy_vh04") {
+          mats.acrylicCream.map = null;
+          mats.acrylicCream.color.setHex(0xe8dfd1);
+          mats.acrylicCream.roughness = 0.08;
+          mats.acrylicCream.clearcoat = 0.96;
+          mats.acrylicCream.clearcoatRoughness = 0.05;
+          if (hudTitle && hudDesc) {
+            hudTitle.textContent = "🪞 Cánh Kính Bóng Gương VH-04 (Kem Sữa Ấm • Glossy Tempered Glass)";
+            hudDesc.textContent = "Bề mặt kính bóng phản chiếu ánh sáng mạnh từ cửa sổ S1A & cửa lùa sân sau, dễ lau dầu mỡ.";
+          }
+        } else if (mode === "matte_vh01") {
+          mats.acrylicCream.map = null;
+          mats.acrylicCream.color.setHex(0xf4f2ec);
+          mats.acrylicCream.roughness = 0.38;
+          mats.acrylicCream.clearcoat = 0.22;
+          mats.acrylicCream.clearcoatRoughness = 0.42;
+          if (hudTitle && hudDesc) {
+            hudTitle.textContent = "🤍 Cánh Kính Sơn Nhám Mờ VH-01 (Trắng Ngà • Warm Ivory Matte)";
+            hudDesc.textContent = "Tông trắng ngà sáng hơn VH-04 một bậc, tiệp gần sát với màu hộp trần thạch cao phía trên.";
+          }
+        } else if (mode === "matte_vh11") {
+          mats.acrylicCream.map = null;
+          mats.acrylicCream.color.setHex(0xc8c7c2);
+          mats.acrylicCream.roughness = 0.40;
+          mats.acrylicCream.clearcoat = 0.20;
+          mats.acrylicCream.clearcoatRoughness = 0.45;
+          if (hudTitle && hudDesc) {
+            hudTitle.textContent = "🩶 Cánh Kính Sơn Nhám Mờ VH-11 (Ghi Xám Đá Nhạt • Light Warm Grey)";
+            hudDesc.textContent = "Tông ghi xám trung tính hiện đại, có thể dùng phối cho hàng tủ dưới kết hợp tủ trên màu kem sáng VH-04.";
+          }
+        } else if (mode === "plywood") {
+          mats.acrylicCream.map = texWalnut;
+          mats.acrylicCream.color.setHex(0xd6b99b);
+          mats.acrylicCream.roughness = 0.52;
+          mats.acrylicCream.clearcoat = 0.06;
+          mats.acrylicCream.clearcoatRoughness = 0.6;
+          if (hudTitle && hudDesc) {
+            hudTitle.textContent = "🪵 So Sánh Đối Chiếu: Cánh Gỗ Plywood / Laminate Mờ";
+            hudDesc.textContent = "Lưu ý: Cánh gỗ Plywood có đường keo dán chỉ cạnh dễ bị bong mép khi gặp hơi nóng ẩm từ Máy rửa bát Bosch, Chậu rửa và dễ cong cánh cao qua mùa nồm Hà Nội.";
+          }
+        }
+        mats.acrylicCream.needsUpdate = true;
+      };
+
       window.setBackDoorMode = function(mode) {
         backDoorMode = mode;
         rebuildKitchenScene();
@@ -2375,6 +2514,5 @@
       resizeWebGL();
     })();
   </script>
-  <script src="assets/qvilla-nav.js" defer></script>
 </body>
 </html>
