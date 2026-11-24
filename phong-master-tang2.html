@@ -603,19 +603,27 @@
 
     <!-- SECTION 1: INTERACTIVE 3D VIEWS -->
     <section class="block" id="sec-3d">
-      <h2 class="section-title">✨ 1. Phối Cảnh 3D Phòng Master Tầng 2 (PA Mới Duyệt: WM-08 Plus PA 1C-1 Plywood KES/Karma • Veneer Inchem &amp; Nẹp Đồng Xước PVD • 0% Phù Điêu)</h2>
+      <h2 class="section-title">✨ 1. Phối Cảnh 3D Phòng Master Tầng 2 — Tự Do Chọn Gu Vật Liệu (<code>WM-08 Plus</code> / <code>WM-06</code>) &amp; Bố Cục Vách Ngăn Trục B</h2>
       <p class="section-sub">
-        <strong>Mặc định hiển thị phương án vừa chốt <span style="color:#fde68a;">WM-08 Plus (PA 1C-1)</span></strong> (bỏ 100% phù điêu hoa lá, vách đầu giường &amp; hốc túi dùng Plywood/Veneer sơn <code>Inchem</code> mờ kẹp <strong>2 nẹp đứng Đồng Champagne PVD</strong> + ron dọc cánh <code>Karma Cashmere</code>, <code>0%</code> Travertine vàng rỗ), đi kèm 1-click đối chiếu trực tiếp các biến thể <strong>Warm Minimalist WM-06</strong> (<code>PA 1A</code>, <code>PA 1C-1</code>, <code>PA 1C-2</code>, <code>PA 1B</code>):
+        <strong>Tách riêng 2 hàng chọn độc lập:</strong> Anh/chị chọn thoải mái <strong>Gu vật liệu</strong> (<code>WM-08 Plus</code> nẹp Đồng Xước PVD ↔ <code>WM-06</code> Warm Minimalist) phối cùng <strong>Bố cục Vách ngăn Trục B</strong> — gồm cả <strong><code>PA 1A</code> Vách giữa <code>1,74m</code> + 2 lối đi <code>850mm</code></strong> bản <code>WM-08 Plus 2.7K HD</code> vừa hoàn thiện, lẫn <code>PA 1C-1 / PA 1C-2</code> (tủ áp Tây `2,24m`, 1 lối `1,2m`) &amp; <code>PA 1B</code> (Bình phong treo 2 ty):
       </p>
 
-      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 16px;margin-bottom:14px;border-radius:12px;background:rgba(15,23,42,0.88);border:1px solid rgba(245,158,11,0.45);">
-        <span style="font-size:0.82rem;font-weight:800;color:#fde68a;">🎨 CHỌN PHƯƠNG ÁN &amp; BIẾN THỂ BỐ CỤC PHÒNG MASTER:</span>
-        <div style="display:flex;flex-wrap:wrap;flex-wrap:balance;gap:8px;">
-          <button type="button" class="tab-btn active" id="tone-master-wm08_pa1c1" onclick="setMasterTone('wm08_pa1c1')" style="padding:7px 13px;font-size:0.8rem;border-color:#f59e0b;color:#fde68a;">✨ PA Mới Duyệt: WM-08 Plus (PA 1C-1 • Plywood • Veneer &amp; Đồng Xước PVD)</button>
-          <button type="button" class="tab-btn" id="tone-master-wm06min" onclick="setMasterTone('wm06min')" style="padding:7px 13px;font-size:0.8rem;border-color:#6ee7b7;color:#ecfdf5;">🕊️ PA 1A (WM-06 Bo Cong): Vách Kịch Trần TV 65" (0% Cửa Lùa)</button>
-          <button type="button" class="tab-btn" id="tone-master-wm06_pa1c1" onclick="setMasterTone('wm06_pa1c1')" style="padding:7px 13px;font-size:0.8rem;border-color:#10b981;color:#a7f3d0;">🕊️ PA 1C-1 (WM-06): Tủ 2,24m Áp Tường Tây + Lối Đi 1,2m (Giữ Bàn Đảo)</button>
-          <button type="button" class="tab-btn" id="tone-master-wm06_pa1c2" onclick="setMasterTone('wm06_pa1c2')" style="padding:7px 13px;font-size:0.8rem;border-color:#38bdf8;color:#bae6fd;">🕊️ PA 1C-2 (WM-06): Tủ 2,24m Áp Tường Tây + Lối Đi 1,2m (Bỏ Bàn Đảo)</button>
-          <button type="button" class="tab-btn" id="tone-master-wm06" onclick="setMasterTone('wm06')" style="padding:7px 13px;font-size:0.8rem;border-color:#cbd5e1;color:#f8fafc;">🕊️ PA 1B (Bản Cũ): WM-06 Bình Phong Treo 2 Ty &amp; Tủ Đảo 450mm</button>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:14px 16px;margin-bottom:14px;border-radius:12px;background:rgba(15,23,42,0.88);border:1px solid rgba(245,158,11,0.45);">
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span style="font-size:0.8rem;font-weight:800;color:#fde68a;min-width:195px;">🎨 1. GU VẬT LIỆU:</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <button type="button" class="tab-btn active" id="mat-master-wm08" onclick="setMasterMaterial('wm08')" style="padding:7px 13px;font-size:0.8rem;border-color:#f59e0b;color:#fde68a;">✨ WM-08 Plus (Plywood • Veneer Inchem &amp; Đồng Xước PVD)</button>
+            <button type="button" class="tab-btn" id="mat-master-wm06" onclick="setMasterMaterial('wm06')" style="padding:7px 13px;font-size:0.8rem;border-color:#cbd5e1;color:#f8fafc;">🕊️ WM-06 (Warm Minimalist • Kem Greige &amp; Travertine)</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding-top:8px;border-top:1px dashed rgba(148,163,184,0.22);">
+          <span style="font-size:0.8rem;font-weight:800;color:#6ee7b7;min-width:195px;">🏛️ 2. VÁCH NGĂN TRỤC B:</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            <button type="button" class="tab-btn" id="lay-master-pa1a" onclick="setMasterLayout('pa1a')" style="padding:7px 13px;font-size:0.8rem;border-color:#6ee7b7;color:#ecfdf5;">🏛️ PA 1A: Vách Giữa 1,74m + 2 Lối 850mm (Bo R100 • TV 65")</button>
+            <button type="button" class="tab-btn active" id="lay-master-pa1c1" onclick="setMasterLayout('pa1c1')" style="padding:7px 13px;font-size:0.8rem;border-color:#10b981;color:#a7f3d0;">🚪 PA 1C-1: Tủ Áp Tây 2,24m + 1 Lối 1,2m (Giữ Đảo R80)</button>
+            <button type="button" class="tab-btn" id="lay-master-pa1c2" onclick="setMasterLayout('pa1c2')" style="padding:7px 13px;font-size:0.8rem;border-color:#38bdf8;color:#bae6fd;">✨ PA 1C-2: Tủ Áp Tây 2,24m + 1 Lối 1,2m (Bỏ Đảo Rời)</button>
+            <button type="button" class="tab-btn" id="lay-master-pa1b" onclick="setMasterLayout('pa1b')" style="padding:7px 13px;font-size:0.8rem;border-color:#cbd5e1;color:#f8fafc;">🕊️ PA 1B (Bản Cũ): Bình Phong Treo 2 Ty &amp; Tủ Đảo 450mm</button>
+          </div>
         </div>
       </div>
 
@@ -704,24 +712,27 @@
         </div>
       </div>
 
-      <!-- Compact Side-by-Side Quick Audit Strip: PA 1A Bo Cong Tinh Chỉnh vs PA 1B Bản Cũ -->
+      <!-- Quick Audit Strip: WM-08 Plus PA 1A (Vách Ngăn Trục B Giữa 1,74m + 2 Lối 850mm) -->
       <div style="margin-top:16px;padding:14px 16px;border-radius:14px;background:rgba(15,23,42,0.72);border:1px solid rgba(16,185,129,0.38);">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px;">
-          <strong style="font-size:0.88rem;color:#6ee7b7;">⚖️ ĐỐI CHIẾU NHANH 3 GÓC PHÍA SAU MASTER PA 1A (BO CONG AN TOÀN R60–R120 • TV 65" • 0% CỬA LÙA)</strong>
-          <span style="font-size:0.77rem;color:#cbd5e1;">Bấm thẳng vào từng ảnh bên dưới để phóng to 4K soi chi tiết cho 2 vợ chồng cùng chốt:</span>
+          <strong style="font-size:0.88rem;color:#6ee7b7;">🏛️ ĐỐI CHIẾU NHANH BỘ 3 GÓC WM-08 Plus • PA 1A (VÁCH NGĂN TRỤC B GIỮA 1,74M • 2 LỐI 850MM • 2.7K HD)</strong>
+          <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+            <span style="font-size:0.77rem;color:#cbd5e1;">Bấm ảnh để phóng to <code>2752×1536</code> hoặc bật ngay lên trình xem:</span>
+            <button type="button" class="lb-btn active" onclick="setMasterTone('wm08_pa1a', true)">🏛️ Bật WM-08 Plus • PA 1A (2 Lối 850mm)</button>
+          </div>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;">
-          <div style="background:rgba(7,11,18,0.7);border:1px solid rgba(148,163,184,0.22);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/warm_minimalist_wm06_min_t2_v01_master_south.jpg')">
-            <img src="assets/warm_minimalist_wm06_min_t2_v01_master_south.jpg" alt="T2-V01 PA 1A Vách bo cong R100 kịch trần âm TV The Frame 65 inch không cửa lùa" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-            <div style="padding:8px 10px;font-size:0.77rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T2-V01 (PA 1A):</strong> Bỏ 2 ty sắt treo trần &rarr; Vách bo cong <code>R100</code> kịch trần (<code>280mm</code>) âm <strong>TV The Frame 65"</strong> + kệ &amp; đôn bo <code>R60–R80</code>, 2 lối <code>850mm</code> thông thoáng <code>0% cửa lùa</code>.</div>
+          <div style="background:rgba(7,11,18,0.7);border:1px solid rgba(16,185,129,0.34);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm08_plus_pa1a_t2_v01_master_south.jpg')">
+            <img src="assets/wm08_plus_pa1a_t2_v01_master_south.jpg" alt="T2-V01 WM-08 Plus PA 1A Vách giữa R100 1,74m viền TV Đồng Champagne PVD và 2 lối đi 850mm" width="2752" height="1536" loading="lazy" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:8px 10px;font-size:0.77rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T2-V01 (WM-08 Plus • PA 1A):</strong> Vách giữa bo <code>R100</code> kịch trần (<code>280mm</code>) âm <strong>TV 65" viền Đồng Champagne PVD</strong> + đôn da bò <code>R80</code> &amp; <strong>2 lối mở <code>850mm</code></strong> thông thoáng.</div>
           </div>
-          <div style="background:rgba(7,11,18,0.7);border:1px solid rgba(148,163,184,0.22);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/warm_minimalist_wm06_min_t2_v03_wic_north.jpg')">
-            <img src="assets/warm_minimalist_wm06_min_t2_v03_wic_north.jpg" alt="T2-V03 PA 1A Đảo kính bo R80 và khe đứng 800mm rộng rãi không cửa lùa" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-            <div style="padding:8px 10px;font-size:0.77rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T2-V03 (PA 1A):</strong> Nới khe đứng Đảo <code>630 &rarr; ~800mm</code> • Đảo kính bo <code>R80</code> thẳng tâm vòng <code>Ø1,2m</code> • Luồng điều hòa chung thông suốt qua 2 lối mở <code>850mm</code>.</div>
+          <div style="background:rgba(7,11,18,0.7);border:1px solid rgba(16,185,129,0.34);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm08_plus_pa1a_t2_v03_master_wic.jpg')">
+            <img src="assets/wm08_plus_pa1a_t2_v03_master_wic.jpg" alt="T2-V03 WM-08 Plus PA 1A Đảo R80 đồng hun hốc túi Veneer nẹp Đồng Champagne ngắt chỉ gọn trước 2 góc bo R100" width="2752" height="1536" loading="lazy" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:8px 10px;font-size:0.77rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T2-V03 (WM-08 Plus • PA 1A):</strong> Hốc túi Veneer nẹp <strong>Đồng Champagne PVD</strong>, chỉ Đồng Hun ngắt gọn trước cả 2 góc <code>R100</code> &amp; đảo kính <code>R80</code> khe đứng <code>~800mm</code>.</div>
           </div>
-          <div style="background:rgba(7,11,18,0.7);border:1px solid rgba(148,163,184,0.22);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/warm_minimalist_wm06_min_t2_v04_wic_south.jpg')">
-            <img src="assets/warm_minimalist_wm06_min_t2_v04_wic_south.jpg" alt="T2-V04 PA 1A Đảo 6 ngăn bo R80 và bàn cửa sổ O2 bo R60 dời gương thoáng 100 phần trăm" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-            <div style="padding:8px 10px;font-size:0.77rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T2-V04 (PA 1A):</strong> Đảo 6 ngăn &amp; trụ đá <code>WC-02</code> bo tròn an toàn • Cửa sổ <code>O2</code> thoáng 100% (bàn bo <code>R60</code>, dời gương pill LED sang mảng tường đặc kế bên).</div>
+          <div style="background:rgba(7,11,18,0.7);border:1px solid rgba(16,185,129,0.34);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm08_plus_pa1a_t2_v04_wic_south.jpg')">
+            <img src="assets/wm08_plus_pa1a_t2_v04_wic_south.jpg" alt="T2-V04 WM-08 Plus PA 1A Đảo 6 ngăn đồng hun bàn O2 bo R60 dời gương và Tủ 1-2 ôm cửa WC-02" width="2752" height="1536" loading="lazy" style="width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:8px 10px;font-size:0.77rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T2-V04 (WM-08 Plus • PA 1A):</strong> Đảo 6 ngăn viền kính &amp; chân đế <strong>Đồng Hun PVD</strong> • <code>Tủ #1–#2</code> đồng hun ôm trụ Limestone <code>WC-02</code> &amp; dời gương khỏi <code>O2</code> thoáng 100%.</div>
           </div>
         </div>
       </div>
@@ -734,8 +745,8 @@
             <p style="font-size:0.84rem;color:#cbd5e1;">Đẩy hệ tủ + vách Trục B (<code>2.240 × 550mm</code>) sát về Tường Tây (<code>+0,5m</code> chiều dài chứa đồ) và chừa <strong>01 lối đi duy nhất rộng <code>1.200mm (1,2m)</code> bên Đông</strong> thẳng Cửa <code>O1</code>; riêng <strong>Tivi <code>65"</code> mặt Bắc đặt lệch về bên trái của vách để thẳng hồng tâm Giường 100% (<code>1.720mm</code> từ Tường Tây)</strong>.</p>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <button type="button" class="lb-btn active" onclick="setMasterTone('wm06_pa1c1')">Bật PA 1C-1 (Giữ Đảo)</button>
-            <button type="button" class="lb-btn" onclick="setMasterTone('wm06_pa1c2')" style="border-color:#38bdf8;color:#bae6fd;">Bật PA 1C-2 (Bỏ Đảo)</button>
+            <button type="button" class="lb-btn active" onclick="setMasterLayout('pa1c1', true)">Bật PA 1C-1 (Giữ Đảo)</button>
+            <button type="button" class="lb-btn" onclick="setMasterLayout('pa1c2', true)" style="border-color:#38bdf8;color:#bae6fd;">Bật PA 1C-2 (Bỏ Đảo)</button>
           </div>
         </div>
 
@@ -1183,12 +1194,15 @@
 
   <script src="assets/qvilla-nav.js" defer></script>
   <script>
+    let currentMasterMaterial = "wm08";
+    let currentMasterLayout = "pa1c1";
     let currentMasterTone = "wm08_pa1c1";
     let currentMasterView = "pa2_walkin";
 
     const VIEWS = {
       pa2_bed: {
         imgs: {
+          wm08_pa1a: "assets/wm08_plus_pa1a_t2_v01_master_south.jpg",
           wm08_pa1c1: "assets/wm08_plus_t2_v01_master_south.jpg",
           wm06min: "assets/warm_minimalist_wm06_min_t2_v01_master_south.jpg",
           wm06_pa1c1: "assets/wm06_pa1c_t2_v01_bed_south.jpg",
@@ -1198,12 +1212,14 @@
           studio349_leather: "assets/master_vach_optC.jpg"
         },
         titles: {
+          wm08_pa1a: "T2-V01 (WM-08 Plus • PA 1A) • Vách Giữa Trục B 1,74m Bo R100 Viền TV Đồng Champagne PVD & 2 Lối Đi 850mm",
           wm08_pa1c1: "T2-V01 (WM-08 Plus • PA 1C-1) • Vách Tủ 2,24m Viền TV Đồng Champagne PVD • Hốc & Tay Nắm Đồng Hun Tủ #3",
           wm06min: "T2-V01 (PA 1A Bo Cong Tinh Chỉnh) • Vách Bo R100 Kịch Trần 280mm Âm TV The Frame 65\" (0% Ty Treo, 0% Cửa Lùa)",
           wm06_pa1c1: "T2-V01 (PA 1C-1 & 1C-2) • Vách Tủ 2,24m Áp Tường Tây • TV 65\" Thẳng Tâm Giường & 1 Lối Đi 1,2m Bên Trái",
           wm06_pa1c2: "T2-V01 (PA 1C-1 & 1C-2) • Vách Tủ 2,24m Áp Tường Tây • TV 65\" Thẳng Tâm Giường & 1 Lối Đi 1,2m Bên Trái"
         },
         captions: {
+          wm08_pa1a: "T2-V01 (WM-08 Plus • PA 1A Nhìn Nam): Vách giữa 1,74m bo R100 kịch trần 280mm • Ô TV 65\" Limestone mịn viền Đồng Champagne PVD • Đôn da bò R80 & 2 lối mở 850mm",
           wm08_pa1c1: "T2-V01 (WM-08 Plus PA 1C-1 Nhìn Nam): Vách 2,24m áp Tây bo R100 Veneer mờ • Viền ô TV 65\" Đồng Champagne PVD 2700K • Hốc bày bình & tay nắm Đồng Hun Tủ #3 + Lối 1,2m",
           wm06min: "T2-V01 (Nhìn hướng Nam từ Giường Bắc): Vách bo cong R100 kịch trần (1.740×280×2.650mm, 0% ty treo) + TV 65\" The Frame âm phẳng + Kệ & đôn bo R60–R80 + 2 lối đi mở 850mm (0% cửa lùa)",
           wm06_pa1c1: "T2-V01 (PA 1C Nhìn Nam): Vách Tủ 2.240mm đẩy sát Tường Tây (bên phải, 0% hở sáng) + TV 65\" căn thẳng tâm Giường (1.720mm từ Tây) + 01 Lối đi rộng 1.200mm bên trái thẳng Cửa O1",
@@ -1212,6 +1228,11 @@
         caption: "T2-V01 (Nhìn hướng Nam từ Giường Bắc): Bình Phong Travertine Treo Lơ Lửng + Đôn đuôi giường + Vòng Chiếu Xuyên Sáng Ø1.200mm",
         title: "T2-V01 • Mặt Trước Vách Ngăn Trục B Nhìn Từ Giường Ngủ (PA C / PA B / PA A)",
         itemsByTone: {
+          wm08_pa1a: [
+            "<strong>1. Vách Ngăn Trục B Đứng Giữa Phòng Bo <code>2 Cạnh R100</code> Kịch Trần (<code>1.740 × 280 × 2.650 mm</code>):</strong> Bỏ ty sắt treo trần; thân vách phủ <code>Karma Cashmere</code> siêu mờ mở <strong>02 lối đi thông thoáng <code>850mm</code> hai bên</strong> (<code>0%</code> cửa lùa, thông gió ĐH âm trần chung).",
+            "<strong>2. Ô TV The Frame <code>65\"</code> Nền <code>Limestone</code> Kem Mịn Viền <code>Đồng Champagne PVD</code> &amp; Đợt Gỗ Sồi Khói:</strong> Viền khung đồng xước <code>8mm</code> bắt ánh LED <code>2700K</code>, phối đôn đuôi giường bo <code>R80</code> da bò nâu ấm.",
+            "<strong>3. Đồng Bộ <code>Tủ #3</code> &amp; Khu Thay Đồ Phía Sau Với Tay Nắm <code>Đồng Hun Xước PVD</code>:</strong> Sàn gỗ xương cá xám tro ấm chạy liên thông hai hành lang Trái – Phải mượt mà."
+          ],
           wm08_pa1c1: [
             "<strong>1. Đẩy sát Vách Tủ <code>2.240mm</code> về Tường Tây &amp; Bo <code>R100</code> Phủ <code>Plywood/Veneer Inchem</code> Mờ:</strong> Tách sáng khu Thay Đồ 100%, góc hồi bên trái bo <code>R100</code> ôm mượt bằng Veneer Du Nhật / Óc chó khói (<code>KES Kitami Ruester 29435 / Karma Grain</code>) liền vân.",
             "<strong>2. Ô TV The Frame <code>65\"</code> Nền <code>Limestone</code> Viền <code>Đồng Champagne PVD</code> &amp; Mảng <code>Karma Cashmere</code>:</strong> Viền khung đồng xước mảnh bắt sáng <code>2700K</code>, chia ron dọc tinh tế &amp; đôn đuôi giường bo <code>R80</code> da bò nâu ấm.",
@@ -1241,6 +1262,7 @@
       },
       bedroom: {
         imgs: {
+          wm08_pa1a: "assets/wm08_plus_t2_v02_master_bed.jpg",
           wm08_pa1c1: "assets/wm08_plus_t2_v02_master_bed.jpg",
           wm06min: "assets/warm_minimalist_wm06_t2_v02.jpg",
           wm06: "assets/warm_minimalist_wm06_t2_v02.jpg",
@@ -1272,6 +1294,7 @@
       },
       pa2_walkin: {
         imgs: {
+          wm08_pa1a: "assets/wm08_plus_pa1a_t2_v03_master_wic.jpg",
           wm08_pa1c1: "assets/wm08_plus_t2_v03_master_wic.jpg",
           wm06min: "assets/warm_minimalist_wm06_min_t2_v03_wic_north.jpg",
           wm06_pa1c1: "assets/wm06_pa1c1_t2_v03_wic_keep_island_north.jpg",
@@ -1280,12 +1303,14 @@
           studio349: "assets/wow_master_wic_moon_north.jpg"
         },
         titles: {
+          wm08_pa1a: "T2-V03 (WM-08 Plus • PA 1A) • Vách Giữa 1,74m Hốc Túi Đồng Champagne PVD & Ngắt Chỉ Đồng Hun Trước 2 Góc Bo R100",
           wm08_pa1c1: "T2-V03 (WM-08 Plus • PA 1C-1) • Hốc Túi Veneer Đồng Champagne PVD & Ngắt Chỉ Đồng Hun Gọn Trước Bo R100",
           wm06min: "T2-V03 (PA 1A Bo Cong Tinh Chỉnh) • Vòng Ø1,2m + Đảo Kính Bo R80 + Khe Đứng ~800mm (0% Cửa Lùa)",
           wm06_pa1c1: "T2-V03 (PA 1C-1 Giữ Bàn Đảo) • Hệ Tủ 2,24m Áp Tây (+0,5m Tủ) + Lối Đi 1,2m Bên Cửa O1 + Đảo Kính Dịch Trái",
           wm06_pa1c2: "T2-V03 (PA 1C-2 Bỏ Bàn Đảo) • Hệ Tủ 2,24m Kệ Túi Xách Travertine 6 Tầng + Sàn Trống Thênh Thang (~5,8m²) & Lối 1,2m"
         },
         captions: {
+          wm08_pa1a: "T2-V03 (WM-08 Plus • PA 1A): Vách giữa 1,74m mở 2 lối 850mm • Hốc túi Veneer nẹp Đồng Champagne PVD • Chỉ đồng hun ngắt gọn trước cả 2 góc R100 • Đảo R80 khe ~800mm",
           wm08_pa1c1: "T2-V03 (WM-08 Plus • PA 1C-1): Bỏ phù điêu hoa lá • Hốc túi Veneer viền & thanh chắn Đồng Champagne PVD • Chỉ đồng hun ngắt gọn trước bo R100 • Đảo R80 & gương viền đồng",
           wm06min: "T2-V03 (Khu Thay Đồ nhìn Bắc • Chuẩn PA 06): Gương oval dời sang tường đặc cạnh O2 rèm sáo gỗ + Bàn Đảo Kính R80 + Tủ #3 Tường Đông & Giường tựa Tường Bắc qua 2 lối 850mm",
           wm06_pa1c1: "T2-V03 (PA 1C-1 Nhìn Bắc • Chuẩn PA 06): Hệ tủ 2.240mm áp sát Tường Tây bên trái + Đảo Kính R80 + Lối đi 1.200mm bên phải thấy rõ mép phải Giường tựa Tường Bắc & Tủ #3 Tường Đông",
@@ -1294,6 +1319,11 @@
         caption: "T2-V03 (Khu Thay Đồ nhìn Bắc): Vòng chiếu xuyên sáng Ø1.200mm thẳng dọi tâm Bàn Đảo Mặt Kính + Thân đảo Kem Greige / Vân Gỗ, nhìn xuyên 2 lối đi 850mm sang Khu Ngủ",
         title: "T2-V03 • Khu Thay Đồ Nhìn Bắc: Vòng Chiếu Xuyên Sáng Ø1,2m Thẳng Tâm Bàn Đảo Mặt Kính",
         itemsByTone: {
+          wm08_pa1a: [
+            "<strong>1. Hốc Túi Xách &amp; Nước Hoa <code>Plywood/Veneer Inchem</code> Viền <code>Đồng Champagne PVD</code> (<code>0%</code> Hoa Lá):</strong> Đặt tại chính tâm vách <code>1,74m</code> với hậu &amp; đợt kệ gỗ Du Nhật / Óc chó khói LED <code>2700K</code> kèm viền &amp; thanh chắn túi <strong>Đồng Champagne xước mờ</strong>.",
+            "<strong>2. Ngắt Chỉ <code>Đồng Hun PVD</code> Gọn Sạch Trước Cả <code>2 Góc Bo R100</code> &amp; <code>2 Lối 850mm</code>:</strong> Hai lối đi đối xứng Trái–Phải mở thông nắng ban công &amp; điều hòa âm trần chung; các đường chỉ nối trên cánh <code>Karma Cashmere</code> đều ngắt sạch trước hai cạnh cong <code>R100</code>.",
+            "<strong>3. Đảo Phụ Kiện Bo <code>R80</code> Dưới Vòng <code>Ø1,2m</code> &amp; Bàn Phấn Kính Trà Thoáng Sáng:</strong> Gắn viền kính trên &amp; chân đế <strong>Đồng Hun PVD</strong> nới khe đứng rộng <code>~800mm</code>."
+          ],
           wm08_pa1c1: [
             "<strong>1. Hốc Trưng Bày Túi Xách &amp; Nước Hoa Phủ <code>Plywood/Veneer Inchem</code> Viền <code>Đồng Champagne PVD</code> (<code>0%</code> Hoa Lá):</strong> Gỡ bỏ phù điêu hoa lá; lòng hậu &amp; đợt kệ phủ vân Du Nhật / Óc chó khói (<code>KES Kitami Ruester 29435 / Karma Grain</code>) sơn <code>Inchem</code> mờ kèm LED <code>2700K</code>, viền hốc &amp; thanh chắn túi <strong>Đồng Champagne xước mờ</strong>.",
             "<strong>2. Cánh Tủ <code>Karma Cashmere</code>, Chỉ Nối <code>Đồng Hun Mờ</code> &amp; Đầu Hồi Bo <code>R100</code> Liền Mạch:</strong> Hệ tủ <code>2,24m</code> áp sát Tường Tây dùng vân vải siêu mờ <code>Karma Cashmere</code>; cặp tay nắm &amp; chỉ nối <strong>Đồng Hun PVD</strong> được <strong>ngắt gọn trước góc bo <code>R100</code></strong> (khớp cả ảnh gương vòm phải).",
@@ -1323,6 +1353,7 @@
       },
       wic_south: {
         imgs: {
+          wm08_pa1a: "assets/wm08_plus_pa1a_t2_v04_wic_south.jpg",
           wm08_pa1c1: "assets/wm08_plus_t2_v04_wic_south.jpg",
           wm06min: "assets/warm_minimalist_wm06_min_t2_v04_wic_south.jpg",
           wm06_pa1c1: "assets/warm_minimalist_wm06_min_t2_v04_wic_south.jpg",
@@ -1331,12 +1362,14 @@
           studio349: "assets/wow_master_wic_moon_south.jpg"
         },
         titles: {
+          wm08_pa1a: "T2-V04 (WM-08 Plus • PA 1A Ngược 180°) • Đảo R80 Đồng Hun • Bàn O2 Dời Gương Thoáng 100% & Tủ #1–#2 WC-02",
           wm08_pa1c1: "T2-V04 (WM-08 Plus • Ngược 180° PA 1C-1) • Đảo R80 Viền & Chân Đồng Hun • Tủ #1–#2 Đồng Hun & Cửa Sọc WC-02",
           wm06min: "T2-V04 (PA 1A Bo Cong Tinh Chỉnh • Ngược 180°) • 6 Ngăn Kéo Đảo R80 • Bàn O2 Bo R60 Thoáng Sáng & Tủ #1–#2 WC-02",
           wm06_pa1c1: "T2-V04 (PA 1C-1 • Ngược 180° Giữ Bàn Đảo) • Đảo Kính Bo R80 Dịch Trái & Tủ #1–#2 Ôm Cửa Kính Sọc WC-02",
           wm06_pa1c2: "T2-V04 (PA 1C-2 • Ngược 180° Bỏ Bàn Đảo) • Khoảng Sàn Gỗ Xương Cá Trống Rộng ~5,8m² Trước Cặp Tủ #1–#2 & WC-02"
         },
         captions: {
+          wm08_pa1a: "T2-V04 (WM-08 Plus • PA 1A Ngược 180°): Đảo R80 viền & chân Đồng Hun • Bàn O2 bo R60 dời gương oval sang tường đặc • Tủ #1–#2 đồng hun ôm trụ Limestone WC-02",
           wm08_pa1c1: "T2-V04 (WM-08 Plus Ngược 180° nhìn Nam): Đảo kính trà R80 chân đế, viền kính & tay nắm Đồng Hun • Tủ #1–#2 Cashmere tay nắm đồng hun ôm WC-02 • Cửa O1 & Gương viền đồng",
           wm06min: "T2-V04 (Ngược 180° nhìn Nam): 6 ngăn kéo đảo bo R80 an toàn • Trái Cửa O1 & Gương LED bo viên thuốc • Phải Bàn O2 bo R60 dời gương mở thoáng cửa sổ • Tủ #1–#2 0% kính ôm cột đá bo WC-02",
           wm06_pa1c1: "T2-V04 (PA 1C-1 Ngược 180° nhìn Nam): Giữ Bàn Đảo kính bo R80 • Trái Cửa O1 & Gương LED Đông • Phải Bàn O2 & Gương Oval trên tường đặc • Tủ #1–#2 (0% kính) ôm WC-02",
@@ -1345,6 +1378,11 @@
         caption: "T2-V04 (Góc ngược 180° nhìn Nam): 6 ngăn kéo mặt trước bàn đảo dưới Vòng xuyên sáng Ø1,2m • Trái Cửa O1 & Gương vòm • Phải Cửa sổ O2 & Bàn phấn • Chính diện Tủ #1–#2 & WC-02",
         title: "T2-V04 • Góc Ngược 180°: 6 Ngăn Kéo Đảo & Cặp Tủ Chống Ẩm #1–#2 Ôm Cửa WC-02",
         itemsByTone: {
+          wm08_pa1a: [
+            "<strong>1. Đảo Phụ Kiện Bo <code>R80</code> Veneer &amp; Kính Trà Phối <code>Đồng Hun PVD</code>:</strong> Đặt đồng trục dưới vòng <code>Ø1,2m</code>, gắn <strong>tay nắm thanh mảnh, viền kính trên &amp; chân đế gầm Đồng Hun xước mờ</strong> bảo vệ góc bàn ban đêm.",
+            "<strong>2. Bàn Trang Điểm Bo <code>R60</code> Dưới Cửa Sổ <code>O2</code> Thoáng 100%:</strong> Dời gương oval viền <strong>Đồng Champagne PVD</strong> sang mảng tường đặc cạnh mành gỗ <code>O2</code> giúp lấy trọn nắng gió tự nhiên.",
+            "<strong>3. Cặp <code>Tủ #1–#2</code> Cashmere Hậu Plywood 9mm &amp; Trụ Bo <code>Limestone Mịn</code> Ôm Cửa Kính Sọc <code>WC-02</code>:</strong> Tay nắm đôi &amp; ron ngang <strong>Đồng Hun PVD</strong> đồng bộ cửa gỗ <code>O1</code> bên trái."
+          ],
           wm08_pa1c1: [
             "<strong>1. Đảo Trang Sức Góc Bo <code>R80</code> Veneer &amp; Kính Trà Khói Phối <code>Đồng Hun PVD</code>:</strong> 6 ngăn kéo <code>Karma Cashmere</code> gắn <strong>tay nắm thanh mảnh, viền kính trên &amp; chân đế gầm Đồng Hun xước mờ</strong> ngay dưới <strong>Vòng chiếu <code>Ø1,2m</code></strong>.",
             "<strong>2. Cặp <code>Tủ #1–#2</code> Cashmere (Hậu Plywood 9mm Chống Ẩm) Ôm Cửa Kính Sọc <code>WC-02</code>:</strong> Tay nắm đôi &amp; đường ron ngang đồng bộ <strong>Đồng Hun PVD</strong> sắc nét hai bên cửa kính sọc <code>WC-02</code>.",
@@ -1425,50 +1463,131 @@
       }
     };
 
-    function setMasterTone(tone) {
-      currentMasterTone = tone;
-      ["wm08_pa1c1", "wm06min", "wm06_pa1c1", "wm06_pa1c2", "wm06", "studio349", "studio349_leather", "bt04", "bt05"].forEach(t => {
-        const b = document.getElementById("tone-master-" + t);
-        if (b) b.classList.toggle("active", t === tone);
+    function resolveActiveMasterTone(mat, lay) {
+      if (mat === "wm08") {
+        if (lay === "pa1a") return "wm08_pa1a";
+        if (lay === "pa1c1") return "wm08_pa1c1";
+        if (lay === "pa1c2") return "wm06_pa1c2";
+        return "wm06";
+      }
+      if (lay === "pa1a") return "wm06min";
+      if (lay === "pa1c1") return "wm06_pa1c1";
+      if (lay === "pa1c2") return "wm06_pa1c2";
+      return "wm06";
+    }
+
+    function syncMasterSelectorButtons() {
+      ["wm08", "wm06"].forEach(m => {
+        const el = document.getElementById("mat-master-" + m);
+        if (el) el.classList.toggle("active", m === currentMasterMaterial);
       });
+      ["pa1a", "pa1c1", "pa1c2", "pa1b"].forEach(l => {
+        const el = document.getElementById("lay-master-" + l);
+        if (el) el.classList.toggle("active", l === currentMasterLayout);
+      });
+    }
+
+    function scrollToMasterViewer() {
+      const sec = document.getElementById("sec-3d");
+      if (sec) sec.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function setMasterMaterial(mat, shouldScroll = false) {
+      currentMasterMaterial = (mat === "wm06") ? "wm06" : "wm08";
+      currentMasterTone = resolveActiveMasterTone(currentMasterMaterial, currentMasterLayout);
+      syncMasterSelectorButtons();
+      switch3D(currentMasterView);
+      if (shouldScroll) scrollToMasterViewer();
+    }
+
+    function setMasterLayout(lay, shouldScroll = false) {
+      currentMasterLayout = ["pa1a", "pa1c1", "pa1c2", "pa1b"].includes(lay) ? lay : "pa1c1";
+      currentMasterTone = resolveActiveMasterTone(currentMasterMaterial, currentMasterLayout);
+      if ((currentMasterLayout === "pa1a" || currentMasterLayout === "pa1b") && currentMasterView === "pa1c_door_o1") {
+        currentMasterView = "pa2_bed";
+      }
+      syncMasterSelectorButtons();
+      switch3D(currentMasterView);
+      if (shouldScroll) scrollToMasterViewer();
+    }
+
+    function setMasterTone(tone, shouldScroll = false) {
+      if (tone === "wm08_pa1a") {
+        currentMasterMaterial = "wm08";
+        currentMasterLayout = "pa1a";
+      } else if (tone === "wm08_pa1c1") {
+        currentMasterMaterial = "wm08";
+        currentMasterLayout = "pa1c1";
+      } else if (tone === "wm06min") {
+        currentMasterMaterial = "wm06";
+        currentMasterLayout = "pa1a";
+      } else if (tone === "wm06_pa1c1") {
+        currentMasterMaterial = "wm06";
+        currentMasterLayout = "pa1c1";
+      } else if (tone === "wm06_pa1c2") {
+        currentMasterMaterial = "wm06";
+        currentMasterLayout = "pa1c2";
+      } else if (tone === "wm06") {
+        currentMasterMaterial = "wm06";
+        currentMasterLayout = "pa1b";
+      }
+      currentMasterTone = tone;
       if ((tone === "bt04" || tone === "bt05") && currentMasterView !== "bedroom") {
         currentMasterView = "bedroom";
       }
-      if (tone === "wm08_pa1c1" && !["pa2_walkin", "wic_south", "pa2_bed", "bedroom", "pa1c_door_o1"].includes(currentMasterView)) {
-        currentMasterView = "pa2_walkin";
+      if ((currentMasterLayout === "pa1a" || currentMasterLayout === "pa1b" || tone === "wm06min" || tone === "wm06" || tone === "wm08_pa1a") && currentMasterView === "pa1c_door_o1") {
+        currentMasterView = "pa2_bed";
       }
-      if ((tone === "wm06_pa1c1" || tone === "wm06_pa1c2") && !["pa2_walkin", "wic_south", "pa2_bed", "pa1c_door_o1"].includes(currentMasterView)) {
-        currentMasterView = "pa2_walkin";
-      }
+      syncMasterSelectorButtons();
       switch3D(currentMasterView);
+      if (shouldScroll) scrollToMasterViewer();
     }
 
     function switch3D(key) {
       const data = VIEWS[key];
       if (!data) return;
       currentMasterView = key;
+      const isLegacyDirectTone = ["studio349", "studio349_leather", "bt04", "bt05"].includes(currentMasterTone);
+      let requestedTone = currentMasterTone;
+      if (!isLegacyDirectTone) {
+        if (key === "bedroom" && currentMasterMaterial === "wm08") {
+          requestedTone = "wm08_pa1c1";
+        } else if (key === "pa1c_door_o1" && (currentMasterLayout === "pa1a" || currentMasterLayout === "pa1b")) {
+          requestedTone = (currentMasterMaterial === "wm08") ? "wm08_pa1c1" : "wm06_pa1c1";
+        }
+      }
       const toneLabelMap = {
-        wm08_pa1c1: "[✨ PA Mới Duyệt: WM-08 Plus • PA 1C-1 Plywood KES/Karma • Veneer Inchem & Đồng Xước PVD] ",
-        wm06min: "[🕊️ PA 1A Mới Tinh Chỉnh: WM-06 Bo Cong An Toàn • Vách Kịch Trần TV 65\" (0% Cửa Lùa)] ",
-        wm06_pa1c1: "[🕊️ PA 1C-1 Mới: Tủ 2,24m Áp Tây + Lối Đi 1,2m • Giữ Bàn Đảo] ",
-        wm06_pa1c2: "[🕊️ PA 1C-2 Mới: Tủ 2,24m Áp Tây + Lối Đi 1,2m • Bỏ Bàn Đảo] ",
+        wm08_pa1a: "[✨ PA Mới Duyệt: WM-08 Plus • PA 1A Vách Ngăn Trục B Giữa 1,74m (2 Lối 850mm) • Đồng Xước PVD] ",
+        wm08_pa1c1: "[✨ PA Mới Duyệt: WM-08 Plus • PA 1C-1 Tủ Áp Tây 2,24m (1 Lối 1,2m) • Đồng Xước PVD] ",
+        wm06min: "[🕊️ PA 1A Mới Tinh Chỉnh: WM-06 Bo Cong An Toàn • Vách Giữa 1,74m TV 65\" (2 Lối 850mm)] ",
+        wm06_pa1c1: "[🕊️ PA 1C-1 Mới: WM-06 Tủ 2,24m Áp Tây + Lối Đi 1,2m • Giữ Bàn Đảo] ",
+        wm06_pa1c2: "[🕊️ PA 1C-2 Mới: WM-06 Tủ 2,24m Áp Tây + Lối Đi 1,2m • Bỏ Bàn Đảo] ",
         wm06: "[🕊️ PA 1B Bản Cũ: WM-06 Bình Phong Treo & Tủ Đảo 450mm] ",
         studio349: "[🪵 PA 2 Option A: 100% Vân Gỗ] ",
         studio349_leather: "[✨ Option B: Bọc Da Kem Đá (Đã Sửa Ô Kính KT-2.08)] ",
         bt04: "[🏙️ Hiện Đại BT-04: Sồi Khói Ghi Mocha (Khớp Đá T2)] ",
         bt05: "[☀️ Hiện Đại BT-05: Gỗ Caramel × Ghi Bazan (Khớp Lam T3)] "
       };
-      const hasExactTone = Boolean(data.imgs && data.imgs[currentMasterTone]);
-      const fallbackTone = (currentMasterTone === "wm08_pa1c1" && data.imgs && data.imgs.wm06_pa1c1)
-        ? "wm06_pa1c1"
-        : ((data.imgs && !data.imgs.wm06min && data.imgs.wm06_pa1c1) ? "wm06_pa1c1" : "wm06min");
-      const resolvedTone = hasExactTone ? currentMasterTone : fallbackTone;
-      const toneLabel = hasExactTone
-        ? (toneLabelMap[currentMasterTone] || "")
-        : (currentMasterTone === "wm08_pa1c1"
-            ? "[🌿 WM-08 v2 • Góc bố cục PA 1C-1 tham chiếu] "
-            : (toneLabelMap[fallbackTone] || "[🕊️ PA 1A WM-06 Minimalist] "));
-      const resolvedImg = data.imgs ? (data.imgs[currentMasterTone] || data.imgs[fallbackTone] || data.imgs.wm06 || data.imgs.studio349) : data.img;
+      const hasExactTone = Boolean(data.imgs && data.imgs[requestedTone]);
+      const fallbackTone = (requestedTone === "wm08_pa1a" && data.imgs && data.imgs.wm06min)
+        ? "wm06min"
+        : ((requestedTone === "wm08_pa1c1" && data.imgs && data.imgs.wm06_pa1c1)
+            ? "wm06_pa1c1"
+            : ((data.imgs && !data.imgs.wm06min && data.imgs.wm06_pa1c1) ? "wm06_pa1c1" : "wm06min"));
+      const resolvedTone = hasExactTone ? requestedTone : fallbackTone;
+      let toneLabel = "";
+      if (key === "pa1c_door_o1" && (currentMasterLayout === "pa1a" || currentMasterLayout === "pa1b") && !isLegacyDirectTone) {
+        toneLabel = "[ℹ️ Góc 7 chuyên soi vách tủ 550mm PA 1C — bấm Góc 2/3/4 để xem " + currentMasterLayout.toUpperCase() + "] ";
+      } else if (!isLegacyDirectTone && currentMasterMaterial === "wm08" && (currentMasterLayout === "pa1c2" || currentMasterLayout === "pa1b") && key !== "bedroom") {
+        toneLabel = "[✨ WM-08 Plus • Xem bố cục " + (currentMasterLayout === "pa1c2" ? "PA 1C-2 Bỏ Đảo" : "PA 1B Bình Phong") + " qua ảnh tham chiếu WM-06] ";
+      } else if (hasExactTone) {
+        toneLabel = toneLabelMap[requestedTone] || "";
+      } else {
+        toneLabel = (requestedTone === "wm08_pa1c1" || requestedTone === "wm08_pa1a")
+          ? "[🌿 WM-08 • Góc bố cục tham chiếu] "
+          : (toneLabelMap[fallbackTone] || "[🕊️ PA 1A WM-06 Minimalist] ");
+      }
+      const resolvedImg = data.imgs ? (data.imgs[requestedTone] || data.imgs[fallbackTone] || data.imgs.wm06 || data.imgs.studio349) : data.img;
       const resolvedCaption = (data.captions && data.captions[resolvedTone]) ? data.captions[resolvedTone] : data.caption;
       const resolvedTitle = (data.titles && data.titles[resolvedTone]) ? data.titles[resolvedTone] : data.title;
       const resolvedItems = (data.itemsByTone && data.itemsByTone[resolvedTone]) ? data.itemsByTone[resolvedTone] : data.items;
@@ -1485,6 +1604,7 @@
       const activeBtn = document.getElementById("tab-" + key);
       if (activeBtn) activeBtn.classList.add("active");
     }
+    syncMasterSelectorButtons();
     switch3D("pa2_walkin");
 
     let currentZoom = 1;
