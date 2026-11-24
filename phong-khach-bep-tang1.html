@@ -500,7 +500,7 @@
       font-size: 0.82em;
     }
 
-    /* Native Dialog Lightbox (modern-web-guidance: html) */
+    /* Interactive 2.7K HD Zoom & Pan Dialog Lightbox */
     dialog#lightbox-modal {
       margin: auto;
       padding: 0;
@@ -508,9 +508,11 @@
       border-radius: var(--radius-md);
       background: #05080f;
       color: var(--text-main);
+      width: 96vw;
       max-width: 96vw;
       max-height: 94vh;
       box-shadow: 0 25px 60px rgba(0, 0, 0, 0.88);
+      overflow: hidden;
     }
 
     dialog#lightbox-modal::backdrop {
@@ -522,10 +524,44 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      padding: 10px 16px;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 14px;
       background: var(--bg-surface);
       border-bottom: 1px solid var(--border);
+    }
+
+    .dialog-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .dialog-zoom-btn {
+      background: var(--bg-elevated);
+      color: #e2e8f0;
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 7px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .dialog-zoom-btn:hover,
+    .dialog-zoom-btn.active {
+      border-color: var(--accent);
+      color: #fff;
+      background: rgba(245, 158, 11, 0.22);
+    }
+
+    .dialog-zoom-badge {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #fde68a;
+      min-width: 44px;
+      text-align: center;
     }
 
     .dialog-close-btn {
@@ -545,17 +581,40 @@
     }
 
     .dialog-img-wrap {
-      padding: 12px;
+      width: 100%;
+      height: 82vh;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
+      background: #04070d;
+      cursor: zoom-in;
+      user-select: none;
+      touch-action: none;
+      position: relative;
+    }
+
+    .dialog-img-wrap.is-zoomed {
+      cursor: grab;
+    }
+
+    .dialog-img-wrap.is-dragging {
+      cursor: grabbing;
     }
 
     .dialog-img-wrap img {
-      max-width: 93vw;
-      max-height: 82vh;
+      max-width: 94%;
+      max-height: 94%;
       object-fit: contain;
-      border-radius: 8px;
+      border-radius: 6px;
+      transform-origin: center center;
+      transition: transform 0.14s ease-out;
+      will-change: transform;
+      pointer-events: none;
+    }
+
+    .dialog-img-wrap.is-dragging img {
+      transition: none;
     }
   </style>
 </head>
@@ -675,10 +734,10 @@
 
       <div class="viewer-grid">
         <div class="img-frame">
-          <img id="main-3d-img" src="assets/wm08_plus_t1_v02_living_north.jpg" alt="Phối cảnh 3D Tầng 1 PA Mới Duyệt WM-08 Plus Đồng Champagne &amp; Đồng Hun Xước Mờ" onclick="openLightbox(this.src, document.getElementById('main-3d-caption').textContent)" />
+          <img id="main-3d-img" src="assets/wm08_plus_t1_v02_living_north.jpg" width="2752" height="1536" alt="Phối cảnh 3D Tầng 1 PA Mới Duyệt WM-08 Plus Đồng Champagne &amp; Đồng Hun Xước Mờ" onclick="openLightbox(this.src, document.getElementById('main-3d-caption').textContent)" />
           <div class="img-caption">
             <span id="main-3d-caption">✨ PA Mới Duyệt WM-08 Plus (Chắt Lọc Đồng Champagne &amp; Đồng Hun Xước Mờ) — V02 • Phòng Khách nhìn Bắc: Khung hốc TV đồng Champagne vát cạnh 2700K, armchair bouclé xám ấm, bàn trà PA7 &amp; chân trụ rãnh đồng hun bàn ăn</span>
-            <span>🔍 Bấm vào ảnh để phóng to 8K</span>
+            <span>🔍 Bấm ảnh để phóng to 2.7K HD (Zoom 1×–4× &amp; kéo soi chi tiết)</span>
           </div>
         </div>
 
@@ -701,20 +760,32 @@
         </div>
       </div>
 
-      <!-- WM-08 Plus Side-by-Side Showcase & Hybrid 70/30 + PVD Bronze Spec Strip -->
+      <!-- WM-08 Plus Full 5-View HD Showcase & Hybrid 70/30 + PVD Bronze Spec Strip -->
       <div style="margin-top:16px;padding:16px;border-radius:14px;background:rgba(15,23,42,0.82);border:1px solid rgba(16,185,129,0.42);">
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
-          <strong style="font-size:0.9rem;color:#6ee7b7;">✨ TỔNG QUAN PHƯƠNG ÁN MỚI DUYỆT WM-08 Plus TẦNG 1 (KHÁCH &amp; BẾP) + HYBRID 70/30 &amp; PVD ĐỒNG XƯỚC MỜ</strong>
-          <span style="font-size:0.78rem;color:#cbd5e1;">Bấm thẳng vào từng ảnh để phóng to đối chiếu Phòng Khách <code>T1-V02</code> &amp; Bếp <code>T1-V04</code>:</span>
+          <strong style="font-size:0.9rem;color:#6ee7b7;">✨ TRỌN BỘ 05 GÓC TẦNG 1 WM-08 Plus (T1-V01 &rarr; T1-V05 • 2.7K HD • HYBRID 70/30 &amp; ĐỒNG XƯỚC PVD)</strong>
+          <span style="font-size:0.78rem;color:#cbd5e1;">Bấm thẳng vào từng ảnh để phóng to <code>2752×1536</code>, cuộn chuột zoom <code>1×–4×</code> &amp; kéo soi chi tiết:</span>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;">
+          <div style="background:rgba(7,11,18,0.72);border:1px solid rgba(16,185,129,0.38);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm08_plus_t1_v01_foyer.jpg', 'T1-V01 WM-08 Plus • Tiền Sảnh Đón (Vòm Limestone Nẹp Đồng Champagne + Tủ Cashmere Tay Nắm Đồng Hun & Cửa D1 PA 1B)')">
+            <img src="assets/wm08_plus_t1_v01_foyer.jpg" alt="T1-V01 WM-08 Plus Tiền Sảnh vòm Limestone nẹp đồng Champagne tủ Cashmere và cửa D1 PA 1B" width="2752" height="1536" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T1-V01 (Tiền Sảnh):</strong> Vòm Limestone nẹp mảnh <strong>Đồng Champagne PVD</strong> + ghế da bò &amp; gương hữu cơ • Tủ giày <code>2,5m Cashmere</code> tay nắm đồng hun &amp; cửa gỗ Lim <code>D1</code>.</div>
+          </div>
           <div style="background:rgba(7,11,18,0.72);border:1px solid rgba(16,185,129,0.38);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm08_plus_t1_v02_living_north.jpg', 'T1-V02 WM-08 Plus • Phòng Khách & Bàn Ăn Nhìn Bắc (Khung TV Đồng Champagne + Armchair Bouclé + Chân trụ đồng hun)')">
-            <img src="assets/wm08_plus_t1_v02_living_north.jpg" alt="T1-V02 WM-08 Plus Phòng khách khung TV đồng Champagne armchair bouclé và bàn ăn chân trụ đồng hun" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-            <div style="padding:10px 12px;font-size:0.8rem;line-height:1.48;color:#e2e8f0;"><strong style="color:#6ee7b7;">T1-V02 (Khách Nhìn Bắc):</strong> Khung hốc TV <strong>Brushed Champagne PVD</strong> vát cạnh LED <code>2700K</code> • Cột <code>R100</code> Veneer <code>Inchem</code> mờ • Armchair <code>Bouclé</code> + bàn trà đen mờ <code>PA7</code> • Bàn ăn 8 ghế ngang Đông–Tây <strong>chân trụ rãnh đồng hun</strong>.</div>
+            <img src="assets/wm08_plus_t1_v02_living_north.jpg" alt="T1-V02 WM-08 Plus Phòng khách khung TV đồng Champagne armchair bouclé và bàn ăn chân trụ đồng hun" width="2752" height="1536" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T1-V02 (Khách Bắc):</strong> Khung TV <strong>Đồng Champagne PVD</strong> vát cạnh LED <code>2700K</code> • Cột <code>R100</code> Veneer • Armchair <code>Bouclé</code> &amp; bàn trà <code>PA7</code> • Bàn ăn <strong>chân trụ rãnh đồng hun</strong>.</div>
+          </div>
+          <div style="background:rgba(7,11,18,0.72);border:1px solid rgba(16,185,129,0.38);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm08_plus_t1_v03_living_rev.jpg', 'T1-V03 WM-08 Plus • Phòng Khách Ngược 180° (Armchair Bouclé + Bàn Trà PA7 + Trụ Đồng Hun Bàn Ăn & Nẹp Tiền Sảnh)')">
+            <img src="assets/wm08_plus_t1_v03_living_rev.jpg" alt="T1-V03 WM-08 Plus Phòng khách góc ngược 180 độ armchair bouclé bàn trà PA7 và bàn ăn trụ đồng hun" width="2752" height="1536" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T1-V03 (Khách Ngược 180°):</strong> Sofa kem + <strong>Armchair Bouclé</strong> đồng bộ V02, bàn trà <code>PA7</code>, bàn ăn <strong>trụ đồng hun</strong> bên trái &amp; vòm sảnh viền đồng phía sau.</div>
           </div>
           <div style="background:rgba(7,11,18,0.72);border:1px solid rgba(16,185,129,0.38);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm08_plus_t1_v04_dining_kitchen.jpg', 'T1-V04 WM-08 Plus • Bếp Sồi Khói + Vòm Cafe Nẹp Đồng + Đảo R400 Chân Đồng Hun')">
-            <img src="assets/wm08_plus_t1_v04_dining_kitchen.jpg" alt="T1-V04 WM-08 Plus Bếp Sồi khói vòm Cafe nẹp đồng Champagne đảo R400 chân đồng hun" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
-            <div style="padding:10px 12px;font-size:0.8rem;line-height:1.48;color:#e2e8f0;"><strong style="color:#6ee7b7;">T1-V04 (Ăn – Bếp Nhìn Đông):</strong> Hệ tủ Sồi khói sáng (<code>KES PLW S9 • Karma Origin</code>) + 01 hộc rượu kính trà khói • <strong>Chỉ nẹp đồng Champagne mảnh</strong> ôm vòm Cafe &amp; <strong>chân đáy đảo <code>R400</code> đồng hun</strong> + tay nắm âm đồng &amp; 02 chân trụ bàn ăn đồng bộ.</div>
+            <img src="assets/wm08_plus_t1_v04_dining_kitchen.jpg" alt="T1-V04 WM-08 Plus Bếp Sồi khói vòm Cafe nẹp đồng Champagne đảo R400 chân đồng hun" width="2752" height="1536" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T1-V04 (Ăn – Bếp Đông):</strong> Bếp Sồi khói sáng + 01 hốc rượu kính trà • <strong>Chỉ đồng Champagne</strong> ôm vòm Cafe &amp; <strong>chân đáy đảo <code>R400</code> đồng hun</strong> + 02 trụ bàn ăn đồng bộ.</div>
+          </div>
+          <div style="background:rgba(7,11,18,0.72);border:1px solid rgba(16,185,129,0.38);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm08_plus_t1_v05_kitchen_rev.jpg', 'T1-V05 WM-08 Plus • Bếp Ngược 180° (Chân Đảo R400 Đồng Hun + Vòm Cafe Nẹp Đồng + Trụ Bàn Ăn & Khung TV Xa)')">
+            <img src="assets/wm08_plus_t1_v05_kitchen_rev.jpg" alt="T1-V05 WM-08 Plus Bếp ngược 180 độ chân đảo R400 đồng hun vòm Cafe nẹp đồng và tầm nhìn 12,01m" width="2752" height="1536" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:9px 11px;font-size:0.78rem;line-height:1.45;color:#e2e8f0;"><strong style="color:#6ee7b7;">T1-V05 (Bếp Ngược 180°):</strong> Mặt trong đảo <code>R400</code> (1 cánh + 3 ngăn kéo) gắn <strong>chân đế &amp; tay nắm đồng hun</strong>, vòm Cafe nẹp đồng &amp; nhìn xuyên trục <code>12,01m</code>.</div>
           </div>
         </div>
         <div style="margin-top:12px;padding:10px 14px;border-radius:10px;background:rgba(16,185,129,0.1);border:1px dashed rgba(16,185,129,0.45);font-size:0.82rem;color:#e2e8f0;line-height:1.55;">
@@ -1053,16 +1124,24 @@
     </section>
   </main>
 
-  <!-- Native Modal Lightbox with Light-Dismiss (modern-web-guidance: html) -->
+  <!-- Interactive Zoom & Pan HD Lightbox Dialog -->
   <dialog id="lightbox-modal" closedby="any">
     <div class="dialog-bar">
-      <span id="lightbox-title" style="font-size:0.86rem; font-weight:700; color:var(--accent-light);">Xem chi tiết bản vẽ / phối cảnh 3D</span>
-      <form method="dialog">
-        <button type="submit" class="dialog-close-btn">✕ Đóng (Esc)</button>
-      </form>
+      <span id="lightbox-title" style="font-size:0.84rem; font-weight:700; color:var(--accent-light); flex:1 1 280px;">Xem chi tiết 2.7K HD</span>
+      <div class="dialog-tools">
+        <span style="font-size:0.74rem; color:#94a3b8; margin-right:4px;">Cuộn để zoom • Kéo để soi:</span>
+        <button type="button" class="dialog-zoom-btn" onclick="stepLightboxZoom(-0.5)" title="Thu nhỏ">−</button>
+        <span class="dialog-zoom-badge" id="lightbox-zoom-label">100%</span>
+        <button type="button" class="dialog-zoom-btn" onclick="stepLightboxZoom(0.5)" title="Phóng to">+</button>
+        <button type="button" class="dialog-zoom-btn" onclick="setLightboxZoom(1)" title="Khớp khung">1:1</button>
+        <button type="button" class="dialog-zoom-btn" onclick="setLightboxZoom(2.2)" title="Soi chi tiết 2.2x">220%</button>
+        <form method="dialog" style="margin:0;">
+          <button type="submit" class="dialog-close-btn">✕ Đóng (Esc)</button>
+        </form>
+      </div>
     </div>
-    <div class="dialog-img-wrap">
-      <img id="lightbox-img" src="" alt="Phóng to bản vẽ / phối cảnh 3D Tầng 1" />
+    <div class="dialog-img-wrap" id="lightbox-stage">
+      <img id="lightbox-img" src="" alt="Phóng to bản vẽ / phối cảnh 3D Tầng 1" draggable="false" />
     </div>
   </dialog>
 
@@ -1096,13 +1175,13 @@
       v03_living_reverse: {
         img349: "assets/wow_t1_v03_living_reverse.jpg",
         imgWm06: "assets/warm_minimalist_wm06_t1_v03_living_rev.jpg",
-        imgWm08: "assets/wm08_v2_t1_v03_living_rev.jpg",
-        captionWm08: "V03 • WM-08 v2 Phòng Khách góc ngược 180° (nhìn Nam-Tây): Sofa da kem R60 + Bàn trà thấp đen mờ PA7 • Tiền sảnh Limestone mịn & D1 PA 1B + Bàn ăn Charcoal ngang Đông–Tây",
-        titleWm08: "V03 • WM-08 v2 Phòng Khách Góc Ngược: Sofa Kem R60 × Bàn Trà PA7 × Tiền Sảnh Limestone Mịn",
+        imgWm08: "assets/wm08_plus_t1_v03_living_rev.jpg",
+        captionWm08: "V03 • WM-08 Plus Phòng Khách góc ngược 180° (nhìn Nam-Tây): Armchair Bouclé xám ấm, Sofa da kem + Bàn trà PA7 • Bàn ăn Charcoal chân trụ Đồng Hun mờ & Nẹp Tiền Sảnh Limestone",
+        titleWm08: "V03 • WM-08 Plus Phòng Khách Góc Ngược: Armchair Bouclé × Bàn Trà PA7 × Trụ Bàn Ăn Đồng Hun",
         itemsWm08: [
-          "<strong>1. Sofa Da Kem Mịn Trên Bệ Sồi Khói Bo <code>R60</code> &amp; Bàn Trà Thấp Đen Mờ Kiểu <code>PA7</code>:</strong> Toàn cảnh mặt trước thoáng gọn, sàn gạch mờ <code>1000×1000mm</code> Limestone xám ngà nhạt (<code>0%</code> rỗ vàng) &amp; thảm dệt kem ấm.",
-          "<strong>2. Chuẩn Xác Tường Xây Bao Khu Tiền Sảnh <code>V01</code> (<code>Trục 2</code> &amp; <code>Trục 1'</code>):</strong> Hé mở vòm thay giày <code>Limestone</code> kem cát mịn, tủ giày <code>Karma Cashmere</code> tay nắm âm đen mảnh &amp; cửa gỗ Lim <code>D1 PA 1B</code>.",
-          "<strong>3. Bên Trái:</strong> <strong>Bàn ăn 8 ghế đá <code>Charcoal</code> xoay ngang Đông–Tây</strong> trước cầu thang bậc Sồi khói hắt LED <code>2700K</code>, tủ gầm thang phẳng <code>Cashmere</code> &amp; lan can kính siêu trong tay vịn đen mảnh."
+          "<strong>1. Sofa Da Kem Mịn + 01 Ghế Armchair Bouclé Xám Ấm &amp; Bàn Trà Thấp Đen Mờ <code>PA7</code>:</strong> Bố trí armchair đồng bộ tuyệt đối với góc <code>V02</code>, vẫn giữ hành lang mở <code>~1,5m</code> từ thảm sang khu bàn ăn trên nền gạch Limestone <code>1000×1000</code>.",
+          "<strong>2. Chuẩn Xác Tường Xây Bao Khu Tiền Sảnh <code>V01</code> (<code>Trục 2</code> &amp; <code>Trục 1'</code>):</strong> Hé mở vòm thay giày <code>Limestone</code> kem cát nẹp mảnh <strong>Đồng Champagne PVD</strong>, tủ giày <code>Karma Cashmere</code> &amp; cửa gỗ Lim <code>D1 PA 1B</code>.",
+          "<strong>3. Bên Trái:</strong> <strong>Bàn ăn 8 ghế đá <code>Charcoal</code> nâng cấp chân trụ rãnh Đồng Hun mờ</strong> xoay ngang Đông–Tây trước cầu thang bậc Sồi khói hắt LED <code>2700K</code> &amp; lan can kính tay vịn đen mảnh."
         ],
         caption: "V03 • Phòng Khách góc ngược 180° (nhìn Nam-Tây): Mặt trước Sofa bệ gỗ, phía sau khớp 1:1 tường xây bao khu Tiền sảnh (Trục 2 ngăn Cầu thang & Trục 1' che cửa D1) & bên trái là Bàn ăn xoay ngang Đông–Tây",
         title: "V03 • Phòng Khách Góc Ngược: Mặt Trước Sofa Bệ Gỗ • Chuẩn Tường Bao Khu Tiền Sảnh V01 & Bàn Ăn Xoay Ngang",
@@ -1115,12 +1194,12 @@
       v01_foyer: {
         img349: "assets/wow_t1_foyer_d1.jpg",
         imgWm06: "assets/warm_minimalist_wm06_t1_v01_foyer.jpg",
-        imgWm08: "assets/wm08_v2_t1_v01_foyer.jpg",
-        captionWm08: "V01 • WM-08 v2 Tiền Sảnh Đón: Vòm Limestone mịn viền Veneer Sồi/Du mờ + Gương hữu cơ 2700K + Tủ giày 2,5m Karma Cashmere & Cửa D1 PA 1B",
-        titleWm08: "V01 • WM-08 v2 Tiền Sảnh Đón: Vòm Limestone Mịn Viền Veneer × Tủ Cashmere 2,5m & Cửa D1 PA 1B",
+        imgWm08: "assets/wm08_plus_t1_v01_foyer.jpg",
+        captionWm08: "V01 • WM-08 Plus Tiền Sảnh Đón: Vòm Limestone mịn nẹp mảnh Đồng Champagne PVD + Gương hữu cơ 2700K + Tủ giày 2,5m Cashmere tay nắm Đồng Hun & Cửa D1 PA 1B",
+        titleWm08: "V01 • WM-08 Plus Tiền Sảnh Đón: Vòm Limestone Nẹp Đồng Champagne × Tủ Cashmere Tay Nắm Đồng Hun & Cửa D1",
         itemsWm08: [
-          "<strong>1. Hốc Thay Giày Đá <code>Limestone</code> Kem Mịn Viền <code>Plywood Veneer PU Inchem</code> Mờ:</strong> Bỏ đá Travertine rỗ; lòng vòm mịn ôm gương hữu cơ phát sáng <code>2700K</code>, viền khung cong Veneer gỗ khói &amp; đệm ngồi da bò nâu ấm.",
-          "<strong>2. Hệ Tủ Giày Kịch Trần <code>2.500 × 550 × 3.400 mm</code> (<code>0% cánh kính</code>):</strong> Cánh phẳng vân vải siêu mờ <code>Karma Cashmere</code> chia ron đen mảnh, khe hở gầm Robot hút bụi &amp; hốc bày đồ hắt sáng.",
+          "<strong>1. Hốc Thay Giày <code>Limestone</code> Kem Mịn Nẹp Chỉ <code>Đồng Champagne PVD</code> Mảnh:</strong> Lòng vòm mịn ôm gương hữu cơ phát sáng <code>2700K</code>, nẹp đồng mảnh nhấn mép cong trong &amp; dưới bệ ghế da bò nâu ấm đồng bộ viền Veneer PU <code>Inchem</code> mờ.",
+          "<strong>2. Hệ Tủ Giày Kịch Trần <code>2.500 × 550 × 3.400 mm</code> (<code>0% cánh kính</code>):</strong> Cánh phẳng siêu mờ <code>Karma Cashmere</code> phối <strong>tay nắm âm Đồng Hun xước mờ</strong> tinh tế, chừa hốc bày đồ &amp; khe gầm Robot hút bụi.",
           "<strong>3. Liên Thông Mạch Vật Liệu:</strong> Cửa gỗ Lim <code>D1 PA 1B</code> 10 nan dọc + ô kính đứng <code>310mm</code> mở trực tiếp sang sân Bonsai <code>V1</code> &amp; phòng khách bàn trà <code>PA7</code>."
         ],
         caption: "V01 • Tiền Sảnh nhìn Tây: Hốc vòm Travertine + Gương hạt đậu phát sáng + Tủ giày 2,5m phẳng (0% kính) & Cửa chính D1 PA 1B",
@@ -1153,13 +1232,13 @@
       v05_kitchen_reverse: {
         img349: "assets/wow_t1_v05_kitchen_reverse.jpg",
         imgWm06: "assets/warm_minimalist_wm06_t1_v05_kitchen_rev.jpg",
-        imgWm08: "assets/wm08_v2_t1_v05_kitchen_rev.jpg",
-        captionWm08: "V05 • WM-08 v2 Khu Bếp góc ngược 180° (nhìn Tây): Mặt trong Đảo Sand Limestone R400 (1 cánh + 3 ngăn kéo), Hốc Cafe & 01 khoang rượu kính trà, Bếp Sồi khói & tầm nhìn 12,01m",
-        titleWm08: "V05 • WM-08 v2 Khu Bếp Góc Ngược: Mặt Trong Đảo Sand Limestone R400 × Hốc Cafe & Bếp Sồi Khói",
+        imgWm08: "assets/wm08_plus_t1_v05_kitchen_rev.jpg",
+        captionWm08: "V05 • WM-08 Plus Khu Bếp góc ngược 180° (nhìn Tây): Mặt trong Đảo R400 chân đế & tay nắm Đồng Hun, Vòm Cafe nẹp Đồng Champagne, Trụ bàn ăn Đồng Hun & Khung TV 2700K xa xa",
+        titleWm08: "V05 • WM-08 Plus Khu Bếp Góc Ngược: Chân Đảo R400 Đồng Hun × Vòm Cafe Nẹp Đồng × Tầm Nhìn 12,01m",
         itemsWm08: [
-          "<strong>1. Mặt Trong Bàn Đảo Bo Thác Nước <code>R400 Sand Limestone</code> (<code>1.400 × 800 × 890 mm</code>):</strong> Mặt nằm &amp; đầu hồi uốn cong mịn phẳng <code>0%</code> rỗ vàng; mặt trong gồm <code>1</code> cánh mở + <code>03</code> ngăn kéo rộng gỗ Sồi khói/<code>Cashmere</code> tay nắm âm tối.",
-          "<strong>2. Trái Là Vách Tủ Cafe <code>2.800mm</code> Vòm Đá Mịn &amp; 01 Hốc Rượu Kính Trà Khói • Phải Là Dãy Bếp Sồi Khói Khung Trắng Kem Lì + Cửa Sổ <code>S1A</code>.</strong>",
-          "<strong>3. Xuyên Suốt Trục <code>12,01m</code>:</strong> Qua bàn ăn <code>Charcoal</code>, cầu thang Sồi khói, cửa <code>D1</code> về tận vách TV <code>Limestone</code> phòng khách."
+          "<strong>1. Mặt Trong Bàn Đảo Bo Thác Nước <code>R400 Sand Limestone</code> (<code>1.400 × 800 × 890 mm</code>):</strong> Bổ sung <strong>nẹp chân đế ôm cong Đồng Hun xước PVD</strong> &amp; <strong>tay nắm âm Đồng Hun</strong> cho <code>1</code> cánh mở + <code>03</code> ngăn kéo rộng Sồi khói đồng bộ mặt ngoài <code>V04</code>.",
+          "<strong>2. Trái Vòm Cafe Nẹp Chỉ <code>Đồng Champagne PVD</code> Mảnh &amp; 01 Khoang Rượu Kính Trà • Phải Bếp Sồi Khói Khung Trắng Lì + Cửa Sổ <code>S1A</code>.</strong>",
+          "<strong>3. Xuyên Suốt Trục <code>12,01m</code>:</strong> Qua bàn ăn <code>Charcoal</code> <strong>trụ Đồng Hun mờ</strong>, cầu thang Sồi khói, cửa <code>D1</code> về tận khung TV <strong>Đồng Champagne <code>2700K</code></strong> phòng khách."
         ],
         caption: "V05 • Khu Bếp góc ngược 180° (nhìn Tây): Mặt trong Bàn Đảo bo R400 (1 cánh mở + 3 ngăn kéo), Tủ Cafe trái, Bếp kính Be phải & xuyên suốt 12,01m",
         title: "V05 • Khu Bếp Góc Ngược: Mặt Trong Bàn Đảo 3 Ngăn Kéo & Tầm Nhìn Xuyên Suốt 12,01m",
@@ -1251,10 +1330,111 @@
 
     switch3D("v02_living_north");
 
+    let lbScale = 1, lbTx = 0, lbTy = 0, lbDragging = false, lbStartX = 0, lbStartY = 0, lbMoved = false;
+
+    function updateLightboxTransform() {
+      const stage = document.getElementById("lightbox-stage");
+      const img = document.getElementById("lightbox-img");
+      const label = document.getElementById("lightbox-zoom-label");
+      if (!stage || !img) return;
+      const maxX = Math.max(0, (stage.clientWidth * (lbScale - 1)) / 2 + 120);
+      const maxY = Math.max(0, (stage.clientHeight * (lbScale - 1)) / 2 + 120);
+      lbTx = Math.max(-maxX, Math.min(maxX, lbTx));
+      lbTy = Math.max(-maxY, Math.min(maxY, lbTy));
+      img.style.transform = `translate(${lbTx}px, ${lbTy}px) scale(${lbScale})`;
+      stage.classList.toggle("is-zoomed", lbScale > 1.01);
+      if (label) label.textContent = Math.round(lbScale * 100) + "%";
+    }
+
+    function setLightboxZoom(nextScale) {
+      lbScale = Math.max(1, Math.min(4, Number(nextScale) || 1));
+      if (lbScale <= 1.01) {
+        lbScale = 1;
+        lbTx = 0;
+        lbTy = 0;
+      }
+      updateLightboxTransform();
+    }
+
+    function stepLightboxZoom(delta) {
+      setLightboxZoom(lbScale + delta);
+    }
+
+    (function initLightboxPanZoom() {
+      const dialog = document.getElementById("lightbox-modal");
+      const stage = document.getElementById("lightbox-stage");
+      if (!dialog || !stage) return;
+
+      dialog.addEventListener("close", () => setLightboxZoom(1));
+
+      stage.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        const factor = e.deltaY < 0 ? 0.28 : -0.28;
+        setLightboxZoom(lbScale + factor);
+      }, { passive: false });
+
+      stage.addEventListener("mousedown", (e) => {
+        if (e.button !== 0 || lbScale <= 1.01) return;
+        lbDragging = true;
+        lbMoved = false;
+        lbStartX = e.clientX - lbTx;
+        lbStartY = e.clientY - lbTy;
+        stage.classList.add("is-dragging");
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        if (!lbDragging) return;
+        const nx = e.clientX - lbStartX;
+        const ny = e.clientY - lbStartY;
+        if (Math.hypot(nx - lbTx, ny - lbTy) > 4) lbMoved = true;
+        lbTx = nx;
+        lbTy = ny;
+        updateLightboxTransform();
+      });
+
+      window.addEventListener("mouseup", () => {
+        if (!lbDragging) return;
+        lbDragging = false;
+        stage.classList.remove("is-dragging");
+      });
+
+      stage.addEventListener("click", () => {
+        if (lbMoved) {
+          lbMoved = false;
+          return;
+        }
+        setLightboxZoom(lbScale > 1.2 ? 1 : 2.2);
+      });
+
+      stage.addEventListener("touchstart", (e) => {
+        if (e.touches.length !== 1 || lbScale <= 1.01) return;
+        lbDragging = true;
+        lbMoved = false;
+        lbStartX = e.touches[0].clientX - lbTx;
+        lbStartY = e.touches[0].clientY - lbTy;
+        stage.classList.add("is-dragging");
+      }, { passive: true });
+
+      stage.addEventListener("touchmove", (e) => {
+        if (!lbDragging || e.touches.length !== 1) return;
+        e.preventDefault();
+        lbTx = e.touches[0].clientX - lbStartX;
+        lbTy = e.touches[0].clientY - lbStartY;
+        lbMoved = true;
+        updateLightboxTransform();
+      }, { passive: false });
+
+      stage.addEventListener("touchend", () => {
+        lbDragging = false;
+        stage.classList.remove("is-dragging");
+      });
+    })();
+
     function openLightbox(src, titleText) {
       const dialog = document.getElementById("lightbox-modal");
       const img = document.getElementById("lightbox-img");
       const title = document.getElementById("lightbox-title");
+      setLightboxZoom(1);
       img.src = src;
       if (titleText) title.textContent = titleText;
       dialog.showModal();
