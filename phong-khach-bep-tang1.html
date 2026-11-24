@@ -625,7 +625,7 @@
 
         <div class="quick-bar">
           <a href="ho-so-xuong-noi-that.html" class="quick-link" style="border-color:rgba(16,185,129,0.75);background:rgba(16,185,129,0.2);color:#ecfdf5;">🔧 Mở Hồ Sơ Kỹ Thuật Giao Xưởng Tầng 1 (Đủ 7 Góc 3D + 5 Bản Vẽ Chia Khoang 2D) &rarr;</a>
-          <a href="#sec-3d" class="quick-link">✨ 1. Xem 7 Góc Phối Cảnh 3D Đồng Bộ (Warm Minimalist WM-06)</a>
+          <a href="#sec-3d" class="quick-link">✨ 1. Xem Phối Cảnh 3D WM-08 v2 (Đa Vật Liệu Plywood KES/Karma &amp; Veneer) &amp; WM-06</a>
           <a href="#sec-2d" class="quick-link">📐 2. Bản Vẽ Kỹ Thuật 2D &amp; Mặt Cắt Dọc Trần – Đèn – Điều Hòa</a>
           <a href="#sec-lighting" class="quick-link">💡 3. Bảng Phân Lộ Công Tắc Aqara &amp; 5 Kịch Bản Ánh Sáng</a>
           <a href="#sec-specs" class="quick-link">📋 4. Bảng Quy Cách 16 Hạng Mục Nội Thất &amp; M&amp;E Tầng 1</a>
@@ -639,13 +639,14 @@
     <!-- SECTION 1: INTERACTIVE 3D VIEWS OF THE UNIFIED GROUND FLOOR -->
     <section class="block" id="sec-3d">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px;">
-        <h2 class="section-title" style="margin-bottom:0;">✨ 1. Phối Cảnh 3D Đồng Bộ 100% Thực Tế Nhà Thật Tầng 1 (PA 1 Warm Minimalist WM-06 • Đủ 5 Góc V01 &rarr; V05)</h2>
+        <h2 class="section-title" style="margin-bottom:0;">✨ 1. Phối Cảnh 3D Chuẩn 100% Thực Tế Tầng 1 (PA Mới Duyệt: WM-08 v2 Đa Vật Liệu Plywood KES/Karma &amp; Veneer Inchem • Đủ 5 Góc V01 &rarr; V05)</h2>
         <div style="display:flex;gap:8px;flex-wrap:wrap;flex-wrap:balance;">
-          <button type="button" class="tab-btn active" id="tone-switch-wm06" onclick="setT1Tone('wm06')" style="padding:7px 14px;border-radius:999px;border-color:#cbd5e1;">🕊️ Phương Án Chuẩn: Warm Minimalist WM-06</button>
+          <button type="button" class="tab-btn active" id="tone-switch-wm08" onclick="setT1Tone('wm08')" style="padding:7px 14px;border-radius:999px;border-color:#6ee7b7;color:#ecfdf5;">🌿 PA Mới Duyệt: WM-08 v2 (Đa Vật Liệu • Plywood KES/Karma &amp; Veneer Inchem)</button>
+          <button type="button" class="tab-btn" id="tone-switch-wm06" onclick="setT1Tone('wm06')" style="padding:7px 14px;border-radius:999px;border-color:#cbd5e1;">🕊️ PA Tham Chiếu: Warm Minimalist WM-06</button>
         </div>
       </div>
       <p class="section-sub">
-        <strong>Đã đồng bộ trực tiếp theo chuẩn <a href="noi-that-toan-nha.html" style="color:var(--emerald-light);">Warm Minimalist WM-06</a>:</strong> Sắp xếp tuần tự <strong>5 góc khóa 360° (<code>V01 &rarr; V05</code>)</strong> khớp 100% bản vẽ công năng <code>KT-2.02 &amp; KT-4.06</code> (Tiền sảnh Travertine <code>D1</code> &bull; Phòng khách liên thông đúng <code>Cửa vườn Bắc D2</code> dưới trần phẳng <code>+3.40m</code> &amp; Quạt <code>Lộ 6A</code> &bull; Bếp chữ I kính Be tường Bắc, Đảo ngang <code>R400</code>, Tủ Cafe <code>0% kính</code> &amp; Cửa lùa <code>1,79m</code> ra Sân sau):
+        <strong>Mặc định hiển thị phương án vừa chốt <a href="noi-that-toan-nha.html" style="color:var(--emerald-light);">WM-08 v2</a> (Đa vật liệu Limestone mịn × Plywood KES <code>PLW S9</code> / Karma × Veneer sơn <code>Inchem</code> mờ, bàn trà đen mờ kiểu <code>PA7</code>)</strong>, giữ 1-click chuyển về <code>WM-06</code> để đối chiếu song song <strong>5 góc khóa 360° (<code>V01 &rarr; V05</code>)</strong> khớp 100% <code>KT-2.02 &amp; KT-4.06</code> (2 vách giếng trời <code>D2</code>, bàn ăn ngang Đông–Tây, bếp chữ I, đảo <code>R400</code> &amp; cửa sân sau <code>1,79m</code>):
       </p>
 
       <div class="tab-bar" role="tablist" aria-label="Các góc phối cảnh 3D Tầng 1">
@@ -674,29 +675,50 @@
 
       <div class="viewer-grid">
         <div class="img-frame">
-          <img id="main-3d-img" src="assets/warm_minimalist_wm06_t1_v02.jpg" alt="Phối cảnh 3D Tầng 1 PA 1 Warm Minimalist WM-06 chuẩn 100% công năng" onclick="openLightbox(this.src, document.getElementById('main-3d-caption').textContent)" />
+          <img id="main-3d-img" src="assets/wm08_v2_t1_v02_living_north.jpg" alt="Phối cảnh 3D Tầng 1 PA Mới Duyệt WM-08 v2 Đa Vật Liệu Plywood KES Karma & Veneer Inchem" onclick="openLightbox(this.src, document.getElementById('main-3d-caption').textContent)" />
           <div class="img-caption">
-            <span id="main-3d-caption">🕊️ PA 1 Warm Minimalist WM-06 (70% Kem Greige Phẳng Mờ × Travertine × Chỉ Đen 10%) — V02 • Phòng Khách nhìn Bắc: Vách Tivi đá Travertine 3,2m &amp; hốc gốm bo cong, bên phải khớp đúng Cửa vườn Bắc D2 + Bàn ăn dưới trần phẳng +3.40m &amp; Quạt Lộ 6 / 6A</span>
+            <span id="main-3d-caption">🌿 PA Mới Duyệt WM-08 v2 (Đa Vật Liệu • Plywood KES/Karma &amp; Veneer Inchem) — V02 • Phòng Khách nhìn Bắc: Bàn trà thấp đen mờ bo tròn PA7, cột R100 &amp; viền TV Veneer Plywood phối kính trà khói, bàn ăn Charcoal ngang Đông–Tây &amp; 2 vách giếng trời D2</span>
             <span>🔍 Bấm vào ảnh để phóng to 8K</span>
           </div>
         </div>
 
         <div class="info-panel" id="main-3d-info">
-          <h3>V02 • Phòng Khách Nhìn Bắc: Vách Tivi Đá Travertine 3.200mm &amp; Liên Thông Đúng Cửa Vườn Bắc D2</h3>
+          <h3>V02 • WM-08 v2 Phòng Khách Nhìn Bắc: Limestone Mịn × Cột Bo R100 Plywood/Veneer × Bàn Trà Đen Mờ PA7</h3>
           <ul class="check-list">
             <li>
-              <strong>1. Vách Tivi Đá <code>Roman Travertine</code> &amp; Cột Gỗ Óc Chó Bo Cong (<code>3.200 × 3.400 mm</code>):</strong>
-              Bỏ hộp đỡ Tivi cũ, thay bằng mảng đá <code>Travertine</code> liền mạch kết hợp cột bo tròn gỗ Óc chó <code>Karma Grain</code> có hốc trưng bày gốm hắt LED <code>2700K</code> và kệ treo bo <code>R60</code>.
+              <strong>1. Vách Tivi <code>Limestone</code> Kem Mịn &amp; Cột <code>R100</code> Phủ Veneer <code>Inchem</code> Mờ:</strong>
+              Giảm phụ thuộc Travertine rỗ: tâm vách TV dùng đá <code>Limestone / microcement</code> kem xám mịn phẳng; cột bo tròn <code>R100</code> trái + khe kính trà khói hắt LED &amp; nẹp viền phải phủ <strong>Veneer gỗ Du Nhật / Óc chó khói (<code>KES Kitami Ruester PLW S9 29435 / Karma Grain</code>) sơn PU <code>Inchem</code> siêu mờ</strong> ôm cong liền mạch không lộ mép chỉ, kệ treo <code>R60</code> màu <code>Karma Cashmere</code>.
             </li>
             <li>
-              <strong>2. Sofa Bệ Gỗ Óc Chó Bo <code>R60</code> Đệm Kem Sáng (<code>2.800 × 1.850 mm</code>):</strong>
-              Khoe trọn vân gỗ tự nhiên liền táp bên trái (tiết kiệm chi phí bọc da khung) trên nền gạch mờ <code>1000×1000mm</code>.
+              <strong>2. Sofa Da Kem Mịn &amp; Bàn Trà Thấp Đen Mờ Bo Tròn Kiểu <code>PA7</code>:</strong>
+              Giữ mặt sau Sofa L phẳng sạch thoáng (<code>~1,5m</code> hành lang sau lưng) trên gạch mờ <code>1000×1000mm</code> Limestone xám ngà nhạt; bàn trà thấp đen mờ bo tròn organic an toàn &amp; gọn dáng.
             </li>
             <li>
-              <strong>3. Chuẩn Xác 100% Hốc Tường Thông Tầng <code>D2</code> &amp; Bàn Ăn Xoay Ngang Đông–Tây:</strong>
-              Ngay bên phải Vách Tivi là <strong>02 bức tường xây nhô vuông góc kẹp hai bên hốc cửa khu vực thông tầng <code>D2 (1.800mm)</code></strong>; phía trước là <strong>Bàn ăn 8 ghế xoay ngang Đông–Tây</strong> (song song tường Bắc &amp; cầu thang bộ) dưới trần phẳng <code>+3.40m</code> &amp; Quạt <code>Lộ 6A</code>!
+              <strong>3. Chuẩn Xác 100% <code>D2</code> Giếng Trời &amp; Bàn Ăn Charcoal Xoay Ngang Đông–Tây:</strong>
+              Giữ đúng <strong>02 bức tường xây nhô kẹp cửa kính giếng trời <code>D2</code></strong>; bàn ăn 8 ghế đá <code>Charcoal</code> tối đặt <strong>ngang Đông–Tây</strong> phối ghế da bò trầm ăn nhập tủ bếp Sồi khói &amp; đảo <code>R400</code> <code>Sand Limestone</code> phía sau.
             </li>
           </ul>
+        </div>
+      </div>
+
+      <!-- WM-08 v2 Side-by-Side Showcase & Hybrid 70/30 Wood Spec Strip -->
+      <div style="margin-top:16px;padding:16px;border-radius:14px;background:rgba(15,23,42,0.82);border:1px solid rgba(16,185,129,0.42);">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:12px;">
+          <strong style="font-size:0.9rem;color:#6ee7b7;">🌿 TỔNG QUAN PHƯƠNG ÁN MỚI DUYỆT WM-08 v2 TẦNG 1 (KHÁCH &amp; BẾP) + ĐỊNH HƯỚNG VẬT LIỆU HYBRID 70/30</strong>
+          <span style="font-size:0.78rem;color:#cbd5e1;">Bấm thẳng vào từng ảnh để phóng to đối chiếu Phòng Khách <code>T1-V02</code> &amp; Bếp <code>T1-V04</code>:</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;">
+          <div style="background:rgba(7,11,18,0.72);border:1px solid rgba(16,185,129,0.38);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm08_v2_t1_v02_living_north.jpg', 'T1-V02 WM-08 v2 • Phòng Khách & Bàn Ăn Nhìn Bắc (Bàn trà đen mờ PA7 + Cột R100 Plywood/Veneer)')">
+            <img src="assets/wm08_v2_t1_v02_living_north.jpg" alt="T1-V02 WM-08 v2 Phòng khách bàn trà PA7 và cột R100 Plywood Veneer" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:10px 12px;font-size:0.8rem;line-height:1.48;color:#e2e8f0;"><strong style="color:#6ee7b7;">T1-V02 (Khách Nhìn Bắc):</strong> Đá <code>Limestone</code> kem mịn <code>0%</code> rỗ vàng • Cột <code>R100</code> + tủ kính trà khói phủ <strong>Plywood Veneer sơn <code>Inchem</code> mờ</strong> • Bàn trà thấp đen mờ kiểu <code>PA7</code> • Bàn ăn 8 ghế ngang Đông–Tây cách Sofa <code>~1,5m</code>.</div>
+          </div>
+          <div style="background:rgba(7,11,18,0.72);border:1px solid rgba(16,185,129,0.38);border-radius:10px;overflow:hidden;cursor:pointer;" onclick="openLightbox('assets/wm08_v2_t1_v04_dining_kitchen.jpg', 'T1-V04 WM-08 v2 • Bếp Sồi Khói + Hốc Cafe Vòm + Đảo R400 Limestone & Bàn Ăn Charcoal')">
+            <img src="assets/wm08_v2_t1_v04_dining_kitchen.jpg" alt="T1-V04 WM-08 v2 Bếp Sồi khói hốc vòm Cafe đảo R400 Sand Limestone" width="1376" height="768" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;" />
+            <div style="padding:10px 12px;font-size:0.8rem;line-height:1.48;color:#e2e8f0;"><strong style="color:#6ee7b7;">T1-V04 (Ăn – Bếp Nhìn Đông):</strong> Hệ tủ Sồi khói sáng (<code>KES PLW S9 Giorgio/Santana Oak • Karma Origin</code>) ôm hộp tủ trên khung trắng kem lì • 01 hộc rượu kính trà khói • Vòm Cafe hắt sáng + Đảo <code>R400 Sand Limestone</code> &amp; cửa gỗ <code>D3</code>.</div>
+          </div>
+        </div>
+        <div style="margin-top:12px;padding:10px 14px;border-radius:10px;background:rgba(16,185,129,0.1);border:1px dashed rgba(16,185,129,0.45);font-size:0.82rem;color:#e2e8f0;line-height:1.55;">
+          <strong style="color:#fde68a;">🪵 Quy cách Hybrid 70/30 cho Q Villa:</strong> <strong>70% mảng tủ lớn</strong> dùng cốt <code>Plywood ENF/E0</code> phủ Melamine/Laminate đồng bộ <strong>KES <code>PLW S9</code></strong> (<code>Giorgio Oak 21611</code>, <code>Banstead Oak 21923</code>, <code>Santana Oak 21388</code>) &amp; <strong>Karma</strong> (<code>Cashmere</code>, <code>Origin</code>, <code>Strata</code>) giúp chống ẩm, chống trầy &amp; tối ưu ngân sách; <strong>30% điểm nhấn &amp; đầu bo cong <code>R60–R100</code></strong> (cột TV <code>R100</code>, viền vách TV, hốc Cafe &amp; cửa <code>D3</code>) dùng <strong>Plywood phủ Veneer (Tự nhiên hoặc Kỹ thuật) sơn PU <code>Inchem / AkzoNobel</code> siêu mờ</strong> (vân <code>Kitami Ruester 29435 / Karma Grain</code>), ôm cong mượt không lộ đường chỉ mép và hạn chế ố vàng dưới nắng <code>V1 / D2</code>.
         </div>
       </div>
     </section>
@@ -1046,7 +1068,7 @@
 
   <script src="assets/qvilla-nav.js" defer></script>
   <script>
-    let currentT1Tone = "wm06";
+    let currentT1Tone = "wm08";
     let currentT1Key = "v02_living_north";
 
     const VIEWS = {
@@ -1055,6 +1077,14 @@
         imgBt04: "assets/boutique_bt04_greigemocha_t1_v02.jpg",
         imgBt05: "assets/boutique_bt05_caramelbasalt_t1_v02.jpg",
         imgWm06: "assets/warm_minimalist_wm06_t1_v02.jpg",
+        imgWm08: "assets/wm08_v2_t1_v02_living_north.jpg",
+        captionWm08: "V02 • WM-08 v2 Phòng Khách nhìn Bắc: Bàn trà thấp đen mờ PA7, cột R100 & viền TV Veneer Plywood phối kính trà khói, bàn ăn Charcoal ngang Đông–Tây & 2 vách giếng trời D2",
+        titleWm08: "V02 • WM-08 v2 Phòng Khách Nhìn Bắc: Limestone Mịn × Cột Bo R100 Plywood/Veneer × Bàn Trà Đen Mờ PA7",
+        itemsWm08: [
+          "<strong>1. Vách Tivi <code>Limestone</code> Kem Mịn &amp; Cột <code>R100</code> Phủ Veneer <code>Inchem</code> Mờ:</strong> Giảm phụ thuộc Travertine rỗ: tâm vách TV dùng đá <code>Limestone / microcement</code> kem xám mịn phẳng; cột bo tròn <code>R100</code> trái + khe kính trà khói hắt LED &amp; nẹp viền phải phủ <strong>Veneer gỗ Du Nhật / Óc chó khói (<code>KES Kitami Ruester PLW S9 29435 / Karma Grain</code>) sơn PU <code>Inchem</code> siêu mờ</strong> ôm cong liền mạch, kệ treo <code>R60</code> màu <code>Karma Cashmere</code>.",
+          "<strong>2. Sofa Da Kem Mịn &amp; Bàn Trà Thấp Đen Mờ Bo Tròn Kiểu <code>PA7</code>:</strong> Giữ mặt sau Sofa L phẳng sạch thoáng (<code>~1,5m</code> hành lang sau lưng) trên gạch mờ <code>1000×1000mm</code> Limestone xám ngà nhạt; bàn trà thấp đen mờ bo tròn organic an toàn &amp; gọn dáng.",
+          "<strong>3. Chuẩn Xác 100% <code>D2</code> Giếng Trời &amp; Bàn Ăn Charcoal Xoay Ngang Đông–Tây:</strong> Giữ đúng <strong>02 bức tường xây nhô kẹp cửa kính giếng trời <code>D2</code></strong>; bàn ăn 8 ghế đá <code>Charcoal</code> tối đặt <strong>ngang Đông–Tây</strong> phối ghế da bò trầm ăn nhập tủ bếp Sồi khói &amp; đảo <code>R400</code> <code>Sand Limestone</code> phía sau."
+        ],
         caption: "V02 • Phòng Khách nhìn Bắc: Vách Tivi đá Travertine 3,2m & hốc gốm bo cong, bên phải khớp đúng 02 bức tường xây kẹp cửa thông tầng D2 + Bàn ăn 8 ghế xoay ngang Đông–Tây dưới trần phẳng +3.40m & Quạt Lộ 6 / 6A",
         title: "V02 • Phòng Khách Nhìn Bắc: Vách Tivi Đá Travertine 3.200mm • 02 Bức Tường Hốc Thông Tầng D2 & Bàn Ăn Xoay Ngang",
         items: [
@@ -1088,6 +1118,14 @@
       v04_dining_kitchen: {
         img349: "assets/wow_t1_v04_dining_kitchen.jpg",
         imgWm06: "assets/warm_minimalist_wm06_t1_v04_dining_kitchen.jpg",
+        imgWm08: "assets/wm08_v2_t1_v04_dining_kitchen.jpg",
+        captionWm08: "V04 • WM-08 v2 Phòng Ăn nhìn Đông: Bếp Sồi khói KES/Karma + hộp tủ trên khung trắng kem lì, 01 khoang rượu kính trà khói, vòm Cafe, Đảo R400 Sand Limestone & Cửa lùa sân sau 1,79m",
+        titleWm08: "V04 • WM-08 v2 Ăn – Bếp Nhìn Đông: Gỗ Sồi Khói Plywood KES/Karma × Limestone R400 × Bàn Ăn Charcoal",
+        itemsWm08: [
+          "<strong>1. Hệ Tủ Bếp Chữ I <code>4.950mm</code> Phối Đa Vật Liệu (Sồi Khói × Hộp Trắng Kem Lì):</strong> Vỏ tủ cao dùng Plywood <code>KES PLW S9 Giorgio/Santana Oak / Karma Origin</code> ôm khung viền trắng định hình cho hộp tủ trên màu kem sáng mịn, đồng bộ cánh kính/gỗ sạch dầu mỡ &amp; nhìn thẳng <strong>Cửa kính lùa <code>1.790mm</code></strong> ra Bếp ướt Sân sau.",
+          "<strong>2. Đảo Ngang Trục 3 Bo <code>R400</code> Phủ <code>Sand Limestone</code> &amp; Hốc Vòm Cafe (<code>01</code> Tủ Rượu Kính Trà Khói):</strong> Đảo bo tròn <code>R400</code> bề mặt <code>Limestone</code> cát mịn không lỗ rỗ kết hợp ghế bar da bò trầm; tủ phụ <code>2,8m</code> sau <code>Cửa gỗ D3</code> phủ Veneer Sồi khói sơn mờ <code>Inchem</code> giữ đúng 1 hốc rượu kính trà khói LED.",
+          "<strong>3. Trần Phẳng <code>+3.40m</code>, Quạt <code>Lộ 6A</code> &amp; Bàn Ăn 8 Ghế Đá <code>Charcoal</code>:</strong> Mặt bàn ăn tối lì đồng điệu nền gạch Limestone sáng xám <code>1000×1000</code>, lộ chuẩn ổ âm sàn <code>S1</code>."
+        ],
         caption: "V04 • Phòng Ăn nhìn Đông chuẩn 100% công năng: Bếp kính Be tường trái + Đảo bán đảo ngang Trục 3 bo R400 + Tủ Cafe 0% kính tường phải & Cửa lùa 1,79m ra Sân sau chính diện",
         title: "V04 • Phòng Ăn 8 Ghế + Bếp Kính Be Tường Bắc + Đảo Ngang R400 & Cửa Sân Sau Chính Diện",
         items: [
@@ -1131,7 +1169,7 @@
 
     function setT1Tone(tone) {
       currentT1Tone = tone;
-      ["wm06", "studio349", "bt04", "bt05"].forEach(t => {
+      ["wm08", "wm06", "studio349", "bt04", "bt05"].forEach(t => {
         const el = document.getElementById("tone-switch-" + t);
         if (el) el.classList.toggle("active", tone === t);
       });
@@ -1146,9 +1184,20 @@
       if (!data) return;
       currentT1Key = key;
       let resolvedSrc = data.img;
+      let resolvedTitle = data.title;
+      let resolvedItems = data.items;
+      let resolvedCaption = data.caption;
       let tonePrefix = "";
       if (!data.img) {
-        if (currentT1Tone === "bt04") {
+        if (currentT1Tone === "wm08") {
+          resolvedSrc = data.imgWm08 || data.imgWm06 || data.img349;
+          resolvedTitle = data.titleWm08 || data.title;
+          resolvedItems = data.itemsWm08 || data.items;
+          resolvedCaption = data.captionWm08 || data.caption;
+          tonePrefix = data.imgWm08
+            ? "🌿 PA Mới Duyệt WM-08 v2 (Đa Vật Liệu • Plywood KES/Karma & Veneer Inchem) — "
+            : "🌿 WM-08 v2 (Đang hiển thị góc bố cục tham chiếu WM-06) — ";
+        } else if (currentT1Tone === "bt04") {
           resolvedSrc = data.imgBt04 || data.imgWm06 || data.img349;
           tonePrefix = data.imgBt04 ? "🏙️ Hiện Đại BT-04 (Sồi Khói Ghi Mocha LK 10902 I / Karma Raw — Khớp Đá Ghi T2) — " : "🕊️ PA 1 WM-06 — ";
         } else if (currentT1Tone === "bt05") {
@@ -1156,25 +1205,27 @@
           tonePrefix = data.imgBt05 ? "☀️ Hiện Đại BT-05 (Gỗ Caramel Sọc Thẳng × Cánh Ghi Bazan — Khớp Lam Gỗ T3) — " : "🕊️ PA 1 WM-06 — ";
         } else if (currentT1Tone === "wm06") {
           resolvedSrc = data.imgWm06 || data.img349;
-          tonePrefix = data.imgWm06 ? "🕊️ PA 1 Warm Minimalist WM-06 (70% Kem Greige Phẳng Mờ × Travertine × Chỉ Đen 10%) — " : "🪵 PA 2 Vân Gỗ & Travertine — ";
+          tonePrefix = data.imgWm06 ? "🕊️ PA 1 Warm Minimalist WM-06 (70% Kem Greige Phẳng Mờ × Travertine × Chỉ Đen 10%) — " : "🕊️ PA Tham Chiếu WM-06 — ";
         } else {
-          resolvedSrc = data.img349;
-          tonePrefix = "🪵 PA 2 Modern Luxury × Vân Gỗ & Travertine — ";
+          resolvedSrc = data.img349 || data.imgWm06;
+          tonePrefix = "🕊️ PA Tham Chiếu WM-06 — ";
         }
       }
       document.getElementById("main-3d-img").src = resolvedSrc;
-      document.getElementById("main-3d-caption").textContent = tonePrefix + data.caption;
+      document.getElementById("main-3d-caption").textContent = tonePrefix + resolvedCaption;
       const infoEl = document.getElementById("main-3d-info");
       infoEl.innerHTML = `
-        <h3>${data.title}</h3>
+        <h3>${resolvedTitle}</h3>
         <ul class="check-list">
-          ${data.items.map(it => `<li>${it}</li>`).join("")}
+          ${resolvedItems.map(it => `<li>${it}</li>`).join("")}
         </ul>
       `;
       document.querySelectorAll("#sec-3d .tab-bar .tab-btn").forEach(btn => btn.classList.remove("active"));
       const activeBtn = document.getElementById("tab-" + key);
       if (activeBtn) activeBtn.classList.add("active");
     }
+
+    switch3D("v02_living_north");
 
     function openLightbox(src, titleText) {
       const dialog = document.getElementById("lightbox-modal");
