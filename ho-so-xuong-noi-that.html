@@ -1216,15 +1216,15 @@
         <div class="palette-picker-wrap">
           <button type="button" class="palette-trigger-btn" id="btn-palette-picker" popovertarget="palette-mode-popover" aria-controls="palette-mode-popover" aria-expanded="false">
             <span class="swatch-dot" id="active-palette-dot" style="background:linear-gradient(135deg,#dfd9cf,#f59e0b);"></span>
-            <span class="long-lbl" id="active-palette-long">PA Mới Duyệt: WM-08 v2</span>
-            <span class="short-lbl" id="active-palette-short" aria-hidden="true">WM-08 v2</span>
+            <span class="long-lbl" id="active-palette-long">PA Mới Duyệt: WM-08 Plus</span>
+            <span class="short-lbl" id="active-palette-short" aria-hidden="true">WM-08 Plus</span>
             <span class="qv-chev" aria-hidden="true">▾</span>
           </button>
           <div id="palette-mode-popover" class="qv-popover-panel" popover="auto" role="group" aria-label="Chọn phương án thiết kế mới">
             <div class="qv-pop-sec-title">🎨 Chọn Phương Án Thiết Kế Nội Thất</div>
             <button type="button" class="tone-btn" id="btn-mode-wm08" data-close-popover="1" aria-pressed="true" onclick="setPaletteMode('wm08')">
               <span class="swatch-dot" style="background:linear-gradient(135deg,#dfd9cf,#f59e0b);"></span>
-              <span>🌿 PA Mới Duyệt #1: WM-08 v2 Đa Vật Liệu Plywood KES/Karma &amp; Veneer Inchem — Trọn Bộ 3 Tầng</span>
+              <span>✨ PA Mới Duyệt #1: WM-08 Plus (Plywood KES/Karma • Veneer Inchem &amp; Đồng Xước PVD) — Trọn Bộ 3 Tầng</span>
             </button>
             <button type="button" class="tone-btn" id="btn-mode-wm06min" data-close-popover="1" aria-pressed="false" onclick="setPaletteMode('wm06min')">
               <span class="swatch-dot" style="background:linear-gradient(135deg,#dfd9cf,#10b981);"></span>
@@ -3656,14 +3656,14 @@
 
     const WM08_V2_OVERRIDES = {
       v01: "assets/wm08_v2_t1_v01_foyer.jpg",
-      v02: "assets/wm08_v2_t1_v02_living_north.jpg",
+      v02: "assets/wm08_plus_t1_v02_living_north.jpg",
       v03: "assets/wm08_v2_t1_v03_living_rev.jpg",
-      v04: "assets/wm08_v2_t1_v04_dining_kitchen.jpg",
+      v04: "assets/wm08_plus_t1_v04_dining_kitchen.jpg",
       v05: "assets/wm08_v2_t1_v05_kitchen_rev.jpg",
       v06: "assets/wm08_v2_t1_v06_grandparents_south.jpg",
       v07: "assets/wm08_v2_t1_v07_grandparents_north.jpg",
       t2v01: "assets/wm08_v2_t2_v01_master_south.jpg",
-      t2v02: "assets/wm08_v2_t2_v02_master_bed.jpg",
+      t2v02: "assets/wm08_plus_t2_v02_master_bed.jpg",
       t2v03: "assets/wm08_v2_t2_v03_master_wic.jpg",
       t2v04: "assets/wm08_v2_t2_v04_wic_south.jpg",
       t2v05: "assets/wm08_v2_t2_v05b_lounge_hall.jpg",
@@ -3735,7 +3735,7 @@
 
     function getToneMeta(mode) {
       if (mode === "wm08") {
-        return { tag: "🌿 PA Mới Duyệt: WM-08 v2 (Plywood KES/Karma & Veneer Inchem)", full: "🌿 PA Mới Duyệt #1: WM-08 v2 — Đa Vật Liệu Limestone Mịn × Hybrid 70/30 Plywood KES/Karma & Veneer Sơn Inchem Mờ (0% Phù Điêu)" };
+        return { tag: "✨ PA Mới Duyệt: WM-08 Plus (Plywood/Veneer & Đồng Xước PVD)", full: "✨ PA Mới Duyệt #1: WM-08 Plus — Limestone Mịn × Hybrid 70/30 Plywood KES/Karma & Veneer Inchem × Điểm Nhấn Đồng Champagne/Hun PVD (0% Phù Điêu)" };
       }
       if (mode === "wm06min") {
         return { tag: "🕊️ PA 1A (Mới #1): WM-06 Bo Cong Tinh Chỉnh", full: "🕊️ PA 1A (Mới Tinh Chỉnh: WM-06 Bo Cong An Toàn R60–R120 • Vách Kịch Trần 280mm Âm TV 65\" • 0% Cửa Lùa)" };
@@ -4419,8 +4419,8 @@
     const PALETTE_PICKER_META = {
       wm08: {
         dot: "linear-gradient(135deg,#dfd9cf,#f59e0b)",
-        longText: "PA Mới Duyệt: WM-08 v2",
-        shortText: "WM-08 v2"
+        longText: "PA Mới Duyệt: WM-08 Plus",
+        shortText: "WM-08 Plus"
       },
       wm06min: {
         dot: "linear-gradient(135deg,#dfd9cf,#10b981)",
