@@ -1215,16 +1215,20 @@
 
         <div class="palette-picker-wrap">
           <button type="button" class="palette-trigger-btn" id="btn-palette-picker" popovertarget="palette-mode-popover" aria-controls="palette-mode-popover" aria-expanded="false">
-            <span class="swatch-dot" id="active-palette-dot" style="background:linear-gradient(135deg,#dfd9cf,#10b981);"></span>
-            <span class="long-lbl" id="active-palette-long">PA 1A: WM-06 Bo Cong Tinh Chỉnh</span>
-            <span class="short-lbl" id="active-palette-short" aria-hidden="true">PA 1A: Mới</span>
+            <span class="swatch-dot" id="active-palette-dot" style="background:linear-gradient(135deg,#dfd9cf,#f59e0b);"></span>
+            <span class="long-lbl" id="active-palette-long">PA Mới Duyệt: WM-08 v2</span>
+            <span class="short-lbl" id="active-palette-short" aria-hidden="true">WM-08 v2</span>
             <span class="qv-chev" aria-hidden="true">▾</span>
           </button>
           <div id="palette-mode-popover" class="qv-popover-panel" popover="auto" role="group" aria-label="Chọn phương án thiết kế mới">
-            <div class="qv-pop-sec-title">🎨 Chọn Biến Thể Warm Minimalist WM-06</div>
-            <button type="button" class="tone-btn" id="btn-mode-wm06min" data-close-popover="1" aria-pressed="true" onclick="setPaletteMode('wm06min')">
+            <div class="qv-pop-sec-title">🎨 Chọn Phương Án Thiết Kế Nội Thất</div>
+            <button type="button" class="tone-btn" id="btn-mode-wm08" data-close-popover="1" aria-pressed="true" onclick="setPaletteMode('wm08')">
+              <span class="swatch-dot" style="background:linear-gradient(135deg,#dfd9cf,#f59e0b);"></span>
+              <span>🌿 PA Mới Duyệt #1: WM-08 v2 Đa Vật Liệu Plywood KES/Karma &amp; Veneer Inchem — Trọn Bộ 3 Tầng</span>
+            </button>
+            <button type="button" class="tone-btn" id="btn-mode-wm06min" data-close-popover="1" aria-pressed="false" onclick="setPaletteMode('wm06min')">
               <span class="swatch-dot" style="background:linear-gradient(135deg,#dfd9cf,#10b981);"></span>
-              <span>🕊️ PA 1A (Đề Xuất #1): WM-06 Bo Cong Tinh Chỉnh — Vách Kịch Trần TV 65", Khe Đứng 800mm (0% Cửa Lùa)</span>
+              <span>🕊️ PA 1A (Tham Chiếu): WM-06 Bo Cong Tinh Chỉnh — Vách Kịch Trần TV 65", Khe Đứng 800mm (0% Cửa Lùa)</span>
             </button>
             <button type="button" class="tone-btn" id="btn-mode-wm06" data-close-popover="1" aria-pressed="false" onclick="setPaletteMode('wm06')">
               <span class="swatch-dot" style="background:linear-gradient(135deg,#dfd9cf,#1f2328);"></span>
@@ -3650,6 +3654,31 @@
       t3v06: "assets/warm_minimalist_wm06_t3_v06_skylight_hall.jpg"
     };
 
+    const WM08_V2_OVERRIDES = {
+      v01: "assets/wm08_v2_t1_v01_foyer.jpg",
+      v02: "assets/wm08_v2_t1_v02_living_north.jpg",
+      v03: "assets/wm08_v2_t1_v03_living_rev.jpg",
+      v04: "assets/wm08_v2_t1_v04_dining_kitchen.jpg",
+      v05: "assets/wm08_v2_t1_v05_kitchen_rev.jpg",
+      v06: "assets/wm08_v2_t1_v06_grandparents_south.jpg",
+      v07: "assets/wm08_v2_t1_v07_grandparents_north.jpg",
+      t2v01: "assets/wm08_v2_t2_v01_master_south.jpg",
+      t2v02: "assets/wm08_v2_t2_v02_master_bed.jpg",
+      t2v03: "assets/wm08_v2_t2_v03_master_wic.jpg",
+      t2v04: "assets/wm08_v2_t2_v04_wic_south.jpg",
+      t2v05: "assets/wm08_v2_t2_v05b_lounge_hall.jpg",
+      t2v06: "assets/wm08_v2_t2_v06_pn1_north.jpg",
+      t2v07: "assets/wm08_v2_t2_v07_pn1_south.jpg",
+      t2v08: "assets/wm08_v2_t2_v08_pn2_south.jpg",
+      t2v09: "assets/wm08_v2_t2_v09_pn2_north.jpg",
+      t3v01: "assets/wm08_v2_t3_v01_study_south.jpg",
+      t3v02: "assets/wm08_v2_t3_v02_study_north.jpg",
+      t3v03: "assets/wm08_v2_t3_v03_pn3_north.jpg",
+      t3v04: "assets/wm08_v2_t3_v04_pn3_south.jpg",
+      t3v05: "assets/wm08_v2_t3_v05_pn4_south.jpg",
+      t3v06: "assets/wm08_v2_t3_v06_skylight_hall.jpg"
+    };
+
     const MODE_OVERRIDES = {
       studio349leather: {
         t2v01: "assets/master_vach_optC.jpg",
@@ -3663,6 +3692,7 @@
         v02: "assets/boutique_bt05_caramelbasalt_t1_v02.jpg",
         t2v02: "assets/boutique_bt05_caramelbasalt_t2_v02.jpg"
       },
+      wm08: WM08_V2_OVERRIDES,
       wm06: WM06_BASE_OVERRIDES,
       wm06min: {
         ...WM06_BASE_OVERRIDES,
@@ -3704,6 +3734,9 @@
     };
 
     function getToneMeta(mode) {
+      if (mode === "wm08") {
+        return { tag: "🌿 PA Mới Duyệt: WM-08 v2 (Plywood KES/Karma & Veneer Inchem)", full: "🌿 PA Mới Duyệt #1: WM-08 v2 — Đa Vật Liệu Limestone Mịn × Hybrid 70/30 Plywood KES/Karma & Veneer Sơn Inchem Mờ (0% Phù Điêu)" };
+      }
       if (mode === "wm06min") {
         return { tag: "🕊️ PA 1A (Mới #1): WM-06 Bo Cong Tinh Chỉnh", full: "🕊️ PA 1A (Mới Tinh Chỉnh: WM-06 Bo Cong An Toàn R60–R120 • Vách Kịch Trần 280mm Âm TV 65\" • 0% Cửa Lùa)" };
       }
@@ -4384,6 +4417,11 @@
     }
 
     const PALETTE_PICKER_META = {
+      wm08: {
+        dot: "linear-gradient(135deg,#dfd9cf,#f59e0b)",
+        longText: "PA Mới Duyệt: WM-08 v2",
+        shortText: "WM-08 v2"
+      },
       wm06min: {
         dot: "linear-gradient(135deg,#dfd9cf,#10b981)",
         longText: "PA 1A: WM-06 Bo Cong Tinh Chỉnh",
@@ -4423,11 +4461,11 @@
 
     function setPaletteMode(mode) {
       currentPaletteMode = mode;
-      ["wm06min", "wm06", "studio349", "studio349leather", "bt04", "bt05", "split"].forEach(m => {
+      ["wm08", "wm06min", "wm06", "studio349", "studio349leather", "bt04", "bt05", "split"].forEach(m => {
         const btn = document.getElementById("btn-mode-" + m);
         if (btn) btn.setAttribute("aria-pressed", m === mode ? "true" : "false");
       });
-      const meta = PALETTE_PICKER_META[mode] || PALETTE_PICKER_META.wm06min;
+      const meta = PALETTE_PICKER_META[mode] || PALETTE_PICKER_META.wm08;
       const dotEl = document.getElementById("active-palette-dot");
       const longEl = document.getElementById("active-palette-long");
       const shortEl = document.getElementById("active-palette-short");
@@ -4540,7 +4578,7 @@
       });
     });
 
-    setPaletteMode("wm06min");
+    setPaletteMode("wm08");
     if (window.location.hash) {
       syncFloorFromHash();
     } else if (!("onbeforematch" in HTMLElement.prototype)) {
