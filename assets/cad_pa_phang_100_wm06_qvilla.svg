@@ -1,0 +1,330 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 920" width="1680" height="920">
+  <defs>
+    <pattern id="hatch-conc-p" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="10" height="10" fill="#cbd5e1"/>
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#475569" stroke-width="1.3"/>
+    </pattern>
+    <pattern id="hatch-c2-p" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+      <rect width="12" height="12" fill="#ecfdf5"/>
+      <line x1="0" y1="0" x2="0" y2="12" stroke="#10b981" stroke-width="1.1" stroke-opacity="0.45"/>
+    </pattern>
+    <marker id="tick-p" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <line x1="2" y1="8" x2="8" y2="2" stroke="#dc2626" stroke-width="1.8"/>
+    </marker>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+      .h1 { font-size: 18.6px; font-weight: 800; fill: #ffffff; }
+      .sub { font-size: 11.4px; font-weight: 600; fill: #cbd5e1; }
+      .card-bg { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1.5; }
+      .card-hdr { fill: #0f172a; }
+      .card-hdr-txt { font-size: 11.3px; font-weight: 800; fill: #ffffff; text-anchor: middle; }
+      .wall { fill: #ffffff; stroke: #334155; stroke-width: 2; }
+      .reveal-black { fill: none; stroke: #0f172a; stroke-width: 2.8; }
+      .track-48v { fill: #0f172a; rx: 2; }
+      .led-linear { fill: #fef08a; stroke: #d97706; stroke-width: 1.4; rx: 2; }
+      .ac-slot { fill: #e0f2fe; stroke: #0284c7; stroke-width: 1.6; }
+      .curtain { fill: #fef3c7; stroke: #d97706; stroke-width: 1.6; }
+      .spot { fill: #ffffff; stroke: #0284c7; stroke-width: 1.8; }
+      .dim { stroke: #dc2626; stroke-width: 1.3; marker-start: url(#tick-p); marker-end: url(#tick-p); }
+      .lbl-b { font-size: 10.3px; font-weight: 800; fill: #0f172a; text-anchor: middle; }
+      .lbl-s { font-size: 9.2px; font-weight: 600; fill: #334155; text-anchor: middle; }
+      .pill-sky { fill: #e0f2fe; stroke: #0284c7; stroke-width: 1.4; }
+      .pill-sky-t { font-size: 9.4px; font-weight: 800; fill: #0369a1; text-anchor: middle; }
+      .pill-em { fill: #ecfdf5; stroke: #059669; stroke-width: 1.4; }
+      .pill-em-t { font-size: 9.4px; font-weight: 800; fill: #065f46; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect width="1680" height="920" fill="#ffffff"/>
+
+  <!-- TOP TITLE BAR -->
+  <rect x="0" y="0" width="1680" height="72" fill="#0f172a"/>
+  <rect x="16" y="14" width="164" height="44" rx="8" fill="#38bdf8"/>
+  <text x="98" y="32" style="font-size:10.2px;font-weight:900;fill:#082f49;text-anchor:middle;">PHƯƠNG ÁN 2 • CHỌN LỌC</text>
+  <text x="98" y="48" style="font-size:12px;font-weight:900;fill:#0c4a6e;text-anchor:middle;">KT-PHANG.01 • PHẲNG CONG</text>
+  <text x="194" y="34" class="h1">TRẦN PHẲNG 100% KHÔNG GIẬT CẤP + CHỈ NHỰA ÂM ĐEN 12MM BO CONG R300–R350MM (4 TẦNG Q-VILLA)</text>
+  <text x="194" y="55" class="sub">Phẳng tuyệt đối 1 cốt (+3.40m T1 • +3.00m Master • +3.13m T2–T3) • Tạo điểm nhấn sang trọng bằng chỉ âm đen 12mm bo góc R300–R350 + LED hốc rèm • 0% khe bụi • ~54,90Tr</text>
+  <rect x="1484" y="16" width="178" height="40" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1.6"/>
+  <text x="1573" y="41" style="font-size:11.6px;font-weight:800;fill:#bae6fd;text-anchor:middle;">PHẲNG + CHỈ R300</text>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 1: FLOOR 1 DEAD-FLAT + CURVED 12MM BLACK REVEAL R350/R300         -->
+  <!-- ======================================================================= -->
+  <g transform="translate(26, 94)">
+    <rect width="528" height="382" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">01. MẶT BẰNG TẦNG 1: PHẲNG +3.400MM + CHỈ ÂM ĐEN BO CONG R350 (KHÁCH) &amp; R300 (SẢNH)</text>
+
+    <!-- Living + Dining + Kitchen unified flat slab -->
+    <rect x="26" y="54" width="332" height="248" class="wall"/>
+    <!-- Left West Curtain Pelmet + 3000K LED -->
+    <rect x="28" y="56" width="20" height="244" class="curtain"/>
+    <text x="38" y="178" transform="rotate(-90 38 178)" style="font-size:8.4px;font-weight:800;fill:#b45309;text-anchor:middle;">HỐC RÈM 215 + LED 3000K</text>
+
+    <!-- Kitchen soffit bulkhead +2.800 on North -->
+    <rect x="218" y="56" width="138" height="32" fill="url(#hatch-c2-p)" stroke="#059669" stroke-width="1.6"/>
+    <text x="287" y="76" style="font-size:8.4px;font-weight:800;fill:#065f46;text-anchor:middle;">TRÁN TỦ BẾP C2 (+2.800)</text>
+
+    <!-- AC linear slots outside black reveal -->
+    <rect x="64" y="70" width="118" height="7" class="ac-slot"/>
+    <rect x="64" y="278" width="118" height="7" class="ac-slot"/>
+    <rect x="228" y="98" width="96" height="7" class="ac-slot"/>
+
+    <!-- Curved 12mm black reveal R350 on flat ceiling -->
+    <rect x="62" y="88" width="144" height="178" rx="30" class="reveal-black"/>
+
+    <!-- Two parallel flush 48V tracks + Ceiling Fan center -->
+    <rect x="86" y="114" width="96" height="5" class="track-48v"/>
+    <rect x="86" y="236" width="96" height="5" class="track-48v"/>
+    <circle cx="134" cy="176" r="20" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.8" stroke-dasharray="4,3"/>
+    <circle cx="134" cy="176" r="4" fill="#0369a1"/>
+    <text x="134" y="148" style="font-size:8.3px;font-weight:800;fill:#0369a1;text-anchor:middle;">QUẠT TRẦN L6</text>
+    <text x="134" y="216" style="font-size:8.5px;font-weight:800;fill:#0f172a;text-anchor:middle;">PHẲNG + CHỈ R350</text>
+
+    <!-- Dining zone -->
+    <circle cx="286" cy="186" r="16" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+    <text x="286" y="189" style="font-size:8.3px;font-weight:800;fill:#92400e;text-anchor:middle;">BÀN ĂN</text>
+    <circle cx="246" cy="138" r="3.8" class="spot"/><circle cx="324" cy="138" r="3.8" class="spot"/>
+    <circle cx="246" cy="238" r="3.8" class="spot"/><circle cx="324" cy="238" r="3.8" class="spot"/>
+
+    <!-- Foyer flat + curved black reveal R300 -->
+    <rect x="366" y="92" width="136" height="174" class="wall"/>
+    <rect x="382" y="112" width="104" height="134" rx="26" class="reveal-black"/>
+    <rect x="392" y="154" width="84" height="44" rx="6" class="pill-sky"/>
+    <text x="434" y="171" class="pill-sky-t">SẢNH D1</text>
+    <text x="434" y="185" style="font-size:8.2px;font-weight:800;fill:#0f172a;text-anchor:middle;">Phẳng + Chỉ R300</text>
+    <circle cx="378" cy="106" r="3.4" class="spot"/><circle cx="490" cy="106" r="3.4" class="spot"/>
+    <circle cx="378" cy="252" r="3.4" class="spot"/><circle cx="490" cy="252" r="3.4" class="spot"/>
+
+    <text x="264" y="325" class="lbl-b">100% Phẳng 1 cốt +3.400mm (0% giật cấp) • Khung chỉ nhựa âm đen 12mm bo cong R350 / R300</text>
+    <text x="264" y="344" class="lbl-s">Khung chỉ đen nằm gọn BÊN TRONG miệng gió ĐH, bao quanh 2 thanh Ray 48V &amp; Quạt trần tâm phòng</text>
+    <text x="264" y="363" class="lbl-s" style="fill:#0369a1;font-weight:700;">P.Ngủ Ông Bà T1: Phẳng +3.130mm chạy chỉ đen bo R250 (nâng cấp đẹp từ Nẹp U10 gốc) + LED rèm</text>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 2: FLOOR 2 DEAD-FLAT + CURVED 12MM BLACK REVEAL                   -->
+  <!-- ======================================================================= -->
+  <g transform="translate(576, 94)">
+    <rect width="528" height="382" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">02. MẶT BẰNG TẦNG 2: MASTER (+3.000) • HÀNH LANG • PN1 &amp; PN2 (+3.130) PHẲNG CHỈ CONG</text>
+
+    <!-- Master Sleeping left (+3.000 flat + curved black reveal R350) -->
+    <rect x="26" y="54" width="166" height="248" class="wall"/>
+    <rect x="174" y="56" width="16" height="244" class="curtain"/>
+    <rect x="36" y="96" width="7" height="158" class="ac-slot"/>
+    <rect x="160" y="96" width="7" height="158" class="ac-slot"/>
+    <rect x="52" y="76" width="100" height="202" rx="28" class="reveal-black"/>
+    <rect x="62" y="150" width="80" height="52" rx="6" class="pill-sky"/>
+    <text x="102" y="167" class="pill-sky-t">MASTER</text>
+    <text x="102" y="181" style="font-size:8.2px;font-weight:800;fill:#0f172a;text-anchor:middle;">Phẳng +3.00m</text>
+    <text x="102" y="193" style="font-size:7.8px;font-weight:700;fill:#0369a1;text-anchor:middle;">Chỉ Đen R350</text>
+    <circle cx="88" cy="116" r="3.4" class="spot"/><circle cx="116" cy="116" r="3.4" class="spot"/>
+    <circle cx="88" cy="234" r="3.4" class="spot"/><circle cx="116" cy="234" r="3.4" class="spot"/>
+
+    <!-- Master Walk-in Closet middle (+3.000 flat + Moon Ø1200) -->
+    <rect x="200" y="54" width="144" height="248" class="wall"/>
+    <circle cx="272" cy="176" r="40" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
+    <text x="272" y="172" style="font-size:9px;font-weight:800;fill:#854d0e;text-anchor:middle;">VÒM Ø1.200</text>
+    <text x="272" y="185" style="font-size:7.8px;font-weight:700;fill:#713f12;text-anchor:middle;">hoặc Chỉ Oval</text>
+    <text x="272" y="82" class="pill-sky-t">THAY ĐỒ +3.000</text>
+    <rect x="292" y="268" width="44" height="22" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.4"/>
+    <text x="314" y="282" style="font-size:7.6px;font-weight:800;fill:#b91c1c;text-anchor:middle;">THĂM ĐH</text>
+
+    <!-- Corridor + PN1/PN2 right -->
+    <rect x="354" y="54" width="148" height="72" class="wall"/>
+    <rect x="364" y="64" width="128" height="52" rx="14" class="reveal-black"/>
+    <rect x="378" y="87" width="100" height="6" class="led-linear"/>
+    <text x="428" y="79" style="font-size:8px;font-weight:800;fill:#0f172a;text-anchor:middle;">HÀNH LANG PHẲNG + LED 24V</text>
+
+    <rect x="354" y="136" width="148" height="166" class="wall"/>
+    <rect x="484" y="138" width="16" height="162" class="curtain"/>
+    <rect x="370" y="152" width="104" height="134" rx="24" class="reveal-black"/>
+    <rect x="380" y="194" width="84" height="50" rx="6" class="pill-em"/>
+    <text x="422" y="211" class="pill-em-t">PN1 &amp; PN2</text>
+    <text x="422" y="224" style="font-size:8.2px;font-weight:800;fill:#0f172a;text-anchor:middle;">Phẳng +3.13m</text>
+    <text x="422" y="236" style="font-size:7.8px;font-weight:700;fill:#047857;text-anchor:middle;">Chỉ Đen R300</text>
+
+    <text x="264" y="325" class="lbl-b">Ngôn ngữ xuyên suốt toàn Tầng 2: Trần phẳng tuyệt đối + Chỉ nhựa âm đen 12mm bo cong đồng bộ</text>
+    <text x="264" y="344" class="lbl-s">Master phẳng +3.00m liên thông sang Thay Đồ • PN1 &amp; PN2 cao trọn +3.13m + LED hốc rèm 3000K</text>
+    <text x="264" y="363" class="lbl-s" style="fill:#047857;font-weight:700;">Hành lang T2 bo mềm viền chỉ đen R250 kết hợp 01 dải thanh nhôm LED âm phẳng nắp mica 24V</text>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 3: FLOOR 3 & TUM DEAD-FLAT + CURVED 12MM BLACK REVEAL             -->
+  <!-- ======================================================================= -->
+  <g transform="translate(1126, 94)">
+    <rect width="528" height="382" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">03. MẶT BẰNG TẦNG 3 (+3.130MM PHẲNG + CHỈ CONG R300) &amp; TẦNG TUM (C2)</text>
+
+    <!-- Study Room left -->
+    <rect x="26" y="54" width="166" height="248" class="wall"/>
+    <rect x="42" y="72" width="134" height="212" rx="26" class="reveal-black"/>
+    <rect x="64" y="96" width="7" height="164" class="led-linear"/>
+    <rect x="148" y="96" width="7" height="164" class="led-linear"/>
+    <rect x="78" y="152" width="64" height="50" rx="6" class="pill-sky"/>
+    <text x="110" y="168" style="font-size:8.4px;font-weight:800;fill:#0369a1;text-anchor:middle;">LÀM VIỆC</text>
+    <text x="110" y="181" style="font-size:8.2px;font-weight:800;fill:#0f172a;text-anchor:middle;">Phẳng +3.13m</text>
+    <text x="110" y="193" style="font-size:7.6px;font-weight:700;fill:#b45309;text-anchor:middle;">Chỉ R300 + LED</text>
+
+    <!-- PN3 & PN4 middle -->
+    <rect x="200" y="54" width="144" height="248" class="wall"/>
+    <rect x="326" y="56" width="16" height="244" class="curtain"/>
+    <rect x="214" y="74" width="102" height="208" rx="24" class="reveal-black"/>
+    <rect x="224" y="148" width="82" height="56" rx="6" class="pill-em"/>
+    <text x="265" y="165" class="pill-em-t">PN3 &amp; PN4</text>
+    <text x="265" y="179" style="font-size:8.3px;font-weight:800;fill:#0f172a;text-anchor:middle;">Phẳng +3.13m</text>
+    <text x="265" y="193" style="font-size:7.8px;font-weight:700;fill:#047857;text-anchor:middle;">Chỉ Đen R300</text>
+
+    <!-- Worship room & Tum right -->
+    <rect x="354" y="54" width="148" height="122" class="wall"/>
+    <rect x="368" y="78" width="120" height="60" rx="6" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+    <text x="428" y="99" style="font-size:9px;font-weight:800;fill:#92400e;text-anchor:middle;">PHÒNG THỜ T3</text>
+    <text x="428" y="114" style="font-size:8.3px;font-weight:800;fill:#0f172a;text-anchor:middle;">Phẳng +3.13 / Y=1.960</text>
+    <text x="428" y="128" style="font-size:7.7px;font-weight:700;fill:#b45309;text-anchor:middle;">Đèn ốp gỗ + LED hậu</text>
+
+    <rect x="354" y="186" width="148" height="116" fill="url(#hatch-c2-p)" stroke="#059669" stroke-width="1.8"/>
+    <text x="428" y="232" style="font-size:9.2px;font-weight:800;fill:#065f46;text-anchor:middle;">HÀNH LANG T3 &amp; TUM</text>
+    <text x="428" y="248" style="font-size:8.4px;font-weight:700;fill:#0f172a;text-anchor:middle;">Phẳng 100% Tấm Chịu Ẩm C2</text>
+    <text x="428" y="264" style="font-size:7.9px;font-weight:700;fill:#047857;text-anchor:middle;">Phối hợp 02 Ô Mái Kính Tum</text>
+
+    <text x="264" y="325" class="lbl-b">100% Tầng 3 phẳng ở cốt cao +3.130mm (+13cm) + Khung chỉ nhựa âm đen 12mm bo cong R300</text>
+    <text x="264" y="344" class="lbl-s">P.Làm việc kẹp 02 thanh nhôm LED âm phẳng 4000K gọn bên trong vòng chỉ đen bo cong tinh tế</text>
+    <text x="264" y="363" class="lbl-s" style="fill:#b45309;font-weight:700;">Phòng Thờ phẳng hoàn toàn (không ám khói vào gờ trần), căn chuẩn trục Bàn thờ Y = 1.960mm</text>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 4: HEIGHT PROOF SECTION THROUGH DUCTED AC                         -->
+  <!-- ======================================================================= -->
+  <g transform="translate(26, 498)">
+    <rect width="528" height="394" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">04. MẶT CẮT TRẦN PHẲNG + NẸP RON NHỰA ÂM ĐEN 12MM QUA ỐNG GIÓ ĐH</text>
+
+    <rect x="34" y="56" width="460" height="24" fill="url(#hatch-conc-p)" stroke="#475569"/>
+    <text x="264" y="72" style="font-size:9.6px;font-weight:800;fill:#1e293b;text-anchor:middle;">SÀN BTCT TẦNG TRÊN (TẦNG 1: +3.85M • TẦNG 2: +3.40M)</text>
+
+    <rect x="58" y="96" width="122" height="58" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.8"/>
+    <text x="119" y="121" style="font-size:9.3px;font-weight:800;fill:#0369a1;text-anchor:middle;">DÀN LẠNH ÂM TRẦN</text>
+    <text x="119" y="137" style="font-size:8.4px;font-weight:700;fill:#0369a1;text-anchor:middle;">Cao 245mm + Bảo ôn</text>
+
+    <rect x="200" y="112" width="102" height="30" rx="15" fill="#bae6fd" stroke="#0284c7" stroke-width="1.6"/>
+    <text x="251" y="131" style="font-size:8.8px;font-weight:800;fill:#0369a1;text-anchor:middle;">Ống gió D150</text>
+
+    <line x1="398" y1="80" x2="398" y2="210" stroke="#b91c1c" stroke-width="2.2"/>
+    <text x="444" y="132" style="font-size:8.8px;font-weight:800;fill:#b91c1c;text-anchor:middle;">Ty sắt M12</text>
+    <text x="444" y="145" style="font-size:8.2px;font-weight:700;fill:#b91c1c;text-anchor:middle;">treo Quạt trần</text>
+
+    <!-- Single dead-flat gypsum plane + 12mm black reveal groove + AC + Ray -->
+    <rect x="34" y="196" width="460" height="13" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+    <rect x="92" y="195" width="44" height="15" fill="#0284c7"/>
+    <rect x="172" y="198" width="12" height="11" fill="#020617"/>
+    <rect x="328" y="192" width="22" height="18" fill="#0f172a"/>
+    <rect x="446" y="192" width="22" height="18" fill="#0f172a"/>
+    <text x="114" y="226" style="font-size:8.3px;font-weight:800;fill:#0369a1;text-anchor:middle;">Cửa gió Linear</text>
+    <text x="178" y="226" style="font-size:8.3px;font-weight:800;fill:#b91c1c;text-anchor:middle;">Chỉ Đen 12mm</text>
+    <text x="398" y="226" style="font-size:8.3px;font-weight:800;fill:#0f172a;text-anchor:middle;">Quạt trần + 2 Ray 48V</text>
+
+    <line x1="48" y1="209" x2="48" y2="282" class="dim"/>
+    <text x="278" y="254" style="font-size:9.6px;font-weight:900;fill:#065f46;text-anchor:middle;">TẦNG 1: +3.400MM (RẤT CAO!) • TẦNG 2 MASTER: +3.000MM (CHUẨN CAO CẤP)</text>
+    <text x="278" y="272" style="font-size:9.1px;font-weight:700;fill:#334155;text-anchor:middle;">(Chỉ âm đen 12mm ăn sâu đúng 9mm chiều dày tấm thạch cao — KHÔNG mất 1mm chiều cao phòng!)</text>
+
+    <text x="264" y="318" class="lbl-b">Vừa phẳng tuyệt đối 0% khe bụi, vừa có đường nét bo cong sắc sảo tôn nội thất WM-06!</text>
+    <text x="264" y="338" class="lbl-s">• Không phải hạ thêm bậc giật cấp → giữ nguyên toàn bộ cao độ sạch thoáng của mặt trần.</text>
+    <text x="264" y="356" class="lbl-s">• Thanh nẹp ron nhựa đen dẻo 12×9mm có 2 cánh bả rộng 24mm uốn êm theo dưỡng R300–R350mm.</text>
+    <text x="264" y="374" class="lbl-s" style="fill:#0369a1;font-weight:700;">• Khoảng cách chỉ đen nằm gọn BÊN TRONG miệng gió điều hòa 120–150mm, tuyệt đối không cắt ngang cửa gió.</text>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 5: 3 SIGNATURE DETAILS OF FLAT + CURVED BLACK REVEAL              -->
+  <!-- ======================================================================= -->
+  <g transform="translate(576, 498)">
+    <rect width="528" height="394" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">05. BỘ 03 CHI TIẾT ĐẮT GIÁ TẠO THẨM MỸ SANG TRỌNG CHO TRẦN PHẲNG</text>
+
+    <!-- Box 1: Flexible 12mm Black Reveal Bead -->
+    <rect x="24" y="54" width="152" height="226" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+    <text x="100" y="76" style="font-size:9.6px;font-weight:800;fill:#0f172a;text-anchor:middle;">1. CHỈ ĐEN BO R300</text>
+    <rect x="38" y="138" width="44" height="14" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+    <rect x="118" y="138" width="44" height="14" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+    <path d="M 82 152 L 82 138 L 118 138 L 118 152 L 110 152 L 110 143 L 90 143 L 90 152 Z" fill="#0f172a"/>
+    <text x="100" y="182" style="font-size:8.5px;font-weight:800;fill:#b91c1c;text-anchor:middle;">Rãnh đen 12 × 9 mm</text>
+    <text x="100" y="246" class="lbl-s">Nẹp nhựa dẻo uốn cong</text>
+    <text x="100" y="261" class="lbl-s">R300–R350, sắc &amp; 0% bụi</text>
+
+    <!-- Box 2: Recessed Mica LED Profile 24V -->
+    <rect x="188" y="54" width="152" height="226" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+    <text x="264" y="76" style="font-size:9.6px;font-weight:800;fill:#0369a1;text-anchor:middle;">2. THANH LED ÂM 24V</text>
+    <rect x="202" y="138" width="44" height="14" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+    <rect x="282" y="138" width="44" height="14" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+    <rect x="246" y="134" width="36" height="18" fill="#334155"/>
+    <rect x="250" y="147" width="28" height="5" fill="#fef08a"/>
+    <polygon points="250,152 278,152 296,215 232,215" fill="rgba(253,224,71,0.35)"/>
+    <text x="264" y="246" class="lbl-s">Nắp mica phẳng tắp,</text>
+    <text x="264" y="261" class="lbl-s">chỉ ~200k/md • 0% bụi</text>
+
+    <!-- Box 3: Curtain Pelmet LED 3000K -->
+    <rect x="352" y="54" width="152" height="226" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.4"/>
+    <text x="428" y="76" style="font-size:9.6px;font-weight:800;fill:#b45309;text-anchor:middle;">3. LED HỐC RÈM 3000K</text>
+    <rect x="366" y="96" width="18" height="126" fill="#bae6fd" stroke="#0284c7"/>
+    <rect x="384" y="96" width="60" height="10" fill="#d97706"/>
+    <rect x="444" y="96" width="10" height="58" fill="#ffffff" stroke="#0f172a" stroke-width="1.6"/>
+    <rect x="444" y="142" width="46" height="12" fill="#ffffff" stroke="#0f172a" stroke-width="1.6"/>
+    <rect x="422" y="106" width="16" height="8" fill="#0f172a"/>
+    <polygon points="424,114 436,114 426,216 392,216" fill="rgba(245,158,11,0.32)"/>
+    <text x="428" y="246" class="lbl-s">Rọi dọc rèm voan dịu mắt</text>
+    <text x="428" y="261" class="lbl-s">thay 100% LED máng trần</text>
+
+    <text x="264" y="318" class="lbl-b">Tại sao biến thể "Phẳng + Chỉ Đen Bo Cong R300" là lựa chọn thẩm mỹ số 1 cho Q-Villa?</text>
+    <text x="264" y="338" class="lbl-s">• Khắc phục hoàn toàn cảm giác "trần phẳng bị trống trơn" nhờ khung chỉ đen bo cong tạo bố cục cân đối.</text>
+    <text x="264" y="356" class="lbl-s">• Đồng điệu 100% với cửa nhôm kính đen, khe gió ĐH đen, quạt trần đen &amp; vách Master bo R100.</text>
+    <text x="264" y="374" class="lbl-s" style="fill:#047857;font-weight:700;">• Tuyệt đối 0% khe hở đọng bụi, 0% xác bọ đèn &amp; thi công nhanh gấp đôi so với đóng hộp giật cấp!</text>
+  </g>
+
+  <!-- ======================================================================= -->
+  <!-- PANEL 6: COST SUMMARY FOR FLAT + CURVED 12MM BLACK REVEAL               -->
+  <!-- ======================================================================= -->
+  <g transform="translate(1126, 498)">
+    <rect width="528" height="394" rx="10" class="card-bg"/>
+    <rect width="528" height="36" rx="10" class="card-hdr"/>
+    <text x="264" y="23" class="card-hdr-txt">06. DỰ TOÁN PHƯƠNG ÁN TRẦN PHẲNG + CHỈ ĐEN BO CONG R300 (228 M²)</text>
+
+    <rect x="24" y="54" width="480" height="32" rx="6" fill="#0369a1"/>
+    <text x="264" y="75" style="font-size:10.8px;font-weight:800;fill:#f0f9ff;text-anchor:middle;">TỔNG GÓI TRẦN PHẲNG + CHỈ ĐEN BO CONG R300 (228 m²): ~54,90 TRIỆU ₫</text>
+
+    <g transform="translate(24, 98)">
+      <rect width="480" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="14" y="18" style="font-size:9.7px;font-weight:800;fill:#0f172a;">1. Khung Vĩnh Tường TIKA/ALPHA + Tấm Gyproc C1 phẳng (192m²)</text>
+      <text x="14" y="34" style="font-size:9px;font-weight:600;fill:#475569;">Thi công 1 mặt phẳng liên hoàn, đơn giá tối ưu 180.000 ₫/m² (không công giật cấp)</text>
+      <text x="468" y="25" style="font-size:10.5px;font-weight:800;fill:#0f172a;text-anchor:end;">34.560.000 ₫</text>
+    </g>
+
+    <g transform="translate(24, 148)">
+      <rect width="480" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="14" y="18" style="font-size:9.7px;font-weight:800;fill:#0f172a;">2. Trần &amp; Hộp trán bếp tấm chịu ẩm C2 lõi xanh (36m²)</text>
+      <text x="14" y="34" style="font-size:9px;font-weight:600;fill:#475569;">04 Phòng WC (+2.400) + Hộp trán tủ bếp 2,8m + Hành lang/Kho Tầng Tum</text>
+      <text x="468" y="25" style="font-size:10.5px;font-weight:800;fill:#0f172a;text-anchor:end;">8.100.000 ₫</text>
+    </g>
+
+    <g transform="translate(24, 198)">
+      <rect width="480" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="14" y="18" style="font-size:9.7px;font-weight:800;fill:#0f172a;">3. Nẹp tường Shadowlight trắng (190md) + 09 Hốc rèm Plywood 18mm</text>
+      <text x="14" y="34" style="font-size:9px;font-weight:600;fill:#475569;">Nẹp Z-10 chống nứt giao tường (6,65Tr) + Gia cố 09 hốc rèm đặt LED 3000K (1,99Tr)</text>
+      <text x="468" y="25" style="font-size:10.5px;font-weight:800;fill:#0f172a;text-anchor:end;">8.640.000 ₫</text>
+    </g>
+
+    <g transform="translate(24, 248)">
+      <rect width="480" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="14" y="18" style="font-size:9.7px;font-weight:800;fill:#0f172a;">4. Nẹp nhựa âm đen 12mm uốn cong R300–R350 (~70md) + 05 Nắp thăm</text>
+      <text x="14" y="34" style="font-size:9px;font-weight:600;fill:#475569;">Vật tư + công cắt dưỡng uốn chỉ đen bo cong (2,10Tr) + 05 nắp thăm &amp; laser (1,50Tr)</text>
+      <text x="468" y="25" style="font-size:10.5px;font-weight:800;fill:#0f172a;text-anchor:end;">3.600.000 ₫</text>
+    </g>
+
+    <rect x="24" y="302" width="480" height="74" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="264" y="323" style="font-size:9.7px;font-weight:800;fill:#0c4a6e;text-anchor:middle;">⚖️ SO SÁNH NGÂN SÁCH GIỮA 02 LỰA CHỌN CỦA Q-VILLA (CHƯA GỒM SƠN 54,6TR):</text>
+    <text x="264" y="342" style="font-size:8.6px;font-weight:700;fill:#0f172a;text-anchor:middle;">• PA 2 Phẳng + Chỉ Đen Bo Cong (54,90 Tr): Rẻ hơn 2,0Tr so với PA 1A (56,9Tr) &amp; rẻ hơn 10,6Tr so với PA 1B!</text>
+    <text x="264" y="360" style="font-size:8.6px;font-weight:600;fill:#334155;text-anchor:middle;">• Vừa có nét bo cong hiện đại sắc nét, vừa phẳng 100% không bám bụi — đẹp và kinh tế cân bằng nhất!</text>
+  </g>
+</svg>
